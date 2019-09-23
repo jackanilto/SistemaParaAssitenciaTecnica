@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/09/15 19:48:20.000.988,=C:\Users\Nelson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/09/23 13:18:16.000.644,=C:\Users\Nelson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/09/23 13:36:01.000.585,=C:\Users\Nelson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/09/23 13:36:27.000.887,C:\Users\Nelson\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Forms\Form.Principal.pas</Transaction>
+    <Transaction>2019/09/23 13:36:27.000.887,C:\Users\Nelson\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Forms\Form.Principal.fmx</Transaction>
+    <Transaction>2019/09/23 13:36:37.000.221,C:\Users\Nelson\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\SmartOS.dproj</Transaction>
+    <Transaction>2019/09/23 13:37:05.000.245,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\DataModule\modulo.conexao.pas</Transaction>
+    <Transaction>2019/09/23 13:37:18.000.632,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Classes\UClasse.Log.Erro.pas</Transaction>
+    <Transaction>2019/09/23 13:37:18.000.663,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Classes\UClasse.Query.pas</Transaction>
+    <Transaction>2019/09/23 13:37:33.000.025,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Classes\Interfaces\Interfaces.pas</Transaction>
+    <Transaction>2019/09/23 13:37:45.000.987,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Classes\Entity\UClasse.Entity.Modelo.Table.pas</Transaction>
+    <Transaction>2019/09/23 13:37:45.000.933,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Classes\Entity\UClasse.Entity.Modelo.pas</Transaction>
+    <Transaction>2019/09/23 13:37:57.000.801,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Biblioteca\UCapturar.Erros.pas</Transaction>
+    <Transaction>2019/09/23 13:37:57.000.839,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Biblioteca\UClasse.Calcular.Juros.pas</Transaction>
+    <Transaction>2019/09/23 13:37:57.000.908,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Biblioteca\UClasse.ObertValorPorExtenso.pas</Transaction>
+    <Transaction>2019/09/23 13:37:57.000.943,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\Biblioteca\UClasse.Obter.Data.Hora.PorExtenso.pas</Transaction>
+    <Transaction>2019/09/23 13:42:50.695,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\SimpleOS.dproj=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\Sistema Smart OS\SmartOS.dproj</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
