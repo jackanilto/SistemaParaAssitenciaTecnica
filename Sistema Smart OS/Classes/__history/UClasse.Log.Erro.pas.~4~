@@ -1,0 +1,53 @@
+unit UClasse.Log.Erro;
+
+interface
+
+uses Interfaces, SysUtils, System.Classes;
+
+type
+  TLogErro = class(TInterfacedObject, iLogErro)
+
+  private
+    FLogFile: String;
+  public
+    function logErro(value): iLogErro;
+    constructor create;
+    destructor destroy; override;
+    class function new: iLogErro;
+
+  end;
+
+implementation
+
+{ TLogErro }
+
+constructor TLogErro.create;
+begin
+
+end;
+
+destructor TLogErro.destroy;
+begin
+
+  inherited;
+end;
+
+function TLogErro.logErro(value): iLogErro;
+var
+  txtLog: TextFile;
+begin
+  AssignFile(txtLog, FLogFile);
+  if FileExists(FLogFile) then
+    Append(txtLog)
+  else
+    Rewrite(txtLog);
+  Writeln(txtLog, FormatDateTime('dd/mm/YY hh:nn:ss - ', Now) + value);
+  CloseFile(txtLog);
+end;
+
+class function TLogErro.new: iLogErro;
+begin
+  result := self.create;
+end;
+
+end.

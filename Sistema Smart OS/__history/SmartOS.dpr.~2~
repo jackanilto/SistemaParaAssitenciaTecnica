@@ -1,0 +1,16 @@
+program SmartOS;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  Form.Principal in 'Forms\Form.Principal.pas' {Form1},
+  modulo.conexao in 'DataModule\modulo.conexao.pas' {modulo_conexao: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(Tmodulo_conexao, modulo_conexao);
+  Application.Run;
+end.
