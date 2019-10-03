@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2019/10/02 20:10:44.640,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2019/10/02 20:11:13.899,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Principal.pas=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2019/10/02 20:11:13.899,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Principal.dfm=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2019/10/02 20:11:25.445,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\SimplesOS.dproj=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2019/10/02 20:11:40.677,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Calcular.Juros.pas</Transaction>
-    <Transaction>2019/10/02 20:11:40.692,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.CapturarErro.pas</Transaction>
-    <Transaction>2019/10/02 20:11:40.723,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Gravar.Log.Sistema.pas</Transaction>
-    <Transaction>2019/10/02 20:11:40.739,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.ObertValorPorExtenso.pas</Transaction>
-    <Transaction>2019/10/02 20:11:40.770,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Obter.Data.Hora.PorExtenso.pas</Transaction>
-    <Transaction>2019/10/02 20:11:40.786,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Query.pas</Transaction>
-    <Transaction>2019/10/02 20:12:07.412,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Query.pas=</Transaction>
-    <Transaction>2019/10/02 20:12:19.566,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Query\UClasse.Query.pas</Transaction>
-    <Transaction>2019/10/02 20:12:31.655,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Interfaces\UInterfaces.pas</Transaction>
-    <Transaction>2019/10/02 20:12:44.976,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Factory\UFactory.Entity.pas</Transaction>
-    <Transaction>2019/10/02 20:12:44.992,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Factory\UFactory.Query.pas</Transaction>
-    <Transaction>2019/10/02 20:12:55.093,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.pas</Transaction>
-    <Transaction>2019/10/02 20:12:55.110,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Table.pas</Transaction>
-    <Transaction>2019/10/02 20:13:04.740,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\DataModule\UDados.Conexao.pas</Transaction>
+	<Transactions>
+    <Transaction>2019/10/02 20:10:44.000.640,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/02 20:11:13.000.899,C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Principal.dfm</Transaction>
+    <Transaction>2019/10/02 20:11:13.000.899,C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Principal.pas</Transaction>
+    <Transaction>2019/10/02 20:11:25.000.445,C:\Users\noels\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\SimplesOS.dproj</Transaction>
+    <Transaction>2019/10/02 20:11:40.000.770,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Obter.Data.Hora.PorExtenso.pas</Transaction>
+    <Transaction>2019/10/02 20:11:40.000.692,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.CapturarErro.pas</Transaction>
+    <Transaction>2019/10/02 20:11:40.000.723,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Gravar.Log.Sistema.pas</Transaction>
+    <Transaction>2019/10/02 20:11:40.000.786,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Query.pas</Transaction>
+    <Transaction>2019/10/02 20:11:40.000.739,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.ObertValorPorExtenso.pas</Transaction>
+    <Transaction>2019/10/02 20:11:40.000.677,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Calcular.Juros.pas</Transaction>
+    <Transaction>2019/10/02 20:12:07.000.412,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Reusable\UClasse.Query.pas=</Transaction>
+    <Transaction>2019/10/02 20:12:19.000.566,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Query\UClasse.Query.pas</Transaction>
+    <Transaction>2019/10/02 20:12:31.000.655,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Interfaces\UInterfaces.pas</Transaction>
+    <Transaction>2019/10/02 20:12:44.000.992,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Factory\UFactory.Query.pas</Transaction>
+    <Transaction>2019/10/02 20:12:44.000.976,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Factory\UFactory.Entity.pas</Transaction>
+    <Transaction>2019/10/02 20:12:55.000.093,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.pas</Transaction>
+    <Transaction>2019/10/02 20:12:55.000.110,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Table.pas</Transaction>
+    <Transaction>2019/10/02 20:13:04.000.740,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\DataModule\UDados.Conexao.pas</Transaction>
   </Transactions>
 </BorlandProject>
