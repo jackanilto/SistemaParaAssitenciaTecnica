@@ -1,0 +1,29 @@
+unit Form.Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls, Vcl.ExtCtrls, Vcl.Buttons,
+  Vcl.CategoryButtons;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    SplitView1: TSplitView;
+    sbMenu: TSpeedButton;
+    CategoryButtons1: TCategoryButtons;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+end.

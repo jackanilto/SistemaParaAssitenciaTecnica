@@ -1,0 +1,43 @@
+unit UClasse.Conxecao.Query.Factory;
+
+interface
+
+uses UClasse.Conxecao.Query, UInterface.Conexao.Query;
+
+type
+
+  TMyClass = class(TInterfacedObject, iInterface)
+  private
+  public
+    function conexaoQuery: iConexaoQuery;
+    constructor create;
+    destructor destroy; override;
+    class function new: iInterface;
+  end;
+
+implementation
+
+{ TMyClass }
+
+function TMyClass.conexaoQuery: iConexaoQuery;
+begin
+  result := TConexaoQuery.new;
+end;
+
+constructor TMyClass.create;
+begin
+
+end;
+
+destructor TMyClass.destroy;
+begin
+
+  inherited;
+end;
+
+class function TMyClass.new: iInterface;
+begin
+  result := self.create;
+end;
+
+end.

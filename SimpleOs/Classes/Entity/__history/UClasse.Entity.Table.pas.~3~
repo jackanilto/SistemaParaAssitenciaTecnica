@@ -1,0 +1,39 @@
+unit UClasse.Entity.Table;
+
+interface
+
+uses
+  UInterface.Conexao.Query, FireDAC.Comp.Client, UDados.Conexao;
+
+type
+
+  TEntityTable = class(TInterfacedObject, iFDTable)
+  private
+  public
+    function FD_Table(value: string): TFDTable;
+    constructor create;
+    destructor destroy; override;
+    class function new: iFDTable;
+  end;
+
+implementation
+
+{ TEntityTable }
+
+constructor TEntityTable.create;
+begin
+
+end;
+
+destructor TEntityTable.destroy;
+begin
+
+  inherited;
+end;
+
+class function TEntityTable.new: iFDTable;
+begin
+  result := self.create;
+end;
+
+end.
