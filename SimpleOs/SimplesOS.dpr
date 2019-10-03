@@ -2,7 +2,7 @@ program SimplesOS;
 
 uses
   Vcl.Forms,
-  Form.Principal in 'Forms\Form.Principal.pas' {Form1},
+  Form.Principal in 'Forms\Form.Principal.pas' {formPrincipal},
   UClasse.Calcular.Juros in 'Classes\Reusable\UClasse.Calcular.Juros.pas',
   UClasse.CapturarErro in 'Classes\Reusable\UClasse.CapturarErro.pas',
   UClasse.Gravar.Log.Sistema in 'Classes\Reusable\UClasse.Gravar.Log.Sistema.pas',
@@ -21,7 +21,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TformPrincipal, formPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.

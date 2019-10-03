@@ -99,7 +99,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="Forms\Form.Principal.pas">
-            <Form>Form1</Form>
+            <Form>formPrincipal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Reusable\UClasse.Calcular.Juros.pas"/>

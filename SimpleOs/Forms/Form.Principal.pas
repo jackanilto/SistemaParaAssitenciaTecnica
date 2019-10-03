@@ -11,7 +11,7 @@ uses
   Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList;
 
 type
-  TForm1 = class(TForm)
+  TformPrincipal = class(TForm)
     Panel1: TPanel;
     SplitView1: TSplitView;
     sbMenu: TSpeedButton;
@@ -38,8 +38,12 @@ type
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
-    Label7: TLabel;
+    imgLogo: TImage;
+    Panel3: TPanel;
+    Button1: TButton;
     procedure acSairExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,15 +51,28 @@ type
   end;
 
 var
-  Form1: TForm1;
+  formPrincipal: TformPrincipal;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm1.acSairExecute(Sender: TObject);
+procedure TformPrincipal.acSairExecute(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformPrincipal.Button1Click(Sender: TObject);
+begin
+  Panel3.BringToFront;
+  imgLogo.Visible := false;
+end;
+
+procedure TformPrincipal.FormCreate(Sender: TObject);
+begin
+  { Centraliza a imagem da LOGO }
+  imgLogo.Left := (formPrincipal.Width - Image2.Width) div 2;
+  imgLogo.Top := (formPrincipal.Height - Image2.Height) div 2;
 end;
 
 end.
