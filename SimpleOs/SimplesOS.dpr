@@ -14,7 +14,8 @@ uses
   UFactory.Query in 'Classes\Factory\UFactory.Query.pas',
   UClasse.Entity in 'Classes\Entity\UClasse.Entity.pas',
   UClasse.Entity.Table in 'Classes\Entity\UClasse.Entity.Table.pas',
-  UDados.Conexao in 'DataModule\UDados.Conexao.pas' {DataModule1: TDataModule};
+  UDados.Conexao in 'DataModule\UDados.Conexao.pas' {DataModule1: TDataModule},
+  UForm.Exemplo.Embeded in 'Forms\Exemplos\UForm.Exemplo.Embeded.pas' {formExemploEmbeded};
 
 {$R *.res}
 

@@ -38,13 +38,14 @@ type
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
-    imgLogo: TImage;
-    spvCdastros: TSplitView;
+    spvCadastros: TSplitView;
     spvMovimentacao: TSplitView;
     spvRelatorio: TSplitView;
     spvExtras: TSplitView;
     spvSobre: TSplitView;
     spvConfiguracoes: TSplitView;
+    imgLogo: TImage;
+    CategoryButtons3: TCategoryButtons;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -71,15 +72,17 @@ implementation
 
 {$R *.dfm}
 
+uses UForm.Exemplo.Embeded;
+
 procedure TformPrincipal.acCadastrosExecute(Sender: TObject);
 begin
-  if spvCdastros.Opened = true then
-    spvCdastros.Opened := false
+  if spvCadastros.Opened = true then
+    spvCadastros.Opened := false
   else
   begin
     closeSplit;
-    spvCdastros.Opened := true;
-    F_SplitView := spvCdastros;
+    spvCadastros.Opened := true;
+    F_SplitView := spvCadastros;
   end;
 
 end;
@@ -151,8 +154,14 @@ end;
 
 procedure TformPrincipal.Button1Click(Sender: TObject);
 begin
-  // Panel3.BringToFront;
-  imgLogo.Visible := false;
+
+//  panelForm.BringToFront;
+//  imgLogo.Visible := false;
+//
+//  formExemploEmbeded := TformExemploEmbeded.Create(self);
+//  formExemploEmbeded.Parent := panelForm;
+//  formExemploEmbeded.Show;
+
 end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);

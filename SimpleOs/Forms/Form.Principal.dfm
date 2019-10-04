@@ -16,7 +16,7 @@ object formPrincipal: TformPrincipal
   PixelsPerInch = 96
   TextHeight = 13
   object imgLogo: TImage
-    Left = 161
+    Left = 184
     Top = 242
     Width = 584
     Height = 274
@@ -6097,27 +6097,26 @@ object formPrincipal: TformPrincipal
   object SplitView1: TSplitView
     Left = 0
     Top = 75
-    Width = 38
+    Width = 150
     Height = 449
     CloseStyle = svcCompact
     Color = 8408635
     CompactWidth = 38
     DockSite = True
-    Opened = False
     OpenedWidth = 150
     Placement = svpLeft
     TabOrder = 1
     object CategoryButtons1: TCategoryButtons
       Left = 0
-      Top = -32
-      Width = 153
-      Height = 209
+      Top = -29
+      Width = 159
+      Height = 220
       Align = alCustom
       BevelInner = bvNone
       BevelOuter = bvNone
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
-      ButtonHeight = 35
+      ButtonHeight = 38
       ButtonWidth = 120
       ButtonOptions = [boFullSize, boShowCaptions, boCaptionOnlyBorder]
       Categories = <
@@ -6148,7 +6147,7 @@ object formPrincipal: TformPrincipal
       Font.Name = 'Roboto'
       Font.Orientation = 50
       Font.Style = []
-      HotButtonColor = 13402157
+      HotButtonColor = 8408635
       Images = ImageList1
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
@@ -6157,7 +6156,7 @@ object formPrincipal: TformPrincipal
     object CategoryButtons2: TCategoryButtons
       Left = 0
       Top = 334
-      Width = 38
+      Width = 150
       Height = 115
       Align = alBottom
       BevelInner = bvNone
@@ -6187,32 +6186,30 @@ object formPrincipal: TformPrincipal
       Font.Name = 'Roboto'
       Font.Orientation = 50
       Font.Style = []
-      HotButtonColor = 13402157
+      HotButtonColor = 8408635
       Images = ImageList1
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 1
+      ExplicitLeft = 8
     end
   end
   object Panel2: TPanel
-    Left = 161
+    Left = 290
     Top = 81
-    Width = 918
-    Height = 144
+    Width = 869
+    Height = 136
     Align = alCustom
+    Anchors = [akLeft, akTop, akRight]
     BevelOuter = bvNone
     Color = 15920877
     ParentBackground = False
     TabOrder = 2
-    DesignSize = (
-      918
-      144)
     object Image2: TImage
       Left = 20
       Top = 13
       Width = 163
       Height = 40
-      Anchors = [akTop, akRight]
       Picture.Data = {
         07544269746D6170164D0000424D164D0000000000003600000028000000A300
         0000280000000100180000000000E04C0000120B0000120B0000000000000000
@@ -6838,7 +6835,6 @@ object formPrincipal: TformPrincipal
       Top = 13
       Width = 163
       Height = 40
-      Anchors = [akTop, akRight]
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000A30000
         00260806000000A8112BEB000000097048597300000B1300000B1301009A9C18
@@ -6901,7 +6897,6 @@ object formPrincipal: TformPrincipal
       Top = 13
       Width = 163
       Height = 40
-      Anchors = [akTop, akRight]
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000A20000
         002808060000007DD921A5000000097048597300000B1300000B1301009A9C18
@@ -6961,7 +6956,6 @@ object formPrincipal: TformPrincipal
       Top = 13
       Width = 163
       Height = 40
-      Anchors = [akTop, akRight]
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000A30000
         00280806000000921B4A9B000000097048597300000B1300000B1301009A9C18
@@ -7074,21 +7068,74 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
   end
-  object spvCdastros: TSplitView
-    Left = 38
+  object spvCadastros: TSplitView
+    Left = 150
     Top = 75
     Width = 0
     Height = 449
     CloseStyle = svcCompact
-    Color = 8408635
+    Color = 13401438
     CompactWidth = 0
+    DockSite = True
     Opened = False
-    OpenedWidth = 100
+    OpenedWidth = 140
     Placement = svpLeft
     TabOrder = 3
+    object CategoryButtons3: TCategoryButtons
+      Left = -13
+      Top = -18
+      Width = 147
+      Height = 209
+      Align = alCustom
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      BorderStyle = bsNone
+      ButtonFlow = cbfVertical
+      ButtonHeight = 25
+      ButtonWidth = 120
+      ButtonOptions = [boFullSize, boShowCaptions, boCaptionOnlyBorder]
+      Categories = <
+        item
+          Color = clNone
+          Collapsed = False
+          Items = <
+            item
+              Caption = 'Produtos'
+              OnClick = acCadastrosExecute
+            end
+            item
+              Caption = 'Clientes'
+              OnClick = acMovimentacaoExecute
+            end
+            item
+              Caption = 'Funcionarios'
+              OnClick = acRelatoriosExecute
+            end
+            item
+              Caption = 'Transportadora'
+              OnClick = acExtrasExecute
+            end
+            item
+              Caption = 'Fornecedores'
+              OnClick = acSobreExecute
+            end>
+          TextColor = 13402157
+        end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 16382457
+      Font.Height = -15
+      Font.Name = 'Roboto'
+      Font.Orientation = 50
+      Font.Style = []
+      HotButtonColor = 13401438
+      Images = ImageList1
+      RegularButtonColor = clNone
+      SelectedButtonColor = clNone
+      TabOrder = 0
+    end
   end
   object spvMovimentacao: TSplitView
-    Left = 38
+    Left = 150
     Top = 75
     Width = 0
     Height = 449
@@ -7097,9 +7144,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
+    ExplicitLeft = 38
   end
   object spvRelatorio: TSplitView
-    Left = 38
+    Left = 150
     Top = 75
     Width = 0
     Height = 449
@@ -7109,9 +7157,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 38
   end
   object spvExtras: TSplitView
-    Left = 38
+    Left = 150
     Top = 75
     Width = 0
     Height = 449
@@ -7122,9 +7171,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 38
   end
   object spvSobre: TSplitView
-    Left = 38
+    Left = 150
     Top = 75
     Width = 0
     Height = 449
@@ -7135,9 +7185,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 38
   end
   object spvConfiguracoes: TSplitView
-    Left = 38
+    Left = 150
     Top = 75
     Width = 0
     Height = 449
@@ -7148,6 +7199,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 38
   end
   object ImageList1: TImageList
     Height = 24
@@ -7764,7 +7816,7 @@ object formPrincipal: TformPrincipal
       OnExecute = acSairExecute
     end
     object acConfiguracoes: TAction
-      Caption = 'Configura'#231#245'es'
+      Caption = 'Configurar'
       ImageIndex = 5
       OnExecute = acConfiguracoesExecute
     end
