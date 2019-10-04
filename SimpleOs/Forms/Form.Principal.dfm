@@ -20,6 +20,7 @@ object formPrincipal: TformPrincipal
     Top = 242
     Width = 584
     Height = 274
+    Center = True
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000003730000
       016208060000005C5C816D000000097048597300000B1300000B1301009A9C18
@@ -5306,14 +5307,6 @@ object formPrincipal: TformPrincipal
       7F0E9760944C0000000049454E44AE426082}
     Stretch = True
   end
-  object Panel3: TPanel
-    Left = 151
-    Top = 81
-    Width = 902
-    Height = 443
-    Caption = 'Panel3'
-    TabOrder = 3
-  end
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -5847,6 +5840,7 @@ object formPrincipal: TformPrincipal
         3B804E3B804E3B804E3B804E3B804E3B804E3B804E3B804E3B804E3B804E3B80
         4E3B804E3B804E3B804E3B804E3B804E3B804E3B804E3B804E3B804E3B804E3B
         804E3B804E3B804E3B804E3B2020}
+      OnClick = sbMenuClick
     end
     object Label1: TLabel
       Left = 760
@@ -6103,10 +6097,14 @@ object formPrincipal: TformPrincipal
   object SplitView1: TSplitView
     Left = 0
     Top = 75
-    Width = 153
+    Width = 38
     Height = 449
+    CloseStyle = svcCompact
     Color = 8408635
-    OpenedWidth = 153
+    CompactWidth = 38
+    DockSite = True
+    Opened = False
+    OpenedWidth = 150
     Placement = svpLeft
     TabOrder = 1
     object CategoryButtons1: TCategoryButtons
@@ -6159,7 +6157,7 @@ object formPrincipal: TformPrincipal
     object CategoryButtons2: TCategoryButtons
       Left = 0
       Top = 334
-      Width = 153
+      Width = 38
       Height = 115
       Align = alBottom
       BevelInner = bvNone
@@ -6194,15 +6192,6 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 1
-    end
-    object Button1: TButton
-      Left = 48
-      Top = 232
-      Width = 75
-      Height = 25
-      Caption = 'Button1'
-      TabOrder = 2
-      OnClick = Button1Click
     end
   end
   object Panel2: TPanel
@@ -7085,6 +7074,81 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
   end
+  object spvCdastros: TSplitView
+    Left = 38
+    Top = 75
+    Width = 0
+    Height = 449
+    CloseStyle = svcCompact
+    Color = 8408635
+    CompactWidth = 0
+    Opened = False
+    OpenedWidth = 100
+    Placement = svpLeft
+    TabOrder = 3
+  end
+  object spvMovimentacao: TSplitView
+    Left = 38
+    Top = 75
+    Width = 0
+    Height = 449
+    Color = clRed
+    Opened = False
+    OpenedWidth = 200
+    Placement = svpLeft
+    TabOrder = 4
+  end
+  object spvRelatorio: TSplitView
+    Left = 38
+    Top = 75
+    Width = 0
+    Height = 449
+    Color = clLime
+    CompactWidth = 0
+    Opened = False
+    OpenedWidth = 100
+    Placement = svpLeft
+    TabOrder = 5
+  end
+  object spvExtras: TSplitView
+    Left = 38
+    Top = 75
+    Width = 0
+    Height = 449
+    CloseStyle = svcCompact
+    Color = clPurple
+    CompactWidth = 0
+    Opened = False
+    OpenedWidth = 100
+    Placement = svpLeft
+    TabOrder = 6
+  end
+  object spvSobre: TSplitView
+    Left = 38
+    Top = 75
+    Width = 0
+    Height = 449
+    CloseStyle = svcCompact
+    Color = clOlive
+    CompactWidth = 0
+    Opened = False
+    OpenedWidth = 100
+    Placement = svpLeft
+    TabOrder = 7
+  end
+  object spvConfiguracoes: TSplitView
+    Left = 38
+    Top = 75
+    Width = 0
+    Height = 449
+    CloseStyle = svcCompact
+    Color = clTeal
+    CompactWidth = 0
+    Opened = False
+    OpenedWidth = 100
+    Placement = svpLeft
+    TabOrder = 8
+  end
   object ImageList1: TImageList
     Height = 24
     Width = 24
@@ -7702,26 +7766,32 @@ object formPrincipal: TformPrincipal
     object acConfiguracoes: TAction
       Caption = 'Configura'#231#245'es'
       ImageIndex = 5
+      OnExecute = acConfiguracoesExecute
     end
     object acSobre: TAction
       Caption = 'Sobre'
       ImageIndex = 4
+      OnExecute = acSobreExecute
     end
     object acExtras: TAction
       Caption = 'Extras'
       ImageIndex = 3
+      OnExecute = acExtrasExecute
     end
     object acRelatorios: TAction
       Caption = 'Relat'#243'rios'
       ImageIndex = 2
+      OnExecute = acRelatoriosExecute
     end
     object acMovimentacao: TAction
       Caption = 'Movimenta'#231#227'o'
       ImageIndex = 1
+      OnExecute = acMovimentacaoExecute
     end
     object acCadastros: TAction
       Caption = 'Cadastros'
       ImageIndex = 0
+      OnExecute = acCadastrosExecute
     end
   end
 end

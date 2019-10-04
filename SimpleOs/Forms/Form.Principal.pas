@@ -39,13 +39,27 @@ type
     Label5: TLabel;
     Label6: TLabel;
     imgLogo: TImage;
-    Panel3: TPanel;
-    Button1: TButton;
+    spvCdastros: TSplitView;
+    spvMovimentacao: TSplitView;
+    spvRelatorio: TSplitView;
+    spvExtras: TSplitView;
+    spvSobre: TSplitView;
+    spvConfiguracoes: TSplitView;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure sbMenuClick(Sender: TObject);
+    procedure acCadastrosExecute(Sender: TObject);
+    procedure acMovimentacaoExecute(Sender: TObject);
+    procedure acRelatoriosExecute(Sender: TObject);
+    procedure acExtrasExecute(Sender: TObject);
+    procedure acSobreExecute(Sender: TObject);
+    procedure acConfiguracoesExecute(Sender: TObject);
   private
     { Private declarations }
+  var
+    F_SplitView: TSplitView;
+    procedure closeSplit;
   public
     { Public declarations }
   end;
@@ -57,14 +71,87 @@ implementation
 
 {$R *.dfm}
 
+procedure TformPrincipal.acCadastrosExecute(Sender: TObject);
+begin
+  if spvCdastros.Opened = true then
+    spvCdastros.Opened := false
+  else
+  begin
+    closeSplit;
+    spvCdastros.Opened := true;
+    F_SplitView := spvCdastros;
+  end;
+
+end;
+
+procedure TformPrincipal.acConfiguracoesExecute(Sender: TObject);
+begin
+  if spvConfiguracoes.Opened = true then
+    spvConfiguracoes.Opened := false
+  else
+  begin
+    closeSplit;
+    spvConfiguracoes.Opened := true;
+    F_SplitView := spvConfiguracoes;
+  end;
+end;
+
+procedure TformPrincipal.acExtrasExecute(Sender: TObject);
+begin
+  if spvExtras.Opened = true then
+    spvExtras.Opened := false
+  else
+  begin
+    closeSplit;
+    spvExtras.Opened := true;
+    F_SplitView := spvExtras;
+  end;
+end;
+
+procedure TformPrincipal.acMovimentacaoExecute(Sender: TObject);
+begin
+  if spvMovimentacao.Opened = true then
+    spvMovimentacao.Opened := false
+  else
+  begin
+    closeSplit;
+    spvMovimentacao.Opened := true;
+    F_SplitView := spvMovimentacao;
+  end;
+end;
+
+procedure TformPrincipal.acRelatoriosExecute(Sender: TObject);
+begin
+  if spvRelatorio.Opened = true then
+    spvRelatorio.Opened := false
+  else
+  begin
+    closeSplit;
+    spvRelatorio.Opened := true;
+    F_SplitView := spvRelatorio;
+  end;
+end;
+
 procedure TformPrincipal.acSairExecute(Sender: TObject);
 begin
-  close;
+  Close;
+end;
+
+procedure TformPrincipal.acSobreExecute(Sender: TObject);
+begin
+  if spvSobre.Opened = true then
+    spvSobre.Opened := false
+  else
+  begin
+    closeSplit;
+    spvSobre.Opened := true;
+    F_SplitView := spvSobre;
+  end;
 end;
 
 procedure TformPrincipal.Button1Click(Sender: TObject);
 begin
-  Panel3.BringToFront;
+  // Panel3.BringToFront;
   imgLogo.Visible := false;
 end;
 
@@ -73,6 +160,23 @@ begin
   { Centraliza a imagem da LOGO }
   imgLogo.Left := (formPrincipal.Width - Image2.Width) div 2;
   imgLogo.Top := (formPrincipal.Height - Image2.Height) div 2;
+
+  ReportMemoryLeaksOnShutdown := true;
+
+end;
+
+procedure TformPrincipal.closeSplit;
+begin
+  if Assigned(F_SplitView) then
+    F_SplitView.Opened := false;
+end;
+
+procedure TformPrincipal.sbMenuClick(Sender: TObject);
+begin
+  if SplitView1.Opened = true then
+    SplitView1.Close
+  else
+    SplitView1.Open;
 end;
 
 end.

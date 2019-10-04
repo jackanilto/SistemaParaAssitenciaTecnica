@@ -1,0 +1,10 @@
+04/10/19 11:17:31 - ===========================================
+04/10/19 11:17:31 - Form: formPrincipal
+04/10/19 11:17:31 - Caption: formPrincipal
+04/10/19 11:17:31 - Erro:EAccessViolation
+04/10/19 11:17:31 - Erro:Access violation at address 0062BC0C in module 'SimplesOS.exe'. Read of address 000002FC
+04/10/19 11:42:50 - ===========================================
+04/10/19 11:42:50 - Form: formPrincipal
+04/10/19 11:42:50 - Caption: formPrincipal
+04/10/19 11:42:50 - Erro:EAccessViolation
+04/10/19 11:42:50 - Erro:Access violation at address 0062BB68 in module 'SimplesOS.exe'. Read of address 00000302
