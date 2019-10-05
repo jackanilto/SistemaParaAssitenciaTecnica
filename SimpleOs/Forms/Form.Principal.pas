@@ -46,6 +46,7 @@ type
     spvConfiguracoes: TSplitView;
     imgLogo: TImage;
     CategoryButtons3: TCategoryButtons;
+    Button1: TButton;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -155,12 +156,12 @@ end;
 procedure TformPrincipal.Button1Click(Sender: TObject);
 begin
 
-//  panelForm.BringToFront;
-//  imgLogo.Visible := false;
-//
-//  formExemploEmbeded := TformExemploEmbeded.Create(self);
-//  formExemploEmbeded.Parent := panelForm;
-//  formExemploEmbeded.Show;
+  formExemploEmbeded := TformExemploEmbeded.Create(self);
+  try
+    formExemploEmbeded.ShowModal;
+  finally
+    formExemploEmbeded.Free;
+  end;
 
 end;
 

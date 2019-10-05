@@ -6093,6 +6093,15 @@ object formPrincipal: TformPrincipal
         2777DE7ECFEFBCF85F7DFD376AE91E003C8866220000000049454E44AE426082}
       Stretch = True
     end
+    object Button1: TButton
+      Left = 567
+      Top = 26
+      Width = 75
+      Height = 25
+      Caption = 'Button1'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
   end
   object SplitView1: TSplitView
     Left = 0
@@ -6191,7 +6200,6 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 1
-      ExplicitLeft = 8
     end
   end
   object Panel2: TPanel
@@ -7082,7 +7090,7 @@ object formPrincipal: TformPrincipal
     Placement = svpLeft
     TabOrder = 3
     object CategoryButtons3: TCategoryButtons
-      Left = -13
+      Left = -4
       Top = -18
       Width = 147
       Height = 209
@@ -7144,7 +7152,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 38
   end
   object spvRelatorio: TSplitView
     Left = 150
@@ -7157,7 +7164,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 38
   end
   object spvExtras: TSplitView
     Left = 150
@@ -7171,7 +7177,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 38
   end
   object spvSobre: TSplitView
     Left = 150
@@ -7185,7 +7190,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 38
   end
   object spvConfiguracoes: TSplitView
     Left = 150
@@ -7199,7 +7203,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 38
   end
   object ImageList1: TImageList
     Height = 24
