@@ -12,10 +12,10 @@ type
   TformExemploEmbeded = class(TForm)
     Panel1: TPanel;
     sbFechar: TSpeedButton;
-    Label1: TLabel;
+    lblCaption: TLabel;
     Panel2: TPanel;
-    Label2: TLabel;
-    Label3: TLabel;
+    lblCadastro: TLabel;
+    lblConsulta: TLabel;
     pnlFocoCadastro: TPanel;
     pnlFocoConsulta: TPanel;
     Image2: TImage;
@@ -38,13 +38,32 @@ type
     cardPanelConsulta: TCard;
     Panel4: TPanel;
     DBGrid1: TDBGrid;
+    sbImprimir: TSpeedButton;
+    sbExportar: TSpeedButton;
     procedure sbFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormShow(Sender: TObject);
+    procedure lblCadastroMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure lblConsultaMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure sbNovoClick(Sender: TObject);
+    procedure sbSalvarClick(Sender: TObject);
+    procedure sbEditarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
+    procedure lblCadastroClick(Sender: TObject);
+    procedure lblConsultaClick(Sender: TObject);
   private
     { Private declarations }
+    procedure ativarDesativarNovo;
+    procedure ativarDesativarSalvar;
+    procedure ativarDesativarEditar;
+    procedure ativarDesativarExcluir;
+    procedure ativarDesativarCancelar;
+    procedure ativarDesativarPesquisar;
   public
     { Public declarations }
   end;
@@ -56,6 +75,60 @@ implementation
 
 {$R *.dfm}
 
+procedure TformExemploEmbeded.ativarDesativarCancelar;
+begin
+  sbNovo.Enabled := true;
+  sbSalvar.Enabled := false;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbCancelar.Enabled := false;
+end;
+
+procedure TformExemploEmbeded.ativarDesativarEditar;
+begin
+  sbNovo.Enabled := false;
+  sbSalvar.Enabled := true;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := true;
+  sbCancelar.Enabled := true;
+end;
+
+procedure TformExemploEmbeded.ativarDesativarExcluir;
+begin
+  sbNovo.Enabled := true;
+  sbSalvar.Enabled := false;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbCancelar.Enabled := false;
+end;
+
+procedure TformExemploEmbeded.ativarDesativarNovo;
+begin
+  sbNovo.Enabled := false;
+  sbSalvar.Enabled := true;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbCancelar.Enabled := true;
+end;
+
+procedure TformExemploEmbeded.ativarDesativarPesquisar;
+begin
+  sbNovo.Enabled := true;
+  sbSalvar.Enabled := false;
+  sbEditar.Enabled := true;
+  sbExcluir.Enabled := true;
+  sbCancelar.Enabled := true;
+end;
+
+procedure TformExemploEmbeded.ativarDesativarSalvar;
+begin
+  sbNovo.Enabled := true;
+  sbSalvar.Enabled := false;
+  sbEditar.Enabled := true;
+  sbExcluir.Enabled := true;
+  sbCancelar.Enabled := false;
+end;
+
 procedure TformExemploEmbeded.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := true;
@@ -63,7 +136,36 @@ end;
 
 procedure TformExemploEmbeded.FormShow(Sender: TObject);
 begin
-  Image2.Enabled := false;
+
+  pnlFocoCadastro.Visible := false;
+  CardPanel1.ActiveCard := cardPanelConsulta;
+
+end;
+
+procedure TformExemploEmbeded.lblCadastroClick(Sender: TObject);
+begin
+  CardPanel1.ActiveCard := cardPanelCadatro;
+  lblCaption.Caption := self.Caption + ' > Cadastro';
+end;
+
+procedure TformExemploEmbeded.lblCadastroMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  pnlFocoCadastro.Visible := true;
+  pnlFocoConsulta.Visible := false;
+end;
+
+procedure TformExemploEmbeded.lblConsultaClick(Sender: TObject);
+begin
+  CardPanel1.ActiveCard := cardPanelConsulta;
+  lblCaption.Caption := self.Caption + ' > Consulta';
+end;
+
+procedure TformExemploEmbeded.lblConsultaMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  pnlFocoCadastro.Visible := false;
+  pnlFocoConsulta.Visible := true;
 end;
 
 procedure TformExemploEmbeded.Panel1MouseDown(Sender: TObject;
@@ -78,9 +180,65 @@ begin
   end;
 end;
 
+procedure TformExemploEmbeded.sbCancelarClick(Sender: TObject);
+begin
+  CardPanel1.ActiveCard := cardPanelConsulta;
+  pnlFocoCadastro.Visible := true;
+  pnlFocoConsulta.Visible := true;
+  lblCaption.Caption := self.Caption + '';
+  lblCadastro.Enabled := true;
+  lblConsulta.Enabled := true;
+  ativarDesativarCancelar;
+end;
+
+procedure TformExemploEmbeded.sbEditarClick(Sender: TObject);
+begin
+  CardPanel1.ActiveCard := cardPanelCadatro;
+  pnlFocoCadastro.Visible := true;
+  pnlFocoConsulta.Visible := false;
+  lblCadastro.Enabled := true;
+  lblConsulta.Enabled := false;
+  lblCaption.Caption := self.Caption + ' > Editando o registro selecionado';
+  ativarDesativarEditar;
+end;
+
+procedure TformExemploEmbeded.sbExcluirClick(Sender: TObject);
+begin
+  CardPanel1.ActiveCard := cardPanelConsulta;
+  pnlFocoCadastro.Visible := false;
+  pnlFocoConsulta.Visible := true;
+  lblCadastro.Enabled := true;
+  lblConsulta.Enabled := true;
+  lblCaption.Caption := self.Caption + ' > Registro excluído com sucesso';
+  ativarDesativarExcluir;
+end;
+
 procedure TformExemploEmbeded.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformExemploEmbeded.sbNovoClick(Sender: TObject);
+begin
+  CardPanel1.ActiveCard := cardPanelCadatro;
+  pnlFocoCadastro.Visible := true;
+  pnlFocoConsulta.Visible := false;
+  lblCaption.Caption := self.Caption + ' > Inserindo um novo registro';
+  lblCadastro.Enabled := true;
+  lblConsulta.Enabled := false;
+  ativarDesativarNovo;
+end;
+
+procedure TformExemploEmbeded.sbSalvarClick(Sender: TObject);
+begin
+  CardPanel1.ActiveCard := cardPanelConsulta;
+  pnlFocoCadastro.Visible := false;
+  pnlFocoConsulta.Visible := true;
+  lblCaption.Caption := self.Caption + '';
+  lblCadastro.Enabled := true;
+  lblConsulta.Enabled := true;
+  showmessage('Operação realizada com sucesso!');
+  ativarDesativarSalvar;
 end;
 
 end.

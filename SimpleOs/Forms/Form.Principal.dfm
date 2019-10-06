@@ -5311,7 +5311,7 @@ object formPrincipal: TformPrincipal
     Left = 0
     Top = 0
     Width = 1061
-    Height = 75
+    Height = 57
     Align = alTop
     BevelOuter = bvNone
     Color = 8408635
@@ -5319,10 +5319,10 @@ object formPrincipal: TformPrincipal
     TabOrder = 0
     DesignSize = (
       1061
-      75)
+      57)
     object sbMenu: TSpeedButton
       Left = 0
-      Top = 10
+      Top = 5
       Width = 153
       Height = 49
       Flat = True
@@ -5844,7 +5844,7 @@ object formPrincipal: TformPrincipal
     end
     object Label1: TLabel
       Left = 760
-      Top = 26
+      Top = 18
       Width = 47
       Height = 33
       Anchors = [akTop, akRight]
@@ -5858,7 +5858,7 @@ object formPrincipal: TformPrincipal
     end
     object Label2: TLabel
       Left = 833
-      Top = 26
+      Top = 18
       Width = 71
       Height = 33
       Anchors = [akTop, akRight]
@@ -5871,10 +5871,10 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
     object Image1: TImage
-      Left = 968
-      Top = 12
-      Width = 57
-      Height = 55
+      Left = 967
+      Top = 3
+      Width = 49
+      Height = 51
       Anchors = [akTop, akRight]
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -6091,6 +6091,7 @@ object formPrincipal: TformPrincipal
         A50FC5C34B4FA562C57D5BEFDBFB877D14F02D837AF967FE5C3E3250AD94068D
         A86CA0EFF2136F7E0387228352FA44A290D7139A511B2E972AD374AFC3471295
         2777DE7ECFEFBCF85F7DFD376AE91E003C8866220000000049454E44AE426082}
+      PopupMenu = PopupMenuFuncionario
       Stretch = True
     end
     object Button1: TButton
@@ -6105,9 +6106,9 @@ object formPrincipal: TformPrincipal
   end
   object SplitView1: TSplitView
     Left = 0
-    Top = 75
+    Top = 57
     Width = 150
-    Height = 449
+    Height = 467
     CloseStyle = svcCompact
     Color = 8408635
     CompactWidth = 38
@@ -6164,7 +6165,7 @@ object formPrincipal: TformPrincipal
     end
     object CategoryButtons2: TCategoryButtons
       Left = 0
-      Top = 334
+      Top = 352
       Width = 150
       Height = 115
       Align = alBottom
@@ -6218,6 +6219,7 @@ object formPrincipal: TformPrincipal
       Top = 13
       Width = 163
       Height = 40
+      Cursor = crHandPoint
       Picture.Data = {
         07544269746D6170164D0000424D164D0000000000003600000028000000A300
         0000280000000100180000000000E04C0000120B0000120B0000000000000000
@@ -6843,6 +6845,7 @@ object formPrincipal: TformPrincipal
       Top = 13
       Width = 163
       Height = 40
+      Cursor = crHandPoint
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000A30000
         00260806000000A8112BEB000000097048597300000B1300000B1301009A9C18
@@ -6905,6 +6908,7 @@ object formPrincipal: TformPrincipal
       Top = 13
       Width = 163
       Height = 40
+      Cursor = crHandPoint
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000A20000
         002808060000007DD921A5000000097048597300000B1300000B1301009A9C18
@@ -6964,6 +6968,7 @@ object formPrincipal: TformPrincipal
       Top = 13
       Width = 163
       Height = 40
+      Cursor = crHandPoint
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000A30000
         00280806000000921B4A9B000000097048597300000B1300000B1301009A9C18
@@ -7078,9 +7083,9 @@ object formPrincipal: TformPrincipal
   end
   object spvCadastros: TSplitView
     Left = 150
-    Top = 75
+    Top = 57
     Width = 0
-    Height = 449
+    Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
@@ -7144,9 +7149,9 @@ object formPrincipal: TformPrincipal
   end
   object spvMovimentacao: TSplitView
     Left = 150
-    Top = 75
+    Top = 57
     Width = 0
-    Height = 449
+    Height = 467
     Color = clRed
     Opened = False
     OpenedWidth = 200
@@ -7155,9 +7160,9 @@ object formPrincipal: TformPrincipal
   end
   object spvRelatorio: TSplitView
     Left = 150
-    Top = 75
+    Top = 57
     Width = 0
-    Height = 449
+    Height = 467
     Color = clLime
     CompactWidth = 0
     Opened = False
@@ -7167,9 +7172,9 @@ object formPrincipal: TformPrincipal
   end
   object spvExtras: TSplitView
     Left = 150
-    Top = 75
+    Top = 57
     Width = 0
-    Height = 449
+    Height = 467
     CloseStyle = svcCompact
     Color = clPurple
     CompactWidth = 0
@@ -7180,9 +7185,9 @@ object formPrincipal: TformPrincipal
   end
   object spvSobre: TSplitView
     Left = 150
-    Top = 75
+    Top = 57
     Width = 0
-    Height = 449
+    Height = 467
     CloseStyle = svcCompact
     Color = clOlive
     CompactWidth = 0
@@ -7193,9 +7198,9 @@ object formPrincipal: TformPrincipal
   end
   object spvConfiguracoes: TSplitView
     Left = 150
-    Top = 75
+    Top = 57
     Width = 0
-    Height = 449
+    Height = 467
     CloseStyle = svcCompact
     Color = clTeal
     CompactWidth = 0
@@ -7847,6 +7852,16 @@ object formPrincipal: TformPrincipal
       Caption = 'Cadastros'
       ImageIndex = 0
       OnExecute = acCadastrosExecute
+    end
+  end
+  object PopupMenuFuncionario: TPopupMenu
+    Left = 872
+    Top = 264
+    object Alterarsenha1: TMenuItem
+      Caption = 'Alterar senha'
+    end
+    object Sair1: TMenuItem
+      Caption = 'Sair'
     end
   end
 end

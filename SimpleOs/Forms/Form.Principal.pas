@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls, Vcl.ExtCtrls,
   Vcl.Buttons,
   Vcl.CategoryButtons, System.ImageList, Vcl.ImgList, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList;
+  Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus;
 
 type
   TformPrincipal = class(TForm)
@@ -47,6 +47,9 @@ type
     imgLogo: TImage;
     CategoryButtons3: TCategoryButtons;
     Button1: TButton;
+    PopupMenuFuncionario: TPopupMenu;
+    Sair1: TMenuItem;
+    Alterarsenha1: TMenuItem;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -157,11 +160,14 @@ procedure TformPrincipal.Button1Click(Sender: TObject);
 begin
 
   formExemploEmbeded := TformExemploEmbeded.Create(self);
-  try
-    formExemploEmbeded.ShowModal;
-  finally
-    formExemploEmbeded.Free;
-  end;
+//  formExemploEmbeded.Parent := pnlform;
+//  formExemploEmbeded.Show;
+
+   try
+   formExemploEmbeded.ShowModal;
+   finally
+   formExemploEmbeded.Free;
+   end;
 
 end;
 

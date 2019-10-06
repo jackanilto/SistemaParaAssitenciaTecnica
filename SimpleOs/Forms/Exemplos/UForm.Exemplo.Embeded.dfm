@@ -4,7 +4,7 @@ object formExemploEmbeded: TformExemploEmbeded
   BorderStyle = bsNone
   Caption = 'Formul'#225'rio padr'#227'o'
   ClientHeight = 561
-  ClientWidth = 923
+  ClientWidth = 917
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,7 +12,7 @@ object formExemploEmbeded: TformExemploEmbeded
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poMainFormCenter
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -277,7 +277,7 @@ object formExemploEmbeded: TformExemploEmbeded
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 923
+    Width = 917
     Height = 41
     Align = alTop
     BevelOuter = bvNone
@@ -286,12 +286,11 @@ object formExemploEmbeded: TformExemploEmbeded
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
     ExplicitTop = 2
-    ExplicitWidth = 906
     DesignSize = (
-      923
+      917
       41)
     object sbFechar: TSpeedButton
-      Left = 871
+      Left = 865
       Top = 2
       Width = 52
       Height = 33
@@ -358,14 +357,15 @@ object formExemploEmbeded: TformExemploEmbeded
       ParentShowHint = False
       ShowHint = True
       OnClick = sbFecharClick
+      ExplicitLeft = 871
     end
-    object Label1: TLabel
-      Left = 352
+    object lblCaption: TLabel
+      Left = 195
       Top = 10
-      Width = 132
+      Width = 134
       Height = 19
       Anchors = [akTop, akRight, akBottom]
-      Caption = 'Cadastro padr'#227'o'
+      Caption = 'Formul'#225'rio padr'#227'o'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -374,22 +374,21 @@ object formExemploEmbeded: TformExemploEmbeded
       Font.Style = []
       ParentColor = False
       ParentFont = False
-      ExplicitLeft = 336
+      ExplicitLeft = 201
     end
   end
   object Panel2: TPanel
     Left = 0
     Top = 41
-    Width = 923
+    Width = 917
     Height = 40
     Align = alTop
     BevelOuter = bvNone
     Color = 12895428
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 44
-    ExplicitWidth = 906
-    object Label2: TLabel
+    ExplicitWidth = 923
+    object lblCadastro: TLabel
       Left = 16
       Top = 8
       Width = 86
@@ -401,8 +400,10 @@ object formExemploEmbeded: TformExemploEmbeded
       Font.Name = 'Roboto'
       Font.Style = []
       ParentFont = False
+      OnClick = lblCadastroClick
+      OnMouseMove = lblCadastroMouseMove
     end
-    object Label3: TLabel
+    object lblConsulta: TLabel
       Left = 120
       Top = 8
       Width = 84
@@ -414,6 +415,8 @@ object formExemploEmbeded: TformExemploEmbeded
       Font.Name = 'Roboto'
       Font.Style = []
       ParentFont = False
+      OnClick = lblConsultaClick
+      OnMouseMove = lblConsultaMouseMove
     end
     object pnlFocoCadastro: TPanel
       Left = 11
@@ -439,23 +442,23 @@ object formExemploEmbeded: TformExemploEmbeded
   object Panel3: TPanel
     Left = 0
     Top = 486
-    Width = 923
+    Width = 917
     Height = 75
     Align = alBottom
     BevelOuter = bvNone
     Color = 8406532
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 472
-    ExplicitWidth = 906
+    ExplicitWidth = 923
     DesignSize = (
-      923
+      917
       75)
     object sbNovo: TSpeedButton
       Left = 7
       Top = 24
       Width = 81
       Height = 35
+      Hint = 'Inserir um novo registro'
       Caption = 'Novo'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -528,12 +531,16 @@ object formExemploEmbeded: TformExemploEmbeded
         361A99361A00}
       Layout = blGlyphRight
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = sbNovoClick
     end
     object sbSalvar: TSpeedButton
       Left = 94
       Top = 24
       Width = 89
       Height = 35
+      Hint = 'Salva a opera'#231#227'o em andamento'
       Caption = 'Salvar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -606,12 +613,16 @@ object formExemploEmbeded: TformExemploEmbeded
         361A99361A0D}
       Layout = blGlyphRight
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = sbSalvarClick
     end
     object sbEditar: TSpeedButton
-      Left = 189
+      Left = 201
       Top = 24
-      Width = 89
+      Width = 76
       Height = 35
+      Hint = 'Edita o registro selecionado'
       Caption = 'Editar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -684,12 +695,16 @@ object formExemploEmbeded: TformExemploEmbeded
         361A99361A00}
       Layout = blGlyphRight
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = sbEditarClick
     end
     object sbExcluir: TSpeedButton
-      Left = 284
+      Left = 287
       Top = 24
       Width = 100
       Height = 35
+      Hint = 'Exclui o registro selecionado'
       Caption = 'Excluir'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -762,12 +777,16 @@ object formExemploEmbeded: TformExemploEmbeded
         361A99361AFF}
       Layout = blGlyphRight
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = sbExcluirClick
     end
     object sbCancelar: TSpeedButton
-      Left = 390
+      Left = 393
       Top = 24
       Width = 114
       Height = 35
+      Hint = 'Cancela a opera'#231#227'o em andamento'
       Caption = 'Cancelar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -840,9 +859,12 @@ object formExemploEmbeded: TformExemploEmbeded
         361A99361A00}
       Layout = blGlyphRight
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = sbCancelarClick
     end
     object Label4: TLabel
-      Left = 589
+      Left = 583
       Top = 11
       Width = 97
       Height = 15
@@ -857,7 +879,7 @@ object formExemploEmbeded: TformExemploEmbeded
       ExplicitLeft = 572
     end
     object Label5: TLabel
-      Left = 724
+      Left = 718
       Top = 11
       Width = 168
       Height = 15
@@ -872,7 +894,7 @@ object formExemploEmbeded: TformExemploEmbeded
       ExplicitLeft = 707
     end
     object cbPesquisar: TComboBox
-      Left = 589
+      Left = 583
       Top = 32
       Width = 129
       Height = 23
@@ -884,10 +906,10 @@ object formExemploEmbeded: TformExemploEmbeded
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 572
+      ExplicitLeft = 589
     end
     object edtPesquisar: TEdit
-      Left = 724
+      Left = 718
       Top = 32
       Width = 168
       Height = 23
@@ -899,59 +921,212 @@ object formExemploEmbeded: TformExemploEmbeded
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 707
+      ExplicitLeft = 724
     end
   end
   object CardPanel1: TCardPanel
     Left = 0
     Top = 81
-    Width = 923
+    Width = 917
     Height = 405
     Align = alClient
     ActiveCard = cardPanelConsulta
     BevelOuter = bvNone
     Caption = 'CardPanel1'
     TabOrder = 3
-    ExplicitLeft = 248
-    ExplicitTop = 176
-    ExplicitWidth = 300
-    ExplicitHeight = 200
+    ExplicitWidth = 923
     object cardPanelCadatro: TCard
       Left = 0
       Top = 0
-      Width = 923
+      Width = 917
       Height = 405
+      BevelKind = bkFlat
       Caption = 'Cadastro'
       CardIndex = 0
       TabOrder = 0
-      ExplicitTop = 1
+      ExplicitWidth = 923
     end
     object cardPanelConsulta: TCard
       Left = 0
       Top = 0
-      Width = 923
+      Width = 917
       Height = 405
       Caption = 'Consultar'
       CardIndex = 1
       TabOrder = 1
-      ExplicitTop = 1
+      ExplicitWidth = 923
       object Panel4: TPanel
         Left = 0
-        Top = 364
-        Width = 923
-        Height = 41
+        Top = 360
+        Width = 917
+        Height = 45
         Align = alBottom
         BevelOuter = bvNone
-        Caption = 'Panel4'
         Color = 12895428
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 923
+        DesignSize = (
+          917
+          45)
+        object sbImprimir: TSpeedButton
+          Left = 642
+          Top = 2
+          Width = 105
+          Height = 37
+          Hint = 'Imprimi os dados da tabela'
+          Anchors = [akRight, akBottom]
+          Caption = 'Imprimir'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Roboto'
+          Font.Style = []
+          Glyph.Data = {
+            F6060000424DF606000000000000360000002800000018000000180000000100
+            180000000000C0060000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFD5D5D5C7C7C7C7C7C7C7C7C7C7C7C7C7C7C7C7C7C7C7C7
+            C7C7C7C7C9C9C9FBFBFBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFD3E3E3E040404040404040404040404
+            0404040404040404040404040404046C6C6CF7F7F7FFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFD3A3A3A262626A7
+            A7A7A9A9A9A9A9A9A9A9A9A9A9A9A9A9A93838380000000202026C6C6CFBFBFB
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFD
+            FD3A3A3A3A3A3AFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF54545400000000
+            0000000000646464FBFBFBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFDFDFD3A3A3A3A3A3AFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FF545454000000000000000000000000767676FFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFBFB3A3A3A3A3A3AFDFDFDFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFF5454540000000000000000000000003A3A3AFDFDFDFFFF
+            FFFFFFFFFFFFFFFFFFFF4242423A3A3A3838383838383636360C0C0C3A3A3AFD
+            FDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD9D9D9C5C5C5C3C3C3BFBFBF2A2A2A
+            0C0C0C3838383A3A3A3A3A3A3A3A3A4242420C0C0C0000000000001414141E1E
+            1E0808083A3A3AFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFBFBFB3838380808081E1E1E1616160000000000000C0C0C0C0C0C000000
+            000000A1A1A1F9F9F93A3A3A3A3A3AFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFBFBFB3838383A3A3AF9F9F9ABABAB0000000000000C
+            0C0C0C0C0C000000000000A1A1A1FDFDFD3A3A3A3A3A3AFDFDFDFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFBFB3A3A3A3A3A3AFDFDFDADAD
+            AD0000000000000C0C0C0C0C0C000000000000A3A3A3FDFDFD3A3A3A3A3A3AFD
+            FDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFD3A3A3A
+            3A3A3AFDFDFDADADAD0000000000000C0C0C0C0C0C000000000000A1A1A1FDFD
+            FD959595939393FDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFDFDFD959595959595FDFDFDADADAD0000000000000C0C0C0C0C0C000000
+            0000009F9F9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFADADAD0000000000000C
+            0C0C0C0C0C0000000000004E4E4E838383858585858585878787878787878787
+            8787878787878787878787878787878787878787878787878787878787875C5C
+            5C0000000000000C0C0C0C0C0C00000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000C0C0C0C0C0C0000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000767676ABABABABABAB3232320C0C0C0C0C0C000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000979797D9D9D9D9D9D94040400C
+            0C0C0C0C0C000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000000C0C0C8585857E7E7E7E7E7E7E7E7E7C7C7C1C1C1C1C1C1C7C
+            7C7C7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7E7C7C7C1C1C1C
+            1C1C1C7C7C7C7E7E7E7E7E7E7E7E7E858585FFFFFFFFFFFFFFFFFFFFFFFFFDFD
+            FD3A3A3A3A3A3AFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFDFDFD3A3A3A3A3A3AFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFDFDFD3A3A3A3A3A3AFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFDFDFD3A3A3A3A3A3AFDFDFDFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFD3A3A3A222222979797979797979797
+            9797979797979797979797979797979797979797972222223A3A3AFDFDFDFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFD40404008080808
+            0808080808080808080808080808080808080808080808080808080808080808
+            404040FDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFDBDBDBCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCF
+            CFCFCFCFCFCFCFCFDBDBDBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          ExplicitLeft = 648
+        end
+        object sbExportar: TSpeedButton
+          Left = 753
+          Top = 2
+          Width = 105
+          Height = 37
+          Hint = 'Exporta os dados da tabela'
+          Anchors = [akRight, akBottom]
+          Caption = 'Exportar'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Roboto'
+          Font.Style = []
+          Glyph.Data = {
+            F6060000424DF606000000000000360000002800000018000000180000000100
+            180000000000C0060000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFCFCFCFA5A5A57474744242
+            42424242FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFF9F9F9E9E9E9CBCBCB9D9D9D6A6A6A3A3A3A181818080808
+            0000000000000000002E2E2EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFF95959560606036363614141400000000000000000000
+            00000000000000000000000000000000002E2E2EF1F1F1C3C3C3C3C3C3C3C3C3
+            C3C3C3C3C3C3C3C3C3C3C3C3C5C5C5E1E1E10C0C0C0000000000000000000000
+            000000000000000000000000000000000000000000000000002E2E2EC1C1C100
+            00000000000000000000000000000000000000000000001C1C1C0C0C0C000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            002E2E2EC1C1C100000000000000000000000000000000000000000000000010
+            10100C0C0C000000000000000000000000000000000000000000000000000000
+            0000000000000000002E2E2EDFDFDF7C7C7C7C7C7C3E3E3E4444447C7C7C7C7C
+            7C7C7C7C1010100E0E0E0C0C0C00000000000000000000000000000000000000
+            00000000000000000000000000000000002E2E2EFFFFFFFFFFFFFFFFFF838383
+            8F8F8FFFFFFFFFFFFFFDFDFD2020200E0E0E0C0C0C000000181818B1B1B1B5B5
+            B53E3E3E0000000000004C4C4CB3B3B3A5A5A51414140000002E2E2ED9D9D962
+            62626262623232323636366060605E5E5E5C5C5C0C0C0C0C0C0C0C0C0C000000
+            000000999999FFFFFFC5C5C50000000C0C0CCFCFCFFFFFFF8585850000000000
+            002E2E2EC1C1C10000000000000000000000000000000000000000000000000C
+            0C0C0C0C0C000000000000161616DDDDDDFFFFFF525252666666FFFFFFD5D5D5
+            1010100000000000002E2E2EF3F3F3CBCBCBCBCBCB686868707070CBCBCBCBCB
+            CBCBCBCB1A1A1A0C0C0C0C0C0C000000000000000000545454FBFBFBCBCBCBDB
+            DBDBFDFDFD4E4E4E0000000000000000002E2E2EFBFBFBEBEBEBEBEBEB787878
+            838383EBEBEBEBEBEBEBEBEB1E1E1E0C0C0C0C0C0C0000000000000000000404
+            04ABABABFFFFFFFFFFFFB7B7B70000000000000000000000002E2E2EC7C7C71A
+            1A1A1A1A1A0C0C0C0E0E0E1A1A1A1A1A1A1A1A1A0404040C0C0C0C0C0C000000
+            000000000000060606B5B5B5FFFFFFFFFFFFB7B7B70202020000000000000000
+            002E2E2ECBCBCB2828282828281414141616162828282828282828280606060C
+            0C0C0C0C0C000000000000000000525252FBFBFBD5D5D5C7C7C7FDFDFD505050
+            0000000000000000002E2E2EFDFDFDF3F3F3F3F3F37C7C7C878787F3F3F3F3F3
+            F3F3F3F32020200C0C0C0C0C0C0000000000000E0E0ED3D3D3FFFFFF7070704A
+            4A4AFDFDFDD5D5D51010100000000000002E2E2EEDEDEDB7B7B7B7B7B75C5C5C
+            666666B7B7B7B7B7B7B7B7B71818180C0C0C0C0C0C0000000000007C7C7CFFFF
+            FFE9E9E90A0A0A060606B7B7B7FFFFFF8787870000000000002E2E2EC1C1C100
+            00000000000000000000000000000000000000000000000C0C0C0E0E0E000000
+            0202028787879595955858580000000000003030308F8F8F8383830C0C0C0000
+            002E2E2EDDDDDD7676767676764242424242427676767474747272720E0E0E0C
+            0C0C0E0E0E000000000000000000000000000000000000000000000000000000
+            0000000000000000002E2E2EFFFFFFFFFFFFFFFFFF8F8F8F8F8F8FFFFFFFFFFF
+            FFFDFDFD2020200C0C0C0E0E0E00000000000000000000000000000000000000
+            00000000000000000000000000000000002E2E2ED9D9D9666666666666383838
+            3838386666666666666666660E0E0E0E0E0E0E0E0E0000000000000000000000
+            000000000000000000000000000000000000000000000000002E2E2EC1C1C100
+            0000000000000000000000000000000000000000000000101010101010000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            00303030C1C1C100000000000000000000000000000000000000000000000022
+            2222ADADAD787878484848222222060606000000000000000000000000000000
+            000000000000000000303030F5F5F5D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D9D9
+            D9D9D9D9DBDBDBEFEFEFFFFFFFFFFFFFFDFDFDF1F1F1DDDDDDB3B3B37E7E7E4E
+            4E4E2424240E0E0E020202000000000000323232FFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFBFBFBDDDDDDB9B9B9898989565656565656FFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          ExplicitLeft = 759
+        end
       end
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
-        Width = 923
-        Height = 364
+        Width = 917
+        Height = 360
         Align = alClient
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
