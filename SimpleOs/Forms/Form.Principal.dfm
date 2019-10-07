@@ -7084,13 +7084,12 @@ object formPrincipal: TformPrincipal
   object spvCadastros: TSplitView
     Left = 150
     Top = 57
-    Width = 0
+    Width = 140
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
     DockSite = True
-    Opened = False
     OpenedWidth = 140
     Placement = svpLeft
     TabOrder = 3
@@ -7131,6 +7130,9 @@ object formPrincipal: TformPrincipal
             item
               Caption = 'Fornecedores'
               OnClick = acSobreExecute
+            end
+            item
+              Action = acCadastroMarcas
             end>
           TextColor = 13402157
         end>
@@ -7148,7 +7150,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 150
+    Left = 290
     Top = 57
     Width = 0
     Height = 467
@@ -7157,9 +7159,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
+    ExplicitLeft = 150
   end
   object spvRelatorio: TSplitView
-    Left = 150
+    Left = 290
     Top = 57
     Width = 0
     Height = 467
@@ -7169,9 +7172,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 150
   end
   object spvExtras: TSplitView
-    Left = 150
+    Left = 290
     Top = 57
     Width = 0
     Height = 467
@@ -7182,9 +7186,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 150
   end
   object spvSobre: TSplitView
-    Left = 150
+    Left = 290
     Top = 57
     Width = 0
     Height = 467
@@ -7195,9 +7200,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 150
   end
   object spvConfiguracoes: TSplitView
-    Left = 150
+    Left = 290
     Top = 57
     Width = 0
     Height = 467
@@ -7208,6 +7214,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 150
   end
   object ImageList1: TImageList
     Height = 24
@@ -7215,7 +7222,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C010107000800040018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107000800080018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7818,7 +7825,7 @@ object formPrincipal: TformPrincipal
   end
   object actionPrincipal: TActionList
     Left = 464
-    Top = 16
+    Top = 8
     object acSair: TAction
       Caption = 'Sair'
       OnExecute = acSairExecute
@@ -7852,6 +7859,10 @@ object formPrincipal: TformPrincipal
       Caption = 'Cadastros'
       ImageIndex = 0
       OnExecute = acCadastrosExecute
+    end
+    object acCadastroMarcas: TAction
+      Caption = 'Marcas'
+      OnExecute = acCadastroMarcasExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

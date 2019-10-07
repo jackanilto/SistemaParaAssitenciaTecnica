@@ -8,3 +8,44 @@
 04/10/19 11:42:50 - Caption: formPrincipal
 04/10/19 11:42:50 - Erro:EAccessViolation
 04/10/19 11:42:50 - Erro:Access violation at address 0062BB68 in module 'SimplesOS.exe'. Read of address 00000302
+07/10/19 20:07:40 - ===========================================
+07/10/19 20:07:40 - Form: formPrincipal
+07/10/19 20:07:40 - Caption: formPrincipal
+07/10/19 20:07:40 - Erro:EAccessViolation
+07/10/19 20:07:40 - Erro:Access violation at address 007B0EC1 in module 'SimplesOS.exe'. Read of address 00000000
+07/10/19 20:14:27 - ===========================================
+07/10/19 20:14:27 - Form: formCadastroMarcas
+07/10/19 20:14:27 - Caption: Cadastro de marcas
+07/10/19 20:14:27 - Erro:EFDException
+07/10/19 20:14:27 - Erro:[FireDAC][Phys][FB]-314. Cannot load vendor library [C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Win32\Debug\fbclient.dll]. Não foi possível encontrar o módulo especificado
+Hint: check it is in the PATH or application EXE directories, and has x86 bitness.
+07/10/19 20:14:31 - ===========================================
+07/10/19 20:14:31 - Form: formCadastroMarcas
+07/10/19 20:14:31 - Caption: Cadastro de marcas
+07/10/19 20:14:31 - Erro:EAccessViolation
+07/10/19 20:14:31 - Erro:Access violation at address 007BDDF6 in module 'SimplesOS.exe'. Read of address 00000000
+07/10/19 20:16:37 - ===========================================
+07/10/19 20:16:37 - Form: formCadastroMarcas
+07/10/19 20:16:37 - Caption: Cadastro de marcas
+07/10/19 20:16:37 - Erro:EIBNativeException
+07/10/19 20:16:37 - Erro:[FireDAC][Phys][FB]I/O error during "CreateFile (open)" operation for file "C:\USERS\NOELS\DOCUMENTS\GITHUB\SISTEMAPARAASSITENCIATECNICA\SIMPLEOS\BANCO\BD_SMART_OS.FDB"
+Error while trying to open file
+O sistema não pode encontrar o caminho especificado. 
+07/10/19 20:16:41 - ===========================================
+07/10/19 20:16:41 - Form: formCadastroMarcas
+07/10/19 20:16:41 - Caption: Cadastro de marcas
+07/10/19 20:16:41 - Erro:EAccessViolation
+07/10/19 20:16:41 - Erro:Access violation at address 007BDDF6 in module 'SimplesOS.exe'. Read of address 00000000
+07/10/19 20:33:43 - ===========================================
+07/10/19 20:33:43 - Form: formCadastroMarcas
+07/10/19 20:33:43 - Caption: Cadastro de marcas
+07/10/19 20:33:43 - Erro:EIBNativeException
+07/10/19 20:33:43 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Procedure unknown
+GEN_MARCA_ID
+07/10/19 20:44:46 - ===========================================
+07/10/19 20:44:46 - Form: formCadastroMarcas
+07/10/19 20:44:46 - Caption: Cadastro de marcas
+07/10/19 20:44:46 - Erro:EDatabaseError
+07/10/19 20:44:46 - Erro:Cannot perform this operation on a closed dataset

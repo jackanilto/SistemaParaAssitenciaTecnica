@@ -285,7 +285,6 @@ object formExemploEmbeded: TformExemploEmbeded
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitTop = 2
     DesignSize = (
       917
       41)
@@ -387,7 +386,6 @@ object formExemploEmbeded: TformExemploEmbeded
     Color = 12895428
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 923
     object lblCadastro: TLabel
       Left = 16
       Top = 8
@@ -449,7 +447,6 @@ object formExemploEmbeded: TformExemploEmbeded
     Color = 8406532
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 923
     DesignSize = (
       917
       75)
@@ -906,7 +903,6 @@ object formExemploEmbeded: TformExemploEmbeded
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 589
     end
     object edtPesquisar: TEdit
       Left = 718
@@ -921,7 +917,6 @@ object formExemploEmbeded: TformExemploEmbeded
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 724
     end
   end
   object CardPanel1: TCardPanel
@@ -934,7 +929,6 @@ object formExemploEmbeded: TformExemploEmbeded
     BevelOuter = bvNone
     Caption = 'CardPanel1'
     TabOrder = 3
-    ExplicitWidth = 923
     object cardPanelCadatro: TCard
       Left = 0
       Top = 0
@@ -944,7 +938,6 @@ object formExemploEmbeded: TformExemploEmbeded
       Caption = 'Cadastro'
       CardIndex = 0
       TabOrder = 0
-      ExplicitWidth = 923
     end
     object cardPanelConsulta: TCard
       Left = 0
@@ -954,7 +947,6 @@ object formExemploEmbeded: TformExemploEmbeded
       Caption = 'Consultar'
       CardIndex = 1
       TabOrder = 1
-      ExplicitWidth = 923
       object Panel4: TPanel
         Left = 0
         Top = 360
@@ -965,7 +957,6 @@ object formExemploEmbeded: TformExemploEmbeded
         Color = 12895428
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 923
         DesignSize = (
           917
           45)
@@ -1128,12 +1119,18 @@ object formExemploEmbeded: TformExemploEmbeded
         Width = 917
         Height = 360
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
+        TitleFont.Height = -13
+        TitleFont.Name = 'Segoe UI'
+        TitleFont.Style = [fsBold]
       end
     end
   end

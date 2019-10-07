@@ -6,7 +6,8 @@ uses
   Data.DB, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error,
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
-  FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids;
+  FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
+  Vcl.Forms;
 
 type
   iConexaoQuery = interface
@@ -98,11 +99,47 @@ type
     function gravarLog: iGravarLogOperacoes;
   end;
 
+  iCriarJanelas = interface
+    ['{BEA3A61C-1058-4F51-B6AB-C488A1B18E1D}']
+    function formShow(form: TForm; nomeForm: string): iCriarJanelas;
+  end;
+
+  iCadastroMarcas = interface
+    ['{8E103BB1-A4BC-4EA6-AB36-339FDDF2E46B}']
+
+    function getCampo(value: string): iCadastroMarcas;
+    function getValor(value: string): iCadastroMarcas;
+    function getDataInicial(value: TDate): iCadastroMarcas;
+    function getDataFinal(value: TDate): iCadastroMarcas;
+    function open(value: string): iCadastroMarcas;
+    function pesquisar: iCadastroMarcas;
+    function ExecSql: iCadastroMarcas;
+    function sqlPesquisa: iCadastroMarcas;
+    function sqlPesquisaData: iCadastroMarcas;
+    function sqlPesquisaEstatica: iCadastroMarcas;
+
+    function abrir: iCadastroMarcas;
+    function inserir: iCadastroMarcas;
+    function gravar: iCadastroMarcas;
+    function deletar: iCadastroMarcas;
+    function atualizar: iCadastroMarcas;
+    function editar: iCadastroMarcas;
+    function cancelar: iCadastroMarcas;
+    function fecharQuery: iCadastroMarcas;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroMarcas;
+    function ordenarGrid(column: TColumn): iCadastroMarcas;
+
+    function getCodigo(value: integer): iCadastroMarcas;
+    function getMarca(value: string): iCadastroMarcas;
+  end;
+
   iFactory = interface
     ['{05E76D27-7C57-4506-880D-F3720CC622E8}']
     function obertValorPorExtenso: iObterValorPorExtenso;
     function oberterDataHoraPorExtenso: iObterDataHoraPorExtenso;
     function CalcularJuros: iCalcularJuros;
+    function criarJanela:iCriarJanelas;
   end;
 
   iFactoryEntity = interface

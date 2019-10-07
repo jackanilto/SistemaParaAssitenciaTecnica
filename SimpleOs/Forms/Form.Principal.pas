@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls, Vcl.ExtCtrls,
   Vcl.Buttons,
   Vcl.CategoryButtons, System.ImageList, Vcl.ImgList, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus;
+  Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus, UFactory;
 
 type
   TformPrincipal = class(TForm)
@@ -50,6 +50,7 @@ type
     PopupMenuFuncionario: TPopupMenu;
     Sair1: TMenuItem;
     Alterarsenha1: TMenuItem;
+    acCadastroMarcas: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -60,6 +61,7 @@ type
     procedure acExtrasExecute(Sender: TObject);
     procedure acSobreExecute(Sender: TObject);
     procedure acConfiguracoesExecute(Sender: TObject);
+    procedure acCadastroMarcasExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -76,7 +78,13 @@ implementation
 
 {$R *.dfm}
 
-uses UForm.Exemplo.Embeded;
+uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas;
+
+procedure TformPrincipal.acCadastroMarcasExecute(Sender: TObject);
+begin
+  formCadastroMarcas := TformCadastroMarcas.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroMarcas, '')
+end;
 
 procedure TformPrincipal.acCadastrosExecute(Sender: TObject);
 begin
@@ -160,14 +168,14 @@ procedure TformPrincipal.Button1Click(Sender: TObject);
 begin
 
   formExemploEmbeded := TformExemploEmbeded.Create(self);
-//  formExemploEmbeded.Parent := pnlform;
-//  formExemploEmbeded.Show;
+  // formExemploEmbeded.Parent := pnlform;
+  // formExemploEmbeded.Show;
 
-   try
-   formExemploEmbeded.ShowModal;
-   finally
-   formExemploEmbeded.Free;
-   end;
+  try
+    formExemploEmbeded.ShowModal;
+  finally
+    formExemploEmbeded.Free;
+  end;
 
 end;
 

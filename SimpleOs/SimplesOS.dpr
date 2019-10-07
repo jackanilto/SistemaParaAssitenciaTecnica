@@ -15,7 +15,11 @@ uses
   UClasse.Entity in 'Classes\Entity\UClasse.Entity.pas',
   UClasse.Entity.Table in 'Classes\Entity\UClasse.Entity.Table.pas',
   UDados.Conexao in 'DataModule\UDados.Conexao.pas' {DataModule1: TDataModule},
-  UForm.Exemplo.Embeded in 'Forms\Exemplos\UForm.Exemplo.Embeded.pas' {formExemploEmbeded};
+  UForm.Exemplo.Embeded in 'Forms\Exemplos\UForm.Exemplo.Embeded.pas' {formExemploEmbeded},
+  UClasse.Entity.Marcas in 'Classes\Entity\UClasse.Entity.Marcas.pas',
+  Form.Cadastro.Marcas in 'Forms\Form.Cadastro.Marcas.pas' {formCadastroMarcas},
+  UClasse.Criar.Janela in 'Classes\UClasse.Criar.Janela.pas',
+  UFactory in 'Classes\Factory\UFactory.pas';
 
 {$R *.res}
 

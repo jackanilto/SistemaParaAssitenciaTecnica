@@ -5,8 +5,8 @@ object DataModule1: TDataModule1
   object conexao: TFDConnection
     Params.Strings = (
       
-        'Database=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTe' +
-        'cnica\SimpleOs\Banco\BD_SMART_OS.FDB'
+        'Database=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaT' +
+        'ecnica\SimpleOs\Banco\BD_SIMPLE_OS.FDB'
       'User_Name=sysdba'
       'Password=masterkey'
       'Port=3050'
