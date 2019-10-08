@@ -51,6 +51,7 @@ type
     Sair1: TMenuItem;
     Alterarsenha1: TMenuItem;
     acCadastroMarcas: TAction;
+    acCadastroGrupos: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -62,6 +63,7 @@ type
     procedure acSobreExecute(Sender: TObject);
     procedure acConfiguracoesExecute(Sender: TObject);
     procedure acCadastroMarcasExecute(Sender: TObject);
+    procedure acCadastroGruposExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -78,7 +80,13 @@ implementation
 
 {$R *.dfm}
 
-uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas;
+uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos;
+
+procedure TformPrincipal.acCadastroGruposExecute(Sender: TObject);
+begin
+  formCadastroGrupos := TformCadastroGrupos.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroGrupos, '')
+end;
 
 procedure TformPrincipal.acCadastroMarcasExecute(Sender: TObject);
 begin

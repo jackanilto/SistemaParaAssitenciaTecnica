@@ -34,7 +34,6 @@ type
     function getDataInicial(value: TDate): iCadastroMarcas;
     function getDataFinal(value: TDate): iCadastroMarcas;
     function open(value: string): iCadastroMarcas;
-    function pesquisar: iCadastroMarcas;
     function ExecSql: iCadastroMarcas;
     function sqlPesquisa: iCadastroMarcas;
     function sqlPesquisaData: iCadastroMarcas;
@@ -81,7 +80,7 @@ end;
 function TEntityMarcas.cancelar: iCadastroMarcas;
 begin
   FQuery.TQuery.Cancel;
-//  FQuery.TQuery.close;
+  // FQuery.TQuery.close;
 end;
 
 function TEntityMarcas.codigoCadastro(sp: string): integer;
@@ -153,7 +152,7 @@ end;
 function TEntityMarcas.getCampo(value: string): iCadastroMarcas;
 begin
   result := self;
-  FQuery.getCampo(value);
+  FCampo := value;
 end;
 
 function TEntityMarcas.getCodigo(value: integer): iCadastroMarcas;
@@ -185,7 +184,7 @@ end;
 function TEntityMarcas.getValor(value: string): iCadastroMarcas;
 begin
   result := self;
-  FQuery.getValor(value);
+  FValor := UpperCase(value);
 end;
 
 function TEntityMarcas.Gravar: iCadastroMarcas;
@@ -204,7 +203,6 @@ begin
 
   try
     FQuery.TQuery.Post;
-//    showmessage('Operação realizada com sucesso!');
   except
     on e: Exception do
     begin
@@ -231,8 +229,6 @@ begin
   FQuery.TQuery.FieldByName('marca').DisplayLabel := 'Marca';
   FQuery.TQuery.FieldByName('marca').DisplayWidth := 50;
 
-  // FQuery.TQuery.SQL.Add('order by id desc');
-
   value.DataSet := FQuery.TQuery;
 
 end;
@@ -255,11 +251,6 @@ begin
   else
     FQuery.TQuery.IndexFieldNames := column.FieldName;
 
-end;
-
-function TEntityMarcas.pesquisar: iCadastroMarcas;
-begin
-  result := self;
 end;
 
 function TEntityMarcas.sqlPesquisa: iCadastroMarcas;

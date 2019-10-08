@@ -1,0 +1,13 @@
+inherited formCadastroGrupos: TformCadastroGrupos
+  Caption = 'Cadastro de grupos'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited lblCaption: TLabel
+      Width = 140
+      Caption = 'Cadastro de grupos'
+      ExplicitLeft = 195
+      ExplicitWidth = 140
+    end
+  end
+end

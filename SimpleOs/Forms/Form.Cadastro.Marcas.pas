@@ -7,7 +7,8 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces, UClasse.Entity.Marcas;
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces, UClasse.Entity.Marcas,
+  Vcl.Menus;
 
 type
   TformCadastroMarcas = class(TformExemploEmbeded)
@@ -25,6 +26,9 @@ type
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBGrid1CellClick(Column: TColumn);
   private
     { Private declarations }
     FEntityMarcas: iCadastroMarcas;
@@ -47,10 +51,42 @@ begin
   edtMarca.Text := DataSource1.DataSet.FieldByName('MARCA').AsString;
 end;
 
+procedure TformCadastroMarcas.DBGrid1CellClick(Column: TColumn);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+  end
+  else
+  begin
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+  end;
+end;
+
 procedure TformCadastroMarcas.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
   FEntityMarcas.ordenarGrid(Column);
+end;
+
+procedure TformCadastroMarcas.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Marca' then
+    campo := 'MARCA';
+
+  FEntityMarcas.getCampo(campo).getValor(edtPesquisar.Text)
+    .sqlPesquisa.listarGrid(DataSource1);
+
 end;
 
 procedure TformCadastroMarcas.FormCreate(Sender: TObject);
@@ -74,8 +110,8 @@ end;
 procedure TformCadastroMarcas.sbEditarClick(Sender: TObject);
 begin
   FEntityMarcas.editar;
-  edtMarca.SetFocus;
   inherited;
+  edtMarca.SetFocus;
 end;
 
 procedure TformCadastroMarcas.sbExcluirClick(Sender: TObject);

@@ -19,7 +19,9 @@ uses
   UClasse.Entity.Marcas in 'Classes\Entity\UClasse.Entity.Marcas.pas',
   Form.Cadastro.Marcas in 'Forms\Form.Cadastro.Marcas.pas' {formCadastroMarcas},
   UClasse.Criar.Janela in 'Classes\UClasse.Criar.Janela.pas',
-  UFactory in 'Classes\Factory\UFactory.pas';
+  UFactory in 'Classes\Factory\UFactory.pas',
+  UClasse.Entity.Grupos in 'Classes\Entity\UClasse.Entity.Grupos.pas',
+  Form.Cadastro.Grupos in 'Forms\Form.Cadastro.Grupos.pas' {formCadastroGrupos};
 
 {$R *.res}
 

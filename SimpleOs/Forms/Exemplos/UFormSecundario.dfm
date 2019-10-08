@@ -156,7 +156,7 @@ object Form2: TForm2
     Top = 72
   end
   object DataSource2: TDataSource
-    Left = 304
-    Top = 288
+    Left = 528
+    Top = 240
   end
 end

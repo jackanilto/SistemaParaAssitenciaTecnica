@@ -131,6 +131,11 @@
         </DCCReference>
         <DCCReference Include="Classes\UClasse.Criar.Janela.pas"/>
         <DCCReference Include="Classes\Factory\UFactory.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Grupos.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Grupos.pas">
+            <Form>formCadastroGrupos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

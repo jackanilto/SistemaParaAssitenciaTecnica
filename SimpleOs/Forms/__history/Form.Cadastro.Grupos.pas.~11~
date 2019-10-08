@@ -1,0 +1,66 @@
+unit Form.Cadastro.Grupos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
+  Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces, UClasse.Entity.Grupos;
+
+type
+  TformCadastroGrupos = class(TformExemploEmbeded)
+    DataSource1: TDataSource;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtCodigo: TEdit;
+    edtGrupo: TEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure sbNovoClick(Sender: TObject);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+  private
+    { Private declarations }
+    FEntityGrupos: iCadastroGrupos;
+  public
+    { Public declarations }
+  end;
+
+var
+  formCadastroGrupos: TformCadastroGrupos;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformCadastroGrupos.DataSource1DataChange(Sender: TObject;
+  Field: TField);
+begin
+  inherited;
+  edtCodigo.Text := inttostr(DataSource1.DataSet.FieldByName('ID').AsInteger);
+  edtGrupo.Text := DataSource1.DataSet.FieldByName('GRUPO').AsString;
+end;
+
+procedure TformCadastroGrupos.FormCreate(Sender: TObject);
+begin
+  inherited;
+
+  FEntityGrupos := TEntityGrupos.new;
+
+end;
+
+procedure TformCadastroGrupos.FormShow(Sender: TObject);
+begin
+  inherited;
+  FEntityGrupos.abrir.listarGrid(DataSource1);
+end;
+
+procedure TformCadastroGrupos.sbNovoClick(Sender: TObject);
+begin
+  inherited;
+  FEntityGrupos.inserir;
+  edtGrupo.SetFocus;
+end;
+
+end.

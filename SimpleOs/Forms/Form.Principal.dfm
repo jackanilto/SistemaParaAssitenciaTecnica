@@ -5317,6 +5317,7 @@ object formPrincipal: TformPrincipal
     Color = 8408635
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = -6
     DesignSize = (
       1061
       57)
@@ -7133,6 +7134,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acCadastroMarcas
+            end
+            item
+              Action = acCadastroGrupos
             end>
           TextColor = 13402157
         end>
@@ -7159,7 +7163,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 150
   end
   object spvRelatorio: TSplitView
     Left = 290
@@ -7172,7 +7175,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 150
   end
   object spvExtras: TSplitView
     Left = 290
@@ -7186,7 +7188,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 150
   end
   object spvSobre: TSplitView
     Left = 290
@@ -7200,7 +7201,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 150
   end
   object spvConfiguracoes: TSplitView
     Left = 290
@@ -7214,7 +7214,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 150
   end
   object ImageList1: TImageList
     Height = 24
@@ -7222,7 +7221,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C010107000800080018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070008000C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7863,6 +7862,10 @@ object formPrincipal: TformPrincipal
     object acCadastroMarcas: TAction
       Caption = 'Marcas'
       OnExecute = acCadastroMarcasExecute
+    end
+    object acCadastroGrupos: TAction
+      Caption = 'Grupos'
+      OnExecute = acCadastroGruposExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

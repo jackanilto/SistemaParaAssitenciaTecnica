@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  Vcl.Buttons, Vcl.StdCtrls, Vcl.WinXPanels, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Vcl.Buttons, Vcl.StdCtrls, Vcl.WinXPanels, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.Menus;
 
 type
   TformExemploEmbeded = class(TForm)
@@ -40,6 +41,9 @@ type
     DBGrid1: TDBGrid;
     sbImprimir: TSpeedButton;
     sbExportar: TSpeedButton;
+    PopupMenu1: TPopupMenu;
+    Editar1: TMenuItem;
+    Excluir1: TMenuItem;
     procedure sbFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -56,6 +60,9 @@ type
     procedure sbCancelarClick(Sender: TObject);
     procedure lblCadastroClick(Sender: TObject);
     procedure lblConsultaClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Editar1Click(Sender: TObject);
+    procedure Excluir1Click(Sender: TObject);
   private
     { Private declarations }
     procedure ativarDesativarNovo;
@@ -129,9 +136,55 @@ begin
   sbCancelar.Enabled := false;
 end;
 
+procedure TformExemploEmbeded.Editar1Click(Sender: TObject);
+begin
+  if sbEditar.Enabled = true then
+    sbEditar.Click;
+end;
+
+procedure TformExemploEmbeded.Excluir1Click(Sender: TObject);
+begin
+  if sbExcluir.Enabled = true then
+    sbExcluir.Click;
+end;
+
 procedure TformExemploEmbeded.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := true;
+end;
+
+procedure TformExemploEmbeded.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = 113 then
+  begin
+    if sbNovo.Enabled = true then
+      sbNovo.Click;
+  end;
+
+  if Key = 114 then
+  begin
+    if sbSalvar.Enabled = true then
+      sbSalvar.Click;
+  end;
+
+  if Key = 115 then
+  begin
+    if sbEditar.Enabled = true then
+      sbEditar.Click;
+  end;
+
+  if Key = 116 then
+  begin
+    if sbExcluir.Enabled = true then
+      sbExcluir.Click;
+  end;
+
+  if Key = 117 then
+  begin
+    if sbCancelar.Enabled = true then
+      sbCancelar.Click;
+  end;
 end;
 
 procedure TformExemploEmbeded.FormShow(Sender: TObject);
@@ -139,6 +192,7 @@ begin
 
   pnlFocoCadastro.Visible := false;
   CardPanel1.ActiveCard := cardPanelConsulta;
+  ativarDesativarSalvar;
 
 end;
 

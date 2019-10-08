@@ -49,3 +49,53 @@ GEN_MARCA_ID
 07/10/19 20:44:46 - Caption: Cadastro de marcas
 07/10/19 20:44:46 - Erro:EDatabaseError
 07/10/19 20:44:46 - Erro:Cannot perform this operation on a closed dataset
+08/10/19 10:34:09 - ===========================================
+08/10/19 10:34:09 - Form: formCadastroMarcas
+08/10/19 10:34:09 - Caption: Cadastro de marcas
+08/10/19 10:34:09 - Erro:EInvalidOperation
+08/10/19 10:34:09 - Erro:Cannot focus a disabled or invisible window
+08/10/19 10:34:17 - ===========================================
+08/10/19 10:34:17 - Form: formCadastroMarcas
+08/10/19 10:34:17 - Caption: Cadastro de marcas
+08/10/19 10:34:17 - Erro:EInvalidOperation
+08/10/19 10:34:17 - Erro:Cannot focus a disabled or invisible window
+08/10/19 10:43:09 - ===========================================
+08/10/19 10:43:09 - Form: formCadastroMarcas
+08/10/19 10:43:09 - Caption: Cadastro de marcas
+08/10/19 10:43:09 - Erro:Exception
+08/10/19 10:43:09 - Erro:Informe por qual campo deseja pequisar.
+08/10/19 10:43:15 - ===========================================
+08/10/19 10:43:15 - Form: formCadastroMarcas
+08/10/19 10:43:15 - Caption: Cadastro de marcas
+08/10/19 10:43:15 - Erro:Exception
+08/10/19 10:43:15 - Erro:Informe por qual campo deseja pequisar.
+08/10/19 10:45:06 - ===========================================
+08/10/19 10:45:06 - Form: formCadastroMarcas
+08/10/19 10:45:06 - Caption: Cadastro de marcas
+08/10/19 10:45:06 - Erro:Exception
+08/10/19 10:45:06 - Erro:Informe por qual campo deseja pequisar.
+08/10/19 10:45:48 - ===========================================
+08/10/19 10:45:48 - Form: formCadastroMarcas
+08/10/19 10:45:48 - Caption: Cadastro de marcas
+08/10/19 10:45:48 - Erro:Exception
+08/10/19 10:45:48 - Erro:Informe por qual campo deseja pequisar.
+08/10/19 10:49:26 - ===========================================
+08/10/19 10:49:26 - Form: formCadastroMarcas
+08/10/19 10:49:26 - Caption: Cadastro de marcas
+08/10/19 10:49:26 - Erro:Exception
+08/10/19 10:49:26 - Erro:Informe por qual campo deseja pequisar.
+08/10/19 10:50:48 - ===========================================
+08/10/19 10:50:48 - Form: formCadastroMarcas
+08/10/19 10:50:48 - Caption: Cadastro de marcas
+08/10/19 10:50:48 - Erro:Exception
+08/10/19 10:50:48 - Erro:Informe por qual campo deseja pequisar.
+08/10/19 11:55:01 - ===========================================
+08/10/19 11:55:01 - Form: formCadastroGrupos
+08/10/19 11:55:01 - Caption: Cadastro de grupos
+08/10/19 11:55:01 - Erro:Exception
+08/10/19 11:55:01 - Erro:Digite um valor válido no campo GRUPO.
+08/10/19 11:55:33 - ===========================================
+08/10/19 11:55:33 - Form: formCadastroGrupos
+08/10/19 11:55:33 - Caption: Cadastro de grupos
+08/10/19 11:55:33 - Erro:Exception
+08/10/19 11:55:33 - Erro:Digite um valor válido no campo GRUPO.

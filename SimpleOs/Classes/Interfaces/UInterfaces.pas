@@ -112,7 +112,6 @@ type
     function getDataInicial(value: TDate): iCadastroMarcas;
     function getDataFinal(value: TDate): iCadastroMarcas;
     function open(value: string): iCadastroMarcas;
-    function pesquisar: iCadastroMarcas;
     function ExecSql: iCadastroMarcas;
     function sqlPesquisa: iCadastroMarcas;
     function sqlPesquisaData: iCadastroMarcas;
@@ -132,6 +131,37 @@ type
 
     function getCodigo(value: integer): iCadastroMarcas;
     function getMarca(value: string): iCadastroMarcas;
+  end;
+
+
+  iCadastroGrupos = interface
+    ['{4B0F56B8-F9E9-48E8-ABFE-800B770DFF21}']
+    function nomeTabela(value: string): iCadastroGrupos;
+    function getCampo(value: string): iCadastroGrupos;
+    function getValor(value: string): iCadastroGrupos;
+    function getDataInicial(value: TDate): iCadastroGrupos;
+    function getDataFinal(value: TDate): iCadastroGrupos;
+    function open(value: string): iCadastroGrupos;
+    function ExecSql: iCadastroGrupos;
+    function sqlPesquisa: iCadastroGrupos;
+    function sqlPesquisaData: iCadastroGrupos;
+    function sqlPesquisaEstatica: iCadastroGrupos;
+
+    function abrir: iCadastroGrupos;
+    function inserir: iCadastroGrupos;
+    function gravar: iCadastroGrupos;
+    function deletar: iCadastroGrupos;
+    function atualizar: iCadastroGrupos;
+    function editar: iCadastroGrupos;
+    function cancelar: iCadastroGrupos;
+    function fecharQuery: iCadastroGrupos;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroGrupos;
+    function ordenarGrid(column: TColumn): iCadastroGrupos;
+
+    function getCodigo(value: integer): iCadastroGrupos;
+    function getGrupo(value: string): iCadastroGrupos;
+
   end;
 
   iFactory = interface
