@@ -21,7 +21,9 @@ uses
   UClasse.Criar.Janela in 'Classes\UClasse.Criar.Janela.pas',
   UFactory in 'Classes\Factory\UFactory.pas',
   UClasse.Entity.Grupos in 'Classes\Entity\UClasse.Entity.Grupos.pas',
-  Form.Cadastro.Grupos in 'Forms\Form.Cadastro.Grupos.pas' {formCadastroGrupos};
+  Form.Cadastro.Grupos in 'Forms\Form.Cadastro.Grupos.pas' {formCadastroGrupos},
+  Form.Cadastro.Forma.Pagamento in 'Forms\Form.Cadastro.Forma.Pagamento.pas' {formFormaPagamento},
+  UClasse.Entity.Forma.Pagamento in 'Classes\Entity\UClasse.Entity.Forma.Pagamento.pas';
 
 {$R *.res}
 

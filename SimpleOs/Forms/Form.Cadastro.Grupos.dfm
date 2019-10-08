@@ -8,8 +8,10 @@ inherited formCadastroGrupos: TformCadastroGrupos
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 868
+    ExplicitWidth = 868
     inherited sbFechar: TSpeedButton
       Left = 816
+      ExplicitLeft = 816
     end
     inherited lblCaption: TLabel
       Left = 146
@@ -21,31 +23,44 @@ inherited formCadastroGrupos: TformCadastroGrupos
   end
   inherited Panel2: TPanel
     Width = 868
+    ExplicitWidth = 868
   end
   inherited Panel3: TPanel
     Top = 326
     Width = 868
+    ExplicitTop = 326
+    ExplicitWidth = 868
     inherited Label4: TLabel
       Left = 534
+      ExplicitLeft = 534
     end
     inherited Label5: TLabel
       Left = 669
+      ExplicitLeft = 669
     end
     inherited cbPesquisar: TComboBox
       Left = 534
+      Items.Strings = (
+        'C'#243'digo'
+        'Grupo')
+      ExplicitLeft = 534
     end
     inherited edtPesquisar: TEdit
       Left = 669
+      OnKeyUp = edtPesquisarKeyUp
+      ExplicitLeft = 669
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 868
     Height = 245
-    ActiveCard = cardPanelCadatro
+    ExplicitWidth = 868
+    ExplicitHeight = 245
     inherited cardPanelCadatro: TCard
       Width = 868
       Height = 245
-      ExplicitTop = -1
+      ExplicitLeft = -8
+      ExplicitTop = 6
       ExplicitWidth = 868
       ExplicitHeight = 245
       object Label1: TLabel
@@ -76,10 +91,10 @@ inherited formCadastroGrupos: TformCadastroGrupos
       end
       object edtCodigo: TEdit
         Left = 48
-        Top = 36
+        Top = 39
         Width = 121
         Height = 25
-        Enabled = False
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -93,6 +108,7 @@ inherited formCadastroGrupos: TformCadastroGrupos
         Top = 95
         Width = 265
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -105,20 +121,32 @@ inherited formCadastroGrupos: TformCadastroGrupos
     inherited cardPanelConsulta: TCard
       Width = 868
       Height = 245
+      ExplicitWidth = 868
+      ExplicitHeight = 245
       inherited Panel4: TPanel
         Top = 200
         Width = 868
+        ExplicitTop = 200
+        ExplicitWidth = 868
         inherited sbImprimir: TSpeedButton
           Left = 593
+          Top = 6
+          Visible = False
+          ExplicitLeft = 593
+          ExplicitTop = 6
         end
         inherited sbExportar: TSpeedButton
           Left = 704
+          Visible = False
+          ExplicitLeft = 704
         end
       end
       inherited DBGrid1: TDBGrid
         Width = 868
         Height = 200
         DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
+        OnTitleClick = DBGrid1TitleClick
       end
     end
   end

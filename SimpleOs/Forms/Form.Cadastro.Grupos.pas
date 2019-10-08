@@ -21,6 +21,13 @@ type
     procedure sbNovoClick(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure sbSalvarClick(Sender: TObject);
+    procedure sbEditarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBGrid1TitleClick(Column: TColumn);
   private
     { Private declarations }
     FEntityGrupos: iCadastroGrupos;
@@ -43,6 +50,44 @@ begin
   edtGrupo.Text := DataSource1.DataSet.FieldByName('GRUPO').AsString;
 end;
 
+procedure TformCadastroGrupos.DBGrid1CellClick(Column: TColumn);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+  end
+  else
+  begin
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+  end;
+end;
+
+procedure TformCadastroGrupos.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FEntityGrupos.ordenarGrid(Column);
+end;
+
+procedure TformCadastroGrupos.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Grupo' then
+    campo := 'GRUPO';
+
+  FEntityGrupos.getCampo(campo).getValor(edtPesquisar.Text)
+    .sqlPesquisa.listarGrid(DataSource1);
+
+end;
+
 procedure TformCadastroGrupos.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -55,6 +100,27 @@ procedure TformCadastroGrupos.FormShow(Sender: TObject);
 begin
   inherited;
   FEntityGrupos.abrir.listarGrid(DataSource1);
+end;
+
+procedure TformCadastroGrupos.sbCancelarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityGrupos.cancelar;
+end;
+
+procedure TformCadastroGrupos.sbEditarClick(Sender: TObject);
+begin
+
+  FEntityGrupos.editar;
+  inherited;
+  edtGrupo.SetFocus;
+
+end;
+
+procedure TformCadastroGrupos.sbExcluirClick(Sender: TObject);
+begin
+  inherited;
+  FEntityGrupos.deletar;
 end;
 
 procedure TformCadastroGrupos.sbNovoClick(Sender: TObject);

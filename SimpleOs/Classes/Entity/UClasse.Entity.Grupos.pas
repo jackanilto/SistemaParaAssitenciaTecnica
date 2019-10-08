@@ -188,7 +188,7 @@ end;
 function TEntityGrupos.getValor(value: string): iCadastroGrupos;
 begin
   result := self;
-  FValor := value;
+  FValor := UpperCase(value);
   // FQuery.getValor(value);
 end;
 

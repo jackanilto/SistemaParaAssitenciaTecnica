@@ -133,7 +133,6 @@ type
     function getMarca(value: string): iCadastroMarcas;
   end;
 
-
   iCadastroGrupos = interface
     ['{4B0F56B8-F9E9-48E8-ABFE-800B770DFF21}']
     function nomeTabela(value: string): iCadastroGrupos;
@@ -164,12 +163,43 @@ type
 
   end;
 
+  iFormaPagamento = interface
+    ['{4B0F56B8-F9E9-48E8-ABFE-800B770DFF21}']
+
+    function nomeTabela(value: string): iFormaPagamento;
+    function getCampo(value: string): iFormaPagamento;
+    function getValor(value: string): iFormaPagamento;
+    function getDataInicial(value: TDate): iFormaPagamento;
+    function getDataFinal(value: TDate): iFormaPagamento;
+    function open(value: string): iFormaPagamento;
+    function ExecSql: iFormaPagamento;
+    function sqlPesquisa: iFormaPagamento;
+    function sqlPesquisaData: iFormaPagamento;
+    function sqlPesquisaEstatica: iFormaPagamento;
+
+    function abrir: iFormaPagamento;
+    function inserir: iFormaPagamento;
+    function gravar: iFormaPagamento;
+    function deletar: iFormaPagamento;
+    function atualizar: iFormaPagamento;
+    function editar: iFormaPagamento;
+    function cancelar: iFormaPagamento;
+    function fecharQuery: iFormaPagamento;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iFormaPagamento;
+    function ordenarGrid(column: TColumn): iFormaPagamento;
+
+    function getCodigo(value: integer): iFormaPagamento;
+    function getFormaPagamento(value: string): iFormaPagamento;
+
+  end;
+
   iFactory = interface
     ['{05E76D27-7C57-4506-880D-F3720CC622E8}']
     function obertValorPorExtenso: iObterValorPorExtenso;
     function oberterDataHoraPorExtenso: iObterDataHoraPorExtenso;
     function CalcularJuros: iCalcularJuros;
-    function criarJanela:iCriarJanelas;
+    function criarJanela: iCriarJanelas;
   end;
 
   iFactoryEntity = interface

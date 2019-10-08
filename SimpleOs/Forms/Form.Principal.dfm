@@ -6205,8 +6205,8 @@ object formPrincipal: TformPrincipal
     end
   end
   object Panel2: TPanel
-    Left = 290
-    Top = 81
+    Left = 311
+    Top = 73
     Width = 869
     Height = 136
     Align = alCustom
@@ -7085,20 +7085,22 @@ object formPrincipal: TformPrincipal
   object spvCadastros: TSplitView
     Left = 150
     Top = 57
-    Width = 140
+    Width = 171
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
     DockSite = True
-    OpenedWidth = 140
+    OpenedWidth = 171
     Placement = svpLeft
     TabOrder = 3
+    ExplicitLeft = 144
+    ExplicitTop = 60
     object CategoryButtons3: TCategoryButtons
-      Left = -4
+      Left = 0
       Top = -18
-      Width = 147
-      Height = 209
+      Width = 165
+      Height = 299
       Align = alCustom
       BevelInner = bvNone
       BevelOuter = bvNone
@@ -7137,6 +7139,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acCadastroGrupos
+            end
+            item
+              Action = acFormaPagamento
             end>
           TextColor = 13402157
         end>
@@ -7154,7 +7159,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 290
+    Left = 321
     Top = 57
     Width = 0
     Height = 467
@@ -7163,9 +7168,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
+    ExplicitLeft = 290
   end
   object spvRelatorio: TSplitView
-    Left = 290
+    Left = 321
     Top = 57
     Width = 0
     Height = 467
@@ -7175,9 +7181,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 290
   end
   object spvExtras: TSplitView
-    Left = 290
+    Left = 321
     Top = 57
     Width = 0
     Height = 467
@@ -7188,9 +7195,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 290
   end
   object spvSobre: TSplitView
-    Left = 290
+    Left = 321
     Top = 57
     Width = 0
     Height = 467
@@ -7201,9 +7209,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 290
   end
   object spvConfiguracoes: TSplitView
-    Left = 290
+    Left = 321
     Top = 57
     Width = 0
     Height = 467
@@ -7214,6 +7223,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 290
   end
   object ImageList1: TImageList
     Height = 24
@@ -7221,7 +7231,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C0101070008000C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107000800100018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7866,6 +7876,10 @@ object formPrincipal: TformPrincipal
     object acCadastroGrupos: TAction
       Caption = 'Grupos'
       OnExecute = acCadastroGruposExecute
+    end
+    object acFormaPagamento: TAction
+      Caption = 'Meios de pagamento'
+      OnExecute = acFormaPagamentoExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

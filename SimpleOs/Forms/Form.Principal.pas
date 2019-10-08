@@ -8,7 +8,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls, Vcl.ExtCtrls,
   Vcl.Buttons,
   Vcl.CategoryButtons, System.ImageList, Vcl.ImgList, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus, UFactory;
+  Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus, UFactory,
+  Form.Cadastro.Forma.Pagamento;
 
 type
   TformPrincipal = class(TForm)
@@ -52,6 +53,7 @@ type
     Alterarsenha1: TMenuItem;
     acCadastroMarcas: TAction;
     acCadastroGrupos: TAction;
+    acFormaPagamento: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -64,6 +66,7 @@ type
     procedure acConfiguracoesExecute(Sender: TObject);
     procedure acCadastroMarcasExecute(Sender: TObject);
     procedure acCadastroGruposExecute(Sender: TObject);
+    procedure acFormaPagamentoExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -129,6 +132,12 @@ begin
     spvExtras.Opened := true;
     F_SplitView := spvExtras;
   end;
+end;
+
+procedure TformPrincipal.acFormaPagamentoExecute(Sender: TObject);
+begin
+  formFormaPagamento := TformFormaPagamento.Create(self);
+  TFactory.new.criarJanela.formShow(formFormaPagamento, '');
 end;
 
 procedure TformPrincipal.acMovimentacaoExecute(Sender: TObject);

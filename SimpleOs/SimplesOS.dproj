@@ -136,6 +136,11 @@
             <Form>formCadastroGrupos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\Form.Cadastro.Forma.Pagamento.pas">
+            <Form>formFormaPagamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Forma.Pagamento.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
