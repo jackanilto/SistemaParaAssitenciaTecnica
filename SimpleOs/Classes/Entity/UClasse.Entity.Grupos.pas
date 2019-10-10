@@ -135,9 +135,7 @@ begin
       .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
     FQuery.TQuery.Edit;
-    FQuery.TQuery.FieldByName('grupo').AsString := FValor;
-    FQuery.TQuery.Post;
-    showmessage('Operação realizada com sucesso!');
+
   end;
 end;
 

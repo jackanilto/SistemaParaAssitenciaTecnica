@@ -54,6 +54,8 @@ type
     acCadastroMarcas: TAction;
     acCadastroGrupos: TAction;
     acFormaPagamento: TAction;
+    acTipoRetiradas: TAction;
+    acConfigurarParcela: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -67,6 +69,8 @@ type
     procedure acCadastroMarcasExecute(Sender: TObject);
     procedure acCadastroGruposExecute(Sender: TObject);
     procedure acFormaPagamentoExecute(Sender: TObject);
+    procedure acTipoRetiradasExecute(Sender: TObject);
+    procedure acConfigurarParcelaExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -83,7 +87,8 @@ implementation
 
 {$R *.dfm}
 
-uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos;
+uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
+  Form.Cadastro.Tipo.Retiradas, Form.Cadastro.Configurar.Parcelas;
 
 procedure TformPrincipal.acCadastroGruposExecute(Sender: TObject);
 begin
@@ -120,6 +125,12 @@ begin
     spvConfiguracoes.Opened := true;
     F_SplitView := spvConfiguracoes;
   end;
+end;
+
+procedure TformPrincipal.acConfigurarParcelaExecute(Sender: TObject);
+begin
+  formConfigurarParcelas := TformConfigurarParcelas.Create(self);
+  TFactory.new.criarJanela.formShow(formConfigurarParcelas, '');
 end;
 
 procedure TformPrincipal.acExtrasExecute(Sender: TObject);
@@ -179,6 +190,12 @@ begin
     spvSobre.Opened := true;
     F_SplitView := spvSobre;
   end;
+end;
+
+procedure TformPrincipal.acTipoRetiradasExecute(Sender: TObject);
+begin
+  formTipoRetiradas := TformTipoRetiradas.Create(self);
+  TFactory.new.criarJanela.formShow(formTipoRetiradas, '');
 end;
 
 procedure TformPrincipal.Button1Click(Sender: TObject);

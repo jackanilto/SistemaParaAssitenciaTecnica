@@ -1,0 +1,44 @@
+﻿unit Form.Cadastro.Tipo.Retiradas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
+  Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces,
+  UClasse.Entity.Tipo.Retiradas;
+
+type
+  TformTipoRetiradas = class(TformExemploEmbeded)
+    DataSource1: TDataSource;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    FTipoRetiradas: iTipoRetirada;
+  public
+    { Public declarations }
+  end;
+
+var
+  formTipoRetiradas: TformTipoRetiradas;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformTipoRetiradas.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FTipoRetiradas := TEntityTipoPagamento.new;
+end;
+
+procedure TformTipoRetiradas.FormShow(Sender: TObject);
+begin
+  inherited;
+FTipoRetiradas.
+end;
+
+end.

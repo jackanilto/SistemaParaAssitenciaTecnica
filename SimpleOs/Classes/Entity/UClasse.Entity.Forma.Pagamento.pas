@@ -25,7 +25,7 @@ type
     FDataFinal: TDate;
 
     FCodigo: integer;
-    FNome: string;
+    FFormaPagamento: string;
 
   public
 
@@ -82,7 +82,7 @@ end;
 function TEntityFormaPagamento.cancelar: iFormaPagamento;
 begin
   FQuery.TQuery.Cancel;
-  FQuery.TQuery.close;
+//  FQuery.TQuery.close;
 end;
 
 function TEntityFormaPagamento.codigoCadastro(sp: string): integer;
@@ -139,9 +139,7 @@ begin
       .gravarLog;
 
     FQuery.TQuery.Edit;
-    FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := FValor;
-    FQuery.TQuery.Post;
-    showmessage('Operação realizada com sucesso!');
+
   end;
 end;
 
@@ -159,7 +157,7 @@ end;
 function TEntityFormaPagamento.getCampo(value: string): iFormaPagamento;
 begin
   result := self;
-  FQuery.getCampo(value);
+  FCampo := value;
 end;
 
 function TEntityFormaPagamento.getCodigo(value: integer): iFormaPagamento;
@@ -184,13 +182,13 @@ function TEntityFormaPagamento.getFormaPagamento(value: string)
   : iFormaPagamento;
 begin
   result := self;
-  FNome := value;
+  FFormaPagamento := value;
 end;
 
 function TEntityFormaPagamento.getValor(value: string): iFormaPagamento;
 begin
   result := self;
-  FQuery.getValor(value);
+  FValor := UpperCase(value);
 end;
 
 function TEntityFormaPagamento.Gravar: iFormaPagamento;
@@ -200,9 +198,9 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('GEN_ESTORNO_VENDA_ID');
+      FQuery.codigoCadastro('SP_GEN_FORMAS_PAGAMENTO_ID');
 
-  FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := FNome;
+  FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := FFormaPagamento;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('FORMA_PAGAMENTO')
     .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
@@ -210,7 +208,7 @@ begin
 
   try
     FQuery.TQuery.Post;
-    showmessage('Operação realizada com sucesso!');
+//    showmessage('Operação realizada com sucesso!');
   except
     on e: exception do
     begin

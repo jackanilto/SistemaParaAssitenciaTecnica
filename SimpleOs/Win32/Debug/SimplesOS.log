@@ -99,3 +99,42 @@ GEN_MARCA_ID
 08/10/19 11:55:33 - Caption: Cadastro de grupos
 08/10/19 11:55:33 - Erro:Exception
 08/10/19 11:55:33 - Erro:Digite um valor válido no campo GRUPO.
+09/10/19 19:33:38 - ===========================================
+09/10/19 19:33:38 - Form: formFormaPagamento
+09/10/19 19:33:38 - Caption: Formas de pagamento
+09/10/19 19:33:38 - Erro:EIBNativeException
+09/10/19 19:33:38 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Procedure unknown
+GEN_ESTORNO_VENDA_ID
+09/10/19 19:35:15 - ===========================================
+09/10/19 19:35:15 - Form: formFormaPagamento
+09/10/19 19:35:15 - Caption: Formas de pagamento
+09/10/19 19:35:15 - Erro:EIBNativeException
+09/10/19 19:35:15 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Procedure unknown
+GEN_FORMAS_PAGAMENTO_ID
+09/10/19 19:36:03 - ===========================================
+09/10/19 19:36:03 - Form: formFormaPagamento
+09/10/19 19:36:03 - Caption: Formas de pagamento
+09/10/19 19:36:03 - Erro:EIBNativeException
+09/10/19 19:36:03 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Procedure unknown
+GEN_FORMAS_PAGAMENTO_ID
+09/10/19 19:44:41 - ===========================================
+09/10/19 19:44:41 - Form: formFormaPagamento
+09/10/19 19:44:41 - Caption: Formas de pagamento
+09/10/19 19:44:41 - Erro:Exception
+09/10/19 19:44:41 - Erro:Informe por qual campo deseja pequisar.
+09/10/19 19:45:30 - ===========================================
+09/10/19 19:45:30 - Form: formFormaPagamento
+09/10/19 19:45:30 - Caption: Formas de pagamento
+09/10/19 19:45:30 - Erro:Exception
+09/10/19 19:45:30 - Erro:Informe por qual campo deseja pequisar.
+09/10/19 20:04:01 - ===========================================
+09/10/19 20:04:01 - Form: formFormaPagamento
+09/10/19 20:04:01 - Caption: Formas de pagamento
+09/10/19 20:04:01 - Erro:EDatabaseError
+09/10/19 20:04:01 - Erro:Dataset not in edit or insert mode

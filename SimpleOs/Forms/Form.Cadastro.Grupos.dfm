@@ -59,8 +59,6 @@ inherited formCadastroGrupos: TformCadastroGrupos
     inherited cardPanelCadatro: TCard
       Width = 868
       Height = 245
-      ExplicitLeft = -8
-      ExplicitTop = 6
       ExplicitWidth = 868
       ExplicitHeight = 245
       object Label1: TLabel

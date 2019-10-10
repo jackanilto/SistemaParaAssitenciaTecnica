@@ -141,6 +141,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Forma.Pagamento.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Tipo.Retiradas.pas">
+            <Form>formTipoRetiradas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Tipo.Retiradas.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Configurar.Parcelas.pas">
+            <Form>formConfigurarParcelas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

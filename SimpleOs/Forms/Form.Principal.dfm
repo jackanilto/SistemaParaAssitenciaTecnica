@@ -5317,7 +5317,7 @@ object formPrincipal: TformPrincipal
     Color = 8408635
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -6
+    ExplicitTop = 10
     DesignSize = (
       1061
       57)
@@ -7094,11 +7094,9 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 171
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 144
-    ExplicitTop = 60
     object CategoryButtons3: TCategoryButtons
       Left = 0
-      Top = -18
+      Top = -29
       Width = 165
       Height = 299
       Align = alCustom
@@ -7142,6 +7140,12 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acFormaPagamento
+            end
+            item
+              Action = acTipoRetiradas
+            end
+            item
+              Action = acConfigurarParcela
             end>
           TextColor = 13402157
         end>
@@ -7168,7 +7172,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 290
   end
   object spvRelatorio: TSplitView
     Left = 321
@@ -7181,7 +7184,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 290
   end
   object spvExtras: TSplitView
     Left = 321
@@ -7195,7 +7197,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 290
   end
   object spvSobre: TSplitView
     Left = 321
@@ -7209,7 +7210,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 290
   end
   object spvConfiguracoes: TSplitView
     Left = 321
@@ -7223,7 +7223,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 290
   end
   object ImageList1: TImageList
     Height = 24
@@ -7231,7 +7230,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C010107000800100018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107000800140018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7880,6 +7879,14 @@ object formPrincipal: TformPrincipal
     object acFormaPagamento: TAction
       Caption = 'Meios de pagamento'
       OnExecute = acFormaPagamentoExecute
+    end
+    object acTipoRetiradas: TAction
+      Caption = 'Tipo retiradas'
+      OnExecute = acTipoRetiradasExecute
+    end
+    object acConfigurarParcela: TAction
+      Caption = 'Config. Parcela'
+      OnExecute = acConfigurarParcelaExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

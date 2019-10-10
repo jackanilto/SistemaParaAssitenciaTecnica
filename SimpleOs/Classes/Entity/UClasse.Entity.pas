@@ -2,12 +2,12 @@ unit UClasse.Entity;
 
 { Esta é uma classe de exemplo de funcionamento do processo de CRUD
   de formar RAD }
-  
-  {exemplo de captura e inserção de imagens no banco de dados 
-  
-    Image3.Picture.Assign(TGraphicField(sql_fotoFuncionario.FieldByName('foto')));
+
+{ exemplo de captura e inserção de imagens no banco de dados
+
+  Image3.Picture.Assign(TGraphicField(sql_fotoFuncionario.FieldByName('foto')));
   // sql_fotoFuncionario.FieldByName('foto').Assign(foto);
-  }
+}
 
 interface
 
@@ -60,7 +60,7 @@ type
     function fecharQuery: iEntity;
     function codigoCadastro(sp: string): integer;
     function listarGrid(value: TDataSource): iEntity;
-    function ordenarGrid(column:TColumn):iEntity;
+    function ordenarGrid(column: TColumn): iEntity;
 
     function getCodigo(value: integer): iEntity;
     function getNome(value: string): iEntity;
@@ -106,7 +106,7 @@ begin
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Grupos').getCodigoFuncionario(funcionarioLogado);
-//    (0 { definir o usuário quando construir a aplicação } );
+  // (0 { definir o usuário quando construir a aplicação } );
 
 end;
 
@@ -145,9 +145,7 @@ begin
       .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
     FQuery.TQuery.Edit;
-    FQuery.TQuery.FieldByName('grupo').AsString := FValor;
-    FQuery.TQuery.Post;
-    showmessage('Operação realizada com sucesso!');
+
   end;
 end;
 
@@ -165,7 +163,7 @@ end;
 function TEntity.getCampo(value: string): iEntity;
 begin
   result := self;
-  FQuery.getCampo(value);
+  FCampo := value;
 end;
 
 function TEntity.getCodigo(value: integer): iEntity;
@@ -195,7 +193,7 @@ end;
 function TEntity.getValor(value: string): iEntity;
 begin
   result := self;
-  FQuery.getValor(value);
+  FValor := value;
 end;
 
 function TEntity.Gravar: iEntity;
@@ -214,7 +212,6 @@ begin
 
   try
     FQuery.TQuery.Post;
-    showmessage('Operação realizada com sucesso!');
   except
     on e: exception do
     begin
@@ -237,12 +234,11 @@ begin
 
   result := self;
 
-
   FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
   FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
   FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
 
-//   FQuery.TQuery.SQL.Add('order by id desc');
+  // FQuery.TQuery.SQL.Add('order by id desc');
 
   value.DataSet := FQuery.TQuery;
 
@@ -264,13 +260,13 @@ begin
   FQuery.Query(FTabela);
 end;
 
-function TEntity.ordenarGrid(column:TColumn): iEntity;
+function TEntity.ordenarGrid(column: TColumn): iEntity;
 begin
 
-  if FQuery.TQuery.IndexFieldNames = Column.FieldName then
-    FQuery.TQuery.IndexFieldNames := Column.FieldName + ':D'
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
   else
-    FQuery.TQuery.IndexFieldNames := Column.FieldName;
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
 
 end;
 

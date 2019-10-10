@@ -194,6 +194,35 @@ type
 
   end;
 
+  iTipoRetirada = interface
+    ['{C194F099-E3C3-45BF-9CAB-C5DAD8C982B9}']
+    function nomeTabela(value: string): iTipoRetirada;
+    function getCampo(value: string): iTipoRetirada;
+    function getValor(value: string): iTipoRetirada;
+    function getDataInicial(value: TDate): iTipoRetirada;
+    function getDataFinal(value: TDate): iTipoRetirada;
+    function open(value: string): iTipoRetirada;
+    function ExecSql: iTipoRetirada;
+    function sqlPesquisa: iTipoRetirada;
+    function sqlPesquisaData: iTipoRetirada;
+    function sqlPesquisaEstatica: iTipoRetirada;
+
+    function abrir: iTipoRetirada;
+    function inserir: iTipoRetirada;
+    function gravar: iTipoRetirada;
+    function deletar: iTipoRetirada;
+    function atualizar: iTipoRetirada;
+    function editar: iTipoRetirada;
+    function cancelar: iTipoRetirada;
+    function fecharQuery: iTipoRetirada;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iTipoRetirada;
+    function ordenarGrid(column: TColumn): iTipoRetirada;
+
+    function getCodigo(value: integer): iTipoRetirada;
+    function getTipoRetirada(value: string): iTipoRetirada;
+  end;
+
   iFactory = interface
     ['{05E76D27-7C57-4506-880D-F3720CC622E8}']
     function obertValorPorExtenso: iObterValorPorExtenso;
