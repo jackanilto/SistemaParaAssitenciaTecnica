@@ -284,6 +284,46 @@ type
 
   end;
 
+  iCadastroContasAPagar = interface
+    ['{DA369C18-5E3E-4C03-8562-F7B8AEA25B65}']
+    function nomeTabela(value: string): iCadastroContasAPagar;
+    function getCampo(value: string): iCadastroContasAPagar;
+    function getValor(value: string): iCadastroContasAPagar;
+    function getDataInicial(value: TDate): iCadastroContasAPagar;
+    function getDataFinal(value: TDate): iCadastroContasAPagar;
+    function open(value: string): iCadastroContasAPagar;
+    function ExecSql: iCadastroContasAPagar;
+    function sqlPesquisa: iCadastroContasAPagar;
+    function sqlPesquisaData: iCadastroContasAPagar;
+    function sqlPesquisaEstatica: iCadastroContasAPagar;
+
+    function abrir: iCadastroContasAPagar;
+    function inserir: iCadastroContasAPagar;
+    function gravar: iCadastroContasAPagar;
+    function deletar: iCadastroContasAPagar;
+    function atualizar: iCadastroContasAPagar;
+    function editar: iCadastroContasAPagar;
+    function cancelar: iCadastroContasAPagar;
+    function fecharQuery: iCadastroContasAPagar;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroContasAPagar;
+    function ordenarGrid(column: TColumn): iCadastroContasAPagar;
+
+    function getCodigo(value: integer): iCadastroContasAPagar;
+    function getConta(value: string): iCadastroContasAPagar;
+    function getDataVencimento(value: string): iCadastroContasAPagar;
+    function getValorConta(value: string): iCadastroContasAPagar;
+    function getJurosConta(value: real): iCadastroContasAPagar;
+    function getMulta(value: Currency): iCadastroContasAPagar;
+    function getDesconto(value: Currency): iCadastroContasAPagar;
+    function getValorTotalConta(value: Currency): iCadastroContasAPagar;
+    function getDataPagamento(value: TDate): iCadastroContasAPagar;
+    function getPGTO(value: string): iCadastroContasAPagar;
+    function getFuncionario(value: integer): iCadastroContasAPagar;
+    function getObservacao(value: string): iCadastroContasAPagar;
+
+  end;
+
   iFactory = interface
     ['{05E76D27-7C57-4506-880D-F3720CC622E8}']
     function obertValorPorExtenso: iObterValorPorExtenso;
