@@ -1,0 +1,65 @@
+unit Form.Cadastro.Atividade.Funcionario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
+  Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces,
+  UClasse.Entity.Atividade.Funcionario;
+
+type
+  TformAtividadeFuncionario = class(TformExemploEmbeded)
+    DataSource1: TDataSource;
+    Label1: TLabel;
+    edtCodigo: TEdit;
+    Label2: TLabel;
+    edtAtividade: TEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure sbNovoClick(Sender: TObject);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+  private
+    { Private declarations }
+    FEntityAtivade: iAtividadeFuncionarios;
+  public
+    { Public declarations }
+  end;
+
+var
+  formAtividadeFuncionario: TformAtividadeFuncionario;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformAtividadeFuncionario.DataSource1DataChange(Sender: TObject;
+  Field: TField);
+begin
+  inherited;
+  edtCodigo.Text := inttostr(DataSource1.DataSet.FieldByName('ID').AsInteger);
+  edtAtividade.Text := DataSource1.DataSet.FieldByName('ATIDADE').AsString;
+end;
+
+procedure TformAtividadeFuncionario.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FEntityAtivade := TEntityAtividadeFuncionario.new;
+end;
+
+procedure TformAtividadeFuncionario.FormShow(Sender: TObject);
+begin
+  inherited;
+  FEntityAtivade.abrir.listarGrid(DataSource1);
+end;
+
+procedure TformAtividadeFuncionario.sbNovoClick(Sender: TObject);
+begin
+  inherited;
+  FEntityAtivade.inserir;
+  edtAtividade.SetFocus;
+end;
+
+end.

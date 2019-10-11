@@ -26,7 +26,11 @@ uses
   UClasse.Entity.Forma.Pagamento in 'Classes\Entity\UClasse.Entity.Forma.Pagamento.pas',
   Form.Cadastro.Tipo.Retiradas in 'Forms\Form.Cadastro.Tipo.Retiradas.pas' {formTipoRetiradas},
   UClasse.Entity.Tipo.Retiradas in 'Classes\Entity\UClasse.Entity.Tipo.Retiradas.pas',
-  Form.Cadastro.Configurar.Parcelas in 'Forms\Form.Cadastro.Configurar.Parcelas.pas' {formConfigurarParcelas};
+  Form.Cadastro.Configurar.Parcelas in 'Forms\Form.Cadastro.Configurar.Parcelas.pas' {formConfigurarParcelas},
+  UClasse.Entity.Configurar.Parcelas in 'Classes\Entity\UClasse.Entity.Configurar.Parcelas.pas',
+  Form.Cadastro.Atividade.Funcionario in 'Forms\Form.Cadastro.Atividade.Funcionario.pas' {formAtividadeFuncionario},
+  UClasse.Entity.Atividade.Funcionario in 'Classes\Entity\UClasse.Entity.Atividade.Funcionario.pas',
+  Form.Cadastro.Contas.APagar in 'Forms\Form.Cadastro.Contas.APagar.pas' {formCadastroContasAPagar};
 
 {$R *.res}
 

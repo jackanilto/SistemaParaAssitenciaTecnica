@@ -150,6 +150,16 @@
             <Form>formConfigurarParcelas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Configurar.Parcelas.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Atividade.Funcionario.pas">
+            <Form>formAtividadeFuncionario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Atividade.Funcionario.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Contas.APagar.pas">
+            <Form>formCadastroContasAPagar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

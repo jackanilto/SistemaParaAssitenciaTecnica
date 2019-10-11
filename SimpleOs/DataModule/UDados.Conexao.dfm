@@ -11,6 +11,7 @@ object DataModule1: TDataModule1
       'Password=masterkey'
       'Port=3050'
       'DriverID=FB')
+    Connected = True
     LoginPrompt = False
     BeforeConnect = conexaoBeforeConnect
     Left = 40
@@ -29,5 +30,27 @@ object DataModule1: TDataModule1
   object FDPhysFBDriverLink1: TFDPhysFBDriverLink
     Left = 336
     Top = 16
+  end
+  object FDQuery1: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from configurar_parcela')
+    Left = 352
+    Top = 128
+    object FDQuery1ID: TIntegerField
+      FieldName = 'ID'
+      Origin = 'ID'
+      Required = True
+    end
+    object FDQuery1JUROS: TBCDField
+      FieldName = 'JUROS'
+      Origin = 'JUROS'
+      Precision = 18
+      Size = 2
+    end
+    object FDQuery1MULTA: TCurrencyField
+      FieldName = 'MULTA'
+      Origin = 'MULTA'
+    end
   end
 end

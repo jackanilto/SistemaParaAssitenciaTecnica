@@ -138,3 +138,48 @@ GEN_FORMAS_PAGAMENTO_ID
 09/10/19 20:04:01 - Caption: Formas de pagamento
 09/10/19 20:04:01 - Erro:EDatabaseError
 09/10/19 20:04:01 - Erro:Dataset not in edit or insert mode
+10/10/19 12:13:50 - ===========================================
+10/10/19 12:13:50 - Form: formConfigurarParcelas
+10/10/19 12:13:50 - Caption: Configurar parcelas
+10/10/19 12:13:50 - Erro:Exception
+10/10/19 12:13:50 - Erro:Não é possuivel inserir mais de um registro neste tabela.
+11/10/19 16:12:39 - ===========================================
+11/10/19 16:12:39 - Form: formConfigurarParcelas
+11/10/19 16:12:39 - Caption: Configurar parcelas
+11/10/19 16:12:39 - Erro:Exception
+11/10/19 16:12:39 - Erro:Não é possível inserir mais de um registro neste tabela.
+11/10/19 16:12:52 - ===========================================
+11/10/19 16:12:52 - Form: formConfigurarParcelas
+11/10/19 16:12:52 - Caption: Configurar parcelas
+11/10/19 16:12:52 - Erro:Exception
+11/10/19 16:12:52 - Erro:Não é possível inserir mais de um registro neste tabela.
+11/10/19 16:13:26 - ===========================================
+11/10/19 16:13:26 - Form: formConfigurarParcelas
+11/10/19 16:13:26 - Caption: Configurar parcelas
+11/10/19 16:13:26 - Erro:Exception
+11/10/19 16:13:26 - Erro:Não é possível inserir mais de um registro neste tabela.
+11/10/19 16:14:04 - ===========================================
+11/10/19 16:14:04 - Form: formConfigurarParcelas
+11/10/19 16:14:04 - Caption: Configurar parcelas
+11/10/19 16:14:04 - Erro:Exception
+11/10/19 16:14:04 - Erro:Não é possível inserir mais de um registro neste tabela.
+11/10/19 16:14:08 - ===========================================
+11/10/19 16:14:08 - Form: formConfigurarParcelas
+11/10/19 16:14:09 - Caption: Configurar parcelas
+11/10/19 16:14:09 - Erro:EDatabaseError
+11/10/19 16:14:09 - Erro:Cannot perform this operation on a closed dataset
+11/10/19 16:14:58 - ===========================================
+11/10/19 16:14:58 - Form: formConfigurarParcelas
+11/10/19 16:14:58 - Caption: Configurar parcelas
+11/10/19 16:14:58 - Erro:Exception
+11/10/19 16:14:58 - Erro:Não é possível inserir mais de um registro neste tabela.
+11/10/19 16:50:33 - ===========================================
+11/10/19 16:50:33 - Form: formAtividadeFuncionario
+11/10/19 16:50:33 - Caption: Atividades dos funcionários
+11/10/19 16:50:33 - Erro:EDatabaseError
+11/10/19 16:50:33 - Erro:Field 'ATIDADE' not found
+11/10/19 16:51:17 - ===========================================
+11/10/19 16:51:17 - Form: formAtividadeFuncionario
+11/10/19 16:51:18 - Caption: Atividades dos funcionários
+11/10/19 16:51:18 - Erro:Exception
+11/10/19 16:51:18 - Erro:Informe a atividade que deseja cadastrar.

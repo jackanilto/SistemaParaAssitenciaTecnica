@@ -5317,7 +5317,6 @@ object formPrincipal: TformPrincipal
     Color = 8408635
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 10
     DesignSize = (
       1061
       57)
@@ -7098,7 +7097,7 @@ object formPrincipal: TformPrincipal
       Left = 0
       Top = -29
       Width = 165
-      Height = 299
+      Height = 462
       Align = alCustom
       BevelInner = bvNone
       BevelOuter = bvNone
@@ -7146,6 +7145,12 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acConfigurarParcela
+            end
+            item
+              Action = acAtividadeFuncionarios
+            end
+            item
+              Action = acContasAPagar
             end>
           TextColor = 13402157
         end>
@@ -7230,7 +7235,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C010107000800140018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107000800180018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7887,6 +7892,14 @@ object formPrincipal: TformPrincipal
     object acConfigurarParcela: TAction
       Caption = 'Config. Parcela'
       OnExecute = acConfigurarParcelaExecute
+    end
+    object acAtividadeFuncionarios: TAction
+      Caption = 'Ativ. Funcion'#225'rios'
+      OnExecute = acAtividadeFuncionariosExecute
+    end
+    object acContasAPagar: TAction
+      Caption = 'Contas a pagar'
+      OnExecute = acContasAPagarExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

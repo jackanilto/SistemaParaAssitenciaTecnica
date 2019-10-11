@@ -223,6 +223,67 @@ type
     function getTipoRetirada(value: string): iTipoRetirada;
   end;
 
+  iConfigurarParcelas = interface
+    ['{62B31E42-F4DB-4B6E-97B0-B93C63E179DC}']
+    function nomeTabela(value: string): iConfigurarParcelas;
+    function getCampo(value: string): iConfigurarParcelas;
+    function getValor(value: string): iConfigurarParcelas;
+    function getDataInicial(value: TDate): iConfigurarParcelas;
+    function getDataFinal(value: TDate): iConfigurarParcelas;
+    function open(value: string): iConfigurarParcelas;
+    function ExecSql: iConfigurarParcelas;
+    function sqlPesquisa: iConfigurarParcelas;
+    function sqlPesquisaData: iConfigurarParcelas;
+    function sqlPesquisaEstatica: iConfigurarParcelas;
+
+    function abrir: iConfigurarParcelas;
+    function inserir: iConfigurarParcelas;
+    function gravar: iConfigurarParcelas;
+    function deletar: iConfigurarParcelas;
+    function atualizar: iConfigurarParcelas;
+    function editar: iConfigurarParcelas;
+    function cancelar: iConfigurarParcelas;
+    function fecharQuery: iConfigurarParcelas;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iConfigurarParcelas;
+    function ordenarGrid(column: TColumn): iConfigurarParcelas;
+
+    function getCodigo(value: integer): iConfigurarParcelas;
+    function getConfigurarParcelaJuros(value: string): iConfigurarParcelas;
+    function getConfigurarParcelaMulta(value: string): iConfigurarParcelas;
+
+  end;
+
+  iAtividadeFuncionarios = interface
+    ['{0A82AB1E-1F99-42E0-80FE-12387A1DA3A9}']
+    function nomeTabela(value: string): iAtividadeFuncionarios;
+    function getCampo(value: string): iAtividadeFuncionarios;
+    function getValor(value: string): iAtividadeFuncionarios;
+    function getDataInicial(value: TDate): iAtividadeFuncionarios;
+    function getDataFinal(value: TDate): iAtividadeFuncionarios;
+    function open(value: string): iAtividadeFuncionarios;
+    function ExecSql: iAtividadeFuncionarios;
+    function sqlPesquisa: iAtividadeFuncionarios;
+    function sqlPesquisaData: iAtividadeFuncionarios;
+    function sqlPesquisaEstatica: iAtividadeFuncionarios;
+
+    function abrir: iAtividadeFuncionarios;
+    function inserir: iAtividadeFuncionarios;
+    function gravar: iAtividadeFuncionarios;
+    function deletar: iAtividadeFuncionarios;
+    function atualizar: iAtividadeFuncionarios;
+    function editar: iAtividadeFuncionarios;
+    function cancelar: iAtividadeFuncionarios;
+    function fecharQuery: iAtividadeFuncionarios;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iAtividadeFuncionarios;
+    function ordenarGrid(column: TColumn): iAtividadeFuncionarios;
+
+    function getCodigo(value: integer): iAtividadeFuncionarios;
+    function getAtividadeFuncionario(value: string): iAtividadeFuncionarios;
+
+  end;
+
   iFactory = interface
     ['{05E76D27-7C57-4506-880D-F3720CC622E8}']
     function obertValorPorExtenso: iObterValorPorExtenso;

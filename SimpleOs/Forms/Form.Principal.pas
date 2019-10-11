@@ -56,6 +56,8 @@ type
     acFormaPagamento: TAction;
     acTipoRetiradas: TAction;
     acConfigurarParcela: TAction;
+    acAtividadeFuncionarios: TAction;
+    acContasAPagar: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -71,6 +73,8 @@ type
     procedure acFormaPagamentoExecute(Sender: TObject);
     procedure acTipoRetiradasExecute(Sender: TObject);
     procedure acConfigurarParcelaExecute(Sender: TObject);
+    procedure acAtividadeFuncionariosExecute(Sender: TObject);
+    procedure acContasAPagarExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -88,7 +92,14 @@ implementation
 {$R *.dfm}
 
 uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
-  Form.Cadastro.Tipo.Retiradas, Form.Cadastro.Configurar.Parcelas;
+  Form.Cadastro.Tipo.Retiradas, Form.Cadastro.Configurar.Parcelas,
+  Form.Cadastro.Atividade.Funcionario, Form.Cadastro.Contas.APagar;
+
+procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
+begin
+  formAtividadeFuncionario := TformAtividadeFuncionario.Create(self);
+  TFactory.new.criarJanela.formShow(formAtividadeFuncionario, '');
+end;
 
 procedure TformPrincipal.acCadastroGruposExecute(Sender: TObject);
 begin
@@ -131,6 +142,12 @@ procedure TformPrincipal.acConfigurarParcelaExecute(Sender: TObject);
 begin
   formConfigurarParcelas := TformConfigurarParcelas.Create(self);
   TFactory.new.criarJanela.formShow(formConfigurarParcelas, '');
+end;
+
+procedure TformPrincipal.acContasAPagarExecute(Sender: TObject);
+begin
+  formCadastroContasAPagar := TformCadastroContasAPagar.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroContasAPagar, '');
 end;
 
 procedure TformPrincipal.acExtrasExecute(Sender: TObject);

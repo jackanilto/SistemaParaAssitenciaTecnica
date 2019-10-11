@@ -16,6 +16,10 @@ type
     FDTransaction1: TFDTransaction;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     FDPhysFBDriverLink1: TFDPhysFBDriverLink;
+    FDQuery1: TFDQuery;
+    FDQuery1ID: TIntegerField;
+    FDQuery1JUROS: TBCDField;
+    FDQuery1MULTA: TCurrencyField;
     procedure conexaoBeforeConnect(Sender: TObject);
   private
     { Private declarations }
