@@ -183,3 +183,62 @@ GEN_FORMAS_PAGAMENTO_ID
 11/10/19 16:51:18 - Caption: Atividades dos funcionários
 11/10/19 16:51:18 - Erro:Exception
 11/10/19 16:51:18 - Erro:Informe a atividade que deseja cadastrar.
+12/10/19 14:31:03 - ===========================================
+12/10/19 14:31:03 - Form: formCadastroContasAPagar
+12/10/19 14:31:03 - Caption: Cadastro de contas a pagar
+12/10/19 14:31:03 - Erro:EVariantTypeCastError
+12/10/19 14:31:03 - Erro:Could not convert variant of type (Null) into type (Double)
+12/10/19 14:34:21 - ===========================================
+12/10/19 14:34:21 - Form: formCadastroContasAPagar
+12/10/19 14:34:21 - Caption: Cadastro de contas a pagar
+12/10/19 14:34:21 - Erro:Exception
+12/10/19 14:34:21 - Erro:Informe um nome para a conta.
+12/10/19 14:35:00 - ===========================================
+12/10/19 14:35:00 - Form: formCadastroContasAPagar
+12/10/19 14:35:00 - Caption: Cadastro de contas a pagar
+12/10/19 14:35:00 - Erro:EVariantTypeCastError
+12/10/19 14:35:00 - Erro:Could not convert variant of type (Null) into type (Double)
+12/10/19 14:36:53 - ===========================================
+12/10/19 14:36:53 - Form: formCadastroContasAPagar
+12/10/19 14:36:53 - Caption: Cadastro de contas a pagar
+12/10/19 14:36:53 - Erro:EVariantTypeCastError
+12/10/19 14:36:53 - Erro:Could not convert variant of type (Null) into type (Double)
+12/10/19 14:42:12 - ===========================================
+12/10/19 14:42:12 - Form: formCadastroContasAPagar
+12/10/19 14:42:12 - Caption: Cadastro de contas a pagar
+12/10/19 14:42:12 - Erro:EConvertError
+12/10/19 14:42:12 - Erro:'  /  /    ' is not a valid date
+12/10/19 14:44:42 - ===========================================
+12/10/19 14:44:42 - Form: formCadastroContasAPagar
+12/10/19 14:44:42 - Caption: Cadastro de contas a pagar
+12/10/19 14:44:42 - Erro:EConvertError
+12/10/19 14:44:42 - Erro:'  /  /    ' is not a valid date
+12/10/19 14:45:55 - ===========================================
+12/10/19 14:45:55 - Form: formCadastroContasAPagar
+12/10/19 14:45:55 - Caption: Cadastro de contas a pagar
+12/10/19 14:45:55 - Erro:EConvertError
+12/10/19 14:45:55 - Erro:'  /  /    ' is not a valid date
+12/10/19 14:47:16 - ===========================================
+12/10/19 14:47:16 - Form: formCadastroContasAPagar
+12/10/19 14:47:16 - Caption: Cadastro de contas a pagar
+12/10/19 14:47:16 - Erro:EConvertError
+12/10/19 14:47:16 - Erro:'  /  /    ' is not a valid date
+12/10/19 14:47:54 - ===========================================
+12/10/19 14:47:54 - Form: formCadastroContasAPagar
+12/10/19 14:47:54 - Caption: Cadastro de contas a pagar
+12/10/19 14:47:54 - Erro:Exception
+12/10/19 14:47:54 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_CONTAS_A_PAGAR_1" on table "CONTAS_A_PAGAR"
+Foreign key reference target does not exist
+Problematic key value is ("FUNCIONARIO_CADASTRO" = 0)
+12/10/19 14:51:14 - ===========================================
+12/10/19 14:51:14 - Form: formCadastroContasAPagar
+12/10/19 14:51:14 - Caption: Cadastro de contas a pagar
+12/10/19 14:51:14 - Erro:Exception
+12/10/19 14:51:14 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_CONTAS_A_PAGAR_1" on table "CONTAS_A_PAGAR"
+Foreign key reference target does not exist
+Problematic key value is ("FUNCIONARIO_CADASTRO" = 0)
+12/10/19 15:10:51 - ===========================================
+12/10/19 15:10:51 - Form: formCadastroContasAPagar
+12/10/19 15:10:51 - Caption: Cadastro de contas a pagar
+12/10/19 15:10:51 - Erro:Exception
+12/10/19 15:10:51 - Erro:Informe um nome para a conta.

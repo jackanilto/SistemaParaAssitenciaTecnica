@@ -19,11 +19,6 @@ type
     lblConsulta: TLabel;
     pnlFocoCadastro: TPanel;
     pnlFocoConsulta: TPanel;
-    Image2: TImage;
-    Image3: TImage;
-    Image4: TImage;
-    Image5: TImage;
-    Image6: TImage;
     Panel3: TPanel;
     sbNovo: TSpeedButton;
     sbSalvar: TSpeedButton;

@@ -8,7 +8,7 @@ uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, System.Variants;
 
 type
 
@@ -30,7 +30,7 @@ type
     FMULTA: Currency;
     FDESCONTO: Currency;
     FVALOR_TOTAL: Currency;
-    FDATA_PAGAMENTO: TDate;
+    FDATA_PAGAMENTO: string;
     FPAGO: String;
     F_FUNCIONARIO: integer;
     FOBSERVACAO: String;
@@ -68,11 +68,11 @@ type
     function getConta(value: string): iCadastroContasAPagar;
     function getDataVencimento(value: string): iCadastroContasAPagar;
     function getValorConta(value: string): iCadastroContasAPagar;
-    function getJurosConta(value: real): iCadastroContasAPagar;
-    function getMulta(value: Currency): iCadastroContasAPagar;
-    function getDesconto(value: Currency): iCadastroContasAPagar;
-    function getValorTotalConta(value: Currency): iCadastroContasAPagar;
-    function getDataPagamento(value: TDate): iCadastroContasAPagar;
+    function getJurosConta(value: string): iCadastroContasAPagar;
+    function getMulta(value: string): iCadastroContasAPagar;
+    function getDesconto(value: string): iCadastroContasAPagar;
+    function getValorTotalConta(value: string): iCadastroContasAPagar;
+    function getDataPagamento(value: string): iCadastroContasAPagar;
     function getPGTO(value: string): iCadastroContasAPagar;
     function getFuncionario(value: integer): iCadastroContasAPagar;
     function getObservacao(value: string): iCadastroContasAPagar;
@@ -103,7 +103,7 @@ end;
 function TEntityContasAPagar.cancelar: iCadastroContasAPagar;
 begin
   FQuery.TQuery.Cancel;
-  FQuery.TQuery.close;
+//  FQuery.TQuery.close;
 end;
 
 function TEntityContasAPagar.codigoCadastro(sp: string): integer;
@@ -206,11 +206,16 @@ begin
   FQuery.getDataInicial(value);
 end;
 
-function TEntityContasAPagar.getDataPagamento(value: TDate)
+function TEntityContasAPagar.getDataPagamento(value: string)
   : iCadastroContasAPagar;
 begin
+
   result := self;
-  FDATA_PAGAMENTO := value;
+
+  if value = '  /  /    ' then
+    FDATA_PAGAMENTO := ''
+  else
+    FDATA_PAGAMENTO := value;
 
 end;
 
@@ -220,33 +225,76 @@ begin
   result := self;
   if value = EmptyStr then
     raise Exception.create('Informe uma data de vencimento.');
-  FDATA_VENCIMENTO := StrToDate(value);
+  try
+    FDATA_VENCIMENTO := StrToDate(value);
+  except
+    on e: Exception do
+      raise Exception.create
+        ('Informe um valor válido para a data de vencimento');
+
+  end;
 end;
 
-function TEntityContasAPagar.getDesconto(value: Currency)
-  : iCadastroContasAPagar;
+function TEntityContasAPagar.getDesconto(value: string): iCadastroContasAPagar;
 begin
+
   result := self;
-  FDESCONTO := value;
+
+  if value = EmptyStr then
+    FDESCONTO := 0;
+
+  try
+    FDESCONTO := StrToCurr(value);
+  except
+    on e: Exception do
+      raise Exception.create('Informe um valor válido para o desconto.');
+  end;
+
 end;
 
 function TEntityContasAPagar.getFuncionario(value: integer)
   : iCadastroContasAPagar;
 begin
   result := self;
-  F_FUNCIONARIO := value;
+  F_FUNCIONARIO := funcionarioLogado;
 end;
 
-function TEntityContasAPagar.getJurosConta(value: real): iCadastroContasAPagar;
+function TEntityContasAPagar.getJurosConta(value: string)
+  : iCadastroContasAPagar;
 begin
+
   result := self;
-  FJUROS := value;
+
+  if value = EmptyStr then
+    FJUROS := 0;
+
+  try
+    FJUROS := strtofloat(value);
+  except
+    on e: Exception do
+    begin
+      raise Exception.create('Informe um valor válido para o juros');
+    end;
+
+  end;
+
 end;
 
-function TEntityContasAPagar.getMulta(value: Currency): iCadastroContasAPagar;
+function TEntityContasAPagar.getMulta(value: string): iCadastroContasAPagar;
 begin
+
   result := self;
-  FMULTA := value;
+
+  if value = EmptyStr then
+    FMULTA := 0;
+
+  try
+    FMULTA := StrToCurr(value);
+  except
+    on e: Exception do
+      raise Exception.create('Informe um valor válido para a multa.');
+
+  end;
 end;
 
 function TEntityContasAPagar.getObservacao(value: string)
@@ -258,8 +306,13 @@ end;
 
 function TEntityContasAPagar.getPGTO(value: string): iCadastroContasAPagar;
 begin
+
   result := self;
-  FPAGO := value;
+  
+  if value = EmptyStr then
+    FPAGO := 'Não'
+  else
+    FPAGO := value;
 end;
 
 function TEntityContasAPagar.getValor(value: string): iCadastroContasAPagar;
@@ -274,14 +327,31 @@ begin
   result := self;
   if value = EmptyStr then
     raise Exception.create('Informe o valor da conta.');
-  FVALORCONTA := StrToCurr(value);
+  try
+    FVALORCONTA := StrToCurr(value);
+  except
+    on e: Exception do
+      raise Exception.create('Informe um valor válido para a conta');
+
+  end;
 end;
 
-function TEntityContasAPagar.getValorTotalConta(value: Currency)
+function TEntityContasAPagar.getValorTotalConta(value: string)
   : iCadastroContasAPagar;
 begin
+
   result := self;
-  FVALOR_TOTAL := value;
+
+  if value = EmptyStr then
+    FVALOR_TOTAL := 0;
+
+  try
+    FVALOR_TOTAL := StrToCurr(value);
+  except
+    on e: Exception do
+      raise Exception.create('Informe um valor válido para o tatal da conta.');
+  end;
+
 end;
 
 function TEntityContasAPagar.Gravar: iCadastroContasAPagar;
@@ -300,9 +370,14 @@ begin
   FQuery.TQuery.FieldByName('MULTA').AsCurrency := FMULTA;
   FQuery.TQuery.FieldByName('DESCONTO').AsCurrency := FDESCONTO;
   FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
-  FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := FDATA_PAGAMENTO;
+
+  if FDATA_PAGAMENTO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime :=
+      StrToDate(FDATA_PAGAMENTO);
+
   FQuery.TQuery.FieldByName('PAGO').AsString := FPAGO;
-  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger := F_FUNCIONARIO;
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
+    funcionarioLogado;
   FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('conta').AsString)

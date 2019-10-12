@@ -313,11 +313,11 @@ type
     function getConta(value: string): iCadastroContasAPagar;
     function getDataVencimento(value: string): iCadastroContasAPagar;
     function getValorConta(value: string): iCadastroContasAPagar;
-    function getJurosConta(value: real): iCadastroContasAPagar;
-    function getMulta(value: Currency): iCadastroContasAPagar;
-    function getDesconto(value: Currency): iCadastroContasAPagar;
-    function getValorTotalConta(value: Currency): iCadastroContasAPagar;
-    function getDataPagamento(value: TDate): iCadastroContasAPagar;
+    function getJurosConta(value: string): iCadastroContasAPagar;
+    function getMulta(value: string): iCadastroContasAPagar;
+    function getDesconto(value: string): iCadastroContasAPagar;
+    function getValorTotalConta(value: string): iCadastroContasAPagar;
+    function getDataPagamento(value: string): iCadastroContasAPagar;
     function getPGTO(value: string): iCadastroContasAPagar;
     function getFuncionario(value: integer): iCadastroContasAPagar;
     function getObservacao(value: string): iCadastroContasAPagar;
