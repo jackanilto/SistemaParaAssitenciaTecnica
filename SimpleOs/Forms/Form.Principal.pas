@@ -58,6 +58,7 @@ type
     acConfigurarParcela: TAction;
     acAtividadeFuncionarios: TAction;
     acContasAPagar: TAction;
+    acProblemasFrequentes: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -75,6 +76,7 @@ type
     procedure acConfigurarParcelaExecute(Sender: TObject);
     procedure acAtividadeFuncionariosExecute(Sender: TObject);
     procedure acContasAPagarExecute(Sender: TObject);
+    procedure acProblemasFrequentesExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -93,7 +95,8 @@ implementation
 
 uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Tipo.Retiradas, Form.Cadastro.Configurar.Parcelas,
-  Form.Cadastro.Atividade.Funcionario, Form.Cadastro.Contas.APagar;
+  Form.Cadastro.Atividade.Funcionario, Form.Cadastro.Contas.APagar,
+  Form.Cadastro.Problemas.Frequentes;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -178,6 +181,13 @@ begin
     spvMovimentacao.Opened := true;
     F_SplitView := spvMovimentacao;
   end;
+end;
+
+procedure TformPrincipal.acProblemasFrequentesExecute(Sender: TObject);
+begin
+  formCadastroProblemasFrequentes :=
+    TformCadastroProblemasFrequentes.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroProblemasFrequentes, '');
 end;
 
 procedure TformPrincipal.acRelatoriosExecute(Sender: TObject);

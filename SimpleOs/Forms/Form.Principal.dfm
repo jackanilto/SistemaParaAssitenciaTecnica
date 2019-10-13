@@ -7084,19 +7084,19 @@ object formPrincipal: TformPrincipal
   object spvCadastros: TSplitView
     Left = 150
     Top = 57
-    Width = 171
+    Width = 173
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
     DockSite = True
-    OpenedWidth = 171
+    OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
     object CategoryButtons3: TCategoryButtons
-      Left = 0
+      Left = -4
       Top = -29
-      Width = 165
+      Width = 173
       Height = 462
       Align = alCustom
       BevelInner = bvNone
@@ -7151,6 +7151,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acContasAPagar
+            end
+            item
+              Action = acProblemasFrequentes
             end>
           TextColor = 13402157
         end>
@@ -7168,7 +7171,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 321
+    Left = 323
     Top = 57
     Width = 0
     Height = 467
@@ -7177,9 +7180,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
+    ExplicitLeft = 321
   end
   object spvRelatorio: TSplitView
-    Left = 321
+    Left = 323
     Top = 57
     Width = 0
     Height = 467
@@ -7189,9 +7193,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 321
   end
   object spvExtras: TSplitView
-    Left = 321
+    Left = 323
     Top = 57
     Width = 0
     Height = 467
@@ -7202,9 +7207,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 321
   end
   object spvSobre: TSplitView
-    Left = 321
+    Left = 323
     Top = 57
     Width = 0
     Height = 467
@@ -7215,9 +7221,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 321
   end
   object spvConfiguracoes: TSplitView
-    Left = 321
+    Left = 323
     Top = 57
     Width = 0
     Height = 467
@@ -7228,6 +7235,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 321
   end
   object ImageList1: TImageList
     Height = 24
@@ -7235,7 +7243,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C010107000800180018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070008001C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7900,6 +7908,10 @@ object formPrincipal: TformPrincipal
     object acContasAPagar: TAction
       Caption = 'Contas a pagar'
       OnExecute = acContasAPagarExecute
+    end
+    object acProblemasFrequentes: TAction
+      Caption = 'Problemas frequentes'
+      OnExecute = acProblemasFrequentesExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

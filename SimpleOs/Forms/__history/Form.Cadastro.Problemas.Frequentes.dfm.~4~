@@ -1,0 +1,24 @@
+inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
+  Caption = 'Problemas frequentes'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited lblCaption: TLabel
+      Width = 156
+      Caption = 'Problemas frequentes'
+      ExplicitLeft = 195
+      ExplicitWidth = 156
+    end
+  end
+  inherited CardPanel1: TCardPanel
+    inherited cardPanelConsulta: TCard
+      inherited DBGrid1: TDBGrid
+        DataSource = DataSource1
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    Left = 248
+    Top = 169
+  end
+end

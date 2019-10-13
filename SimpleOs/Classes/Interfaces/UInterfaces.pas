@@ -325,6 +325,46 @@ type
 
   end;
 
+
+    iCadastroProblemasFrequentes = interface
+    ['{DA369C18-5E3E-4C03-8562-F7B8AEA25B65}']
+    function nomeTabela(value: string): iCadastroProblemasFrequentes;
+    function getCampo(value: string): iCadastroProblemasFrequentes;
+    function getValor(value: string): iCadastroProblemasFrequentes;
+    function getDataInicial(value: TDate): iCadastroProblemasFrequentes;
+    function getDataFinal(value: TDate): iCadastroProblemasFrequentes;
+    function open(value: string): iCadastroProblemasFrequentes;
+    function ExecSql: iCadastroProblemasFrequentes;
+    function sqlPesquisa: iCadastroProblemasFrequentes;
+    function sqlPesquisaData: iCadastroProblemasFrequentes;
+    function sqlPesquisaEstatica: iCadastroProblemasFrequentes;
+
+    function abrir: iCadastroProblemasFrequentes;
+    function inserir: iCadastroProblemasFrequentes;
+    function gravar: iCadastroProblemasFrequentes;
+    function deletar: iCadastroProblemasFrequentes;
+    function atualizar: iCadastroProblemasFrequentes;
+    function editar: iCadastroProblemasFrequentes;
+    function cancelar: iCadastroProblemasFrequentes;
+    function fecharQuery: iCadastroProblemasFrequentes;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroProblemasFrequentes;
+    function ordenarGrid(column: TColumn): iCadastroProblemasFrequentes;
+
+    function getCodigo(value: integer): iCadastroProblemasFrequentes;
+    function getNomePeca(value: string): iCadastroProblemasFrequentes;
+    function getNumeroSerie(value: string): iCadastroProblemasFrequentes;
+    function getMarca(value: string): iCadastroProblemasFrequentes;
+    function getDataDeFabricacao(value: string): iCadastroProblemasFrequentes;
+    function getDataDeCadastro(value: string): iCadastroProblemasFrequentes;
+    function getDefeitoRelatado(value: string): iCadastroProblemasFrequentes;
+    function getSolucaoDoDefeito(value: string): iCadastroProblemasFrequentes;
+    function getObservacao(value: string): iCadastroProblemasFrequentes;
+    function exportar: iCadastroProblemasFrequentes;
+
+  end;
+
+
   iFactory = interface
     ['{05E76D27-7C57-4506-880D-F3720CC622E8}']
     function obertValorPorExtenso: iObterValorPorExtenso;
