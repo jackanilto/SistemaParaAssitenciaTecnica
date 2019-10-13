@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces, UClasse.Entity.Contas.APagar,
-  Vcl.Mask;
+  Vcl.Mask, frxClass, frxDBSet;
 
 type
   TformCadastroContasAPagar = class(TformExemploEmbeded)
@@ -37,6 +37,12 @@ type
     edtObservacao: TEdit;
     Label14: TLabel;
     edtPgto: TComboBox;
+    edtData1: TMaskEdit;
+    Label15: TLabel;
+    edtData2: TMaskEdit;
+    sbPesquisarDatas: TSpeedButton;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
@@ -47,6 +53,11 @@ type
     procedure sbCancelarClick(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure sbPesquisarDatasClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
   private
     { Private declarations }
     FEntityContaPagar: iCadastroContasAPagar;
@@ -97,7 +108,7 @@ end;
 procedure TformCadastroContasAPagar.DBGrid1CellClick(Column: TColumn);
 begin
   inherited;
-  if Assigned(DataSource1) then
+  if DataSource1.DataSet.RecordCount >= 1 then
   begin
     sbEditar.Enabled := true;
     sbExcluir.Enabled := true;
@@ -115,6 +126,25 @@ begin
   FEntityContaPagar.ordenarGrid(Column);
 end;
 
+procedure TformCadastroContasAPagar.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Conta' then
+    campo := 'CONTA';
+
+  FEntityContaPagar.getCampo(campo).getValor(edtPesquisar.Text)
+    .sqlPesquisa.listarGrid(DataSource1);
+
+  { Código
+    Conta }
+end;
+
 procedure TformCadastroContasAPagar.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -124,7 +154,12 @@ end;
 procedure TformCadastroContasAPagar.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityContaPagar.abrir.listarGrid(DataSource1);
+  FEntityContaPagar
+        .abrir
+        .getCampo('ID')
+        .getValor('0')
+        .sqlPesquisa
+        .listarGrid(DataSource1);
 end;
 
 procedure TformCadastroContasAPagar.sbCancelarClick(Sender: TObject);
@@ -148,6 +183,23 @@ begin
   FEntityContaPagar.deletar;
 end;
 
+procedure TformCadastroContasAPagar.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+ FEntityContaPagar.exportar;
+end;
+
+procedure TformCadastroContasAPagar.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_contas_pagar_simples.fr3');
+  frxReport1.ShowReport();
+
+  { relatorio_contas_pagar_simples }
+end;
+
 procedure TformCadastroContasAPagar.sbNovoClick(Sender: TObject);
 begin
   inherited;
@@ -155,6 +207,14 @@ begin
   edtConta.SetFocus;
   edtDataVencimento.Clear;
   edtDataPagamento.Clear;
+end;
+
+procedure TformCadastroContasAPagar.sbPesquisarDatasClick(Sender: TObject);
+begin
+  inherited;
+  FEntityContaPagar.getDataInicial(strtodate(edtData1.Text))
+    .getDataFinal(strtodate(edtData2.Text)).getCampo('DATA_VENCIMENTO')
+    .sqlPesquisaData.listarGrid(DataSource1);
 end;
 
 procedure TformCadastroContasAPagar.sbSalvarClick(Sender: TObject);

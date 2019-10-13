@@ -175,13 +175,15 @@ end;
 function TEntity.getDataFinal(value: TDate): iEntity;
 begin
   result := self;
-  FQuery.getDataFinal(value);
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
 end;
 
 function TEntity.getDataInicial(value: TDate): iEntity;
 begin
   result := self;
-  FQuery.getDataInicial(value);
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
 end;
 
 function TEntity.getNome(value: string): iEntity;
@@ -193,7 +195,7 @@ end;
 function TEntity.getValor(value: string): iEntity;
 begin
   result := self;
-  FValor := value;
+  FValor := UpperCase(value);
 end;
 
 function TEntity.Gravar: iEntity;

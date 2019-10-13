@@ -8,7 +8,8 @@ uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, System.Variants;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, System.Variants,
+  ComOBJ;
 
 type
 
@@ -76,6 +77,7 @@ type
     function getPGTO(value: string): iCadastroContasAPagar;
     function getFuncionario(value: integer): iCadastroContasAPagar;
     function getObservacao(value: string): iCadastroContasAPagar;
+    function exportar: iCadastroContasAPagar;
 
     constructor create;
     destructor destroy; override;
@@ -103,7 +105,7 @@ end;
 function TEntityContasAPagar.cancelar: iCadastroContasAPagar;
 begin
   FQuery.TQuery.Cancel;
-//  FQuery.TQuery.close;
+  // FQuery.TQuery.close;
 end;
 
 function TEntityContasAPagar.codigoCadastro(sp: string): integer;
@@ -168,6 +170,66 @@ begin
   FQuery.ExecSql(FTabela);
 end;
 
+function TEntityContasAPagar.exportar: iCadastroContasAPagar;
+var
+  pasta: variant;
+  linha: integer;
+begin
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Contas a pagdr';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Conta';
+  pasta.cells[1, 3] := 'Data vencimento';
+  pasta.cells[1, 4] := 'Valor';
+  pasta.cells[1, 5] := 'Juros';
+  pasta.cells[1, 6] := 'Multa';
+  pasta.cells[1, 7] := 'Desconto';
+  pasta.cells[1, 8] := 'Valor total';
+  pasta.cells[1, 9] := 'Data de pagamento';
+  pasta.cells[1, 10] := 'Pago';
+  pasta.cells[1, 11] := 'Funcionário';
+  pasta.cells[1, 12] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('id').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('conta').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO')
+        .AsDateTime;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('JUROS').AsFloat;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('MULTA').AsCurrency;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_TOTAL')
+        .AsCurrency;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO')
+        .AsDateTime;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('PAGO').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName
+        ('FUNCIONARIO_CADASTRO').AsInteger;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('OBSERVACAO')
+        .AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
+end;
+
 function TEntityContasAPagar.fecharQuery: iCadastroContasAPagar;
 begin
   FQuery.TQuery.close;
@@ -196,14 +258,16 @@ end;
 function TEntityContasAPagar.getDataFinal(value: TDate): iCadastroContasAPagar;
 begin
   result := self;
-  FQuery.getDataFinal(value);
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
 end;
 
 function TEntityContasAPagar.getDataInicial(value: TDate)
   : iCadastroContasAPagar;
 begin
   result := self;
-  FQuery.getDataInicial(value);
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
 end;
 
 function TEntityContasAPagar.getDataPagamento(value: string)
@@ -308,7 +372,7 @@ function TEntityContasAPagar.getPGTO(value: string): iCadastroContasAPagar;
 begin
 
   result := self;
-  
+
   if value = EmptyStr then
     FPAGO := 'Não'
   else
@@ -318,7 +382,7 @@ end;
 function TEntityContasAPagar.getValor(value: string): iCadastroContasAPagar;
 begin
   result := self;
-  FValor := value;
+  FValor := UpperCase(value);
 end;
 
 function TEntityContasAPagar.getValorConta(value: string)
@@ -422,6 +486,8 @@ begin
     'Funcionário';
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
 
+  FQuery.TQuery.FieldByName('VALOR').CurValue;
+
   value.DataSet := FQuery.TQuery;
 
 end;
@@ -461,14 +527,15 @@ end;
 function TEntityContasAPagar.sqlPesquisa: iCadastroContasAPagar;
 begin
   result := self;
-  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+  if FValor <> EmptyStr then
+    FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
 end;
 
 function TEntityContasAPagar.sqlPesquisaData: iCadastroContasAPagar;
 begin
   result := self;
-  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
-    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+  FQuery.getCampo(FCampo).getDataInicial(FDataInicial).getDataFinal(FDataFinal)
+    .sqlPesquisaData(FTabela);
 end;
 
 function TEntityContasAPagar.sqlPesquisaEstatica: iCadastroContasAPagar;

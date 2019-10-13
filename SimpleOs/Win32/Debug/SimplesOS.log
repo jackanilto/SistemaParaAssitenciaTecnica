@@ -242,3 +242,16 @@ Problematic key value is ("FUNCIONARIO_CADASTRO" = 0)
 12/10/19 15:10:51 - Caption: Cadastro de contas a pagar
 12/10/19 15:10:51 - Erro:Exception
 12/10/19 15:10:51 - Erro:Informe um nome para a conta.
+13/10/19 11:25:55 - ===========================================
+13/10/19 11:25:55 - Form: formCadastroContasAPagar
+13/10/19 11:25:55 - Caption: Cadastro de contas a pagar
+13/10/19 11:25:55 - Erro:Exception
+13/10/19 11:25:55 - Erro:Informe por qual campo deseja pequisar.
+13/10/19 11:28:16 - ===========================================
+13/10/19 11:28:16 - Form: formCadastroContasAPagar
+13/10/19 11:28:16 - Caption: Cadastro de contas a pagar
+13/10/19 11:28:16 - Erro:EIBNativeException
+13/10/19 11:28:16 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 52
+betweeen
