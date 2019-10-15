@@ -60,6 +60,7 @@ type
     acContasAPagar: TAction;
     acProblemasFrequentes: TAction;
     acCadastroFornecedores: TAction;
+    acCadastroTransportadora: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -79,6 +80,7 @@ type
     procedure acContasAPagarExecute(Sender: TObject);
     procedure acProblemasFrequentesExecute(Sender: TObject);
     procedure acCadastroFornecedoresExecute(Sender: TObject);
+    procedure acCadastroTransportadoraExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -98,7 +100,8 @@ implementation
 uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Tipo.Retiradas, Form.Cadastro.Configurar.Parcelas,
   Form.Cadastro.Atividade.Funcionario, Form.Cadastro.Contas.APagar,
-  Form.Cadastro.Problemas.Frequentes, Form.Cadastro.Forncedores;
+  Form.Cadastro.Problemas.Frequentes, Form.Cadastro.Forncedores,
+  Form.Cadastro.Transportadora;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -108,8 +111,8 @@ end;
 
 procedure TformPrincipal.acCadastroFornecedoresExecute(Sender: TObject);
 begin
-formCadastroFornecedores := TformCadastroFornecedores.Create(self);
-TFactory.new.criarJanela.formShow(formCadastroFornecedores, '');
+  formCadastroFornecedores := TformCadastroFornecedores.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroFornecedores, '');
 end;
 
 procedure TformPrincipal.acCadastroGruposExecute(Sender: TObject);
@@ -135,6 +138,12 @@ begin
     F_SplitView := spvCadastros;
   end;
 
+end;
+
+procedure TformPrincipal.acCadastroTransportadoraExecute(Sender: TObject);
+begin
+  formCadastroTransportadora := TformCadastroTransportadora.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroTransportadora, '');
 end;
 
 procedure TformPrincipal.acConfiguracoesExecute(Sender: TObject);

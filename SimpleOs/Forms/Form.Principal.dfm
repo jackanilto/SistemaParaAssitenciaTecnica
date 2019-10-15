@@ -7124,8 +7124,7 @@ object formPrincipal: TformPrincipal
               OnClick = acRelatoriosExecute
             end
             item
-              Caption = 'Transportadora'
-              OnClick = acExtrasExecute
+              Action = acCadastroTransportadora
             end
             item
               Action = acCadastroFornecedores
@@ -7237,7 +7236,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C010107000800240018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107000800280018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7910,6 +7909,10 @@ object formPrincipal: TformPrincipal
     object acCadastroFornecedores: TAction
       Caption = 'Fornecedores'
       OnExecute = acCadastroFornecedoresExecute
+    end
+    object acCadastroTransportadora: TAction
+      Caption = 'Transportadora'
+      OnExecute = acCadastroTransportadoraExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

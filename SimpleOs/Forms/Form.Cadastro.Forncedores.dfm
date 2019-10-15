@@ -10,4 +10,15 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       ExplicitWidth = 175
     end
   end
+  inherited CardPanel1: TCardPanel
+    inherited cardPanelConsulta: TCard
+      inherited DBGrid1: TDBGrid
+        DataSource = DataSource1
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    Left = 440
+    Top = 201
+  end
 end

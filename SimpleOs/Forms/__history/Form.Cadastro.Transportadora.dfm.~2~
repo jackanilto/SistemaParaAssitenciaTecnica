@@ -1,0 +1,14 @@
+inherited formCadastroTransportadora: TformCadastroTransportadora
+  Caption = 'Cadastro de transportadora'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited lblCaption: TLabel
+      Left = 184
+      Width = 198
+      Caption = 'Cadastro de transportadora'
+      ExplicitLeft = 184
+      ExplicitWidth = 198
+    end
+  end
+end

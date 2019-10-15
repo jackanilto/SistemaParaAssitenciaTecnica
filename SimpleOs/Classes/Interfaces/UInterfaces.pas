@@ -325,8 +325,7 @@ type
 
   end;
 
-
-    iCadastroProblemasFrequentes = interface
+  iCadastroProblemasFrequentes = interface
     ['{DA369C18-5E3E-4C03-8562-F7B8AEA25B65}']
     function nomeTabela(value: string): iCadastroProblemasFrequentes;
     function getCampo(value: string): iCadastroProblemasFrequentes;
@@ -364,6 +363,52 @@ type
 
   end;
 
+  iCadastroTransportadora = interface
+    ['{B32A85CB-D877-42D7-9185-398C68E7BCE1}']
+    function nomeTabela(value: string): iCadastroTransportadora;
+    function getCampo(value: string): iCadastroTransportadora;
+    function getValor(value: string): iCadastroTransportadora;
+    function getDataInicial(value: TDate): iCadastroTransportadora;
+    function getDataFinal(value: TDate): iCadastroTransportadora;
+    function open(value: string): iCadastroTransportadora;
+    function ExecSql: iCadastroTransportadora;
+    function sqlPesquisa: iCadastroTransportadora;
+    function sqlPesquisaData: iCadastroTransportadora;
+    function sqlPesquisaEstatica: iCadastroTransportadora;
+
+    function abrir: iCadastroTransportadora;
+    function inserir: iCadastroTransportadora;
+    function gravar: iCadastroTransportadora;
+    function deletar: iCadastroTransportadora;
+    function atualizar: iCadastroTransportadora;
+    function editar: iCadastroTransportadora;
+    function cancelar: iCadastroTransportadora;
+    function fecharQuery: iCadastroTransportadora;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroTransportadora;
+    function ordenarGrid(column: TColumn): iCadastroTransportadora;
+
+    function getCodigo(value: integer): iCadastroTransportadora;
+    function getNomeFantasia(value: string): iCadastroTransportadora;
+    function getRazaoSocial(value: string): iCadastroTransportadora;
+    function getCPFCNPJ(value: string): iCadastroTransportadora;
+    function getInscricaoEstadual(value: string): iCadastroTransportadora;
+    function getEndereco(value: string): iCadastroTransportadora;
+    function getBairro(value: string): iCadastroTransportadora;
+    function getNumero(value: integer): iCadastroTransportadora;
+    function getComplemento(value: string): iCadastroTransportadora;
+    function getCep(value: string): iCadastroTransportadora;
+    function getCidade(value: string): iCadastroTransportadora;
+    function getEstado(value: string): iCadastroTransportadora;
+    function getTelefone(value: string): iCadastroTransportadora;
+    function getCelular(value: string): iCadastroTransportadora;
+    function getEmail(value: string): iCadastroTransportadora;
+    function getFuncionario(value: integer): iCadastroTransportadora;
+    function getResponsavel(value: string): iCadastroTransportadora;
+    function getObservacao(value: string): iCadastroTransportadora;
+    function exportar:iCadastroTransportadora;
+
+  end;
 
   iFactory = interface
     ['{05E76D27-7C57-4506-880D-F3720CC622E8}']
