@@ -187,7 +187,12 @@ begin
 
   pnlFocoCadastro.Visible := false;
   CardPanel1.ActiveCard := cardPanelConsulta;
-  ativarDesativarSalvar;
+
+  sbNovo.Enabled := true;
+  sbSalvar.Enabled := false;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbCancelar.Enabled := false;
 
 end;
 

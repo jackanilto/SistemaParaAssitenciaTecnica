@@ -8,8 +8,10 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 980
+    ExplicitWidth = 980
     inherited sbFechar: TSpeedButton
       Left = 928
+      ExplicitLeft = 928
     end
     inherited lblCaption: TLabel
       Left = 258
@@ -21,31 +23,45 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
   end
   inherited Panel2: TPanel
     Width = 980
+    ExplicitWidth = 980
   end
   inherited Panel3: TPanel
     Top = 521
     Width = 980
+    ExplicitTop = 521
+    ExplicitWidth = 980
     inherited Label4: TLabel
       Left = 646
+      ExplicitLeft = 646
     end
     inherited Label5: TLabel
       Left = 781
+      ExplicitLeft = 781
     end
     inherited cbPesquisar: TComboBox
       Left = 646
+      Items.Strings = (
+        'C'#243'digo'
+        'Equiamento/Pe'#231'a'
+        'N'#250'mero de serie'
+        'Marca')
+      ExplicitLeft = 646
     end
     inherited edtPesquisar: TEdit
       Left = 781
+      OnKeyUp = edtPesquisarKeyUp
+      ExplicitLeft = 781
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 980
     Height = 440
-    ActiveCard = cardPanelCadatro
+    ExplicitWidth = 980
+    ExplicitHeight = 440
     inherited cardPanelCadatro: TCard
       Width = 980
       Height = 440
-      ExplicitTop = -1
+      ExplicitTop = 1
       ExplicitWidth = 980
       ExplicitHeight = 440
       object Label1: TLabel
@@ -193,11 +209,12 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Style = []
         ParentFont = False
       end
-      object Edit1: TEdit
+      object edtCodigo: TEdit
         Left = 32
         Top = 40
         Width = 337
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -205,13 +222,13 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        Text = 'Edit1'
       end
-      object Edit2: TEdit
+      object edtEquipamento: TEdit
         Left = 32
         Top = 96
         Width = 337
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -219,13 +236,13 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Style = []
         ParentFont = False
         TabOrder = 1
-        Text = 'Edit2'
       end
-      object Edit3: TEdit
+      object edtNumeroSerie: TEdit
         Left = 32
-        Top = 150
+        Top = 153
         Width = 337
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -233,13 +250,13 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        Text = 'Edit3'
       end
-      object Edit4: TEdit
+      object edtMarca: TEdit
         Left = 32
         Top = 205
         Width = 337
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -247,37 +264,36 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Style = []
         ParentFont = False
         TabOrder = 3
-        Text = 'Edit4'
       end
-      object Edit7: TEdit
+      object edtFuncionario: TEdit
         Left = 260
         Top = 264
         Width = 109
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
-        Text = 'Edit7'
+        TabOrder = 6
       end
-      object Edit8: TEdit
+      object edtObservacao: TEdit
         Left = 32
-        Top = 319
+        Top = 322
         Width = 337
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
-        Text = 'Edit8'
+        TabOrder = 7
       end
-      object Memo1: TMemo
+      object memoDefeito: TMemo
         Left = 456
         Top = 30
         Width = 401
@@ -288,14 +304,13 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
-        Lines.Strings = (
-          'Memo1')
         ParentFont = False
-        TabOrder = 6
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
-      object Memo2: TMemo
+      object memoSolucao: TMemo
         Left = 456
-        Top = 205
+        Top = 203
         Width = 401
         Height = 139
         Anchors = [akRight, akBottom]
@@ -305,11 +320,12 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'Memo2')
+          '')
         ParentFont = False
-        TabOrder = 7
+        ScrollBars = ssVertical
+        TabOrder = 9
       end
-      object MaskEdit1: TMaskEdit
+      object edtDataCadastro: TMaskEdit
         Left = 32
         Top = 264
         Width = 99
@@ -322,10 +338,10 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 4
         Text = '  /  /    '
       end
-      object MaskEdit2: TMaskEdit
+      object edtDataFabricacao: TMaskEdit
         Left = 138
         Top = 264
         Width = 116
@@ -338,27 +354,37 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 5
         Text = '  /  /    '
       end
     end
     inherited cardPanelConsulta: TCard
       Width = 980
       Height = 440
+      ExplicitWidth = 980
+      ExplicitHeight = 440
       inherited Panel4: TPanel
         Top = 395
         Width = 980
+        ExplicitTop = 395
+        ExplicitWidth = 980
         inherited sbImprimir: TSpeedButton
           Left = 705
+          OnClick = sbImprimirClick
+          ExplicitLeft = 705
         end
         inherited sbExportar: TSpeedButton
           Left = 816
+          OnClick = sbExportarClick
+          ExplicitLeft = 816
         end
       end
       inherited DBGrid1: TDBGrid
         Width = 980
         Height = 395
         DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
+        OnTitleClick = DBGrid1TitleClick
       end
     end
   end
@@ -367,7 +393,173 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
     Top = 41
   end
   object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
     Left = 568
     Top = 41
+  end
+  object frxDB_ProblemasFrequentes: TfrxDBDataset
+    UserName = 'frxDB_ProblemasFrequentes'
+    CloseDataSource = False
+    DataSource = DataSource1
+    BCDToCurrency = False
+    Left = 832
+    Top = 137
+  end
+  object frx_ProblemasFrequentes: TfrxReport
+    Version = '6.2.11'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43753.512531018520000000
+    ReportOptions.LastChange = 43753.514745300930000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      ''
+      'begin'
+      ''
+      'end.')
+    Left = 720
+    Top = 137
+    Datasets = <
+      item
+        DataSet = frxDB_ProblemasFrequentes
+        DataSetName = 'frxDB_ProblemasFrequentes'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 124.724490000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Top = 15.559060000000000000
+          Width = 718.110700000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -24
+          Font.Name = 'roboto'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'Relat'#243'rio Simples - Contas a pagar')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Left = 19.559060000000000000
+          Top = 45.795300000000000000
+          Width = 672.756340000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object SysMemo1: TfrxSysMemoView
+          AllowVectorExport = True
+          Left = 597.165740000000000000
+          Top = 49.574830000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[DATE]')
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 132.283550000000000000
+        Top = 204.094620000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDB_ProblemasFrequentes
+        DataSetName = 'frxDB_ProblemasFrequentes'
+        RowCount = 0
+        object Shape1: TfrxShapeView
+          AllowVectorExport = True
+          Left = -2.000000000000000000
+          Width = 721.890230000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Shape2: TfrxShapeView
+          AllowVectorExport = True
+          Top = 26.456710000000000000
+          Width = 721.890230000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Shape3: TfrxShapeView
+          AllowVectorExport = True
+          Top = 52.913420000000000000
+          Width = 721.890230000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Shape4: TfrxShapeView
+          AllowVectorExport = True
+          Top = 79.370130000000000000
+          Width = 721.890230000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 7.559060000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'C'#243'digo:')
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 53.692950000000000000
+          Top = 6.779530000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ProblemasFrequentes."ID"]')
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 396.850650000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Left = 642.520100000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[Page#]')
+        end
+      end
+    end
   end
 end

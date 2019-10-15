@@ -92,16 +92,16 @@ begin
     inttostr(DataSource1.DataSet.FieldByName('FUNCIONARIO_CADASTRO').AsInteger);
   edtObservacao.Text := DataSource1.DataSet.FieldByName('OBSERVACAO').AsString;
 
-  if DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime = null then
+  if DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime <>
+    StrToDate('30/12/1899') then
     edtDataVencimento.Text :=
-      DateToStr(DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime)
-  else
-    edtDataVencimento.Text :=
-      DateToStr(DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime);
+      datetostr(DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime);
 
   if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Sim' then
     edtDataPagamento.Text :=
-      DateToStr(DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime);
+      datetostr(DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime)
+  else
+    edtDataPagamento.Clear;
 
 end;
 
@@ -154,12 +154,8 @@ end;
 procedure TformCadastroContasAPagar.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityContaPagar
-        .abrir
-        .getCampo('ID')
-        .getValor('0')
-        .sqlPesquisa
-        .listarGrid(DataSource1);
+  FEntityContaPagar.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
 end;
 
 procedure TformCadastroContasAPagar.sbCancelarClick(Sender: TObject);
@@ -186,7 +182,7 @@ end;
 procedure TformCadastroContasAPagar.sbExportarClick(Sender: TObject);
 begin
   inherited;
- FEntityContaPagar.exportar;
+  FEntityContaPagar.exportar;
 end;
 
 procedure TformCadastroContasAPagar.sbImprimirClick(Sender: TObject);
@@ -212,8 +208,8 @@ end;
 procedure TformCadastroContasAPagar.sbPesquisarDatasClick(Sender: TObject);
 begin
   inherited;
-  FEntityContaPagar.getDataInicial(strtodate(edtData1.Text))
-    .getDataFinal(strtodate(edtData2.Text)).getCampo('DATA_VENCIMENTO')
+  FEntityContaPagar.getDataInicial(StrToDate(edtData1.Text))
+    .getDataFinal(StrToDate(edtData2.Text)).getCampo('DATA_VENCIMENTO')
     .sqlPesquisaData.listarGrid(DataSource1);
 end;
 

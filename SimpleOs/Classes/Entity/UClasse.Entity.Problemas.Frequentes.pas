@@ -8,7 +8,7 @@ uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, System.Win.ComObj;
 
 type
 
@@ -168,8 +168,60 @@ begin
 end;
 
 function TEntityProblemasFrequentes.exportar: iCadastroProblemasFrequentes;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório dos problemas frequentes';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Equipamento';
+  pasta.cells[1, 3] := 'Número de serie';
+  pasta.cells[1, 4] := 'Marca';
+  pasta.cells[1, 5] := 'Data de fabricação';
+  pasta.cells[1, 6] := 'Data de cadastro';;
+  pasta.cells[1, 7] := 'Defeito';
+  pasta.cells[1, 8] := 'Solução';
+  pasta.cells[1, 9] := 'Funcionário';
+  pasta.cells[1, 10] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('id').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('nome_peca').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
+        ('numero_serie').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('Marca').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('data_fabricacao')
+        .AsDateTime;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('data_cadastro')
+        .AsDateTime;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('defeito').Text;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName
+        ('solucao_defeito').Text;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('funcionario')
+        .AsInteger;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('observacao')
+        .AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TEntityProblemasFrequentes.fecharQuery: iCadastroProblemasFrequentes;
@@ -207,11 +259,14 @@ function TEntityProblemasFrequentes.getDataDeFabricacao(value: string)
   : iCadastroProblemasFrequentes;
 begin
   result := self;
-  try
-    FDATA_FABRICACAO := StrToDate(value);
-  except
-    on e: exception do
-      raise exception.create('Informe uma data de cadastro válida.');
+  if value <> '  /  /    ' then
+  begin
+    try
+      FDATA_FABRICACAO := StrToDate(value);
+    except
+      on e: exception do
+        raise exception.create('Informe uma data de fabricação válida.');
+    end;
   end;
 
 end;
@@ -301,12 +356,11 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_GRUPOS_ID');
+      FQuery.codigoCadastro('SP_GEN_PROBLEMAS_FREQUENTES_ID');
 
   FQuery.TQuery.FieldByName('NOME_PECA').AsString := FNOME_PECA;
   FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString := FNUMERO_SERIE;
   FQuery.TQuery.FieldByName('MARCA').AsString := FMARCA;
-  FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime := FDATA_FABRICACAO;
   FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime := FDATA_CADASTRO;
   FQuery.TQuery.FieldByName('DEFEITO').AsString := FDEFEITO;
   FQuery.TQuery.FieldByName('SOLUCAO_DEFEITO').AsString := FSOLUCAO_DEFEITO;
@@ -315,6 +369,9 @@ begin
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_PECA').AsString)
     .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+
+  if FDATA_FABRICACAO <> StrToDate('30/12/1899') then
+    FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime := FDATA_FABRICACAO;
 
   try
     FQuery.TQuery.Post;
@@ -403,7 +460,8 @@ end;
 function TEntityProblemasFrequentes.sqlPesquisa: iCadastroProblemasFrequentes;
 begin
   result := self;
-  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+  if FValor <> EmptyStr then
+    FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
 end;
 
 function TEntityProblemasFrequentes.sqlPesquisaData

@@ -182,7 +182,7 @@ begin
   pasta := CreateOleObject('Excel.application');
   pasta.workBooks.Add(1);
 
-  pasta.Caption := 'Relatório Contas a pagdr';
+  pasta.Caption := 'Relatório Contas a pagar';
   pasta.visible := true;
 
   pasta.cells[1, 1] := 'Código';

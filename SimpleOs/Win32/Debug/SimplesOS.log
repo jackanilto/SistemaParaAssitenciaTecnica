@@ -255,3 +255,38 @@ Problematic key value is ("FUNCIONARIO_CADASTRO" = 0)
 SQL error code = -104
 Token unknown - line 1, column 52
 betweeen
+15/10/19 11:00:44 - ===========================================
+15/10/19 11:00:44 - Form: formCadastroProblemasFrequentes
+15/10/19 11:00:44 - Caption: Problemas frequentes
+15/10/19 11:00:44 - Erro:EDBEditError
+15/10/19 11:00:44 - Erro:Invalid input value.  Use escape key to abandon changes
+15/10/19 11:01:15 - ===========================================
+15/10/19 11:01:15 - Form: formCadastroProblemasFrequentes
+15/10/19 11:01:15 - Caption: Problemas frequentes
+15/10/19 11:01:15 - Erro:Exception
+15/10/19 11:01:15 - Erro:Informe uma data de cadastro válida.
+15/10/19 11:07:14 - ===========================================
+15/10/19 11:07:14 - Form: formCadastroProblemasFrequentes
+15/10/19 11:07:14 - Caption: Problemas frequentes
+15/10/19 11:07:14 - Erro:Exception
+15/10/19 11:07:14 - Erro:Informe uma data de cadastro válida.
+15/10/19 11:09:41 - ===========================================
+15/10/19 11:09:41 - Form: formCadastroProblemasFrequentes
+15/10/19 11:09:41 - Caption: Problemas frequentes
+15/10/19 11:09:41 - Erro:EDatabaseError
+15/10/19 11:09:41 - Erro:Dataset not in edit or insert mode
+15/10/19 11:21:18 - ===========================================
+15/10/19 11:21:18 - Form: formCadastroProblemasFrequentes
+15/10/19 11:21:18 - Caption: Problemas frequentes
+15/10/19 11:21:18 - Erro:Exception
+15/10/19 11:21:18 - Erro:Infome o nome do equipamento.
+15/10/19 11:49:38 - ===========================================
+15/10/19 11:49:38 - Form: formCadastroProblemasFrequentes
+15/10/19 11:49:38 - Caption: Problemas frequentes
+15/10/19 11:49:38 - Erro:Exception
+15/10/19 11:49:38 - Erro:Infome o nome do equipamento.
+15/10/19 12:03:24 - ===========================================
+15/10/19 12:03:24 - Form: formCadastroProblemasFrequentes
+15/10/19 12:03:24 - Caption: Problemas frequentes
+15/10/19 12:03:24 - Erro:EConvertError
+15/10/19 12:03:24 - Erro:'Este é apenas um teste' is not a valid floating point value

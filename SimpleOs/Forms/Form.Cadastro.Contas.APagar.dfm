@@ -28,7 +28,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
   inherited Panel3: TPanel
     Top = 408
     Width = 907
-    ExplicitTop = 381
+    ExplicitTop = 408
     ExplicitWidth = 907
     inherited Label4: TLabel
       Left = 573
@@ -55,11 +55,10 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
     Width = 907
     Height = 327
     ExplicitWidth = 907
-    ExplicitHeight = 300
+    ExplicitHeight = 327
     inherited cardPanelCadatro: TCard
       Width = 907
       Height = 327
-      ExplicitTop = -1
       ExplicitWidth = 907
       ExplicitHeight = 327
       object Label1: TLabel
@@ -234,7 +233,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
       end
       object edtConta: TEdit
         Left = 32
-        Top = 96
+        Top = 100
         Width = 289
         Height = 25
         CharCase = ecUpperCase
@@ -258,7 +257,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 3
       end
       object edtDataVencimento: TMaskEdit
         Left = 32
@@ -273,7 +272,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 2
         Text = '  /  /    '
       end
       object edtJuros: TEdit
@@ -360,11 +359,11 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 10
       end
       object edtObservacao: TEdit
         Left = 391
-        Top = 152
+        Top = 155
         Width = 289
         Height = 25
         CharCase = ecUpperCase
@@ -374,7 +373,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 11
       end
       object edtPgto: TComboBox
         Left = 391
@@ -388,7 +387,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Style = []
         ItemIndex = 1
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 9
         Text = 'N'#227'o'
         Items.Strings = (
           'Sim'
@@ -399,12 +398,12 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
       Width = 907
       Height = 327
       ExplicitWidth = 907
-      ExplicitHeight = 300
+      ExplicitHeight = 327
       inherited Panel4: TPanel
         Top = 264
         Width = 907
         Height = 63
-        ExplicitTop = 269
+        ExplicitTop = 264
         ExplicitWidth = 907
         ExplicitHeight = 63
         inherited sbImprimir: TSpeedButton
@@ -412,12 +411,14 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           Top = 20
           OnClick = sbImprimirClick
           ExplicitLeft = 768
+          ExplicitTop = 20
         end
         inherited sbExportar: TSpeedButton
           Left = 743
           Top = 20
           OnClick = sbExportarClick
           ExplicitLeft = 879
+          ExplicitTop = 20
         end
         object Label15: TLabel
           Left = 56
