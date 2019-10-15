@@ -7128,8 +7128,7 @@ object formPrincipal: TformPrincipal
               OnClick = acExtrasExecute
             end
             item
-              Caption = 'Fornecedores'
-              OnClick = acSobreExecute
+              Action = acCadastroFornecedores
             end
             item
               Action = acCadastroMarcas
@@ -7180,7 +7179,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 321
   end
   object spvRelatorio: TSplitView
     Left = 323
@@ -7193,7 +7191,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 321
   end
   object spvExtras: TSplitView
     Left = 323
@@ -7207,7 +7204,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 321
   end
   object spvSobre: TSplitView
     Left = 323
@@ -7221,7 +7217,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 321
   end
   object spvConfiguracoes: TSplitView
     Left = 323
@@ -7235,7 +7230,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 321
   end
   object ImageList1: TImageList
     Height = 24
@@ -7243,7 +7237,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C0101070008001C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107000800240018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7912,6 +7906,10 @@ object formPrincipal: TformPrincipal
     object acProblemasFrequentes: TAction
       Caption = 'Problemas frequentes'
       OnExecute = acProblemasFrequentesExecute
+    end
+    object acCadastroFornecedores: TAction
+      Caption = 'Fornecedores'
+      OnExecute = acCadastroFornecedoresExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

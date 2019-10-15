@@ -33,7 +33,8 @@ uses
   Form.Cadastro.Contas.APagar in 'Forms\Form.Cadastro.Contas.APagar.pas' {formCadastroContasAPagar},
   UClasse.Entity.Contas.APagar in 'Classes\Entity\UClasse.Entity.Contas.APagar.pas',
   Form.Cadastro.Problemas.Frequentes in 'Forms\Form.Cadastro.Problemas.Frequentes.pas' {formCadastroProblemasFrequentes},
-  UClasse.Entity.Problemas.Frequentes in 'Classes\Entity\UClasse.Entity.Problemas.Frequentes.pas';
+  UClasse.Entity.Problemas.Frequentes in 'Classes\Entity\UClasse.Entity.Problemas.Frequentes.pas',
+  Form.Cadastro.Forncedores in 'Forms\Form.Cadastro.Forncedores.pas' {formCadastroFornecedores};
 
 {$R *.res}
 
