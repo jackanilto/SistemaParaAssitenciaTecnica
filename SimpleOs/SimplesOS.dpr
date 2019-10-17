@@ -36,7 +36,8 @@ uses
   UClasse.Entity.Problemas.Frequentes in 'Classes\Entity\UClasse.Entity.Problemas.Frequentes.pas',
   Form.Cadastro.Forncedores in 'Forms\Form.Cadastro.Forncedores.pas' {formCadastroFornecedores},
   UClasse.Entity.Transportadora in 'Classes\Entity\UClasse.Entity.Transportadora.pas',
-  Form.Cadastro.Transportadora in 'Forms\Form.Cadastro.Transportadora.pas' {formCadastroTransportadora};
+  Form.Cadastro.Transportadora in 'Forms\Form.Cadastro.Transportadora.pas' {formCadastroTransportadora},
+  UClasse.Entity.Forncedores in 'Classes\Entity\UClasse.Entity.Forncedores.pas';
 
 {$R *.res}
 

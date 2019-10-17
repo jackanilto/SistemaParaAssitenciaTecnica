@@ -7,7 +7,7 @@ uses
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
-  Vcl.Forms;
+  Vcl.Forms, Vcl.StdCtrls;
 
 type
   iConexaoQuery = interface
@@ -59,7 +59,9 @@ type
 
   iFDTable = interface
     ['{ABFB0FD7-63BA-48B9-BE43-183AA153F762}']
-    function FD_Table(value: string): TFDTable;
+    function FD_Table(value: string): iFDTable;
+    function getCampoTabela(value: string): iFDTable;
+    function popularComponenteComboBox(value: TcomboBox): iFDTable;
   end;
 
   iObterValorPorExtenso = interface
@@ -363,6 +365,52 @@ type
 
   end;
 
+  iCadastroFornecedores = interface
+    ['{060E03C2-3842-48EC-ADBF-3D8E00CCDB5E}']
+    function nomeTabela(value: string): iCadastroFornecedores;
+    function getCampo(value: string): iCadastroFornecedores;
+    function getValor(value: string): iCadastroFornecedores;
+    function getDataInicial(value: TDate): iCadastroFornecedores;
+    function getDataFinal(value: TDate): iCadastroFornecedores;
+    function open(value: string): iCadastroFornecedores;
+    function ExecSql: iCadastroFornecedores;
+    function sqlPesquisa: iCadastroFornecedores;
+    function sqlPesquisaData: iCadastroFornecedores;
+    function sqlPesquisaEstatica: iCadastroFornecedores;
+
+    function abrir: iCadastroFornecedores;
+    function inserir: iCadastroFornecedores;
+    function gravar: iCadastroFornecedores;
+    function deletar: iCadastroFornecedores;
+    function atualizar: iCadastroFornecedores;
+    function editar: iCadastroFornecedores;
+    function cancelar: iCadastroFornecedores;
+    function fecharQuery: iCadastroFornecedores;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroFornecedores;
+    function ordenarGrid(column: TColumn): iCadastroFornecedores;
+
+    function getCodigo(value: integer): iCadastroFornecedores;
+    function getNomeFantasia(value: string): iCadastroFornecedores;
+    function getRazaoSocial(value: string): iCadastroFornecedores;
+    function getCPFCNPJ(value: string): iCadastroFornecedores;
+    function getInscricaoEstadual(value: string): iCadastroFornecedores;
+    function getEndereco(value: string): iCadastroFornecedores;
+    function getBairro(value: string): iCadastroFornecedores;
+    function getNumero(value: integer): iCadastroFornecedores;
+    function getComplemento(value: string): iCadastroFornecedores;
+    function getCep(value: string): iCadastroFornecedores;
+    function getCidade(value: string): iCadastroFornecedores;
+    function getEstado(value: string): iCadastroFornecedores;
+    function getTelefone(value: string): iCadastroFornecedores;
+    function getCelular(value: string): iCadastroFornecedores;
+    function getEmail(value: string): iCadastroFornecedores;
+    function getFuncionario(value: integer): iCadastroFornecedores;
+    function getResponsavel(value: string): iCadastroFornecedores;
+    function getObservacao(value: string): iCadastroFornecedores;
+    function exportar: iCadastroFornecedores;
+  end;
+
   iCadastroTransportadora = interface
     ['{B32A85CB-D877-42D7-9185-398C68E7BCE1}']
     function nomeTabela(value: string): iCadastroTransportadora;
@@ -406,7 +454,7 @@ type
     function getFuncionario(value: integer): iCadastroTransportadora;
     function getResponsavel(value: string): iCadastroTransportadora;
     function getObservacao(value: string): iCadastroTransportadora;
-    function exportar:iCadastroTransportadora;
+    function exportar: iCadastroTransportadora;
 
   end;
 

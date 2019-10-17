@@ -1,0 +1,72 @@
+inherited formCadastroFornecedores: TformCadastroFornecedores
+  Caption = 'Cadastro de forncedores'
+  ClientHeight = 602
+  ClientWidth = 1017
+  ExplicitWidth = 1017
+  ExplicitHeight = 602
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 1017
+    inherited sbFechar: TSpeedButton
+      Left = 965
+    end
+    inherited lblCaption: TLabel
+      Left = 295
+      Width = 175
+      Caption = 'Cadastro de forncedores'
+      ExplicitLeft = 195
+      ExplicitWidth = 175
+    end
+  end
+  inherited Panel2: TPanel
+    Width = 1017
+  end
+  inherited Panel3: TPanel
+    Top = 527
+    Width = 1017
+    inherited Label4: TLabel
+      Left = 683
+    end
+    inherited Label5: TLabel
+      Left = 818
+    end
+    inherited cbPesquisar: TComboBox
+      Left = 683
+    end
+    inherited edtPesquisar: TEdit
+      Left = 818
+    end
+  end
+  inherited CardPanel1: TCardPanel
+    Width = 1017
+    Height = 446
+    inherited cardPanelCadatro: TCard
+      Width = 1017
+      Height = 446
+    end
+    inherited cardPanelConsulta: TCard
+      Width = 1017
+      Height = 446
+      inherited Panel4: TPanel
+        Top = 401
+        Width = 1017
+        inherited sbImprimir: TSpeedButton
+          Left = 742
+        end
+        inherited sbExportar: TSpeedButton
+          Left = 853
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Width = 1017
+        Height = 401
+        DataSource = DataSource1
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    Left = 440
+    Top = 201
+  end
+end
