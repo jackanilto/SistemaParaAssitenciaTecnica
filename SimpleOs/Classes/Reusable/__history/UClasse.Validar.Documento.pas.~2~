@@ -1,0 +1,36 @@
+unit UClasse.Validar.Documento;
+
+interface
+
+type
+  tMyClass = class(TInterfacedObject, iMyInterface)
+
+  private
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iMyInterface;
+
+  end;
+
+implementation
+
+{ tMyClass }
+
+constructor tMyClass.create;
+begin
+
+end;
+
+destructor tMyClass.destroy;
+begin
+
+  inherited;
+end;
+
+class function tMyClass.new: iMyInterface;
+begin
+  result := self.create;
+end;
+
+end.

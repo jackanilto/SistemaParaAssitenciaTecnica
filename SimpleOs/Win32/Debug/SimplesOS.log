@@ -290,3 +290,13 @@ betweeen
 15/10/19 12:03:24 - Caption: Problemas frequentes
 15/10/19 12:03:24 - Erro:EConvertError
 15/10/19 12:03:24 - Erro:'Este é apenas um teste' is not a valid floating point value
+17/10/19 11:43:31 - ===========================================
+17/10/19 11:43:31 - Form: formCadastroFornecedores
+17/10/19 11:43:31 - Caption: Cadastro de forncedores
+17/10/19 11:43:31 - Erro:Exception
+17/10/19 11:43:31 - Erro:Informe um nome fantasia válido.
+17/10/19 12:25:03 - ===========================================
+17/10/19 12:25:03 - Form: formCadastroFornecedores
+17/10/19 12:25:03 - Caption: Cadastro de forncedores
+17/10/19 12:25:03 - Erro:Exception
+17/10/19 12:25:03 - Erro:Infome um número de documento válido.

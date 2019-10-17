@@ -176,6 +176,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Forncedores.pas"/>
+        <DCCReference Include="Classes\Reusable\UClasse.Validar.Documento.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

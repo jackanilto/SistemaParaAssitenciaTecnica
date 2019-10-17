@@ -101,6 +101,11 @@ type
     function gravarLog: iGravarLogOperacoes;
   end;
 
+  iValidarDocumento = interface
+    ['{E0F56A96-5255-4E34-B8E3-018D6AA8FD65}']
+    function getDocumento(value: String): boolean;
+  end;
+
   iCriarJanelas = interface
     ['{BEA3A61C-1058-4F51-B6AB-C488A1B18E1D}']
     function formShow(form: TForm; nomeForm: string): iCriarJanelas;
@@ -464,6 +469,7 @@ type
     function oberterDataHoraPorExtenso: iObterDataHoraPorExtenso;
     function CalcularJuros: iCalcularJuros;
     function criarJanela: iCriarJanelas;
+    function validarDocumento:iValidarDocumento;
   end;
 
   iFactoryEntity = interface

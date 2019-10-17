@@ -2,7 +2,7 @@ unit UFactory;
 
 interface
 
-uses UInterfaces, UClasse.Criar.Janela;
+uses UInterfaces, UClasse.Criar.Janela, UClasse.Validar.Documento;
 
 type
   TFactory = class(TInterfacedObject, iFactory)
@@ -13,6 +13,7 @@ type
     function oberterDataHoraPorExtenso: iObterDataHoraPorExtenso;
     function CalcularJuros: iCalcularJuros;
     function criarJanela: iCriarJanelas;
+    function validarDocumento: iValidarDocumento;
     constructor create;
     destructor destroy; override;
     class function new: iFactory;
@@ -25,7 +26,7 @@ implementation
 
 function TFactory.CalcularJuros: iCalcularJuros;
 begin
-//  result := self;
+  // result := self;
 end;
 
 constructor TFactory.create;
@@ -51,12 +52,17 @@ end;
 
 function TFactory.oberterDataHoraPorExtenso: iObterDataHoraPorExtenso;
 begin
-//  result := self;
+  // result := self;
 end;
 
 function TFactory.obertValorPorExtenso: iObterValorPorExtenso;
 begin
-//  result := self;
+  // result := self;
+end;
+
+function TFactory.validarDocumento: iValidarDocumento;
+begin
+  result := TValidarDocumento.new;
 end;
 
 end.

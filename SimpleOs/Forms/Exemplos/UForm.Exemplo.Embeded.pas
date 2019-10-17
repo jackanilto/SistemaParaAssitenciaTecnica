@@ -196,6 +196,8 @@ begin
 
 end;
 
+
+
 procedure TformExemploEmbeded.lblCadastroClick(Sender: TObject);
 begin
   CardPanel1.ActiveCard := cardPanelCadatro;
