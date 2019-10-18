@@ -8,7 +8,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Forncedores, Vcl.Mask,
-  UClasse.Entity.Table, ACBrBase, ACBrSocket, ACBrCEP, UFactory;
+  UClasse.Entity.Table, ACBrBase, ACBrSocket, ACBrCEP, UFactory, frxClass,
+  frxDBSet;
 
 type
   TformCadastroFornecedores = class(TformExemploEmbeded)
@@ -51,6 +52,8 @@ type
     edtUF: TComboBox;
     sbPesquisarCep: TSpeedButton;
     ACBrCEP1: TACBrCEP;
+    frxDB_Fornecedores: TfrxDBDataset;
+    frx_Fornecedores: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -64,6 +67,10 @@ type
     procedure sbCancelarClick(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure DBGrid1TitleClick(Column: TColumn);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     FEntityForncedores: iCadastroFornecedores;
@@ -148,7 +155,7 @@ end;
 procedure TformCadastroFornecedores.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
-  FEntityForncedores.ordenarGrid(DataSource1);
+  FEntityForncedores.ordenarGrid(Column);
 end;
 
 procedure TformCadastroFornecedores.edtCPFCNPJExit(Sender: TObject);
@@ -167,6 +174,28 @@ begin
 
 end;
 
+procedure TformCadastroFornecedores.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Nome fantasia' then
+    campo := 'NOME_FANTASIA'
+  else if cbPesquisar.Text = 'Razão social' then
+    campo := 'RAZAO_SOCIAL'
+  else if cbPesquisar.Text = 'CPF ou CNPJ' then
+    campo := 'CPF_CNPJ';
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntityForncedores.getCampo(campo).getValor(edtPesquisar.Text)
+      .sqlPesquisa.listarGrid(DataSource1)
+      
+end;
+
 procedure TformCadastroFornecedores.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -178,7 +207,8 @@ procedure TformCadastroFornecedores.FormShow(Sender: TObject);
 begin
   inherited;
 
-  FEntityForncedores.abrir.listarGrid(DataSource1);
+  FEntityForncedores.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
 
   FEntityTableUF.FD_Table('UF').getCampoTabela('UF')
     .popularComponenteComboBox(edtUF);
@@ -202,6 +232,20 @@ procedure TformCadastroFornecedores.sbExcluirClick(Sender: TObject);
 begin
   inherited;
   FEntityForncedores.deletar;
+end;
+
+procedure TformCadastroFornecedores.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityForncedores.exportar;
+end;
+
+procedure TformCadastroFornecedores.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_Fornecedores.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_detalhado_fornecedores.fr3');
+  frx_Fornecedores.ShowReport();
 end;
 
 procedure TformCadastroFornecedores.sbNovoClick(Sender: TObject);

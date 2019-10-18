@@ -300,3 +300,19 @@ betweeen
 17/10/19 12:25:03 - Caption: Cadastro de forncedores
 17/10/19 12:25:03 - Erro:Exception
 17/10/19 12:25:03 - Erro:Infome um número de documento válido.
+18/10/19 10:58:26 - ===========================================
+18/10/19 10:58:26 - Form: formCadastroFornecedores
+18/10/19 10:58:26 - Caption: Cadastro de forncedores
+18/10/19 10:58:26 - Erro:EIBNativeException
+18/10/19 10:58:26 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 1
+FORNECEDORES
+18/10/19 10:59:50 - ===========================================
+18/10/19 10:59:50 - Form: formCadastroFornecedores
+18/10/19 10:59:50 - Caption: Cadastro de forncedores
+18/10/19 10:59:50 - Erro:EIBNativeException
+18/10/19 10:59:50 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 1
+FORNECEDORES

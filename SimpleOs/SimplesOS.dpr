@@ -38,7 +38,8 @@ uses
   UClasse.Entity.Transportadora in 'Classes\Entity\UClasse.Entity.Transportadora.pas',
   Form.Cadastro.Transportadora in 'Forms\Form.Cadastro.Transportadora.pas' {formCadastroTransportadora},
   UClasse.Entity.Forncedores in 'Classes\Entity\UClasse.Entity.Forncedores.pas',
-  UClasse.Validar.Documento in 'Classes\Reusable\UClasse.Validar.Documento.pas';
+  UClasse.Validar.Documento in 'Classes\Reusable\UClasse.Validar.Documento.pas',
+  Form.Cadastro.Produtos in 'Forms\Form.Cadastro.Produtos.pas' {formCadastroProdutos};
 
 {$R *.res}
 
