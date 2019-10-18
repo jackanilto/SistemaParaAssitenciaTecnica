@@ -11,11 +11,7 @@ unit UClasse.Entity;
 
 interface
 
-uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB,
-  FireDAC.Stan.Intf,
-  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
-  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
-  FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.Dialogs,
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids;
 
@@ -25,7 +21,6 @@ type
   private
 
     FQuery: iConexaoQuery;
-    FEntityQuery: TFDQuery;
     FGravarLog: iGravarLogOperacoes;
     FTabela: string;
     FCampo: string;
@@ -101,11 +96,12 @@ end;
 
 constructor TEntity.create;
 begin
-  FTabela := 'Grupos';
+  FTabela := 'PRODUTOS';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Grupos').getCodigoFuncionario(funcionarioLogado);
+  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+    (funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
 end;
@@ -120,8 +116,9 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -141,8 +138,9 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .gravarLog;
 
     FQuery.TQuery.Edit;
 
@@ -205,12 +203,13 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_GRUPOS_ID');
+      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
 
-  FQuery.TQuery.FieldByName('grupo').AsString := FNome;
+  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-    .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+    .gravarLog;
 
   try
     FQuery.TQuery.Post;
@@ -239,8 +238,6 @@ begin
   FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
   FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
   FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
-
-  // FQuery.TQuery.SQL.Add('order by id desc');
 
   value.DataSet := FQuery.TQuery;
 

@@ -506,6 +506,8 @@ type
     function getCodigoFuncionario(value: integer): iCadastroProdutos;
     function getFoto(value: TJPEGImage): iCadastroProdutos;
     function getObservacao(value: string): iCadastroProdutos;
+    function getGrupo(value: string): iCadastroProdutos;
+    function getMarca(value: string): iCadastroProdutos;
 
   end;
 
