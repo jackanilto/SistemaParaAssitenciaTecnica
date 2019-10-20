@@ -1,16 +1,17 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 327
-  Width = 768
+  Height = 338
+  Width = 748
   object conexao: TFDConnection
     Params.Strings = (
       
-        'Database=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTe' +
-        'cnica\SimpleOs\Banco\BD_SIMPLE_OS.FDB'
+        'Database=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaT' +
+        'ecnica\SimpleOs\Banco\BD_SIMPLE_OS.FDB'
       'User_Name=sysdba'
       'Password=masterkey'
       'Port=3050'
       'DriverID=FB')
+    Connected = True
     LoginPrompt = False
     BeforeConnect = conexaoBeforeConnect
     Left = 40
