@@ -115,7 +115,7 @@ end;
 function TEntityProdutos.cancelar: iCadastroProdutos;
 begin
   FQuery.TQuery.Cancel;
-  FQuery.TQuery.close;
+//  FQuery.TQuery.close;
 end;
 
 function TEntityProdutos.codigoCadastro(sp: string): integer;

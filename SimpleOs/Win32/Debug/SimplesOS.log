@@ -316,3 +316,11 @@ FORNECEDORES
 SQL error code = -104
 Token unknown - line 1, column 1
 FORNECEDORES
+20/10/19 11:38:40 - ===========================================
+20/10/19 11:38:40 - Form: formLocalizarGrupo
+20/10/19 11:38:40 - Caption: Localizar Produto
+20/10/19 11:38:40 - Erro:EIBNativeException
+20/10/19 11:38:40 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 36
+=

@@ -40,7 +40,8 @@ uses
   UClasse.Entity.Forncedores in 'Classes\Entity\UClasse.Entity.Forncedores.pas',
   UClasse.Validar.Documento in 'Classes\Reusable\UClasse.Validar.Documento.pas',
   Form.Cadastro.Produtos in 'Forms\Form.Cadastro.Produtos.pas' {formCadastroProdutos},
-  UClasse.Entity.Produtos in 'Classes\Entity\UClasse.Entity.Produtos.pas';
+  UClasse.Entity.Produtos in 'Classes\Entity\UClasse.Entity.Produtos.pas',
+  Form.Localizar.Grupo in 'Forms\Localizar\Form.Localizar.Grupo.pas' {formLocalizarGrupo};
 
 {$R *.res}
 
