@@ -26,6 +26,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
     FQuery: TFDQuery;
@@ -42,6 +43,15 @@ var
 implementation
 
 {$R *.dfm}
+
+uses Form.Cadastro.Produtos;
+
+procedure TformLocalizarGrupo.DBGrid1DblClick(Sender: TObject);
+begin
+  codigoGrupo := FQuery.FieldByName('ID').AsInteger;
+  Grupo := FQuery.FieldByName('GRUPO').AsString;
+  close;
+end;
 
 procedure TformLocalizarGrupo.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);

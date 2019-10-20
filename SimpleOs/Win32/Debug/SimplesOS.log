@@ -324,3 +324,33 @@ FORNECEDORES
 SQL error code = -104
 Token unknown - line 1, column 36
 =
+20/10/19 15:05:35 - ===========================================
+20/10/19 15:05:35 - Form: formCadastroProdutos
+20/10/19 15:05:35 - Caption: Cadastro de produtos
+20/10/19 15:05:35 - Erro:EIBNativeException
+20/10/19 15:05:35 - Erro:[FireDAC][Phys][FB]I/O error during "CreateFile (open)" operation for file "C:\USERS\NOELS\DOCUMENTS\GITHUB\SISTEMAPARAASSITENCIATECNICA\SIMPLEOS\BANCO\BD_SIMPLE_OS.FDB"
+Error while trying to open file
+O sistema não pode encontrar o caminho especificado. 
+20/10/19 15:05:38 - ===========================================
+20/10/19 15:05:38 - Form: formCadastroProdutos
+20/10/19 15:05:38 - Caption: Cadastro de produtos
+20/10/19 15:05:38 - Erro:EAccessViolation
+20/10/19 15:05:38 - Erro:Access violation at address 00966572 in module 'SimplesOS.exe'. Read of address 00000000
+20/10/19 15:23:13 - ===========================================
+20/10/19 15:23:13 - Form: formLocalizarMarca
+20/10/19 15:23:13 - Caption: Localizar marca
+20/10/19 15:23:13 - Erro:EIBNativeException
+20/10/19 15:23:13 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 24
+like
+20/10/19 15:38:43 - ===========================================
+20/10/19 15:38:43 - Form: formCadastroProdutos
+20/10/19 15:38:43 - Caption: Cadastro de produtos
+20/10/19 15:38:43 - Erro:EAccessViolation
+20/10/19 15:38:43 - Erro:Access violation at address 00968805 in module 'SimplesOS.exe'. Read of address 00000000
+20/10/19 15:39:48 - ===========================================
+20/10/19 15:39:48 - Form: formCadastroProdutos
+20/10/19 15:39:48 - Caption: Cadastro de produtos
+20/10/19 15:39:48 - Erro:EAccessViolation
+20/10/19 15:39:48 - Erro:Access violation at address 0096880D in module 'SimplesOS.exe'. Read of address 00000000

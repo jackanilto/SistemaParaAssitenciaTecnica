@@ -21,6 +21,8 @@ type
 
     FCodigo: integer;
     FSERVICO_PRODUTO: string;
+    FCodigoBarras: string;
+    FDescricao: string;
     FTIPO_CADASTROS: string;
     FVALOR_CUSTO: Currency;
     FMARGEM_LUCRO: real;
@@ -71,7 +73,9 @@ type
     function getCodigo(value: integer): iCadastroProdutos;
     function getServicoProdutos(value: string): iCadastroProdutos;
     function getTipoCadastro(value: string): iCadastroProdutos;
-    function getValorDeCurso(value: string): iCadastroProdutos;
+    function getCodigoBarras(value: string): iCadastroProdutos;
+    function getDescricao(value: string): iCadastroProdutos;
+    function getValorDeCusto(value: string): iCadastroProdutos;
     function getMargemDeLUcro(value: String): iCadastroProdutos;
     function getValorDeVenda(value: string): iCadastroProdutos;
     function getQuantidadeMinima(value: integer): iCadastroProdutos;
@@ -115,7 +119,7 @@ end;
 function TEntityProdutos.cancelar: iCadastroProdutos;
 begin
   FQuery.TQuery.Cancel;
-//  FQuery.TQuery.close;
+  // FQuery.TQuery.close;
 end;
 
 function TEntityProdutos.codigoCadastro(sp: string): integer;
@@ -199,6 +203,12 @@ begin
   FCodigo := value;
 end;
 
+function TEntityProdutos.getCodigoBarras(value: string): iCadastroProdutos;
+begin
+  result := self;
+  FCodigoBarras := value;
+end;
+
 function TEntityProdutos.getCodigoFuncionario(value: integer)
   : iCadastroProdutos;
 begin
@@ -257,6 +267,12 @@ begin
   result := self;
   FDataInicial := value;
   // FQuery.getDataInicial(value);
+end;
+
+function TEntityProdutos.getDescricao(value: string): iCadastroProdutos;
+begin
+  result := self;
+  FDescricao := value;
 end;
 
 function TEntityProdutos.getFoto(value: TJPEGImage): iCadastroProdutos;
@@ -363,7 +379,7 @@ begin
   FValor := UpperCase(value);
 end;
 
-function TEntityProdutos.getValorDeCurso(value: string): iCadastroProdutos;
+function TEntityProdutos.getValorDeCusto(value: string): iCadastroProdutos;
 begin
   result := self;
   try
