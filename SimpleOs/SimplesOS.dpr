@@ -41,7 +41,8 @@ uses
   UClasse.Validar.Documento in 'Classes\Reusable\UClasse.Validar.Documento.pas',
   Form.Cadastro.Produtos in 'Forms\Form.Cadastro.Produtos.pas' {formCadastroProdutos},
   UClasse.Entity.Produtos in 'Classes\Entity\UClasse.Entity.Produtos.pas',
-  Form.Localizar.Grupo in 'Forms\Localizar\Form.Localizar.Grupo.pas' {formLocalizarGrupo};
+  Form.Localizar.Grupo in 'Forms\Localizar\Form.Localizar.Grupo.pas' {formLocalizarGrupo},
+  Form.Localizar.Marca in 'Forms\Localizar\Form.Localizar.Marca.pas' {formLocalizarMarca};
 
 {$R *.res}
 

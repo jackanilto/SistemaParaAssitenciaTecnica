@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 338
-  Width = 748
+  Height = 327
+  Width = 768
   object conexao: TFDConnection
     Params.Strings = (
       
@@ -11,7 +11,6 @@ object DataModule1: TDataModule1
       'Password=masterkey'
       'Port=3050'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
     BeforeConnect = conexaoBeforeConnect
     Left = 40

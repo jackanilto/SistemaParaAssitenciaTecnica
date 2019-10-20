@@ -491,7 +491,9 @@ type
     function getCodigo(value: integer): iCadastroProdutos;
     function getServicoProdutos(value: string): iCadastroProdutos;
     function getTipoCadastro(value: string): iCadastroProdutos;
-    function getValorDeCurso(value: string): iCadastroProdutos;
+    function getCodigoBarras(value: string): iCadastroProdutos;
+    function getDescricao(value: string): iCadastroProdutos;
+    function getValorDeCusto(value: string): iCadastroProdutos;
     function getMargemDeLUcro(value: String): iCadastroProdutos;
     function getValorDeVenda(value: string): iCadastroProdutos;
     function getQuantidadeMinima(value: integer): iCadastroProdutos;
