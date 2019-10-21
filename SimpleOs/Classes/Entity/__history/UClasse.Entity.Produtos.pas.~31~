@@ -21,20 +21,22 @@ type
 
     FCodigo: integer;
     FSERVICO_PRODUTO: string;
+    FCodigoBarras: string;
+    FDescricao: string;
     FTIPO_CADASTROS: string;
     FVALOR_CUSTO: Currency;
     FMARGEM_LUCRO: real;
     FVALOR_VENDA: Currency;
-    FQUANTIDADE_MINIMA: integer;
-    FQUANTIDADE_ATUAL: integer;
+    FQUANTIDADE_MINIMA: string;
+    FQUANTIDADE_ATUAL: string;
     FDATA_VALIDADE: string;
     FDATA_ALTERACAO: string;
-    FID_GRUPO: integer;
+    FID_GRUPO: string;
     FGRUPO: string;
     FMODELO: String;
     FNUMERO_SERIE: string;
     FDATA_FABRICACAO: string;
-    FID_MARCA: integer;
+    FID_MARCA: string;
     FMARCA: string;
     F_FUNCIONARIO: integer;
     F_FOTO: TJPEGImage;
@@ -71,19 +73,21 @@ type
     function getCodigo(value: integer): iCadastroProdutos;
     function getServicoProdutos(value: string): iCadastroProdutos;
     function getTipoCadastro(value: string): iCadastroProdutos;
-    function getValorDeCurso(value: string): iCadastroProdutos;
+    function getCodigoBarras(value: string): iCadastroProdutos;
+    function getDescricao(value: string): iCadastroProdutos;
+    function getValorDeCusto(value: string): iCadastroProdutos;
     function getMargemDeLUcro(value: String): iCadastroProdutos;
     function getValorDeVenda(value: string): iCadastroProdutos;
-    function getQuantidadeMinima(value: integer): iCadastroProdutos;
-    function getQuantidadeAtual(value: integer): iCadastroProdutos;
+    function getQuantidadeMinima(value: string): iCadastroProdutos;
+    function getQuantidadeAtual(value: string): iCadastroProdutos;
     function getDataDeValidade(value: string): iCadastroProdutos;
     function getDataAlteracao(value: string): iCadastroProdutos;
-    function getCodigoGrupo(value: integer): iCadastroProdutos;
+    function getCodigoGrupo(value: string): iCadastroProdutos;
     function getGrupo(value: string): iCadastroProdutos;
     function getModelo(value: string): iCadastroProdutos;
     function getNumeroDeSerie(value: string): iCadastroProdutos;
     function getDataFabricacao(value: string): iCadastroProdutos;
-    function getCodigoMarca(value: integer): iCadastroProdutos;
+    function getCodigoMarca(value: string): iCadastroProdutos;
     function getMarca(value: string): iCadastroProdutos;
     function getCodigoFuncionario(value: integer): iCadastroProdutos;
     function getFoto(value: TJPEGImage): iCadastroProdutos;
@@ -115,7 +119,7 @@ end;
 function TEntityProdutos.cancelar: iCadastroProdutos;
 begin
   FQuery.TQuery.Cancel;
-  FQuery.TQuery.close;
+  // FQuery.TQuery.close;
 end;
 
 function TEntityProdutos.codigoCadastro(sp: string): integer;
@@ -199,6 +203,12 @@ begin
   FCodigo := value;
 end;
 
+function TEntityProdutos.getCodigoBarras(value: string): iCadastroProdutos;
+begin
+  result := self;
+  FCodigoBarras := value;
+end;
+
 function TEntityProdutos.getCodigoFuncionario(value: integer)
   : iCadastroProdutos;
 begin
@@ -206,13 +216,13 @@ begin
   F_FUNCIONARIO := value;
 end;
 
-function TEntityProdutos.getCodigoGrupo(value: integer): iCadastroProdutos;
+function TEntityProdutos.getCodigoGrupo(value: string): iCadastroProdutos;
 begin
   result := self;
   FID_GRUPO := value;
 end;
 
-function TEntityProdutos.getCodigoMarca(value: integer): iCadastroProdutos;
+function TEntityProdutos.getCodigoMarca(value: string): iCadastroProdutos;
 begin
   result := self;
   FID_MARCA := value;
@@ -259,10 +269,17 @@ begin
   // FQuery.getDataInicial(value);
 end;
 
+function TEntityProdutos.getDescricao(value: string): iCadastroProdutos;
+begin
+  result := self;
+  FDescricao := value;
+end;
+
 function TEntityProdutos.getFoto(value: TJPEGImage): iCadastroProdutos;
 begin
   result := self;
   F_FOTO := value;
+  showmessage('Entrou');
 end;
 
 function TEntityProdutos.getGrupo(value: string): iCadastroProdutos;
@@ -323,17 +340,19 @@ begin
   FOBSERVACAO := value;
 end;
 
-function TEntityProdutos.getQuantidadeAtual(value: integer): iCadastroProdutos;
+function TEntityProdutos.getQuantidadeAtual(value: string): iCadastroProdutos;
 begin
   result := self;
+  if value = EmptyStr then
+    raise Exception.create('Informe a quantidade de produtos atual.');
   FQUANTIDADE_ATUAL := value;
 end;
 
-function TEntityProdutos.getQuantidadeMinima(value: integer): iCadastroProdutos;
+function TEntityProdutos.getQuantidadeMinima(value: string): iCadastroProdutos;
 begin
 
   result := self;
-  if value = 0 then
+  if value = EmptyStr then
     raise Exception.create('Informe a quantidade mínima do produto.');
 
   FQUANTIDADE_MINIMA := value;
@@ -363,7 +382,7 @@ begin
   FValor := UpperCase(value);
 end;
 
-function TEntityProdutos.getValorDeCurso(value: string): iCadastroProdutos;
+function TEntityProdutos.getValorDeCusto(value: string): iCadastroProdutos;
 begin
   result := self;
   try
@@ -401,14 +420,19 @@ begin
   FQuery.TQuery.FieldByName('MARGEM_LUCRO').AsFloat := FMARGEM_LUCRO;
   FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
   FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA').AsInteger :=
-    FQUANTIDADE_MINIMA;
-  FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger := FQUANTIDADE_ATUAL;
-  FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger := FID_GRUPO;
+    StrToInt(FQUANTIDADE_MINIMA);
+  FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger :=
+    StrToInt(FQUANTIDADE_ATUAL);
   FQuery.TQuery.FieldByName('MODELO').AsString := FMODELO;
   FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString := FNUMERO_SERIE;
-  FQuery.TQuery.FieldByName('ID_MARCA').AsInteger := FID_MARCA;
-  FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger := F_FUNCIONARIO;
+  FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
   FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+  if FID_GRUPO <> EmptyStr then
+    FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger := StrToInt(FID_GRUPO);
+
+  if FID_MARCA <> EmptyStr then
+    FQuery.TQuery.FieldByName('ID_MARCA').AsInteger := StrToInt(FID_MARCA);
 
   if FDATA_VALIDADE <> EmptyStr then
     FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime :=
@@ -458,6 +482,7 @@ begin
     'Produtos ou serviço';
   FQuery.TQuery.FieldByName('TIPO_CADASTROS').DisplayLabel :=
     'Tipo de cadastro';
+  FQuery.TQuery.FieldByName('CODIGO_BARRAS').DisplayLabel := 'Código de barras';
   FQuery.TQuery.FieldByName('VALOR_CUSTO').DisplayLabel := 'Valor de custo';
   FQuery.TQuery.FieldByName('MARGEM_LUCRO').DisplayLabel := 'Margem de lucro';
   FQuery.TQuery.FieldByName('VALOR_VENDA').DisplayLabel := 'Valor de venda';

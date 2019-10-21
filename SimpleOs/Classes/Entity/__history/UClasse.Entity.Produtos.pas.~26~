@@ -21,19 +21,21 @@ type
 
     FCodigo: integer;
     FSERVICO_PRODUTO: string;
+    FCodigoBarras: string;
+    FDescricao: string;
     FTIPO_CADASTROS: string;
     FVALOR_CUSTO: Currency;
     FMARGEM_LUCRO: real;
     FVALOR_VENDA: Currency;
     FQUANTIDADE_MINIMA: integer;
     FQUANTIDADE_ATUAL: integer;
-    FDATA_VALIDADE: TDate;
-    FDATA_ALTERACAO: TDate;
+    FDATA_VALIDADE: string;
+    FDATA_ALTERACAO: string;
     FID_GRUPO: integer;
     FGRUPO: string;
     FMODELO: String;
     FNUMERO_SERIE: string;
-    FDATA_FABRICACAO: TDate;
+    FDATA_FABRICACAO: string;
     FID_MARCA: integer;
     FMARCA: string;
     F_FUNCIONARIO: integer;
@@ -71,7 +73,9 @@ type
     function getCodigo(value: integer): iCadastroProdutos;
     function getServicoProdutos(value: string): iCadastroProdutos;
     function getTipoCadastro(value: string): iCadastroProdutos;
-    function getValorDeCurso(value: string): iCadastroProdutos;
+    function getCodigoBarras(value: string): iCadastroProdutos;
+    function getDescricao(value: string): iCadastroProdutos;
+    function getValorDeCusto(value: string): iCadastroProdutos;
     function getMargemDeLUcro(value: String): iCadastroProdutos;
     function getValorDeVenda(value: string): iCadastroProdutos;
     function getQuantidadeMinima(value: integer): iCadastroProdutos;
@@ -115,7 +119,7 @@ end;
 function TEntityProdutos.cancelar: iCadastroProdutos;
 begin
   FQuery.TQuery.Cancel;
-  FQuery.TQuery.close;
+  // FQuery.TQuery.close;
 end;
 
 function TEntityProdutos.codigoCadastro(sp: string): integer;
@@ -199,6 +203,12 @@ begin
   FCodigo := value;
 end;
 
+function TEntityProdutos.getCodigoBarras(value: string): iCadastroProdutos;
+begin
+  result := self;
+  FCodigoBarras := value;
+end;
+
 function TEntityProdutos.getCodigoFuncionario(value: integer)
   : iCadastroProdutos;
 begin
@@ -259,10 +269,17 @@ begin
   // FQuery.getDataInicial(value);
 end;
 
+function TEntityProdutos.getDescricao(value: string): iCadastroProdutos;
+begin
+  result := self;
+  FDescricao := value;
+end;
+
 function TEntityProdutos.getFoto(value: TJPEGImage): iCadastroProdutos;
 begin
   result := self;
   F_FOTO := value;
+  showmessage('Entrou');
 end;
 
 function TEntityProdutos.getGrupo(value: string): iCadastroProdutos;
@@ -320,7 +337,7 @@ end;
 function TEntityProdutos.getObservacao(value: string): iCadastroProdutos;
 begin
   result := self;
-  FOBSERVACAO := self;
+  FOBSERVACAO := value;
 end;
 
 function TEntityProdutos.getQuantidadeAtual(value: integer): iCadastroProdutos;
@@ -363,7 +380,7 @@ begin
   FValor := UpperCase(value);
 end;
 
-function TEntityProdutos.getValorDeCurso(value: string): iCadastroProdutos;
+function TEntityProdutos.getValorDeCusto(value: string): iCadastroProdutos;
 begin
   result := self;
   try
@@ -395,7 +412,35 @@ begin
     FQuery.TQuery.FieldByName('id').AsInteger :=
       FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
 
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FSERVICO_PRODUTO;
+  FQuery.TQuery.FieldByName('TIPO_CADASTROS').AsString := FTIPO_CADASTROS;
+  FQuery.TQuery.FieldByName('VALOR_CUSTO').AsCurrency := FVALOR_CUSTO;
+  FQuery.TQuery.FieldByName('MARGEM_LUCRO').AsFloat := FMARGEM_LUCRO;
+  FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
+  FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA').AsInteger :=
+    FQUANTIDADE_MINIMA;
+  FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger := FQUANTIDADE_ATUAL;
+  FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger := FID_GRUPO;
+  FQuery.TQuery.FieldByName('MODELO').AsString := FMODELO;
+  FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString := FNUMERO_SERIE;
+  FQuery.TQuery.FieldByName('ID_MARCA').AsInteger := FID_MARCA;
+  FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger := F_FUNCIONARIO;
+  FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+  if FDATA_VALIDADE <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime :=
+      strtodate(FDATA_VALIDADE);
+
+  if FDATA_ALTERACAO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_ALTERACAO').AsDateTime :=
+      strtodate(FDATA_ALTERACAO);
+
+  if FDATA_FABRICACAO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime :=
+      strtodate(FDATA_FABRICACAO);
+
+  if Assigned(F_FOTO) then
+    FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
     .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)

@@ -2,6 +2,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
   Caption = 'Cadastro de produtos'
   ClientHeight = 590
   ClientWidth = 1084
+  OnClose = FormClose
   ExplicitWidth = 1084
   ExplicitHeight = 590
   PixelsPerInch = 96
@@ -336,6 +337,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Top = 31
         Width = 168
         Height = 152
+        Proportional = True
       end
       object SpeedButton1: TSpeedButton
         Left = 883
@@ -407,6 +409,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
           FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
         ParentFont = False
+        OnClick = SpeedButton1Click
       end
       object sbPesquisarGrupo: TSpeedButton
         Left = 815
@@ -578,7 +581,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         ParentFont = False
         TabOrder = 1
       end
-      object edtCcodigoDeBarras: TEdit
+      object edtCodigoDeBarras: TEdit
         Left = 16
         Top = 158
         Width = 400
@@ -886,7 +889,12 @@ inherited formCadastroProdutos: TformCadastroProdutos
     Top = 49
   end
   object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
     Left = 568
     Top = 49
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    Left = 896
+    Top = 329
   end
 end

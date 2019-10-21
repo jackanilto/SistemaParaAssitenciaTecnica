@@ -68,6 +68,7 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure sbSalvarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
     FEntityProdutos: iCadastroProdutos;
@@ -90,6 +91,33 @@ implementation
 {$R *.dfm}
 
 uses Form.Localizar.grupo, Form.Localizar.marca;
+
+procedure TformCadastroProdutos.DataSource1DataChange(Sender: TObject;
+  Field: TField);
+begin
+  inherited;
+
+  with DataSource1.DataSet do
+  begin
+    edtCodigo.Text := IntToStr(FieldByName('ID').AsInteger);
+    edtTipoProduto.Text := FieldByName('TIPO_CADASTROS').AsString;
+    edtProduto.Text := FieldByName('SERVICO_PRODUTO');
+    edtCodigoDeBarras.Text := FieldByName('CODIGO_BARRAS').AsString;
+    edtDescricao.Text := FieldByName('DESCRICAO').AsString;
+    edtValorDeCusto.Text := CurrToStr(FieldByName('VALOR_CUSTO').AsCurrency);
+    edtMargemDeLucro.Text := FloatToStr(FieldByName('MARGEM_LUCRO').AsCurrency);
+    edtValorDeVenda.Text := CurrToStr(FieldByName('VALOR_VENDA').AsCurrency);
+    edtQuantidadeMinima.Text := FieldByName('QUANTIDADE_MINIMA').AsInteger.ToString;
+    edtQuantidadeAtual.Text := FieldByName('QUANTIDADE_ATUAL').AsInteger.ToString;
+    edtGrupo.Text := FieldByName('GRUPO').AsString;
+
+
+
+//  tudo referente as datas e código das tabelas auxiliares
+
+  end;
+
+end;
 
 procedure TformCadastroProdutos.FormClose(Sender: TObject;
   var Action: TCloseAction);
@@ -143,30 +171,24 @@ end;
 
 procedure TformCadastroProdutos.sbSalvarClick(Sender: TObject);
 begin
-  inherited;
   // FEntityProdutos.getFoto(imagem)
 
-  FEntityProdutos
-    .getTipoCadastro(edtTipoProduto.Text)
-    .getServicoProdutos(edtProduto.Text)
-    .getCodigoBarras(edtCodigoDeBarras.Text)
+  FEntityProdutos.getTipoCadastro(edtTipoProduto.Text)
+    .getServicoProdutos(edtProduto.Text).getCodigoBarras(edtCodigoDeBarras.Text)
     .getDescricao(edtDescricao.Text).getValorDeCusto(edtValorDeCusto.Text)
     .getMargemDeLUcro(edtMargemDeLucro.Text)
-    .getValorDeVenda(edtValorDeVenda.Text)
-    .getQuantidadeMinima(StrToInt(edtQuantidadeMinima.Text))
-    .getQuantidadeAtual(StrToInt(edtQuantidadeAtual.Text))
+    .getValorDeVenda(edtValorDeVenda.Text).getQuantidadeMinima
+    (edtQuantidadeMinima.Text).getQuantidadeAtual(edtQuantidadeAtual.Text)
     .getDataDeValidade(edtDataDeValidade.Text)
-    .getDataAlteracao(edtDataDeAlteracao.Text)
-    .getGrupo(edtGrupo.Text)
-    .getCodigoGrupo(StrToInt(edtCodigoGrupo.Text))
-    .getCodigoMarca(StrToInt(edtCodigoDaMarca.Text))
-    .getMarca(edtMarca.Text)
-    .getModelo(edtModelo.Text)
-    .getNumeroDeSerie(edtNumeroDeSerie.Text)
-    .getDataFabricacao(edtDataDeFabricacao.Text)
-    .getObservacao(edtObservacao.Text)
-    .getFoto(imagem)
-    .gravar;
+    .getDataAlteracao(edtDataDeAlteracao.Text).getGrupo(edtGrupo.Text)
+    .getCodigoGrupo(edtCodigoGrupo.Text).getCodigoMarca(edtCodigoDaMarca.Text)
+    .getMarca(edtMarca.Text).getModelo(edtModelo.Text)
+    .getNumeroDeSerie(edtNumeroDeSerie.Text).getDataFabricacao
+    (edtDataDeFabricacao.Text).getObservacao(edtObservacao.Text)
+    .getFoto(imagem).gravar;
+
+  inherited;
+
 end;
 
 procedure TformCadastroProdutos.SpeedButton1Click(Sender: TObject);

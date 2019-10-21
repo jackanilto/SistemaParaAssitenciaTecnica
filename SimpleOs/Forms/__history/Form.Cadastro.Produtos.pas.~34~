@@ -8,14 +8,14 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Produtos, Vcl.Mask, UFactory,
-  Vcl.ExtDlgs;
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg;
 
 type
   TformCadastroProdutos = class(TformExemploEmbeded)
     DataSource1: TDataSource;
     edtCodigo: TEdit;
     edtProduto: TEdit;
-    edtCcodigoDeBarras: TEdit;
+    edtCodigoDeBarras: TEdit;
     edtDescricao: TEdit;
     edtValorDeCusto: TEdit;
     edtMargemDeLucro: TEdit;
@@ -66,9 +66,12 @@ type
     procedure sbPesquisarGrupoClick(Sender: TObject);
     procedure sbPesquisarMarcaClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure sbSalvarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     FEntityProdutos: iCadastroProdutos;
+    imagem: TJPEGImage;
   public
     { Public declarations }
   end;
@@ -87,6 +90,13 @@ implementation
 {$R *.dfm}
 
 uses Form.Localizar.grupo, Form.Localizar.marca;
+
+procedure TformCadastroProdutos.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+  FreeAndNil(imagem);
+end;
 
 procedure TformCadastroProdutos.FormCreate(Sender: TObject);
 begin
@@ -131,11 +141,39 @@ begin
 
 end;
 
+procedure TformCadastroProdutos.sbSalvarClick(Sender: TObject);
+begin
+  // FEntityProdutos.getFoto(imagem)
+
+  FEntityProdutos.getTipoCadastro(edtTipoProduto.Text)
+    .getServicoProdutos(edtProduto.Text).getCodigoBarras(edtCodigoDeBarras.Text)
+    .getDescricao(edtDescricao.Text).getValorDeCusto(edtValorDeCusto.Text)
+    .getMargemDeLUcro(edtMargemDeLucro.Text)
+    .getValorDeVenda(edtValorDeVenda.Text).getQuantidadeMinima
+    (edtQuantidadeMinima.Text).getQuantidadeAtual(edtQuantidadeAtual.Text)
+    .getDataDeValidade(edtDataDeValidade.Text)
+    .getDataAlteracao(edtDataDeAlteracao.Text).getGrupo(edtGrupo.Text)
+    .getCodigoGrupo(edtCodigoGrupo.Text).getCodigoMarca(edtCodigoDaMarca.Text)
+    .getMarca(edtMarca.Text).getModelo(edtModelo.Text)
+    .getNumeroDeSerie(edtNumeroDeSerie.Text).getDataFabricacao
+    (edtDataDeFabricacao.Text).getObservacao(edtObservacao.Text)
+    .getFoto(imagem).gravar;
+
+  inherited;
+
+end;
+
 procedure TformCadastroProdutos.SpeedButton1Click(Sender: TObject);
 begin
   inherited;
+
+  imagem := TJPEGImage.Create;
+
   if OpenPictureDialog1.Execute then
+  begin
     Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+    imagem.LoadFromFile(OpenPictureDialog1.FileName);
+  end;
 
 end;
 

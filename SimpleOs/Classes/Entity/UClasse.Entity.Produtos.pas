@@ -1,3 +1,83 @@
+{$A8,B-,C+,D+,E-,F-,G+,H+,I+,J-,K-,L+,M-,N-,O+,P+,Q-,R-,S-,T-,U-,V+,W-,X+,Y+,Z1}
+{$MINSTACKSIZE $00004000}
+{$MAXSTACKSIZE $00100000}
+{$IMAGEBASE $00400000}
+{$APPTYPE GUI}
+{$WARN SYMBOL_DEPRECATED ON}
+{$WARN SYMBOL_LIBRARY ON}
+{$WARN SYMBOL_PLATFORM ON}
+{$WARN SYMBOL_EXPERIMENTAL ON}
+{$WARN UNIT_LIBRARY ON}
+{$WARN UNIT_PLATFORM ON}
+{$WARN UNIT_DEPRECATED ON}
+{$WARN UNIT_EXPERIMENTAL ON}
+{$WARN HRESULT_COMPAT ON}
+{$WARN HIDING_MEMBER ON}
+{$WARN HIDDEN_VIRTUAL ON}
+{$WARN GARBAGE ON}
+{$WARN BOUNDS_ERROR ON}
+{$WARN ZERO_NIL_COMPAT ON}
+{$WARN STRING_CONST_TRUNCED ON}
+{$WARN FOR_LOOP_VAR_VARPAR ON}
+{$WARN TYPED_CONST_VARPAR ON}
+{$WARN ASG_TO_TYPED_CONST ON}
+{$WARN CASE_LABEL_RANGE ON}
+{$WARN FOR_VARIABLE ON}
+{$WARN CONSTRUCTING_ABSTRACT ON}
+{$WARN COMPARISON_FALSE ON}
+{$WARN COMPARISON_TRUE ON}
+{$WARN COMPARING_SIGNED_UNSIGNED ON}
+{$WARN COMBINING_SIGNED_UNSIGNED ON}
+{$WARN UNSUPPORTED_CONSTRUCT ON}
+{$WARN FILE_OPEN ON}
+{$WARN FILE_OPEN_UNITSRC ON}
+{$WARN BAD_GLOBAL_SYMBOL ON}
+{$WARN DUPLICATE_CTOR_DTOR ON}
+{$WARN INVALID_DIRECTIVE ON}
+{$WARN PACKAGE_NO_LINK ON}
+{$WARN PACKAGED_THREADVAR ON}
+{$WARN IMPLICIT_IMPORT ON}
+{$WARN HPPEMIT_IGNORED ON}
+{$WARN NO_RETVAL ON}
+{$WARN USE_BEFORE_DEF ON}
+{$WARN FOR_LOOP_VAR_UNDEF ON}
+{$WARN UNIT_NAME_MISMATCH ON}
+{$WARN NO_CFG_FILE_FOUND ON}
+{$WARN IMPLICIT_VARIANTS ON}
+{$WARN UNICODE_TO_LOCALE ON}
+{$WARN LOCALE_TO_UNICODE ON}
+{$WARN IMAGEBASE_MULTIPLE ON}
+{$WARN SUSPICIOUS_TYPECAST ON}
+{$WARN PRIVATE_PROPACCESSOR ON}
+{$WARN UNSAFE_TYPE OFF}
+{$WARN UNSAFE_CODE OFF}
+{$WARN UNSAFE_CAST OFF}
+{$WARN OPTION_TRUNCATED ON}
+{$WARN WIDECHAR_REDUCED ON}
+{$WARN DUPLICATES_IGNORED ON}
+{$WARN UNIT_INIT_SEQ ON}
+{$WARN LOCAL_PINVOKE ON}
+{$WARN MESSAGE_DIRECTIVE ON}
+{$WARN TYPEINFO_IMPLICITLY_ADDED ON}
+{$WARN RLINK_WARNING ON}
+{$WARN IMPLICIT_STRING_CAST ON}
+{$WARN IMPLICIT_STRING_CAST_LOSS ON}
+{$WARN EXPLICIT_STRING_CAST OFF}
+{$WARN EXPLICIT_STRING_CAST_LOSS OFF}
+{$WARN CVT_WCHAR_TO_ACHAR ON}
+{$WARN CVT_NARROWING_STRING_LOST ON}
+{$WARN CVT_ACHAR_TO_WCHAR ON}
+{$WARN CVT_WIDENING_STRING_LOST ON}
+{$WARN NON_PORTABLE_TYPECAST ON}
+{$WARN XML_WHITESPACE_NOT_ALLOWED ON}
+{$WARN XML_UNKNOWN_ENTITY ON}
+{$WARN XML_INVALID_NAME_START ON}
+{$WARN XML_INVALID_NAME ON}
+{$WARN XML_EXPECTED_CHARACTER ON}
+{$WARN XML_CREF_NO_RESOLVE ON}
+{$WARN XML_NO_PARM ON}
+{$WARN XML_NO_MATCHING_PARM ON}
+{$WARN IMMUTABLE_STRINGS OFF}
 unit UClasse.Entity.Produtos;
 
 interface
@@ -27,16 +107,16 @@ type
     FVALOR_CUSTO: Currency;
     FMARGEM_LUCRO: real;
     FVALOR_VENDA: Currency;
-    FQUANTIDADE_MINIMA: integer;
-    FQUANTIDADE_ATUAL: integer;
+    FQUANTIDADE_MINIMA: string;
+    FQUANTIDADE_ATUAL: string;
     FDATA_VALIDADE: string;
     FDATA_ALTERACAO: string;
-    FID_GRUPO: integer;
+    FID_GRUPO: string;
     FGRUPO: string;
     FMODELO: String;
     FNUMERO_SERIE: string;
     FDATA_FABRICACAO: string;
-    FID_MARCA: integer;
+    FID_MARCA: string;
     FMARCA: string;
     F_FUNCIONARIO: integer;
     F_FOTO: TJPEGImage;
@@ -78,16 +158,16 @@ type
     function getValorDeCusto(value: string): iCadastroProdutos;
     function getMargemDeLUcro(value: String): iCadastroProdutos;
     function getValorDeVenda(value: string): iCadastroProdutos;
-    function getQuantidadeMinima(value: integer): iCadastroProdutos;
-    function getQuantidadeAtual(value: integer): iCadastroProdutos;
+    function getQuantidadeMinima(value: string): iCadastroProdutos;
+    function getQuantidadeAtual(value: string): iCadastroProdutos;
     function getDataDeValidade(value: string): iCadastroProdutos;
     function getDataAlteracao(value: string): iCadastroProdutos;
-    function getCodigoGrupo(value: integer): iCadastroProdutos;
+    function getCodigoGrupo(value: string): iCadastroProdutos;
     function getGrupo(value: string): iCadastroProdutos;
     function getModelo(value: string): iCadastroProdutos;
     function getNumeroDeSerie(value: string): iCadastroProdutos;
     function getDataFabricacao(value: string): iCadastroProdutos;
-    function getCodigoMarca(value: integer): iCadastroProdutos;
+    function getCodigoMarca(value: string): iCadastroProdutos;
     function getMarca(value: string): iCadastroProdutos;
     function getCodigoFuncionario(value: integer): iCadastroProdutos;
     function getFoto(value: TJPEGImage): iCadastroProdutos;
@@ -216,13 +296,13 @@ begin
   F_FUNCIONARIO := value;
 end;
 
-function TEntityProdutos.getCodigoGrupo(value: integer): iCadastroProdutos;
+function TEntityProdutos.getCodigoGrupo(value: string): iCadastroProdutos;
 begin
   result := self;
   FID_GRUPO := value;
 end;
 
-function TEntityProdutos.getCodigoMarca(value: integer): iCadastroProdutos;
+function TEntityProdutos.getCodigoMarca(value: string): iCadastroProdutos;
 begin
   result := self;
   FID_MARCA := value;
@@ -279,6 +359,7 @@ function TEntityProdutos.getFoto(value: TJPEGImage): iCadastroProdutos;
 begin
   result := self;
   F_FOTO := value;
+  showmessage('Entrou');
 end;
 
 function TEntityProdutos.getGrupo(value: string): iCadastroProdutos;
@@ -339,17 +420,19 @@ begin
   FOBSERVACAO := value;
 end;
 
-function TEntityProdutos.getQuantidadeAtual(value: integer): iCadastroProdutos;
+function TEntityProdutos.getQuantidadeAtual(value: string): iCadastroProdutos;
 begin
   result := self;
+  if value = EmptyStr then
+    raise Exception.create('Informe a quantidade de produtos atual.');
   FQUANTIDADE_ATUAL := value;
 end;
 
-function TEntityProdutos.getQuantidadeMinima(value: integer): iCadastroProdutos;
+function TEntityProdutos.getQuantidadeMinima(value: string): iCadastroProdutos;
 begin
 
   result := self;
-  if value = 0 then
+  if value = EmptyStr then
     raise Exception.create('Informe a quantidade mínima do produto.');
 
   FQUANTIDADE_MINIMA := value;
@@ -413,18 +496,27 @@ begin
 
   FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FSERVICO_PRODUTO;
   FQuery.TQuery.FieldByName('TIPO_CADASTROS').AsString := FTIPO_CADASTROS;
+  FQuery.TQuery.FieldByName('CODIGO_BARRAS').AsString := FCodigoBarras;
+  FQuery.TQuery.FieldByName('DESCRICAO').AsString := FDescricao;
   FQuery.TQuery.FieldByName('VALOR_CUSTO').AsCurrency := FVALOR_CUSTO;
   FQuery.TQuery.FieldByName('MARGEM_LUCRO').AsFloat := FMARGEM_LUCRO;
   FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
   FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA').AsInteger :=
-    FQUANTIDADE_MINIMA;
-  FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger := FQUANTIDADE_ATUAL;
-  FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger := FID_GRUPO;
+    StrToInt(FQUANTIDADE_MINIMA);
+  FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger :=
+    StrToInt(FQUANTIDADE_ATUAL);
   FQuery.TQuery.FieldByName('MODELO').AsString := FMODELO;
   FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString := FNUMERO_SERIE;
-  FQuery.TQuery.FieldByName('ID_MARCA').AsInteger := FID_MARCA;
-  FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger := F_FUNCIONARIO;
+  FQuery.TQuery.FieldByName('GRUPO').AsString := FGRUPO;
+  FQuery.TQuery.FieldByName('MARCA').AsString := FMARCA;
+  FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
   FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+  if FID_GRUPO <> EmptyStr then
+    FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger := StrToInt(FID_GRUPO);
+
+  if FID_MARCA <> EmptyStr then
+    FQuery.TQuery.FieldByName('ID_MARCA').AsInteger := StrToInt(FID_MARCA);
 
   if FDATA_VALIDADE <> EmptyStr then
     FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime :=
@@ -474,6 +566,8 @@ begin
     'Produtos ou serviço';
   FQuery.TQuery.FieldByName('TIPO_CADASTROS').DisplayLabel :=
     'Tipo de cadastro';
+  FQuery.TQuery.FieldByName('CODIGO_BARRAS').DisplayLabel := 'Código de barras';
+  FQuery.TQuery.FieldByName('DESCRICAO').DisplayLabel := 'Descrição';
   FQuery.TQuery.FieldByName('VALOR_CUSTO').DisplayLabel := 'Valor de custo';
   FQuery.TQuery.FieldByName('MARGEM_LUCRO').DisplayLabel := 'Margem de lucro';
   FQuery.TQuery.FieldByName('VALOR_VENDA').DisplayLabel := 'Valor de venda';
@@ -485,15 +579,21 @@ begin
   FQuery.TQuery.FieldByName('DATA_ALTERACAO').DisplayLabel :=
     'Data de alteração';
   FQuery.TQuery.FieldByName('ID_GRUPO').DisplayLabel := 'Cód. Grupo';
+  FQuery.TQuery.FieldByName('GRUPO').DisplayLabel := 'Grupo';
   FQuery.TQuery.FieldByName('MODELO').DisplayLabel := 'Modelo';
   FQuery.TQuery.FieldByName('NUMERO_SERIE').DisplayLabel := 'Número de serie';
   FQuery.TQuery.FieldByName('DATA_FABRICACAO').DisplayLabel :=
     'Data de fabricação';
   FQuery.TQuery.FieldByName('ID_MARCA').DisplayLabel := 'Cód. Marca';
+  FQuery.TQuery.FieldByName('MARCA').DisplayLabel := 'Marca';
   FQuery.TQuery.FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
   FQuery.TQuery.FieldByName('FOTO').Visible := False;
 
+  FQuery.TQuery.FieldByName('CODIGO_BARRAS').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('GRUPO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('MARCA').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('DESCRICAO').DisplayWidth := 30;
   FQuery.TQuery.FieldByName('SERVICO_PRODUTO').DisplayWidth := 40;
   FQuery.TQuery.FieldByName('MODELO').DisplayWidth := 40;
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;

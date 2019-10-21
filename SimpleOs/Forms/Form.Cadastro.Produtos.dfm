@@ -889,6 +889,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
     Top = 49
   end
   object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
     Left = 568
     Top = 49
   end

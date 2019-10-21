@@ -354,3 +354,42 @@ like
 20/10/19 15:39:48 - Caption: Cadastro de produtos
 20/10/19 15:39:48 - Erro:EAccessViolation
 20/10/19 15:39:48 - Erro:Access violation at address 0096880D in module 'SimplesOS.exe'. Read of address 00000000
+20/10/19 21:05:17 - ===========================================
+20/10/19 21:05:17 - Form: formCadastroProdutos
+20/10/19 21:05:17 - Caption: Cadastro de produtos
+20/10/19 21:05:17 - Erro:EJPEG
+20/10/19 21:05:17 - Erro:JPEG error #53
+21/10/19 11:33:47 - ===========================================
+21/10/19 11:33:47 - Form: formCadastroProdutos
+21/10/19 11:33:47 - Caption: Cadastro de produtos
+21/10/19 11:33:47 - Erro:EJPEG
+21/10/19 11:33:47 - Erro:JPEG error #53
+21/10/19 11:33:52 - ===========================================
+21/10/19 11:33:52 - Form: formCadastroProdutos
+21/10/19 11:33:52 - Caption: Cadastro de produtos
+21/10/19 11:33:52 - Erro:Exception
+21/10/19 11:33:52 - Erro:Informe o nome do produtos ou serviço.
+21/10/19 11:35:29 - ===========================================
+21/10/19 11:35:29 - Form: formCadastroProdutos
+21/10/19 11:35:29 - Caption: Cadastro de produtos
+21/10/19 11:35:29 - Erro:EConvertError
+21/10/19 11:35:29 - Erro:'' is not a valid integer value
+21/10/19 11:37:05 - ===========================================
+21/10/19 11:37:05 - Form: formCadastroProdutos
+21/10/19 11:37:05 - Caption: Cadastro de produtos
+21/10/19 11:37:05 - Erro:Exception
+21/10/19 11:37:05 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_PRODUTOS_1" on table "PRODUTOS"
+Foreign key reference target does not exist
+Problematic key value is ("ID_GRUPO" = 0)
+21/10/19 11:51:08 - ===========================================
+21/10/19 11:51:08 - Form: formCadastroProdutos
+21/10/19 11:51:08 - Caption: Cadastro de produtos
+21/10/19 11:51:08 - Erro:Exception
+21/10/19 11:51:08 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_PRODUTOS_3" on table "PRODUTOS"
+Foreign key reference target does not exist
+Problematic key value is ("FUNCIONARIO" = 0)
+21/10/19 11:57:02 - ===========================================
+21/10/19 11:57:02 - Form: formCadastroProdutos
+21/10/19 11:57:02 - Caption: Cadastro de produtos
+21/10/19 11:57:02 - Erro:EDatabaseError
+21/10/19 11:57:02 - Erro:Field 'DESCRIÇÃO' not found
