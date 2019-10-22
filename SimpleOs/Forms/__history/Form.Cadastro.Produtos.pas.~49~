@@ -1,4 +1,4 @@
-ï»¿unit Form.Cadastro.Produtos;
+unit Form.Cadastro.Produtos;
 
 interface
 
@@ -68,6 +68,9 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure sbSalvarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure sbEditarClick(Sender: TObject);
   private
     { Private declarations }
     FEntityProdutos: iCadastroProdutos;
@@ -91,11 +94,66 @@ implementation
 
 uses Form.Localizar.grupo, Form.Localizar.marca;
 
+procedure TformCadastroProdutos.DataSource1DataChange(Sender: TObject;
+  Field: TField);
+begin
+  inherited;
+
+  with DataSource1.DataSet do
+  begin
+    edtCodigo.Text := IntToStr(FieldByName('ID').AsInteger);
+    edtTipoProduto.Text := FieldByName('TIPO_CADASTROS').AsString;
+    edtProduto.Text := FieldByName('SERVICO_PRODUTO').AsString;
+    edtCodigoDeBarras.Text := FieldByName('CODIGO_BARRAS').AsString;
+    edtDescricao.Text := FieldByName('DESCRICAO').AsString;
+    edtValorDeCusto.Text := CurrToStr(FieldByName('VALOR_CUSTO').AsCurrency);
+    edtMargemDeLucro.Text := FloatToStr(FieldByName('MARGEM_LUCRO').AsCurrency);
+    edtValorDeVenda.Text := CurrToStr(FieldByName('VALOR_VENDA').AsCurrency);
+    edtQuantidadeMinima.Text := FieldByName('QUANTIDADE_MINIMA')
+      .AsInteger.ToString;
+    edtQuantidadeAtual.Text := FieldByName('QUANTIDADE_ATUAL')
+      .AsInteger.ToString;
+    edtGrupo.Text := FieldByName('GRUPO').AsString;
+
+    // tudo referente as datas e código das tabelas auxiliares
+    if FieldByName('DATA_VALIDADE').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataDeValidade.Text :=
+        DateToStr(FieldByName('DATA_VALIDADE').AsDateTime);
+
+    if FieldByName('DATA_ALTERACAO').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataDeAlteracao.Text :=
+        DateToStr(FieldByName('DATA_ALTERACAO').AsDateTime);
+
+    if FieldByName('DATA_FABRICACAO').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataDeFabricacao.Text :=
+        DateToStr(FieldByName('DATA_FABRICACAO').AsDateTime);
+
+    Image1.Picture.Assign(FieldByName('FOTO'));
+
+  end;
+
+end;
+
+procedure TformCadastroProdutos.DBGrid1CellClick(Column: TColumn);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+  end
+  else
+  begin
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+  end;
+end;
+
 procedure TformCadastroProdutos.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   inherited;
-  FreeAndNil(imagem);
+  // FreeAndNil(imagem);
 end;
 
 procedure TformCadastroProdutos.FormCreate(Sender: TObject);
@@ -108,6 +166,13 @@ procedure TformCadastroProdutos.FormShow(Sender: TObject);
 begin
   inherited;
   FEntityProdutos.abrir.listarGrid(DataSource1);
+end;
+
+procedure TformCadastroProdutos.sbEditarClick(Sender: TObject);
+begin
+  FEntityProdutos.editar;
+  inherited;
+  edtProduto.SetFocus;
 end;
 
 procedure TformCadastroProdutos.sbNovoClick(Sender: TObject);
@@ -143,15 +208,26 @@ end;
 
 procedure TformCadastroProdutos.sbSalvarClick(Sender: TObject);
 begin
-  inherited;
   // FEntityProdutos.getFoto(imagem)
 
-  FEntityProdutos
-                .getTipoCadastro(edtTipoProduto.Text)
-                .getServicoProdutos(edtProduto.Text)
-                .getCodigoBarras(edtCodigoDeBarras.Text)
-                .getDescricao(edtDescricao.Text)
-                .getValorDeCurso(edtValorDeCusto.Text)
+  FEntityProdutos.getTipoCadastro(edtTipoProduto.Text)
+    .getServicoProdutos(edtProduto.Text).getCodigoBarras(edtCodigoDeBarras.Text)
+    .getDescricao(edtDescricao.Text).getValorDeCusto(edtValorDeCusto.Text)
+    .getMargemDeLUcro(edtMargemDeLucro.Text)
+    .getValorDeVenda(edtValorDeVenda.Text).getQuantidadeMinima
+    (edtQuantidadeMinima.Text).getQuantidadeAtual(edtQuantidadeAtual.Text)
+    .getDataDeValidade(edtDataDeValidade.Text)
+    .getDataAlteracao(edtDataDeAlteracao.Text).getGrupo(edtGrupo.Text)
+    .getCodigoGrupo(edtCodigoGrupo.Text).getCodigoMarca(edtCodigoDaMarca.Text)
+    .getMarca(edtMarca.Text).getModelo(edtModelo.Text)
+    .getNumeroDeSerie(edtNumeroDeSerie.Text).getDataFabricacao
+    (edtDataDeFabricacao.Text).getObservacao(edtObservacao.Text)
+    .getFoto(imagem).gravar;
+
+  imagem.Free;
+
+  inherited;
+
 end;
 
 procedure TformCadastroProdutos.SpeedButton1Click(Sender: TObject);

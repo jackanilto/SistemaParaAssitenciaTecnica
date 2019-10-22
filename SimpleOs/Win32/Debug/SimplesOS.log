@@ -393,3 +393,95 @@ Problematic key value is ("FUNCIONARIO" = 0)
 21/10/19 11:57:02 - Caption: Cadastro de produtos
 21/10/19 11:57:02 - Erro:EDatabaseError
 21/10/19 11:57:02 - Erro:Field 'DESCRIÇÃO' not found
+22/10/19 19:50:30 - ===========================================
+22/10/19 19:50:30 - Form: formCadastroProdutos
+22/10/19 19:50:30 - Caption: Cadastro de produtos
+22/10/19 19:50:30 - Erro:EIBNativeException
+22/10/19 19:50:30 - Erro:[FireDAC][Phys][FB]I/O error during "CreateFile (open)" operation for file "C:\USERS\NELSON\DOCUMENTS\GITHUB\SISTEMAPARAASSITENCIATECNICA\SIMPLEOS\BANCO\BD_SIMPLE_OS.FDB"
+Error while trying to open file
+O sistema não pode encontrar o caminho especificado. 
+22/10/19 19:50:35 - ===========================================
+22/10/19 19:50:35 - Form: formCadastroProdutos
+22/10/19 19:50:35 - Caption: Cadastro de produtos
+22/10/19 19:50:35 - Erro:EAccessViolation
+22/10/19 19:50:35 - Erro:Access violation at address 0098FECE in module 'SimplesOS.exe'. Read of address 00000000
+22/10/19 20:00:19 - ===========================================
+22/10/19 20:00:19 - Form: formCadastroProdutos
+22/10/19 20:00:19 - Caption: Cadastro de produtos
+22/10/19 20:00:19 - Erro:EDatabaseError
+22/10/19 20:00:19 - Erro:Dataset not in edit or insert mode
+22/10/19 20:03:55 - ===========================================
+22/10/19 20:03:55 - Form: formCadastroProdutos
+22/10/19 20:03:55 - Caption: Cadastro de produtos
+22/10/19 20:03:55 - Erro:EDatabaseError
+22/10/19 20:03:55 - Erro:Dataset not in edit or insert mode
+22/10/19 20:04:10 - ===========================================
+22/10/19 20:04:10 - Form: formPrincipal
+22/10/19 20:04:10 - Caption: formPrincipal
+22/10/19 20:04:10 - Erro:EInvalidPointer
+22/10/19 20:04:10 - Erro:Invalid pointer operation
+22/10/19 20:07:11 - ===========================================
+22/10/19 20:07:11 - Form: formCadastroProdutos
+22/10/19 20:07:11 - Caption: Cadastro de produtos
+22/10/19 20:07:11 - Erro:EDatabaseError
+22/10/19 20:07:11 - Erro:Dataset not in edit or insert mode
+22/10/19 20:07:13 - ===========================================
+22/10/19 20:07:13 - Form: formPrincipal
+22/10/19 20:07:13 - Caption: formPrincipal
+22/10/19 20:07:13 - Erro:EInvalidPointer
+22/10/19 20:07:13 - Erro:Invalid pointer operation
+22/10/19 20:08:02 - ===========================================
+22/10/19 20:08:02 - Form: formCadastroProdutos
+22/10/19 20:08:02 - Caption: Cadastro de produtos
+22/10/19 20:08:02 - Erro:EDatabaseError
+22/10/19 20:08:02 - Erro:Dataset not in edit or insert mode
+22/10/19 20:08:50 - ===========================================
+22/10/19 20:08:50 - Form: formCadastroProdutos
+22/10/19 20:08:50 - Caption: Cadastro de produtos
+22/10/19 20:08:50 - Erro:EDatabaseError
+22/10/19 20:08:50 - Erro:Dataset not in edit or insert mode
+22/10/19 20:08:53 - ===========================================
+22/10/19 20:08:53 - Form: formPrincipal
+22/10/19 20:08:53 - Caption: formPrincipal
+22/10/19 20:08:53 - Erro:EInvalidPointer
+22/10/19 20:08:53 - Erro:Invalid pointer operation
+22/10/19 20:09:43 - ===========================================
+22/10/19 20:09:43 - Form: formCadastroProdutos
+22/10/19 20:09:43 - Caption: Cadastro de produtos
+22/10/19 20:09:43 - Erro:EDatabaseError
+22/10/19 20:09:43 - Erro:Dataset not in edit or insert mode
+22/10/19 20:09:54 - ===========================================
+22/10/19 20:09:54 - Form: formPrincipal
+22/10/19 20:09:54 - Caption: formPrincipal
+22/10/19 20:09:54 - Erro:EInvalidPointer
+22/10/19 20:09:54 - Erro:Invalid pointer operation
+22/10/19 20:11:23 - ===========================================
+22/10/19 20:11:23 - Form: formCadastroProdutos
+22/10/19 20:11:23 - Caption: Cadastro de produtos
+22/10/19 20:11:23 - Erro:EDatabaseError
+22/10/19 20:11:23 - Erro:Dataset not in edit or insert mode
+22/10/19 20:12:31 - ===========================================
+22/10/19 20:12:31 - Form: formCadastroProdutos
+22/10/19 20:12:31 - Caption: Cadastro de produtos
+22/10/19 20:12:31 - Erro:EDatabaseError
+22/10/19 20:12:31 - Erro:Dataset not in edit or insert mode
+22/10/19 20:13:37 - ===========================================
+22/10/19 20:13:37 - Form: formCadastroProdutos
+22/10/19 20:13:37 - Caption: Cadastro de produtos
+22/10/19 20:13:37 - Erro:EAccessViolation
+22/10/19 20:13:37 - Erro:Access violation at address 00000000 in module 'SimplesOS.exe'. Read of address 00000000
+22/10/19 20:16:53 - ===========================================
+22/10/19 20:16:53 - Form: formCadastroProdutos
+22/10/19 20:16:53 - Caption: Cadastro de produtos
+22/10/19 20:16:53 - Erro:EAccessViolation
+22/10/19 20:16:53 - Erro:Access violation at address 04244483. Read of address 80423885
+22/10/19 20:17:03 - ===========================================
+22/10/19 20:17:03 - Form: formCadastroProdutos
+22/10/19 20:17:03 - Caption: Cadastro de produtos
+22/10/19 20:17:03 - Erro:EInvalidPointer
+22/10/19 20:17:03 - Erro:Invalid pointer operation
+22/10/19 20:21:13 - ===========================================
+22/10/19 20:21:13 - Form: formPrincipal
+22/10/19 20:21:13 - Caption: formPrincipal
+22/10/19 20:21:13 - Erro:EInvalidPointer
+22/10/19 20:21:13 - Erro:Invalid pointer operation

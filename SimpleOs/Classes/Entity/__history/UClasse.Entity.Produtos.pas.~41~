@@ -161,8 +161,8 @@ end;
 
 destructor TEntityProdutos.destroy;
 begin
-
   inherited;
+
 end;
 
 function TEntityProdutos.editar: iCadastroProdutos;
@@ -278,6 +278,8 @@ end;
 function TEntityProdutos.getFoto(value: TJPEGImage): iCadastroProdutos;
 begin
   result := self;
+  F_FOTO := TJPEGImage.create;
+
   F_FOTO := value;
   showmessage('Entrou');
 end;
@@ -416,6 +418,8 @@ begin
 
   FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FSERVICO_PRODUTO;
   FQuery.TQuery.FieldByName('TIPO_CADASTROS').AsString := FTIPO_CADASTROS;
+  FQuery.TQuery.FieldByName('CODIGO_BARRAS').AsString := FCodigoBarras;
+  FQuery.TQuery.FieldByName('DESCRICAO').AsString := FDescricao;
   FQuery.TQuery.FieldByName('VALOR_CUSTO').AsCurrency := FVALOR_CUSTO;
   FQuery.TQuery.FieldByName('MARGEM_LUCRO').AsFloat := FMARGEM_LUCRO;
   FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
@@ -425,6 +429,8 @@ begin
     StrToInt(FQUANTIDADE_ATUAL);
   FQuery.TQuery.FieldByName('MODELO').AsString := FMODELO;
   FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString := FNUMERO_SERIE;
+  FQuery.TQuery.FieldByName('GRUPO').AsString := FGRUPO;
+  FQuery.TQuery.FieldByName('MARCA').AsString := FMARCA;
   FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
   FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
@@ -447,7 +453,10 @@ begin
       strtodate(FDATA_FABRICACAO);
 
   if Assigned(F_FOTO) then
+  begin
     FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
+    F_FOTO.Free;
+  end;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
     .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
@@ -495,16 +504,20 @@ begin
   FQuery.TQuery.FieldByName('DATA_ALTERACAO').DisplayLabel :=
     'Data de alteração';
   FQuery.TQuery.FieldByName('ID_GRUPO').DisplayLabel := 'Cód. Grupo';
+  FQuery.TQuery.FieldByName('GRUPO').DisplayLabel := 'Grupo';
   FQuery.TQuery.FieldByName('MODELO').DisplayLabel := 'Modelo';
   FQuery.TQuery.FieldByName('NUMERO_SERIE').DisplayLabel := 'Número de serie';
   FQuery.TQuery.FieldByName('DATA_FABRICACAO').DisplayLabel :=
     'Data de fabricação';
   FQuery.TQuery.FieldByName('ID_MARCA').DisplayLabel := 'Cód. Marca';
+  FQuery.TQuery.FieldByName('MARCA').DisplayLabel := 'Marca';
   FQuery.TQuery.FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
   FQuery.TQuery.FieldByName('FOTO').Visible := False;
 
   FQuery.TQuery.FieldByName('CODIGO_BARRAS').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('GRUPO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('MARCA').DisplayWidth := 30;
   FQuery.TQuery.FieldByName('DESCRICAO').DisplayWidth := 30;
   FQuery.TQuery.FieldByName('SERVICO_PRODUTO').DisplayWidth := 40;
   FQuery.TQuery.FieldByName('MODELO').DisplayWidth := 40;

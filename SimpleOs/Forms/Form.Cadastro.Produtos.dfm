@@ -3,6 +3,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
   ClientHeight = 590
   ClientWidth = 1084
   OnClose = FormClose
+  ExplicitTop = -36
   ExplicitWidth = 1084
   ExplicitHeight = 590
   PixelsPerInch = 96
@@ -51,7 +52,6 @@ inherited formCadastroProdutos: TformCadastroProdutos
   inherited CardPanel1: TCardPanel
     Width = 1084
     Height = 434
-    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1084
     ExplicitHeight = 434
     inherited cardPanelCadatro: TCard
@@ -881,6 +881,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Width = 1084
         Height = 389
         DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
       end
     end
   end
@@ -894,7 +895,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
     Top = 49
   end
   object OpenPictureDialog1: TOpenPictureDialog
-    Left = 896
-    Top = 329
+    Left = 784
+    Top = 161
   end
 end
