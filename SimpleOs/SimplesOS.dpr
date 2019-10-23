@@ -42,7 +42,8 @@ uses
   Form.Cadastro.Produtos in 'Forms\Form.Cadastro.Produtos.pas' {formCadastroProdutos},
   UClasse.Entity.Produtos in 'Classes\Entity\UClasse.Entity.Produtos.pas',
   Form.Localizar.Grupo in 'Forms\Localizar\Form.Localizar.Grupo.pas' {formLocalizarGrupo},
-  Form.Localizar.Marca in 'Forms\Localizar\Form.Localizar.Marca.pas' {formLocalizarMarca};
+  Form.Localizar.Marca in 'Forms\Localizar\Form.Localizar.Marca.pas' {formLocalizarMarca},
+  UCalculadora in 'Forms\Utilitarios\UCalculadora.pas' {frmCalculadoraMargemLucro};
 
 {$R *.res}
 
@@ -51,5 +52,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TformPrincipal, formPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TfrmCalculadoraMargemLucro, frmCalculadoraMargemLucro);
   Application.Run;
 end.

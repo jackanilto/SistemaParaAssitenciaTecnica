@@ -2,7 +2,8 @@ unit UFactory;
 
 interface
 
-uses UInterfaces, UClasse.Criar.Janela, UClasse.Validar.Documento;
+uses UInterfaces, UClasse.Criar.Janela, UClasse.Validar.Documento,
+  UClasse.Calcular.Juros;
 
 type
   TFactory = class(TInterfacedObject, iFactory)
@@ -26,7 +27,7 @@ implementation
 
 function TFactory.CalcularJuros: iCalcularJuros;
 begin
-  // result := self;
+  result := TCalcularJuros.new;
 end;
 
 constructor TFactory.create;

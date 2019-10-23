@@ -60,6 +60,7 @@ type
     sbPesquisarMarca: TSpeedButton;
     edtTipoProduto: TComboBox;
     OpenPictureDialog1: TOpenPictureDialog;
+    SpeedButton2: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -73,6 +74,8 @@ type
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure edtMargemDeLucroExit(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
     FEntityProdutos: iCadastroProdutos;
@@ -94,7 +97,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Localizar.grupo, Form.Localizar.marca;
+uses Form.Localizar.grupo, Form.Localizar.marca, UCalculadora;
 
 procedure TformCadastroProdutos.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -151,6 +154,15 @@ begin
   end;
 end;
 
+procedure TformCadastroProdutos.edtMargemDeLucroExit(Sender: TObject);
+begin
+  inherited;
+  edtValorDeVenda.Text :=
+    CurrToStr(TFactory.new.calcularJuros.getJuros
+    (StrToFloat(edtMargemDeLucro.Text))
+    .getCapital(strtocurr(edtValorDeCusto.Text)).calcularJuros);
+end;
+
 procedure TformCadastroProdutos.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -193,7 +205,7 @@ procedure TformCadastroProdutos.sbNovoClick(Sender: TObject);
 begin
   inherited;
   FEntityProdutos.inserir;
-  edtTipoProduto.SetFocus;
+  edtProduto.SetFocus;
 end;
 
 procedure TformCadastroProdutos.sbPesquisarGrupoClick(Sender: TObject);
@@ -223,6 +235,11 @@ end;
 procedure TformCadastroProdutos.sbSalvarClick(Sender: TObject);
 begin
 
+  if edtTipoProduto.Text = '' then
+  begin
+    edtTipoProduto.ItemIndex := 1;
+  end;
+
   FEntityProdutos.getTipoCadastro(edtTipoProduto.Text)
     .getServicoProdutos(edtProduto.Text).getCodigoBarras(edtCodigoDeBarras.Text)
     .getDescricao(edtDescricao.Text).getValorDeCusto(edtValorDeCusto.Text)
@@ -236,7 +253,6 @@ begin
     .getNumeroDeSerie(edtNumeroDeSerie.Text).getDataFabricacao
     (edtDataDeFabricacao.Text).getObservacao(edtObservacao.Text)
     .getFoto(imagem).gravar;
-
 
   inherited;
 
@@ -254,6 +270,13 @@ begin
     imagem.LoadFromFile(OpenPictureDialog1.FileName);
   end;
 
+end;
+
+procedure TformCadastroProdutos.SpeedButton2Click(Sender: TObject);
+begin
+  inherited;
+  frmCalculadoraMargemLucro := TfrmCalculadoraMargemLucro.Create(self);
+  TFactory.new.criarJanela.FormShow(frmCalculadoraMargemLucro, '');
 end;
 
 end.
