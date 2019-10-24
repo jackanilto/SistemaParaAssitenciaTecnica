@@ -43,7 +43,8 @@ uses
   UClasse.Entity.Produtos in 'Classes\Entity\UClasse.Entity.Produtos.pas',
   Form.Localizar.Grupo in 'Forms\Localizar\Form.Localizar.Grupo.pas' {formLocalizarGrupo},
   Form.Localizar.Marca in 'Forms\Localizar\Form.Localizar.Marca.pas' {formLocalizarMarca},
-  UCalculadora in 'Forms\Utilitarios\UCalculadora.pas' {frmCalculadoraMargemLucro};
+  UCalculadora in 'Forms\Utilitarios\UCalculadora.pas' {frmCalculadoraMargemLucro},
+  UClasse.Gerar.Codigo.Barras in 'Classes\Reusable\UClasse.Gerar.Codigo.Barras.pas';
 
 {$R *.res}
 

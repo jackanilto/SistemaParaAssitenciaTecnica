@@ -7,7 +7,7 @@ uses
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
-  Vcl.Forms, Vcl.StdCtrls, jpeg;
+  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics;
 
 type
   iConexaoQuery = interface
@@ -109,6 +109,16 @@ type
   iCriarJanelas = interface
     ['{BEA3A61C-1058-4F51-B6AB-C488A1B18E1D}']
     function formShow(form: TForm; nomeForm: string): iCriarJanelas;
+  end;
+
+  iGerarCodigoBarras = interface
+    ['{8B48DA43-62B7-4770-917B-1B529378C4E7}']
+    function GeraBarrasEAN13(CodBarras: string; Imagem: TCanvas)
+      : iGerarCodigoBarras;
+    function DesenhaBarras(SequenciaHexa: string; Imagem: TCanvas)
+      : iGerarCodigoBarras;
+    Function EAN13(CodigoDeBarras: String): String;
+    function exibirCodigo: string;
   end;
 
   iCadastroMarcas = interface
@@ -520,6 +530,7 @@ type
     function CalcularJuros: iCalcularJuros;
     function criarJanela: iCriarJanelas;
     function validarDocumento: iValidarDocumento;
+    function gerarCodigoEan13:iGerarCodigoBarras;
   end;
 
   iFactoryEntity = interface

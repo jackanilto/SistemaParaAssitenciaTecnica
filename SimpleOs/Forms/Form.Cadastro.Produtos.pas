@@ -61,6 +61,7 @@ type
     edtTipoProduto: TComboBox;
     OpenPictureDialog1: TOpenPictureDialog;
     SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -76,6 +77,10 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure edtMargemDeLucroExit(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
     FEntityProdutos: iCadastroProdutos;
@@ -154,6 +159,12 @@ begin
   end;
 end;
 
+procedure TformCadastroProdutos.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FEntityProdutos.ordenarGrid(Column);
+end;
+
 procedure TformCadastroProdutos.edtMargemDeLucroExit(Sender: TObject);
 begin
   inherited;
@@ -161,6 +172,32 @@ begin
     CurrToStr(TFactory.new.calcularJuros.getJuros
     (StrToFloat(edtMargemDeLucro.Text))
     .getCapital(strtocurr(edtValorDeCusto.Text)).calcularJuros);
+end;
+
+procedure TformCadastroProdutos.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Código de barra' then
+    campo := 'CODIGO_BARRAS'
+  else if cbPesquisar.Text = 'Produto' then
+    campo := 'SERVICO_PRODUTO'
+  else if cbPesquisar.Text = 'Tipo de cadastro' then
+    campo := 'TIPO_CADASTROS';
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntityProdutos.getCampo(campo).getValor(edtPesquisar.Text)
+      .sqlPesquisa.listarGrid(DataSource1);
+
+  { Código
+    Código de barra
+    Produto
+    Tipo de cadastro }
 end;
 
 procedure TformCadastroProdutos.FormClose(Sender: TObject;
@@ -206,17 +243,23 @@ begin
   inherited;
   FEntityProdutos.inserir;
   edtProduto.SetFocus;
+  edtDataDeValidade.Clear;
+  edtDataDeAlteracao.Clear;
+  edtDataDeFabricacao.Clear;
 end;
 
 procedure TformCadastroProdutos.sbPesquisarGrupoClick(Sender: TObject);
 begin
   inherited;
 
-  formLocalizarGrupo := TFormLocalizarGrupo.Create(self);
-  TFactory.new.criarJanela.FormShow(formLocalizarGrupo, '');
+  if sbNovo.Enabled = false then
+  begin
+    formLocalizarGrupo := TFormLocalizarGrupo.Create(self);
+    TFactory.new.criarJanela.FormShow(formLocalizarGrupo, '');
 
-  edtCodigoGrupo.Text := codigoGrupo.ToString;
-  edtGrupo.Text := grupo;
+    edtCodigoGrupo.Text := codigoGrupo.ToString;
+    edtGrupo.Text := grupo;
+  end;
 
 end;
 
@@ -224,11 +267,14 @@ procedure TformCadastroProdutos.sbPesquisarMarcaClick(Sender: TObject);
 begin
   inherited;
 
-  formLocalizarMarca := TformLocalizarMarca.Create(self);
-  TFactory.new.criarJanela.FormShow(formLocalizarMarca, '');
+  if sbNovo.Enabled = false then
+  begin
+    formLocalizarMarca := TformLocalizarMarca.Create(self);
+    TFactory.new.criarJanela.FormShow(formLocalizarMarca, '');
 
-  edtCodigoDaMarca.Text := codigoMarca.ToString;
-  edtMarca.Text := marca;
+    edtCodigoDaMarca.Text := codigoMarca.ToString;
+    edtMarca.Text := marca;
+  end;
 
 end;
 
@@ -262,12 +308,15 @@ procedure TformCadastroProdutos.SpeedButton1Click(Sender: TObject);
 begin
   inherited;
 
-  imagem := TJPEGImage.Create;
-
-  if OpenPictureDialog1.Execute then
+  if sbNovo.Enabled = false then
   begin
-    Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
-    imagem.LoadFromFile(OpenPictureDialog1.FileName);
+    imagem := TJPEGImage.Create;
+
+    if OpenPictureDialog1.Execute then
+    begin
+      Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+      imagem.LoadFromFile(OpenPictureDialog1.FileName);
+    end;
   end;
 
 end;
@@ -277,6 +326,13 @@ begin
   inherited;
   frmCalculadoraMargemLucro := TfrmCalculadoraMargemLucro.Create(self);
   TFactory.new.criarJanela.FormShow(frmCalculadoraMargemLucro, '');
+end;
+
+procedure TformCadastroProdutos.SpeedButton3Click(Sender: TObject);
+begin
+  inherited;
+  if sbNovo.Enabled = false then
+    edtCodigoDeBarras.Text := TFactory.new.gerarCodigoEan13.exibirCodigo;
 end;
 
 end.

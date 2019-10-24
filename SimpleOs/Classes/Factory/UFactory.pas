@@ -15,6 +15,7 @@ type
     function CalcularJuros: iCalcularJuros;
     function criarJanela: iCriarJanelas;
     function validarDocumento: iValidarDocumento;
+    function gerarCodigoEan13: iGerarCodigoBarras;
     constructor create;
     destructor destroy; override;
     class function new: iFactory;
@@ -24,6 +25,8 @@ type
 implementation
 
 { TFactory }
+
+uses UClasse.Gerar.Codigo.Barras;
 
 function TFactory.CalcularJuros: iCalcularJuros;
 begin
@@ -44,6 +47,11 @@ destructor TFactory.destroy;
 begin
 
   inherited;
+end;
+
+function TFactory.gerarCodigoEan13: iGerarCodigoBarras;
+begin
+  result := TClasseGerarCodigoBarras.new;
 end;
 
 class function TFactory.new: iFactory;
