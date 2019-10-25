@@ -364,9 +364,27 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_GRUPOS_ID');
+      FQuery.codigoCadastro('SP_GEN_TRANSPORTADORA_ID');
 
   FQuery.TQuery.FieldByName('NOME_FANTASIA').AsString := FNOME_FANTASIA;
+  FQuery.TQuery.FieldByName('RAZAO_SOCIAL').AsString := FRAZAO_SOCIAL;
+  FQuery.TQuery.FieldByName('CPF_CNPJ').AsString := FCPF_CNPJ;
+  FQuery.TQuery.FieldByName('INSCRICAO_ESTADUAL').AsString :=
+    FINSCRICAO_ESTADUAL;
+  FQuery.TQuery.FieldByName('ENDERECO').AsString := FENDERECO;
+  FQuery.TQuery.FieldByName('BAIRRO').AsString := FBAIRRO;
+  FQuery.TQuery.FieldByName('NUMERO').AsInteger := FNUMERO;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').AsString := FCOMPLEMENTO;
+  FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
+  FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
+  FQuery.TQuery.FieldByName('ESTADO').AsString := FESTADO;
+  FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
+  FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
+  FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
+    funcionarioLogado;
+  FQuery.TQuery.FieldByName('RESPONSAVEL').AsString := FRESPONSAVEL;
+  FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
     .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
@@ -417,6 +435,15 @@ begin
     'Funcionário';
   FQuery.TQuery.FieldByName('RESPONSAVEL').DisplayLabel := 'Responsável';
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+  FQuery.TQuery.FieldByName('NOME_FANTASIA').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('RAZAO_SOCIAL').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('ENDERECO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('BAIRRO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('EMAIL').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('RESPONSAVEL').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;
 
   // FQuery.TQuery.SQL.Add('order by id desc');
 

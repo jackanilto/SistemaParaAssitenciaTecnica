@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Produtos, Vcl.Mask, UFactory,
-  Vcl.ExtDlgs, Vcl.Imaging.jpeg;
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg, frxClass, frxDBSet;
 
 type
   TformCadastroProdutos = class(TformExemploEmbeded)
@@ -62,6 +62,8 @@ type
     OpenPictureDialog1: TOpenPictureDialog;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
+    frxDB_Produtos: TfrxDBDataset;
+    frx_Produtos: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -82,6 +84,7 @@ type
       Shift: TShiftState);
     procedure SpeedButton3Click(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     FEntityProdutos: iCadastroProdutos;
@@ -217,7 +220,8 @@ end;
 procedure TformCadastroProdutos.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityProdutos.abrir.listarGrid(DataSource1);
+  FEntityProdutos.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
 end;
 
 procedure TformCadastroProdutos.sbCancelarClick(Sender: TObject);
@@ -243,6 +247,14 @@ procedure TformCadastroProdutos.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FEntityProdutos.exportar;
+end;
+
+procedure TformCadastroProdutos.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_Produtos.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_produtos.fr3');
+  frx_Produtos.ShowReport();
 end;
 
 procedure TformCadastroProdutos.sbNovoClick(Sender: TObject);

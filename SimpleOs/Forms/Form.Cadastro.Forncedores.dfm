@@ -2,7 +2,6 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
   Caption = 'Cadastro de forncedores'
   ClientHeight = 602
   ClientWidth = 1017
-  ExplicitTop = -18
   ExplicitWidth = 1017
   ExplicitHeight = 602
   PixelsPerInch = 96
@@ -57,11 +56,13 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
   inherited CardPanel1: TCardPanel
     Width = 1017
     Height = 446
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1017
     ExplicitHeight = 446
     inherited cardPanelCadatro: TCard
       Width = 1017
       Height = 446
+      ExplicitTop = 1
       ExplicitWidth = 1017
       ExplicitHeight = 446
       object Label1: TLabel
@@ -131,7 +132,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object Label8: TLabel
         Left = 40
-        Top = 245
+        Top = 301
         Width = 55
         Height = 17
         Caption = 'Endere'#231'o'
@@ -144,7 +145,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object Label9: TLabel
         Left = 40
-        Top = 302
+        Top = 358
         Width = 35
         Height = 17
         Caption = 'Bairro'
@@ -183,7 +184,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object Label12: TLabel
         Left = 40
-        Top = 359
+        Top = 246
         Width = 22
         Height = 17
         Caption = 'CEP'
@@ -300,7 +301,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object sbPesquisarCep: TSpeedButton
         Left = 412
-        Top = 379
+        Top = 266
         Width = 25
         Height = 25
         Flat = True
@@ -436,7 +437,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object edtEndereco: TEdit
         Left = 40
-        Top = 267
+        Top = 323
         Width = 400
         Height = 25
         CharCase = ecUpperCase
@@ -450,7 +451,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object edtBairro: TEdit
         Left = 40
-        Top = 323
+        Top = 380
         Width = 400
         Height = 25
         CharCase = ecUpperCase
@@ -492,7 +493,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object edtCEP: TEdit
         Left = 40
-        Top = 380
+        Top = 267
         Width = 369
         Height = 25
         CharCase = ecUpperCase
@@ -676,7 +677,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
     Top = 225
   end
   object frx_Fornecedores: TfrxReport
-    Version = '6.2.11'
+    Version = '6.3.3'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
@@ -713,6 +714,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       Frame.Typ = []
+      MirrorMode = []
       object ReportTitle1: TfrxReportTitle
         FillType = ftBrush
         Frame.Typ = []

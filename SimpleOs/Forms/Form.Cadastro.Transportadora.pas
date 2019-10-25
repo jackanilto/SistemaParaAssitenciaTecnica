@@ -12,6 +12,43 @@ uses
 type
   TformCadastroTransportadora = class(TformExemploEmbeded)
     DataSource1: TDataSource;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    Edit10: TEdit;
+    Edit11: TEdit;
+    Edit12: TEdit;
+    Edit13: TEdit;
+    Edit14: TEdit;
+    Edit15: TEdit;
+    Edit18: TEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Edit19: TEdit;
+    Label21: TLabel;
+    sbPesquisarCep: TSpeedButton;
+    Edit20: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
