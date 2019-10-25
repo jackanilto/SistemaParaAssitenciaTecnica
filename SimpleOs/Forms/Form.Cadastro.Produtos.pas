@@ -81,6 +81,7 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure SpeedButton3Click(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
   private
     { Private declarations }
     FEntityProdutos: iCadastroProdutos;
@@ -236,6 +237,12 @@ procedure TformCadastroProdutos.sbExcluirClick(Sender: TObject);
 begin
   inherited;
   FEntityProdutos.deletar;
+end;
+
+procedure TformCadastroProdutos.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityProdutos.exportar;
 end;
 
 procedure TformCadastroProdutos.sbNovoClick(Sender: TObject);

@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Imaging.jpeg;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Imaging.jpeg,
+  System.Win.ComObj;
 
 type
 
@@ -92,6 +93,8 @@ type
     function getCodigoFuncionario(value: integer): iCadastroProdutos;
     function getFoto(value: TJPEGImage): iCadastroProdutos;
     function getObservacao(value: string): iCadastroProdutos;
+
+    function exportar: iCadastroProdutos;
 
     constructor create;
     destructor destroy; override;
@@ -186,6 +189,93 @@ begin
   FQuery.ExecSql(FTabela);
 end;
 
+function TEntityProdutos.exportar: iCadastroProdutos;
+var
+  pasta: variant;
+  linha: integer;
+begin
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório de Produtos';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Tipo de cadastro';
+  pasta.cells[1, 3] := 'Produto/Serviço';
+  pasta.cells[1, 4] := 'Código de barras';
+  pasta.cells[1, 5] := 'Descrição';
+  pasta.cells[1, 6] := 'Valor de custo';
+  pasta.cells[1, 7] := 'margem de lucro';
+  pasta.cells[1, 8] := 'Valor de venda';
+  pasta.cells[1, 9] := 'Quantidade mínima';
+  pasta.cells[1, 10] := 'Quantidade atual';
+  pasta.cells[1, 11] := 'Data de validade';
+  pasta.cells[1, 12] := 'Data de alteração';
+  pasta.cells[1, 13] := 'Código grupo';
+  pasta.cells[1, 14] := 'Grupo';
+  pasta.cells[1, 15] := 'Código marca';
+  pasta.cells[1, 16] := 'Marca';
+  pasta.cells[1, 17] := 'Modelo';
+  pasta.cells[1, 18] := 'Número de serie';
+  pasta.cells[1, 19] := 'Data de fabricação';
+  pasta.cells[1, 20] := 'Funcionário';
+  pasta.cells[1, 21] := 'Obsercação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName
+        ('TIPO_CADASTROS').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
+        ('SERVICO_PRODUTO').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName
+        ('CODIGO_BARRAS').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DESCRICAO').AsString;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('VALOR_CUSTO')
+        .AsCurrency;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName
+        ('MARGEM_LUCRO').AsFloat;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_VENDA')
+        .AsCurrency;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA')
+        .AsInteger;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL')
+        .AsInteger;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('DATA_VALIDADE')
+        .AsDateTime;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('DATA_ALTERACAO')
+        .AsDateTime;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('GRUPO').AsString;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('ID_MARCA').AsInteger;
+      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('MARCA').AsString;
+      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('MODELO').AsString;
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName
+        ('NUMERO_SERIE').AsString;
+      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('DATA_FABRICACAO')
+        .AsDateTime;
+      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('FUNCIONARIO')
+        .AsInteger;
+      pasta.cells[linha, 21] := FQuery.TQuery.FieldByName('OBSERVACAO')
+        .AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
+end;
+
 function TEntityProdutos.fecharQuery: iCadastroProdutos;
 begin
   FQuery.TQuery.close;
@@ -278,10 +368,9 @@ end;
 function TEntityProdutos.getFoto(value: TJPEGImage): iCadastroProdutos;
 begin
   result := self;
-  F_FOTO := TJPEGImage.create;
 
   F_FOTO := value;
-  showmessage('Entrou');
+
 end;
 
 function TEntityProdutos.getGrupo(value: string): iCadastroProdutos;
@@ -455,9 +544,9 @@ begin
   if Assigned(F_FOTO) then
   begin
     FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
-    showmessage('Executou');
-    F_FOTO.Free;
   end;
+
+  // F_FOTO.Free;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
     .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
@@ -514,7 +603,7 @@ begin
   FQuery.TQuery.FieldByName('MARCA').DisplayLabel := 'Marca';
   FQuery.TQuery.FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
-  FQuery.TQuery.FieldByName('FOTO').Visible := False;
+  FQuery.TQuery.FieldByName('FOTO').visible := false;
 
   FQuery.TQuery.FieldByName('CODIGO_BARRAS').DisplayWidth := 30;
   FQuery.TQuery.FieldByName('GRUPO').DisplayWidth := 30;

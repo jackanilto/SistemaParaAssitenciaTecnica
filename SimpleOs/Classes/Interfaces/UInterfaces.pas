@@ -521,6 +521,8 @@ type
     function getGrupo(value: string): iCadastroProdutos;
     function getMarca(value: string): iCadastroProdutos;
 
+    function exportar:iCadastroProdutos;
+
   end;
 
   iFactory = interface

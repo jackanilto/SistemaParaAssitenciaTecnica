@@ -42,23 +42,28 @@ inherited formCadastroProdutos: TformCadastroProdutos
     end
     inherited cbPesquisar: TComboBox
       Left = 750
+      Items.Strings = (
+        'C'#243'digo'
+        'C'#243'digo de barra'
+        'Produto'
+        'Tipo de cadastro')
       ExplicitLeft = 750
     end
     inherited edtPesquisar: TEdit
       Left = 885
+      OnKeyUp = edtPesquisarKeyUp
       ExplicitLeft = 885
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 1084
     Height = 434
-    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1084
     ExplicitHeight = 434
     inherited cardPanelCadatro: TCard
       Width = 1084
       Height = 434
-      ExplicitTop = 1
+      ExplicitTop = -1
       ExplicitWidth = 1084
       ExplicitHeight = 434
       object Label1: TLabel
@@ -620,6 +625,21 @@ inherited formCadastroProdutos: TformCadastroProdutos
           1616FF1616FF1616FF1616FF1616FF1616FF1616FF9797FFFFFF}
         OnClick = SpeedButton2Click
       end
+      object SpeedButton3: TSpeedButton
+        Left = 377
+        Top = 158
+        Width = 39
+        Height = 25
+        Caption = 'Gerar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12455979
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = SpeedButton3Click
+      end
       object edtCodigo: TEdit
         Left = 16
         Top = 32
@@ -651,7 +671,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
       object edtCodigoDeBarras: TEdit
         Left = 16
         Top = 158
-        Width = 400
+        Width = 355
         Height = 25
         CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
@@ -912,18 +932,18 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Top = 32
         Width = 113
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
-        ItemIndex = 1
         ParentFont = False
         TabOrder = 20
-        Text = 'Produto'
+        Text = 'PRODUTO'
         Items.Strings = (
-          'Servi'#231'o'
-          'Produto')
+          'SERVI'#199'O'
+          'PRODUTO')
       end
     end
     inherited cardPanelConsulta: TCard
@@ -950,6 +970,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Height = 389
         DataSource = DataSource1
         OnCellClick = DBGrid1CellClick
+        OnTitleClick = DBGrid1TitleClick
       end
     end
   end

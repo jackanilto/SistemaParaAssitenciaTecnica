@@ -278,10 +278,9 @@ end;
 function TEntityProdutos.getFoto(value: TJPEGImage): iCadastroProdutos;
 begin
   result := self;
-  F_FOTO := TJPEGImage.create;
 
   F_FOTO := value;
-  showmessage('Entrou');
+
 end;
 
 function TEntityProdutos.getGrupo(value: string): iCadastroProdutos;
@@ -456,6 +455,8 @@ begin
   begin
     FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
   end;
+
+//  F_FOTO.Free;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
     .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)

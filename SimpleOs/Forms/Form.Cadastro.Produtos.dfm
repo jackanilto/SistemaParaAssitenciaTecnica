@@ -3,7 +3,6 @@ inherited formCadastroProdutos: TformCadastroProdutos
   ClientHeight = 590
   ClientWidth = 1084
   OnClose = FormClose
-  ExplicitTop = -36
   ExplicitWidth = 1084
   ExplicitHeight = 590
   PixelsPerInch = 96
@@ -63,7 +62,6 @@ inherited formCadastroProdutos: TformCadastroProdutos
     inherited cardPanelCadatro: TCard
       Width = 1084
       Height = 434
-      ExplicitTop = -1
       ExplicitWidth = 1084
       ExplicitHeight = 434
       object Label1: TLabel
@@ -962,6 +960,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         end
         inherited sbExportar: TSpeedButton
           Left = 920
+          OnClick = sbExportarClick
           ExplicitLeft = 920
         end
       end
