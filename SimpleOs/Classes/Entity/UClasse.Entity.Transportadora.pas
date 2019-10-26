@@ -311,7 +311,7 @@ function TEntityCadastroTransportadora.getNomeFantasia(value: string)
 begin
   result := self;
   if value = EmptyStr then
-    raise Exception.create('Informe o nome fantasia da empresa');
+    raise Exception.Create('Informe o nome fantasia da transportadora.');
   FNOME_FANTASIA := value;
 end;
 
@@ -392,10 +392,12 @@ begin
 
   try
     FQuery.TQuery.Post;
+
   except
     on e: Exception do
     begin
-      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise Exception.create('Erro ao tentar gravar os registros. ' +
+        e.Message);
     end;
 
   end;

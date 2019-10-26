@@ -125,11 +125,12 @@ end;
 
 constructor TEntityCadastroTransportadora.create;
 begin
-  FTabela := 'Grupos';
+  FTabela := 'TRANSPORTADORA';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Grupos').getCodigoFuncionario(funcionarioLogado);
+  FGravarLog.getJanela('Transportadora').getCodigoFuncionario
+    (funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
 end;
@@ -144,8 +145,9 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -165,8 +167,9 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .gravarLog;
 
     FQuery.TQuery.Edit;
 
@@ -306,37 +309,45 @@ end;
 function TEntityCadastroTransportadora.getNomeFantasia(value: string)
   : iCadastroTransportadora;
 begin
-
+  result := self;
+  if value = EmptyStr then
+    raise Exception.create('Informe o nome fantasia da empresa');
+  FNOME_FANTASIA := value;
 end;
 
 function TEntityCadastroTransportadora.getNumero(value: integer)
   : iCadastroTransportadora;
 begin
-
+  result := self;
+  FNUMERO := value;
 end;
 
 function TEntityCadastroTransportadora.getObservacao(value: string)
   : iCadastroTransportadora;
 begin
-
+  result := self;
+  FOBSERVACAO := value;
 end;
 
 function TEntityCadastroTransportadora.getRazaoSocial(value: string)
   : iCadastroTransportadora;
 begin
-
+  result := self;
+  FRAZAO_SOCIAL := value;
 end;
 
 function TEntityCadastroTransportadora.getResponsavel(value: string)
   : iCadastroTransportadora;
 begin
-
+  result := self;
+  FRESPONSAVEL := value;
 end;
 
 function TEntityCadastroTransportadora.getTelefone(value: string)
   : iCadastroTransportadora;
 begin
-
+  result := self;
+  FTELEFONE := value;
 end;
 
 function TEntityCadastroTransportadora.getValor(value: string)
@@ -353,19 +364,40 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_GRUPOS_ID');
+      FQuery.codigoCadastro('SP_GEN_TRANSPORTADORA_ID');
 
-  FQuery.TQuery.FieldByName('grupo').AsString := FNome;
+  FQuery.TQuery.FieldByName('NOME_FANTASIA').AsString := FNOME_FANTASIA;
+  FQuery.TQuery.FieldByName('RAZAO_SOCIAL').AsString := FRAZAO_SOCIAL;
+  FQuery.TQuery.FieldByName('CPF_CNPJ').AsString := FCPF_CNPJ;
+  FQuery.TQuery.FieldByName('INSCRICAO_ESTADUAL').AsString :=
+    FINSCRICAO_ESTADUAL;
+  FQuery.TQuery.FieldByName('ENDERECO').AsString := FENDERECO;
+  FQuery.TQuery.FieldByName('BAIRRO').AsString := FBAIRRO;
+  FQuery.TQuery.FieldByName('NUMERO').AsInteger := FNUMERO;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').AsString := FCOMPLEMENTO;
+  FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
+  FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
+  FQuery.TQuery.FieldByName('ESTADO').AsString := FESTADO;
+  FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
+  FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
+  FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
+    funcionarioLogado;
+  FQuery.TQuery.FieldByName('RESPONSAVEL').AsString := FRESPONSAVEL;
+  FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-    .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
+    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+    .gravarLog;
 
   try
     FQuery.TQuery.Post;
+
   except
-    on e: exception do
+    on e: Exception do
     begin
-      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise Exception.create('Erro ao tentar gravar os registros. ' +
+        e.Message);
     end;
 
   end;
@@ -386,8 +418,34 @@ begin
   result := self;
 
   FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
-  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+  FQuery.TQuery.FieldByName('NOME_FANTASIA').DisplayLabel := 'Nome fantasia';
+  FQuery.TQuery.FieldByName('RAZAO_SOCIAL').DisplayLabel := 'Razão social';
+  FQuery.TQuery.FieldByName('CPF_CNPJ').DisplayLabel := 'CPF ou CNPJ';
+  FQuery.TQuery.FieldByName('INSCRICAO_ESTADUAL').DisplayLabel :=
+    'Inscrição estadual';
+  FQuery.TQuery.FieldByName('ENDERECO').DisplayLabel := 'Endereço';
+  FQuery.TQuery.FieldByName('BAIRRO').DisplayLabel := 'Bairro';
+  FQuery.TQuery.FieldByName('NUMERO').DisplayLabel := 'Número';
+  FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayLabel := 'Complemento';
+  FQuery.TQuery.FieldByName('CEP').DisplayLabel := 'CEP';
+  FQuery.TQuery.FieldByName('CIDADE').DisplayLabel := 'Cidade';
+  FQuery.TQuery.FieldByName('ESTADO').DisplayLabel := 'Estado';
+  FQuery.TQuery.FieldByName('TELEFONE').DisplayLabel := 'Telefone';
+  FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'Celular';
+  FQuery.TQuery.FieldByName('EMAIL').DisplayLabel := 'E-mail';
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').DisplayLabel :=
+    'Funcionário';
+  FQuery.TQuery.FieldByName('RESPONSAVEL').DisplayLabel := 'Responsável';
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+  FQuery.TQuery.FieldByName('NOME_FANTASIA').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('RAZAO_SOCIAL').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('ENDERECO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('BAIRRO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('EMAIL').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('RESPONSAVEL').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;
 
   // FQuery.TQuery.SQL.Add('order by id desc');
 

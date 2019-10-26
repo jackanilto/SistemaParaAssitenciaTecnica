@@ -1,13 +1,17 @@
 inherited formCadastroTransportadora: TformCadastroTransportadora
   Caption = 'Cadastro de transportadora'
+  ClientHeight = 579
   ClientWidth = 1057
   ExplicitWidth = 1057
+  ExplicitHeight = 579
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 1057
+    ExplicitWidth = 1057
     inherited sbFechar: TSpeedButton
       Left = 1005
+      ExplicitLeft = 1005
     end
     inherited lblCaption: TLabel
       Left = 324
@@ -19,32 +23,45 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
   end
   inherited Panel2: TPanel
     Width = 1057
+    ExplicitWidth = 1057
   end
   inherited Panel3: TPanel
+    Top = 504
     Width = 1057
+    ExplicitTop = 504
+    ExplicitWidth = 1057
     inherited Label4: TLabel
       Left = 723
+      ExplicitLeft = 723
     end
     inherited Label5: TLabel
       Left = 858
+      ExplicitLeft = 858
     end
     inherited cbPesquisar: TComboBox
       Left = 723
+      ExplicitLeft = 723
     end
     inherited edtPesquisar: TEdit
       Left = 858
+      ExplicitLeft = 858
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 1057
+    Height = 423
     ActiveCard = cardPanelCadatro
+    ExplicitWidth = 1057
+    ExplicitHeight = 423
     inherited cardPanelCadatro: TCard
       Width = 1057
+      Height = 423
       ExplicitTop = 1
       ExplicitWidth = 1057
+      ExplicitHeight = 423
       object Label1: TLabel
         Left = 24
-        Top = 13
+        Top = 12
         Width = 43
         Height = 17
         Caption = 'C'#243'digo'
@@ -57,7 +74,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object Label2: TLabel
         Left = 24
-        Top = 72
+        Top = 67
         Width = 85
         Height = 17
         Caption = 'Nome fantasia'
@@ -70,7 +87,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object Label3: TLabel
         Left = 24
-        Top = 130
+        Top = 125
         Width = 73
         Height = 17
         Caption = 'Raz'#227'o social'
@@ -83,7 +100,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object Label6: TLabel
         Left = 24
-        Top = 195
+        Top = 187
         Width = 73
         Height = 17
         Caption = 'CPF ou CNPJ'
@@ -96,7 +113,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object Label7: TLabel
         Left = 24
-        Top = 323
+        Top = 306
         Width = 55
         Height = 17
         Caption = 'Endere'#231'o'
@@ -108,8 +125,8 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label8: TLabel
-        Left = 468
-        Top = 9
+        Left = 24
+        Top = 363
         Width = 35
         Height = 17
         Caption = 'Bairro'
@@ -122,7 +139,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object Label9: TLabel
         Left = 24
-        Top = 261
+        Top = 249
         Width = 22
         Height = 17
         Caption = 'CEP'
@@ -135,7 +152,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object Label10: TLabel
         Left = 751
-        Top = 72
+        Top = 10
         Width = 48
         Height = 17
         Caption = 'N'#250'mero'
@@ -148,7 +165,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object Label11: TLabel
         Left = 468
-        Top = 72
+        Top = 10
         Width = 82
         Height = 17
         Caption = 'Complemento'
@@ -160,11 +177,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label12: TLabel
-        Left = 991
-        Top = 61
-        Width = 45
+        Left = 468
+        Top = 65
+        Width = 41
         Height = 17
-        Caption = 'Label12'
+        Caption = 'Cidade'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -173,11 +190,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 1007
-        Top = 85
-        Width = 45
+        Left = 751
+        Top = 65
+        Width = 40
         Height = 17
-        Caption = 'Label13'
+        Caption = 'Estado'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -186,11 +203,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label14: TLabel
-        Left = 1015
+        Left = 468
         Top = 125
-        Width = 45
+        Width = 49
         Height = 17
-        Caption = 'Label14'
+        Caption = 'Telefone'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -199,11 +216,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label15: TLabel
-        Left = 1007
-        Top = 149
-        Width = 45
+        Left = 655
+        Top = 125
+        Width = 40
         Height = 17
-        Caption = 'Label15'
+        Caption = 'Celular'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -212,11 +229,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label16: TLabel
-        Left = 1007
-        Top = 181
-        Width = 45
+        Left = 468
+        Top = 191
+        Width = 37
         Height = 17
-        Caption = 'Label16'
+        Caption = 'E-Mail'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -225,11 +242,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label17: TLabel
-        Left = 1007
-        Top = 229
-        Width = 45
+        Left = 468
+        Top = 249
+        Width = 67
         Height = 17
-        Caption = 'Label17'
+        Caption = 'Funcion'#225'rio'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -238,11 +255,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label18: TLabel
-        Left = 1007
-        Top = 261
-        Width = 45
+        Left = 567
+        Top = 249
+        Width = 73
         Height = 17
-        Caption = 'Label18'
+        Caption = 'Respons'#225'vel'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -251,24 +268,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         ParentFont = False
       end
       object Label19: TLabel
-        Left = 991
-        Top = 309
-        Width = 45
+        Left = 468
+        Top = 306
+        Width = 70
         Height = 17
-        Caption = 'Label19'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label20: TLabel
-        Left = 991
-        Top = 349
-        Width = 45
-        Height = 17
-        Caption = 'Label20'
+        Caption = 'Observa'#231#227'o'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -278,7 +282,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object Label21: TLabel
         Left = 235
-        Top = 195
+        Top = 191
         Width = 104
         Height = 17
         Caption = 'Inscri'#231#227'o estadual'
@@ -291,7 +295,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
       end
       object sbPesquisarCep: TSpeedButton
         Left = 392
-        Top = 280
+        Top = 268
         Width = 25
         Height = 25
         Flat = True
@@ -352,12 +356,14 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        OnClick = sbPesquisarCepClick
       end
-      object Edit1: TEdit
+      object edtCodigo: TEdit
         Left = 24
-        Top = 32
+        Top = 31
         Width = 241
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -365,13 +371,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        Text = 'Edit1'
       end
-      object Edit2: TEdit
+      object edtNomeFantasia: TEdit
         Left = 24
-        Top = 93
+        Top = 88
         Width = 393
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -379,13 +385,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 1
-        Text = 'Edit2'
       end
-      object Edit3: TEdit
+      object edtRazaoSocial: TEdit
         Left = 24
-        Top = 153
+        Top = 148
         Width = 393
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -393,13 +399,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        Text = 'Edit3'
       end
-      object Edit4: TEdit
+      object edtCPFCNPJ: TEdit
         Left = 24
-        Top = 218
+        Top = 210
         Width = 205
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -407,13 +413,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 3
-        Text = 'Edit4'
       end
-      object Edit5: TEdit
+      object edtEndereco: TEdit
         Left = 24
-        Top = 346
+        Top = 328
         Width = 393
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -421,13 +427,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 4
-        Text = 'Edit5'
       end
-      object Edit6: TEdit
-        Left = 468
-        Top = 32
+      object edtBairro: TEdit
+        Left = 24
+        Top = 386
         Width = 393
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -435,13 +441,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 5
-        Text = 'Edit6'
       end
-      object Edit7: TEdit
+      object edtCep: TEdit
         Left = 24
-        Top = 280
+        Top = 268
         Width = 362
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -449,13 +455,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 6
-        Text = 'Edit7'
       end
-      object Edit8: TEdit
+      object edtNumero: TEdit
         Left = 751
-        Top = 93
+        Top = 31
         Width = 110
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -463,13 +469,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 7
-        Text = 'Edit8'
       end
-      object Edit9: TEdit
+      object edtComplemento: TEdit
         Left = 468
-        Top = 93
+        Top = 31
         Width = 277
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -477,13 +483,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 8
-        Text = 'Edit9'
       end
-      object Edit10: TEdit
-        Left = 903
-        Top = 69
-        Width = 121
+      object edtCidade: TEdit
+        Left = 468
+        Top = 88
+        Width = 277
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -491,12 +497,11 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 9
-        Text = 'Edit10'
       end
-      object Edit11: TEdit
-        Left = 911
-        Top = 101
-        Width = 121
+      object edtEmail: TEdit
+        Left = 468
+        Top = 210
+        Width = 393
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -505,13 +510,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 10
-        Text = 'Edit11'
       end
-      object Edit12: TEdit
-        Left = 903
-        Top = 125
-        Width = 121
+      object edtFuncionario: TEdit
+        Left = 468
+        Top = 268
+        Width = 93
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -519,13 +524,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 11
-        Text = 'Edit12'
       end
-      object Edit13: TEdit
-        Left = 919
-        Top = 157
-        Width = 121
+      object edtObservacao: TEdit
+        Left = 468
+        Top = 328
+        Width = 393
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -533,13 +538,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 12
-        Text = 'Edit13'
       end
-      object Edit14: TEdit
-        Left = 911
-        Top = 205
-        Width = 121
+      object edtResponsavel: TEdit
+        Left = 567
+        Top = 268
+        Width = 294
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -547,13 +552,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 13
-        Text = 'Edit14'
       end
-      object Edit15: TEdit
-        Left = 919
-        Top = 245
-        Width = 121
+      object edtInscricaoEstadual: TEdit
+        Left = 235
+        Top = 210
+        Width = 182
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -561,13 +566,13 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 14
-        Text = 'Edit15'
       end
-      object Edit16: TEdit
-        Left = 919
-        Top = 285
-        Width = 121
+      object edtEstado: TComboBox
+        Left = 751
+        Top = 88
+        Width = 110
         Height = 25
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -575,64 +580,62 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Style = []
         ParentFont = False
         TabOrder = 15
-        Text = 'Edit16'
       end
-      object Edit17: TEdit
-        Left = 919
-        Top = 325
-        Width = 121
+      object edtTelefone: TMaskEdit
+        Left = 468
+        Top = 148
+        Width = 172
         Height = 25
+        EditMask = '(00)0000-0000'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
+        MaxLength = 13
         ParentFont = False
         TabOrder = 16
-        Text = 'Edit17'
+        Text = '(  )    -    '
       end
-      object Edit18: TEdit
-        Left = 816
-        Top = 360
-        Width = 121
+      object edtCelular: TMaskEdit
+        Left = 655
+        Top = 148
+        Width = 202
         Height = 25
+        EditMask = '(00)00000-0000'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
+        MaxLength = 14
         ParentFont = False
         TabOrder = 17
-        Text = 'Edit18'
-      end
-      object Edit19: TEdit
-        Left = 235
-        Top = 218
-        Width = 182
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 18
-        Text = 'Edit4'
+        Text = '(  )     -    '
       end
     end
     inherited cardPanelConsulta: TCard
       Width = 1057
+      Height = 423
+      ExplicitWidth = 1057
+      ExplicitHeight = 423
       inherited Panel4: TPanel
+        Top = 378
         Width = 1057
+        ExplicitTop = 378
+        ExplicitWidth = 1057
         inherited sbImprimir: TSpeedButton
           Left = 782
+          ExplicitLeft = 782
         end
         inherited sbExportar: TSpeedButton
           Left = 893
+          ExplicitLeft = 893
         end
       end
       inherited DBGrid1: TDBGrid
         Width = 1057
+        Height = 378
         DataSource = DataSource1
       end
     end
@@ -642,7 +645,16 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
     Top = 17
   end
   object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
     Left = 664
     Top = 17
+  end
+  object ACBrCEP1: TACBrCEP
+    ProxyPort = '8080'
+    WebService = wsRepublicaVirtual
+    PesquisarIBGE = True
+    OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
+    Left = 384
+    Top = 121
   end
 end

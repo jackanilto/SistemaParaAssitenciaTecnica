@@ -500,3 +500,39 @@ O sistema não pode encontrar o caminho especificado.
 24/10/19 20:24:17 - Caption: Cadastro de produtos
 24/10/19 20:24:17 - Erro:EDBEditError
 24/10/19 20:24:17 - Erro:Invalid input value.  Use escape key to abandon changes
+26/10/19 14:40:59 - ===========================================
+26/10/19 14:40:59 - Form: formCadastroTransportadora
+26/10/19 14:40:59 - Caption: Cadastro de transportadora
+26/10/19 14:40:59 - Erro:Exception
+26/10/19 14:40:59 - Erro:Informe o nome fantasia da empresa
+26/10/19 14:43:25 - ===========================================
+26/10/19 14:43:25 - Form: formCadastroTransportadora
+26/10/19 14:43:25 - Caption: Cadastro de transportadora
+26/10/19 14:43:25 - Erro:Exception
+26/10/19 14:43:25 - Erro:Informe o nome fantasia da transportadora.
+26/10/19 14:43:53 - ===========================================
+26/10/19 14:43:53 - Form: formCadastroTransportadora
+26/10/19 14:43:53 - Caption: Cadastro de transportadora
+26/10/19 14:43:53 - Erro:EACBrCEPException
+26/10/19 14:43:53 - Erro:WebService TACBrCEPWSClass não implementa o método: BuscarPorCEP
+26/10/19 14:56:06 - ===========================================
+26/10/19 14:56:06 - Form: formCadastroTransportadora
+26/10/19 14:56:06 - Caption: Cadastro de transportadora
+26/10/19 14:56:06 - Erro:Exception
+26/10/19 14:56:06 - Erro:Erro ao tentar gravar os registros. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_TRANSPORTADORA_1" on table "TRANSPORTADORA"
+Foreign key reference target does not exist
+Problematic key value is ("ID" = 2)
+26/10/19 14:56:19 - ===========================================
+26/10/19 14:56:19 - Form: formCadastroTransportadora
+26/10/19 14:56:19 - Caption: Cadastro de transportadora
+26/10/19 14:56:19 - Erro:Exception
+26/10/19 14:56:19 - Erro:Erro ao tentar gravar os registros. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_TRANSPORTADORA_1" on table "TRANSPORTADORA"
+Foreign key reference target does not exist
+Problematic key value is ("ID" = 3)
+26/10/19 14:58:23 - ===========================================
+26/10/19 14:58:23 - Form: formCadastroTransportadora
+26/10/19 14:58:23 - Caption: Cadastro de transportadora
+26/10/19 14:58:23 - Erro:Exception
+26/10/19 14:58:23 - Erro:Erro ao tentar gravar os registros. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_TRANSPORTADORA_1" on table "TRANSPORTADORA"
+Foreign key reference target does not exist
+Problematic key value is ("ID" = 4)
