@@ -7094,8 +7094,8 @@ object formPrincipal: TformPrincipal
     Placement = svpLeft
     TabOrder = 3
     object CategoryButtons3: TCategoryButtons
-      Left = -4
-      Top = -26
+      Left = -6
+      Top = -29
       Width = 173
       Height = 462
       Align = alCustom
@@ -7119,8 +7119,7 @@ object formPrincipal: TformPrincipal
               OnClick = acMovimentacaoExecute
             end
             item
-              Caption = 'Funcionarios'
-              OnClick = acRelatoriosExecute
+              Action = acCadastroFuncionarios
             end
             item
               Action = acCadastroTransportadora
@@ -7235,7 +7234,7 @@ object formPrincipal: TformPrincipal
     Left = 360
     Top = 16
     Bitmap = {
-      494C010107000800340018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107000800040018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       000000000000000000000000000000000000804E3BFF804E3BFF804E3BFF804E
       3BFF804E3BFF804E3BFF804E3BFF906454FFB29489FFD5C5BEFFEBE3E0FFF7F4
@@ -7916,6 +7915,10 @@ object formPrincipal: TformPrincipal
     object acCadastroProdutos: TAction
       Caption = 'Produtos'
       OnExecute = acCadastroProdutosExecute
+    end
+    object acCadastroFuncionarios: TAction
+      Caption = 'Funcion'#225'rios'
+      OnExecute = acCadastroFuncionariosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

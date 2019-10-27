@@ -536,3 +536,23 @@ Problematic key value is ("ID" = 3)
 26/10/19 14:58:23 - Erro:Erro ao tentar gravar os registros. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_TRANSPORTADORA_1" on table "TRANSPORTADORA"
 Foreign key reference target does not exist
 Problematic key value is ("ID" = 4)
+27/10/19 11:35:56 - ===========================================
+27/10/19 11:35:56 - Form: formCadastroTransportadora
+27/10/19 11:35:56 - Caption: Cadastro de transportadora
+27/10/19 11:35:56 - Erro:EDatabaseError
+27/10/19 11:35:56 - Erro:Field 'UF' not found
+27/10/19 11:37:16 - ===========================================
+27/10/19 11:37:16 - Form: formCadastroTransportadora
+27/10/19 11:37:16 - Caption: Cadastro de transportadora
+27/10/19 11:37:16 - Erro:EDatabaseError
+27/10/19 11:37:16 - Erro:Field 'FUINCIONARIO_CADASTRO' not found
+27/10/19 14:09:30 - ===========================================
+27/10/19 14:09:30 - Form: formCadastroTransportadora
+27/10/19 14:09:30 - Caption: Cadastro de transportadora
+27/10/19 14:09:30 - Erro:EDatabaseError
+27/10/19 14:09:30 - Erro:Cannot perform this operation on a closed dataset
+27/10/19 14:09:38 - ===========================================
+27/10/19 14:09:38 - Form: formCadastroTransportadora
+27/10/19 14:09:38 - Caption: Cadastro de transportadora
+27/10/19 14:09:38 - Erro:EDatabaseError
+27/10/19 14:09:38 - Erro:Cannot perform this operation on a closed dataset

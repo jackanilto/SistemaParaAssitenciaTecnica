@@ -62,6 +62,7 @@ type
     acCadastroFornecedores: TAction;
     acCadastroTransportadora: TAction;
     acCadastroProdutos: TAction;
+    acCadastroFuncionarios: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -83,6 +84,7 @@ type
     procedure acCadastroFornecedoresExecute(Sender: TObject);
     procedure acCadastroTransportadoraExecute(Sender: TObject);
     procedure acCadastroProdutosExecute(Sender: TObject);
+    procedure acCadastroFuncionariosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -103,7 +105,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Tipo.Retiradas, Form.Cadastro.Configurar.Parcelas,
   Form.Cadastro.Atividade.Funcionario, Form.Cadastro.Contas.APagar,
   Form.Cadastro.Problemas.Frequentes, Form.Cadastro.Forncedores,
-  Form.Cadastro.Transportadora, Form.Cadastro.Produtos;
+  Form.Cadastro.Transportadora, Form.Cadastro.Produtos,
+  Form.Cadastro.Funcionarios;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -115,6 +118,12 @@ procedure TformPrincipal.acCadastroFornecedoresExecute(Sender: TObject);
 begin
   formCadastroFornecedores := TformCadastroFornecedores.Create(self);
   TFactory.new.criarJanela.formShow(formCadastroFornecedores, '');
+end;
+
+procedure TformPrincipal.acCadastroFuncionariosExecute(Sender: TObject);
+begin
+  formCadastroDeFuncionarios := TformCadastroDeFuncionarios.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroDeFuncionarios, '');
 end;
 
 procedure TformPrincipal.acCadastroGruposExecute(Sender: TObject);

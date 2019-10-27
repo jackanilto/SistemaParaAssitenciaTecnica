@@ -9,7 +9,7 @@ uses
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Transportadora,
   UClasse.Entity.Table,
-  ACBrBase, ACBrSocket, ACBrCEP, Vcl.Mask, UFactory;
+  ACBrBase, ACBrSocket, ACBrCEP, Vcl.Mask, UFactory, frxClass, frxDBSet;
 
 type
   TformCadastroTransportadora = class(TformExemploEmbeded)
@@ -52,6 +52,8 @@ type
     edtTelefone: TMaskEdit;
     edtCelular: TMaskEdit;
     ACBrCEP1: TACBrCEP;
+    frxDB_Transportadora: TfrxDBDataset;
+    frx_Transportadora: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -67,6 +69,8 @@ type
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     FEntityTranspostadora: iCadastroTransportadora;
@@ -203,7 +207,8 @@ procedure TformCadastroTransportadora.FormShow(Sender: TObject);
 begin
   inherited;
 
-  FEntityTranspostadora.abrir.listarGrid(DataSource1);
+  FEntityTranspostadora.abrir.getCampo('ID').getValor('0')
+    .sqlPesquisa.listarGrid(DataSource1);
 
   FEntityTableUF.FD_Table('UF').getCampoTabela('UF').popularComponenteComboBox
     (edtEstado);
@@ -229,6 +234,20 @@ procedure TformCadastroTransportadora.sbExcluirClick(Sender: TObject);
 begin
   inherited;
   FEntityTranspostadora.deletar;
+end;
+
+procedure TformCadastroTransportadora.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityTranspostadora.exportar;
+end;
+
+procedure TformCadastroTransportadora.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_Transportadora.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_transportadora.fr3');
+  frx_Transportadora.ShowReport();
 end;
 
 procedure TformCadastroTransportadora.sbNovoClick(Sender: TObject);

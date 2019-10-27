@@ -1,0 +1,35 @@
+unit Form.Cadastro.Funcionarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
+  Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Cadastro.Funcionario;
+
+type
+  TformCadastroDeFuncionarios = class(TformExemploEmbeded)
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+    TEntityFuncionario: iCadastroFuncionario;
+  public
+    { Public declarations }
+  end;
+
+var
+  formCadastroDeFuncionarios: TformCadastroDeFuncionarios;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformCadastroDeFuncionarios.FormCreate(Sender: TObject);
+begin
+  inherited;
+  TEntityFuncionario := TEntityCadastroFuncionario.new;
+end;
+
+end.

@@ -521,8 +521,72 @@ type
     function getGrupo(value: string): iCadastroProdutos;
     function getMarca(value: string): iCadastroProdutos;
 
-    function exportar:iCadastroProdutos;
+    function exportar: iCadastroProdutos;
 
+  end;
+
+  iCadastroFuncionario = interface
+    ['{633E9D61-F59C-42F5-987A-8F7DDDBF089F}']
+    function nomeTabela(value: string): iCadastroFuncionario;
+    function getCampo(value: string): iCadastroFuncionario;
+    function getValor(value: string): iCadastroFuncionario;
+    function getDataInicial(value: TDate): iCadastroFuncionario;
+    function getDataFinal(value: TDate): iCadastroFuncionario;
+    function open(value: string): iCadastroFuncionario;
+    function ExecSql: iCadastroFuncionario;
+    function sqlPesquisa: iCadastroFuncionario;
+    function sqlPesquisaData: iCadastroFuncionario;
+    function sqlPesquisaEstatica: iCadastroFuncionario;
+
+    function abrir: iCadastroFuncionario;
+    function inserir: iCadastroFuncionario;
+    function gravar: iCadastroFuncionario;
+    function deletar: iCadastroFuncionario;
+    function atualizar: iCadastroFuncionario;
+    function editar: iCadastroFuncionario;
+    function cancelar: iCadastroFuncionario;
+    function fecharQuery: iCadastroFuncionario;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroFuncionario;
+    function ordenarGrid(column: TColumn): iCadastroFuncionario;
+
+    function getNome(value: string): iCadastroFuncionario;
+    function getDATA_NASCIMENTO(value: string): iCadastroFuncionario;
+    function getDocumento(value: string): iCadastroFuncionario;
+    function getCPF(value: string): iCadastroFuncionario;
+    function getEndereco(value: string): iCadastroFuncionario;
+    function getBairro(value: string): iCadastroFuncionario;
+    function getNumero(value: integer): iCadastroFuncionario;
+    function getComplemento(value: string): iCadastroFuncionario;
+    function getCep(value: string): iCadastroFuncionario;
+    function getCidade(value: string): iCadastroFuncionario;
+    function getUF(value: string): iCadastroFuncionario;
+    function getDATA_CADASTRO(value: string): iCadastroFuncionario;
+    function getDATA_DEMISSAO(value: string): iCadastroFuncionario;
+    function getATIVIDADE(value: integer): iCadastroFuncionario;
+    function getTelefone(value: string): iCadastroFuncionario;
+    function getCelular(value: string): iCadastroFuncionario;
+    function getEmail(value: string): iCadastroFuncionario;
+    function getUSUARIO(value: string): iCadastroFuncionario;
+    function getSENHA(value: string): iCadastroFuncionario;
+    function getSTATUS(value: string): iCadastroFuncionario;
+    function getEXCLUIDO(value: string): iCadastroFuncionario;
+    function getFoto(value: TJPEGImage): iCadastroFuncionario;
+    function getFUNCIONARIO_CADASTRO(value: integer): iCadastroFuncionario;
+    function getObservacao(value: string): iCadastroFuncionario;
+    function exportar: iCadastroFuncionario;
+
+    function validarUsuario(value: string): boolean;
+    function validarSenha(value: string): boolean;
+
+  end;
+
+  iComissoesFuncionario = interface
+    ['{95401B1A-970D-4471-ACA6-B7A3C058C5B7}']
+  end;
+
+  iNivelAcessoFuncionario = interface
+    ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
 
   iFactory = interface
@@ -532,7 +596,7 @@ type
     function CalcularJuros: iCalcularJuros;
     function criarJanela: iCriarJanelas;
     function validarDocumento: iValidarDocumento;
-    function gerarCodigoEan13:iGerarCodigoBarras;
+    function gerarCodigoEan13: iGerarCodigoBarras;
   end;
 
   iFactoryEntity = interface

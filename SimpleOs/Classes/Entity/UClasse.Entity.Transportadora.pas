@@ -4,7 +4,7 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB,
   Vcl.Dialogs, System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, System.Win.ComObj;
 
 type
 
@@ -115,7 +115,7 @@ end;
 function TEntityCadastroTransportadora.cancelar: iCadastroTransportadora;
 begin
   FQuery.TQuery.Cancel;
-  FQuery.TQuery.close;
+//  FQuery.TQuery.close;
 end;
 
 function TEntityCadastroTransportadora.codigoCadastro(sp: string): integer;
@@ -183,8 +183,77 @@ begin
 end;
 
 function TEntityCadastroTransportadora.exportar: iCadastroTransportadora;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Transportadora';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Nome fantasia';
+  pasta.cells[1, 3] := 'Razão social';
+  pasta.cells[1, 4] := 'CPF ou CNPJ';
+  pasta.cells[1, 5] := 'Inscrição municipal';
+  pasta.cells[1, 6] := 'Endereço';
+  pasta.cells[1, 7] := 'Bairro';
+  pasta.cells[1, 8] := 'Número';
+  pasta.cells[1, 9] := 'Complemento';
+  pasta.cells[1, 10] := 'CEP';
+  pasta.cells[1, 11] := 'Cidade';
+  pasta.cells[1, 12] := 'UF';
+  pasta.cells[1, 13] := 'Telefone';
+  pasta.cells[1, 14] := 'Celular';
+  pasta.cells[1, 15] := 'E-Mail';
+  pasta.cells[1, 16] := 'Responsavel';
+  pasta.cells[1, 17] := 'Funcionário';
+  pasta.cells[1, 18] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName
+        ('NOME_FANTASIA').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
+        ('RAZAO_SOCIAL').AsString;
+      pasta.cells[linha, 4] := '´'+FQuery.TQuery.FieldByName('CPF_CNPJ').AsString+'´';
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName
+        ('INSCRICAO_ESTADUAL').AsString;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('ENDERECO').AsString;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('BAIRRO').AsString;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('NUMERO').AsInteger;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('COMPLEMENTO')
+        .AsString;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('CEP').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('CIDADE').AsString;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('ESTADO').AsString;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('TELEFONE').AsString;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('CELULAR').AsString;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('EMAIL').AsString;
+      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName
+        ('RESPONSAVEL').AsString;
+      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName
+        ('FUNCIONARIO_CADASTRO').AsInteger;
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('OBSERVACAO')
+        .AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TEntityCadastroTransportadora.fecharQuery: iCadastroTransportadora;

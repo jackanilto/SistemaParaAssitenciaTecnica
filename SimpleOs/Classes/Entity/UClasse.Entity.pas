@@ -86,7 +86,7 @@ end;
 function TEntity.cancelar: iEntity;
 begin
   FQuery.TQuery.Cancel;
-  FQuery.TQuery.close;
+//  FQuery.TQuery.close;
 end;
 
 function TEntity.codigoCadastro(sp: string): integer;
