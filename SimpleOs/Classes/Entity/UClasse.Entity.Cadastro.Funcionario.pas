@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Imaging.jpeg;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Imaging.jpeg,
+  FireDAC.Comp.Client;
 
 type
 
@@ -99,8 +100,8 @@ type
     function getObservacao(value: string): iCadastroFuncionario;
     function exportar: iCadastroFuncionario;
 
-    function validarUsuario(value: string): boolean;
-    function validarSenha(value: string): boolean;
+    function validarUsuario(value: string): iCadastroFuncionario;
+    function validarSenha(value1, value2: string): iCadastroFuncionario;
 
     constructor create;
     destructor destroy; override;
@@ -594,14 +595,51 @@ begin
     .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
 end;
 
-function TEntityCadastroFuncionario.validarSenha(value: string): boolean;
+function TEntityCadastroFuncionario.validarSenha(value1, value2: string)
+  : iCadastroFuncionario;
 begin
-  result := true;
+
+  result := self;
+
+  if value1 = EmptyStr then
+    raise Exception.create('Informe a senha para o usuário.');
+
+  if value2 = EmptyStr then
+    raise Exception.create('Confirme a senha.');
+
+  if value1 <> value2 then
+    raise Exception.create('As senhas informadas não são identicas.');
+
 end;
 
-function TEntityCadastroFuncionario.validarUsuario(value: string): boolean;
+function TEntityCadastroFuncionario.validarUsuario(value: string)
+  : iCadastroFuncionario;
+var
+  TQuery: TFDQuery;
 begin
-  result := true;
+
+  result := self;
+
+  if value <> EmptyStr then
+  begin
+    TQuery := TFDQuery.create(nil);
+    TQuery.Connection := DataModule1.Conexao;
+
+    TQuery.Active := false;
+    TQuery.SQL.Clear;
+    TQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u');
+    TQuery.ParamByName('u').AsString := value;
+    TQuery.Active := true;
+
+    if TQuery.RecordCount >= 1 then
+      raise Exception.create
+        ('Já existe um cadatro com este usuário. Tente outro nome de usuário.');
+
+    TQuery.Free;
+  end
+  else
+    raise Exception.create('Informe um nome de usuário.');
+
 end;
 
 end.

@@ -576,8 +576,8 @@ type
     function getObservacao(value: string): iCadastroFuncionario;
     function exportar: iCadastroFuncionario;
 
-    function validarUsuario(value: string): boolean;
-    function validarSenha(value: string): boolean;
+    function validarUsuario(value: string): iCadastroFuncionario;
+    function validarSenha(value1, value2: string): iCadastroFuncionario;
 
   end;
 

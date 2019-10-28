@@ -556,3 +556,53 @@ Problematic key value is ("ID" = 4)
 27/10/19 14:09:38 - Caption: Cadastro de transportadora
 27/10/19 14:09:38 - Erro:EDatabaseError
 27/10/19 14:09:38 - Erro:Cannot perform this operation on a closed dataset
+28/10/19 12:18:54 - ===========================================
+28/10/19 12:18:54 - Form: formCadastroDeFuncionarios
+28/10/19 12:18:54 - Caption: Cadastro de funcionários
+28/10/19 12:18:54 - Erro:EAccessViolation
+28/10/19 12:18:54 - Erro:Access violation at address 0099C152 in module 'SimplesOS.exe'. Read of address 00000000
+28/10/19 12:24:02 - ===========================================
+28/10/19 12:24:02 - Form: formCadastroDeFuncionarios
+28/10/19 12:24:02 - Caption: Cadastro de funcionários
+28/10/19 12:24:02 - Erro:EACBrCEPException
+28/10/19 12:24:02 - Erro:WebService TACBrCEPWSClass não implementa o método: BuscarPorCEP
+28/10/19 12:38:32 - ===========================================
+28/10/19 12:38:32 - Form: formCadastroDeFuncionarios
+28/10/19 12:38:32 - Caption: Cadastro de funcionários
+28/10/19 12:38:32 - Erro:EDatabaseError
+28/10/19 12:38:32 - Erro:Field '' not found
+28/10/19 12:40:02 - ===========================================
+28/10/19 12:40:02 - Form: formCadastroDeFuncionarios
+28/10/19 12:40:02 - Caption: Cadastro de funcionários
+28/10/19 12:40:02 - Erro:EDatabaseError
+28/10/19 12:40:02 - Erro:Field '' not found
+28/10/19 12:40:07 - ===========================================
+28/10/19 12:40:07 - Form: formCadastroDeFuncionarios
+28/10/19 12:40:07 - Caption: Cadastro de funcionários
+28/10/19 12:40:07 - Erro:EDatabaseError
+28/10/19 12:40:07 - Erro:Field '' not found
+28/10/19 12:40:50 - ===========================================
+28/10/19 12:40:50 - Form: formCadastroDeFuncionarios
+28/10/19 12:40:50 - Caption: Cadastro de funcionários
+28/10/19 12:40:50 - Erro:EDatabaseError
+28/10/19 12:40:50 - Erro:Field '' not found
+28/10/19 12:42:20 - ===========================================
+28/10/19 12:42:20 - Form: formCadastroDeFuncionarios
+28/10/19 12:42:20 - Caption: Cadastro de funcionários
+28/10/19 12:42:20 - Erro:EDatabaseError
+28/10/19 12:42:20 - Erro:Field '' not found
+28/10/19 12:53:31 - ===========================================
+28/10/19 12:53:31 - Form: formCadastroDeFuncionarios
+28/10/19 12:53:31 - Caption: Cadastro de funcionários
+28/10/19 12:53:31 - Erro:EAccessViolation
+28/10/19 12:53:31 - Erro:Access violation at address 0099B4CF in module 'SimplesOS.exe'. Read of address 00000000
+28/10/19 12:55:09 - ===========================================
+28/10/19 12:55:09 - Form: formCadastroDeFuncionarios
+28/10/19 12:55:09 - Caption: Cadastro de funcionários
+28/10/19 12:55:09 - Erro:EAccessViolation
+28/10/19 12:55:09 - Erro:Access violation at address 0099B4CF in module 'SimplesOS.exe'. Read of address 00000000
+28/10/19 12:57:23 - ===========================================
+28/10/19 12:57:23 - Form: formCadastroDeFuncionarios
+28/10/19 12:57:23 - Caption: Cadastro de funcionários
+28/10/19 12:57:23 - Erro:Exception
+28/10/19 12:57:23 - Erro:Informe um nome de usuário.
