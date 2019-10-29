@@ -3,7 +3,7 @@ unit UFactory;
 interface
 
 uses UInterfaces, UClasse.Criar.Janela, UClasse.Validar.Documento,
-  UClasse.Calcular.Juros;
+  UClasse.Calcular.Juros, UClasse.Cript.password;
 
 type
   TFactory = class(TInterfacedObject, iFactory)
@@ -16,6 +16,7 @@ type
     function criarJanela: iCriarJanelas;
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
+    function criptPass: iCriptPasss;
     constructor create;
     destructor destroy; override;
     class function new: iFactory;
@@ -41,6 +42,11 @@ end;
 function TFactory.criarJanela: iCriarJanelas;
 begin
   result := TCriarJanela.new;
+end;
+
+function TFactory.criptPass: iCriptPasss;
+begin
+  result := TCriptPass.new;
 end;
 
 destructor TFactory.destroy;

@@ -80,6 +80,11 @@ type
     function horaTexto(hora: TTime): string;
   end;
 
+  iCriptPasss = interface
+    ['{89DF0430-320C-4C48-BDB5-C434DF97992B}']
+    function md5(const Input: String): String;
+  end;
+
   iCalcularJuros = interface
     ['{14838CF7-3A33-42CB-A847-D2CE1F0D4246}']
     function calcularJurosSimplesPorPeriodo: real;
@@ -597,6 +602,7 @@ type
     function criarJanela: iCriarJanelas;
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
+    function criptPass:iCriptPasss;
   end;
 
   iFactoryEntity = interface

@@ -46,7 +46,10 @@ uses
   UCalculadora in 'Forms\Utilitarios\UCalculadora.pas' {frmCalculadoraMargemLucro},
   UClasse.Gerar.Codigo.Barras in 'Classes\Reusable\UClasse.Gerar.Codigo.Barras.pas',
   Form.Cadastro.Funcionarios in 'Forms\Form.Cadastro.Funcionarios.pas' {formCadastroDeFuncionarios},
-  UClasse.Entity.Cadastro.Funcionario in 'Classes\Entity\UClasse.Entity.Cadastro.Funcionario.pas';
+  UClasse.Entity.Cadastro.Funcionario in 'Classes\Entity\UClasse.Entity.Cadastro.Funcionario.pas',
+  Wcrypt2 in 'Classes\Biblioteca\Wcrypt2.pas',
+  UClasse.Cript.password in 'Classes\Biblioteca\UClasse.Cript.password.pas',
+  Form.Localizar.Atividade.Funcionario in 'Forms\Localizar\Form.Localizar.Atividade.Funcionario.pas' {formLocalizarAtividadeFuncionario};
 
 {$R *.res}
 
@@ -55,5 +58,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TformPrincipal, formPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TformLocalizarAtividadeFuncionario, formLocalizarAtividadeFuncionario);
   Application.Run;
 end.

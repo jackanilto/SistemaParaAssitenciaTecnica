@@ -606,3 +606,40 @@ Problematic key value is ("ID" = 4)
 28/10/19 12:57:23 - Caption: Cadastro de funcionários
 28/10/19 12:57:23 - Erro:Exception
 28/10/19 12:57:23 - Erro:Informe um nome de usuário.
+29/10/19 19:38:09 - ===========================================
+29/10/19 19:38:09 - Form: formCadastroDeFuncionarios
+29/10/19 19:38:09 - Caption: Cadastro de funcionários
+29/10/19 19:38:09 - Erro:Exception
+29/10/19 19:38:09 - Erro:Informe um nome de usuário.
+29/10/19 19:38:23 - ===========================================
+29/10/19 19:38:23 - Form: formCadastroDeFuncionarios
+29/10/19 19:38:23 - Caption: Cadastro de funcionários
+29/10/19 19:38:23 - Erro:Exception
+29/10/19 19:38:23 - Erro:Informe a senha para o usuário.
+29/10/19 19:38:32 - ===========================================
+29/10/19 19:38:32 - Form: formCadastroDeFuncionarios
+29/10/19 19:38:32 - Caption: Cadastro de funcionários
+29/10/19 19:38:32 - Erro:Exception
+29/10/19 19:38:32 - Erro:Informe a senha para o usuário.
+29/10/19 19:38:44 - ===========================================
+29/10/19 19:38:44 - Form: formCadastroDeFuncionarios
+29/10/19 19:38:44 - Caption: Cadastro de funcionários
+29/10/19 19:38:44 - Erro:Exception
+29/10/19 19:38:44 - Erro:Confirme a senha.
+29/10/19 19:38:54 - ===========================================
+29/10/19 19:38:54 - Form: formCadastroDeFuncionarios
+29/10/19 19:38:54 - Caption: Cadastro de funcionários
+29/10/19 19:38:54 - Erro:Exception
+29/10/19 19:38:54 - Erro:As senhas informadas não são identicas.
+29/10/19 20:07:09 - ===========================================
+29/10/19 20:07:09 - Form: formCadastroDeFuncionarios
+29/10/19 20:07:09 - Caption: Cadastro de funcionários
+29/10/19 20:07:09 - Erro:Exception
+29/10/19 20:07:09 - Erro:Informe um nome de usuário.
+29/10/19 20:26:01 - ===========================================
+29/10/19 20:26:01 - Form: formCadastroDeFuncionarios
+29/10/19 20:26:01 - Caption: Cadastro de funcionários
+29/10/19 20:26:01 - Erro:Exception
+29/10/19 20:26:01 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_FUNCIONARIOS_1" on table "FUNCIONARIOS"
+Foreign key reference target does not exist
+Problematic key value is ("ATIVIDADE" = 0)
