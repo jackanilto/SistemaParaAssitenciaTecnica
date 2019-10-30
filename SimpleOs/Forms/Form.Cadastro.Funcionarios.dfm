@@ -60,7 +60,6 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
     inherited cardPanelCadatro: TCard
       Width = 1081
       Height = 454
-      ExplicitTop = -1
       ExplicitWidth = 1081
       ExplicitHeight = 454
       object Label1: TLabel
@@ -608,7 +607,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-        OnClick = sbPesquisarCepClick
+        OnClick = SpeedButton2Click
       end
       object edtCodigo: TEdit
         Left = 14

@@ -28,8 +28,6 @@ object formLocalizarMarca: TformLocalizarMarca
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -287
-    ExplicitWidth = 734
     DesignSize = (
       735
       41)
@@ -147,9 +145,6 @@ object formLocalizarMarca: TformLocalizarMarca
     Color = 8406532
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = -287
-    ExplicitTop = 141
-    ExplicitWidth = 734
     object Label1: TLabel
       Left = 192
       Top = 6
@@ -190,7 +185,7 @@ object formLocalizarMarca: TformLocalizarMarca
       TabOrder = 0
       Items.Strings = (
         'C'#243'digo'
-        'Grupo')
+        'Marca')
     end
     object edtPesquisar: TEdit
       Left = 388
@@ -204,6 +199,7 @@ object formLocalizarMarca: TformLocalizarMarca
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnKeyUp = edtPesquisarKeyUp
     end
   end
   object DataSource1: TDataSource

@@ -71,7 +71,7 @@ end;
 procedure TformLocalizarGrupo.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-  FreeAndNil(FQuery);
+  FQuery.Free;
 end;
 
 procedure TformLocalizarGrupo.FormCreate(Sender: TObject);

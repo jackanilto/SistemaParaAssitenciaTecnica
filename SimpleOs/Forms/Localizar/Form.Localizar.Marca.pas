@@ -26,6 +26,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     procedure Localizar;
@@ -54,6 +56,21 @@ begin
   close;
 end;
 
+procedure TformLocalizarMarca.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Marca' then
+    campo := 'MARCA';
+
+  valor := UpperCase(edtPesquisar.Text);
+
+  Localizar;
+
+end;
+
 procedure TformLocalizarMarca.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -62,6 +79,7 @@ end;
 
 procedure TformLocalizarMarca.FormCreate(Sender: TObject);
 begin
+  ReportMemoryLeaksOnShutdown := true;
   FQuery := TFDQuery.Create(nil);
   FQuery.Connection := DataModule1.Conexao;
 end;

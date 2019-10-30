@@ -643,3 +643,27 @@ Problematic key value is ("ID" = 4)
 29/10/19 20:26:01 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_FUNCIONARIOS_1" on table "FUNCIONARIOS"
 Foreign key reference target does not exist
 Problematic key value is ("ATIVIDADE" = 0)
+30/10/19 14:32:35 - ===========================================
+30/10/19 14:32:35 - Form: formCadastroDeFuncionarios
+30/10/19 14:32:35 - Caption: Cadastro de funcionários
+30/10/19 14:32:35 - Erro:EACBrCEPException
+30/10/19 14:32:35 - Erro:CEP deve ser informado
+30/10/19 15:24:01 - ===========================================
+30/10/19 15:24:01 - Form: formCadastroDeFuncionarios
+30/10/19 15:24:01 - Caption: Cadastro de funcionários
+30/10/19 15:24:01 - Erro:EAccessViolation
+30/10/19 15:24:01 - Erro:Access violation at address 0099EAF3 in module 'SimplesOS.exe'. Read of address 00000000
+30/10/19 15:31:31 - ===========================================
+30/10/19 15:31:31 - Form: formCadastroDeFuncionarios
+30/10/19 15:31:31 - Caption: Cadastro de funcionários
+30/10/19 15:31:31 - Erro:Exception
+30/10/19 15:31:31 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_FUNCIONARIOS_1" on table "FUNCIONARIOS"
+Foreign key reference target does not exist
+Problematic key value is ("ATIVIDADE" = 0)
+30/10/19 15:33:02 - ===========================================
+30/10/19 15:33:02 - Form: formCadastroDeFuncionarios
+30/10/19 15:33:02 - Caption: Cadastro de funcionários
+30/10/19 15:33:02 - Erro:Exception
+30/10/19 15:33:02 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_FUNCIONARIOS_1" on table "FUNCIONARIOS"
+Foreign key reference target does not exist
+Problematic key value is ("ATIVIDADE" = 0)

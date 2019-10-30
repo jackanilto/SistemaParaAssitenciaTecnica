@@ -9,7 +9,7 @@ uses
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Cadastro.Funcionario, Vcl.Mask,
   UClasse.Entity.Table, ACBrBase, ACBrSocket, ACBrCEP, Vcl.Imaging.jpeg,
-  Vcl.ExtDlgs, UFactory;
+  Vcl.ExtDlgs, UFactory, UFactory.Entity;
 
 type
   TformCadastroDeFuncionarios = class(TformExemploEmbeded)
@@ -83,6 +83,7 @@ type
     procedure sbEditarClick(Sender: TObject);
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
     FEntityFuncionario: iCadastroFuncionario;
@@ -90,6 +91,7 @@ type
     imagem: TJPEGImage;
     FTipoOperacaoForm: string;
     procedure validacaoCamposUsuarioSenha;
+    procedure localizarAtividade;
   public
     { Public declarations }
   end;
@@ -97,9 +99,14 @@ type
 var
   formCadastroDeFuncionarios: TformCadastroDeFuncionarios;
 
+  codigoAtividade: integer;
+  atividadeFuncionario: String;
+
 implementation
 
 {$R *.dfm}
+
+uses Form.Cadastro.Atividade.Funcionario, Form.Localizar.Atividade.Funcionario;
 
 procedure TformCadastroDeFuncionarios.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
@@ -139,7 +146,7 @@ begin
     edtEstado.Text := FieldByName('UF').AsString;
     edtTelefone.Text := FieldByName('TELEFONE').AsString;
     edtCelular.Text := FieldByName('CELULAR').AsString;
-    edtCodigoAtividade.text := inttostr(FieldByName('ATIVIDADE').AsInteger);
+    edtCodigoAtividade.Text := intTostr(FieldByName('ATIVIDADE').AsInteger);
     edtEMail.Text := FieldByName('EMAIL').AsString;
     edtUsuario.Text := FieldByName('USUARIO').AsString;
     edtStatus.Text := FieldByName('STATUS').AsString;
@@ -158,6 +165,8 @@ begin
         .AsDateTime);
 
     Image1.Picture.Assign(FieldByName('FOTO'));
+
+    localizarAtividade;
 
   end;
 end;
@@ -185,6 +194,15 @@ begin
   FTipoOperacaoForm := '';
 end;
 
+procedure TformCadastroDeFuncionarios.localizarAtividade;
+begin
+  edtAtividade.Text := TFactoryEntity.new.entityTable.FD_Table
+    ('ATIVIDADE_FUNCIONARIO').getCampoTabela('ATIVIDADE')
+    .localizarRegistro(intTostr(DataSource1.DataSet.FieldByName('ATIVIDADE')
+    .AsInteger), 'ID');
+
+end;
+
 procedure TformCadastroDeFuncionarios.sbCancelarClick(Sender: TObject);
 begin
   inherited;
@@ -194,10 +212,12 @@ end;
 procedure TformCadastroDeFuncionarios.validacaoCamposUsuarioSenha;
 begin
   if FTipoOperacaoForm = 'novo' then
-    FEntityFuncionario.validarUsuario(edtUsuario.Text).validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
+    FEntityFuncionario.validarUsuario(edtUsuario.Text)
+      .validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
   if FTipoOperacaoForm = 'editar' then
     if edtSenha.Text <> EmptyStr then
-      FEntityFuncionario.validarUsuario(edtUsuario.Text).validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
+      FEntityFuncionario.validarUsuario(edtUsuario.Text)
+        .validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
 end;
 
 procedure TformCadastroDeFuncionarios.sbEditarClick(Sender: TObject);
@@ -240,28 +260,18 @@ begin
 
   validacaoCamposUsuarioSenha;
 
-  FEntityFuncionario
-      .getNome(edtNome.Text)
-      .getDATA_NASCIMENTO(edtDataNascimento.Text)
-      .getDocumento(edtDocumento.Text)
-      .getCPF(edtCPF.Text)
-      .getCep(edtCEP.Text)
-      .getEndereco(edtEndereco.Text)
-      .getBairro(edtBairro.Text)
-      .getNumero(StrToInt(edtNumero.Text))
-      .getComplemento(edtComplemento.Text)
-      .getCidade(edtCidade.Text)
-      .getUF(edtEstado.Text)
-      .getDATA_CADASTRO(edtDataCadastro.Text)
-      .getDATA_DEMISSAO(edtDataDemissao.Text)
-      .getTelefone(edtTelefone.Text)
-      .getCelular(edtCelular.Text)
-      .getEmail(edtEMail.Text)
-      .getUSUARIO(edtUsuario.Text)
-      .getSENHA(TFactory.new.criptPass.md5(edtSenha.Text))
-      .getSTATUS(edtStatus.Text)
-      .getObservacao(edtObservacao.Text)
-      .gravar;
+  FEntityFuncionario.getNome(edtNome.Text).getDATA_NASCIMENTO
+    (edtDataNascimento.Text).getDocumento(edtDocumento.Text).getCPF(edtCPF.Text)
+    .getCep(edtCEP.Text).getEndereco(edtEndereco.Text).getBairro(edtBairro.Text)
+    .getNumero(StrToInt(edtNumero.Text)).getComplemento(edtComplemento.Text)
+    .getCidade(edtCidade.Text).getUF(edtEstado.Text)
+    .getDATA_CADASTRO(edtDataCadastro.Text)
+    .getDATA_DEMISSAO(edtDataDemissao.Text).getTelefone(edtTelefone.Text)
+    .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
+    .getUSUARIO(edtUsuario.Text)
+    .getSENHA(TFactory.new.criptPass.md5(edtSenha.Text))
+    .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text)).gravar;
 
   FTipoOperacaoForm := '';
 
@@ -281,6 +291,18 @@ begin
       imagem.LoadFromFile(OpenPictureDialog1.FileName);
     end;
   end;
+end;
+
+procedure TformCadastroDeFuncionarios.SpeedButton2Click(Sender: TObject);
+begin
+  inherited;
+  formLocalizarAtividadeFuncionario :=
+    TformLocalizarAtividadeFuncionario.Create(self);
+  TFactory.new.criarJanela.FormShow(formLocalizarAtividadeFuncionario, '');
+
+  edtCodigoAtividade.Text := codigoAtividade.ToString;
+  edtAtividade.Text := atividadeFuncionario;
+
 end;
 
 end.

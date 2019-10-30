@@ -58,6 +58,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TformPrincipal, formPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TformLocalizarAtividadeFuncionario, formLocalizarAtividadeFuncionario);
   Application.Run;
 end.

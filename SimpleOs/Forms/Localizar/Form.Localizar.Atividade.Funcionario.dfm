@@ -13,6 +13,7 @@ object formLocalizarAtividadeFuncionario: TformLocalizarAtividadeFuncionario
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -28,8 +29,6 @@ object formLocalizarAtividadeFuncionario: TformLocalizarAtividadeFuncionario
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -373
-    ExplicitWidth = 1081
     DesignSize = (
       708
       41)
@@ -122,23 +121,76 @@ object formLocalizarAtividadeFuncionario: TformLocalizarAtividadeFuncionario
   end
   object Panel2: TPanel
     Left = 0
-    Top = 256
+    Top = 232
     Width = 708
-    Height = 41
+    Height = 65
     Align = alBottom
     BevelOuter = bvNone
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -373
-    ExplicitTop = 0
-    ExplicitWidth = 1081
+    object Label1: TLabel
+      Left = 192
+      Top = 6
+      Width = 176
+      Height = 17
+      Caption = 'Informe o campo de pesquisa'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 388
+      Top = 6
+      Width = 157
+      Height = 17
+      Caption = 'Digite o que deseja buscar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object cbPesquisar: TComboBox
+      Left = 192
+      Top = 29
+      Width = 190
+      Height = 25
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Items.Strings = (
+        'C'#243'digo'
+        'Atividade')
+    end
+    object edtPesquisar: TEdit
+      Left = 388
+      Top = 29
+      Width = 157
+      Height = 25
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      OnKeyUp = edtPesquisarKeyUp
+    end
   end
   object DBGrid1: TDBGrid
     Left = 0
     Top = 41
     Width = 708
-    Height = 215
+    Height = 191
     Align = alClient
     DataSource = DataSource1
     TabOrder = 2
@@ -147,6 +199,7 @@ object formLocalizarAtividadeFuncionario: TformLocalizarAtividadeFuncionario
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
   end
   object DataSource1: TDataSource
     Left = 392
