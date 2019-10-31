@@ -34,7 +34,7 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label6: TLabel;
-    Label7: TLabel;
+    lblCPF: TLabel;
     Label8: TLabel;
     Label9: TLabel;
     Label10: TLabel;
@@ -84,6 +84,7 @@ type
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure edtCPFExit(Sender: TObject);
   private
     { Private declarations }
     FEntityFuncionario: iCadastroFuncionario;
@@ -171,6 +172,21 @@ begin
   end;
 end;
 
+procedure TformCadastroDeFuncionarios.edtCPFExit(Sender: TObject);
+begin
+  inherited;
+  if tfactory.new.validarDocumento.getDocumento(edtCPF.Text) = false then
+  begin
+    lblCPF.Caption := 'CPF';
+    lblCPF.Font.Color := clred;
+  end
+  else
+  begin
+    lblCPF.Caption := 'CPF';
+    lblCPF.Font.Color := clWindowText;
+  end;
+end;
+
 procedure TformCadastroDeFuncionarios.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -196,12 +212,10 @@ end;
 
 procedure TformCadastroDeFuncionarios.localizarAtividade;
 begin
-  TFactoryEntity.new.entityTable
-  .FD_Table('ATIVIDADE_FUNCIONARIO')
-    .getCampoTabela('ATIVIDADE')
-    .localizarRegistro
-    (intTostr(DataSource1.DataSet.FieldByName('ATIVIDADE').AsInteger), 'ID')
-    {.preencherCampo(edtAtividade)};
+  edtAtividade.Text := TFactoryEntity.new.entityTable.FD_Table
+    ('ATIVIDADE_FUNCIONARIO').getCampoTabela('ATIVIDADE')
+    .localizarRegistro(intTostr(DataSource1.DataSet.FieldByName('ATIVIDADE')
+    .AsInteger), 'ID');
 
 end;
 
@@ -272,7 +286,10 @@ begin
     .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
     .getUSUARIO(edtUsuario.Text)
     .getSENHA(TFactory.new.criptPass.md5(edtSenha.Text))
-    .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text).gravar;
+    .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
+    .getFoto(imagem)
+    .gravar;
 
   FTipoOperacaoForm := '';
 

@@ -34,7 +34,7 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label6: TLabel;
-    Label7: TLabel;
+    lblCPF: TLabel;
     Label8: TLabel;
     Label9: TLabel;
     Label10: TLabel;
@@ -84,6 +84,12 @@ type
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure edtCPFExit(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure sbExportarClick(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     FEntityFuncionario: iCadastroFuncionario;
@@ -166,9 +172,66 @@ begin
 
     Image1.Picture.Assign(FieldByName('FOTO'));
 
-    localizarAtividade;
+//    if FieldByName('ATIVIDADE').AsInteger <> null then
+//      localizarAtividade;
 
   end;
+end;
+
+procedure TformCadastroDeFuncionarios.DBGrid1CellClick(Column: TColumn);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+  end
+  else
+  begin
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+  end;
+end;
+
+procedure TformCadastroDeFuncionarios.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FEntityFuncionario.ordenarGrid(Column);
+end;
+
+procedure TformCadastroDeFuncionarios.edtCPFExit(Sender: TObject);
+begin
+  inherited;
+  if tfactory.new.validarDocumento.getDocumento(edtCPF.Text) = false then
+  begin
+    lblCPF.Caption := 'CPF';
+    lblCPF.Font.Color := clred;
+  end
+  else
+  begin
+    lblCPF.Caption := 'CPF';
+    lblCPF.Font.Color := clWindowText;
+  end;
+end;
+
+procedure TformCadastroDeFuncionarios.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Nome' then
+    campo := 'NOME'
+  else if cbPesquisar.Text = 'Usuário' then
+    campo := 'USUARIO';
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntityFuncionario.getCampo(campo).getValor(edtPesquisar.Text)
+      .sqlPesquisa.listarGrid(DataSource1)
+
 end;
 
 procedure TformCadastroDeFuncionarios.FormClose(Sender: TObject;
@@ -188,9 +251,13 @@ end;
 procedure TformCadastroDeFuncionarios.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityFuncionario.abrir.listarGrid(DataSource1);
+
+  FEntityFuncionario.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
+
   FEntityTableUF.FD_Table('UF').getCampoTabela('UF').popularComponenteComboBox
     (edtEstado);
+
   FTipoOperacaoForm := '';
 end;
 
@@ -238,6 +305,12 @@ begin
   FTipoOperacaoForm := '';
 end;
 
+procedure TformCadastroDeFuncionarios.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityFuncionario.exportar;
+end;
+
 procedure TformCadastroDeFuncionarios.sbNovoClick(Sender: TObject);
 begin
   inherited;
@@ -269,9 +342,9 @@ begin
     .getDATA_DEMISSAO(edtDataDemissao.Text).getTelefone(edtTelefone.Text)
     .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
     .getUSUARIO(edtUsuario.Text)
-    .getSENHA(TFactory.new.criptPass.md5(edtSenha.Text))
+    .getSENHA(tfactory.new.criptPass.md5(edtSenha.Text))
     .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
-    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text)).gravar;
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text)).getFoto(imagem).gravar;
 
   FTipoOperacaoForm := '';
 
@@ -298,7 +371,7 @@ begin
   inherited;
   formLocalizarAtividadeFuncionario :=
     TformLocalizarAtividadeFuncionario.Create(self);
-  TFactory.new.criarJanela.FormShow(formLocalizarAtividadeFuncionario, '');
+  tfactory.new.criarJanela.FormShow(formLocalizarAtividadeFuncionario, '');
 
   edtCodigoAtividade.Text := codigoAtividade.ToString;
   edtAtividade.Text := atividadeFuncionario;

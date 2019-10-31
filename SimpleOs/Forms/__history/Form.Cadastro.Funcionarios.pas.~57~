@@ -91,6 +91,7 @@ type
     imagem: TJPEGImage;
     FTipoOperacaoForm: string;
     procedure validacaoCamposUsuarioSenha;
+    procedure localizarAtividade;
   public
     { Public declarations }
   end;
@@ -165,9 +166,7 @@ begin
 
     Image1.Picture.Assign(FieldByName('FOTO'));
 
-    edtAtividade.Text := TFactoryEntity.new.entityTable.FD_Table
-      ('ATIVIDADE_FUNCIONARIO').getCampoTabela('ATIVIDADE')
-      .localizarRegistro(intTostr(FieldByName('ATIVIDADE').AsInteger), 'ID');
+    localizarAtividade;
 
   end;
 end;
@@ -193,6 +192,15 @@ begin
   FEntityTableUF.FD_Table('UF').getCampoTabela('UF').popularComponenteComboBox
     (edtEstado);
   FTipoOperacaoForm := '';
+end;
+
+procedure TformCadastroDeFuncionarios.localizarAtividade;
+begin
+  edtAtividade.Text := TFactoryEntity.new.entityTable.FD_Table
+    ('ATIVIDADE_FUNCIONARIO').getCampoTabela('ATIVIDADE')
+    .localizarRegistro(intTostr(DataSource1.DataSet.FieldByName('ATIVIDADE')
+    .AsInteger), 'ID');
+
 end;
 
 procedure TformCadastroDeFuncionarios.sbCancelarClick(Sender: TObject);
@@ -262,7 +270,10 @@ begin
     .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
     .getUSUARIO(edtUsuario.Text)
     .getSENHA(TFactory.new.criptPass.md5(edtSenha.Text))
-    .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text).gravar;
+    .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
+    .getFoto(imagem)
+    .gravar;
 
   FTipoOperacaoForm := '';
 

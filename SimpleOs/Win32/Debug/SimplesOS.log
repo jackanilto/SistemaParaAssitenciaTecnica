@@ -667,3 +667,52 @@ Problematic key value is ("ATIVIDADE" = 0)
 30/10/19 15:33:02 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_FUNCIONARIOS_1" on table "FUNCIONARIOS"
 Foreign key reference target does not exist
 Problematic key value is ("ATIVIDADE" = 0)
+31/10/19 14:27:29 - ===========================================
+31/10/19 14:27:29 - Form: formCadastroDeFuncionarios
+31/10/19 14:27:29 - Caption: Cadastro de funcionários
+31/10/19 14:27:29 - Erro:Exception
+31/10/19 14:27:29 - Erro:Informe um nome de usuário.
+31/10/19 14:27:37 - ===========================================
+31/10/19 14:27:37 - Form: formCadastroDeFuncionarios
+31/10/19 14:27:37 - Caption: Cadastro de funcionários
+31/10/19 14:27:37 - Erro:Exception
+31/10/19 14:27:37 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+31/10/19 14:27:46 - ===========================================
+31/10/19 14:27:46 - Form: formCadastroDeFuncionarios
+31/10/19 14:27:46 - Caption: Cadastro de funcionários
+31/10/19 14:27:46 - Erro:Exception
+31/10/19 14:27:46 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_FUNCIONARIOS_1" on table "FUNCIONARIOS"
+Foreign key reference target does not exist
+Problematic key value is ("ATIVIDADE" = 0)
+31/10/19 14:30:43 - ===========================================
+31/10/19 14:30:43 - Form: formCadastroDeFuncionarios
+31/10/19 14:30:43 - Caption: Cadastro de funcionários
+31/10/19 14:30:43 - Erro:Exception
+31/10/19 14:30:43 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_FUNCIONARIOS_1" on table "FUNCIONARIOS"
+Foreign key reference target does not exist
+Problematic key value is ("ATIVIDADE" = 0)
+31/10/19 14:36:19 - ===========================================
+31/10/19 14:36:19 - Form: formCadastroDeFuncionarios
+31/10/19 14:36:19 - Caption: Cadastro de funcionários
+31/10/19 14:36:19 - Erro:Exception
+31/10/19 14:36:19 - Erro:Informe um nome de usuário.
+31/10/19 14:36:48 - ===========================================
+31/10/19 14:36:48 - Form: formCadastroDeFuncionarios
+31/10/19 14:36:48 - Caption: Cadastro de funcionários
+31/10/19 14:36:48 - Erro:Exception
+31/10/19 14:36:48 - Erro:Informe um nome de usuário.
+31/10/19 14:37:52 - ===========================================
+31/10/19 14:37:52 - Form: formCadastroDeFuncionarios
+31/10/19 14:37:52 - Caption: Cadastro de funcionários
+31/10/19 14:37:52 - Erro:Exception
+31/10/19 14:37:52 - Erro:Informe um nome de usuário.
+31/10/19 14:42:18 - ===========================================
+31/10/19 14:42:18 - Form: formCadastroDeFuncionarios
+31/10/19 14:42:18 - Caption: Cadastro de funcionários
+31/10/19 14:42:18 - Erro:Exception
+31/10/19 14:42:18 - Erro:Informe um nome de usuário.
+31/10/19 14:42:24 - ===========================================
+31/10/19 14:42:24 - Form: formCadastroDeFuncionarios
+31/10/19 14:42:24 - Caption: Cadastro de funcionários
+31/10/19 14:42:24 - Erro:Exception
+31/10/19 14:42:24 - Erro:Informe a senha para o usuário.

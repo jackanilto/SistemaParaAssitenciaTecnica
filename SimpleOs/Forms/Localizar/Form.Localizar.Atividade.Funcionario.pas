@@ -74,6 +74,7 @@ end;
 
 procedure TformLocalizarAtividadeFuncionario.FormCreate(Sender: TObject);
 begin
+  ReportMemoryLeaksOnShutdown := true;
   FQuery := TFDQuery.Create(nil);
   FQuery.Connection := DataModule1.Conexao;
 end;

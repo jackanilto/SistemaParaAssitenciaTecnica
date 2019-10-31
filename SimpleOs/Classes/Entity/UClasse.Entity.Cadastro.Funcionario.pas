@@ -447,7 +447,6 @@ begin
   FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
   FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
   FQuery.TQuery.FieldByName('UF').AsString := FUF;
-  FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger := FATIVIDADE;
   FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
   FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
   FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
@@ -474,6 +473,9 @@ begin
   begin
     FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
   end;
+
+  if FATIVIDADE <> 0 then
+    FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger := FATIVIDADE;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
     .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;

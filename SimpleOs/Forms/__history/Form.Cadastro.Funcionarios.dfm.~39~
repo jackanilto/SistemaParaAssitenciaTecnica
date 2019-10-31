@@ -3,7 +3,6 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   ClientHeight = 610
   ClientWidth = 1081
   OnClose = FormClose
-  ExplicitTop = -56
   ExplicitWidth = 1081
   ExplicitHeight = 610
   PixelsPerInch = 96
@@ -60,7 +59,6 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
     inherited cardPanelCadatro: TCard
       Width = 1081
       Height = 454
-      ExplicitTop = -1
       ExplicitWidth = 1081
       ExplicitHeight = 454
       object Label1: TLabel
@@ -608,7 +606,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-        OnClick = sbPesquisarCepClick
+        OnClick = SpeedButton2Click
       end
       object edtCodigo: TEdit
         Left = 14
@@ -625,7 +623,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         TabOrder = 0
       end
       object edtNome: TEdit
-        Left = 14
+        Left = 13
         Top = 77
         Width = 400
         Height = 25
@@ -650,7 +648,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 3
       end
       object edtCPF: TEdit
         Left = 14
@@ -664,7 +662,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 4
       end
       object edtCEP: TEdit
         Left = 14
@@ -678,7 +676,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 5
       end
       object edtEndereco: TEdit
         Left = 14
@@ -692,26 +690,12 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
-      end
-      object edtBairro: TEdit
-        Left = 14
-        Top = 357
-        Width = 400
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
         TabOrder = 6
       end
-      object edtNumero: TEdit
+      object edtBairro: TEdit
         Left = 13
-        Top = 414
-        Width = 100
+        Top = 359
+        Width = 400
         Height = 25
         CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
@@ -722,10 +706,10 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         ParentFont = False
         TabOrder = 7
       end
-      object edtComplemento: TEdit
-        Left = 119
-        Top = 414
-        Width = 295
+      object edtNumero: TEdit
+        Left = 13
+        Top = 416
+        Width = 100
         Height = 25
         CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
@@ -735,6 +719,20 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Style = []
         ParentFont = False
         TabOrder = 8
+      end
+      object edtComplemento: TEdit
+        Left = 119
+        Top = 416
+        Width = 295
+        Height = 25
+        CharCase = ecUpperCase
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 9
       end
       object edtCidade: TEdit
         Left = 464
@@ -748,11 +746,11 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 10
       end
       object edtEMail: TEdit
         Left = 463
-        Top = 184
+        Top = 186
         Width = 387
         Height = 25
         CharCase = ecUpperCase
@@ -762,7 +760,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 16
       end
       object edtUsuario: TEdit
         Left = 464
@@ -776,11 +774,11 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 17
       end
       object edtSenha: TEdit
-        Left = 642
-        Top = 242
+        Left = 639
+        Top = 243
         Width = 103
         Height = 25
         CharCase = ecUpperCase
@@ -790,11 +788,11 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 18
       end
       object edtConfirmaSenha: TEdit
         Left = 748
-        Top = 242
+        Top = 243
         Width = 103
         Height = 25
         CharCase = ecUpperCase
@@ -804,7 +802,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 19
       end
       object edtFuncionario: TEdit
         Left = 590
@@ -818,7 +816,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 21
       end
       object edtObservacao: TEdit
         Left = 463
@@ -832,7 +830,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 24
       end
       object edtDataNascimento: TMaskEdit
         Left = 15
@@ -847,7 +845,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 2
         Text = '  /  /    '
       end
       object edtDataCadastro: TMaskEdit
@@ -863,7 +861,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 12
         Text = '  /  /    '
       end
       object edtDataDemissao: TMaskEdit
@@ -879,7 +877,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 18
+        TabOrder = 13
         Text = '  /  /    '
       end
       object edtTelefone: TMaskEdit
@@ -895,12 +893,12 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Style = []
         MaxLength = 13
         ParentFont = False
-        TabOrder = 19
+        TabOrder = 14
         Text = '(  )    -    '
       end
       object edtCelular: TMaskEdit
         Left = 662
-        Top = 132
+        Top = 135
         Width = 185
         Height = 25
         EditMask = '(00)00000-0000'
@@ -911,7 +909,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Style = []
         MaxLength = 14
         ParentFont = False
-        TabOrder = 20
+        TabOrder = 15
         Text = '(  )     -    '
       end
       object edtEstado: TComboBox
@@ -926,7 +924,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 21
+        TabOrder = 11
       end
       object edtStatus: TComboBox
         Left = 463
@@ -940,7 +938,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 22
+        TabOrder = 20
       end
       object edtCodigoAtividade: TEdit
         Left = 465
@@ -954,7 +952,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 23
+        TabOrder = 22
       end
       object edtAtividade: TEdit
         Left = 598
@@ -968,7 +966,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 24
+        TabOrder = 23
       end
     end
     inherited cardPanelConsulta: TCard
