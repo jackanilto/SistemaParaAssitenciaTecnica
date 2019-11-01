@@ -49,7 +49,8 @@ uses
   UClasse.Entity.Cadastro.Funcionario in 'Classes\Entity\UClasse.Entity.Cadastro.Funcionario.pas',
   Wcrypt2 in 'Classes\Biblioteca\Wcrypt2.pas',
   UClasse.Cript.password in 'Classes\Biblioteca\UClasse.Cript.password.pas',
-  Form.Localizar.Atividade.Funcionario in 'Forms\Localizar\Form.Localizar.Atividade.Funcionario.pas' {formLocalizarAtividadeFuncionario};
+  Form.Localizar.Atividade.Funcionario in 'Forms\Localizar\Form.Localizar.Atividade.Funcionario.pas' {formLocalizarAtividadeFuncionario},
+  Form.Comissoes.Funcionario in 'Forms\Form.Comissoes.Funcionario.pas' {formComissoesPorFuncionario};
 
 {$R *.res}
 
@@ -58,5 +59,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TformPrincipal, formPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TformComissoesPorFuncionario, formComissoesPorFuncionario);
   Application.Run;
 end.

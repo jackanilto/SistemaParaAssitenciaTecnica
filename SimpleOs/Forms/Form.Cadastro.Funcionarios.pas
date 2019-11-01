@@ -9,7 +9,7 @@ uses
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Cadastro.Funcionario, Vcl.Mask,
   UClasse.Entity.Table, ACBrBase, ACBrSocket, ACBrCEP, Vcl.Imaging.jpeg,
-  Vcl.ExtDlgs, UFactory, UFactory.Entity;
+  Vcl.ExtDlgs, UFactory, UFactory.Entity, frxClass, frxDBSet;
 
 type
   TformCadastroDeFuncionarios = class(TformExemploEmbeded)
@@ -71,6 +71,8 @@ type
     edtAtividade: TEdit;
     Label28: TLabel;
     SpeedButton2: TSpeedButton;
+    frxDB_Funcionarios: TfrxDBDataset;
+    frx_Funcionarios: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -90,6 +92,7 @@ type
     procedure sbExportarClick(Sender: TObject);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     FEntityFuncionario: iCadastroFuncionario;
@@ -310,6 +313,14 @@ procedure TformCadastroDeFuncionarios.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FEntityFuncionario.exportar;
+end;
+
+procedure TformCadastroDeFuncionarios.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_Funcionarios.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_funcionarios.fr3');
+  frx_Funcionarios.ShowReport();
 end;
 
 procedure TformCadastroDeFuncionarios.sbNovoClick(Sender: TObject);
