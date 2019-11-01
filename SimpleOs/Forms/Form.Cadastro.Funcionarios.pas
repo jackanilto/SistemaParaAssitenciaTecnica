@@ -153,6 +153,7 @@ begin
     edtTelefone.Text := FieldByName('TELEFONE').AsString;
     edtCelular.Text := FieldByName('CELULAR').AsString;
     edtCodigoAtividade.Text := intTostr(FieldByName('ATIVIDADE').AsInteger);
+    edtAtividade.Text := FieldByName('ATIVIDADE_NOME').AsString;
     edtEMail.Text := FieldByName('EMAIL').AsString;
     edtUsuario.Text := FieldByName('USUARIO').AsString;
     edtStatus.Text := FieldByName('STATUS').AsString;
@@ -172,8 +173,8 @@ begin
 
     Image1.Picture.Assign(FieldByName('FOTO'));
 
-//    if FieldByName('ATIVIDADE').AsInteger <> null then
-//      localizarAtividade;
+    // if FieldByName('ATIVIDADE').AsInteger <> null then
+    // localizarAtividade;
 
   end;
 end;
@@ -344,7 +345,8 @@ begin
     .getUSUARIO(edtUsuario.Text)
     .getSENHA(tfactory.new.criptPass.md5(edtSenha.Text))
     .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
-    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text)).getFoto(imagem).gravar;
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
+    .getNomeAtividade(edtAtividade.Text).getFoto(imagem).gravar;
 
   FTipoOperacaoForm := '';
 

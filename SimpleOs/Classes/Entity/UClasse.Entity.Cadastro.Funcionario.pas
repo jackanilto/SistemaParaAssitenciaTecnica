@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Imaging.jpeg,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, System.Win.ComObj;
 
 type
 
@@ -35,6 +35,7 @@ type
     FDATA_CADASTRO: string;
     FDATA_DEMISSAO: string;
     FATIVIDADE: integer;
+    FNomeAtividade: string;
     FTELEFONE: string;
     FCELULAR: string;
     FEMAIL: string;
@@ -88,6 +89,7 @@ type
     function getDATA_CADASTRO(value: string): iCadastroFuncionario;
     function getDATA_DEMISSAO(value: string): iCadastroFuncionario;
     function getATIVIDADE(value: integer): iCadastroFuncionario;
+    function getNomeAtividade(value: string): iCadastroFuncionario;
     function getTelefone(value: string): iCadastroFuncionario;
     function getCelular(value: string): iCadastroFuncionario;
     function getEmail(value: string): iCadastroFuncionario;
@@ -195,10 +197,82 @@ begin
 end;
 
 function TEntityCadastroFuncionario.exportar: iCadastroFuncionario;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
-end;
 
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório dos funcionários';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Nome';
+  pasta.cells[1, 3] := 'Data de nascimento';
+  pasta.cells[1, 4] := 'Documento';
+  pasta.cells[1, 5] := 'CPF';
+  pasta.cells[1, 6] := 'Endereço';
+  pasta.cells[1, 7] := 'Bairro';
+  pasta.cells[1, 8] := 'Número';
+  pasta.cells[1, 9] := 'Complemento';
+  pasta.cells[1, 10] := 'CEP';
+  pasta.cells[1, 11] := 'Cidade';
+  pasta.cells[1, 12] := 'UF';
+  pasta.cells[1, 13] := 'Data de cadastro';
+  pasta.cells[1, 14] := 'Data de demissão';
+  pasta.cells[1, 15] := 'Código atividade';
+  pasta.cells[1, 16] := 'Atividade';
+  pasta.cells[1, 17] := 'Telefone';
+  pasta.cells[1, 18] := 'Celular';
+  pasta.cells[1, 19] := 'E-Mail';
+  pasta.cells[1, 20] := 'Usuário';
+  pasta.cells[1, 21] := 'Status';
+  pasta.cells[1, 22] := 'Funcionário';
+  pasta.cells[1, 23] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('NOME').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('DATA_NASCIMENTO').AsDateTime;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DOCUMENTO').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('CPF').AsString;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('ENDERECO').AsString;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('BAIRRO').AsString;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('NUMERO').AsInteger;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('COMPLEMENTO').AsString;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('CEP').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('CIDADE').AsString;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('UF').AsString;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('DATA_DEMISSAO').AsDateTime;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger;
+      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('ATIVIDADE_NOME').AsString;
+      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('TELEFONE').AsString;
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('CELULAR').AsString;
+      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('EMAIL').AsString;
+      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('USUARIO').AsString;
+      pasta.cells[linha, 21] := FQuery.TQuery.FieldByName('STATUS').AsString;
+      pasta.cells[linha, 22] := FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger;
+      pasta.cells[linha, 23] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
+
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
+end;
 function TEntityCadastroFuncionario.fecharQuery: iCadastroFuncionario;
 begin
   FQuery.TQuery.close;
@@ -369,6 +443,13 @@ begin
 
 end;
 
+function TEntityCadastroFuncionario.getNomeAtividade(value: string)
+  : iCadastroFuncionario;
+begin
+  result := self;
+  FNomeAtividade := value;
+end;
+
 function TEntityCadastroFuncionario.getNumero(value: integer)
   : iCadastroFuncionario;
 begin
@@ -452,7 +533,7 @@ begin
   FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
   FQuery.TQuery.FieldByName('USUARIO').AsString := FUSUARIO;
   FQuery.TQuery.FieldByName('SENHA').AsString := FSENHA;
-  FQuery.TQuery.FieldByName('STATUS').AsString := FSENHA;
+  FQuery.TQuery.FieldByName('STATUS').AsString := FSTATUS;
   FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
     funcionarioLogado;
   FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
@@ -475,7 +556,10 @@ begin
   end;
 
   if FATIVIDADE <> 0 then
+  begin
     FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger := FATIVIDADE;
+    FQuery.TQuery.FieldByName('ATIVIDADE_NOME').AsString := FNomeAtividade;
+  end;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
     .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
@@ -520,7 +604,8 @@ begin
   FQuery.TQuery.FieldByName('UF').DisplayLabel := 'UF';
   FQuery.TQuery.FieldByName('DATA_CADASTRO').DisplayLabel := 'Data de cadastro';
   FQuery.TQuery.FieldByName('DATA_DEMISSAO').DisplayLabel := 'Data de demisão';
-  FQuery.TQuery.FieldByName('ATIVIDADE').DisplayLabel := 'Atividade';
+  FQuery.TQuery.FieldByName('ATIVIDADE').DisplayLabel := 'Cód. atividade';
+  FQuery.TQuery.FieldByName('ATIVIDADE_NOME').DisplayLabel := 'Atividade';
   FQuery.TQuery.FieldByName('TELEFONE').DisplayLabel := 'Telefone';
   FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'Celular';
   FQuery.TQuery.FieldByName('EMAIL').DisplayLabel := 'E-Mail';
@@ -539,6 +624,7 @@ begin
   FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayWidth := 30;
   FQuery.TQuery.FieldByName('EMAIL').DisplayWidth := 40;
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('ATIVIDADE_NOME').DisplayWidth := 30;
 
   value.DataSet := FQuery.TQuery;
 
@@ -617,30 +703,35 @@ end;
 function TEntityCadastroFuncionario.validarUsuario(value: string)
   : iCadastroFuncionario;
 var
-  TQuery: TFDQuery;
+  FTQuery: TFDQuery;
 begin
 
   result := self;
 
+  FTQuery := TFDQuery.create(nil);
+  FTQuery.Connection := DataModule1.Conexao;
+
   if value <> EmptyStr then
   begin
-    TQuery := TFDQuery.create(nil);
-    TQuery.Connection := DataModule1.Conexao;
 
-    TQuery.Active := false;
-    TQuery.SQL.Clear;
-    TQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u');
-    TQuery.ParamByName('u').AsString := value;
-    TQuery.Active := true;
+    FTQuery.Active := false;
+    FTQuery.SQL.Clear;
+    FTQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u');
+    FTQuery.ParamByName('u').AsString := value;
+    FTQuery.Active := true;
 
-    if TQuery.RecordCount >= 1 then
+    if FTQuery.RecordCount >= 1 then
+    begin
+      FTQuery.Free;
       raise Exception.create
         ('Já existe um cadatro com este usuário. Tente outro nome de usuário.');
+    end;
 
-    TQuery.Free;
   end
   else
     raise Exception.create('Informe um nome de usuário.');
+
+  FTQuery.Free;
 
 end;
 

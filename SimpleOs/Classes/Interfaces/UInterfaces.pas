@@ -570,6 +570,7 @@ type
     function getDATA_CADASTRO(value: string): iCadastroFuncionario;
     function getDATA_DEMISSAO(value: string): iCadastroFuncionario;
     function getATIVIDADE(value: integer): iCadastroFuncionario;
+    function getNomeAtividade(value: string): iCadastroFuncionario;
     function getTelefone(value: string): iCadastroFuncionario;
     function getCelular(value: string): iCadastroFuncionario;
     function getEmail(value: string): iCadastroFuncionario;

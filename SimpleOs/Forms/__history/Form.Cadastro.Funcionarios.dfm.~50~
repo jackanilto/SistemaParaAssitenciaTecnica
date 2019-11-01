@@ -16,11 +16,11 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
     end
     inherited lblCaption: TLabel
       Left = 365
-      Top = 16
+      Top = 11
       Width = 179
       Caption = 'Cadastro de funcion'#225'rios'
       ExplicitLeft = 365
-      ExplicitTop = 16
+      ExplicitTop = 11
       ExplicitWidth = 179
     end
   end
@@ -43,10 +43,15 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
     end
     inherited cbPesquisar: TComboBox
       Left = 747
+      Items.Strings = (
+        'C'#243'digo'
+        'Nome'
+        'Usu'#225'rio')
       ExplicitLeft = 747
     end
     inherited edtPesquisar: TEdit
       Left = 882
+      OnKeyUp = edtPesquisarKeyUp
       ExplicitLeft = 882
     end
   end
@@ -788,7 +793,9 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
+        NumbersOnly = True
         ParentFont = False
+        PasswordChar = '*'
         TabOrder = 18
       end
       object edtConfirmaSenha: TEdit
@@ -802,7 +809,9 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
+        NumbersOnly = True
         ParentFont = False
+        PasswordChar = '*'
         TabOrder = 19
       end
       object edtFuncionario: TEdit
@@ -817,6 +826,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 21
       end
       object edtObservacao: TEdit
@@ -938,8 +948,13 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
+        ItemIndex = 0
         ParentFont = False
         TabOrder = 20
+        Text = 'ATIVO'
+        Items.Strings = (
+          'ATIVO'
+          'INATIVO')
       end
       object edtCodigoAtividade: TEdit
         Left = 465
@@ -986,6 +1001,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         end
         inherited sbExportar: TSpeedButton
           Left = 917
+          OnClick = sbExportarClick
           ExplicitLeft = 917
         end
       end
@@ -993,6 +1009,8 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Width = 1081
         Height = 409
         DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
+        OnTitleClick = DBGrid1TitleClick
       end
     end
   end

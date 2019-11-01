@@ -3,7 +3,6 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   ClientHeight = 610
   ClientWidth = 1081
   OnClose = FormClose
-  ExplicitTop = -73
   ExplicitWidth = 1081
   ExplicitHeight = 610
   PixelsPerInch = 96
@@ -17,11 +16,11 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
     end
     inherited lblCaption: TLabel
       Left = 365
-      Top = 16
+      Top = 11
       Width = 179
       Caption = 'Cadastro de funcion'#225'rios'
       ExplicitLeft = 365
-      ExplicitTop = 16
+      ExplicitTop = 11
       ExplicitWidth = 179
     end
   end
@@ -59,11 +58,13 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   inherited CardPanel1: TCardPanel
     Width = 1081
     Height = 454
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1081
     ExplicitHeight = 454
     inherited cardPanelCadatro: TCard
       Width = 1081
       Height = 454
+      ExplicitTop = 1
       ExplicitWidth = 1081
       ExplicitHeight = 454
       object Label1: TLabel
@@ -793,6 +794,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
+        NumbersOnly = True
         ParentFont = False
         PasswordChar = '*'
         TabOrder = 18
@@ -808,6 +810,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
+        NumbersOnly = True
         ParentFont = False
         PasswordChar = '*'
         TabOrder = 19
@@ -824,6 +827,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 21
       end
       object edtObservacao: TEdit

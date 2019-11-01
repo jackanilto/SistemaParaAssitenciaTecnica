@@ -35,6 +35,7 @@ type
     FDATA_CADASTRO: string;
     FDATA_DEMISSAO: string;
     FATIVIDADE: integer;
+    FNomeAtividade: string;
     FTELEFONE: string;
     FCELULAR: string;
     FEMAIL: string;
@@ -88,6 +89,7 @@ type
     function getDATA_CADASTRO(value: string): iCadastroFuncionario;
     function getDATA_DEMISSAO(value: string): iCadastroFuncionario;
     function getATIVIDADE(value: integer): iCadastroFuncionario;
+    function getNomeAtividade(value: string): iCadastroFuncionario;
     function getTelefone(value: string): iCadastroFuncionario;
     function getCelular(value: string): iCadastroFuncionario;
     function getEmail(value: string): iCadastroFuncionario;
@@ -369,6 +371,13 @@ begin
 
 end;
 
+function TEntityCadastroFuncionario.getNomeAtividade(value: string)
+  : iCadastroFuncionario;
+begin
+  result := self;
+  FNomeAtividade := value;
+end;
+
 function TEntityCadastroFuncionario.getNumero(value: integer)
   : iCadastroFuncionario;
 begin
@@ -447,7 +456,6 @@ begin
   FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
   FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
   FQuery.TQuery.FieldByName('UF').AsString := FUF;
-  FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger := FATIVIDADE;
   FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
   FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
   FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
@@ -473,6 +481,12 @@ begin
   if Assigned(F_FOTO) then
   begin
     FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
+  end;
+
+  if FATIVIDADE <> 0 then
+  begin
+    FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger := FATIVIDADE;
+    FQuery.TQuery.FieldByName('ATIVIDADE_NOME').AsString := FNomeAtividade;
   end;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
@@ -518,7 +532,8 @@ begin
   FQuery.TQuery.FieldByName('UF').DisplayLabel := 'UF';
   FQuery.TQuery.FieldByName('DATA_CADASTRO').DisplayLabel := 'Data de cadastro';
   FQuery.TQuery.FieldByName('DATA_DEMISSAO').DisplayLabel := 'Data de demisão';
-  FQuery.TQuery.FieldByName('ATIVIDADE').DisplayLabel := 'Atividade';
+  FQuery.TQuery.FieldByName('ATIVIDADE').DisplayLabel := 'Cód. atividade';
+  FQuery.TQuery.FieldByName('ATIVIDADE_NOME').DisplayLabel := 'Atividade';
   FQuery.TQuery.FieldByName('TELEFONE').DisplayLabel := 'Telefone';
   FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'Celular';
   FQuery.TQuery.FieldByName('EMAIL').DisplayLabel := 'E-Mail';
@@ -537,6 +552,7 @@ begin
   FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayWidth := 30;
   FQuery.TQuery.FieldByName('EMAIL').DisplayWidth := 40;
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('ATIVIDADE_NOME').DisplayWidth := 30;
 
   value.DataSet := FQuery.TQuery;
 
@@ -615,23 +631,35 @@ end;
 function TEntityCadastroFuncionario.validarUsuario(value: string)
   : iCadastroFuncionario;
 var
-  TQuery: TFDQuery;
+  FTQuery: TFDQuery;
 begin
 
   result := self;
 
-  TQuery := TQuery.create(nil);
-  TQuery.Connection := DataModule1.Conexao;
+  FTQuery := TFDQuery.create(nil);
+  FTQuery.Connection := DataModule1.Conexao;
 
-  TQuery.Active := false;
-  TQuery.SQL.Clear;
-  TQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u');
-  TQuery.ParamByName('u').AsString := value;
-  TQuery.Active := true;
+  if value <> EmptyStr then
+  begin
 
-  if TQuery.RecordCount >= 1 then
-    raise Exception.create
-      ('Já existe um cadatro com este usuário. Tente outro nome de usuário.');
+    FTQuery.Active := false;
+    FTQuery.SQL.Clear;
+    FTQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u');
+    FTQuery.ParamByName('u').AsString := value;
+    FTQuery.Active := true;
+
+    if FTQuery.RecordCount >= 1 then
+    begin
+      FTQuery.Free;
+      raise Exception.create
+        ('Já existe um cadatro com este usuário. Tente outro nome de usuário.');
+    end;
+
+  end
+  else
+    raise Exception.create('Informe um nome de usuário.');
+
+  FTQuery.Free;
 
 end;
 

@@ -62,6 +62,7 @@ type
     function FD_Table(value: string): iFDTable;
     function getCampoTabela(value: string): iFDTable;
     function popularComponenteComboBox(value: TcomboBox): iFDTable;
+    function localizarRegistro(codigo, campo: string): string;
   end;
 
   iObterValorPorExtenso = interface
@@ -78,6 +79,11 @@ type
     function dataPorExtenso(Data: TDate): string;
     function dataTexto(Data: TDate): string;
     function horaTexto(hora: TTime): string;
+  end;
+
+  iCriptPasss = interface
+    ['{89DF0430-320C-4C48-BDB5-C434DF97992B}']
+    function md5(const Input: String): String;
   end;
 
   iCalcularJuros = interface
@@ -574,6 +580,10 @@ type
     function getFoto(value: TJPEGImage): iCadastroFuncionario;
     function getFUNCIONARIO_CADASTRO(value: integer): iCadastroFuncionario;
     function getObservacao(value: string): iCadastroFuncionario;
+    function exportar: iCadastroFuncionario;
+
+    function validarUsuario(value: string): iCadastroFuncionario;
+    function validarSenha(value1, value2: string): iCadastroFuncionario;
 
   end;
 
@@ -593,11 +603,12 @@ type
     function criarJanela: iCriarJanelas;
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
+    function criptPass: iCriptPasss;
   end;
 
   iFactoryEntity = interface
     ['{3DFCA13B-EC0F-4597-B527-D42F90034001}']
-    function entityTable: iEntity;
+    function entityTable: iFDTable;
   end;
 
   iFactoryQuery = interface

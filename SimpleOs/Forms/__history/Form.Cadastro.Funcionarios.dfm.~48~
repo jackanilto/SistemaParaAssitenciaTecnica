@@ -3,6 +3,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   ClientHeight = 610
   ClientWidth = 1081
   OnClose = FormClose
+  ExplicitTop = -56
   ExplicitWidth = 1081
   ExplicitHeight = 610
   PixelsPerInch = 96
@@ -43,17 +44,21 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
     end
     inherited cbPesquisar: TComboBox
       Left = 747
+      Items.Strings = (
+        'C'#243'digo'
+        'Nome'
+        'Usu'#225'rio')
       ExplicitLeft = 747
     end
     inherited edtPesquisar: TEdit
       Left = 882
+      OnKeyUp = edtPesquisarKeyUp
       ExplicitLeft = 882
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 1081
     Height = 454
-    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1081
     ExplicitHeight = 454
     inherited cardPanelCadatro: TCard
@@ -113,7 +118,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Style = []
         ParentFont = False
       end
-      object Label7: TLabel
+      object lblCPF: TLabel
         Left = 14
         Top = 166
         Width = 21
@@ -663,6 +668,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Style = []
         ParentFont = False
         TabOrder = 4
+        OnExit = edtCPFExit
       end
       object edtCEP: TEdit
         Left = 14
@@ -788,6 +794,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        PasswordChar = '*'
         TabOrder = 18
       end
       object edtConfirmaSenha: TEdit
@@ -802,6 +809,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        PasswordChar = '*'
         TabOrder = 19
       end
       object edtFuncionario: TEdit
@@ -937,8 +945,13 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
+        ItemIndex = 0
         ParentFont = False
         TabOrder = 20
+        Text = 'ATIVO'
+        Items.Strings = (
+          'ATIVO'
+          'INATIVO')
       end
       object edtCodigoAtividade: TEdit
         Left = 465
@@ -985,6 +998,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         end
         inherited sbExportar: TSpeedButton
           Left = 917
+          OnClick = sbExportarClick
           ExplicitLeft = 917
         end
       end
@@ -992,6 +1006,8 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Width = 1081
         Height = 409
         DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
+        OnTitleClick = DBGrid1TitleClick
       end
     end
   end

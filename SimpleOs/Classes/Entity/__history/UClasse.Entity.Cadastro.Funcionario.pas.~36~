@@ -447,7 +447,6 @@ begin
   FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
   FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
   FQuery.TQuery.FieldByName('UF').AsString := FUF;
-  FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger := FATIVIDADE;
   FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
   FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
   FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
@@ -474,6 +473,9 @@ begin
   begin
     FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
   end;
+
+  if FATIVIDADE <> 0 then
+    FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger := FATIVIDADE;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
     .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
@@ -620,19 +622,25 @@ begin
 
   result := self;
 
-  TQuery := TQuery.create(nil);
-  TQuery.Connection := DataModule1.Conexao;
+  if value <> EmptyStr then
+  begin
+    TQuery := TFDQuery.create(nil);
+    TQuery.Connection := DataModule1.Conexao;
 
-  TQuery.Active := false;
-  TQuery.SQL.Clear;
-  TQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u');
-  TQuery.ParamByName('u').AsString := value;
-  TQuery.Active := true;
+    TQuery.Active := false;
+    TQuery.SQL.Clear;
+    TQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u');
+    TQuery.ParamByName('u').AsString := value;
+    TQuery.Active := true;
 
-  if TQuery.RecordCount >= 1 then
-    result := false
+    if TQuery.RecordCount >= 1 then
+      raise Exception.create
+        ('Já existe um cadatro com este usuário. Tente outro nome de usuário.');
+
+    TQuery.Free;
+  end
   else
-    result := true;
+    raise Exception.create('Informe um nome de usuário.');
 
 end;
 
