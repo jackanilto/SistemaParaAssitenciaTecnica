@@ -73,6 +73,9 @@ type
     SpeedButton2: TSpeedButton;
     frxDB_Funcionarios: TfrxDBDataset;
     frx_Funcionarios: TfrxReport;
+    GroupBox1: TGroupBox;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -93,6 +96,7 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbImprimirClick(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
     FEntityFuncionario: iCadastroFuncionario;
@@ -115,7 +119,8 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Cadastro.Atividade.Funcionario, Form.Localizar.Atividade.Funcionario;
+uses Form.Cadastro.Atividade.Funcionario, Form.Localizar.Atividade.Funcionario,
+  Form.Comissoes.Funcionario;
 
 procedure TformCadastroDeFuncionarios.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
@@ -389,6 +394,13 @@ begin
   edtCodigoAtividade.Text := codigoAtividade.ToString;
   edtAtividade.Text := atividadeFuncionario;
 
+end;
+
+procedure TformCadastroDeFuncionarios.SpeedButton3Click(Sender: TObject);
+begin
+  inherited;
+  formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
+  tfactory.new.criarJanela.FormShow(formComissoesFuncionarios, '');
 end;
 
 end.

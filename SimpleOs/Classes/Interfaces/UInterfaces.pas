@@ -590,6 +590,31 @@ type
 
   iComissoesFuncionario = interface
     ['{95401B1A-970D-4471-ACA6-B7A3C058C5B7}']
+
+    function nomeTabela(value: string): iComissoesFuncionario;
+    function getCampo(value: string): iComissoesFuncionario;
+    function getValor(value: string): iComissoesFuncionario;
+    function open(value: string): iComissoesFuncionario;
+    function ExecSql: iComissoesFuncionario;
+    function sqlPesquisa: iComissoesFuncionario;
+
+    function abrir: iComissoesFuncionario;
+    function inserir: iComissoesFuncionario;
+    function gravar: iComissoesFuncionario;
+    function deletar: iComissoesFuncionario;
+    function atualizar: iComissoesFuncionario;
+    function editar: iComissoesFuncionario;
+    function cancelar: iComissoesFuncionario;
+    function fecharQuery: iComissoesFuncionario;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iComissoesFuncionario;
+    function ordenarGrid(column: TColumn): iComissoesFuncionario;
+
+    function getID_FUNCIONARIO(value:Integer): iComissoesFuncionario;
+    function getAPLICAR_COMISSAO(value:string): iComissoesFuncionario;
+    function getVALOR_POR_ATENDIMENTO(value:Currency): iComissoesFuncionario;
+    function getOBSERVACAO(value:string): iComissoesFuncionario;
+
   end;
 
   iNivelAcessoFuncionario = interface

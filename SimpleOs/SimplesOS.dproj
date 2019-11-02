@@ -195,10 +195,6 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Reusable\UClasse.Gerar.Codigo.Barras.pas"/>
-        <DCCReference Include="Forms\Form.Cadastro.Funcionarios.pas">
-            <Form>formCadastroDeFuncionarios</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Cadastro.Funcionario.pas"/>
         <DCCReference Include="Classes\Biblioteca\Wcrypt2.pas"/>
         <DCCReference Include="Classes\Biblioteca\UClasse.Cript.password.pas"/>
@@ -207,9 +203,14 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Forms\Form.Comissoes.Funcionario.pas">
-            <Form>formComissoesPorFuncionario</Form>
+            <Form>formComissoesFuncionarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\Form.Cadastro.Funcionarios.pas">
+            <Form>formCadastroDeFuncionarios</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Comissoes.Funcionario.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

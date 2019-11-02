@@ -45,12 +45,13 @@ uses
   Form.Localizar.Marca in 'Forms\Localizar\Form.Localizar.Marca.pas' {formLocalizarMarca},
   UCalculadora in 'Forms\Utilitarios\UCalculadora.pas' {frmCalculadoraMargemLucro},
   UClasse.Gerar.Codigo.Barras in 'Classes\Reusable\UClasse.Gerar.Codigo.Barras.pas',
-  Form.Cadastro.Funcionarios in 'Forms\Form.Cadastro.Funcionarios.pas' {formCadastroDeFuncionarios},
   UClasse.Entity.Cadastro.Funcionario in 'Classes\Entity\UClasse.Entity.Cadastro.Funcionario.pas',
   Wcrypt2 in 'Classes\Biblioteca\Wcrypt2.pas',
   UClasse.Cript.password in 'Classes\Biblioteca\UClasse.Cript.password.pas',
   Form.Localizar.Atividade.Funcionario in 'Forms\Localizar\Form.Localizar.Atividade.Funcionario.pas' {formLocalizarAtividadeFuncionario},
-  Form.Comissoes.Funcionario in 'Forms\Form.Comissoes.Funcionario.pas' {formComissoesPorFuncionario};
+  Form.Comissoes.Funcionario in 'Forms\Form.Comissoes.Funcionario.pas' {formComissoesFuncionarios},
+  Form.Cadastro.Funcionarios in 'Forms\Form.Cadastro.Funcionarios.pas' {formCadastroDeFuncionarios},
+  UClasse.Entity.Comissoes.Funcionario in 'Classes\Entity\UClasse.Entity.Comissoes.Funcionario.pas';
 
 {$R *.res}
 
@@ -59,6 +60,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TformPrincipal, formPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TformComissoesPorFuncionario, formComissoesPorFuncionario);
+  Application.CreateForm(TformCadastroDeFuncionarios, formCadastroDeFuncionarios);
   Application.Run;
 end.

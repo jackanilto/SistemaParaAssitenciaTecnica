@@ -4,14 +4,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
+  Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls;
 
 type
-  TformComissoesPorFuncionario = class(TForm)
-    Panel1: TPanel;
-    sbFechar: TSpeedButton;
-    Panel2: TPanel;
-    lblCaption: TLabel;
+  TformComissoesFuncionarios = class(TformExemploEmbeded)
+    DataSource1: TDataSource;
   private
     { Private declarations }
   public
@@ -19,7 +18,7 @@ type
   end;
 
 var
-  formComissoesPorFuncionario: TformComissoesPorFuncionario;
+  formComissoesFuncionarios: TformComissoesFuncionarios;
 
 implementation
 
