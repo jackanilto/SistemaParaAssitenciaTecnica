@@ -741,3 +741,41 @@ Problematic key value is ("ATIVIDADE" = 0)
 01/11/19 14:36:45 - Caption: Cadastro de funcionários
 01/11/19 14:36:45 - Erro:Exception
 01/11/19 14:36:45 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+03/11/19 13:28:41 - ===========================================
+03/11/19 13:28:41 - Form: formComissoesFuncionarios
+03/11/19 13:28:41 - Caption: Cadastro Comissões dos Funcionários
+03/11/19 13:28:41 - Erro:Exception
+03/11/19 13:28:41 - Erro:Este funcionário já possui uma taxa de comissão cadastrada. Tente editar ou exluir para incluir uma nova comissão.
+03/11/19 13:38:14 - ===========================================
+03/11/19 13:38:14 - Form: formComissoesFuncionarios
+03/11/19 13:38:14 - Caption: Cadastro Comissões dos Funcionários
+03/11/19 13:38:14 - Erro:Exception
+03/11/19 13:38:14 - Erro:Este funcionário já possui uma taxa de comissão cadastrada. Tente editar ou exluir para incluir uma nova comissão.
+03/11/19 13:39:16 - ===========================================
+03/11/19 13:39:16 - Form: formComissoesFuncionarios
+03/11/19 13:39:16 - Caption: Cadastro Comissões dos Funcionários
+03/11/19 13:39:16 - Erro:Exception
+03/11/19 13:39:16 - Erro:Este funcionário já possui uma taxa de comissão cadastrada. Tente editar ou exluir para incluir uma nova comissão.
+03/11/19 13:57:39 - ===========================================
+03/11/19 13:57:39 - Form: formComissoesFuncionarios
+03/11/19 13:57:39 - Caption: Cadastro Comissões dos Funcionários
+03/11/19 13:57:39 - Erro:Exception
+03/11/19 13:57:39 - Erro:Este funcionário já possui uma taxa de comissão cadastrada. Tente editar ou exluir para incluir uma nova comissão.
+03/11/19 13:57:49 - ===========================================
+03/11/19 13:57:49 - Form: formComissoesFuncionarios
+03/11/19 13:57:49 - Caption: Cadastro Comissões dos Funcionários
+03/11/19 13:57:49 - Erro:Exception
+03/11/19 13:57:49 - Erro:Este funcionário já possui uma taxa de comissão cadastrada. Tente editar ou exluir para incluir uma nova comissão.
+03/11/19 14:10:37 - ===========================================
+03/11/19 14:10:37 - Form: formCadastroDeFuncionarios_1
+03/11/19 14:10:37 - Caption: Cadastro de funcionários
+03/11/19 14:10:37 - Erro:Exception
+03/11/19 14:10:37 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+03/11/19 14:50:16 - ===========================================
+03/11/19 14:50:16 - Form: formCadastroSituacoesOrdem
+03/11/19 14:50:16 - Caption: Cadastro de situações da ordem
+03/11/19 14:50:16 - Erro:EIBNativeException
+03/11/19 14:50:16 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Procedure unknown
+GEN_SITUACAO_ORDEM_ID

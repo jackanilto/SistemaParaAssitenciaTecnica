@@ -9,7 +9,7 @@ uses
   Vcl.Buttons,
   Vcl.CategoryButtons, System.ImageList, Vcl.ImgList, Vcl.StdCtrls,
   Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus, UFactory,
-  Form.Cadastro.Forma.Pagamento;
+  Form.Cadastro.Forma.Pagamento, Form.Cadastro.Clientes;
 
 type
   TformPrincipal = class(TForm)
@@ -63,6 +63,8 @@ type
     acCadastroTransportadora: TAction;
     acCadastroProdutos: TAction;
     acCadastroFuncionarios: TAction;
+    acCadastroSituacaoOrdem: TAction;
+    acClientes: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -85,6 +87,8 @@ type
     procedure acCadastroTransportadoraExecute(Sender: TObject);
     procedure acCadastroProdutosExecute(Sender: TObject);
     procedure acCadastroFuncionariosExecute(Sender: TObject);
+    procedure acCadastroSituacaoOrdemExecute(Sender: TObject);
+    procedure acClientesExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -106,7 +110,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Atividade.Funcionario, Form.Cadastro.Contas.APagar,
   Form.Cadastro.Problemas.Frequentes, Form.Cadastro.Forncedores,
   Form.Cadastro.Transportadora, Form.Cadastro.Produtos,
-  Form.Cadastro.Funcionarios;
+  Form.Cadastro.Funcionarios, Form.Cadastro.Situacao.Ordem;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -157,10 +161,22 @@ begin
 
 end;
 
+procedure TformPrincipal.acCadastroSituacaoOrdemExecute(Sender: TObject);
+begin
+  formCadastroSituacoesOrdem := TformCadastroSituacoesOrdem.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroSituacoesOrdem, '');
+end;
+
 procedure TformPrincipal.acCadastroTransportadoraExecute(Sender: TObject);
 begin
   formCadastroTransportadora := TformCadastroTransportadora.Create(self);
   TFactory.new.criarJanela.formShow(formCadastroTransportadora, '');
+end;
+
+procedure TformPrincipal.acClientesExecute(Sender: TObject);
+begin
+  formCadastroDeClientes := TformCadastroDeClientes.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroDeClientes, '');
 end;
 
 procedure TformPrincipal.acConfiguracoesExecute(Sender: TObject);

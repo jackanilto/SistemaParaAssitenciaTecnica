@@ -58,6 +58,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   inherited CardPanel1: TCardPanel
     Width = 1049
     Height = 454
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1049
     ExplicitHeight = 454
     inherited cardPanelCadatro: TCard
@@ -624,6 +625,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 0
       end
       object edtNome: TEdit
@@ -1740,6 +1742,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
             F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
             F0F0F0F0F0F0F0F0F077}
           ParentFont = False
+          OnClick = SpeedButton4Click
         end
       end
     end

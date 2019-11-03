@@ -211,6 +211,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Comissoes.Funcionario.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Situacao.Ordem.pas">
+            <Form>formCadastroSituacoesOrdem</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Cadastro.Situacoes.Ordem.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Clientes.pas">
+            <Form>formCadastroDeClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

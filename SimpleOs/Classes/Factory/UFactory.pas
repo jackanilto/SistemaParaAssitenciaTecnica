@@ -17,6 +17,7 @@ type
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
     function criptPass: iCriptPasss;
+    function CalcJuros<T>: iCalcularJuros;
     constructor create;
     destructor destroy; override;
     class function new: iFactory;
@@ -28,6 +29,11 @@ implementation
 { TFactory }
 
 uses UClasse.Gerar.Codigo.Barras;
+
+function TFactory.CalcJuros<T>: iCalcularJuros;
+begin
+
+end;
 
 function TFactory.CalcularJuros: iCalcularJuros;
 begin

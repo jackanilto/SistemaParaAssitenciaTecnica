@@ -51,7 +51,10 @@ uses
   Form.Localizar.Atividade.Funcionario in 'Forms\Localizar\Form.Localizar.Atividade.Funcionario.pas' {formLocalizarAtividadeFuncionario},
   Form.Comissoes.Funcionario in 'Forms\Form.Comissoes.Funcionario.pas' {formComissoesFuncionarios},
   Form.Cadastro.Funcionarios in 'Forms\Form.Cadastro.Funcionarios.pas' {formCadastroDeFuncionarios},
-  UClasse.Entity.Comissoes.Funcionario in 'Classes\Entity\UClasse.Entity.Comissoes.Funcionario.pas';
+  UClasse.Entity.Comissoes.Funcionario in 'Classes\Entity\UClasse.Entity.Comissoes.Funcionario.pas',
+  Form.Cadastro.Situacao.Ordem in 'Forms\Form.Cadastro.Situacao.Ordem.pas' {formCadastroSituacoesOrdem},
+  UClasse.Entity.Cadastro.Situacoes.Ordem in 'Classes\Entity\UClasse.Entity.Cadastro.Situacoes.Ordem.pas',
+  Form.Cadastro.Clientes in 'Forms\Form.Cadastro.Clientes.pas' {formCadastroDeClientes};
 
 {$R *.res}
 
@@ -60,6 +63,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TformPrincipal, formPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TformCadastroDeFuncionarios, formCadastroDeFuncionarios);
   Application.Run;
 end.

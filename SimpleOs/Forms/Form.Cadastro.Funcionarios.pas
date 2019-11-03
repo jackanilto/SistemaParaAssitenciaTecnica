@@ -97,6 +97,7 @@ type
       Shift: TShiftState);
     procedure sbImprimirClick(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
   private
     { Private declarations }
     FEntityFuncionario: iCadastroFuncionario;
@@ -402,8 +403,20 @@ end;
 procedure TformCadastroDeFuncionarios.SpeedButton3Click(Sender: TObject);
 begin
   inherited;
-  formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
-  tfactory.new.criarJanela.FormShow(formComissoesFuncionarios, '');
+  if sbNovo.Enabled = false then
+  begin
+    formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
+    tfactory.new.criarJanela.FormShow(formComissoesFuncionarios, '');
+  end;
+end;
+
+procedure TformCadastroDeFuncionarios.SpeedButton4Click(Sender: TObject);
+begin
+  inherited;
+  if sbNovo.Enabled = false then
+  begin
+    showmessage('Implementar este recurso no final do projeto.');
+  end;
 end;
 
 end.

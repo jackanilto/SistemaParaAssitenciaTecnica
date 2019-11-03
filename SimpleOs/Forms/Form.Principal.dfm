@@ -7115,8 +7115,7 @@ object formPrincipal: TformPrincipal
               Action = acCadastroProdutos
             end
             item
-              Caption = 'Clientes'
-              OnClick = acMovimentacaoExecute
+              Action = acClientes
             end
             item
               Action = acCadastroFuncionarios
@@ -7150,6 +7149,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acProblemasFrequentes
+            end
+            item
+              Action = acCadastroSituacaoOrdem
             end>
           TextColor = 13402157
         end>
@@ -7919,6 +7921,14 @@ object formPrincipal: TformPrincipal
     object acCadastroFuncionarios: TAction
       Caption = 'Funcion'#225'rios'
       OnExecute = acCadastroFuncionariosExecute
+    end
+    object acCadastroSituacaoOrdem: TAction
+      Caption = 'Situa'#231#227'o da ordem'
+      OnExecute = acCadastroSituacaoOrdemExecute
+    end
+    object acClientes: TAction
+      Caption = 'Clientes'
+      OnExecute = acClientesExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

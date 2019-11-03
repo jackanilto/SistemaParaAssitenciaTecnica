@@ -26,6 +26,11 @@ type
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure sbNovoClick(Sender: TObject);
+    procedure sbSalvarClick(Sender: TObject);
+    procedure sbEditarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
   private
     { Private declarations }
     FEntityComissoes: iComissoesFuncionario;
@@ -58,6 +63,21 @@ begin
   end;
 end;
 
+procedure TformComissoesFuncionarios.DBGrid1CellClick(Column: TColumn);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+  end
+  else
+  begin
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+  end;
+end;
+
 procedure TformComissoesFuncionarios.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -67,23 +87,65 @@ end;
 procedure TformComissoesFuncionarios.FormShow(Sender: TObject);
 begin
   inherited;
+
   FEntityComissoes.abrir.listarGrid(DataSource1);
+
+  FEntityComissoes.getCampo('ID_FUNCIONARIO').sqlPesquisaEstatica
+    (codigoFuncionario).listarGrid(DataSource1);
+
+end;
+
+procedure TformComissoesFuncionarios.sbCancelarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityComissoes.cancelar;
+end;
+
+procedure TformComissoesFuncionarios.sbEditarClick(Sender: TObject);
+begin
+  if codigoFuncionario <> 0 then
+  begin
+    FEntityComissoes.editar;
+    inherited;
+    edtValorComissao.SetFocus;
+  end;
+
+end;
+
+procedure TformComissoesFuncionarios.sbExcluirClick(Sender: TObject);
+begin
+  inherited;
+  FEntityComissoes.deletar;
 end;
 
 procedure TformComissoesFuncionarios.sbNovoClick(Sender: TObject);
 begin
-  showmessage(codigoFuncionario.ToString);
+
   if codigoFuncionario <> 0 then
   begin
-    inherited;
-    FEntityComissoes.getCampo('ID').getValor(codigoFuncionario.ToString)
-      .sqlPesquisaEstatica;
 
+    FEntityComissoes.getCampo('ID_FUNCIONARIO')
+      .getValor(codigoFuncionario.ToString).sqlPesquisaEstatica.listarGrid
+      (DataSource1);
+
+    inherited;
 
     FEntityComissoes.inserir;
     edtCodigoFuncionario.Text := codigoFuncionario.ToString;
     edtAplicarComissao.SetFocus;
+
   end;
+end;
+
+procedure TformComissoesFuncionarios.sbSalvarClick(Sender: TObject);
+begin
+
+  FEntityComissoes.getID_FUNCIONARIO(strtoint(edtCodigoFuncionario.Text))
+    .getAPLICAR_COMISSAO(edtAplicarComissao.Text).getVALOR_POR_ATENDIMENTO
+    (edtValorComissao.Text).getObservacao(edtObservacao.Text).gravar;
+
+  inherited;
+
 end;
 
 end.

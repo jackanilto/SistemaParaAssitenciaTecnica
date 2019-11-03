@@ -7,38 +7,38 @@ uses
 
 type
 
-  TFactoryQuery = class(TInterfacedObject, iFactoryQuery)
+  TFactoryQuery<T> = class(TInterfacedObject, iFactoryQuery<T>)
   private
   public
   function queryTable:iConexaoQuery;
     constructor create;
     destructor destroy; override;
-    class function new: iFactoryQuery;
+    class function new: iFactoryQuery<T>;
   end;
 
 implementation
 
 { TFactoryQuery }
 
-constructor TFactoryQuery.create;
+constructor TFactoryQuery<T>.create;
 begin
 
 end;
 
 
 
-destructor TFactoryQuery.destroy;
+destructor TFactoryQuery<T>.destroy;
 begin
 
   inherited;
 end;
 
-class function TFactoryQuery.new: iFactoryQuery;
+class function TFactoryQuery<T>.new: iFactoryQuery<T>;
 begin
   result := self.create;
 end;
 
-function TFactoryQuery.queryTable: iConexaoQuery;
+function TFactoryQuery<T>.queryTable: iConexaoQuery;
 begin
     result := TConexaoQuery.new;
 end;
