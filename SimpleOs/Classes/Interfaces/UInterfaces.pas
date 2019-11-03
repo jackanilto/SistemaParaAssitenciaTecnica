@@ -597,6 +597,7 @@ type
     function open(value: string): iComissoesFuncionario;
     function ExecSql: iComissoesFuncionario;
     function sqlPesquisa: iComissoesFuncionario;
+    function sqlPesquisaEstatica: iComissoesFuncionario;
 
     function abrir: iComissoesFuncionario;
     function inserir: iComissoesFuncionario;
@@ -610,10 +611,10 @@ type
     function listarGrid(value: TDataSource): iComissoesFuncionario;
     function ordenarGrid(column: TColumn): iComissoesFuncionario;
 
-    function getID_FUNCIONARIO(value:Integer): iComissoesFuncionario;
-    function getAPLICAR_COMISSAO(value:string): iComissoesFuncionario;
-    function getVALOR_POR_ATENDIMENTO(value:Currency): iComissoesFuncionario;
-    function getOBSERVACAO(value:string): iComissoesFuncionario;
+    function getID_FUNCIONARIO(value: integer): iComissoesFuncionario;
+    function getAPLICAR_COMISSAO(value: string): iComissoesFuncionario;
+    function getVALOR_POR_ATENDIMENTO(value: string): iComissoesFuncionario;
+    function getObservacao(value: string): iComissoesFuncionario;
 
   end;
 

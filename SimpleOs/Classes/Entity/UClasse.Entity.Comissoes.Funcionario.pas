@@ -35,6 +35,7 @@ type
     function open(value: string): iComissoesFuncionario;
     function ExecSql: iComissoesFuncionario;
     function sqlPesquisa: iComissoesFuncionario;
+    function sqlPesquisaEstatica: iComissoesFuncionario;
 
     function abrir: iComissoesFuncionario;
     function inserir: iComissoesFuncionario;
@@ -50,7 +51,7 @@ type
 
     function getID_FUNCIONARIO(value: integer): iComissoesFuncionario;
     function getAPLICAR_COMISSAO(value: string): iComissoesFuncionario;
-    function getVALOR_POR_ATENDIMENTO(value: Currency): iComissoesFuncionario;
+    function getVALOR_POR_ATENDIMENTO(value: string): iComissoesFuncionario;
     function getOBSERVACAO(value: string): iComissoesFuncionario;
 
     constructor create;
@@ -208,11 +209,22 @@ begin
   FValor := UpperCase(value);
 end;
 
-function TEntityComissoesFuncionarios.getVALOR_POR_ATENDIMENTO(value: Currency)
+function TEntityComissoesFuncionarios.getVALOR_POR_ATENDIMENTO(value: string)
   : iComissoesFuncionario;
 begin
   result := self;
-  FVALOR_POR_ATENDIMENTO := value;
+  if value = EmptyStr then
+    FVALOR_POR_ATENDIMENTO := 0
+  else
+    try
+      FVALOR_POR_ATENDIMENTO := StrToCurr(value);
+    except
+      on e: Exception do
+      begin
+        raise Exception.create('Informe um valor válido para a comissão.');
+      end;
+
+    end;
 end;
 
 function TEntityComissoesFuncionarios.Gravar: iComissoesFuncionario;
@@ -310,6 +322,22 @@ function TEntityComissoesFuncionarios.sqlPesquisa: iComissoesFuncionario;
 begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityComissoesFuncionarios.sqlPesquisaEstatica
+  : iComissoesFuncionario;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisaEstatica(FTabela);
+
+  //modificação do métod de pesquisa estatica
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    raise Exception.create
+      ('Este funcionário já possui uma taxa de comissão cadastrada.' +
+      ' Tente editar ou exluir para incluir uma nova comissão.');
+  end;
+
 end;
 
 end.

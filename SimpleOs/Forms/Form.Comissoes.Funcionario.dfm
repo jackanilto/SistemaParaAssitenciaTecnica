@@ -14,6 +14,7 @@ inherited formComissoesFuncionarios: TformComissoesFuncionarios
   end
   inherited Panel3: TPanel
     Top = 293
+    ExplicitTop = 293
     inherited sbNovo: TSpeedButton
       Width = 177
       Caption = 'Incluir comiss'#227'o'
@@ -66,15 +67,155 @@ inherited formComissoesFuncionarios: TformComissoesFuncionarios
   end
   inherited CardPanel1: TCardPanel
     Height = 212
+    ActiveCard = cardPanelCadatro
+    ExplicitHeight = 212
     inherited cardPanelCadatro: TCard
       Height = 212
+      ExplicitTop = -1
+      ExplicitHeight = 212
+      object Label1: TLabel
+        Left = 14
+        Top = 8
+        Width = 43
+        Height = 17
+        Caption = 'C'#243'digo'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 14
+        Top = 64
+        Width = 132
+        Height = 17
+        Caption = 'C'#243'digo do funcion'#225'rio'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 14
+        Top = 122
+        Width = 99
+        Height = 17
+        Caption = 'Aplicar comiss'#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label6: TLabel
+        Left = 295
+        Top = 8
+        Width = 135
+        Height = 17
+        Caption = 'Valor da comiss'#227'o (R$)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 295
+        Top = 64
+        Width = 70
+        Height = 17
+        Caption = 'Observa'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object edtCodigo: TEdit
+        Left = 14
+        Top = 31
+        Width = 227
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object edtCodigoFuncionario: TEdit
+        Left = 14
+        Top = 87
+        Width = 227
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+      end
+      object edtValorComissao: TEdit
+        Left = 295
+        Top = 31
+        Width = 227
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+      object edtObservacao: TEdit
+        Left = 295
+        Top = 87
+        Width = 227
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+      end
+      object edtAplicarComissao: TComboBox
+        Left = 14
+        Top = 145
+        Width = 227
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ItemIndex = 0
+        ParentFont = False
+        TabOrder = 4
+        Text = 'Sim'
+        Items.Strings = (
+          'Sim'
+          'N'#227'o')
+      end
     end
     inherited cardPanelConsulta: TCard
       Height = 212
+      ExplicitHeight = 212
       inherited Panel4: TPanel
         Top = 167
-        ExplicitLeft = 7
-        ExplicitTop = 238
+        ExplicitTop = 167
         inherited sbImprimir: TSpeedButton
           Visible = False
         end
@@ -93,7 +234,8 @@ inherited formComissoesFuncionarios: TformComissoesFuncionarios
     Top = 41
   end
   object DataSource1: TDataSource
-    Left = 440
-    Top = 57
+    OnDataChange = DataSource1DataChange
+    Left = 472
+    Top = 41
   end
 end

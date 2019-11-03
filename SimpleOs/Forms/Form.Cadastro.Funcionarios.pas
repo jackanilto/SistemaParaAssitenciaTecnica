@@ -114,6 +114,7 @@ var
 
   codigoAtividade: integer;
   atividadeFuncionario: String;
+  codigoFuncionario: integer;
 
 implementation
 
@@ -148,6 +149,7 @@ begin
   begin
 
     edtCodigo.Text := intTostr(FieldByName('ID').AsInteger);
+    codigoFuncionario := FieldByName('ID').AsInteger;
     edtNome.Text := FieldByName('NOME').AsString;
     edtDocumento.Text := FieldByName('DOCUMENTO').AsString;
     edtCPF.Text := FieldByName('CPF').AsString;
@@ -194,6 +196,7 @@ begin
   begin
     sbEditar.Enabled := true;
     sbExcluir.Enabled := true;
+    codigoFuncionario := DataSource1.DataSet.FieldByName('ID').AsInteger;
   end
   else
   begin

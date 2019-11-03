@@ -9,7 +9,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 1049
-    ExplicitWidth = 1074
+    ExplicitWidth = 1049
     inherited sbFechar: TSpeedButton
       Left = 997
       ExplicitLeft = 1029
@@ -26,13 +26,13 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   end
   inherited Panel2: TPanel
     Width = 1049
-    ExplicitWidth = 1074
+    ExplicitWidth = 1049
   end
   inherited Panel3: TPanel
     Top = 535
     Width = 1049
     ExplicitTop = 535
-    ExplicitWidth = 1074
+    ExplicitWidth = 1049
     inherited Label4: TLabel
       Left = 715
       ExplicitLeft = 747
@@ -47,24 +47,23 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         'C'#243'digo'
         'Nome'
         'Usu'#225'rio')
-      ExplicitLeft = 740
+      ExplicitLeft = 715
     end
     inherited edtPesquisar: TEdit
       Left = 850
       OnKeyUp = edtPesquisarKeyUp
-      ExplicitLeft = 875
+      ExplicitLeft = 850
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 1049
     Height = 454
-    ActiveCard = cardPanelCadatro
-    ExplicitWidth = 1074
+    ExplicitWidth = 1049
     ExplicitHeight = 454
     inherited cardPanelCadatro: TCard
       Width = 1049
       Height = 454
-      ExplicitWidth = 1065
+      ExplicitWidth = 1049
       ExplicitHeight = 454
       object Label1: TLabel
         Left = 14
@@ -1747,13 +1746,13 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
     inherited cardPanelConsulta: TCard
       Width = 1049
       Height = 454
-      ExplicitWidth = 1074
+      ExplicitWidth = 1049
       ExplicitHeight = 454
       inherited Panel4: TPanel
         Top = 409
         Width = 1049
         ExplicitTop = 409
-        ExplicitWidth = 1074
+        ExplicitWidth = 1049
         inherited sbImprimir: TSpeedButton
           Left = 774
           OnClick = sbImprimirClick
