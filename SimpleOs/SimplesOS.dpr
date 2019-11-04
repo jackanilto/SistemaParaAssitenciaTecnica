@@ -54,7 +54,8 @@ uses
   UClasse.Entity.Comissoes.Funcionario in 'Classes\Entity\UClasse.Entity.Comissoes.Funcionario.pas',
   Form.Cadastro.Situacao.Ordem in 'Forms\Form.Cadastro.Situacao.Ordem.pas' {formCadastroSituacoesOrdem},
   UClasse.Entity.Cadastro.Situacoes.Ordem in 'Classes\Entity\UClasse.Entity.Cadastro.Situacoes.Ordem.pas',
-  Form.Cadastro.Clientes in 'Forms\Form.Cadastro.Clientes.pas' {formCadastroDeClientes};
+  Form.Cadastro.Clientes in 'Forms\Form.Cadastro.Clientes.pas' {formCadastroDeClientes},
+  UClasse.Entity.Cadastro.Clientes in 'Classes\Entity\UClasse.Entity.Cadastro.Clientes.pas';
 
 {$R *.res}
 

@@ -1,0 +1,402 @@
+unit UClasse.Entity.Cadastro.Clientes;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Imaging.jpeg;
+
+type
+
+  TEntity = class(TInterfacedObject, iEntity)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FNome: string;
+    function getCodigo(value: integer): iEntity;
+    function pesquisar: iEntity;
+
+  public
+
+    function nomeTabela(value: string): iCadastroClientes;
+    function getCampo(value: string): iCadastroClientes;
+    function getValor(value: string): iCadastroClientes;
+    function getDataInicial(value: TDate): iCadastroClientes;
+    function getDataFinal(value: TDate): iCadastroClientes;
+    function open(value: string): iCadastroClientes;
+    function ExecSql: iCadastroClientes;
+    function sqlPesquisa: iCadastroClientes;
+    function sqlPesquisaData: iCadastroClientes;
+    function sqlPesquisaEstatica: iCadastroClientes;
+
+    function abrir: iCadastroClientes;
+    function inserir: iCadastroClientes;
+    function gravar: iCadastroClientes;
+    function deletar: iCadastroClientes;
+    function atualizar: iCadastroClientes;
+    function editar: iCadastroClientes;
+    function cancelar: iCadastroClientes;
+    function fecharQuery: iCadastroClientes;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroClientes;
+    function ordenarGrid(column: TColumn): iCadastroClientes;
+
+    function getID(value:integer): iCadastroClientes;
+    function getNOME(value:string): iCadastroClientes;
+    function getTIPO_CADASTRO(value:string): iCadastroClientes;
+    function getDATA_NASCIMENTO(value:string): iCadastroClientes;
+    function getDATA_CADASTRO(value:string): iCadastroClientes;
+    function getCPF_CNPJ(value:string): iCadastroClientes;
+    function getDOCUMENTO(value:string): iCadastroClientes;
+    function getENDERECO(value:string): iCadastroClientes;
+    function getBAIRRO(value:string): iCadastroClientes;
+    function getNUMERO(value:integer): iCadastroClientes;
+    function getCOMPLEMENTO(value:string): iCadastroClientes;
+    function getCEP(value:string): iCadastroClientes;
+    function getCIDADE(value:string): iCadastroClientes;
+    function getESTADO(value:string): iCadastroClientes;
+    function getTELEFONE(value:string): iCadastroClientes;
+    function getCELULAR(value:string): iCadastroClientes;
+    function getFUNCIONARIO_CADASTRO(value:Integer): iCadastroClientes;
+    function getSITUACAO_CLIENTE(value:string): iCadastroClientes;
+    function getFOTO(value:TJPEGImage): iCadastroClientes;
+    function getOBSERVACAO(value:string): iCadastroClientes;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iEntity;
+  end;
+
+implementation
+
+{ TEntity }
+
+function TEntity.abrir: iEntity;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TEntity.atualizar: iEntity;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TEntity.cancelar: iEntity;
+begin
+  FQuery.TQuery.Cancel;
+//  FQuery.TQuery.close;
+end;
+
+function TEntity.codigoCadastro(sp: string): integer;
+begin
+  result := FQuery.codigoCadastro('');
+end;
+
+constructor TEntity.create;
+begin
+  FTabela := 'PRODUTOS';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TEntity.deletar: iEntity;
+begin
+  result := self;
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .gravarLog;
+
+      FQuery.TQuery.Delete;
+    end;
+  end;
+
+end;
+
+destructor TEntity.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntity.editar: iEntity;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .gravarLog;
+
+    FQuery.TQuery.Edit;
+
+  end;
+end;
+
+function TEntity.ExecSql: iEntity;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntity.fecharQuery: iEntity;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntity.getBAIRRO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getCampo(value: string): iEntity;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntity.getCELULAR(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getCEP(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getCIDADE(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getCodigo(value: integer): iEntity;
+begin
+  result := self;
+  FCodigo := value;
+end;
+
+function TEntity.getCOMPLEMENTO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getCPF_CNPJ(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getDataFinal(value: TDate): iEntity;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TEntity.getDataInicial(value: TDate): iEntity;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TEntity.getDATA_CADASTRO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getDATA_NASCIMENTO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getDOCUMENTO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getENDERECO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getESTADO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getFOTO(value: TJPEGImage): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getFUNCIONARIO_CADASTRO(value: Integer): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getID(value: integer): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getNome(value: string): iEntity;
+begin
+  result := self;
+  FNome := value;
+end;
+
+function TEntity.getNUMERO(value: integer): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getOBSERVACAO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getSITUACAO_CLIENTE(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getTELEFONE(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getTIPO_CADASTRO(value: string): iCadastroClientes;
+begin
+
+end;
+
+function TEntity.getValor(value: string): iEntity;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TEntity.Gravar: iEntity;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+
+  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+    .gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: exception do
+    begin
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
+function TEntity.inserir: iEntity;
+begin
+  result := self;
+  FQuery.TQuery.EmptyDataSet;
+  FQuery.TQuery.Append;
+end;
+
+function TEntity.listarGrid(value: TDataSource): iEntity;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
+  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TEntity.new: iEntity;
+begin
+  result := self.create;
+end;
+
+function TEntity.nomeTabela(value: string): iEntity;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntity.open(value: string): iEntity;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntity.ordenarGrid(column: TColumn): iEntity;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntity.pesquisar: iEntity;
+begin
+  result := self;
+end;
+
+function TEntity.sqlPesquisa: iEntity;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntity.sqlPesquisaData: iEntity;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntity.sqlPesquisaEstatica: iEntity;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+end.
