@@ -125,11 +125,11 @@ end;
 
 constructor TEntityCadastroClientes.create;
 begin
-  FTabela := 'PRODUTOS';
+  FTabela := 'CLIENTES';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+  FGravarLog.getJanela('Cadastro de clientes').getCodigoFuncionario
     (funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
@@ -145,9 +145,8 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -167,9 +166,8 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
     FQuery.TQuery.Edit;
 
@@ -189,7 +187,8 @@ end;
 
 function TEntityCadastroClientes.getBAIRRO(value: string): iCadastroClientes;
 begin
-
+  result := self;
+  FBAIRRO := value;
 end;
 
 function TEntityCadastroClientes.getCampo(value: string): iCadastroClientes;
@@ -200,17 +199,20 @@ end;
 
 function TEntityCadastroClientes.getCELULAR(value: string): iCadastroClientes;
 begin
-
+  result := self;
+  FCELULAR := value;
 end;
 
 function TEntityCadastroClientes.getCEP(value: string): iCadastroClientes;
 begin
-
+  result := self;
+  FCEP := value;
 end;
 
 function TEntityCadastroClientes.getCIDADE(value: string): iCadastroClientes;
 begin
-
+  result := self;
+  FCIDADE := value;
 end;
 
 function TEntityCadastroClientes.getCodigo(value: integer): iCadastroClientes;
@@ -222,11 +224,15 @@ end;
 function TEntityCadastroClientes.getCOMPLEMENTO(value: string)
   : iCadastroClientes;
 begin
-
+  result := self;
+  FCOMPLEMENTO := value;
 end;
 
 function TEntityCadastroClientes.getCPF_CNPJ(value: string): iCadastroClientes;
 begin
+
+  result := self;
+  FCPF_CNPJ := value;
 
 end;
 
@@ -248,7 +254,7 @@ end;
 function TEntityCadastroClientes.getDATA_CADASTRO(value: string)
   : iCadastroClientes;
 begin
-   result := self;
+  result := self;
   if value = '  /  /    ' then
     FDATA_CADASTRO := ''
   else
@@ -258,72 +264,91 @@ end;
 function TEntityCadastroClientes.getDATA_NASCIMENTO(value: string)
   : iCadastroClientes;
 begin
-
+  result := self;
+  if value = '  /  /    ' then
+    FDATA_NASCIMENTO := ''
+  else
+    FDATA_NASCIMENTO := value;
 end;
 
 function TEntityCadastroClientes.getDOCUMENTO(value: string): iCadastroClientes;
 begin
-
+  result := self;
+  FDOCUMENTO := value;
 end;
 
 function TEntityCadastroClientes.getENDERECO(value: string): iCadastroClientes;
 begin
-
+  result := self;
+  FENDERECO := value;
 end;
 
 function TEntityCadastroClientes.getESTADO(value: string): iCadastroClientes;
 begin
-
+  result := self;
+  FESTADO := value;
 end;
 
 function TEntityCadastroClientes.getFOTO(value: TJPEGImage): iCadastroClientes;
 begin
-
+  result := self;
+  F_FOTO := value;
 end;
 
 function TEntityCadastroClientes.getFUNCIONARIO_CADASTRO(value: integer)
   : iCadastroClientes;
 begin
-
+  result := self;
+  F_FUNCIONARIO_CADASTRO := value;
 end;
 
 function TEntityCadastroClientes.getID(value: integer): iCadastroClientes;
 begin
-
+  result := self;
+  FID := value;
 end;
 
 function TEntityCadastroClientes.getNOME(value: string): iCadastroClientes;
 begin
   result := self;
+  if value = EmptyStr then
+    raise Exception.create('Informe um nome para o cliente.');
   FNOME := value;
 end;
 
 function TEntityCadastroClientes.getNUMERO(value: integer): iCadastroClientes;
 begin
-
+  result := self;
+  FNUMERO := value;
 end;
 
 function TEntityCadastroClientes.getOBSERVACAO(value: string)
   : iCadastroClientes;
 begin
-
+  result := self;
+  FOBSERVACAO := value;
 end;
 
 function TEntityCadastroClientes.getSITUACAO_CLIENTE(value: string)
   : iCadastroClientes;
 begin
-
+  result := self;
+  FSITUACAO_CLIENTE := value;
 end;
 
 function TEntityCadastroClientes.getTELEFONE(value: string): iCadastroClientes;
 begin
-
+  result := self;
+  FTELEFONE := value;
 end;
 
 function TEntityCadastroClientes.getTIPO_CADASTRO(value: string)
   : iCadastroClientes;
 begin
-
+  result := self;
+  if value = EmptyStr then
+    raise Exception.create('Informe o tipo de cadastro realizado.');
+  FTIPO_CADASTRO := value;
 end;
 
 function TEntityCadastroClientes.getValor(value: string): iCadastroClientes;
@@ -339,20 +364,43 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+      FQuery.codigoCadastro('SP_GEN_CLIENTES_ID');
 
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNOME;
+  FQuery.TQuery.FieldByName('NOME').AsString := FNOME;
+  FQuery.TQuery.FieldByName('TIPO_CADASTRO').AsString := FTIPO_CADASTRO;
+  FQuery.TQuery.FieldByName('CPF_CNPJ').AsString := FCPF_CNPJ;
+  FQuery.TQuery.FieldByName('DOCUMENTO').AsString := FDOCUMENTO;
+  FQuery.TQuery.FieldByName('ENDERECO').AsString := FENDERECO;
+  FQuery.TQuery.FieldByName('BAIRRO').AsString := FBAIRRO;
+  FQuery.TQuery.FieldByName('NUMERO').AsInteger := FNUMERO;;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').AsString := FCOMPLEMENTO;
+  FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
+  FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
+  FQuery.TQuery.FieldByName('ESTADO').AsString := FESTADO;
+  FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
+  FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
+    funcionarioLogado;
+  FQuery.TQuery.FieldByName('SITUACAO_CLIENTE').AsString := FSITUACAO_CLIENTE;
+  FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-    .gravarLog;
+  if FDATA_NASCIMENTO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_NASCIMENTO').AsDateTime :=
+      strtodate(FDATA_NASCIMENTO);
+
+  if FDATA_CADASTRO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime :=
+      strtodate(FDATA_CADASTRO);
+
+  if Assigned(F_FOTO) then
+    FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
 
   try
     FQuery.TQuery.Post;
   except
-    on e: exception do
+    on e: Exception do
     begin
-      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
 
   end;
@@ -373,8 +421,34 @@ begin
   result := self;
 
   FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
-  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+  FQuery.TQuery.FieldByName('NOME').DisplayLabel := 'Nome';
+  FQuery.TQuery.FieldByName('TIPO_CADASTRO').DisplayLabel := 'Tipo de cadastro';
+  FQuery.TQuery.FieldByName('DATA_NASCIMENTO').DisplayLabel :=
+    'Data de nascimeto';
+  FQuery.TQuery.FieldByName('DATA_CADASTRO').DisplayLabel := 'Data de cadastro';
+  FQuery.TQuery.FieldByName('CPF_CNPJ').DisplayLabel := 'CPF ou CNPJ';
+  FQuery.TQuery.FieldByName('DOCUMENTO').DisplayLabel := 'Documento';
+  FQuery.TQuery.FieldByName('ENDERECO').DisplayLabel := 'Endereço';
+  FQuery.TQuery.FieldByName('BAIRRO').DisplayLabel := 'Bairro';
+  FQuery.TQuery.FieldByName('NUMERO').DisplayLabel := 'Número';
+  FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayLabel := 'Complemento';
+  FQuery.TQuery.FieldByName('CEP').DisplayLabel := 'CEP';
+  FQuery.TQuery.FieldByName('CIDADE').DisplayLabel := 'Cidade';
+  FQuery.TQuery.FieldByName('ESTADO').DisplayLabel := 'Estado';
+  FQuery.TQuery.FieldByName('TELEFONE').DisplayLabel := 'Telefone';
+  FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'CElular';
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').DisplayLabel :=
+    'Funcionário';
+  FQuery.TQuery.FieldByName('SITUACAO_CLIENTE').DisplayLabel :=
+    'Situação do cliente';
+  FQuery.TQuery.FieldByName('FOTO').Visible := false;
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+  FQuery.TQuery.FieldByName('NOME').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('ENDERECO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('BAIRRO').DisplayWidth := 20;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayWidth := 20;
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 30;
 
   value.DataSet := FQuery.TQuery;
 

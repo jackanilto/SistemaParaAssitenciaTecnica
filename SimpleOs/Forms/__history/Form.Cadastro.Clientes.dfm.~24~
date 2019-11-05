@@ -2,7 +2,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   Caption = 'Cadastro de clientes'
   ClientHeight = 607
   ClientWidth = 1118
-  OnClose = FormClose
   ExplicitTop = -53
   ExplicitWidth = 1118
   ExplicitHeight = 607
@@ -391,7 +390,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Top = 32
         Width = 153
         Height = 151
-        Stretch = True
       end
       object Label23: TLabel
         Left = 912
@@ -827,9 +825,5 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
     OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
     Left = 824
     Top = 9
-  end
-  object OpenPictureDialog1: TOpenPictureDialog
-    Left = 936
-    Top = 377
   end
 end

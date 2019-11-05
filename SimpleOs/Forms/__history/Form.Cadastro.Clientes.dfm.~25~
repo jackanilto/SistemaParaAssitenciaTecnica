@@ -391,7 +391,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Top = 32
         Width = 153
         Height = 151
-        Stretch = True
       end
       object Label23: TLabel
         Left = 912

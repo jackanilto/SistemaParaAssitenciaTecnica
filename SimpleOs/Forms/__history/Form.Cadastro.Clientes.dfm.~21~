@@ -2,7 +2,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   Caption = 'Cadastro de clientes'
   ClientHeight = 607
   ClientWidth = 1118
-  OnClose = FormClose
   ExplicitTop = -53
   ExplicitWidth = 1118
   ExplicitHeight = 607
@@ -391,7 +390,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Top = 32
         Width = 153
         Height = 151
-        Stretch = True
       end
       object Label23: TLabel
         Left = 912
@@ -470,7 +468,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
           FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
         ParentFont = False
-        OnClick = SpeedButton1Click
       end
       object Label24: TLabel
         Left = 48
@@ -776,10 +773,8 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
-        ItemIndex = 0
         ParentFont = False
         TabOrder = 19
-        Text = 'ATIVO'
         Items.Strings = (
           'ATIVO'
           'INATIVO')
@@ -827,9 +822,5 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
     OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
     Left = 824
     Top = 9
-  end
-  object OpenPictureDialog1: TOpenPictureDialog
-    Left = 936
-    Top = 377
   end
 end

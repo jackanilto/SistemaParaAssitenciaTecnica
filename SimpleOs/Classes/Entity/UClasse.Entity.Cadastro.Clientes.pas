@@ -36,6 +36,7 @@ type
     FESTADO: string;
     FTELEFONE: string;
     FCELULAR: string;
+    FEMAIL: string;
     F_FUNCIONARIO_CADASTRO: integer;
     FSITUACAO_CLIENTE: string;
     F_FOTO: TJPEGImage;
@@ -84,6 +85,7 @@ type
     function getESTADO(value: string): iCadastroClientes;
     function getTELEFONE(value: string): iCadastroClientes;
     function getCELULAR(value: string): iCadastroClientes;
+    function getEmail(value: string): iCadastroClientes;
     function getFUNCIONARIO_CADASTRO(value: integer): iCadastroClientes;
     function getSITUACAO_CLIENTE(value: string): iCadastroClientes;
     function getFOTO(value: TJPEGImage): iCadastroClientes;
@@ -277,6 +279,12 @@ begin
   FDOCUMENTO := value;
 end;
 
+function TEntityCadastroClientes.getEmail(value: string): iCadastroClientes;
+begin
+  result := self;
+  FEMAIL := value;
+end;
+
 function TEntityCadastroClientes.getENDERECO(value: string): iCadastroClientes;
 begin
   result := self;
@@ -379,6 +387,7 @@ begin
   FQuery.TQuery.FieldByName('ESTADO').AsString := FESTADO;
   FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
   FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
+  FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
   FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
     funcionarioLogado;
   FQuery.TQuery.FieldByName('SITUACAO_CLIENTE').AsString := FSITUACAO_CLIENTE;
@@ -436,7 +445,8 @@ begin
   FQuery.TQuery.FieldByName('CIDADE').DisplayLabel := 'Cidade';
   FQuery.TQuery.FieldByName('ESTADO').DisplayLabel := 'Estado';
   FQuery.TQuery.FieldByName('TELEFONE').DisplayLabel := 'Telefone';
-  FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'CElular';
+  FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'Celular';
+  FQuery.TQuery.FieldByName('EMAIL').DisplayLabel := 'E-Mail';
   FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').DisplayLabel :=
     'Funcionário';
   FQuery.TQuery.FieldByName('SITUACAO_CLIENTE').DisplayLabel :=
@@ -449,6 +459,7 @@ begin
   FQuery.TQuery.FieldByName('BAIRRO').DisplayWidth := 20;
   FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayWidth := 20;
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('EMAIL').DisplayWidth := 30;
 
   value.DataSet := FQuery.TQuery;
 

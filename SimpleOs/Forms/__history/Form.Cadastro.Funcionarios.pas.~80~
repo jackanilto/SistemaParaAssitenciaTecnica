@@ -9,7 +9,7 @@ uses
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Cadastro.Funcionario, Vcl.Mask,
   UClasse.Entity.Table, ACBrBase, ACBrSocket, ACBrCEP, Vcl.Imaging.jpeg,
-  Vcl.ExtDlgs, UFactory, UFactory.Entity;
+  Vcl.ExtDlgs, UFactory, UFactory.Entity, frxClass, frxDBSet;
 
 type
   TformCadastroDeFuncionarios = class(TformExemploEmbeded)
@@ -71,6 +71,11 @@ type
     edtAtividade: TEdit;
     Label28: TLabel;
     SpeedButton2: TSpeedButton;
+    frxDB_Funcionarios: TfrxDBDataset;
+    frx_Funcionarios: TfrxReport;
+    GroupBox1: TGroupBox;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -90,6 +95,9 @@ type
     procedure sbExportarClick(Sender: TObject);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
   private
     { Private declarations }
     FEntityFuncionario: iCadastroFuncionario;
@@ -107,12 +115,14 @@ var
 
   codigoAtividade: integer;
   atividadeFuncionario: String;
+  codigoFuncionario: integer;
 
 implementation
 
 {$R *.dfm}
 
-uses Form.Cadastro.Atividade.Funcionario, Form.Localizar.Atividade.Funcionario;
+uses Form.Cadastro.Atividade.Funcionario, Form.Localizar.Atividade.Funcionario,
+  Form.Comissoes.Funcionario;
 
 procedure TformCadastroDeFuncionarios.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
@@ -140,6 +150,7 @@ begin
   begin
 
     edtCodigo.Text := intTostr(FieldByName('ID').AsInteger);
+    codigoFuncionario := FieldByName('ID').AsInteger;
     edtNome.Text := FieldByName('NOME').AsString;
     edtDocumento.Text := FieldByName('DOCUMENTO').AsString;
     edtCPF.Text := FieldByName('CPF').AsString;
@@ -186,6 +197,7 @@ begin
   begin
     sbEditar.Enabled := true;
     sbExcluir.Enabled := true;
+    codigoFuncionario := DataSource1.DataSet.FieldByName('ID').AsInteger;
   end
   else
   begin
@@ -205,7 +217,7 @@ begin
   inherited;
   if tfactory.new.validarDocumento.getDocumento(edtCPF.Text) = false then
   begin
-    lblCPF.Caption := 'CPF';
+    lblCPF.Caption := 'CPF inválido';
     lblCPF.Font.Color := clred;
   end
   else
@@ -312,6 +324,14 @@ begin
   FEntityFuncionario.exportar;
 end;
 
+procedure TformCadastroDeFuncionarios.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_Funcionarios.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_funcionarios.fr3');
+  frx_Funcionarios.ShowReport();
+end;
+
 procedure TformCadastroDeFuncionarios.sbNovoClick(Sender: TObject);
 begin
   inherited;
@@ -346,8 +366,7 @@ begin
     .getSENHA(tfactory.new.criptPass.md5(edtSenha.Text))
     .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
     .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
-    .getFoto(imagem)
-    .gravar;
+    .getNomeAtividade(edtAtividade.Text).getFoto(imagem).gravar;
 
   FTipoOperacaoForm := '';
 
@@ -379,6 +398,25 @@ begin
   edtCodigoAtividade.Text := codigoAtividade.ToString;
   edtAtividade.Text := atividadeFuncionario;
 
+end;
+
+procedure TformCadastroDeFuncionarios.SpeedButton3Click(Sender: TObject);
+begin
+  inherited;
+  if sbNovo.Enabled = false then
+  begin
+    formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
+    tfactory.new.criarJanela.FormShow(formComissoesFuncionarios, '');
+  end;
+end;
+
+procedure TformCadastroDeFuncionarios.SpeedButton4Click(Sender: TObject);
+begin
+  inherited;
+  if sbNovo.Enabled = false then
+  begin
+    showmessage('Implementar este recurso no final do projeto.');
+  end;
 end;
 
 end.

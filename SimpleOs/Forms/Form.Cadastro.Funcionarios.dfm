@@ -3,6 +3,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   ClientHeight = 610
   ClientWidth = 1049
   OnClose = FormClose
+  ExplicitTop = -56
   ExplicitWidth = 1049
   ExplicitHeight = 610
   PixelsPerInch = 96
@@ -58,7 +59,6 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   inherited CardPanel1: TCardPanel
     Width = 1049
     Height = 454
-    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1049
     ExplicitHeight = 454
     inherited cardPanelCadatro: TCard

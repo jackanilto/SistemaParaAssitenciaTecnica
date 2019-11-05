@@ -134,14 +134,11 @@ begin
 
     if FieldByName('DATA_NASCIMENTO').AsDateTime <> StrToDate('30/12/1899') then
       edtDataNascimento.Text := DateToStr(FieldByName('DATA_NASCIMENTO')
-        .AsDateTime)
-    else
-      edtDataNascimento.Clear;
+        .AsDateTime);
 
     if FieldByName('DATA_CADASTRO').AsDateTime <> StrToDate('30/12/1899') then
-      edtDataCadastro.Text := DateToStr(FieldByName('DATA_CADASTRO').AsDateTime)
-    else
-      edtDataCadastro.Clear;
+      edtDataCadastro.Text := DateToStr(FieldByName('DATA_CADASTRO')
+        .AsDateTime);
 
     Image1.Picture.Assign(FieldByName('foto'));
 

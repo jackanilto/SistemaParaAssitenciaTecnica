@@ -172,15 +172,19 @@ begin
 
     if FieldByName('DATA_NASCIMENTO').AsDateTime <> StrToDate('30/12/1899') then
       edtDataNascimento.Text := DateToStr(FieldByName('DATA_NASCIMENTO')
-        .AsDateTime);
+        .AsDateTime)
+    else
+      edtDataNascimento.Clear;
 
     if FieldByName('DATA_CADASTRO').AsDateTime <> StrToDate('30/12/1899') then
-      edtDataCadastro.Text := DateToStr(FieldByName('DATA_CADASTRO')
-        .AsDateTime);
+      edtDataCadastro.Text := DateToStr(FieldByName('DATA_CADASTRO').AsDateTime)
+    else
+      edtDataCadastro.Clear;
 
     if FieldByName('DATA_DEMISSAO').AsDateTime <> StrToDate('30/12/1899') then
-      edtDataDemissao.Text := DateToStr(FieldByName('DATA_DEMISSAO')
-        .AsDateTime);
+      edtDataDemissao.Text := DateToStr(FieldByName('DATA_DEMISSAO').AsDateTime)
+    else
+      edtDataDemissao.Clear;
 
     Image1.Picture.Assign(FieldByName('FOTO'));
 
@@ -217,7 +221,7 @@ begin
   inherited;
   if tfactory.new.validarDocumento.getDocumento(edtCPF.Text) = false then
   begin
-    lblCPF.Caption := 'CPF';
+    lblCPF.Caption := 'CPF inválido';
     lblCPF.Font.Color := clred;
   end
   else

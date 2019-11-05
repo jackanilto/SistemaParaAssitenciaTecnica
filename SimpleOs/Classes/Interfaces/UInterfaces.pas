@@ -676,26 +676,27 @@ type
     function listarGrid(value: TDataSource): iCadastroClientes;
     function ordenarGrid(column: TColumn): iCadastroClientes;
 
-    function getID(value:integer): iCadastroClientes;
-    function getNOME(value:string): iCadastroClientes;
-    function getTIPO_CADASTRO(value:string): iCadastroClientes;
-    function getDATA_NASCIMENTO(value:string): iCadastroClientes;
-    function getDATA_CADASTRO(value:string): iCadastroClientes;
-    function getCPF_CNPJ(value:string): iCadastroClientes;
-    function getDOCUMENTO(value:string): iCadastroClientes;
-    function getENDERECO(value:string): iCadastroClientes;
-    function getBAIRRO(value:string): iCadastroClientes;
-    function getNUMERO(value:integer): iCadastroClientes;
-    function getCOMPLEMENTO(value:string): iCadastroClientes;
-    function getCEP(value:string): iCadastroClientes;
-    function getCIDADE(value:string): iCadastroClientes;
-    function getESTADO(value:string): iCadastroClientes;
-    function getTELEFONE(value:string): iCadastroClientes;
-    function getCELULAR(value:string): iCadastroClientes;
-    function getFUNCIONARIO_CADASTRO(value:Integer): iCadastroClientes;
-    function getSITUACAO_CLIENTE(value:string): iCadastroClientes;
-    function getFOTO(value:TJPEGImage): iCadastroClientes;
-    function getOBSERVACAO(value:string): iCadastroClientes;
+    function getID(value: integer): iCadastroClientes;
+    function getNome(value: string): iCadastroClientes;
+    function getTIPO_CADASTRO(value: string): iCadastroClientes;
+    function getDATA_NASCIMENTO(value: string): iCadastroClientes;
+    function getDATA_CADASTRO(value: string): iCadastroClientes;
+    function getCPF_CNPJ(value: string): iCadastroClientes;
+    function getDocumento(value: string): iCadastroClientes;
+    function getEndereco(value: string): iCadastroClientes;
+    function getBairro(value: string): iCadastroClientes;
+    function getNumero(value: integer): iCadastroClientes;
+    function getComplemento(value: string): iCadastroClientes;
+    function getCep(value: string): iCadastroClientes;
+    function getCidade(value: string): iCadastroClientes;
+    function getEstado(value: string): iCadastroClientes;
+    function getTelefone(value: string): iCadastroClientes;
+    function getCelular(value: string): iCadastroClientes;
+    function getEmail(value: string): iCadastroClientes;
+    function getFUNCIONARIO_CADASTRO(value: integer): iCadastroClientes;
+    function getSITUACAO_CLIENTE(value: string): iCadastroClientes;
+    function getFoto(value: TJPEGImage): iCadastroClientes;
+    function getObservacao(value: string): iCadastroClientes;
 
   end;
 

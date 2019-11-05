@@ -9,7 +9,7 @@ uses
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Cadastro.Clientes, Vcl.Mask,
   ACBrBase, ACBrSocket, ACBrCEP, UFactory, UClasse.Entity.Table,
-  Vcl.Imaging.jpeg, Vcl.ExtDlgs;
+  Vcl.Imaging.jpeg;
 
 type
   TformCadastroDeClientes = class(TformExemploEmbeded)
@@ -60,7 +60,6 @@ type
     Label24: TLabel;
     ACBrCEP1: TACBrCEP;
     edtSituacaoCliente: TComboBox;
-    OpenPictureDialog1: TOpenPictureDialog;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
@@ -70,12 +69,11 @@ type
     procedure edtCPFCNPJExit(Sender: TObject);
     procedure sbSalvarClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     FEntityClientes: iCadastroClientes;
     FEntityTableUF: iFDTable;
-    imagem: TJPEGImage;
+    imagem:TJPEGImage;
   public
     { Public declarations }
   end;
@@ -134,14 +132,11 @@ begin
 
     if FieldByName('DATA_NASCIMENTO').AsDateTime <> StrToDate('30/12/1899') then
       edtDataNascimento.Text := DateToStr(FieldByName('DATA_NASCIMENTO')
-        .AsDateTime)
-    else
-      edtDataNascimento.Clear;
+        .AsDateTime);
 
     if FieldByName('DATA_CADASTRO').AsDateTime <> StrToDate('30/12/1899') then
-      edtDataCadastro.Text := DateToStr(FieldByName('DATA_CADASTRO').AsDateTime)
-    else
-      edtDataCadastro.Clear;
+      edtDataCadastro.Text := DateToStr(FieldByName('DATA_CADASTRO')
+        .AsDateTime);
 
     Image1.Picture.Assign(FieldByName('foto'));
 
@@ -161,13 +156,6 @@ begin
     lblCPF.Caption := 'CPF ou CNPJ';
     lblCPF.Font.Color := clWindowText;
   end;
-end;
-
-procedure TformCadastroDeClientes.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  imagem.Free;
 end;
 
 procedure TformCadastroDeClientes.FormCreate(Sender: TObject);
@@ -211,7 +199,7 @@ begin
     .getCIDADE(edtCidade.Text).getESTADO(edtEstado.Text)
     .getTELEFONE(edtTelefone.Text).getCELULAR(edtCelular.Text)
     .getEmail(edtEmail.Text).getSITUACAO_CLIENTE(edtSituacaoCliente.Text)
-    .getObservacao(edtObservacao.Text).getFoto(imagem).gravar;
+    .getObservacao(edtObservacao.Text).gravar;
 
   inherited;
 

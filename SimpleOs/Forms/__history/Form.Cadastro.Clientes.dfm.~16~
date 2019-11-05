@@ -2,8 +2,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   Caption = 'Cadastro de clientes'
   ClientHeight = 607
   ClientWidth = 1118
-  OnClose = FormClose
-  ExplicitTop = -53
   ExplicitWidth = 1118
   ExplicitHeight = 607
   PixelsPerInch = 96
@@ -126,7 +124,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Style = []
         ParentFont = False
       end
-      object lblCPF: TLabel
+      object Label8: TLabel
         Left = 263
         Top = 135
         Width = 73
@@ -391,7 +389,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Top = 32
         Width = 153
         Height = 151
-        Stretch = True
       end
       object Label23: TLabel
         Left = 912
@@ -470,7 +467,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
           FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
         ParentFont = False
-        OnClick = SpeedButton1Click
       end
       object Label24: TLabel
         Left = 48
@@ -527,7 +523,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        OnExit = edtCPFCNPJExit
       end
       object edtDocumento: TEdit
         Left = 48
@@ -626,6 +621,20 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
         TabOrder = 9
       end
+      object edtSituacaoCliente: TEdit
+        Left = 622
+        Top = 283
+        Width = 279
+        Height = 25
+        CharCase = ecUpperCase
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 10
+      end
       object edtObservacao: TEdit
         Left = 495
         Top = 345
@@ -638,7 +647,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 11
       end
       object edtTipoCadastro: TComboBox
         Left = 263
@@ -653,7 +662,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Style = []
         ItemIndex = 0
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 12
         Text = 'PF'
         Items.Strings = (
           'PF'
@@ -671,7 +680,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 13
       end
       object edtDataNascimento: TMaskEdit
         Left = 48
@@ -686,7 +695,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 14
         Text = '  /  /    '
       end
       object edtDataCadastro: TMaskEdit
@@ -702,7 +711,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 15
         Text = '  /  /    '
       end
       object edtTelefone: TMaskEdit
@@ -718,7 +727,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Style = []
         MaxLength = 13
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 16
         Text = '(  )    -    '
       end
       object edtCelular: TMaskEdit
@@ -734,7 +743,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Style = []
         MaxLength = 13
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 17
         Text = '(  )    -    '
       end
       object edtCEP: TEdit
@@ -749,7 +758,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 18
       end
       object edtEndereco: TEdit
         Left = 48
@@ -763,26 +772,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 18
-      end
-      object edtSituacaoCliente: TComboBox
-        Left = 622
-        Top = 283
-        Width = 256
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ItemIndex = 0
-        ParentFont = False
         TabOrder = 19
-        Text = 'ATIVO'
-        Items.Strings = (
-          'ATIVO'
-          'INATIVO')
       end
     end
     inherited cardPanelConsulta: TCard
@@ -822,14 +812,9 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   end
   object ACBrCEP1: TACBrCEP
     ProxyPort = '8080'
-    WebService = wsRepublicaVirtual
     PesquisarIBGE = True
     OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
     Left = 824
     Top = 9
-  end
-  object OpenPictureDialog1: TOpenPictureDialog
-    Left = 936
-    Top = 377
   end
 end

@@ -779,3 +779,48 @@ Problematic key value is ("ATIVIDADE" = 0)
 SQL error code = -204
 Procedure unknown
 GEN_SITUACAO_ORDEM_ID
+05/11/19 19:58:18 - ===========================================
+05/11/19 19:58:18 - Form: formCadastroDeClientes
+05/11/19 19:58:18 - Caption: Cadastro de clientes
+05/11/19 19:58:18 - Erro:EACBrCEPException
+05/11/19 19:58:18 - Erro:WebService TACBrCEPWSClass não implementa o método: BuscarPorCEP
+05/11/19 20:21:35 - ===========================================
+05/11/19 20:21:35 - Form: formCadastroDeClientes
+05/11/19 20:21:35 - Caption: Cadastro de clientes
+05/11/19 20:21:35 - Erro:EConvertError
+05/11/19 20:21:35 - Erro:'MARIA' is not a valid integer value
+05/11/19 20:23:10 - ===========================================
+05/11/19 20:23:10 - Form: formCadastroDeClientes
+05/11/19 20:23:10 - Caption: Cadastro de clientes
+05/11/19 20:23:10 - Erro:EConvertError
+05/11/19 20:23:10 - Erro:'MARIA' is not a valid integer value
+05/11/19 20:25:10 - ===========================================
+05/11/19 20:25:10 - Form: formCadastroDeClientes
+05/11/19 20:25:10 - Caption: Cadastro de clientes
+05/11/19 20:25:10 - Erro:EConvertError
+05/11/19 20:25:10 - Erro:'MARIA' is not a valid integer value
+05/11/19 20:25:47 - ===========================================
+05/11/19 20:25:47 - Form: formCadastroDeClientes
+05/11/19 20:25:47 - Caption: Cadastro de clientes
+05/11/19 20:25:47 - Erro:EConvertError
+05/11/19 20:25:47 - Erro:'MARIA' is not a valid integer value
+05/11/19 20:26:22 - ===========================================
+05/11/19 20:26:22 - Form: formCadastroDeClientes
+05/11/19 20:26:22 - Caption: Cadastro de clientes
+05/11/19 20:26:22 - Erro:EConvertError
+05/11/19 20:26:22 - Erro:'MARIA' is not a valid integer value
+05/11/19 20:29:15 - ===========================================
+05/11/19 20:29:15 - Form: formCadastroDeClientes
+05/11/19 20:29:15 - Caption: Cadastro de clientes
+05/11/19 20:29:15 - Erro:EConvertError
+05/11/19 20:29:15 - Erro:'MARIA' is not a valid integer value
+05/11/19 20:32:00 - ===========================================
+05/11/19 20:32:00 - Form: formCadastroDeClientes
+05/11/19 20:32:00 - Caption: Cadastro de clientes
+05/11/19 20:32:00 - Erro:Exception
+05/11/19 20:32:00 - Erro:Informe um nome para o cliente.
+05/11/19 20:36:49 - ===========================================
+05/11/19 20:36:49 - Form: formCadastroDeClientes
+05/11/19 20:36:49 - Caption: Cadastro de clientes
+05/11/19 20:36:49 - Erro:Exception
+05/11/19 20:36:49 - Erro:Informe o tipo de cadastro realizado.
