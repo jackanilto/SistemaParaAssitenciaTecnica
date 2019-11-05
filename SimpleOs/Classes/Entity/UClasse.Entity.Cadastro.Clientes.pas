@@ -367,9 +367,33 @@ begin
       FQuery.codigoCadastro('SP_GEN_CLIENTES_ID');
 
   FQuery.TQuery.FieldByName('NOME').AsString := FNOME;
+  FQuery.TQuery.FieldByName('TIPO_CADASTRO').AsString := FTIPO_CADASTRO;
+  FQuery.TQuery.FieldByName('CPF_CNPJ').AsString := FCPF_CNPJ;
+  FQuery.TQuery.FieldByName('DOCUMENTO').AsString := FDOCUMENTO;
+  FQuery.TQuery.FieldByName('ENDERECO').AsString := FENDERECO;
+  FQuery.TQuery.FieldByName('BAIRRO').AsString := FBAIRRO;
+  FQuery.TQuery.FieldByName('NUMERO').AsInteger := FNUMERO;;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').AsString := FCOMPLEMENTO;
+  FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
+  FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
+  FQuery.TQuery.FieldByName('ESTADO').AsString := FESTADO;
+  FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
+  FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
+    funcionarioLogado;
+  FQuery.TQuery.FieldByName('SITUACAO_CLIENTE').AsString := FSITUACAO_CLIENTE;
+  FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
-    .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+  if FDATA_NASCIMENTO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_NASCIMENTO').AsDateTime :=
+      strtodate(FDATA_NASCIMENTO);
+
+  if FDATA_CADASTRO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime :=
+      strtodate(FDATA_CADASTRO);
+
+  if Assigned(F_FOTO) then
+    FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
 
   try
     FQuery.TQuery.Post;
@@ -419,6 +443,12 @@ begin
     'Situação do cliente';
   FQuery.TQuery.FieldByName('FOTO').Visible := false;
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+  FQuery.TQuery.FieldByName('NOME').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('ENDERECO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('BAIRRO').DisplayWidth := 20;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayWidth := 20;
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 30;
 
   value.DataSet := FQuery.TQuery;
 
