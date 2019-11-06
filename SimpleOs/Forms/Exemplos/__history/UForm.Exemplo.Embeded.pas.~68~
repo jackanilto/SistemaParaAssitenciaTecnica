@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
   Vcl.Buttons, Vcl.StdCtrls, Vcl.WinXPanels, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.Menus;
+  Vcl.Menus, Vcl.Mask;
 
 type
   TformExemploEmbeded = class(TForm)
@@ -19,11 +19,6 @@ type
     lblConsulta: TLabel;
     pnlFocoCadastro: TPanel;
     pnlFocoConsulta: TPanel;
-    Image2: TImage;
-    Image3: TImage;
-    Image4: TImage;
-    Image5: TImage;
-    Image6: TImage;
     Panel3: TPanel;
     sbNovo: TSpeedButton;
     sbSalvar: TSpeedButton;
@@ -63,6 +58,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Editar1Click(Sender: TObject);
     procedure Excluir1Click(Sender: TObject);
+    procedure validarData(componet: tmaskEdit);
   private
     { Private declarations }
     procedure ativarDesativarNovo;
@@ -193,6 +189,12 @@ begin
   pnlFocoCadastro.Visible := false;
   CardPanel1.ActiveCard := cardPanelConsulta;
 
+  sbNovo.Enabled := true;
+  sbSalvar.Enabled := false;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbCancelar.Enabled := false;
+
 end;
 
 procedure TformExemploEmbeded.lblCadastroClick(Sender: TObject);
@@ -292,6 +294,24 @@ begin
   lblConsulta.Enabled := true;
   showmessage('Operação realizada com sucesso!');
   ativarDesativarSalvar;
+end;
+
+procedure TformExemploEmbeded.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+
+  if componet.Text <> '  /  /    ' then
+  begin
+
+    try
+      d := strtodate(componet.Text);
+    except
+      componet.SetFocus;
+      componet.Clear;
+      raise Exception.Create('Digite uma data válida.');
+    end;
+  end;
 end;
 
 end.

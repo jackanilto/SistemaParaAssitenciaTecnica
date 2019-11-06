@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Imaging.jpeg,
-  System.Win.ComObj;
+  System.Win.ComObj, Vcl.Mask;
 
 type
 
@@ -93,6 +93,7 @@ type
     function getOBSERVACAO(value: string): iCadastroClientes;
 
     function exportar: iCadastroClientes;
+    procedure validarData(componet: tmaskEdit);
 
     constructor create;
     destructor destroy; override;
@@ -233,8 +234,10 @@ begin
         .AsDateTime;
       pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA_CADASTRO')
         .AsDateTime;
-      pasta.cells[linha, 6] := '"'+FQuery.TQuery.FieldByName('CPF_CNPJ').AsString+'"';
-      pasta.cells[linha, 7] := '"'+FQuery.TQuery.FieldByName('DOCUMENTO').AsString+'"';
+      pasta.cells[linha, 6] := '"' + FQuery.TQuery.FieldByName('CPF_CNPJ')
+        .AsString + '"';
+      pasta.cells[linha, 7] := '"' + FQuery.TQuery.FieldByName('DOCUMENTO')
+        .AsString + '"';
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('ENDERECO').AsString;
       pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('BAIRRO').AsString;
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('NUMERO').AsInteger;
@@ -596,6 +599,22 @@ begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
     .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TEntityCadastroClientes.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  if componet.Text <> '  /  /    ' then
+  begin
+    try
+      d := strtodate(componet.Text);
+    except
+      componet.SetFocus;
+      componet.Clear;
+      raise Exception.create('Digite uma data válida.');
+    end;
+  end;
 end;
 
 end.

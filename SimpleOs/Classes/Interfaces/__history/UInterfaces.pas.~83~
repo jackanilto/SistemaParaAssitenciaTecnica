@@ -597,7 +597,9 @@ type
     function open(value: string): iComissoesFuncionario;
     function ExecSql: iComissoesFuncionario;
     function sqlPesquisa: iComissoesFuncionario;
-    function sqlPesquisaEstatica: iComissoesFuncionario;
+    function sqlPesquisaEstatica: iComissoesFuncionario; overload;
+    function sqlPesquisaEstatica(value: integer)
+      : iComissoesFuncionario; overload;
 
     function abrir: iComissoesFuncionario;
     function inserir: iComissoesFuncionario;
@@ -615,6 +617,87 @@ type
     function getAPLICAR_COMISSAO(value: string): iComissoesFuncionario;
     function getVALOR_POR_ATENDIMENTO(value: string): iComissoesFuncionario;
     function getObservacao(value: string): iComissoesFuncionario;
+
+  end;
+
+  iCadastroSituacoesOrdem = interface
+    ['{2BCC9FBF-46B9-4242-8722-5296F610EFAA}']
+
+    function nomeTabela(value: string): iCadastroSituacoesOrdem;
+    function getCampo(value: string): iCadastroSituacoesOrdem;
+    function getValor(value: string): iCadastroSituacoesOrdem;
+    function getDataInicial(value: TDate): iCadastroSituacoesOrdem;
+    function getDataFinal(value: TDate): iCadastroSituacoesOrdem;
+    function open(value: string): iCadastroSituacoesOrdem;
+    function ExecSql: iCadastroSituacoesOrdem;
+    function sqlPesquisa: iCadastroSituacoesOrdem;
+    function sqlPesquisaData: iCadastroSituacoesOrdem;
+    function sqlPesquisaEstatica: iCadastroSituacoesOrdem;
+
+    function abrir: iCadastroSituacoesOrdem;
+    function inserir: iCadastroSituacoesOrdem;
+    function gravar: iCadastroSituacoesOrdem;
+    function deletar: iCadastroSituacoesOrdem;
+    function atualizar: iCadastroSituacoesOrdem;
+    function editar: iCadastroSituacoesOrdem;
+    function cancelar: iCadastroSituacoesOrdem;
+    function fecharQuery: iCadastroSituacoesOrdem;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroSituacoesOrdem;
+    function ordenarGrid(column: TColumn): iCadastroSituacoesOrdem;
+
+    function getSITUACAO_ORDEM(value: string): iCadastroSituacoesOrdem;
+
+  end;
+
+  iCadastroClientes = interface
+    ['{1396E17A-4FC2-4F81-8481-05304DC5F636}']
+
+    function nomeTabela(value: string): iCadastroClientes;
+    function getCampo(value: string): iCadastroClientes;
+    function getValor(value: string): iCadastroClientes;
+    function getDataInicial(value: TDate): iCadastroClientes;
+    function getDataFinal(value: TDate): iCadastroClientes;
+    function open(value: string): iCadastroClientes;
+    function ExecSql: iCadastroClientes;
+    function sqlPesquisa: iCadastroClientes;
+    function sqlPesquisaData: iCadastroClientes;
+    function sqlPesquisaEstatica: iCadastroClientes;
+
+    function abrir: iCadastroClientes;
+    function inserir: iCadastroClientes;
+    function gravar: iCadastroClientes;
+    function deletar: iCadastroClientes;
+    function atualizar: iCadastroClientes;
+    function editar: iCadastroClientes;
+    function cancelar: iCadastroClientes;
+    function fecharQuery: iCadastroClientes;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroClientes;
+    function ordenarGrid(column: TColumn): iCadastroClientes;
+
+    function getID(value: integer): iCadastroClientes;
+    function getNome(value: string): iCadastroClientes;
+    function getTIPO_CADASTRO(value: string): iCadastroClientes;
+    function getDATA_NASCIMENTO(value: string): iCadastroClientes;
+    function getDATA_CADASTRO(value: string): iCadastroClientes;
+    function getCPF_CNPJ(value: string): iCadastroClientes;
+    function getDocumento(value: string): iCadastroClientes;
+    function getEndereco(value: string): iCadastroClientes;
+    function getBairro(value: string): iCadastroClientes;
+    function getNumero(value: integer): iCadastroClientes;
+    function getComplemento(value: string): iCadastroClientes;
+    function getCep(value: string): iCadastroClientes;
+    function getCidade(value: string): iCadastroClientes;
+    function getEstado(value: string): iCadastroClientes;
+    function getTelefone(value: string): iCadastroClientes;
+    function getCelular(value: string): iCadastroClientes;
+    function getEmail(value: string): iCadastroClientes;
+    function getFUNCIONARIO_CADASTRO(value: integer): iCadastroClientes;
+    function getSITUACAO_CLIENTE(value: string): iCadastroClientes;
+    function getFoto(value: TJPEGImage): iCadastroClientes;
+    function getObservacao(value: string): iCadastroClientes;
+    function exportar:iCadastroClientes;
 
   end;
 
@@ -638,7 +721,7 @@ type
     function entityTable: iFDTable;
   end;
 
-  iFactoryQuery = interface
+  iFactoryQuery<T> = interface
     ['{6A9FF249-F3A8-4660-BCFB-F227FCD3B86D}']
     function queryTable: iConexaoQuery;
   end;

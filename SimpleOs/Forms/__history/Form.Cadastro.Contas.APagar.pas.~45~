@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces, UClasse.Entity.Contas.APagar,
-  Vcl.Mask;
+  Vcl.Mask, frxClass, frxDBSet;
 
 type
   TformCadastroContasAPagar = class(TformExemploEmbeded)
@@ -41,6 +41,8 @@ type
     Label15: TLabel;
     edtData2: TMaskEdit;
     sbPesquisarDatas: TSpeedButton;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
@@ -54,6 +56,9 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbPesquisarDatasClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+    procedure edtDataVencimentoExit(Sender: TObject);
   private
     { Private declarations }
     FEntityContaPagar: iCadastroContasAPagar;
@@ -88,16 +93,16 @@ begin
     inttostr(DataSource1.DataSet.FieldByName('FUNCIONARIO_CADASTRO').AsInteger);
   edtObservacao.Text := DataSource1.DataSet.FieldByName('OBSERVACAO').AsString;
 
-  if DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime = null then
+  if DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime <>
+    StrToDate('30/12/1899') then
     edtDataVencimento.Text :=
-      DateToStr(DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime)
-  else
-    edtDataVencimento.Text :=
-      DateToStr(DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime);
+      datetostr(DataSource1.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime);
 
   if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Sim' then
     edtDataPagamento.Text :=
-      DateToStr(DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime);
+      datetostr(DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime)
+  else
+    edtDataPagamento.Clear;
 
 end;
 
@@ -120,6 +125,12 @@ procedure TformCadastroContasAPagar.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
   FEntityContaPagar.ordenarGrid(Column);
+end;
+
+procedure TformCadastroContasAPagar.edtDataVencimentoExit(Sender: TObject);
+begin
+  inherited;
+  validarData(edtDataVencimento);
 end;
 
 procedure TformCadastroContasAPagar.edtPesquisarKeyUp(Sender: TObject;
@@ -150,7 +161,8 @@ end;
 procedure TformCadastroContasAPagar.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityContaPagar.abrir.listarGrid(DataSource1);
+  FEntityContaPagar.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
 end;
 
 procedure TformCadastroContasAPagar.sbCancelarClick(Sender: TObject);
@@ -174,6 +186,23 @@ begin
   FEntityContaPagar.deletar;
 end;
 
+procedure TformCadastroContasAPagar.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityContaPagar.exportar;
+end;
+
+procedure TformCadastroContasAPagar.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_contas_pagar_simples.fr3');
+  frxReport1.ShowReport();
+
+  { relatorio_contas_pagar_simples }
+end;
+
 procedure TformCadastroContasAPagar.sbNovoClick(Sender: TObject);
 begin
   inherited;
@@ -186,11 +215,9 @@ end;
 procedure TformCadastroContasAPagar.sbPesquisarDatasClick(Sender: TObject);
 begin
   inherited;
-  FEntityContaPagar.getDataInicial(strtodate(edtData1.Text))
-    .getDataFinal(strtodate(edtData2.Text))
-    .getCampo('DATA_VENCIMENTO')
-    .sqlPesquisaData.listarGrid
-    (DataSource1);
+  FEntityContaPagar.getDataInicial(StrToDate(edtData1.Text))
+    .getDataFinal(StrToDate(edtData2.Text)).getCampo('DATA_VENCIMENTO')
+    .sqlPesquisaData.listarGrid(DataSource1);
 end;
 
 procedure TformCadastroContasAPagar.sbSalvarClick(Sender: TObject);

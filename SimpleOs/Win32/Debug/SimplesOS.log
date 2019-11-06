@@ -849,3 +849,78 @@ GEN_SITUACAO_ORDEM_ID
 06/11/19 12:29:42 - Caption: Cadastro de clientes
 06/11/19 12:29:42 - Erro:EConvertError
 06/11/19 12:29:42 - Erro:'01/01/0000' is not a valid date
+06/11/19 20:05:17 - ===========================================
+06/11/19 20:05:17 - Form: formCadastroDeClientes
+06/11/19 20:05:17 - Caption: Cadastro de clientes
+06/11/19 20:05:17 - Erro:EDBEditError
+06/11/19 20:05:17 - Erro:Invalid input value.  Use escape key to abandon changes
+06/11/19 20:05:29 - ===========================================
+06/11/19 20:05:29 - Form: formCadastroDeClientes
+06/11/19 20:05:29 - Caption: Cadastro de clientes
+06/11/19 20:05:29 - Erro:Exception
+06/11/19 20:05:29 - Erro:Digite uma data válida.
+06/11/19 20:05:46 - ===========================================
+06/11/19 20:05:46 - Form: formCadastroDeClientes
+06/11/19 20:05:46 - Caption: Cadastro de clientes
+06/11/19 20:05:46 - Erro:Exception
+06/11/19 20:05:46 - Erro:Digite uma data válida.
+06/11/19 20:06:43 - ===========================================
+06/11/19 20:06:43 - Form: formCadastroDeClientes
+06/11/19 20:06:43 - Caption: Cadastro de clientes
+06/11/19 20:06:43 - Erro:Exception
+06/11/19 20:06:43 - Erro:Digite uma data válida.
+06/11/19 20:08:53 - ===========================================
+06/11/19 20:08:53 - Form: formCadastroDeClientes
+06/11/19 20:08:53 - Caption: Cadastro de clientes
+06/11/19 20:08:53 - Erro:Exception
+06/11/19 20:08:53 - Erro:Digite uma data válida.
+06/11/19 20:12:01 - ===========================================
+06/11/19 20:12:01 - Form: formCadastroDeClientes
+06/11/19 20:12:01 - Caption: Cadastro de clientes
+06/11/19 20:12:01 - Erro:Exception
+06/11/19 20:12:01 - Erro:Informe o tipo de cadastro realizado.
+06/11/19 20:18:48 - ===========================================
+06/11/19 20:18:48 - Form: formCadastroContasAPagar
+06/11/19 20:18:48 - Caption: Cadastro de contas a pagar
+06/11/19 20:18:48 - Erro:Exception
+06/11/19 20:18:48 - Erro:Digite uma data válida.
+06/11/19 20:19:36 - ===========================================
+06/11/19 20:19:36 - Form: formCadastroContasAPagar
+06/11/19 20:19:36 - Caption: Cadastro de contas a pagar
+06/11/19 20:19:36 - Erro:Exception
+06/11/19 20:19:36 - Erro:Digite uma data válida.
+06/11/19 20:19:39 - ===========================================
+06/11/19 20:19:39 - Form: formCadastroContasAPagar
+06/11/19 20:19:39 - Caption: Cadastro de contas a pagar
+06/11/19 20:19:39 - Erro:Exception
+06/11/19 20:19:39 - Erro:Digite uma data válida.
+06/11/19 20:19:43 - ===========================================
+06/11/19 20:19:43 - Form: formCadastroContasAPagar
+06/11/19 20:19:43 - Caption: Cadastro de contas a pagar
+06/11/19 20:19:43 - Erro:Exception
+06/11/19 20:19:43 - Erro:Digite uma data válida.
+06/11/19 20:21:11 - ===========================================
+06/11/19 20:21:11 - Form: formCadastroContasAPagar
+06/11/19 20:21:11 - Caption: Cadastro de contas a pagar
+06/11/19 20:21:11 - Erro:Exception
+06/11/19 20:21:11 - Erro:Digite uma data válida.
+06/11/19 20:22:04 - ===========================================
+06/11/19 20:22:04 - Form: formCadastroContasAPagar
+06/11/19 20:22:04 - Caption: Cadastro de contas a pagar
+06/11/19 20:22:04 - Erro:Exception
+06/11/19 20:22:04 - Erro:Digite uma data válida.
+06/11/19 20:23:37 - ===========================================
+06/11/19 20:23:37 - Form: formCadastroDeClientes
+06/11/19 20:23:37 - Caption: Cadastro de clientes
+06/11/19 20:23:37 - Erro:Exception
+06/11/19 20:23:37 - Erro:Digite uma data válida.
+06/11/19 20:23:43 - ===========================================
+06/11/19 20:23:43 - Form: formCadastroDeClientes
+06/11/19 20:23:43 - Caption: Cadastro de clientes
+06/11/19 20:23:43 - Erro:Exception
+06/11/19 20:23:43 - Erro:Digite uma data válida.
+06/11/19 20:24:05 - ===========================================
+06/11/19 20:24:05 - Form: formCadastroDeClientes
+06/11/19 20:24:05 - Caption: Cadastro de clientes
+06/11/19 20:24:05 - Erro:Exception
+06/11/19 20:24:05 - Erro:Informe o tipo de cadastro realizado.

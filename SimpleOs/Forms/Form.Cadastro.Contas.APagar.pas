@@ -58,6 +58,8 @@ type
     procedure sbPesquisarDatasClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
+    procedure edtDataVencimentoExit(Sender: TObject);
+    procedure edtDataPagamentoExit(Sender: TObject);
   private
     { Private declarations }
     FEntityContaPagar: iCadastroContasAPagar;
@@ -124,6 +126,18 @@ procedure TformCadastroContasAPagar.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
   FEntityContaPagar.ordenarGrid(Column);
+end;
+
+procedure TformCadastroContasAPagar.edtDataPagamentoExit(Sender: TObject);
+begin
+  inherited;
+  validarData(edtDataPagamento);
+end;
+
+procedure TformCadastroContasAPagar.edtDataVencimentoExit(Sender: TObject);
+begin
+  inherited;
+  validarData(edtDataVencimento);
 end;
 
 procedure TformCadastroContasAPagar.edtPesquisarKeyUp(Sender: TObject;

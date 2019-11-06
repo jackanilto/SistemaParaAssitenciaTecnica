@@ -54,6 +54,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
   inherited CardPanel1: TCardPanel
     Width = 907
     Height = 327
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 907
     ExplicitHeight = 327
     inherited cardPanelCadatro: TCard
@@ -274,6 +275,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         ParentFont = False
         TabOrder = 2
         Text = '  /  /    '
+        OnExit = edtDataVencimentoExit
       end
       object edtJuros: TEdit
         Left = 32
@@ -346,6 +348,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         ParentFont = False
         TabOrder = 8
         Text = '  /  /    '
+        OnExit = edtDataPagamentoExit
       end
       object edtFuncionario: TEdit
         Left = 478
@@ -558,7 +561,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
     Top = 169
   end
   object frxReport1: TfrxReport
-    Version = '6.2.11'
+    Version = '6.3.3'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
@@ -595,6 +598,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       Frame.Typ = []
+      MirrorMode = []
       VGuides.Strings = (
         '309,92146')
       object ReportTitle1: TfrxReportTitle

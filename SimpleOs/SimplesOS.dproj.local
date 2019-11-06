@@ -176,12 +176,12 @@
     <File Path="Forms\Exemplos\UForm.Exemplo.Embeded.pas"/>
     <File Path="Forms\Exemplos\UForm.Exemplo.Embeded.dfm"/>
     <File Path="Forms\Localizar"/>
-    <File Path="Forms\Localizar\Form.Localizar.Atividade.Funcionario.pas"/>
-    <File Path="Forms\Localizar\Form.Localizar.Atividade.Funcionario.dfm"/>
     <File Path="Forms\Localizar\Form.Localizar.Grupo.pas"/>
     <File Path="Forms\Localizar\Form.Localizar.Grupo.dfm"/>
     <File Path="Forms\Localizar\Form.Localizar.Marca.pas"/>
     <File Path="Forms\Localizar\Form.Localizar.Marca.dfm"/>
+    <File Path="Forms\Localizar\Form.Localizar.Atividade.Funcionario.pas"/>
+    <File Path="Forms\Localizar\Form.Localizar.Atividade.Funcionario.dfm"/>
     <File Path="Forms\Utilitarios"/>
     <File Path="Forms\Utilitarios\UCalculadora.pas"/>
     <File Path="Forms\Utilitarios\UCalculadora.dfm"/>

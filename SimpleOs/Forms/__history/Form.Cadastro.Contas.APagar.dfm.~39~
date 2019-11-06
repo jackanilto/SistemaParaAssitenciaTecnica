@@ -28,7 +28,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
   inherited Panel3: TPanel
     Top = 408
     Width = 907
-    ExplicitTop = 381
+    ExplicitTop = 408
     ExplicitWidth = 907
     inherited Label4: TLabel
       Left = 573
@@ -54,12 +54,12 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
   inherited CardPanel1: TCardPanel
     Width = 907
     Height = 327
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 907
-    ExplicitHeight = 300
+    ExplicitHeight = 327
     inherited cardPanelCadatro: TCard
       Width = 907
       Height = 327
-      ExplicitTop = -1
       ExplicitWidth = 907
       ExplicitHeight = 327
       object Label1: TLabel
@@ -234,7 +234,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
       end
       object edtConta: TEdit
         Left = 32
-        Top = 96
+        Top = 100
         Width = 289
         Height = 25
         CharCase = ecUpperCase
@@ -258,7 +258,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 3
       end
       object edtDataVencimento: TMaskEdit
         Left = 32
@@ -273,8 +273,9 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 2
         Text = '  /  /    '
+        OnExit = edtDataVencimentoExit
       end
       object edtJuros: TEdit
         Left = 32
@@ -360,11 +361,11 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 10
       end
       object edtObservacao: TEdit
         Left = 391
-        Top = 152
+        Top = 155
         Width = 289
         Height = 25
         CharCase = ecUpperCase
@@ -374,7 +375,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 11
       end
       object edtPgto: TComboBox
         Left = 391
@@ -388,7 +389,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Style = []
         ItemIndex = 1
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 9
         Text = 'N'#227'o'
         Items.Strings = (
           'Sim'
@@ -399,12 +400,12 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
       Width = 907
       Height = 327
       ExplicitWidth = 907
-      ExplicitHeight = 300
+      ExplicitHeight = 327
       inherited Panel4: TPanel
         Top = 264
         Width = 907
         Height = 63
-        ExplicitTop = 269
+        ExplicitTop = 264
         ExplicitWidth = 907
         ExplicitHeight = 63
         inherited sbImprimir: TSpeedButton
@@ -412,11 +413,14 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           Top = 20
           OnClick = sbImprimirClick
           ExplicitLeft = 768
+          ExplicitTop = 20
         end
         inherited sbExportar: TSpeedButton
           Left = 743
           Top = 20
+          OnClick = sbExportarClick
           ExplicitLeft = 879
+          ExplicitTop = 20
         end
         object Label15: TLabel
           Left = 56
@@ -556,7 +560,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
     Top = 169
   end
   object frxReport1: TfrxReport
-    Version = '6.2.11'
+    Version = '6.3.3'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
@@ -564,7 +568,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43751.486695115700000000
-    ReportOptions.LastChange = 43751.559031550930000000
+    ReportOptions.LastChange = 43751.570220196800000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -593,13 +597,9 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       Frame.Typ = []
+      MirrorMode = []
       VGuides.Strings = (
-        '623,62245'
-        '521,57514'
-        '461,10266'
-        '309,92146'
-        '211,65368'
-        '396,85065')
+        '309,92146')
       object ReportTitle1: TfrxReportTitle
         FillType = ftBrush
         Frame.Typ = []
@@ -682,7 +682,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Valor')
+            'Valor R$')
           ParentFont = False
         end
         object Memo6: TfrxMemoView
@@ -705,7 +705,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           AllowVectorExport = True
           Left = 400.630180000000000000
           Top = 98.267780000000000000
-          Width = 56.692950000000000000
+          Width = 60.472480000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -719,7 +719,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         end
         object Memo8: TfrxMemoView
           AllowVectorExport = True
-          Left = 464.882190000000000000
+          Left = 468.882190000000000000
           Top = 98.267780000000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
@@ -735,7 +735,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         end
         object Memo9: TfrxMemoView
           AllowVectorExport = True
-          Left = 525.354670000000000000
+          Left = 532.134200000000000000
           Top = 98.267780000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
@@ -746,12 +746,12 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Valor Total')
+            'Valor Total R$')
           ParentFont = False
         end
         object Memo10: TfrxMemoView
           AllowVectorExport = True
-          Left = 627.401980000000000000
+          Left = 634.961040000000000000
           Top = 98.267780000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
@@ -765,11 +765,119 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
             'Pagamento')
           ParentFont = False
         end
+        object Line2: TfrxLineView
+          AllowVectorExport = True
+          Left = 1069.606990000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line3: TfrxLineView
+          AllowVectorExport = True
+          Left = 1145.197590000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line4: TfrxLineView
+          AllowVectorExport = True
+          Left = 1028.032160000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line5: TfrxLineView
+          AllowVectorExport = True
+          Left = 903.307670000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line6: TfrxLineView
+          AllowVectorExport = True
+          Left = 876.850960000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line7: TfrxLineView
+          AllowVectorExport = True
+          Left = 718.110700000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line14: TfrxLineView
+          AllowVectorExport = True
+          Left = 208.094620000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line15: TfrxLineView
+          AllowVectorExport = True
+          Left = 310.141930000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line16: TfrxLineView
+          AllowVectorExport = True
+          Left = 396.850650000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line17: TfrxLineView
+          AllowVectorExport = True
+          Left = 464.882190000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line18: TfrxLineView
+          AllowVectorExport = True
+          Left = 525.354670000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line19: TfrxLineView
+          AllowVectorExport = True
+          Left = 631.181510000000000000
+          Top = 94.488250000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
       end
       object MasterData1: TfrxMasterData
         FillType = ftBrush
         Frame.Typ = []
-        Height = 132.283550000000000000
+        Height = 30.236240000000000000
         Top = 200.315090000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDataset1
@@ -778,7 +886,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         object Shape2: TfrxShapeView
           AllowVectorExport = True
           Width = 718.110700000000000000
-          Height = 26.456710000000000000
+          Height = 30.236240000000000000
           Frame.Typ = []
         end
         object Memo2: TfrxMemoView
@@ -787,19 +895,31 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           Top = 3.779530000000000000
           Width = 192.756030000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDBDataset1."conta"]')
+          ParentFont = False
         end
         object Memo11: TfrxMemoView
           AllowVectorExport = True
-          Left = 211.653680000000000000
+          Left = 212.653680000000000000
           Top = 3.779530000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDBDataset1."valor"]')
+          ParentFont = False
         end
         object Memo12: TfrxMemoView
           AllowVectorExport = True
@@ -807,16 +927,193 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           Top = 3.779530000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDBDataset1."data_vencimento"]')
+          ParentFont = False
+        end
+        object Memo13: TfrxMemoView
+          AllowVectorExport = True
+          Left = 402.409710000000000000
+          Top = 3.779530000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."Multa"]')
+          ParentFont = False
+        end
+        object Memo14: TfrxMemoView
+          AllowVectorExport = True
+          Left = 470.220780000000000000
+          Top = 3.779530000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."juros"]')
+          ParentFont = False
+        end
+        object Memo15: TfrxMemoView
+          AllowVectorExport = True
+          Left = 532.693260000000000000
+          Top = 3.779530000000000000
+          Width = 90.708720000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."VALOR_TOTAL"]')
+          ParentFont = False
+        end
+        object Memo16: TfrxMemoView
+          AllowVectorExport = True
+          Left = 634.740570000000000000
+          Top = 3.559060000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."DATA_PAGAMENTO"]')
+          ParentFont = False
+        end
+        object Line8: TfrxLineView
+          AllowVectorExport = True
+          Left = 718.110700000000000000
+          Top = 0.000000000000000014
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line9: TfrxLineView
+          AllowVectorExport = True
+          Left = 876.850960000000000000
+          Top = 0.000000000000000014
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line10: TfrxLineView
+          AllowVectorExport = True
+          Left = 903.307670000000000000
+          Top = 0.000000000000000014
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line11: TfrxLineView
+          AllowVectorExport = True
+          Left = 1028.032160000000000000
+          Top = 0.000000000000000014
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line12: TfrxLineView
+          AllowVectorExport = True
+          Left = 1145.197590000000000000
+          Top = 0.000000000000000014
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line13: TfrxLineView
+          AllowVectorExport = True
+          Left = 1069.606990000000000000
+          Top = 3.779530000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line20: TfrxLineView
+          AllowVectorExport = True
+          Left = 631.181510000000000000
+          Height = 30.236240000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line21: TfrxLineView
+          AllowVectorExport = True
+          Left = 525.354670000000000000
+          Top = 0.000000000000000014
+          Height = 30.236240000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line22: TfrxLineView
+          AllowVectorExport = True
+          Left = 464.882190000000000000
+          Top = 0.000000000000000014
+          Height = 30.236240000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line23: TfrxLineView
+          AllowVectorExport = True
+          Left = 396.850650000000000000
+          Top = 0.000000000000000014
+          Height = 30.236240000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line24: TfrxLineView
+          AllowVectorExport = True
+          Left = 309.921460000000000000
+          Top = 0.000000000000000014
+          Height = 30.236240000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line25: TfrxLineView
+          AllowVectorExport = True
+          Left = 207.874150000000000000
+          Top = 0.000000000000000014
+          Height = 30.236240000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
         end
       end
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 393.071120000000000000
+        Top = 291.023810000000000000
         Width = 718.110700000000000000
         object Memo1: TfrxMemoView
           AllowVectorExport = True

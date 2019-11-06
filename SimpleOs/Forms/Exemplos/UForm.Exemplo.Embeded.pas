@@ -58,6 +58,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Editar1Click(Sender: TObject);
     procedure Excluir1Click(Sender: TObject);
+    procedure validarData(componet: tmaskEdit);
   private
     { Private declarations }
     procedure ativarDesativarNovo;
@@ -66,7 +67,6 @@ type
     procedure ativarDesativarExcluir;
     procedure ativarDesativarCancelar;
     procedure ativarDesativarPesquisar;
-    procedure validarData(value: string; componet: tmaskEdit);
   public
     { Public declarations }
   end;
@@ -296,16 +296,20 @@ begin
   ativarDesativarSalvar;
 end;
 
-procedure TformExemploEmbeded.validarData(value: string; componet: tmaskEdit);
+procedure TformExemploEmbeded.validarData(componet: tmaskEdit);
 var
   d: TDate;
 begin
-  try
-    d := strtodate(value);
-  except
-    componet.SetFocus;
-    componet.Clear;
-    raise Exception.Create('Digite uma data válida.');
+
+  if componet.Text <> '  /  /    ' then
+  begin
+    try
+      d := strtodate(componet.Text);
+    except
+      componet.SetFocus;
+      componet.Clear;
+      raise Exception.Create('Digite uma data válida.');
+    end;
   end;
 end;
 

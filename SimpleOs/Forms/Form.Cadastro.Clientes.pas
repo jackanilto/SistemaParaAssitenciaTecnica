@@ -82,6 +82,8 @@ type
       Shift: TShiftState);
     procedure sbExportarClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure edtDataNascimentoExit(Sender: TObject);
+    procedure edtDataCadastroExit(Sender: TObject);
   private
     { Private declarations }
     FEntityClientes: iCadastroClientes;
@@ -193,6 +195,18 @@ begin
     lblCPF.Caption := 'CPF ou CNPJ';
     lblCPF.Font.Color := clWindowText;
   end;
+end;
+
+procedure TformCadastroDeClientes.edtDataCadastroExit(Sender: TObject);
+begin
+  inherited;
+  FEntityClientes.validarData(edtDataCadastro);
+end;
+
+procedure TformCadastroDeClientes.edtDataNascimentoExit(Sender: TObject);
+begin
+  inherited;
+  FEntityClientes.validarData(edtDataNascimento);
 end;
 
 procedure TformCadastroDeClientes.edtPesquisarKeyUp(Sender: TObject;

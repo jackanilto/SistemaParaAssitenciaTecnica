@@ -7,7 +7,7 @@ uses
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
-  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics;
+  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask;
 
 type
   iConexaoQuery = interface
@@ -51,6 +51,9 @@ type
     function codigoCadastro(sp: string): integer;
     function listarGrid(value: TDataSource): iEntity;
     function ordenarGrid(column: TColumn): iEntity;
+
+    function exportar: iEntity;
+    procedure validarData(componet: tmaskEdit);
 
     function getCodigo(value: integer): iEntity;
     function getNome(value: string): iEntity;
@@ -622,6 +625,7 @@ type
 
   iCadastroSituacoesOrdem = interface
     ['{2BCC9FBF-46B9-4242-8722-5296F610EFAA}']
+
     function nomeTabela(value: string): iCadastroSituacoesOrdem;
     function getCampo(value: string): iCadastroSituacoesOrdem;
     function getValor(value: string): iCadastroSituacoesOrdem;
@@ -644,6 +648,105 @@ type
     function codigoCadastro(sp: string): integer;
     function listarGrid(value: TDataSource): iCadastroSituacoesOrdem;
     function ordenarGrid(column: TColumn): iCadastroSituacoesOrdem;
+
+    function getSITUACAO_ORDEM(value: string): iCadastroSituacoesOrdem;
+
+  end;
+
+  iCadastroClientes = interface
+    ['{1396E17A-4FC2-4F81-8481-05304DC5F636}']
+
+    function nomeTabela(value: string): iCadastroClientes;
+    function getCampo(value: string): iCadastroClientes;
+    function getValor(value: string): iCadastroClientes;
+    function getDataInicial(value: TDate): iCadastroClientes;
+    function getDataFinal(value: TDate): iCadastroClientes;
+    function open(value: string): iCadastroClientes;
+    function ExecSql: iCadastroClientes;
+    function sqlPesquisa: iCadastroClientes;
+    function sqlPesquisaData: iCadastroClientes;
+    function sqlPesquisaEstatica: iCadastroClientes;
+
+    function abrir: iCadastroClientes;
+    function inserir: iCadastroClientes;
+    function gravar: iCadastroClientes;
+    function deletar: iCadastroClientes;
+    function atualizar: iCadastroClientes;
+    function editar: iCadastroClientes;
+    function cancelar: iCadastroClientes;
+    function fecharQuery: iCadastroClientes;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroClientes;
+    function ordenarGrid(column: TColumn): iCadastroClientes;
+
+    function getID(value: integer): iCadastroClientes;
+    function getNome(value: string): iCadastroClientes;
+    function getTIPO_CADASTRO(value: string): iCadastroClientes;
+    function getDATA_NASCIMENTO(value: string): iCadastroClientes;
+    function getDATA_CADASTRO(value: string): iCadastroClientes;
+    function getCPF_CNPJ(value: string): iCadastroClientes;
+    function getDocumento(value: string): iCadastroClientes;
+    function getEndereco(value: string): iCadastroClientes;
+    function getBairro(value: string): iCadastroClientes;
+    function getNumero(value: integer): iCadastroClientes;
+    function getComplemento(value: string): iCadastroClientes;
+    function getCep(value: string): iCadastroClientes;
+    function getCidade(value: string): iCadastroClientes;
+    function getEstado(value: string): iCadastroClientes;
+    function getTelefone(value: string): iCadastroClientes;
+    function getCelular(value: string): iCadastroClientes;
+    function getEmail(value: string): iCadastroClientes;
+    function getFUNCIONARIO_CADASTRO(value: integer): iCadastroClientes;
+    function getSITUACAO_CLIENTE(value: string): iCadastroClientes;
+    function getFoto(value: TJPEGImage): iCadastroClientes;
+    function getObservacao(value: string): iCadastroClientes;
+    function exportar: iCadastroClientes;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
+  iEntradaProdutos = interface
+    ['{ECA9313B-F138-48F5-9B8E-003D7F2A8E62}']
+    function nomeTabela(value: string): iEntradaProdutos;
+    function getCampo(value: string): iEntradaProdutos;
+    function getValor(value: string): iEntradaProdutos;
+    function getDataInicial(value: TDate): iEntradaProdutos;
+    function getDataFinal(value: TDate): iEntradaProdutos;
+    function open(value: string): iEntradaProdutos;
+    function pesquisar: iEntradaProdutos;
+    function ExecSql: iEntradaProdutos;
+    function sqlPesquisa: iEntradaProdutos;
+    function sqlPesquisaData: iEntradaProdutos;
+    function sqlPesquisaEstatica: iEntradaProdutos;
+
+    function abrir: iEntradaProdutos;
+    function inserir: iEntradaProdutos;
+    function gravar: iEntradaProdutos;
+    function deletar: iEntradaProdutos;
+    function atualizar: iEntradaProdutos;
+    function editar: iEntradaProdutos;
+    function cancelar: iEntradaProdutos;
+    function fecharQuery: iEntradaProdutos;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iEntradaProdutos;
+    function ordenarGrid(column: TColumn): iEntradaProdutos;
+
+    function getID(value: integer): iEntradaProdutos;
+    function getID_PRODUTO(value: integer): iEntradaProdutos;
+    function getVALOR_POR_ITENS(value: currency): iEntradaProdutos;
+    function getQUANTIDADE(value: integer): iEntradaProdutos;
+    function getTOTAL_DA_ENTRADA(value: currency): iEntradaProdutos;
+    function getNUMERO_NOTA(value: string): iEntradaProdutos;
+    function getFuncionario(value: integer): iEntradaProdutos;
+    function getDATA(value: string): iEntradaProdutos;
+    function getHORA(value: string): iEntradaProdutos;
+    function getObservacao(value: string): iEntradaProdutos;
+
+    function exportar: iEntradaProdutos;
+    procedure validarData(componet: tmaskEdit);
+
+    function getCodigo(value: integer): iEntradaProdutos;
+    function getNome(value: string): iEntradaProdutos;
   end;
 
   iNivelAcessoFuncionario = interface

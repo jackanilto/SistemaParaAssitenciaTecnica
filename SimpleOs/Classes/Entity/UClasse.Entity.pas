@@ -13,7 +13,7 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
 
 type
 
@@ -57,6 +57,9 @@ type
     function listarGrid(value: TDataSource): iEntity;
     function ordenarGrid(column: TColumn): iEntity;
 
+    function exportar: iEntity;
+    procedure validarData(componet: tmaskEdit);
+
     function getCodigo(value: integer): iEntity;
     function getNome(value: string): iEntity;
 
@@ -86,7 +89,7 @@ end;
 function TEntity.cancelar: iEntity;
 begin
   FQuery.TQuery.Cancel;
-//  FQuery.TQuery.close;
+  // FQuery.TQuery.close;
 end;
 
 function TEntity.codigoCadastro(sp: string): integer;
@@ -151,6 +154,11 @@ function TEntity.ExecSql: iEntity;
 begin
   result := self;
   FQuery.ExecSql(FTabela);
+end;
+
+function TEntity.exportar: iEntity;
+begin
+  result := self;
 end;
 
 function TEntity.fecharQuery: iEntity;
@@ -292,6 +300,19 @@ begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
     .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TEntity.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
 end;
 
 end.

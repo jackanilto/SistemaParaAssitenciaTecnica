@@ -7,7 +7,7 @@ uses
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
-  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics;
+  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask;
 
 type
   iConexaoQuery = interface
@@ -51,6 +51,9 @@ type
     function codigoCadastro(sp: string): integer;
     function listarGrid(value: TDataSource): iEntity;
     function ordenarGrid(column: TColumn): iEntity;
+
+    function exportar: iEntity;
+    procedure validarData(componet: tmaskEdit);
 
     function getCodigo(value: integer): iEntity;
     function getNome(value: string): iEntity;
@@ -697,7 +700,50 @@ type
     function getSITUACAO_CLIENTE(value: string): iCadastroClientes;
     function getFoto(value: TJPEGImage): iCadastroClientes;
     function getObservacao(value: string): iCadastroClientes;
-    function exportar:iCadastroClientes;
+    function exportar: iCadastroClientes;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
+  iEntradaProdutos = interface
+    ['{ECA9313B-F138-48F5-9B8E-003D7F2A8E62}']
+    function nomeTabela(value: string): iEntradaProdutos;
+    function getCampo(value: string): iEntradaProdutos;
+    function getValor(value: string): iEntradaProdutos;
+    function getDataInicial(value: TDate): iEntradaProdutos;
+    function getDataFinal(value: TDate): iEntradaProdutos;
+    function open(value: string): iEntradaProdutos;
+    function pesquisar: iEntradaProdutos;
+    function ExecSql: iEntradaProdutos;
+    function sqlPesquisa: iEntradaProdutos;
+    function sqlPesquisaData: iEntradaProdutos;
+    function sqlPesquisaEstatica: iEntradaProdutos;
+
+    function abrir: iEntradaProdutos;
+    function inserir: iEntradaProdutos;
+    function gravar: iEntradaProdutos;
+    function deletar: iEntradaProdutos;
+    function atualizar: iEntradaProdutos;
+    function editar: iEntradaProdutos;
+    function cancelar: iEntradaProdutos;
+    function fecharQuery: iEntradaProdutos;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iEntradaProdutos;
+    function ordenarGrid(column: TColumn): iEntradaProdutos;
+
+    function getID(value: integer): iEntradaProdutos;
+    function getID_PRODUTO(value: integer): iEntradaProdutos;
+    function getVALOR_POR_ITENS(value: currency): iEntradaProdutos;
+    function getQUANTIDADE(value: integer): iEntradaProdutos;
+    function getTOTAL_DA_ENTRADA(value: currency): iEntradaProdutos;
+    function getNUMERO_NOTA(value: string): iEntradaProdutos;
+    function getFuncionario(value: integer): iEntradaProdutos;
+    function getDATA(value: string): iEntradaProdutos;
+    function getHORA(value: string): iEntradaProdutos;
+    function getObservacao(value: string): iEntradaProdutos;
+
+    function exportar: iEntradaProdutos;
+    procedure validarData(componet: tmaskEdit);
 
   end;
 

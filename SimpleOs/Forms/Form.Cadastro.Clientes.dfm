@@ -63,7 +63,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
     inherited cardPanelCadatro: TCard
       Width = 1118
       Height = 451
-      ExplicitTop = 1
       ExplicitWidth = 1118
       ExplicitHeight = 451
       object Label1: TLabel
@@ -694,6 +693,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
         TabOrder = 3
         Text = '  /  /    '
+        OnExit = edtDataNascimentoExit
       end
       object edtDataCadastro: TMaskEdit
         Left = 150
@@ -710,6 +710,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
         TabOrder = 4
         Text = '  /  /    '
+        OnExit = edtDataCadastroExit
       end
       object edtTelefone: TMaskEdit
         Left = 497
