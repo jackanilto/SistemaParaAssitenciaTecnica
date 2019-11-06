@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
   Vcl.Buttons, Vcl.StdCtrls, Vcl.WinXPanels, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.Menus;
+  Vcl.Menus, Vcl.Mask;
 
 type
   TformExemploEmbeded = class(TForm)
@@ -66,6 +66,7 @@ type
     procedure ativarDesativarExcluir;
     procedure ativarDesativarCancelar;
     procedure ativarDesativarPesquisar;
+    procedure validarData(value: string; componet: tmaskEdit);
   public
     { Public declarations }
   end;
@@ -196,8 +197,6 @@ begin
 
 end;
 
-
-
 procedure TformExemploEmbeded.lblCadastroClick(Sender: TObject);
 begin
   CardPanel1.ActiveCard := cardPanelCadatro;
@@ -295,6 +294,19 @@ begin
   lblConsulta.Enabled := true;
   showmessage('Operação realizada com sucesso!');
   ativarDesativarSalvar;
+end;
+
+procedure TformExemploEmbeded.validarData(value: string; componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(value);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise Exception.Create('Digite uma data válida.');
+  end;
 end;
 
 end.

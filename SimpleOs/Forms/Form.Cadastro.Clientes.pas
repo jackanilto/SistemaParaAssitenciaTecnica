@@ -9,7 +9,7 @@ uses
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Cadastro.Clientes, Vcl.Mask,
   ACBrBase, ACBrSocket, ACBrCEP, UFactory, UClasse.Entity.Table,
-  Vcl.Imaging.jpeg, Vcl.ExtDlgs;
+  Vcl.Imaging.jpeg, Vcl.ExtDlgs, frxClass, frxDBSet;
 
 type
   TformCadastroDeClientes = class(TformExemploEmbeded)
@@ -61,6 +61,8 @@ type
     ACBrCEP1: TACBrCEP;
     edtSituacaoCliente: TComboBox;
     OpenPictureDialog1: TOpenPictureDialog;
+    frxDB_Clientes: TfrxDBDataset;
+    frx_Clientes: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
@@ -71,6 +73,15 @@ type
     procedure sbSalvarClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure sbEditarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     FEntityClientes: iCadastroClientes;
@@ -148,6 +159,27 @@ begin
   end;
 end;
 
+procedure TformCadastroDeClientes.DBGrid1CellClick(Column: TColumn);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+  end
+  else
+  begin
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+  end;
+end;
+
+procedure TformCadastroDeClientes.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FEntityClientes.ordenarGrid(Column);
+end;
+
 procedure TformCadastroDeClientes.edtCPFCNPJExit(Sender: TObject);
 begin
   inherited;
@@ -161,6 +193,32 @@ begin
     lblCPF.Caption := 'CPF ou CNPJ';
     lblCPF.Font.Color := clWindowText;
   end;
+end;
+
+procedure TformCadastroDeClientes.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Nome' then
+    campo := 'NOME'
+  else if cbPesquisar.Text = 'CPF ou CNPJ' then
+    campo := 'CPF_CNPJ'
+  else if cbPesquisar.Text = 'Tipo cadastro' then
+    campo := 'TIPO_CADASTRO';
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntityClientes.getCampo(campo).getValor(edtPesquisar.Text)
+      .sqlPesquisa.listarGrid(DataSource1);
+
+  { Código
+    Nome
+    CPF ou CNPJ
+    Tipo cadastro }
 end;
 
 procedure TformCadastroDeClientes.FormClose(Sender: TObject;
@@ -180,9 +238,45 @@ end;
 procedure TformCadastroDeClientes.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityClientes.abrir.listarGrid(DataSource1);
+  FEntityClientes.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
   FEntityTableUF.FD_Table('UF').getCampoTabela('UF').popularComponenteComboBox
     (edtEstado);
+end;
+
+procedure TformCadastroDeClientes.sbCancelarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityClientes.cancelar;
+end;
+
+procedure TformCadastroDeClientes.sbEditarClick(Sender: TObject);
+begin
+
+  FEntityClientes.editar;
+  inherited;
+  edtNome.SetFocus;
+
+end;
+
+procedure TformCadastroDeClientes.sbExcluirClick(Sender: TObject);
+begin
+  inherited;
+  FEntityClientes.deletar;
+end;
+
+procedure TformCadastroDeClientes.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityClientes.exportar;
+end;
+
+procedure TformCadastroDeClientes.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_Clientes.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_clientes.fr3');
+  frx_Clientes.ShowReport();
 end;
 
 procedure TformCadastroDeClientes.sbNovoClick(Sender: TObject);

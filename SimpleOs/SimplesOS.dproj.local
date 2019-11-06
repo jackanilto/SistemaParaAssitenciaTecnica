@@ -135,6 +135,7 @@
     <File Path="Classes\Biblioteca\Wcrypt2.pas"/>
     <File Path="Classes\Entity"/>
     <File Path="Classes\Entity\UClasse.Entity.Atividade.Funcionario.pas"/>
+    <File Path="Classes\Entity\UClasse.Entity.Cadastro.Clientes.pas"/>
     <File Path="Classes\Entity\UClasse.Entity.Cadastro.Funcionario.pas"/>
     <File Path="Classes\Entity\UClasse.Entity.Cadastro.Situacoes.Ordem.pas"/>
     <File Path="Classes\Entity\UClasse.Entity.Comissoes.Funcionario.pas"/>
@@ -150,7 +151,6 @@
     <File Path="Classes\Entity\UClasse.Entity.Table.pas"/>
     <File Path="Classes\Entity\UClasse.Entity.Tipo.Retiradas.pas"/>
     <File Path="Classes\Entity\UClasse.Entity.Transportadora.pas"/>
-    <File Path="Classes\Entity\UClasse.Entity.Cadastro.Clientes.pas"/>
     <File Path="Classes\Factory"/>
     <File Path="Classes\Factory\UFactory.Entity.pas"/>
     <File Path="Classes\Factory\UFactory.pas"/>

@@ -824,3 +824,28 @@ GEN_SITUACAO_ORDEM_ID
 05/11/19 20:36:49 - Caption: Cadastro de clientes
 05/11/19 20:36:49 - Erro:Exception
 05/11/19 20:36:49 - Erro:Informe o tipo de cadastro realizado.
+06/11/19 11:26:00 - ===========================================
+06/11/19 11:26:00 - Form: formCadastroDeClientes
+06/11/19 11:26:00 - Caption: Cadastro de clientes
+06/11/19 11:26:00 - Erro:EFDException
+06/11/19 11:26:00 - Erro:[FireDAC][Phys][FB]-345. Data too large for variable [VALOR]. Max len = [2], actual len = [3] Hint: set the TFDParam.Size to a greater value
+06/11/19 11:26:32 - ===========================================
+06/11/19 11:26:32 - Form: formCadastroDeClientes
+06/11/19 11:26:32 - Caption: Cadastro de clientes
+06/11/19 11:26:32 - Erro:EFDException
+06/11/19 11:26:32 - Erro:[FireDAC][Phys][FB]-345. Data too large for variable [VALOR]. Max len = [2], actual len = [3] Hint: set the TFDParam.Size to a greater value
+06/11/19 12:29:32 - ===========================================
+06/11/19 12:29:32 - Form: formCadastroDeClientes
+06/11/19 12:29:32 - Caption: Cadastro de clientes
+06/11/19 12:29:32 - Erro:Exception
+06/11/19 12:29:32 - Erro:Informe o tipo de cadastro realizado.
+06/11/19 12:29:36 - ===========================================
+06/11/19 12:29:36 - Form: formCadastroDeClientes
+06/11/19 12:29:36 - Caption: Cadastro de clientes
+06/11/19 12:29:36 - Erro:Exception
+06/11/19 12:29:36 - Erro:Informe o tipo de cadastro realizado.
+06/11/19 12:29:42 - ===========================================
+06/11/19 12:29:42 - Form: formCadastroDeClientes
+06/11/19 12:29:42 - Caption: Cadastro de clientes
+06/11/19 12:29:42 - Erro:EConvertError
+06/11/19 12:29:42 - Erro:'01/01/0000' is not a valid date

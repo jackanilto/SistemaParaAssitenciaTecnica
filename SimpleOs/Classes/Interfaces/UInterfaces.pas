@@ -697,6 +697,7 @@ type
     function getSITUACAO_CLIENTE(value: string): iCadastroClientes;
     function getFoto(value: TJPEGImage): iCadastroClientes;
     function getObservacao(value: string): iCadastroClientes;
+    function exportar:iCadastroClientes;
 
   end;
 
