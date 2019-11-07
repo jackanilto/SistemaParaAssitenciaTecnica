@@ -55,7 +55,9 @@ uses
   Form.Cadastro.Situacao.Ordem in 'Forms\Form.Cadastro.Situacao.Ordem.pas' {formCadastroSituacoesOrdem},
   UClasse.Entity.Cadastro.Situacoes.Ordem in 'Classes\Entity\UClasse.Entity.Cadastro.Situacoes.Ordem.pas',
   Form.Cadastro.Clientes in 'Forms\Form.Cadastro.Clientes.pas' {formCadastroDeClientes},
-  UClasse.Entity.Cadastro.Clientes in 'Classes\Entity\UClasse.Entity.Cadastro.Clientes.pas';
+  UClasse.Entity.Cadastro.Clientes in 'Classes\Entity\UClasse.Entity.Cadastro.Clientes.pas',
+  UClasse.Entity.Entradas.Produtos in 'Classes\Entity\UClasse.Entity.Entradas.Produtos.pas',
+  Form.Entradas.Produtos in 'Forms\Form.Entradas.Produtos.pas' {formEntradaDeProdutos};
 
 {$R *.res}
 

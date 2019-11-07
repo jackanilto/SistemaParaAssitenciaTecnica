@@ -733,6 +733,7 @@ type
 
     function getID(value: integer): iEntradaProdutos;
     function getID_PRODUTO(value: integer): iEntradaProdutos;
+    function getProduto(value: string): iEntradaProdutos;
     function getVALOR_POR_ITENS(value: currency): iEntradaProdutos;
     function getQUANTIDADE(value: integer): iEntradaProdutos;
     function getTOTAL_DA_ENTRADA(value: currency): iEntradaProdutos;
@@ -743,6 +744,12 @@ type
     function getObservacao(value: string): iEntradaProdutos;
 
     function exportar: iEntradaProdutos;
+    function atualizarEstoque: iEntradaProdutos;
+    function getCodigoProdutoAtualizar(value: integer): iEntradaProdutos;
+    function getQuantidadeProdutoAtualizar(value: integer): iEntradaProdutos;
+    function getvalorEntradaProdutoAtualizar(value: currency): iEntradaProdutos;
+    function getValorTotalEntradaProdutoAtualizar(value: currency)
+      : iEntradaProdutos;
     procedure validarData(componet: tmaskEdit);
 
   end;

@@ -221,6 +221,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Cadastro.Clientes.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Entradas.Produtos.pas"/>
+        <DCCReference Include="Forms\Form.Entradas.Produtos.pas">
+            <Form>formEntradaDeProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -7082,17 +7082,19 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvCadastros: TSplitView
-    Left = 150
+    Left = 323
     Top = 57
-    Width = 173
+    Width = 0
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
     DockSite = True
+    Opened = False
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
+    ExplicitLeft = 325
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7169,15 +7171,56 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
-    Width = 0
+    Width = 173
     Height = 467
-    Color = clRed
-    Opened = False
-    OpenedWidth = 200
+    Color = 13401438
+    OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
+    object CategoryButtons4: TCategoryButtons
+      Left = -22
+      Top = 3
+      Width = 191
+      Height = 195
+      Margins.Bottom = 0
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      BorderStyle = bsNone
+      ButtonFlow = cbfVertical
+      ButtonWidth = 140
+      ButtonOptions = [boFullSize, boGradientFill, boShowCaptions, boVerticalCategoryCaptions]
+      Categories = <
+        item
+          Color = 13401438
+          Collapsed = False
+          Items = <
+            item
+              Action = acEntradasProdutos
+            end
+            item
+            end
+            item
+            end
+            item
+            end
+            item
+            end
+            item
+            end>
+        end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -15
+      Font.Name = 'Roboto'
+      Font.Orientation = 50
+      Font.Style = []
+      HotButtonColor = 13401438
+      RegularButtonColor = clNone
+      SelectedButtonColor = clNone
+      TabOrder = 0
+    end
   end
   object spvRelatorio: TSplitView
     Left = 323
@@ -7929,6 +7972,10 @@ object formPrincipal: TformPrincipal
     object acClientes: TAction
       Caption = 'Clientes'
       OnExecute = acClientesExecute
+    end
+    object acEntradasProdutos: TAction
+      Caption = 'Entradas produtos'
+      OnExecute = acEntradasProdutosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

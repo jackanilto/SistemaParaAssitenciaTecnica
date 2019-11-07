@@ -9,7 +9,7 @@ uses
   Vcl.Buttons,
   Vcl.CategoryButtons, System.ImageList, Vcl.ImgList, Vcl.StdCtrls,
   Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus, UFactory,
-  Form.Cadastro.Forma.Pagamento, Form.Cadastro.Clientes;
+  Form.Cadastro.Forma.Pagamento, Form.Cadastro.Clientes, Form.Entradas.Produtos;
 
 type
   TformPrincipal = class(TForm)
@@ -65,6 +65,8 @@ type
     acCadastroFuncionarios: TAction;
     acCadastroSituacaoOrdem: TAction;
     acClientes: TAction;
+    CategoryButtons4: TCategoryButtons;
+    acEntradasProdutos: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -89,6 +91,7 @@ type
     procedure acCadastroFuncionariosExecute(Sender: TObject);
     procedure acCadastroSituacaoOrdemExecute(Sender: TObject);
     procedure acClientesExecute(Sender: TObject);
+    procedure acEntradasProdutosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -201,6 +204,12 @@ procedure TformPrincipal.acContasAPagarExecute(Sender: TObject);
 begin
   formCadastroContasAPagar := TformCadastroContasAPagar.Create(self);
   TFactory.new.criarJanela.formShow(formCadastroContasAPagar, '');
+end;
+
+procedure TformPrincipal.acEntradasProdutosExecute(Sender: TObject);
+begin
+  formEntradaDeProdutos := TformEntradaDeProdutos.Create(self);
+  TFactory.new.criarJanela.formShow(formEntradaDeProdutos, '');
 end;
 
 procedure TformPrincipal.acExtrasExecute(Sender: TObject);
