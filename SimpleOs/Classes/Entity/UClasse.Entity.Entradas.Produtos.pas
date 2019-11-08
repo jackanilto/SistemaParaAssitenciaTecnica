@@ -79,6 +79,7 @@ type
     function getObservacao(value: string): iEntradaProdutos;
 
     function exportar: iEntradaProdutos;
+
     function atualizarEstoque: iEntradaProdutos;
     function getCodigoProdutoAtualizar(value: integer): iEntradaProdutos;
     function getQuantidadeProdutoAtualizar(value: integer): iEntradaProdutos;
@@ -124,11 +125,27 @@ begin
 
     if TQuery.RecordCount >= 1 then
     begin
-      { continuar a codificação do processo para editar os dados do produtos selecionado }
+      try
+        TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger :=
+          TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger + FQUANTIDADE;
+
+        TQuery.FieldByName('DATA_ALTERACAO').AsDateTime := date;
+
+        TQuery.Post;
+        TQuery.ApplyUpdates(-1);
+      except
+        on e: exception do
+        begin
+          raise exception.create
+            ('Erro ao tentar atualizar os dados do produto. ' + e.Message);
+        end;
+
+      end;
+
     end
     else
     begin
-      raise Exception.create('Nenhum produto foi localizado.');
+      raise exception.create('Nenhum produto foi localizado.');
     end;
 
   end;
@@ -226,7 +243,7 @@ function TEntityEntradasProdutos.getCodigoProdutoAtualizar(value: integer)
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Informe o código do produto.');
+    raise exception.create('Informe o código do produto.');
   FCodigoProdutoAtualizar := value;
 end;
 
@@ -277,7 +294,7 @@ function TEntityEntradasProdutos.getID_PRODUTO(value: integer)
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Informe o produto.');
+    raise exception.create('Informe o produto.');
   FID_PRODUTO := value;
 end;
 
@@ -297,7 +314,7 @@ function TEntityEntradasProdutos.getProduto(value: string): iEntradaProdutos;
 begin
   result := self;
   if value = EmptyStr then
-    raise Exception.create('Informe o produto.');
+    raise exception.create('Informe o produto.');
   FPRODUTO := value;
 end;
 
@@ -306,7 +323,7 @@ function TEntityEntradasProdutos.getQUANTIDADE(value: integer)
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Informe uma quantidade maior que 0(Zero).');
+    raise exception.create('Informe uma quantidade maior que 0(Zero).');
   FQUANTIDADE := value;
 end;
 
@@ -315,7 +332,7 @@ function TEntityEntradasProdutos.getQuantidadeProdutoAtualizar(value: integer)
 begin
   result := self;
   if FQuantidadeProdutoAtualizar = 0 then
-    raise Exception.create('Informe uma quantidade superior a 0(Zero)');
+    raise exception.create('Informe uma quantidade superior a 0(Zero)');
   FQuantidadeProdutoAtualizar := value;
 end;
 
@@ -337,7 +354,7 @@ function TEntityEntradasProdutos.getvalorEntradaProdutoAtualizar
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Informe um valor de entrada superior a 0(Zero)');
+    raise exception.create('Informe um valor de entrada superior a 0(Zero)');
   FvalorEntradaProdutoAtualizar := value;
 end;
 
@@ -347,7 +364,7 @@ begin
   result := self;
   ShowMessage(CurrToStr(value));
   if value = 0 then
-    raise Exception.create
+    raise exception.create
       ('Informe um valor total da entrada acima de 0(Zero).');
   FValorTotalEntradaProdutoAtualizar := value;
 end;
@@ -389,9 +406,9 @@ begin
   try
     FQuery.TQuery.Post;
   except
-    on e: Exception do
+    on e: exception do
     begin
-      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
 
   end;
@@ -490,7 +507,7 @@ begin
   except
     componet.SetFocus;
     componet.Clear;
-    raise Exception.create('Digite uma data válida.');
+    raise exception.create('Digite uma data válida.');
   end;
 end;
 
