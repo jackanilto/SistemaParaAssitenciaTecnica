@@ -7,7 +7,8 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Entradas.Produtos, Vcl.Mask;
+  Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Entradas.Produtos, Vcl.Mask,
+  UFactory;
 
 type
   TformEntradaDeProdutos = class(TformExemploEmbeded)
@@ -38,6 +39,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure sbNovoClick(Sender: TObject);
+    procedure sbPesquisarProdutoClick(Sender: TObject);
   private
     { Private declarations }
     FEntityEntradas: iEntradaProdutos;
@@ -52,6 +55,8 @@ implementation
 
 {$R *.dfm}
 
+uses Form.Localizar.Produtos.Entrada;
+
 procedure TformEntradaDeProdutos.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -59,18 +64,28 @@ begin
   with DataSource1.DataSet do
   begin
     edtCodigo.Text := inttostr(FieldByName('ID').AsInteger);
-    edtCodigoDoProduto.Text := inttostr(FieldByName('').AsInteger);
-    edtProduto.Text := FieldByName('').AsString;
-    edtValorPorItens.Text := CurrToStr(FieldByName().AsCurrency);
-    edtQuantidade.Text := inttostr(FieldByName('').AsInteger);
-    edtTotalDaEntrada.Text := CurrToStr(FieldByName('').AsCurrency);
-    edtNumeroNota.Text := FieldByName('').AsString;
-    edtFuncionario.Text := inttostr(FieldByName('').AsInteger);
+    edtCodigoDoProduto.Text := inttostr(FieldByName('ID_PRODUTO').AsInteger);
+    edtProduto.Text := FieldByName('PRODUTO').AsString;
+    edtValorPorItens.Text := CurrToStr(FieldByName('VALOR_POR_ITENS')
+      .AsCurrency);
+    edtQuantidade.Text := inttostr(FieldByName('QUANTIDADE').AsInteger);
+    edtTotalDaEntrada.Text := CurrToStr(FieldByName('TOTAL_DA_ENTRADA')
+      .AsCurrency);
+    edtNumeroNota.Text := FieldByName('NUMERO_NOTA').AsString;
+    edtFuncionario.Text := inttostr(FieldByName('FUNCIONARIO').AsInteger);
 
-    edtObsrvacao.Text := FieldByName('').AsString;
+    edtObsrvacao.Text := FieldByName('OBSERVACAO').AsString;
 
-    edtData.Text := DateToStr(FieldByName('').AsDateTime);
-    edtHora.Text := TimeToStr(FieldByName('').AsDateTime);
+    if FieldByName('DATA').AsDateTime <> StrToDate('30/12/1899') then
+    begin
+      edtData.Text := DateToStr(FieldByName('DATA').AsDateTime);
+      edtHora.Text := TimeToStr(FieldByName('HORA').AsDateTime);
+    end
+    else
+    begin
+      edtData.Clear;
+      edtHora.Clear;
+    end;
 
   end;
 end;
@@ -85,6 +100,21 @@ procedure TformEntradaDeProdutos.FormShow(Sender: TObject);
 begin
   inherited;
   FEntityEntradas.abrir.listarGrid(DataSource1);
+end;
+
+procedure TformEntradaDeProdutos.sbNovoClick(Sender: TObject);
+begin
+  inherited;
+  FEntityEntradas.inserir;
+  edtData.Text := DateToStr(date);
+  edtHora.Text := TimeToStr(time);
+end;
+
+procedure TformEntradaDeProdutos.sbPesquisarProdutoClick(Sender: TObject);
+begin
+  inherited;
+  formLocalizarProdutosEntradas := TformLocalizarProdutosEntradas.Create(self);
+  TFactory.new.criarJanela.formShow(formLocalizarProdutosEntradas, '');
 end;
 
 end.

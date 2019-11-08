@@ -924,3 +924,13 @@ GEN_SITUACAO_ORDEM_ID
 06/11/19 20:24:05 - Caption: Cadastro de clientes
 06/11/19 20:24:05 - Erro:Exception
 06/11/19 20:24:05 - Erro:Informe o tipo de cadastro realizado.
+08/11/19 16:47:53 - ===========================================
+08/11/19 16:47:53 - Form: formLocalizarProdutosEntradas
+08/11/19 16:47:53 - Caption: Localizar produtos - Entradas
+08/11/19 16:47:53 - Erro:EDatabaseError
+08/11/19 16:47:53 - Erro:Field 'ID' not found
+08/11/19 16:49:02 - ===========================================
+08/11/19 16:49:02 - Form: formLocalizarProdutosEntradas
+08/11/19 16:49:02 - Caption: Localizar produtos - Entradas
+08/11/19 16:49:02 - Erro:EDatabaseError
+08/11/19 16:49:02 - Erro:Field 'ID' not found

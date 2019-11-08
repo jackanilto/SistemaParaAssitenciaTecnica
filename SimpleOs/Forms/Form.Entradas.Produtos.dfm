@@ -14,14 +14,15 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
   end
   inherited Panel3: TPanel
     Top = 386
+    ExplicitTop = 386
   end
   inherited CardPanel1: TCardPanel
     Height = 305
     ActiveCard = cardPanelCadatro
+    ExplicitHeight = 305
     inherited cardPanelCadatro: TCard
       Height = 305
-      ExplicitLeft = 7
-      ExplicitTop = 1
+      ExplicitTop = 5
       ExplicitHeight = 305
       object Label1: TLabel
         Left = 32
@@ -235,6 +236,7 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
           FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
         ParentFont = False
+        OnClick = sbPesquisarProdutoClick
       end
       object edtCodigo: TEdit
         Left = 32
@@ -388,8 +390,10 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     end
     inherited cardPanelConsulta: TCard
       Height = 305
+      ExplicitHeight = 305
       inherited Panel4: TPanel
         Top = 260
+        ExplicitTop = 260
       end
       inherited DBGrid1: TDBGrid
         Height = 260

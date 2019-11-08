@@ -57,7 +57,8 @@ uses
   Form.Cadastro.Clientes in 'Forms\Form.Cadastro.Clientes.pas' {formCadastroDeClientes},
   UClasse.Entity.Cadastro.Clientes in 'Classes\Entity\UClasse.Entity.Cadastro.Clientes.pas',
   UClasse.Entity.Entradas.Produtos in 'Classes\Entity\UClasse.Entity.Entradas.Produtos.pas',
-  Form.Entradas.Produtos in 'Forms\Form.Entradas.Produtos.pas' {formEntradaDeProdutos};
+  Form.Entradas.Produtos in 'Forms\Form.Entradas.Produtos.pas' {formEntradaDeProdutos},
+  Form.Localizar.Produtos.Entrada in 'Forms\Localizar\Form.Localizar.Produtos.Entrada.pas' {formLocalizarProdutosEntradas};
 
 {$R *.res}
 
