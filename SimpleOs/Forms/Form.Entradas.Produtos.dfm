@@ -1,7 +1,7 @@
 inherited formEntradaDeProdutos: TformEntradaDeProdutos
   Caption = 'Entradas de produtos'
-  ClientHeight = 461
-  ExplicitHeight = 461
+  ClientHeight = 379
+  ExplicitHeight = 379
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
@@ -13,16 +13,36 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     end
   end
   inherited Panel3: TPanel
-    Top = 386
+    Top = 304
     ExplicitTop = 386
+    inherited sbEditar: TSpeedButton
+      Left = 718
+      Enabled = False
+      ExplicitLeft = 718
+    end
+    inherited sbExcluir: TSpeedButton
+      Left = 189
+      ExplicitLeft = 189
+    end
+    inherited sbCancelar: TSpeedButton
+      Left = 295
+      ExplicitLeft = 295
+    end
+    inherited cbPesquisar: TComboBox
+      Items.Strings = (
+        'C'#243'digo da entrada'
+        'C'#243'digo do produto'
+        'Produto/Servi'#231'o')
+    end
+    inherited edtPesquisar: TEdit
+      OnKeyUp = edtPesquisarKeyUp
+    end
   end
   inherited CardPanel1: TCardPanel
-    Height = 305
-    ActiveCard = cardPanelCadatro
+    Height = 223
     ExplicitHeight = 305
     inherited cardPanelCadatro: TCard
-      Height = 305
-      ExplicitTop = 5
+      Height = 223
       ExplicitHeight = 305
       object Label1: TLabel
         Left = 32
@@ -389,15 +409,20 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
       end
     end
     inherited cardPanelConsulta: TCard
-      Height = 305
+      Height = 223
       ExplicitHeight = 305
       inherited Panel4: TPanel
-        Top = 260
+        Top = 178
         ExplicitTop = 260
+        inherited sbExportar: TSpeedButton
+          OnClick = sbExportarClick
+        end
       end
       inherited DBGrid1: TDBGrid
-        Height = 260
+        Height = 178
         DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
+        OnTitleClick = DBGrid1TitleClick
       end
     end
   end

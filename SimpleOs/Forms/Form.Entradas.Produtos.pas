@@ -41,6 +41,14 @@ type
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure sbNovoClick(Sender: TObject);
     procedure sbPesquisarProdutoClick(Sender: TObject);
+    procedure sbSalvarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure sbExportarClick(Sender: TObject);
   private
     { Private declarations }
     FEntityEntradas: iEntradaProdutos;
@@ -90,6 +98,50 @@ begin
   end;
 end;
 
+procedure TformEntradaDeProdutos.DBGrid1CellClick(Column: TColumn);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+  end
+  else
+  begin
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+  end;
+end;
+
+procedure TformEntradaDeProdutos.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FEntityEntradas.ordenarGrid(Column);
+end;
+
+procedure TformEntradaDeProdutos.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código da entrada' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Código do produto' then
+    campo := 'ID_PRODUTO'
+  else if cbPesquisar.Text = 'Produto/Serviço' then
+    campo := 'PRODUTO';
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntityEntradas.getCampo(campo).getValor(edtPesquisar.Text)
+      .sqlPesquisa.listarGrid(DataSource1);
+
+  { Código da entrada
+    Código do produto
+    Produto/Serviço }
+end;
+
 procedure TformEntradaDeProdutos.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -100,6 +152,24 @@ procedure TformEntradaDeProdutos.FormShow(Sender: TObject);
 begin
   inherited;
   FEntityEntradas.abrir.listarGrid(DataSource1);
+end;
+
+procedure TformEntradaDeProdutos.sbCancelarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityEntradas.cancelar;
+end;
+
+procedure TformEntradaDeProdutos.sbExcluirClick(Sender: TObject);
+begin
+  inherited;
+  FEntityEntradas.deletar;
+end;
+
+procedure TformEntradaDeProdutos.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityEntradas.exportar;
 end;
 
 procedure TformEntradaDeProdutos.sbNovoClick(Sender: TObject);
@@ -113,8 +183,29 @@ end;
 procedure TformEntradaDeProdutos.sbPesquisarProdutoClick(Sender: TObject);
 begin
   inherited;
-  formLocalizarProdutosEntradas := TformLocalizarProdutosEntradas.Create(self);
-  TFactory.new.criarJanela.formShow(formLocalizarProdutosEntradas, '');
+  if sbNovo.Enabled = false then
+  begin
+    formLocalizarProdutosEntradas :=
+      TformLocalizarProdutosEntradas.Create(self);
+    TFactory.new.criarJanela.FormShow(formLocalizarProdutosEntradas, '');
+  end;
+end;
+
+procedure TformEntradaDeProdutos.sbSalvarClick(Sender: TObject);
+begin
+
+  FEntityEntradas.getID_PRODUTO(StrToInt(edtCodigoDoProduto.Text))
+    .getProduto(edtProduto.Text).getVALOR_POR_ITENS
+    (StrToCurr(edtValorPorItens.Text))
+    .getQUANTIDADE(StrToInt(edtQuantidade.Text)).getTOTAL_DA_ENTRADA
+    (StrToCurr(edtTotalDaEntrada.Text)).getNUMERO_NOTA(edtNumeroNota.Text)
+    .getDATA(edtData.Text).getHORA(edtHora.Text).getCodigoProdutoAtualizar
+    (StrToInt(edtCodigoDoProduto.Text)).getQuantidadeProdutoAtualizar
+    (StrToInt(edtQuantidade.Text)).getObservacao(edtObsrvacao.Text)
+    .gravar.atualizarEstoque;
+
+  inherited;
+
 end;
 
 end.

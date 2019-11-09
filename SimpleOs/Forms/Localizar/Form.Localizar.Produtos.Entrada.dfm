@@ -28,7 +28,7 @@ object formLocalizarProdutosEntradas: TformLocalizarProdutosEntradas
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 687
+    OnMouseDown = Panel1MouseDown
     DesignSize = (
       947
       41)
@@ -130,7 +130,6 @@ object formLocalizarProdutosEntradas: TformLocalizarProdutosEntradas
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 284
     DesignSize = (
       947
       62)
@@ -175,6 +174,11 @@ object formLocalizarProdutosEntradas: TformLocalizarProdutosEntradas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      Items.Strings = (
+        'C'#243'digo'
+        'Produto/Servi'#231'o'
+        'Tipo de cadastro'
+        'C'#243'digo de barras')
     end
     object edtPesquisar: TEdit
       Left = 734
@@ -189,6 +193,7 @@ object formLocalizarProdutosEntradas: TformLocalizarProdutosEntradas
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnKeyUp = edtPesquisarKeyUp
     end
   end
   object DBGrid1: TDBGrid
@@ -210,6 +215,7 @@ object formLocalizarProdutosEntradas: TformLocalizarProdutosEntradas
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    OnDblClick = DBGrid1DblClick
   end
   object DataSource1: TDataSource
     Left = 328

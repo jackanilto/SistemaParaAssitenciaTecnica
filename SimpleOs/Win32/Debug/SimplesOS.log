@@ -934,3 +934,37 @@ GEN_SITUACAO_ORDEM_ID
 08/11/19 16:49:02 - Caption: Localizar produtos - Entradas
 08/11/19 16:49:02 - Erro:EDatabaseError
 08/11/19 16:49:02 - Erro:Field 'ID' not found
+09/11/19 14:33:13 - ===========================================
+09/11/19 14:33:13 - Form: formEntradaDeProdutos
+09/11/19 14:33:13 - Caption: Entradas de produtos
+09/11/19 14:33:13 - Erro:EAccessViolation
+09/11/19 14:33:13 - Erro:Access violation at address 00977CF7 in module 'SimplesOS.exe'. Read of address 00000000
+09/11/19 14:35:20 - ===========================================
+09/11/19 14:35:20 - Form: formEntradaDeProdutos
+09/11/19 14:35:20 - Caption: Entradas de produtos
+09/11/19 14:35:20 - Erro:Exception
+09/11/19 14:35:20 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_ENTRADAS_PRODUTOS_1" on table "ENTRADAS_PRODUTOS"
+Foreign key reference target does not exist
+Problematic key value is ("ID_PRODUTO" = 0)
+09/11/19 14:35:46 - ===========================================
+09/11/19 14:35:46 - Form: formEntradaDeProdutos
+09/11/19 14:35:46 - Caption: Entradas de produtos
+09/11/19 14:35:46 - Erro:Exception
+09/11/19 14:35:46 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_ENTRADAS_PRODUTOS_1" on table "ENTRADAS_PRODUTOS"
+Foreign key reference target does not exist
+Problematic key value is ("ID_PRODUTO" = 0)
+09/11/19 14:45:01 - ===========================================
+09/11/19 14:45:01 - Form: formEntradaDeProdutos
+09/11/19 14:45:01 - Caption: Entradas de produtos
+09/11/19 14:45:01 - Erro:Exception
+09/11/19 14:45:01 - Erro:Informe uma quantidade superior a 0(Zero)
+09/11/19 14:47:18 - ===========================================
+09/11/19 14:47:18 - Form: formEntradaDeProdutos
+09/11/19 14:47:18 - Caption: Entradas de produtos
+09/11/19 14:47:18 - Erro:Exception
+09/11/19 14:47:18 - Erro:Informe uma quantidade superior a 0(Zero)
+09/11/19 14:49:18 - ===========================================
+09/11/19 14:49:18 - Form: formEntradaDeProdutos
+09/11/19 14:49:18 - Caption: Entradas de produtos
+09/11/19 14:49:18 - Erro:Exception
+09/11/19 14:49:18 - Erro:Erro ao tentar atualizar os dados do produto. Dataset not in edit or insert mode

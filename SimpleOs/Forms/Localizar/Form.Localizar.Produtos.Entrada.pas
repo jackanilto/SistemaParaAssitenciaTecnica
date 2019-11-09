@@ -24,6 +24,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
     procedure selecionarRegistros;
@@ -42,6 +47,40 @@ var
 implementation
 
 {$R *.dfm}
+
+uses Form.Entradas.Produtos;
+
+procedure TformLocalizarProdutosEntradas.DBGrid1DblClick(Sender: TObject);
+begin
+  formEntradaDeProdutos.edtCodigoDoProduto.text :=
+    DataSource1.DataSet.FieldByName('ID').AsInteger.ToString;
+  formEntradaDeProdutos.edtProduto.text := DataSource1.DataSet.FieldByName
+    ('SERVICO_PRODUTO').AsString;
+  Close;
+end;
+
+procedure TformLocalizarProdutosEntradas.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+
+  if cbPesquisar.text = 'Código' then
+    FCampo := 'ID'
+  else if cbPesquisar.text = 'Produto/Serviço' then
+    FCampo := 'SERVICO_PRODUTO'
+  else if cbPesquisar.text = 'Tipo de cadastro' then
+    FCampo := 'TIPO_CADASTROS'
+  else if cbPesquisar.text = 'Código de barras' then
+    FCampo := 'CODIGO_BARRAS';
+
+  FValor := UpperCase(edtPesquisar.text);
+
+  selecionarRegistros;
+
+  { Código
+    Produto/Serviço
+    Tipo de cadastro
+    Código de barras }
+end;
 
 procedure TformLocalizarProdutosEntradas.FormClose(Sender: TObject;
   var Action: TCloseAction);
@@ -62,9 +101,21 @@ begin
   selecionarRegistros;
 end;
 
+procedure TformLocalizarProdutosEntradas.Panel1MouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+const
+  SC_DRAGMOVE = $F012;
+begin
+  if Button = mbleft then
+  begin
+    ReleaseCapture;
+    self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
+  end;
+end;
+
 procedure TformLocalizarProdutosEntradas.sbFecharClick(Sender: TObject);
 begin
-  close;
+  Close;
 end;
 
 procedure TformLocalizarProdutosEntradas.selecionarRegistros;

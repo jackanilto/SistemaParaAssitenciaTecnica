@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -126,13 +127,16 @@ begin
     if TQuery.RecordCount >= 1 then
     begin
       try
+
+        TQuery.Edit;
+
         TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger :=
           TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger + FQUANTIDADE;
 
         TQuery.FieldByName('DATA_ALTERACAO').AsDateTime := date;
 
         TQuery.Post;
-        TQuery.ApplyUpdates(-1);
+        // TQuery.ApplyUpdates(-1);
       except
         on e: exception do
         begin
@@ -223,8 +227,63 @@ begin
 end;
 
 function TEntityEntradasProdutos.exportar: iEntradaProdutos;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Entrada de Produtos';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Código do produto';
+  pasta.cells[1, 3] := 'Produto/Serviço';
+  pasta.cells[1, 4] := 'Valor por item';
+  pasta.cells[1, 5] := 'Quantidade';
+  pasta.cells[1, 6] := 'Total da entrada';
+  pasta.cells[1, 7] := 'Número da nota';
+  pasta.cells[1, 8] := 'Funcionário';
+  pasta.cells[1, 9] := 'Data';
+  pasta.cells[1, 10] := 'Hora';
+  pasta.cells[1, 11] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_PRODUTO')
+        .AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('PRODUTO').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR_POR_ITENS')
+        .AsCurrency;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('QUANTIDADE')
+        .AsInteger;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('TOTAL_DA_ENTRADA')
+        .AsCurrency;
+      pasta.cells[linha, 7] := '"'+FQuery.TQuery.FieldByName('NUMERO_NOTA')
+        .AsString+'"';
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('FUNCIONARIO')
+        .AsInteger;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA').AsDateTime;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('HORA').AsDateTime;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('OBSERVACAO')
+        .AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TEntityEntradasProdutos.fecharQuery: iEntradaProdutos;
@@ -307,7 +366,8 @@ end;
 
 function TEntityEntradasProdutos.getObservacao(value: string): iEntradaProdutos;
 begin
-
+  result := self;
+  FOBSERVACAO := value;
 end;
 
 function TEntityEntradasProdutos.getProduto(value: string): iEntradaProdutos;
@@ -331,7 +391,7 @@ function TEntityEntradasProdutos.getQuantidadeProdutoAtualizar(value: integer)
   : iEntradaProdutos;
 begin
   result := self;
-  if FQuantidadeProdutoAtualizar = 0 then
+  if value = 0 then
     raise exception.create('Informe uma quantidade superior a 0(Zero)');
   FQuantidadeProdutoAtualizar := value;
 end;
