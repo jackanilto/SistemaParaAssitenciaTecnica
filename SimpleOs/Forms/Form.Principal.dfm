@@ -7094,7 +7094,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 325
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7200,6 +7199,7 @@ object formPrincipal: TformPrincipal
               Action = acEntradasProdutos
             end
             item
+              Action = acSaidaProdutos
             end
             item
             end
@@ -7976,6 +7976,10 @@ object formPrincipal: TformPrincipal
     object acEntradasProdutos: TAction
       Caption = 'Entradas produtos'
       OnExecute = acEntradasProdutosExecute
+    end
+    object acSaidaProdutos: TAction
+      Caption = 'Sa'#237'da produtos'
+      OnExecute = acSaidaProdutosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

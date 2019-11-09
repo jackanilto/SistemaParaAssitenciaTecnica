@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Entradas.Produtos, Vcl.Mask,
-  UFactory;
+  UFactory, frxClass, frxDBSet;
 
 type
   TformEntradaDeProdutos = class(TformExemploEmbeded)
@@ -36,6 +36,8 @@ type
     sbPesquisarProduto: TSpeedButton;
     edtData: TMaskEdit;
     edtHora: TMaskEdit;
+    frxDB_EntradasProdutos: TfrxDBDataset;
+    frx_EntradasProdutos: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
@@ -49,6 +51,8 @@ type
     procedure DBGrid1CellClick(Column: TColumn);
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure edtQuantidadeExit(Sender: TObject);
   private
     { Private declarations }
     FEntityEntradas: iEntradaProdutos;
@@ -142,6 +146,31 @@ begin
     Produto/Serviço }
 end;
 
+procedure TformEntradaDeProdutos.edtQuantidadeExit(Sender: TObject);
+var
+  valorEntrada: currency;
+  quantidade: integer;
+begin
+  inherited;
+
+  try
+    valorEntrada := StrToCurr(edtValorPorItens.Text);
+  except
+    on e: exception do
+      raise exception.Create('Informe um valor válido para da entrada.');
+  end;
+
+  try
+    quantidade := StrToInt(edtQuantidade.Text);
+  except
+    on e: exception do
+      raise exception.Create('Informe um valor válido para a quantidade.');
+  end;
+
+  edtTotalDaEntrada.Text := CurrToStr(valorEntrada * quantidade);
+
+end;
+
 procedure TformEntradaDeProdutos.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -170,6 +199,14 @@ procedure TformEntradaDeProdutos.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FEntityEntradas.exportar;
+end;
+
+procedure TformEntradaDeProdutos.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_EntradasProdutos.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_entradas_produtos.fr3');
+  frx_EntradasProdutos.ShowReport();
 end;
 
 procedure TformEntradaDeProdutos.sbNovoClick(Sender: TObject);

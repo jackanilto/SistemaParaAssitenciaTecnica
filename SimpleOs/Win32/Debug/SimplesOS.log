@@ -968,3 +968,18 @@ Problematic key value is ("ID_PRODUTO" = 0)
 09/11/19 14:49:18 - Caption: Entradas de produtos
 09/11/19 14:49:18 - Erro:Exception
 09/11/19 14:49:18 - Erro:Erro ao tentar atualizar os dados do produto. Dataset not in edit or insert mode
+09/11/19 18:30:51 - ===========================================
+09/11/19 18:30:51 - Form: formEntradaDeProdutos
+09/11/19 18:30:51 - Caption: Entradas de produtos
+09/11/19 18:30:51 - Erro:Exception
+09/11/19 18:30:51 - Erro:Informe o produto.
+09/11/19 18:31:11 - ===========================================
+09/11/19 18:31:11 - Form: formEntradaDeProdutos
+09/11/19 18:31:11 - Caption: Entradas de produtos
+09/11/19 18:31:11 - Erro:Exception
+09/11/19 18:31:11 - Erro:Informe uma quantidade maior que 0(Zero).
+09/11/19 18:31:18 - ===========================================
+09/11/19 18:31:18 - Form: formEntradaDeProdutos
+09/11/19 18:31:18 - Caption: Entradas de produtos
+09/11/19 18:31:18 - Erro:Exception
+09/11/19 18:31:18 - Erro:Informe uma quantidade maior que 0(Zero).

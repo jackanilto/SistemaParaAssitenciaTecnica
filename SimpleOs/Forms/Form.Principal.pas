@@ -67,6 +67,7 @@ type
     acClientes: TAction;
     CategoryButtons4: TCategoryButtons;
     acEntradasProdutos: TAction;
+    acSaidaProdutos: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -92,6 +93,7 @@ type
     procedure acCadastroSituacaoOrdemExecute(Sender: TObject);
     procedure acClientesExecute(Sender: TObject);
     procedure acEntradasProdutosExecute(Sender: TObject);
+    procedure acSaidaProdutosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -113,7 +115,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Atividade.Funcionario, Form.Cadastro.Contas.APagar,
   Form.Cadastro.Problemas.Frequentes, Form.Cadastro.Forncedores,
   Form.Cadastro.Transportadora, Form.Cadastro.Produtos,
-  Form.Cadastro.Funcionarios, Form.Cadastro.Situacao.Ordem;
+  Form.Cadastro.Funcionarios, Form.Cadastro.Situacao.Ordem,
+  Form.Saidas.Produtos;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -259,6 +262,12 @@ begin
     spvRelatorio.Opened := true;
     F_SplitView := spvRelatorio;
   end;
+end;
+
+procedure TformPrincipal.acSaidaProdutosExecute(Sender: TObject);
+begin
+  formSaidaDeProdutos := TformSaidaDeProdutos.Create(self);
+  TFactory.new.criarJanela.formShow(formSaidaDeProdutos, '');
 end;
 
 procedure TformPrincipal.acSairExecute(Sender: TObject);

@@ -754,6 +754,49 @@ type
 
   end;
 
+  iSaidaDeProdutos = interface
+    ['{D18DBDB1-ABB7-4CA4-B8A1-F1606E69D07E}']
+
+    function nomeTabela(value: string): iSaidaDeProdutos;
+    function getCampo(value: string): iSaidaDeProdutos;
+    function getValor(value: string): iSaidaDeProdutos;
+    function getDataInicial(value: TDate): iSaidaDeProdutos;
+    function getDataFinal(value: TDate): iSaidaDeProdutos;
+    function open(value: string): iSaidaDeProdutos;
+    function pesquisar: iSaidaDeProdutos;
+    function ExecSql: iSaidaDeProdutos;
+    function sqlPesquisa: iSaidaDeProdutos;
+    function sqlPesquisaData: iSaidaDeProdutos;
+    function sqlPesquisaEstatica: iSaidaDeProdutos;
+
+    function abrir: iSaidaDeProdutos;
+    function inserir: iSaidaDeProdutos;
+    function gravar: iSaidaDeProdutos;
+    function deletar: iSaidaDeProdutos;
+    function atualizar: iSaidaDeProdutos;
+    function editar: iSaidaDeProdutos;
+    function cancelar: iSaidaDeProdutos;
+    function fecharQuery: iSaidaDeProdutos;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iSaidaDeProdutos;
+    function ordenarGrid(column: TColumn): iSaidaDeProdutos;
+
+    function getID(value: integer): iSaidaDeProdutos;
+    function getID_PRODUTO(value: integer): iSaidaDeProdutos;
+    function getPRODUTOS(value: string): iSaidaDeProdutos;
+    function getVALORPRODUTO(value: currency): iSaidaDeProdutos;
+    function getQUANTIDADE(value: integer): iSaidaDeProdutos;
+    function getTOTAL(value: currency): iSaidaDeProdutos;
+    function getFuncionario(value: integer): iSaidaDeProdutos;
+    function getObservacao(value: string): iSaidaDeProdutos;
+
+    function exportar: iSaidaDeProdutos;
+    function atualizarEstoque: iSaidaDeProdutos;
+    function getCodigoProdutoAtualizar(value: integer): iSaidaDeProdutos;
+    function getQuantidadeProdutoAtualizar(value: integer): iSaidaDeProdutos;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

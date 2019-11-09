@@ -40,6 +40,7 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
   end
   inherited CardPanel1: TCardPanel
     Height = 223
+    ActiveCard = cardPanelCadatro
     ExplicitHeight = 305
     inherited cardPanelCadatro: TCard
       Height = 223
@@ -86,9 +87,9 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
       object Label6: TLabel
         Left = 32
         Top = 130
-        Width = 86
+        Width = 113
         Height = 17
-        Caption = 'Valor por itens'
+        Caption = 'Valor por itens (R$)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -112,9 +113,9 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
       object Label8: TLabel
         Left = 285
         Top = 130
-        Width = 96
+        Width = 123
         Height = 17
-        Caption = 'Total da entrada'
+        Caption = 'Total da entrada (R$)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -322,6 +323,7 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
         Font.Style = []
         ParentFont = False
         TabOrder = 4
+        OnExit = edtQuantidadeExit
       end
       object edtTotalDaEntrada: TEdit
         Left = 285
@@ -414,6 +416,9 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
       inherited Panel4: TPanel
         Top = 178
         ExplicitTop = 260
+        inherited sbImprimir: TSpeedButton
+          OnClick = sbImprimirClick
+        end
         inherited sbExportar: TSpeedButton
           OnClick = sbExportarClick
         end
@@ -434,5 +439,424 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     OnDataChange = DataSource1DataChange
     Left = 448
     Top = 17
+  end
+  object frxDB_EntradasProdutos: TfrxDBDataset
+    UserName = 'frxDB_EntradasProdutos'
+    CloseDataSource = False
+    DataSource = DataSource1
+    BCDToCurrency = False
+    Left = 688
+    Top = 129
+  end
+  object frx_EntradasProdutos: TfrxReport
+    Version = '6.3.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43778.646652870370000000
+    ReportOptions.LastChange = 43778.655494189810000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      ''
+      'begin'
+      ''
+      'end.')
+    Left = 576
+    Top = 129
+    Datasets = <
+      item
+        DataSet = frxDB_EntradasProdutos
+        DataSetName = 'frxDB_EntradasProdutos'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 139.842610000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Top = 26.456710000000000000
+          Width = 718.110700000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -24
+          Font.Name = 'roboto'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'Relat'#243'rio entrada de produtos')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Left = 22.779530000000000000
+          Top = 60.692950000000000000
+          Width = 665.197280000000000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+        object SysMemo1: TfrxSysMemoView
+          AllowVectorExport = True
+          Left = 593.386210000000000000
+          Top = 64.472480000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[DATE]')
+          ParentFont = False
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 207.874150000000000000
+        Top = 219.212740000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDB_EntradasProdutos
+        DataSetName = 'frxDB_EntradasProdutos'
+        RowCount = 0
+        object Shape1: TfrxShapeView
+          AllowVectorExport = True
+          Width = 718.110700000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 7.559060000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'C'#243'digo:')
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 56.692950000000000000
+          Top = 7.559060000000000000
+          Width = 102.047310000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."ID"]')
+        end
+        object Line2: TfrxLineView
+          AllowVectorExport = True
+          Left = 170.078850000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Left = 181.417440000000000000
+          Top = 7.559060000000000000
+          Width = 117.165430000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'C'#243'digo do produto:')
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 302.362400000000000000
+          Top = 7.559060000000000000
+          Width = 230.551330000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."ID_PRODUTO"]')
+        end
+        object Shape2: TfrxShapeView
+          AllowVectorExport = True
+          Top = 26.456710000000000000
+          Width = 718.110700000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 34.015770000000000000
+          Width = 60.472480000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Produtos:')
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 64.252010000000000000
+          Top = 34.015770000000000000
+          Width = 616.063390000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."PRODUTO"]')
+        end
+        object Shape3: TfrxShapeView
+          AllowVectorExport = True
+          Top = 52.913420000000000000
+          Width = 718.110700000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Shape4: TfrxShapeView
+          AllowVectorExport = True
+          Top = 79.370130000000000000
+          Width = 718.110700000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 60.472480000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Valor por item:')
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 102.047310000000000000
+          Top = 60.472480000000000000
+          Width = 128.504020000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."VALOR_POR_ITENS"]')
+        end
+        object Line3: TfrxLineView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 52.913420000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo11: TfrxMemoView
+          AllowVectorExport = True
+          Left = 245.669450000000000000
+          Top = 60.472480000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Quantidade:')
+        end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 321.260050000000000000
+          Top = 60.472480000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."QUANTIDADE"]')
+        end
+        object Line4: TfrxLineView
+          AllowVectorExport = True
+          Left = 419.527830000000000000
+          Top = 52.913420000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo13: TfrxMemoView
+          AllowVectorExport = True
+          Left = 427.086890000000000000
+          Top = 60.472480000000000000
+          Width = 105.826840000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Total da entrada:')
+        end
+        object Memo14: TfrxMemoView
+          AllowVectorExport = True
+          Left = 536.693260000000000000
+          Top = 60.472480000000000000
+          Width = 166.299320000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."TOTAL_DA_ENTRADA"]')
+        end
+        object Shape5: TfrxShapeView
+          AllowVectorExport = True
+          Top = 105.826840000000000000
+          Width = 718.110700000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Shape6: TfrxShapeView
+          AllowVectorExport = True
+          Top = 132.283550000000000000
+          Width = 718.110700000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Memo15: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 86.929190000000000000
+          Width = 105.826840000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'N'#250'mero da nota:')
+        end
+        object Memo16: TfrxMemoView
+          AllowVectorExport = True
+          Left = 113.385900000000000000
+          Top = 86.929190000000000000
+          Width = 593.386210000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."NUMERO_NOTA"]')
+        end
+        object Memo17: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 111.385900000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Funcion'#225'rio:')
+        end
+        object Memo18: TfrxMemoView
+          AllowVectorExport = True
+          Left = 82.149660000000000000
+          Top = 111.385900000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."FUNCIONARIO"]')
+        end
+        object Line5: TfrxLineView
+          AllowVectorExport = True
+          Left = 185.196970000000000000
+          Top = 105.826840000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo19: TfrxMemoView
+          AllowVectorExport = True
+          Left = 192.756030000000000000
+          Top = 113.385900000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Data e hora:')
+        end
+        object Memo20: TfrxMemoView
+          AllowVectorExport = True
+          Left = 272.126160000000000000
+          Top = 113.385900000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."DATA"]')
+        end
+        object Memo21: TfrxMemoView
+          AllowVectorExport = True
+          Left = 374.173470000000000000
+          Top = 113.385900000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."HORA"]')
+        end
+        object Memo22: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 139.842610000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Observa'#231#227'o:')
+        end
+        object Memo23: TfrxMemoView
+          AllowVectorExport = True
+          Left = 86.929190000000000000
+          Top = 139.842610000000000000
+          Width = 627.401980000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_EntradasProdutos."OBSERVACAO"]')
+        end
+        object Line6: TfrxLineView
+          AllowVectorExport = True
+          Left = 18.897650000000000000
+          Top = 181.417440000000000000
+          Width = 668.976810000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Frame.Width = 2.000000000000000000
+          Diagonal = True
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 487.559370000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Left = 642.520100000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[Page#]')
+        end
+      end
+    end
   end
 end
