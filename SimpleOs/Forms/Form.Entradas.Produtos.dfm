@@ -14,7 +14,7 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
   end
   inherited Panel3: TPanel
     Top = 304
-    ExplicitTop = 386
+    ExplicitTop = 304
     inherited sbEditar: TSpeedButton
       Left = 718
       Enabled = False
@@ -41,10 +41,10 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
   inherited CardPanel1: TCardPanel
     Height = 223
     ActiveCard = cardPanelCadatro
-    ExplicitHeight = 305
+    ExplicitHeight = 223
     inherited cardPanelCadatro: TCard
       Height = 223
-      ExplicitHeight = 305
+      ExplicitHeight = 223
       object Label1: TLabel
         Left = 32
         Top = 16
@@ -270,6 +270,7 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 0
       end
       object edtCodigoDoProduto: TEdit
@@ -412,10 +413,10 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     end
     inherited cardPanelConsulta: TCard
       Height = 223
-      ExplicitHeight = 305
+      ExplicitHeight = 223
       inherited Panel4: TPanel
         Top = 178
-        ExplicitTop = 260
+        ExplicitTop = 178
         inherited sbImprimir: TSpeedButton
           OnClick = sbImprimirClick
         end

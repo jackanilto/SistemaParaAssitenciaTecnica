@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -12,6 +13,7 @@ type
   private
 
     FQuery: iConexaoQuery;
+    FQueryAtualizarProdutos: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
     FTabela: string;
     FCampo: string;
@@ -25,6 +27,9 @@ type
     FVALORPRODUTOS: Currency;
     FQUANTIDADE: integer;
     FTOTAL: Currency;
+    FData: String;
+    FHora: string;
+    FMotivo: string;
     FFUNCIONARIO: integer;
     FOBSERVACAO: string;
 
@@ -36,6 +41,7 @@ type
     function getCodigo(value: integer): iSaidaDeProdutos;
     function getNome(value: string): iSaidaDeProdutos;
     procedure validarData(componet: tmaskEdit);
+    procedure selecionarProdutos(value: integer);
 
   public
 
@@ -69,10 +75,14 @@ type
     function getVALORPRODUTO(value: Currency): iSaidaDeProdutos;
     function getQUANTIDADE(value: integer): iSaidaDeProdutos;
     function getTOTAL(value: Currency): iSaidaDeProdutos;
+    function getData(value: string): iSaidaDeProdutos;
+    function getHora(value: string): iSaidaDeProdutos;
+    function getMotivo(value: string): iSaidaDeProdutos;
     function getFuncionario(value: integer): iSaidaDeProdutos;
     function getObservacao(value: string): iSaidaDeProdutos;
 
     function exportar: iSaidaDeProdutos;
+
     function atualizarEstoque: iSaidaDeProdutos;
     function getCodigoProdutoAtualizar(value: integer): iSaidaDeProdutos;
     function getQuantidadeProdutoAtualizar(value: integer): iSaidaDeProdutos;
@@ -103,6 +113,36 @@ end;
 function TEntitySaidasProdutos.atualizarEstoque: iSaidaDeProdutos;
 begin
   result := self;
+
+  with FQueryAtualizarProdutos do
+  begin
+
+    if TQuery.RecordCount >= 1 then
+    begin
+      try
+        TQuery.Edit;
+
+        showmessage('Entrou');
+
+        TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger :=
+          TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger - FQUANTIDADE;
+        TQuery.FieldByName('DATA_ALTERACAO').AsDateTime := date;
+
+        showmessage(inttostr(TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger));
+
+        TQuery.Post;
+      except
+        on e: exception do
+        begin
+          raise exception.create('Houve um erro ao tentar atualizar o estoque. '
+            + e.Message);
+        end;
+
+      end;
+    end;
+
+  end;
+
 end;
 
 function TEntitySaidasProdutos.cancelar: iSaidaDeProdutos;
@@ -118,11 +158,12 @@ end;
 
 constructor TEntitySaidasProdutos.create;
 begin
-  FTabela := 'PRODUTOS';
+  FTabela := 'SAIDA_PRODUTOS';
   FQuery := TConexaoQuery.new.Query(FTabela);
+  FQueryAtualizarProdutos := TConexaoQuery.new.Query('PRODUTOS');
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+  FGravarLog.getJanela('Saídas de produtos').getCodigoFuncionario
     (funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
@@ -138,9 +179,8 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTOS').AsString)
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -160,9 +200,8 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTOS').AsString)
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
     FQuery.TQuery.Edit;
 
@@ -176,8 +215,60 @@ begin
 end;
 
 function TEntitySaidasProdutos.exportar: iSaidaDeProdutos;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Entrada de Produtos';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Código do produto';
+  pasta.cells[1, 3] := 'Produto/Serviço';
+  pasta.cells[1, 4] := 'Valor do produto';
+  pasta.cells[1, 5] := 'Quantidade';
+  pasta.cells[1, 6] := 'Total';
+  pasta.cells[1, 7] := 'Data';
+  pasta.cells[1, 8] := 'Hora';
+  pasta.cells[1, 9] := 'Funcionário';
+  pasta.cells[1, 10] := 'Motivo';
+  pasta.cells[1, 11] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_PRODUTO')
+        .AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('PRODUTOS').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('QUANTIDADE')
+        .AsInteger;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('TOTAL').AsCurrency;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('DATA').AsDateTime;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('HORA').AsDateTime;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('FUNCIONARIO')
+        .AsInteger;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('MOTIVO').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('OBSERVACAO')
+        .AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TEntitySaidasProdutos.fecharQuery: iSaidaDeProdutos;
@@ -202,8 +293,17 @@ function TEntitySaidasProdutos.getCodigoProdutoAtualizar(value: integer)
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Infome o código do produto.');
+    raise exception.create('Infome o código do produto.');
   FCodigoProdutoAtualizar := value;
+end;
+
+function TEntitySaidasProdutos.getData(value: string): iSaidaDeProdutos;
+begin
+  result := self;
+  if value = '  /  /    ' then
+    FData := ''
+  else
+    FData := value;
 end;
 
 function TEntitySaidasProdutos.getDataFinal(value: TDate): iSaidaDeProdutos;
@@ -226,6 +326,12 @@ begin
   FFUNCIONARIO := value;
 end;
 
+function TEntitySaidasProdutos.getHora(value: string): iSaidaDeProdutos;
+begin
+  result := self;
+  FHora := value;
+end;
+
 function TEntitySaidasProdutos.getID(value: integer): iSaidaDeProdutos;
 begin
   result := self;
@@ -236,6 +342,14 @@ function TEntitySaidasProdutos.getID_PRODUTO(value: integer): iSaidaDeProdutos;
 begin
   result := self;
   FID_PRODUTO := value;
+end;
+
+function TEntitySaidasProdutos.getMotivo(value: string): iSaidaDeProdutos;
+begin
+  result := self;
+  if value = EmptyStr then
+    raise exception.create('Você deve informar um motivo para a saída.');
+  FMotivo := value;
 end;
 
 function TEntitySaidasProdutos.getNome(value: string): iSaidaDeProdutos;
@@ -254,7 +368,7 @@ function TEntitySaidasProdutos.getPRODUTOS(value: string): iSaidaDeProdutos;
 begin
   result := self;
   if value = EmptyStr then
-    raise Exception.create('Informe o nome do produto.');
+    raise exception.create('Informe o nome do produto.');
   FPRODUTOS := value;
 end;
 
@@ -262,7 +376,7 @@ function TEntitySaidasProdutos.getQUANTIDADE(value: integer): iSaidaDeProdutos;
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Informe uma quantidade superior a 0 (zero).');
+    raise exception.create('Informe uma quantidade superior a 0 (zero).');
   FQUANTIDADE := value;
 end;
 
@@ -271,7 +385,7 @@ function TEntitySaidasProdutos.getQuantidadeProdutoAtualizar(value: integer)
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Informe a quantidade de produtos sa saída.');
+    raise exception.create('Informe a quantidade de produtos sa saída.');
   FQuantidadeProdutoAtualizar := value;
 end;
 
@@ -279,7 +393,7 @@ function TEntitySaidasProdutos.getTOTAL(value: Currency): iSaidaDeProdutos;
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('O total da saída deve ser superior a 0 (zero).');
+    raise exception.create('O total da saída deve ser superior a 0 (zero).');
   FTOTAL := value;
 end;
 
@@ -294,7 +408,7 @@ function TEntitySaidasProdutos.getVALORPRODUTO(value: Currency)
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('O valor do produto deve ser maior que 0 (zero)');
+    raise exception.create('O valor do produto deve ser maior que 0 (zero)');
   FVALORPRODUTOS := value;
 end;
 
@@ -303,22 +417,41 @@ begin
 
   result := self;
 
+  selecionarProdutos(FCodigoProdutoAtualizar);
+
+  if FQueryAtualizarProdutos.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger < FQUANTIDADE
+  then
+    raise exception.create
+      ('Não há produtos o suficiente para efetuar esta saída. Informe uma quantidade menor.');
+
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+      FQuery.codigoCadastro('SP_GEN_SAIDA_PRODUTOS_ID');
 
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+  FQuery.TQuery.FieldByName('ID_PRODUTO').AsInteger := FID_PRODUTO;
+  FQuery.TQuery.FieldByName('PRODUTOS').AsString := FPRODUTOS;
+  FQuery.TQuery.FieldByName('VALOR').AsCurrency := FVALORPRODUTOS;
+  FQuery.TQuery.FieldByName('QUANTIDADE').AsInteger := FQUANTIDADE;
+  FQuery.TQuery.FieldByName('TOTAL').AsCurrency := FTOTAL;
+  FQuery.TQuery.FieldByName('MOTIVO').AsString := FMotivo;
+  FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
+  FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-    .gravarLog;
+  if FData <> '  /  /    ' then
+    FQuery.TQuery.FieldByName('DATA').AsDateTime := StrToDate(FData);
+
+  if FHora <> '  :  :  ' then
+    FQuery.TQuery.FieldByName('HORA').AsDateTime := StrToTime(FHora);
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTOS').AsString)
+    .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
   try
     FQuery.TQuery.Post;
   except
-    on e: Exception do
+    on e: exception do
     begin
-      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
 
   end;
@@ -338,8 +471,20 @@ begin
   result := self;
 
   FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
-  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+  FQuery.TQuery.FieldByName('ID_PRODUTO').DisplayLabel := 'Cód. Produto';
+  FQuery.TQuery.FieldByName('PRODUTOS').DisplayLabel := 'Produto';
+  FQuery.TQuery.FieldByName('VALOR').DisplayLabel := 'Valor';
+  FQuery.TQuery.FieldByName('QUANTIDADE').DisplayLabel := 'Quantidade';
+  FQuery.TQuery.FieldByName('TOTAL').DisplayLabel := 'Total';
+  FQuery.TQuery.FieldByName('DATA').DisplayLabel := 'Data';
+  FQuery.TQuery.FieldByName('HORA').DisplayLabel := 'Hora';
+  FQuery.TQuery.FieldByName('MOTIVO').DisplayLabel := 'Motivo';
+  FQuery.TQuery.FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+  FQuery.TQuery.FieldByName('PRODUTOS').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('MOTIVO').DisplayWidth := 30;
 
   value.DataSet := FQuery.TQuery;
 
@@ -376,6 +521,18 @@ begin
   result := self;
 end;
 
+procedure TEntitySaidasProdutos.selecionarProdutos(value: integer);
+begin
+  with FQueryAtualizarProdutos do
+  begin
+    TQuery.Active := false;
+    TQuery.SQL.Clear;
+    TQuery.SQL.Add('select * from produtos where id =:i');
+    TQuery.ParamByName('i').AsInteger := FCodigoProdutoAtualizar;
+    TQuery.Active := true;
+  end;
+end;
+
 function TEntitySaidasProdutos.sqlPesquisa: iSaidaDeProdutos;
 begin
   result := self;
@@ -401,11 +558,11 @@ var
   d: TDate;
 begin
   try
-    d := strtodate(componet.Text);
+    d := StrToDate(componet.Text);
   except
     componet.SetFocus;
     componet.Clear;
-    raise Exception.create('Digite uma data válida.');
+    raise exception.create('Digite uma data válida.');
   end;
 end;
 

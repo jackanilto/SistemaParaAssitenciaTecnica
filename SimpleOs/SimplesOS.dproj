@@ -235,6 +235,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Saidas.Produtos.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Produtos.Saidas.pas">
+            <Form>FormLocalizarProdutosSaida</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

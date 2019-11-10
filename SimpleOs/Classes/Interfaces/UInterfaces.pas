@@ -787,6 +787,9 @@ type
     function getVALORPRODUTO(value: currency): iSaidaDeProdutos;
     function getQUANTIDADE(value: integer): iSaidaDeProdutos;
     function getTOTAL(value: currency): iSaidaDeProdutos;
+    function getDATA(value: string): iSaidaDeProdutos;
+    function getHORA(value: string): iSaidaDeProdutos;
+    function getMotivo(value:string):iSaidaDeProdutos;
     function getFuncionario(value: integer): iSaidaDeProdutos;
     function getObservacao(value: string): iSaidaDeProdutos;
 

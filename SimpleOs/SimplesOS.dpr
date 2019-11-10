@@ -60,7 +60,8 @@ uses
   Form.Entradas.Produtos in 'Forms\Form.Entradas.Produtos.pas' {formEntradaDeProdutos},
   Form.Localizar.Produtos.Entrada in 'Forms\Localizar\Form.Localizar.Produtos.Entrada.pas' {formLocalizarProdutosEntradas},
   Form.Saidas.Produtos in 'Forms\Form.Saidas.Produtos.pas' {formSaidaDeProdutos},
-  UClasse.Entity.Saidas.Produtos in 'Classes\Entity\UClasse.Entity.Saidas.Produtos.pas';
+  UClasse.Entity.Saidas.Produtos in 'Classes\Entity\UClasse.Entity.Saidas.Produtos.pas',
+  Form.Localizar.Produtos.Saidas in 'Forms\Localizar\Form.Localizar.Produtos.Saidas.pas' {FormLocalizarProdutosSaida};
 
 {$R *.res}
 

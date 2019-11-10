@@ -983,3 +983,56 @@ Problematic key value is ("ID_PRODUTO" = 0)
 09/11/19 18:31:18 - Caption: Entradas de produtos
 09/11/19 18:31:18 - Erro:Exception
 09/11/19 18:31:18 - Erro:Informe uma quantidade maior que 0(Zero).
+10/11/19 13:53:08 - ===========================================
+10/11/19 13:53:08 - Form: formSaidaDeProdutos
+10/11/19 13:53:08 - Caption: Saída de produtos
+10/11/19 13:53:08 - Erro:EDatabaseError
+10/11/19 13:53:08 - Erro:Field 'VALOR ' not found
+10/11/19 14:31:39 - ===========================================
+10/11/19 14:31:39 - Form: formSaidaDeProdutos
+10/11/19 14:31:39 - Caption: Saída de produtos
+10/11/19 14:31:39 - Erro:EDatabaseError
+10/11/19 14:31:39 - Erro:Dataset not in edit or insert mode
+10/11/19 14:31:52 - ===========================================
+10/11/19 14:31:52 - Form: formSaidaDeProdutos
+10/11/19 14:31:52 - Caption: Saída de produtos
+10/11/19 14:31:52 - Erro:EDatabaseError
+10/11/19 14:31:52 - Erro:Dataset not in edit or insert mode
+10/11/19 14:34:00 - ===========================================
+10/11/19 14:34:00 - Form: formSaidaDeProdutos
+10/11/19 14:34:00 - Caption: Saída de produtos
+10/11/19 14:34:00 - Erro:EIBNativeException
+10/11/19 14:34:00 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Procedure unknown
+GEN_SAIDA_PRODUTOS_ID
+10/11/19 15:03:26 - ===========================================
+10/11/19 15:03:26 - Form: formSaidaDeProdutos
+10/11/19 15:03:26 - Caption: Saída de produtos
+10/11/19 15:03:26 - Erro:Exception
+10/11/19 15:03:26 - Erro:Não há produtos o suficiente para efetuar esta saída. Informe uma quantidade menor.
+10/11/19 15:19:39 - ===========================================
+10/11/19 15:19:39 - Form: formSaidaDeProdutos
+10/11/19 15:19:39 - Caption: Saída de produtos
+10/11/19 15:19:39 - Erro:Exception
+10/11/19 15:19:39 - Erro:Você deve informar um motivo para a saída.
+10/11/19 15:19:46 - ===========================================
+10/11/19 15:19:46 - Form: formSaidaDeProdutos
+10/11/19 15:19:46 - Caption: Saída de produtos
+10/11/19 15:19:46 - Erro:Exception
+10/11/19 15:19:46 - Erro:Não há produtos o suficiente para efetuar esta saída. Informe uma quantidade menor.
+10/11/19 15:19:53 - ===========================================
+10/11/19 15:19:53 - Form: formSaidaDeProdutos
+10/11/19 15:19:53 - Caption: Saída de produtos
+10/11/19 15:19:53 - Erro:Exception
+10/11/19 15:19:53 - Erro:O valor do produto deve ser maior que 0 (zero)
+10/11/19 15:22:32 - ===========================================
+10/11/19 15:22:32 - Form: formSaidaDeProdutos
+10/11/19 15:22:32 - Caption: Saída de produtos
+10/11/19 15:22:32 - Erro:Exception
+10/11/19 15:22:32 - Erro:Informe um valor válido para a quantidade.
+10/11/19 15:22:39 - ===========================================
+10/11/19 15:22:39 - Form: formSaidaDeProdutos
+10/11/19 15:22:39 - Caption: Saída de produtos
+10/11/19 15:22:39 - Erro:Exception
+10/11/19 15:22:39 - Erro:Informe o nome do produto.

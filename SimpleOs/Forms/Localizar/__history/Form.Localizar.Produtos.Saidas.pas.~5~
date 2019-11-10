@@ -1,0 +1,39 @@
+﻿unit Form.Localizar.Produtos.Saidas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, UDados.Conexao, FireDAC.Comp.Client;
+
+type
+  TFormLocalizarProdutosSaida = class(TForm)
+    Panel1: TPanel;
+    sbFechar: TSpeedButton;
+    lblCaption: TLabel;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+    Fquery:TFDQuery;
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLocalizarProdutosSaida: TFormLocalizarProdutosSaida;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormLocalizarProdutosSaida.FormCreate(Sender: TObject);
+begin
+  Fquery := TFDQuery.Create(nil);
+  Fquery
+end;
+
+end.
