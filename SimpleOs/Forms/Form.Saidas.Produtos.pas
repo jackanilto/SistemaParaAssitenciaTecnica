@@ -50,6 +50,9 @@ type
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure edtQuantidadeExit(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     FEntitySaida: iSaidaDeProdutos;
@@ -104,6 +107,29 @@ begin
   FEntitySaida.ordenarGrid(Column);
 end;
 
+procedure TformSaidaDeProdutos.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+  campo: string;
+begin
+  inherited;
+
+  if cbPesquisar.Text = 'Código' then
+    campo := 'ID'
+  else if cbPesquisar.Text = 'Código do produto' then
+    campo := 'ID_PRODUTO'
+  else if cbPesquisar.Text = 'Produto' then
+    campo := 'PRODUTOS';
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntitySaida.getCampo(campo).getValor(edtPesquisar.Text)
+      .sqlPesquisa.listarGrid(DataSource1);
+
+  { Código
+    Código do produto
+    Produto }
+end;
+
 procedure TformSaidaDeProdutos.edtQuantidadeExit(Sender: TObject);
 var
   valorEntrada: currency;
@@ -138,7 +164,8 @@ end;
 procedure TformSaidaDeProdutos.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntitySaida.abrir.listarGrid(DataSource1);
+  FEntitySaida.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
 end;
 
 procedure TformSaidaDeProdutos.sbCancelarClick(Sender: TObject);
@@ -157,6 +184,14 @@ procedure TformSaidaDeProdutos.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FEntitySaida.exportar;
+end;
+
+procedure TformSaidaDeProdutos.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_SaidasProdutos.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_saidas_produtos.fr3');
+  frx_SaidasProdutos.ShowReport();
 end;
 
 procedure TformSaidaDeProdutos.sbNovoClick(Sender: TObject);
