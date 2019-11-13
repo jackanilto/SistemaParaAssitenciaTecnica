@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
+  UClasse.Entity.Ordem.Servico;
 
 type
   TformOrdemDeServico = class(TForm)
@@ -35,11 +36,15 @@ type
     Panel5: TPanel;
     Panel6: TPanel;
     Panel7: TPanel;
+    DataSource1: TDataSource;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
+    FEntityOrdem: iOrdemServico;
   public
     { Public declarations }
   end;
@@ -50,6 +55,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformOrdemDeServico.FormCreate(Sender: TObject);
+begin
+  FEntityOrdem := TEntityOrdemServico.new;
+end;
+
+procedure TformOrdemDeServico.FormShow(Sender: TObject);
+begin
+  FEntityOrdem.abrir.listarGrid(DataSource1);
+end;
 
 procedure TformOrdemDeServico.Panel1MouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);

@@ -13,6 +13,8 @@ object formOrdemDeServico: TformOrdemDeServico
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -580,7 +582,6 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitTop = 32
     end
     object edtPesquisar: TEdit
       Left = 1024
@@ -595,7 +596,6 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 32
     end
   end
   object PageControl1: TPageControl
@@ -613,14 +613,12 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentFont = False
     TabOrder = 2
     StyleElements = [seFont, seClient]
-    ExplicitHeight = 471
     object tbConsulta: TTabSheet
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
       Caption = 'Consulta'
-      ExplicitHeight = 439
       object Panel4: TPanel
         Left = 0
         Top = 397
@@ -635,7 +633,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 392
       end
       object DBGrid1: TDBGrid
         Left = 0
@@ -645,18 +642,24 @@ object formOrdemDeServico: TformOrdemDeServico
         Margins.Bottom = 0
         Align = alClient
         BorderStyle = bsNone
+        DataSource = DataSource1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI'
-        TitleFont.Style = []
+        TitleFont.Style = [fsBold]
       end
     end
     object tbCadastroOrdens: TTabSheet
       Caption = 'Cadastro de ordens'
       ImageIndex = 1
-      ExplicitHeight = 439
       object Panel2: TPanel
         Left = 0
         Top = 397
@@ -671,13 +674,11 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 392
       end
     end
     object tbItensOrdem: TTabSheet
       Caption = 'Itens inclusos na ordem'
       ImageIndex = 2
-      ExplicitHeight = 439
       object Panel5: TPanel
         Left = 0
         Top = 397
@@ -692,13 +693,11 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 392
       end
     end
     object tbPedidoDeCompra: TTabSheet
       Caption = 'Pedido de compra'
       ImageIndex = 3
-      ExplicitHeight = 439
       object Panel6: TPanel
         Left = 0
         Top = 397
@@ -713,13 +712,11 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 392
       end
     end
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 4
-      ExplicitHeight = 439
       object Panel7: TPanel
         Left = 0
         Top = 397
@@ -734,8 +731,11 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 392
       end
     end
+  end
+  object DataSource1: TDataSource
+    Left = 732
+    Top = 205
   end
 end

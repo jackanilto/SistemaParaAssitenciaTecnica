@@ -789,7 +789,7 @@ type
     function getTOTAL(value: currency): iSaidaDeProdutos;
     function getDATA(value: string): iSaidaDeProdutos;
     function getHORA(value: string): iSaidaDeProdutos;
-    function getMotivo(value:string):iSaidaDeProdutos;
+    function getMotivo(value: string): iSaidaDeProdutos;
     function getFuncionario(value: integer): iSaidaDeProdutos;
     function getObservacao(value: string): iSaidaDeProdutos;
 
@@ -798,6 +798,79 @@ type
     function getCodigoProdutoAtualizar(value: integer): iSaidaDeProdutos;
     function getQuantidadeProdutoAtualizar(value: integer): iSaidaDeProdutos;
 
+  end;
+
+  iOrdemServico = interface
+    ['{AB2ECEA0-3FC5-418C-A90E-31C33629351C}']
+
+    function nomeTabela(value: string): iOrdemServico;
+    function getCampo(value: string): iOrdemServico;
+    function getValor(value: string): iOrdemServico;
+    function getDataInicial(value: TDate): iOrdemServico;
+    function getDataFinal(value: TDate): iOrdemServico;
+    function open(value: string): iOrdemServico;
+    function pesquisar: iOrdemServico;
+    function ExecSql: iOrdemServico;
+    function sqlPesquisa: iOrdemServico;
+    function sqlPesquisaData: iOrdemServico;
+    function sqlPesquisaEstatica: iOrdemServico;
+
+    function abrir: iOrdemServico;
+    function inserir: iOrdemServico;
+    function gravar: iOrdemServico;
+    function deletar: iOrdemServico;
+    function atualizar: iOrdemServico;
+    function editar: iOrdemServico;
+    function cancelar: iOrdemServico;
+    function fecharQuery: iOrdemServico;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iOrdemServico;
+    function ordenarGrid(column: TColumn): iOrdemServico;
+
+    function getID(value:integer): iOrdemServico;
+    function getID_CLIENTE(value:string): iOrdemServico;
+    function getEQUIPAMENTO(value:string): iOrdemServico;
+    function getDEFEITO_RELATADO(value:string): iOrdemServico;
+    function getMARCA(value:string): iOrdemServico;
+    function getMODELO(value:string): iOrdemServico;
+    function getNUMERO_SERIE(value:string): iOrdemServico;
+    function getDATA_FABRICACAO(value:string): iOrdemServico;
+    function getLAUDO_DO_TECNICO(value:string): iOrdemServico;
+    function getSOLUCAO_DO_PROBLEMA(value:string): iOrdemServico;
+    function getVALOR_DA_ORDEM(value:Currency): iOrdemServico;
+    function getDESCONTO(value:Currency): iOrdemServico;
+    function getACRESCIMO(value:Currency): iOrdemServico;
+    function getTotalDoOrcamento(value:Currency):iOrdemServico;
+    function getID_FUNCIONARIO(value:integer): iOrdemServico;
+    function getNOME_FUNCIONARIO(value:string): iOrdemServico;
+    function getRETORNO(value:string): iOrdemServico;
+    function getDATA_RETORNO(value:string): iOrdemServico;
+    function getSITUACAO_DA_ORDEM(value:integer): iOrdemServico;
+    function getFORMA_PAGAMENTO(value:integer): iOrdemServico;
+    function getPARCELADO(value:string): iOrdemServico;
+    function getTOTAL_PARCELAS(value:integer): iOrdemServico;
+    function getPGTO(value:string): iOrdemServico;
+    function getPRIORIDADE(value:string): iOrdemServico;
+    function getDataCadastro(value:string): iOrdemServico;
+    function dataFinalizacao(value:string): iOrdemServico;
+    function dataPagamento(value:string): iOrdemServico;
+    function getOBSERVACAO(value:string): iOrdemServico;
+    function getSTATUS(value:string): iOrdemServico;
+
+    function exportar: iOrdemServico;
+
+  end;
+
+  iItensOrdem = interface
+    ['{F1A112F9-8495-4C23-9104-2A77CE79BAFA}']
+  end;
+
+  iOrdemDeCompra = interface
+    ['{915B62A4-7537-4D20-9A77-5B5674D7E4B4}']
+  end;
+
+  iPacelaOrdem = interface
+    ['{7B51AACF-1531-4749-B330-411CCEFD4CC6}']
   end;
 
   iNivelAcessoFuncionario = interface

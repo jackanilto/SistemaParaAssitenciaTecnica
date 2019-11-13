@@ -62,7 +62,8 @@ uses
   Form.Saidas.Produtos in 'Forms\Form.Saidas.Produtos.pas' {formSaidaDeProdutos},
   UClasse.Entity.Saidas.Produtos in 'Classes\Entity\UClasse.Entity.Saidas.Produtos.pas',
   Form.Localizar.Produtos.Saidas in 'Forms\Localizar\Form.Localizar.Produtos.Saidas.pas' {FormLocalizarProdutosSaida},
-  Form.Ordem.Servico in 'Forms\FormOrdemServico\Form.Ordem.Servico.pas' {formOrdemDeServico};
+  Form.Ordem.Servico in 'Forms\FormOrdemServico\Form.Ordem.Servico.pas' {formOrdemDeServico},
+  UClasse.Entity.Ordem.Servico in 'Classes\Entity\UClasse.Entity.Ordem.Servico.pas';
 
 {$R *.res}
 

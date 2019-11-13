@@ -1036,3 +1036,23 @@ GEN_SAIDA_PRODUTOS_ID
 10/11/19 15:22:39 - Caption: Saída de produtos
 10/11/19 15:22:39 - Erro:Exception
 10/11/19 15:22:39 - Erro:Informe o nome do produto.
+13/11/19 12:35:34 - ===========================================
+13/11/19 12:35:34 - Form: formOrdemDeServico
+13/11/19 12:35:34 - Caption: Ordem de serviço
+13/11/19 12:35:34 - Erro:EDatabaseError
+13/11/19 12:35:34 - Erro:Field 'Virtual' not found
+13/11/19 12:41:00 - ===========================================
+13/11/19 12:41:00 - Form: formOrdemDeServico
+13/11/19 12:41:00 - Caption: Ordem de serviço
+13/11/19 12:41:00 - Erro:EDatabaseError
+13/11/19 12:41:00 - Erro:Field 'Virtual' not found
+13/11/19 12:54:07 - ===========================================
+13/11/19 12:54:07 - Form: formOrdemDeServico
+13/11/19 12:54:07 - Caption: Ordem de serviço
+13/11/19 12:54:07 - Erro:EDatabaseError
+13/11/19 12:54:07 - Erro:Cannot perform this operation on an open dataset
+13/11/19 12:54:51 - ===========================================
+13/11/19 12:54:51 - Form: formOrdemDeServico
+13/11/19 12:54:51 - Caption: Ordem de serviço
+13/11/19 12:54:51 - Erro:EDatabaseError
+13/11/19 12:54:51 - Erro:Cannot perform this operation on an open dataset
