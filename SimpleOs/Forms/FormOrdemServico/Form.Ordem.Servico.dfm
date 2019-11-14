@@ -133,12 +133,12 @@ object formOrdemDeServico: TformOrdemDeServico
       1223
       70)
     object sbNovo: TSpeedButton
-      Left = 7
+      Left = 30
       Top = 24
-      Width = 81
+      Width = 138
       Height = 35
       Hint = 'Inserir um novo registro'
-      Caption = 'Novo'
+      Caption = 'Nova ordem'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -212,9 +212,10 @@ object formOrdemDeServico: TformOrdemDeServico
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbNovoClick
     end
     object sbSalvar: TSpeedButton
-      Left = 94
+      Left = 174
       Top = 24
       Width = 89
       Height = 35
@@ -295,7 +296,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbEditar: TSpeedButton
-      Left = 201
+      Left = 281
       Top = 24
       Width = 76
       Height = 35
@@ -376,7 +377,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbExcluir: TSpeedButton
-      Left = 287
+      Left = 367
       Top = 24
       Width = 100
       Height = 35
@@ -457,7 +458,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbCancelar: TSpeedButton
-      Left = 393
+      Left = 473
       Top = 24
       Width = 114
       Height = 35
@@ -619,6 +620,8 @@ object formOrdemDeServico: TformOrdemDeServico
       Margins.Right = 0
       Margins.Bottom = 0
       Caption = 'Consulta'
+      ExplicitLeft = 0
+      ExplicitTop = 29
       object Panel4: TPanel
         Left = 0
         Top = 397
@@ -634,27 +637,76 @@ object formOrdemDeServico: TformOrdemDeServico
         ParentBackground = False
         TabOrder = 0
       end
-      object DBGrid1: TDBGrid
+      object GroupBox1: TGroupBox
+        Left = 0
+        Top = 174
+        Width = 1215
+        Height = 194
+        Align = alTop
+        Caption = 'Ordem de servi'#231'o do cliente'
+        TabOrder = 1
+        object DBGrid1: TDBGrid
+          Left = 2
+          Top = 19
+          Width = 1211
+          Height = 153
+          Margins.Bottom = 0
+          Align = alTop
+          BorderStyle = bsNone
+          DataSource = ds_OrdensDoClientes
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -13
+          TitleFont.Name = 'Segoe UI'
+          TitleFont.Style = [fsBold]
+        end
+      end
+      object GroupBox2: TGroupBox
         Left = 0
         Top = 0
         Width = 1215
-        Height = 397
-        Margins.Bottom = 0
-        Align = alClient
-        BorderStyle = bsNone
-        DataSource = DataSource1
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -13
-        TitleFont.Name = 'Segoe UI'
-        TitleFont.Style = [fsBold]
+        Height = 174
+        Align = alTop
+        Caption = 'Dados do cliente'
+        TabOrder = 2
+        ExplicitTop = 3
+        object Image1: TImage
+          Left = 824
+          Top = 19
+          Width = 137
+          Height = 149
+          Stretch = True
+        end
+        object DBGrid2: TDBGrid
+          Left = 2
+          Top = 19
+          Width = 767
+          Height = 142
+          Margins.Bottom = 0
+          Align = alCustom
+          BorderStyle = bsNone
+          DataSource = ds_DadosClientes
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -13
+          TitleFont.Name = 'Segoe UI'
+          TitleFont.Style = [fsBold]
+          OnCellClick = DBGrid2CellClick
+        end
       end
     end
     object tbCadastroOrdens: TTabSheet
@@ -734,8 +786,13 @@ object formOrdemDeServico: TformOrdemDeServico
       end
     end
   end
-  object DataSource1: TDataSource
-    Left = 732
-    Top = 205
+  object ds_DadosClientes: TDataSource
+    OnDataChange = ds_DadosClientesDataChange
+    Left = 724
+    Top = 5
+  end
+  object ds_OrdensDoClientes: TDataSource
+    Left = 812
+    Top = 5
   end
 end

@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
-  UClasse.Entity.Ordem.Servico;
+  UClasse.Entity.Ordem.Servico, UClasse.Entity.Cadastro.Clientes;
 
 type
   TformOrdemDeServico = class(TForm)
@@ -31,20 +31,31 @@ type
     tbPedidoDeCompra: TTabSheet;
     tbParcelas: TTabSheet;
     Panel4: TPanel;
-    DBGrid1: TDBGrid;
     Panel2: TPanel;
     Panel5: TPanel;
     Panel6: TPanel;
     Panel7: TPanel;
-    DataSource1: TDataSource;
+    ds_DadosClientes: TDataSource;
+    GroupBox1: TGroupBox;
+    DBGrid1: TDBGrid;
+    GroupBox2: TGroupBox;
+    DBGrid2: TDBGrid;
+    ds_OrdensDoClientes: TDataSource;
+    Image1: TImage;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ds_DadosClientesDataChange(Sender: TObject; Field: TField);
+    procedure DBGrid2CellClick(Column: TColumn);
+    procedure sbNovoClick(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
+    FEntityClientes: iCadastroClientes;
+    FCodigoClienteSelecionado: Integer;
+    FNomeClienteSelecionado: string;
   public
     { Public declarations }
   end;
@@ -56,14 +67,64 @@ implementation
 
 {$R *.dfm}
 
+procedure TformOrdemDeServico.DBGrid2CellClick(Column: TColumn);
+begin
+  if ds_DadosClientes.DataSet.RecordCount >= 1 then
+  begin
+    FCodigoClienteSelecionado := ds_DadosClientes.DataSet.FieldByName('ID')
+      .AsInteger;
+    FNomeClienteSelecionado := ds_DadosClientes.DataSet.FieldByName
+      ('NOME').AsString;
+    FEntityOrdem.getCampo('ID_CLIENTE')
+      .getValor(FCodigoClienteSelecionado.ToString).sqlPesquisa.listarGrid
+      (ds_OrdensDoClientes);
+  end
+  else
+  begin
+    FCodigoClienteSelecionado := null;
+    FNomeClienteSelecionado := '';
+  end;
+end;
+
+procedure TformOrdemDeServico.ds_DadosClientesDataChange(Sender: TObject;
+  Field: TField);
+begin
+  ds_DadosClientes.DataSet.FieldByName('DATA_NASCIMENTO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('DATA_CADASTRO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('ENDERECO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('BAIRRO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('NUMERO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('COMPLEMENTO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('CEP').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('CIDADE').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('ESTADO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('TELEFONE').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('CELULAR').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('EMAIL').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('FUNCIONARIO_CADASTRO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('SITUACAO_CLIENTE').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('FOTO').Visible := false;
+  ds_DadosClientes.DataSet.FieldByName('OBSERVACAO').Visible := false;
+
+  Image1.Picture.Assign(ds_DadosClientes.DataSet.FieldByName('foto'));
+
+  if Image1.Picture.Graphic.Empty then
+    Image1.Picture.LoadFromFile(ExtractFilePath(application.ExeName) +
+      '/No_User.png');
+
+end;
+
 procedure TformOrdemDeServico.FormCreate(Sender: TObject);
 begin
   FEntityOrdem := TEntityOrdemServico.new;
+  FEntityClientes := TEntityCadastroClientes.new;
+  ReportMemoryLeaksOnShutdown := true;
 end;
 
 procedure TformOrdemDeServico.FormShow(Sender: TObject);
 begin
-  FEntityOrdem.abrir.listarGrid(DataSource1);
+  FEntityClientes.abrir.listarGrid(ds_DadosClientes);
+  FEntityOrdem.abrir.listarGrid(ds_OrdensDoClientes);
 end;
 
 procedure TformOrdemDeServico.Panel1MouseDown(Sender: TObject;
@@ -81,6 +142,20 @@ end;
 procedure TformOrdemDeServico.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformOrdemDeServico.sbNovoClick(Sender: TObject);
+begin
+  if FCodigoClienteSelecionado = null then
+  begin
+    lblCaption.Caption := self.Caption +
+      ' > Inserindo uma nova ordem de serviço.';
+  end
+  else
+  begin
+    raise Exception.Create
+      ('Escolha um cliente para inicar a nova ordem de serviço.');
+  end;
 end;
 
 end.

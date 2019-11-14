@@ -827,39 +827,56 @@ type
     function listarGrid(value: TDataSource): iOrdemServico;
     function ordenarGrid(column: TColumn): iOrdemServico;
 
-    function getID(value:integer): iOrdemServico;
-    function getID_CLIENTE(value:string): iOrdemServico;
-    function getEQUIPAMENTO(value:string): iOrdemServico;
-    function getDEFEITO_RELATADO(value:string): iOrdemServico;
-    function getMARCA(value:string): iOrdemServico;
-    function getMODELO(value:string): iOrdemServico;
-    function getNUMERO_SERIE(value:string): iOrdemServico;
-    function getDATA_FABRICACAO(value:string): iOrdemServico;
-    function getLAUDO_DO_TECNICO(value:string): iOrdemServico;
-    function getSOLUCAO_DO_PROBLEMA(value:string): iOrdemServico;
-    function getVALOR_DA_ORDEM(value:Currency): iOrdemServico;
-    function getDESCONTO(value:Currency): iOrdemServico;
-    function getACRESCIMO(value:Currency): iOrdemServico;
-    function getTotalDoOrcamento(value:Currency):iOrdemServico;
-    function getID_FUNCIONARIO(value:integer): iOrdemServico;
-    function getNOME_FUNCIONARIO(value:string): iOrdemServico;
-    function getRETORNO(value:string): iOrdemServico;
-    function getDATA_RETORNO(value:string): iOrdemServico;
-    function getSITUACAO_DA_ORDEM(value:integer): iOrdemServico;
-    function getFORMA_PAGAMENTO(value:integer): iOrdemServico;
-    function getPARCELADO(value:string): iOrdemServico;
-    function getTOTAL_PARCELAS(value:integer): iOrdemServico;
-    function getPGTO(value:string): iOrdemServico;
-    function getPRIORIDADE(value:string): iOrdemServico;
-    function getDataCadastro(value:string): iOrdemServico;
-    function dataFinalizacao(value:string): iOrdemServico;
-    function dataPagamento(value:string): iOrdemServico;
-    function getOBSERVACAO(value:string): iOrdemServico;
-    function getSTATUS(value:string): iOrdemServico;
+    function getID(value: integer): iOrdemServico;
+    function getID_CLIENTE(value: string): iOrdemServico;
+    function getEQUIPAMENTO(value: string): iOrdemServico;
+    function getDEFEITO_RELATADO(value: string): iOrdemServico;
+    function getMarca(value: string): iOrdemServico;
+    function getModelo(value: string): iOrdemServico;
+    function getNUMERO_SERIE(value: string): iOrdemServico;
+    function getDATA_FABRICACAO(value: string): iOrdemServico;
+    function getLAUDO_DO_TECNICO(value: string): iOrdemServico;
+    function getSOLUCAO_DO_PROBLEMA(value: string): iOrdemServico;
+    function getVALOR_DA_ORDEM(value: currency): iOrdemServico;
+    function getDesconto(value: currency): iOrdemServico;
+    function getACRESCIMO(value: currency): iOrdemServico;
+    function getTotalDoOrcamento(value: currency): iOrdemServico;
+    function getID_FUNCIONARIO(value: integer): iOrdemServico;
+    function getNOME_FUNCIONARIO(value: string): iOrdemServico;
+    function getRETORNO(value: string): iOrdemServico;
+    function getDATA_RETORNO(value: string): iOrdemServico;
+    function getSITUACAO_DA_ORDEM(value: integer): iOrdemServico;
+    function getFORMA_PAGAMENTO(value: integer): iOrdemServico;
+    function getPARCELADO(value: string): iOrdemServico;
+    function getTOTAL_PARCELAS(value: integer): iOrdemServico;
+    function getPGTO(value: string): iOrdemServico;
+    function getPRIORIDADE(value: string): iOrdemServico;
+    function getDataCadastro(value: string): iOrdemServico;
+    function dataFinalizacao(value: string): iOrdemServico;
+    function dataPagamento(value: string): iOrdemServico;
+    function getObservacao(value: string): iOrdemServico;
+    function getSTATUS(value: string): iOrdemServico;
 
     function exportar: iOrdemServico;
 
   end;
+
+//  iListaClientesOrdemServico = interface
+//    ['{E125147B-1F82-4CC6-BC05-D02F57EE71CF}']
+//    function nomeTabela(value: string): iOrdemServico;
+//    function getCampo(value: string): iOrdemServico;
+//    function getValor(value: string): iOrdemServico;
+//    function getDataInicial(value: TDate): iOrdemServico;
+//    function getDataFinal(value: TDate): iOrdemServico;
+//    function open(value: string): iOrdemServico;
+//    function pesquisar: iOrdemServico;
+//    function ExecSql: iOrdemServico;
+//    function sqlPesquisa: iOrdemServico;
+//    function sqlPesquisaData: iOrdemServico;
+//    function sqlPesquisaEstatica: iOrdemServico;
+//    function listarGrid(value: TDataSource): iOrdemServico;
+//    function ordenarGrid(column: TColumn): iOrdemServico;
+//  end;
 
   iItensOrdem = interface
     ['{F1A112F9-8495-4C23-9104-2A77CE79BAFA}']
