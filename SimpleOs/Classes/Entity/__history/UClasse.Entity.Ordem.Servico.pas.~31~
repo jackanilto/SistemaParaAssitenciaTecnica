@@ -467,10 +467,51 @@ begin
     FQuery.TQuery.FieldByName('id').AsInteger :=
       FQuery.codigoCadastro('SP_GEN_ORDEM_SERVICO_ID');
 
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('EQUIPAMENTO').AsString := FEQUIPAMENTO;
+    FieldByName('DEFEITO_RELATADO').AsString := FDEFEITO_RELATADO;
+    FieldByName('MARCA').AsString := FMARCA;
+    FieldByName('MODELO').AsString := FMODELO;
+    FieldByName('NUMERO_SERIE').AsString := FNUMERO_SERIE;
+    FieldByName('LAUDO_DO_TECNICO').AsString := FLAUDO_DO_TECNICO;
+    FieldByName('SOLUCAO_DO_PROBLEMA').AsString := FSOLUCAO_DO_PROBLEMA;
+    FieldByName('VALOR_DA_ORDEM').AsCurrency := FVALOR_DA_ORDEM;
+    FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FieldByName('ACRESCIMO').AsCurrency := FACRESCIMO;
+    FieldByName('TOTAL_ORCAMENTO').AsCurrency := FTOTAL_ORCAMENTO;
+    FieldByName('ID_FUNCIONARIO').AsInteger := funcionarioLogado;
+    FieldByName('NOME_FUNCIONARIO').AsString := nomeFuncionarioLogado;
+    FieldByName('RETORNO').AsString := FRETORNO;
+    FieldByName('SITUACAO_DA_ORDEM').AsInteger := FSITUACAO_DA_ORDEM;
+    FieldByName('FORMA_PAGAMENTO').AsInteger := FFORMA_PAGAMENTO;
+    FieldByName('PARCELADO').AsString := FPARCELADO;
+    FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
+    FieldByName('PGTO').AsString := FPGTO;
+    FieldByName('PRIORIDADE').AsString := FPRIORIDADE;
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+    FieldByName('STATUS').AsString := FSTATUS;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('EQUIPAMENTO').AsString)
-    .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+    if FDATA_FABRICACAO <> '  /  /    ' then
+      FieldByName('DATA_FABRICACAO').AsDateTime := StrToDate(FDATA_FABRICACAO);
+
+    if FDATA_RETORNO <> '  /  /    ' then
+      FieldByName('DATA_RETORNO').AsDateTime := StrToDate(FDATA_RETORNO);
+
+    if FDATA_ENTRADA <> '  /  /    ' then
+      FieldByName('DATA_ENTRADA').AsDateTime := StrToDate(FDATA_ENTRADA);
+
+    if FDATA_FINALIZACAO <> '  /  /    ' then
+      FieldByName('DATA_FINALIZACAO').AsDateTime :=
+        StrToDate(FDATA_FINALIZACAO);
+
+    if FDATA_PAGAMENTO <> '  /  /    ' then
+      FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO);
+
+    FGravarLog.getNomeRegistro(FieldByName('EQUIPAMENTO').AsString)
+      .getCodigoRegistro(FieldByName('id').AsInteger).gravarLog;
+  end;
 
   try
     FQuery.TQuery.Post;
@@ -493,7 +534,7 @@ end;
 
 function TEntityOrdemServico.listarGrid(value: TDataSource): iOrdemServico;
 var
-  campoVirtual:TStringField;
+  campoVirtual: TStringField;
 begin
 
   result := self;
@@ -538,16 +579,28 @@ begin
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
   FQuery.TQuery.FieldByName('STATUS').DisplayLabel := 'Status';
 
-//  FQuery.TQuery.FieldByName('Virtual');
-
- campoVirtual := TStringField.Create(nil);
- campoVirtual.FieldName := 'Cliente';
- campoVirtual.FieldKind := fkData;
- campoVirtual.DisplayLabel := 'Cliente';
- campoVirtual.Visible := true;
- campoVirtual := FQuery.TQuery.Name + campoVirtual.FieldName;
+  FQuery.TQuery.FieldByName('EQUIPAMENTO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('DEFEITO_RELATADO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('MARCA').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('MODELO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('NUMERO_SERIE').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('LAUDO_DO_TECNICO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('SOLUCAO_DO_PROBLEMA').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('RETORNO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;
 
   value.DataSet := FQuery.TQuery;
+
+  // campoVirtual := TStringField.create(nil);
+  // campoVirtual.FieldName := 'Cliente';
+  // campoVirtual.FieldKind := fkData;
+  // campoVirtual.DisplayLabel := 'Cliente';
+  // campoVirtual.Visible := true;
+  // campoVirtual.Name := FQuery.TQuery.Name + campoVirtual.FieldName;
+  // campoVirtual.Index := FQuery.TQuery.FieldCount;
+  // campoVirtual.DataSet.Open
+  // campoVirtual.DataSet := FQuery.TQuery;
 
 end;
 
@@ -607,7 +660,7 @@ var
   d: TDate;
 begin
   try
-    d := strtodate(componet.Text);
+    d := StrToDate(componet.Text);
   except
     componet.SetFocus;
     componet.Clear;

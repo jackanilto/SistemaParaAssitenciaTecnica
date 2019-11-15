@@ -133,12 +133,12 @@ object formOrdemDeServico: TformOrdemDeServico
       1223
       70)
     object sbNovo: TSpeedButton
-      Left = 7
+      Left = 30
       Top = 24
-      Width = 81
+      Width = 138
       Height = 35
       Hint = 'Inserir um novo registro'
-      Caption = 'Novo'
+      Caption = 'Nova ordem'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -212,9 +212,10 @@ object formOrdemDeServico: TformOrdemDeServico
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbNovoClick
     end
     object sbSalvar: TSpeedButton
-      Left = 94
+      Left = 174
       Top = 24
       Width = 89
       Height = 35
@@ -295,7 +296,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbEditar: TSpeedButton
-      Left = 201
+      Left = 281
       Top = 24
       Width = 76
       Height = 35
@@ -376,7 +377,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbExcluir: TSpeedButton
-      Left = 287
+      Left = 367
       Top = 24
       Width = 100
       Height = 35
@@ -457,7 +458,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbCancelar: TSpeedButton
-      Left = 393
+      Left = 473
       Top = 24
       Width = 114
       Height = 35
@@ -603,7 +604,7 @@ object formOrdemDeServico: TformOrdemDeServico
     Top = 41
     Width = 1223
     Height = 476
-    ActivePage = tbConsulta
+    ActivePage = tbCadastroOrdens
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -636,9 +637,9 @@ object formOrdemDeServico: TformOrdemDeServico
       end
       object GroupBox1: TGroupBox
         Left = 0
-        Top = 161
+        Top = 174
         Width = 1215
-        Height = 233
+        Height = 194
         Align = alTop
         Caption = 'Ordem de servi'#231'o do cliente'
         TabOrder = 1
@@ -669,17 +670,24 @@ object formOrdemDeServico: TformOrdemDeServico
         Left = 0
         Top = 0
         Width = 1215
-        Height = 161
+        Height = 174
         Align = alTop
         Caption = 'Dados do cliente'
         TabOrder = 2
+        object Image1: TImage
+          Left = 824
+          Top = 19
+          Width = 137
+          Height = 149
+          Stretch = True
+        end
         object DBGrid2: TDBGrid
           Left = 2
           Top = 19
-          Width = 1211
-          Height = 153
+          Width = 767
+          Height = 142
           Margins.Bottom = 0
-          Align = alTop
+          Align = alCustom
           BorderStyle = bsNone
           DataSource = ds_DadosClientes
           Font.Charset = DEFAULT_CHARSET
@@ -694,6 +702,7 @@ object formOrdemDeServico: TformOrdemDeServico
           TitleFont.Height = -13
           TitleFont.Name = 'Segoe UI'
           TitleFont.Style = [fsBold]
+          OnCellClick = DBGrid2CellClick
         end
       end
     end
@@ -714,6 +723,21 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+      end
+      object Panel8: TPanel
+        Left = 0
+        Top = 0
+        Width = 1215
+        Height = 397
+        Align = alClient
+        BevelOuter = bvNone
+        Color = 15790320
+        ParentBackground = False
+        TabOrder = 1
+        ExplicitLeft = 48
+        ExplicitTop = 120
+        ExplicitWidth = 185
+        ExplicitHeight = 41
       end
     end
     object tbItensOrdem: TTabSheet

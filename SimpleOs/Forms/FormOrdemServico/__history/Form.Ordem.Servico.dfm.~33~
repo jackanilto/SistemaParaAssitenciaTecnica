@@ -212,6 +212,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbNovoClick
     end
     object sbSalvar: TSpeedButton
       Left = 174
@@ -619,6 +620,8 @@ object formOrdemDeServico: TformOrdemDeServico
       Margins.Right = 0
       Margins.Bottom = 0
       Caption = 'Consulta'
+      ExplicitLeft = 0
+      ExplicitTop = 29
       object Panel4: TPanel
         Left = 0
         Top = 397
@@ -642,7 +645,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Align = alTop
         Caption = 'Ordem de servi'#231'o do cliente'
         TabOrder = 1
-        ExplicitTop = 200
         object DBGrid1: TDBGrid
           Left = 2
           Top = 19
@@ -674,13 +676,21 @@ object formOrdemDeServico: TformOrdemDeServico
         Align = alTop
         Caption = 'Dados do cliente'
         TabOrder = 2
+        ExplicitTop = 3
+        object Image1: TImage
+          Left = 824
+          Top = 19
+          Width = 137
+          Height = 149
+          Stretch = True
+        end
         object DBGrid2: TDBGrid
           Left = 2
           Top = 19
-          Width = 1211
+          Width = 767
           Height = 142
           Margins.Bottom = 0
-          Align = alTop
+          Align = alCustom
           BorderStyle = bsNone
           DataSource = ds_DadosClientes
           Font.Charset = DEFAULT_CHARSET

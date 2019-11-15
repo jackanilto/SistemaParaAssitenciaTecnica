@@ -539,68 +539,51 @@ begin
 
   result := self;
 
-  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
-  FQuery.TQuery.FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
-  FQuery.TQuery.FieldByName('DEFEITO_RELATADO').DisplayLabel :=
-    'Defeito relatado';
-  FQuery.TQuery.FieldByName('MARCA').DisplayLabel := 'Marca';
-  FQuery.TQuery.FieldByName('MODELO').DisplayLabel := 'Modelo';
-  FQuery.TQuery.FieldByName('NUMERO_SERIE').DisplayLabel := 'Número de serie';
-  FQuery.TQuery.FieldByName('DATA_FABRICACAO').DisplayLabel := 'Fabricação';
-  FQuery.TQuery.FieldByName('LAUDO_DO_TECNICO').DisplayLabel := 'Laudo técnico';
-  FQuery.TQuery.FieldByName('SOLUCAO_DO_PROBLEMA').DisplayLabel :=
-    'Solução do problema';
-  FQuery.TQuery.FieldByName('VALOR_DA_ORDEM').DisplayLabel := 'Valor do reparo';
-  FQuery.TQuery.FieldByName('DESCONTO').DisplayLabel := 'Desconto';
-  FQuery.TQuery.FieldByName('ACRESCIMO').DisplayLabel := 'Acréscimo';
-  FQuery.TQuery.FieldByName('TOTAL_ORCAMENTO').DisplayLabel :=
-    'Total do reparo';
-  FQuery.TQuery.FieldByName('ID_FUNCIONARIO').DisplayLabel :=
-    'Cód. Funcionário';
-  FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').DisplayLabel :=
-    'Nome do funcionário';
-  FQuery.TQuery.FieldByName('RETORNO').DisplayLabel := 'Retorno';
-  FQuery.TQuery.FieldByName('DATA_RETORNO').DisplayLabel := 'Data do retorno';
-  FQuery.TQuery.FieldByName('SITUACAO_DA_ORDEM').DisplayLabel :=
-    'situação da ordem';
-  FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').DisplayLabel :=
-    'Forma de pagamento';
-  FQuery.TQuery.FieldByName('PARCELADO').DisplayLabel := 'Parcelado';
-  FQuery.TQuery.FieldByName('TOTAL_PARCELAS').DisplayLabel :=
-    'Total de parcelas';
-  FQuery.TQuery.FieldByName('PGTO').DisplayLabel := 'PGTO';
-  FQuery.TQuery.FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
-  FQuery.TQuery.FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
-  FQuery.TQuery.FieldByName('DATA_FINALIZACAO').DisplayLabel :=
-    'DAta de finaliação';
-  FQuery.TQuery.FieldByName('DATA_PAGAMENTO').DisplayLabel :=
-    'Data de pagamento';
-  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
-  FQuery.TQuery.FieldByName('STATUS').DisplayLabel := 'Status';
+  with FQuery.TQuery do
+  begin
+    FieldByName('id').DisplayLabel := 'Código';
+    FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
+    FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
+    FieldByName('DEFEITO_RELATADO').DisplayLabel := 'Defeito relatado';
+    FieldByName('MARCA').DisplayLabel := 'Marca';
+    FieldByName('MODELO').DisplayLabel := 'Modelo';
+    FieldByName('NUMERO_SERIE').DisplayLabel := 'Número de serie';
+    FieldByName('DATA_FABRICACAO').DisplayLabel := 'Fabricação';
+    FieldByName('LAUDO_DO_TECNICO').DisplayLabel := 'Laudo técnico';
+    FieldByName('SOLUCAO_DO_PROBLEMA').DisplayLabel := 'Solução do problema';
+    FieldByName('VALOR_DA_ORDEM').DisplayLabel := 'Valor do reparo';
+    FieldByName('DESCONTO').DisplayLabel := 'Desconto';
+    FieldByName('ACRESCIMO').DisplayLabel := 'Acréscimo';
+    FieldByName('TOTAL_ORCAMENTO').DisplayLabel := 'Total do reparo';
+    FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Funcionário';
+    FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Nome do funcionário';
+    FieldByName('RETORNO').DisplayLabel := 'Retorno';
+    FieldByName('DATA_RETORNO').DisplayLabel := 'Data do retorno';
+    FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'situação da ordem';
+    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
+    FieldByName('PARCELADO').DisplayLabel := 'Parcelado';
+    FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
+    FieldByName('PGTO').DisplayLabel := 'PGTO';
+    FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
+    FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
+    FieldByName('DATA_FINALIZACAO').DisplayLabel := 'DAta de finaliação';
+    FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Data de pagamento';
+    FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+    FieldByName('STATUS').DisplayLabel := 'Status';
 
-  FQuery.TQuery.FieldByName('EQUIPAMENTO').DisplayWidth := 40;
-  FQuery.TQuery.FieldByName('DEFEITO_RELATADO').DisplayWidth := 40;
-  FQuery.TQuery.FieldByName('MARCA').DisplayWidth := 30;
-  FQuery.TQuery.FieldByName('MODELO').DisplayWidth := 30;
-  FQuery.TQuery.FieldByName('NUMERO_SERIE').DisplayWidth := 30;
-  FQuery.TQuery.FieldByName('LAUDO_DO_TECNICO').DisplayWidth := 40;
-  FQuery.TQuery.FieldByName('SOLUCAO_DO_PROBLEMA').DisplayWidth := 40;
-  FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').DisplayWidth := 30;
-  FQuery.TQuery.FieldByName('RETORNO').DisplayWidth := 40;
-  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;
+    FieldByName('EQUIPAMENTO').DisplayWidth := 40;
+    FieldByName('DEFEITO_RELATADO').DisplayWidth := 40;
+    FieldByName('MARCA').DisplayWidth := 30;
+    FieldByName('MODELO').DisplayWidth := 30;
+    FieldByName('NUMERO_SERIE').DisplayWidth := 30;
+    FieldByName('LAUDO_DO_TECNICO').DisplayWidth := 40;
+    FieldByName('SOLUCAO_DO_PROBLEMA').DisplayWidth := 40;
+    FieldByName('NOME_FUNCIONARIO').DisplayWidth := 30;
+    FieldByName('RETORNO').DisplayWidth := 40;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
+  end;
 
   value.DataSet := FQuery.TQuery;
-
-  // campoVirtual := TStringField.create(nil);
-  // campoVirtual.FieldName := 'Cliente';
-  // campoVirtual.FieldKind := fkData;
-  // campoVirtual.DisplayLabel := 'Cliente';
-  // campoVirtual.Visible := true;
-  // campoVirtual.Name := FQuery.TQuery.Name + campoVirtual.FieldName;
-  // campoVirtual.Index := FQuery.TQuery.FieldCount;
-  // campoVirtual.DataSet.Open
-  // campoVirtual.DataSet := FQuery.TQuery;
 
 end;
 

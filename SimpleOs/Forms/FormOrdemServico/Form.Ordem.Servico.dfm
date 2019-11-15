@@ -3,8 +3,8 @@ object formOrdemDeServico: TformOrdemDeServico
   Top = 0
   BorderStyle = bsNone
   Caption = 'Ordem de servi'#231'o'
-  ClientHeight = 587
-  ClientWidth = 1223
+  ClientHeight = 600
+  ClientWidth = 1148
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +20,7 @@ object formOrdemDeServico: TformOrdemDeServico
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1223
+    Width = 1148
     Height = 41
     Align = alTop
     BevelOuter = bvNone
@@ -28,11 +28,12 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
+    ExplicitWidth = 1223
     DesignSize = (
-      1223
+      1148
       41)
     object sbFechar: TSpeedButton
-      Left = 1171
+      Left = 1096
       Top = 2
       Width = 52
       Height = 33
@@ -102,7 +103,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ExplicitLeft = 871
     end
     object lblCaption: TLabel
-      Left = 501
+      Left = 426
       Top = 10
       Width = 124
       Height = 19
@@ -121,16 +122,18 @@ object formOrdemDeServico: TformOrdemDeServico
   end
   object Panel3: TPanel
     Left = 0
-    Top = 517
-    Width = 1223
+    Top = 530
+    Width = 1148
     Height = 70
     Align = alBottom
     BevelOuter = bvNone
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 517
+    ExplicitWidth = 1223
     DesignSize = (
-      1223
+      1148
       70)
     object sbNovo: TSpeedButton
       Left = 30
@@ -539,7 +542,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object Label4: TLabel
-      Left = 889
+      Left = 814
       Top = 6
       Width = 97
       Height = 15
@@ -555,7 +558,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ExplicitTop = 11
     end
     object Label5: TLabel
-      Left = 1024
+      Left = 949
       Top = 6
       Width = 168
       Height = 15
@@ -571,7 +574,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ExplicitTop = 11
     end
     object cbPesquisar: TComboBox
-      Left = 889
+      Left = 814
       Top = 27
       Width = 129
       Height = 23
@@ -583,9 +586,10 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      ExplicitLeft = 889
     end
     object edtPesquisar: TEdit
-      Left = 1024
+      Left = 949
       Top = 27
       Width = 168
       Height = 23
@@ -597,14 +601,15 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 1024
     end
   end
   object PageControl1: TPageControl
     Left = 0
     Top = 41
-    Width = 1223
-    Height = 476
-    ActivePage = tbConsulta
+    Width = 1148
+    Height = 489
+    ActivePage = tbCadastroOrdens
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -614,18 +619,20 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentFont = False
     TabOrder = 2
     StyleElements = [seFont, seClient]
+    ExplicitWidth = 1223
+    ExplicitHeight = 476
     object tbConsulta: TTabSheet
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
       Caption = 'Consulta'
-      ExplicitLeft = 0
-      ExplicitTop = 29
+      ExplicitWidth = 1215
+      ExplicitHeight = 444
       object Panel4: TPanel
         Left = 0
-        Top = 397
-        Width = 1215
+        Top = 410
+        Width = 1140
         Height = 47
         Margins.Left = 0
         Margins.Top = 0
@@ -636,19 +643,22 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
+        ExplicitWidth = 1215
       end
       object GroupBox1: TGroupBox
         Left = 0
         Top = 174
-        Width = 1215
+        Width = 1140
         Height = 194
         Align = alTop
         Caption = 'Ordem de servi'#231'o do cliente'
         TabOrder = 1
+        ExplicitWidth = 1215
         object DBGrid1: TDBGrid
           Left = 2
           Top = 19
-          Width = 1211
+          Width = 1136
           Height = 153
           Margins.Bottom = 0
           Align = alTop
@@ -671,12 +681,12 @@ object formOrdemDeServico: TformOrdemDeServico
       object GroupBox2: TGroupBox
         Left = 0
         Top = 0
-        Width = 1215
+        Width = 1140
         Height = 174
         Align = alTop
         Caption = 'Dados do cliente'
         TabOrder = 2
-        ExplicitTop = 3
+        ExplicitWidth = 1215
         object Image1: TImage
           Left = 824
           Top = 19
@@ -712,10 +722,12 @@ object formOrdemDeServico: TformOrdemDeServico
     object tbCadastroOrdens: TTabSheet
       Caption = 'Cadastro de ordens'
       ImageIndex = 1
+      ExplicitWidth = 1215
+      ExplicitHeight = 444
       object Panel2: TPanel
         Left = 0
-        Top = 397
-        Width = 1215
+        Top = 410
+        Width = 1140
         Height = 47
         Margins.Left = 0
         Margins.Top = 0
@@ -726,15 +738,470 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
+        ExplicitWidth = 1215
+      end
+      object Panel8: TPanel
+        Left = 0
+        Top = 0
+        Width = 1140
+        Height = 410
+        Align = alClient
+        BevelOuter = bvNone
+        Color = 15790320
+        ParentBackground = False
+        TabOrder = 1
+        ExplicitLeft = 3
+        ExplicitWidth = 1215
+        object Label1: TLabel
+          Left = 16
+          Top = 17
+          Width = 43
+          Height = 17
+          Caption = 'C'#243'digo'
+        end
+        object Label2: TLabel
+          Left = 16
+          Top = 76
+          Width = 100
+          Height = 17
+          Caption = 'C'#243'd. Cliente'
+        end
+        object Label3: TLabel
+          Left = 143
+          Top = 76
+          Width = 97
+          Height = 17
+          Caption = 'Nome do cliente'
+        end
+        object Label6: TLabel
+          Left = 16
+          Top = 134
+          Width = 77
+          Height = 17
+          Caption = 'Equipamento'
+        end
+        object Label7: TLabel
+          Left = 16
+          Top = 310
+          Width = 95
+          Height = 17
+          Caption = 'Defeito relatado'
+        end
+        object Label8: TLabel
+          Left = 469
+          Top = 17
+          Width = 81
+          Height = 17
+          Caption = 'Laudo tecnico'
+        end
+        object Label9: TLabel
+          Left = 783
+          Top = 17
+          Width = 127
+          Height = 17
+          Caption = 'Solu'#231#227'o do problema'
+        end
+        object Label10: TLabel
+          Left = 16
+          Top = 192
+          Width = 37
+          Height = 17
+          Caption = 'Marca'
+        end
+        object Label11: TLabel
+          Left = 240
+          Top = 192
+          Width = 46
+          Height = 17
+          Caption = 'Modelo'
+        end
+        object Label12: TLabel
+          Left = 16
+          Top = 251
+          Width = 99
+          Height = 17
+          Caption = 'N'#250'mero de serie'
+        end
+        object Label13: TLabel
+          Left = 246
+          Top = 251
+          Width = 63
+          Height = 17
+          Caption = 'Fabrica'#231#227'o'
+        end
+        object Label14: TLabel
+          Left = 343
+          Top = 251
+          Width = 45
+          Height = 17
+          Caption = 'Entrada'
+        end
+        object Label15: TLabel
+          Left = 613
+          Top = 105
+          Width = 115
+          Height = 17
+          Caption = 'Valor da ordem(R$)'
+        end
+        object Label16: TLabel
+          Left = 734
+          Top = 105
+          Width = 82
+          Height = 17
+          Caption = 'Desconto (R$)'
+        end
+        object Label17: TLabel
+          Left = 855
+          Top = 105
+          Width = 83
+          Height = 17
+          Caption = 'Acr'#233'scimo(R$)'
+        end
+        object Label18: TLabel
+          Left = 976
+          Top = 105
+          Width = 113
+          Height = 17
+          Caption = 'Total da ordem(R$)'
+        end
+        object Label19: TLabel
+          Left = 705
+          Top = 230
+          Width = 67
+          Height = 17
+          Caption = 'Funcion'#225'rio'
+        end
+        object Label20: TLabel
+          Left = 467
+          Top = 166
+          Width = 111
+          Height = 17
+          Caption = 'Situa'#231#227'o da ordem'
+        end
+        object Label21: TLabel
+          Left = 611
+          Top = 166
+          Width = 127
+          Height = 17
+          Caption = 'Forma de pagamento'
+        end
+        object Label22: TLabel
+          Left = 767
+          Top = 166
+          Width = 58
+          Height = 17
+          Caption = 'Parcelado'
+        end
+        object Label23: TLabel
+          Left = 879
+          Top = 167
+          Width = 100
+          Height = 17
+          Caption = 'Total de parcelas'
+        end
+        object Label24: TLabel
+          Left = 987
+          Top = 166
+          Width = 27
+          Height = 17
+          Caption = 'Pgto'
+        end
+        object Label25: TLabel
+          Left = 469
+          Top = 103
+          Width = 61
+          Height = 17
+          Caption = 'Prioridade'
+        end
+        object Label26: TLabel
+          Left = 465
+          Top = 228
+          Width = 117
+          Height = 17
+          Caption = 'Data de pagamento'
+        end
+        object Label27: TLabel
+          Left = 588
+          Top = 228
+          Width = 111
+          Height = 17
+          Caption = 'Data de finaliza'#231#227'o'
+        end
+        object Label28: TLabel
+          Left = 469
+          Top = 289
+          Width = 94
+          Height = 17
+          Caption = 'Data de retorno'
+        end
+        object Label29: TLabel
+          Left = 588
+          Top = 289
+          Width = 109
+          Height = 17
+          Caption = 'Motivo do retorno'
+        end
+        object Label30: TLabel
+          Left = 470
+          Top = 349
+          Width = 70
+          Height = 17
+          Caption = 'Observa'#231#227'o'
+        end
+        object Label31: TLabel
+          Left = 826
+          Top = 230
+          Width = 125
+          Height = 17
+          Caption = 'Nome do funcion'#225'rio'
+        end
+        object Edit1: TEdit
+          Left = 16
+          Top = 40
+          Width = 300
+          Height = 25
+          TabOrder = 0
+          Text = 'Edit1'
+        end
+        object Edit2: TEdit
+          Left = 16
+          Top = 97
+          Width = 121
+          Height = 25
+          TabOrder = 1
+          Text = 'Edit2'
+        end
+        object Edit3: TEdit
+          Left = 141
+          Top = 97
+          Width = 292
+          Height = 25
+          TabOrder = 2
+          Text = 'Edit3'
+        end
+        object Edit4: TEdit
+          Left = 16
+          Top = 215
+          Width = 218
+          Height = 25
+          TabOrder = 3
+          Text = 'Edit4'
+        end
+        object Edit5: TEdit
+          Left = 16
+          Top = 157
+          Width = 417
+          Height = 25
+          TabOrder = 4
+          Text = 'Edit4'
+        end
+        object Edit6: TEdit
+          Left = 240
+          Top = 215
+          Width = 193
+          Height = 25
+          TabOrder = 5
+          Text = 'Edit4'
+        end
+        object Edit7: TEdit
+          Left = 16
+          Top = 272
+          Width = 224
+          Height = 25
+          TabOrder = 6
+          Text = 'Edit4'
+        end
+        object Edit8: TEdit
+          Left = 246
+          Top = 272
+          Width = 91
+          Height = 25
+          TabOrder = 7
+          Text = 'Edit4'
+        end
+        object Edit9: TEdit
+          Left = 343
+          Top = 272
+          Width = 90
+          Height = 25
+          TabOrder = 8
+          Text = 'Edit4'
+        end
+        object Memo1: TMemo
+          Left = 16
+          Top = 333
+          Width = 417
+          Height = 44
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 9
+        end
+        object Memo2: TMemo
+          Left = 469
+          Top = 40
+          Width = 308
+          Height = 44
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 10
+        end
+        object Memo3: TMemo
+          Left = 783
+          Top = 40
+          Width = 308
+          Height = 44
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 11
+        end
+        object Edit10: TEdit
+          Left = 705
+          Top = 251
+          Width = 115
+          Height = 25
+          TabOrder = 12
+          Text = 'Edit4'
+        end
+        object Edit11: TEdit
+          Left = 734
+          Top = 126
+          Width = 115
+          Height = 25
+          TabOrder = 13
+          Text = 'Edit4'
+        end
+        object Edit12: TEdit
+          Left = 855
+          Top = 126
+          Width = 115
+          Height = 25
+          TabOrder = 14
+          Text = 'Edit4'
+        end
+        object Edit13: TEdit
+          Left = 976
+          Top = 126
+          Width = 115
+          Height = 25
+          TabOrder = 15
+          Text = 'Edit4'
+        end
+        object Edit14: TEdit
+          Left = 613
+          Top = 128
+          Width = 115
+          Height = 25
+          TabOrder = 16
+          Text = 'Edit4'
+        end
+        object Edit15: TEdit
+          Left = 467
+          Top = 189
+          Width = 138
+          Height = 25
+          TabOrder = 17
+          Text = 'Edit4'
+        end
+        object Edit16: TEdit
+          Left = 611
+          Top = 189
+          Width = 152
+          Height = 25
+          TabOrder = 18
+          Text = 'Edit4'
+        end
+        object Edit17: TEdit
+          Left = 767
+          Top = 189
+          Width = 106
+          Height = 25
+          TabOrder = 19
+          Text = 'Edit4'
+        end
+        object Edit18: TEdit
+          Left = 879
+          Top = 190
+          Width = 102
+          Height = 25
+          TabOrder = 20
+          Text = 'Edit4'
+        end
+        object Edit19: TEdit
+          Left = 987
+          Top = 189
+          Width = 104
+          Height = 25
+          TabOrder = 21
+          Text = 'Edit4'
+        end
+        object Edit20: TEdit
+          Left = 469
+          Top = 126
+          Width = 138
+          Height = 25
+          TabOrder = 22
+          Text = 'Edit4'
+        end
+        object Edit21: TEdit
+          Left = 465
+          Top = 251
+          Width = 116
+          Height = 25
+          TabOrder = 23
+          Text = 'Edit4'
+        end
+        object Edit22: TEdit
+          Left = 588
+          Top = 251
+          Width = 111
+          Height = 25
+          TabOrder = 24
+          Text = 'Edit4'
+        end
+        object Edit23: TEdit
+          Left = 469
+          Top = 312
+          Width = 111
+          Height = 25
+          TabOrder = 25
+          Text = 'Edit4'
+        end
+        object Edit24: TEdit
+          Left = 586
+          Top = 312
+          Width = 505
+          Height = 25
+          TabOrder = 26
+          Text = 'Edit4'
+        end
+        object Edit25: TEdit
+          Left = 469
+          Top = 371
+          Width = 622
+          Height = 25
+          TabOrder = 27
+          Text = 'Edit4'
+        end
+        object Edit26: TEdit
+          Left = 826
+          Top = 251
+          Width = 265
+          Height = 25
+          TabOrder = 28
+          Text = 'Edit4'
+        end
       end
     end
     object tbItensOrdem: TTabSheet
       Caption = 'Itens inclusos na ordem'
       ImageIndex = 2
+      ExplicitWidth = 1215
+      ExplicitHeight = 444
       object Panel5: TPanel
         Left = 0
-        Top = 397
-        Width = 1215
+        Top = 410
+        Width = 1140
         Height = 47
         Margins.Left = 0
         Margins.Top = 0
@@ -745,15 +1212,19 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
+        ExplicitWidth = 1215
       end
     end
     object tbPedidoDeCompra: TTabSheet
       Caption = 'Pedido de compra'
       ImageIndex = 3
+      ExplicitWidth = 1215
+      ExplicitHeight = 444
       object Panel6: TPanel
         Left = 0
-        Top = 397
-        Width = 1215
+        Top = 410
+        Width = 1140
         Height = 47
         Margins.Left = 0
         Margins.Top = 0
@@ -764,15 +1235,19 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
+        ExplicitWidth = 1215
       end
     end
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 4
+      ExplicitWidth = 1215
+      ExplicitHeight = 444
       object Panel7: TPanel
         Left = 0
-        Top = 397
-        Width = 1215
+        Top = 410
+        Width = 1140
         Height = 47
         Margins.Left = 0
         Margins.Top = 0
@@ -783,6 +1258,8 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
+        ExplicitWidth = 1215
       end
     end
   end

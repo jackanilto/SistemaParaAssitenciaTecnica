@@ -3,7 +3,7 @@ object formOrdemDeServico: TformOrdemDeServico
   Top = 0
   BorderStyle = bsNone
   Caption = 'Ordem de servi'#231'o'
-  ClientHeight = 587
+  ClientHeight = 600
   ClientWidth = 1223
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -121,7 +121,7 @@ object formOrdemDeServico: TformOrdemDeServico
   end
   object Panel3: TPanel
     Left = 0
-    Top = 517
+    Top = 530
     Width = 1223
     Height = 70
     Align = alBottom
@@ -129,16 +129,17 @@ object formOrdemDeServico: TformOrdemDeServico
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 517
     DesignSize = (
       1223
       70)
     object sbNovo: TSpeedButton
-      Left = 7
+      Left = 30
       Top = 24
-      Width = 81
+      Width = 138
       Height = 35
       Hint = 'Inserir um novo registro'
-      Caption = 'Novo'
+      Caption = 'Nova ordem'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -212,9 +213,10 @@ object formOrdemDeServico: TformOrdemDeServico
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbNovoClick
     end
     object sbSalvar: TSpeedButton
-      Left = 94
+      Left = 174
       Top = 24
       Width = 89
       Height = 35
@@ -295,7 +297,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbEditar: TSpeedButton
-      Left = 201
+      Left = 281
       Top = 24
       Width = 76
       Height = 35
@@ -376,7 +378,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbExcluir: TSpeedButton
-      Left = 287
+      Left = 367
       Top = 24
       Width = 100
       Height = 35
@@ -457,7 +459,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ShowHint = True
     end
     object sbCancelar: TSpeedButton
-      Left = 393
+      Left = 473
       Top = 24
       Width = 114
       Height = 35
@@ -602,8 +604,8 @@ object formOrdemDeServico: TformOrdemDeServico
     Left = 0
     Top = 41
     Width = 1223
-    Height = 476
-    ActivePage = tbConsulta
+    Height = 489
+    ActivePage = tbCadastroOrdens
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -613,15 +615,17 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentFont = False
     TabOrder = 2
     StyleElements = [seFont, seClient]
+    ExplicitHeight = 476
     object tbConsulta: TTabSheet
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
       Caption = 'Consulta'
+      ExplicitHeight = 444
       object Panel4: TPanel
         Left = 0
-        Top = 397
+        Top = 410
         Width = 1215
         Height = 47
         Margins.Left = 0
@@ -633,12 +637,13 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
       end
       object GroupBox1: TGroupBox
         Left = 0
-        Top = 161
+        Top = 174
         Width = 1215
-        Height = 233
+        Height = 194
         Align = alTop
         Caption = 'Ordem de servi'#231'o do cliente'
         TabOrder = 1
@@ -669,17 +674,24 @@ object formOrdemDeServico: TformOrdemDeServico
         Left = 0
         Top = 0
         Width = 1215
-        Height = 161
+        Height = 174
         Align = alTop
         Caption = 'Dados do cliente'
         TabOrder = 2
+        object Image1: TImage
+          Left = 824
+          Top = 19
+          Width = 137
+          Height = 149
+          Stretch = True
+        end
         object DBGrid2: TDBGrid
           Left = 2
           Top = 19
-          Width = 1211
-          Height = 153
+          Width = 767
+          Height = 142
           Margins.Bottom = 0
-          Align = alTop
+          Align = alCustom
           BorderStyle = bsNone
           DataSource = ds_DadosClientes
           Font.Charset = DEFAULT_CHARSET
@@ -694,19 +706,17 @@ object formOrdemDeServico: TformOrdemDeServico
           TitleFont.Height = -13
           TitleFont.Name = 'Segoe UI'
           TitleFont.Style = [fsBold]
+          OnCellClick = DBGrid2CellClick
         end
       end
     end
     object tbCadastroOrdens: TTabSheet
       Caption = 'Cadastro de ordens'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 444
       object Panel2: TPanel
         Left = 0
-        Top = 397
+        Top = 410
         Width = 1215
         Height = 47
         Margins.Left = 0
@@ -718,18 +728,212 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
+      end
+      object Panel8: TPanel
+        Left = 0
+        Top = 0
+        Width = 1215
+        Height = 410
+        Align = alClient
+        BevelOuter = bvNone
+        Color = 15790320
+        ParentBackground = False
+        TabOrder = 1
+        ExplicitLeft = 3
+        ExplicitTop = -3
+        object Label1: TLabel
+          Left = 16
+          Top = 17
+          Width = 43
+          Height = 17
+          Caption = 'C'#243'digo'
+        end
+        object Label2: TLabel
+          Left = 16
+          Top = 76
+          Width = 100
+          Height = 17
+          Caption = 'C'#243'd. Cliente'
+        end
+        object Label3: TLabel
+          Left = 143
+          Top = 76
+          Width = 97
+          Height = 17
+          Caption = 'Nome do cliente'
+        end
+        object Label6: TLabel
+          Left = 16
+          Top = 134
+          Width = 77
+          Height = 17
+          Caption = 'Equipamento'
+        end
+        object Label7: TLabel
+          Left = 463
+          Top = 17
+          Width = 95
+          Height = 17
+          Caption = 'Defeito relatado'
+        end
+        object Label8: TLabel
+          Left = 716
+          Top = 20
+          Width = 81
+          Height = 17
+          Caption = 'Laudo tecnico'
+        end
+        object Label9: TLabel
+          Left = 960
+          Top = 17
+          Width = 127
+          Height = 17
+          Caption = 'Solu'#231#227'o do problema'
+        end
+        object Label10: TLabel
+          Left = 16
+          Top = 192
+          Width = 37
+          Height = 17
+          Caption = 'Marca'
+        end
+        object Label11: TLabel
+          Left = 240
+          Top = 192
+          Width = 46
+          Height = 17
+          Caption = 'Modelo'
+        end
+        object Label12: TLabel
+          Left = 16
+          Top = 251
+          Width = 99
+          Height = 17
+          Caption = 'N'#250'mero de serie'
+        end
+        object Label13: TLabel
+          Left = 246
+          Top = 251
+          Width = 63
+          Height = 17
+          Caption = 'Fabrica'#231#227'o'
+        end
+        object Label14: TLabel
+          Left = 343
+          Top = 251
+          Width = 45
+          Height = 17
+          Caption = 'Entrada'
+        end
+        object Edit1: TEdit
+          Left = 16
+          Top = 40
+          Width = 300
+          Height = 25
+          TabOrder = 0
+          Text = 'Edit1'
+        end
+        object Edit2: TEdit
+          Left = 16
+          Top = 97
+          Width = 121
+          Height = 25
+          TabOrder = 1
+          Text = 'Edit2'
+        end
+        object Edit3: TEdit
+          Left = 141
+          Top = 97
+          Width = 292
+          Height = 25
+          TabOrder = 2
+          Text = 'Edit3'
+        end
+        object Edit4: TEdit
+          Left = 16
+          Top = 215
+          Width = 218
+          Height = 25
+          TabOrder = 3
+          Text = 'Edit4'
+        end
+        object Memo1: TMemo
+          Left = 463
+          Top = 40
+          Width = 249
+          Height = 49
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 4
+        end
+        object Memo2: TMemo
+          Left = 716
+          Top = 40
+          Width = 238
+          Height = 51
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 5
+        end
+        object Memo3: TMemo
+          Left = 960
+          Top = 40
+          Width = 249
+          Height = 49
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 6
+        end
+        object Edit5: TEdit
+          Left = 16
+          Top = 157
+          Width = 417
+          Height = 25
+          TabOrder = 7
+          Text = 'Edit4'
+        end
+        object Edit6: TEdit
+          Left = 240
+          Top = 215
+          Width = 193
+          Height = 25
+          TabOrder = 8
+          Text = 'Edit4'
+        end
+        object Edit7: TEdit
+          Left = 16
+          Top = 272
+          Width = 224
+          Height = 25
+          TabOrder = 9
+          Text = 'Edit4'
+        end
+        object Edit8: TEdit
+          Left = 246
+          Top = 272
+          Width = 91
+          Height = 25
+          TabOrder = 10
+          Text = 'Edit4'
+        end
+        object Edit9: TEdit
+          Left = 343
+          Top = 272
+          Width = 98
+          Height = 25
+          TabOrder = 11
+          Text = 'Edit4'
+        end
       end
     end
     object tbItensOrdem: TTabSheet
       Caption = 'Itens inclusos na ordem'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 444
       object Panel5: TPanel
         Left = 0
-        Top = 397
+        Top = 410
         Width = 1215
         Height = 47
         Margins.Left = 0
@@ -741,18 +945,16 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
       end
     end
     object tbPedidoDeCompra: TTabSheet
       Caption = 'Pedido de compra'
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 444
       object Panel6: TPanel
         Left = 0
-        Top = 397
+        Top = 410
         Width = 1215
         Height = 47
         Margins.Left = 0
@@ -764,18 +966,16 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
       end
     end
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 4
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 444
       object Panel7: TPanel
         Left = 0
-        Top = 397
+        Top = 410
         Width = 1215
         Height = 47
         Margins.Left = 0
@@ -787,10 +987,12 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 397
       end
     end
   end
   object ds_DadosClientes: TDataSource
+    OnDataChange = ds_DadosClientesDataChange
     Left = 724
     Top = 5
   end

@@ -42,6 +42,51 @@ type
     DBGrid2: TDBGrid;
     ds_OrdensDoClientes: TDataSource;
     Image1: TImage;
+    Panel8: TPanel;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Edit2: TEdit;
+    Label2: TLabel;
+    Edit3: TEdit;
+    Label3: TLabel;
+    Label6: TLabel;
+    Edit4: TEdit;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Label11: TLabel;
+    Edit7: TEdit;
+    Label12: TLabel;
+    Edit8: TEdit;
+    Label13: TLabel;
+    Edit9: TEdit;
+    Label14: TLabel;
+    Memo1: TMemo;
+    Memo2: TMemo;
+    Memo3: TMemo;
+    Edit10: TEdit;
+    Label15: TLabel;
+    Edit11: TEdit;
+    Label16: TLabel;
+    Edit12: TEdit;
+    Label17: TLabel;
+    Edit13: TEdit;
+    Label18: TLabel;
+    Edit14: TEdit;
+    Label19: TLabel;
+    Edit15: TEdit;
+    Label20: TLabel;
+    Edit16: TEdit;
+    Label21: TLabel;
+    Edit17: TEdit;
+    Label22: TLabel;
+    Edit18: TEdit;
+    Label23: TLabel;
+    Edit19: TEdit;
+    Label24: TLabel;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -49,6 +94,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure ds_DadosClientesDataChange(Sender: TObject; Field: TField);
     procedure DBGrid2CellClick(Column: TColumn);
+    procedure sbNovoClick(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
@@ -80,7 +126,8 @@ begin
   end
   else
   begin
-
+    FCodigoClienteSelecionado := null;
+    FNomeClienteSelecionado := '';
   end;
 end;
 
@@ -89,8 +136,6 @@ procedure TformOrdemDeServico.ds_DadosClientesDataChange(Sender: TObject;
 begin
   ds_DadosClientes.DataSet.FieldByName('DATA_NASCIMENTO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('DATA_CADASTRO').Visible := false;
-  // ds_DadosClientes.DataSet.FieldByName('CPF_CNPJ').Visible := false;
-  // ds_DadosClientes.DataSet.FieldByName('DOCUMENTO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('ENDERECO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('BAIRRO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('NUMERO').Visible := false;
@@ -105,6 +150,13 @@ begin
   ds_DadosClientes.DataSet.FieldByName('SITUACAO_CLIENTE').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('FOTO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('OBSERVACAO').Visible := false;
+
+  Image1.Picture.Assign(ds_DadosClientes.DataSet.FieldByName('foto'));
+
+  if Image1.Picture.Graphic.Empty then
+    Image1.Picture.LoadFromFile(ExtractFilePath(application.ExeName) +
+      '/No_User.png');
+
 end;
 
 procedure TformOrdemDeServico.FormCreate(Sender: TObject);
@@ -135,6 +187,20 @@ end;
 procedure TformOrdemDeServico.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformOrdemDeServico.sbNovoClick(Sender: TObject);
+begin
+  if FCodigoClienteSelecionado = null then
+  begin
+    lblCaption.Caption := self.Caption +
+      ' > Inserindo uma nova ordem de serviço.';
+  end
+  else
+  begin
+    raise Exception.Create
+      ('Escolha um cliente para inicar a nova ordem de serviço.');
+  end;
 end;
 
 end.
