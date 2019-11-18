@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
-  UClasse.Entity.Ordem.Servico, UClasse.Entity.Cadastro.Clientes;
+  UClasse.Entity.Ordem.Servico, UClasse.Entity.Cadastro.Clientes, Vcl.Mask;
 
 type
   TformOrdemDeServico = class(TForm)
@@ -24,24 +24,83 @@ type
     Label5: TLabel;
     cbPesquisar: TComboBox;
     edtPesquisar: TEdit;
+    ds_DadosClientes: TDataSource;
+    ds_OrdensDoClientes: TDataSource;
     PageControl1: TPageControl;
     tbConsulta: TTabSheet;
+    Panel4: TPanel;
     tbCadastroOrdens: TTabSheet;
     tbItensOrdem: TTabSheet;
     tbPedidoDeCompra: TTabSheet;
     tbParcelas: TTabSheet;
-    Panel4: TPanel;
-    Panel2: TPanel;
-    Panel5: TPanel;
-    Panel6: TPanel;
     Panel7: TPanel;
-    ds_DadosClientes: TDataSource;
+    Panel6: TPanel;
+    Panel2: TPanel;
+    edtValorDaOrdem: TEdit;
+    edtDesconto: TEdit;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    edtAcresimo: TEdit;
+    Label18: TLabel;
+    edtTotalDaOrdem: TEdit;
+    edtPgto: TComboBox;
+    Label24: TLabel;
+    edtTotalDeParcelas: TEdit;
+    Label23: TLabel;
+    edtParcelado: TComboBox;
+    Label22: TLabel;
+    edtFormaDePagamento: TComboBox;
+    Label21: TLabel;
+    edtDataPagamento: TMaskEdit;
+    Label26: TLabel;
+    Panel8: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label25: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    Label31: TLabel;
+    edtCodigo: TEdit;
+    edtCodigoCliente: TEdit;
+    Edit3: TEdit;
+    edtMarca: TEdit;
+    edtEquipamento: TEdit;
+    edtModelo: TEdit;
+    edtNumeroSerie: TEdit;
+    edtDefeitoRelatado: TMemo;
+    edtLaudoTecnico: TMemo;
+    edtSulucaoDoProblema: TMemo;
+    edtFuncionario: TEdit;
+    edtMotivoDoRetorno: TEdit;
+    edtObservacaoes: TEdit;
+    edtNomeDoFuncionario: TEdit;
+    edtDataFabricacao: TMaskEdit;
+    edtDataDeEntrada: TMaskEdit;
+    edtDataFinalzacao: TMaskEdit;
+    edtDataRetorno: TMaskEdit;
+    edtPrioridade: TComboBox;
+    edtSituacaoDaOrdem: TComboBox;
+    Edit1: TEdit;
+    sbPesquisarCep: TSpeedButton;
+    SpeedButton1: TSpeedButton;
     GroupBox1: TGroupBox;
+    Panel5: TPanel;
     DBGrid1: TDBGrid;
-    GroupBox2: TGroupBox;
-    DBGrid2: TDBGrid;
-    ds_OrdensDoClientes: TDataSource;
-    Image1: TImage;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -91,8 +150,6 @@ procedure TformOrdemDeServico.ds_DadosClientesDataChange(Sender: TObject;
 begin
   ds_DadosClientes.DataSet.FieldByName('DATA_NASCIMENTO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('DATA_CADASTRO').Visible := false;
-  // ds_DadosClientes.DataSet.FieldByName('CPF_CNPJ').Visible := false;
-  // ds_DadosClientes.DataSet.FieldByName('DOCUMENTO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('ENDERECO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('BAIRRO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('NUMERO').Visible := false;
@@ -148,7 +205,16 @@ end;
 
 procedure TformOrdemDeServico.sbNovoClick(Sender: TObject);
 begin
-  lblCaption.Caption := self.Caption + ' Inserindo uma nova ordem de serviço.';
+  if FCodigoClienteSelecionado <> null then
+  begin
+    lblCaption.Caption := self.Caption +
+      ' > Inserindo uma nova ordem de serviço.';
+  end
+  else
+  begin
+    raise Exception.Create
+      ('Escolha um cliente para inicar a nova ordem de serviço.');
+  end;
 end;
 
 end.

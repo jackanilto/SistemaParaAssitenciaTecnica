@@ -1056,3 +1056,18 @@ GEN_SAIDA_PRODUTOS_ID
 13/11/19 12:54:51 - Caption: Ordem de serviço
 13/11/19 12:54:51 - Erro:EDatabaseError
 13/11/19 12:54:51 - Erro:Cannot perform this operation on an open dataset
+14/11/19 21:10:51 - ===========================================
+14/11/19 21:10:51 - Form: formOrdemDeServico
+14/11/19 21:10:51 - Caption: Ordem de serviço
+14/11/19 21:10:51 - Erro:Exception
+14/11/19 21:10:51 - Erro:Escolha um cliente para inicar a nova ordem de serviço.
+14/11/19 21:10:58 - ===========================================
+14/11/19 21:10:58 - Form: formOrdemDeServico
+14/11/19 21:10:58 - Caption: Ordem de serviço
+14/11/19 21:10:58 - Erro:Exception
+14/11/19 21:10:58 - Erro:Escolha um cliente para inicar a nova ordem de serviço.
+14/11/19 21:11:05 - ===========================================
+14/11/19 21:11:05 - Form: formOrdemDeServico
+14/11/19 21:11:05 - Caption: Ordem de serviço
+14/11/19 21:11:05 - Erro:Exception
+14/11/19 21:11:05 - Erro:Escolha um cliente para inicar a nova ordem de serviço.

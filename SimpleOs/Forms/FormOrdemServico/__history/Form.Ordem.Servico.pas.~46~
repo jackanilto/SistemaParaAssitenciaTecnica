@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
-  UClasse.Entity.Ordem.Servico, UClasse.Entity.Cadastro.Clientes;
+  UClasse.Entity.Ordem.Servico, UClasse.Entity.Cadastro.Clientes, Vcl.Mask;
 
 type
   TformOrdemDeServico = class(TForm)
@@ -24,49 +24,78 @@ type
     Label5: TLabel;
     cbPesquisar: TComboBox;
     edtPesquisar: TEdit;
+    ds_DadosClientes: TDataSource;
+    ds_OrdensDoClientes: TDataSource;
     PageControl1: TPageControl;
     tbConsulta: TTabSheet;
-    tbCadastroOrdens: TTabSheet;
-    tbItensOrdem: TTabSheet;
-    tbPedidoDeCompra: TTabSheet;
-    tbParcelas: TTabSheet;
     Panel4: TPanel;
+    tbCadastroOrdens: TTabSheet;
     Panel2: TPanel;
-    Panel5: TPanel;
-    Panel6: TPanel;
-    Panel7: TPanel;
-    ds_DadosClientes: TDataSource;
-    GroupBox1: TGroupBox;
-    DBGrid1: TDBGrid;
-    GroupBox2: TGroupBox;
-    DBGrid2: TDBGrid;
-    ds_OrdensDoClientes: TDataSource;
-    Image1: TImage;
     Panel8: TPanel;
-    Edit1: TEdit;
     Label1: TLabel;
-    Edit2: TEdit;
     Label2: TLabel;
-    Edit3: TEdit;
     Label3: TLabel;
     Label6: TLabel;
-    Edit4: TEdit;
     Label7: TLabel;
-    Memo1: TMemo;
     Label8: TLabel;
-    Memo2: TMemo;
     Label9: TLabel;
-    Memo3: TMemo;
     Label10: TLabel;
-    Edit5: TEdit;
-    Edit6: TEdit;
     Label11: TLabel;
-    Edit7: TEdit;
     Label12: TLabel;
-    Edit8: TEdit;
     Label13: TLabel;
-    Edit9: TEdit;
     Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    Label31: TLabel;
+    edtCodigo: TEdit;
+    edtCodigoCliente: TEdit;
+    Edit3: TEdit;
+    edtMarca: TEdit;
+    edtEquipamento: TEdit;
+    edtModelo: TEdit;
+    edtNumeroSerie: TEdit;
+    edtDefeitoRelatado: TMemo;
+    edtLaudoTecnico: TMemo;
+    edtSulucaoDoProblema: TMemo;
+    edtFuncionario: TEdit;
+    edtDesconto: TEdit;
+    edtAcresimo: TEdit;
+    edtTotalDaOrdem: TEdit;
+    edtValorDaOrdem: TEdit;
+    edtTotalDeParcelas: TEdit;
+    edtMotivoDoRetorno: TEdit;
+    edtObservacaoes: TEdit;
+    edtNomeDoFuncionario: TEdit;
+    edtDataFabricacao: TMaskEdit;
+    edtDataDeEntrada: TMaskEdit;
+    edtDataPagamento: TMaskEdit;
+    edtDataFinalzacao: TMaskEdit;
+    edtDataRetorno: TMaskEdit;
+    edtPrioridade: TComboBox;
+    edtSituacaoDaOrdem: TComboBox;
+    edtFormaDePagamento: TComboBox;
+    edtParcelado: TComboBox;
+    edtPgto: TComboBox;
+    tbItensOrdem: TTabSheet;
+    Panel5: TPanel;
+    tbPedidoDeCompra: TTabSheet;
+    Panel6: TPanel;
+    tbParcelas: TTabSheet;
+    Panel7: TPanel;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -171,7 +200,7 @@ end;
 
 procedure TformOrdemDeServico.sbNovoClick(Sender: TObject);
 begin
-  if FCodigoClienteSelecionado = null then
+  if FCodigoClienteSelecionado <> null then
   begin
     lblCaption.Caption := self.Caption +
       ' > Inserindo uma nova ordem de serviço.';

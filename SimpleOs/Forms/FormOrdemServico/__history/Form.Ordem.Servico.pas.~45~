@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
-  UClasse.Entity.Ordem.Servico, UClasse.Entity.Cadastro.Clientes;
+  UClasse.Entity.Ordem.Servico, UClasse.Entity.Cadastro.Clientes, Vcl.Mask;
 
 type
   TformOrdemDeServico = class(TForm)
@@ -42,6 +42,65 @@ type
     DBGrid2: TDBGrid;
     ds_OrdensDoClientes: TDataSource;
     Image1: TImage;
+    Panel8: TPanel;
+    edtCodigo: TEdit;
+    Label1: TLabel;
+    edtCodigoCliente: TEdit;
+    Label2: TLabel;
+    Edit3: TEdit;
+    Label3: TLabel;
+    Label6: TLabel;
+    edtMarca: TEdit;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    edtEquipamento: TEdit;
+    edtModelo: TEdit;
+    Label11: TLabel;
+    edtNumeroSerie: TEdit;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    edtDefeitoRelatado: TMemo;
+    edtLaudoTecnico: TMemo;
+    edtSulucaoDoProblema: TMemo;
+    edtFuncionario: TEdit;
+    Label15: TLabel;
+    edtDesconto: TEdit;
+    Label16: TLabel;
+    edtAcresimo: TEdit;
+    Label17: TLabel;
+    edtTotalDaOrdem: TEdit;
+    Label18: TLabel;
+    edtValorDaOrdem: TEdit;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    edtTotalDeParcelas: TEdit;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    edtMotivoDoRetorno: TEdit;
+    edtObservacaoes: TEdit;
+    Label30: TLabel;
+    edtNomeDoFuncionario: TEdit;
+    Label31: TLabel;
+    edtDataFabricacao: TMaskEdit;
+    edtDataDeEntrada: TMaskEdit;
+    edtDataPagamento: TMaskEdit;
+    edtDataFinalzacao: TMaskEdit;
+    edtDataRetorno: TMaskEdit;
+    edtPrioridade: TComboBox;
+    edtSituacaoDaOrdem: TComboBox;
+    edtFormaDePagamento: TComboBox;
+    edtParcelado: TComboBox;
+    edtPgto: TComboBox;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -49,6 +108,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure ds_DadosClientesDataChange(Sender: TObject; Field: TField);
     procedure DBGrid2CellClick(Column: TColumn);
+    procedure sbNovoClick(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
@@ -90,8 +150,6 @@ procedure TformOrdemDeServico.ds_DadosClientesDataChange(Sender: TObject;
 begin
   ds_DadosClientes.DataSet.FieldByName('DATA_NASCIMENTO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('DATA_CADASTRO').Visible := false;
-  // ds_DadosClientes.DataSet.FieldByName('CPF_CNPJ').Visible := false;
-  // ds_DadosClientes.DataSet.FieldByName('DOCUMENTO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('ENDERECO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('BAIRRO').Visible := false;
   ds_DadosClientes.DataSet.FieldByName('NUMERO').Visible := false;
@@ -110,9 +168,8 @@ begin
   Image1.Picture.Assign(ds_DadosClientes.DataSet.FieldByName('foto'));
 
   if Image1.Picture.Graphic.Empty then
-      Image1.Picture.LoadFromFile(ExtractFilePath(application.ExeName) +
+    Image1.Picture.LoadFromFile(ExtractFilePath(application.ExeName) +
       '/No_User.png');
-
 
 end;
 
@@ -144,6 +201,20 @@ end;
 procedure TformOrdemDeServico.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformOrdemDeServico.sbNovoClick(Sender: TObject);
+begin
+  if FCodigoClienteSelecionado <> null then
+  begin
+    lblCaption.Caption := self.Caption +
+      ' > Inserindo uma nova ordem de serviço.';
+  end
+  else
+  begin
+    raise Exception.Create
+      ('Escolha um cliente para inicar a nova ordem de serviço.');
+  end;
 end;
 
 end.
