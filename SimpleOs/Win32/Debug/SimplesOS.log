@@ -1071,3 +1071,38 @@ GEN_SAIDA_PRODUTOS_ID
 14/11/19 21:11:05 - Caption: Ordem de serviço
 14/11/19 21:11:05 - Erro:Exception
 14/11/19 21:11:05 - Erro:Escolha um cliente para inicar a nova ordem de serviço.
+19/11/19 11:45:50 - ===========================================
+19/11/19 11:45:50 - Form: formOrdemDeServico
+19/11/19 11:45:50 - Caption: Ordem de serviço
+19/11/19 11:45:50 - Erro:EDatabaseError
+19/11/19 11:45:50 - Erro:Field 'id' not found
+19/11/19 11:46:28 - ===========================================
+19/11/19 11:46:28 - Form: formOrdemDeServico
+19/11/19 11:46:28 - Caption: Ordem de serviço
+19/11/19 11:46:28 - Erro:EDatabaseError
+19/11/19 11:46:28 - Erro:Field 'DATA_NASCIMENTO' not found
+19/11/19 12:32:11 - ===========================================
+19/11/19 12:32:11 - Form: formLocalizarClientesOrdem
+19/11/19 12:32:11 - Caption: Localizar clientes
+19/11/19 12:32:11 - Erro:EVariantInvalidOpError
+19/11/19 12:32:11 - Erro:Invalid variant operation
+19/11/19 12:32:17 - ===========================================
+19/11/19 12:32:17 - Form: formLocalizarClientesOrdem
+19/11/19 12:32:17 - Caption: Localizar clientes
+19/11/19 12:32:17 - Erro:EVariantInvalidOpError
+19/11/19 12:32:17 - Erro:Invalid variant operation
+19/11/19 12:33:03 - ===========================================
+19/11/19 12:33:03 - Form: formLocalizarClientesOrdem
+19/11/19 12:33:03 - Caption: Localizar clientes
+19/11/19 12:33:03 - Erro:EVariantInvalidOpError
+19/11/19 12:33:03 - Erro:Invalid variant operation
+19/11/19 12:33:08 - ===========================================
+19/11/19 12:33:08 - Form: formLocalizarClientesOrdem
+19/11/19 12:33:08 - Caption: Localizar clientes
+19/11/19 12:33:08 - Erro:EVariantInvalidOpError
+19/11/19 12:33:08 - Erro:Invalid variant operation
+19/11/19 12:33:09 - ===========================================
+19/11/19 12:33:09 - Form: formLocalizarClientesOrdem
+19/11/19 12:33:09 - Caption: Localizar clientes
+19/11/19 12:33:09 - Erro:EVariantInvalidOpError
+19/11/19 12:33:09 - Erro:Invalid variant operation

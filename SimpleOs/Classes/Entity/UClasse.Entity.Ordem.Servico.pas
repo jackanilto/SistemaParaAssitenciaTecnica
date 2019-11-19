@@ -48,6 +48,8 @@ type
     FDATA_PAGAMENTO: string;
     FOBSERVACAO: string;
     FSTATUS: string;
+    FID_TECNICO_RESPONSAVEL: integer;
+    FTECNICO_RESPONSAVEL: string;
 
     FCodigo: integer;
     FNome: string;
@@ -111,6 +113,8 @@ type
     function dataPagamento(value: string): iOrdemServico;
     function getOBSERVACAO(value: string): iOrdemServico;
     function getSTATUS(value: string): iOrdemServico;
+    function getIdTecnico(value: integer): iOrdemServico;
+    function getTecnico(value: string): iOrdemServico;
 
     function exportar: iOrdemServico;
 
@@ -332,6 +336,12 @@ begin
   result := self;
 end;
 
+function TEntityOrdemServico.getIdTecnico(value: integer): iOrdemServico;
+begin
+  result := self;
+  FID_TECNICO_RESPONSAVEL := value;
+end;
+
 function TEntityOrdemServico.getID_CLIENTE(value: string): iOrdemServico;
 begin
   result := self;
@@ -431,6 +441,12 @@ function TEntityOrdemServico.getSTATUS(value: string): iOrdemServico;
 begin
   result := self;
   FSTATUS := value;
+end;
+
+function TEntityOrdemServico.getTecnico(value: string): iOrdemServico;
+begin
+  result := self;
+  FTECNICO_RESPONSAVEL := value;
 end;
 
 function TEntityOrdemServico.getTotalDoOrcamento(value: Currency)

@@ -856,27 +856,33 @@ type
     function dataPagamento(value: string): iOrdemServico;
     function getObservacao(value: string): iOrdemServico;
     function getSTATUS(value: string): iOrdemServico;
+    function getIdTecnico(value: integer): iOrdemServico;
+    function getTecnico(value: string): iOrdemServico;
 
     function exportar: iOrdemServico;
 
   end;
 
-//  iListaClientesOrdemServico = interface
-//    ['{E125147B-1F82-4CC6-BC05-D02F57EE71CF}']
-//    function nomeTabela(value: string): iOrdemServico;
-//    function getCampo(value: string): iOrdemServico;
-//    function getValor(value: string): iOrdemServico;
-//    function getDataInicial(value: TDate): iOrdemServico;
-//    function getDataFinal(value: TDate): iOrdemServico;
-//    function open(value: string): iOrdemServico;
-//    function pesquisar: iOrdemServico;
-//    function ExecSql: iOrdemServico;
-//    function sqlPesquisa: iOrdemServico;
-//    function sqlPesquisaData: iOrdemServico;
-//    function sqlPesquisaEstatica: iOrdemServico;
-//    function listarGrid(value: TDataSource): iOrdemServico;
-//    function ordenarGrid(column: TColumn): iOrdemServico;
-//  end;
+  iListaClientesOrdemServico = interface
+    ['{E125147B-1F82-4CC6-BC05-D02F57EE71CF}']
+    function nomeTabela(value: string): iListaClientesOrdemServico;
+    function getCampo(value: string): iListaClientesOrdemServico;
+    function getValor(value: string): iListaClientesOrdemServico;
+    function getDataInicial(value: TDate): iListaClientesOrdemServico;
+    function getDataFinal(value: TDate): iListaClientesOrdemServico;
+    function open(value: string): iListaClientesOrdemServico;
+    function pesquisar: iListaClientesOrdemServico;
+    function ExecSql: iListaClientesOrdemServico;
+    function sqlPesquisa: iListaClientesOrdemServico;
+    function sqlPesquisaData: iListaClientesOrdemServico;
+    function sqlPesquisaEstatica: iListaClientesOrdemServico;
+    function listarGrid(value: TDataSource): iListaClientesOrdemServico;
+    function ordenarGrid(column: TColumn): iListaClientesOrdemServico;
+
+    function abrir: iListaClientesOrdemServico;
+    function exportar: iListaClientesOrdemServico;
+
+  end;
 
   iItensOrdem = interface
     ['{F1A112F9-8495-4C23-9104-2A77CE79BAFA}']

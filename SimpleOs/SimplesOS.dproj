@@ -244,6 +244,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Ordem.Servico.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.LIstar.Ordens.Clientes.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Clientes.Ordem.pas">
+            <Form>formLocalizarClientesOrdem</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas">
+            <Form>formLocalizarTecnico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

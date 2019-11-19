@@ -28,7 +28,6 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 1148
     DesignSize = (
       1113
       41)
@@ -130,7 +129,6 @@ object formOrdemDeServico: TformOrdemDeServico
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 1148
     DesignSize = (
       1113
       70)
@@ -585,7 +583,6 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 814
     end
     object edtPesquisar: TEdit
       Left = 914
@@ -600,7 +597,6 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 949
     end
   end
   object PageControl1: TPageControl
@@ -608,7 +604,7 @@ object formOrdemDeServico: TformOrdemDeServico
     Top = 41
     Width = 1113
     Height = 489
-    ActivePage = tbListaDeOrdens
+    ActivePage = tbCadastroOrdens
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -624,7 +620,6 @@ object formOrdemDeServico: TformOrdemDeServico
       Margins.Right = 0
       Margins.Bottom = 0
       Caption = 'Lista de ordens'
-      ExplicitWidth = 1140
       object Panel4: TPanel
         Left = 0
         Top = 410
@@ -639,7 +634,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1140
       end
       object Panel5: TPanel
         Left = 0
@@ -651,10 +645,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 15790320
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 136
-        ExplicitTop = 96
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
@@ -663,20 +653,26 @@ object formOrdemDeServico: TformOrdemDeServico
           Align = alClient
           BorderStyle = bsNone
           DataSource = ds_DadosClientes
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           ReadOnly = True
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
           TitleFont.Height = -13
           TitleFont.Name = 'Segoe UI'
-          TitleFont.Style = []
+          TitleFont.Style = [fsBold]
+          OnCellClick = DBGrid1CellClick
         end
       end
     end
     object tbCadastroOrdens: TTabSheet
       Caption = 'Cadastro de ordens'
       ImageIndex = 1
-      ExplicitWidth = 1140
       object Panel8: TPanel
         Left = 0
         Top = 0
@@ -687,8 +683,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 15790320
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
-        ExplicitWidth = 1140
         object Label1: TLabel
           Left = 16
           Top = 17
@@ -829,7 +823,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Height = 17
           Caption = 'Tecnico responsavel pela ordem'
         end
-        object sbPesquisarCep: TSpeedButton
+        object sbPesquisarCliente: TSpeedButton
           Left = 408
           Top = 97
           Width = 25
@@ -892,8 +886,9 @@ object formOrdemDeServico: TformOrdemDeServico
             FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
             FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
             FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+          OnClick = sbPesquisarClienteClick
         end
-        object SpeedButton1: TSpeedButton
+        object sbPequisarTecnico: TSpeedButton
           Left = 1039
           Top = 284
           Width = 25
@@ -956,62 +951,63 @@ object formOrdemDeServico: TformOrdemDeServico
             FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
             FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
             FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+          OnClick = sbPequisarTecnicoClick
         end
         object edtCodigo: TEdit
           Left = 16
           Top = 40
           Width = 300
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 0
-          Text = 'edtCodigo'
         end
         object edtCodigoCliente: TEdit
           Left = 16
           Top = 97
           Width = 95
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 1
-          Text = 'edtCodigoCliente'
         end
-        object Edit3: TEdit
+        object edtCliente: TEdit
           Left = 117
           Top = 97
           Width = 285
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 2
-          Text = 'Edit3'
         end
         object edtMarca: TEdit
           Left = 16
           Top = 215
           Width = 218
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 3
-          Text = 'edtMarca'
         end
         object edtEquipamento: TEdit
           Left = 16
           Top = 157
           Width = 417
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 4
-          Text = 'Edit4'
         end
         object edtModelo: TEdit
           Left = 240
           Top = 215
           Width = 193
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 5
-          Text = 'Edit4'
         end
         object edtNumeroSerie: TEdit
           Left = 16
           Top = 272
           Width = 224
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 6
-          Text = 'Edit4'
         end
         object edtDefeitoRelatado: TMemo
           Left = 16
@@ -1019,7 +1015,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 417
           Height = 100
           Lines.Strings = (
-            'Memo1')
+            '')
           TabOrder = 7
         end
         object edtLaudoTecnico: TMemo
@@ -1028,7 +1024,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 622
           Height = 60
           Lines.Strings = (
-            'Memo1')
+            '')
           TabOrder = 8
         end
         object edtSulucaoDoProblema: TMemo
@@ -1037,7 +1033,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 622
           Height = 60
           Lines.Strings = (
-            'Memo1')
+            '')
           TabOrder = 9
         end
         object edtFuncionario: TEdit
@@ -1045,38 +1041,39 @@ object formOrdemDeServico: TformOrdemDeServico
           Top = 225
           Width = 96
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 10
-          Text = 'Edit4'
         end
         object edtMotivoDoRetorno: TEdit
           Left = 586
           Top = 350
           Width = 505
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 11
-          Text = 'Edit4'
         end
         object edtObservacaoes: TEdit
           Left = 469
           Top = 409
           Width = 622
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 12
-          Text = 'Edit4'
         end
-        object edtNomeDoFuncionario: TEdit
+        object edtCodigoTecnico: TEdit
           Left = 469
           Top = 284
           Width = 125
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 13
-          Text = 'Edit4'
         end
         object edtDataFabricacao: TMaskEdit
           Left = 246
           Top = 274
           Width = 83
           Height = 25
+          CharCase = ecUpperCase
           EditMask = '00/00/0000'
           MaxLength = 10
           TabOrder = 14
@@ -1087,6 +1084,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Top = 274
           Width = 90
           Height = 25
+          CharCase = ecUpperCase
           EditMask = '00/00/0000'
           MaxLength = 10
           TabOrder = 15
@@ -1097,6 +1095,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Top = 225
           Width = 118
           Height = 25
+          CharCase = ecUpperCase
           EditMask = '00/00/0000'
           MaxLength = 10
           TabOrder = 16
@@ -1107,6 +1106,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Top = 350
           Width = 113
           Height = 25
+          CharCase = ecUpperCase
           EditMask = '00/00/0000'
           MaxLength = 10
           TabOrder = 17
@@ -1117,31 +1117,30 @@ object formOrdemDeServico: TformOrdemDeServico
           Top = 225
           Width = 130
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 18
-          Text = 'edtPrioridade'
         end
         object edtSituacaoDaOrdem: TComboBox
           Left = 606
           Top = 225
           Width = 136
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 19
-          Text = 'edtSituacaoDaOrdem'
         end
-        object Edit1: TEdit
+        object edtTecnicoResponsave: TEdit
           Left = 600
           Top = 284
           Width = 433
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 20
-          Text = 'Edit4'
         end
       end
     end
     object tbItensOrdem: TTabSheet
       Caption = 'Faturamento da ordem'
       ImageIndex = 2
-      ExplicitWidth = 1140
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -1152,8 +1151,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 15790320
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 136
-        ExplicitTop = 40
         DesignSize = (
           1105
           457)
@@ -1308,7 +1305,6 @@ object formOrdemDeServico: TformOrdemDeServico
     object tbPedidoDeCompra: TTabSheet
       Caption = 'Pedido de compra'
       ImageIndex = 3
-      ExplicitWidth = 1140
       object Panel6: TPanel
         Left = 0
         Top = 410
@@ -1323,13 +1319,11 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1140
       end
     end
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 4
-      ExplicitWidth = 1140
       object Panel7: TPanel
         Left = 0
         Top = 410
@@ -1344,7 +1338,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1140
       end
     end
   end
