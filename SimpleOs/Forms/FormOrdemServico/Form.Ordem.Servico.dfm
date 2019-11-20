@@ -294,6 +294,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbSalvarClick
     end
     object sbEditar: TSpeedButton
       Left = 281
@@ -604,7 +605,7 @@ object formOrdemDeServico: TformOrdemDeServico
     Top = 41
     Width = 1113
     Height = 489
-    ActivePage = tbCadastroOrdens
+    ActivePage = tbListaDeOrdens
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -1151,6 +1152,7 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 15790320
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = -2
         DesignSize = (
           1105
           457)
@@ -1223,7 +1225,6 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 324
           Height = 25
           TabOrder = 0
-          Text = 'Edit4'
         end
         object edtDesconto: TEdit
           Left = 28
@@ -1231,7 +1232,6 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 157
           Height = 25
           TabOrder = 1
-          Text = 'Edit4'
         end
         object edtAcresimo: TEdit
           Left = 191
@@ -1239,15 +1239,13 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 162
           Height = 25
           TabOrder = 2
-          Text = 'Edit4'
         end
         object edtTotalDaOrdem: TEdit
           Left = 28
-          Top = 169
+          Top = 171
           Width = 325
           Height = 25
           TabOrder = 3
-          Text = 'Edit4'
         end
         object edtPgto: TComboBox
           Left = 136
@@ -1255,7 +1253,6 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 81
           Height = 25
           TabOrder = 4
-          Text = 'edtPgto'
         end
         object edtTotalDeParcelas: TEdit
           Left = 28
@@ -1263,7 +1260,6 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 100
           Height = 25
           TabOrder = 5
-          Text = 'Edit4'
         end
         object edtParcelado: TComboBox
           Left = 257
@@ -1271,7 +1267,6 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 96
           Height = 25
           TabOrder = 6
-          Text = 'edtParcelado'
         end
         object edtFormaDePagamento: TComboBox
           Left = 28
@@ -1279,7 +1274,6 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 223
           Height = 25
           TabOrder = 7
-          Text = 'edtFormaDePagamento'
         end
         object edtDataPagamento: TMaskEdit
           Left = 234

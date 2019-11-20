@@ -37,8 +37,8 @@ type
     FNOME_FUNCIONARIO: string;
     FRETORNO: string;
     FDATA_RETORNO: string;
-    FSITUACAO_DA_ORDEM: integer;
-    FFORMA_PAGAMENTO: integer;
+    FSITUACAO_DA_ORDEM: string;
+    FFORMA_PAGAMENTO: string;
     FPARCELADO: string;
     FTOTAL_PARCELAS: integer;
     FPGTO: string;
@@ -94,26 +94,26 @@ type
     function getDATA_FABRICACAO(value: string): iOrdemServico;
     function getLAUDO_DO_TECNICO(value: string): iOrdemServico;
     function getSOLUCAO_DO_PROBLEMA(value: string): iOrdemServico;
-    function getVALOR_DA_ORDEM(value: Currency): iOrdemServico;
-    function getDESCONTO(value: Currency): iOrdemServico;
-    function getACRESCIMO(value: Currency): iOrdemServico;
-    function getTotalDoOrcamento(value: Currency): iOrdemServico;
+    function getVALOR_DA_ORDEM(value: string): iOrdemServico;
+    function getDESCONTO(value: string): iOrdemServico;
+    function getACRESCIMO(value: string): iOrdemServico;
+    function getTotalDoOrcamento(value: string): iOrdemServico;
     function getID_FUNCIONARIO(value: integer): iOrdemServico;
     function getNOME_FUNCIONARIO(value: string): iOrdemServico;
     function getRETORNO(value: string): iOrdemServico;
     function getDATA_RETORNO(value: string): iOrdemServico;
-    function getSITUACAO_DA_ORDEM(value: integer): iOrdemServico;
-    function getFORMA_PAGAMENTO(value: integer): iOrdemServico;
+    function getSITUACAO_DA_ORDEM(value: string): iOrdemServico;
+    function getFORMA_PAGAMENTO(value: string): iOrdemServico;
     function getPARCELADO(value: string): iOrdemServico;
     function getTOTAL_PARCELAS(value: integer): iOrdemServico;
     function getPGTO(value: string): iOrdemServico;
     function getPRIORIDADE(value: string): iOrdemServico;
     function getDataCadastro(value: string): iOrdemServico;
-    function dataFinalizacao(value: string): iOrdemServico;
-    function dataPagamento(value: string): iOrdemServico;
+    function getDataFinalizacao(value: string): iOrdemServico;
+    function getDataPagamento(value: string): iOrdemServico;
     function getOBSERVACAO(value: string): iOrdemServico;
     function getSTATUS(value: string): iOrdemServico;
-    function getIdTecnico(value: integer): iOrdemServico;
+    function getIdTecnico(value: string): iOrdemServico;
     function getTecnico(value: string): iOrdemServico;
 
     function exportar: iOrdemServico;
@@ -164,7 +164,7 @@ begin
 
 end;
 
-function TEntityOrdemServico.dataFinalizacao(value: string): iOrdemServico;
+function TEntityOrdemServico.getDataFinalizacao(value: string): iOrdemServico;
 begin
   result := self;
 
@@ -174,7 +174,7 @@ begin
     FDATA_FINALIZACAO := value;
 end;
 
-function TEntityOrdemServico.dataPagamento(value: string): iOrdemServico;
+function TEntityOrdemServico.getDataPagamento(value: string): iOrdemServico;
 begin
   result := self;
 
@@ -241,10 +241,15 @@ begin
   FQuery.TQuery.close;
 end;
 
-function TEntityOrdemServico.getACRESCIMO(value: Currency): iOrdemServico;
+function TEntityOrdemServico.getACRESCIMO(value: string): iOrdemServico;
 begin
   result := self;
-  FACRESCIMO := value;
+  try
+    FACRESCIMO := strtocurr(value);
+  except
+    on e: exception do
+      raise exception.create('Informe um valor válido para o acréscimo.');
+  end;
 end;
 
 function TEntityOrdemServico.getCampo(value: string): iOrdemServico;
@@ -307,25 +312,30 @@ function TEntityOrdemServico.getDEFEITO_RELATADO(value: string): iOrdemServico;
 begin
   result := self;
   if value = EmptyStr then
-    raise Exception.create('Informe o defeito do equipamento.');
+    raise exception.create('Informe o defeito do equipamento.');
   FDEFEITO_RELATADO := value;
 end;
 
-function TEntityOrdemServico.getDESCONTO(value: Currency): iOrdemServico;
+function TEntityOrdemServico.getDESCONTO(value: string): iOrdemServico;
 begin
   result := self;
-  FDESCONTO := value;
+  try
+    FDESCONTO := strtocurr(value);
+  except
+    on e: exception do
+      raise exception.create('Informe um valor válido para o Desconto');
+  end;
 end;
 
 function TEntityOrdemServico.getEQUIPAMENTO(value: string): iOrdemServico;
 begin
   result := self;
   if value = EmptyStr then
-    raise Exception.create('Informe qual equipamento esta sendo cadastrado.');
+    raise exception.create('Informe qual equipamento esta sendo cadastrado.');
   FEQUIPAMENTO := value;
 end;
 
-function TEntityOrdemServico.getFORMA_PAGAMENTO(value: integer): iOrdemServico;
+function TEntityOrdemServico.getFORMA_PAGAMENTO(value: string): iOrdemServico;
 begin
   result := self;
   FFORMA_PAGAMENTO := value;
@@ -336,17 +346,18 @@ begin
   result := self;
 end;
 
-function TEntityOrdemServico.getIdTecnico(value: integer): iOrdemServico;
+function TEntityOrdemServico.getIdTecnico(value: string): iOrdemServico;
 begin
   result := self;
-  FID_TECNICO_RESPONSAVEL := value;
+  if value <> EmptyStr then
+    FID_TECNICO_RESPONSAVEL := value.ToInteger;
 end;
 
 function TEntityOrdemServico.getID_CLIENTE(value: string): iOrdemServico;
 begin
   result := self;
   if value = '0' then
-    raise Exception.create('Informe o código do cliente.');
+    raise exception.create('Informe o código do cliente.');
   FID_CLIENTE := value.ToInteger;
 
 end;
@@ -423,8 +434,7 @@ begin
   FRETORNO := value;
 end;
 
-function TEntityOrdemServico.getSITUACAO_DA_ORDEM(value: integer)
-  : iOrdemServico;
+function TEntityOrdemServico.getSITUACAO_DA_ORDEM(value: string): iOrdemServico;
 begin
   result := self;
   FSITUACAO_DA_ORDEM := value;
@@ -449,11 +459,15 @@ begin
   FTECNICO_RESPONSAVEL := value;
 end;
 
-function TEntityOrdemServico.getTotalDoOrcamento(value: Currency)
-  : iOrdemServico;
+function TEntityOrdemServico.getTotalDoOrcamento(value: string): iOrdemServico;
 begin
   result := self;
-  FTOTAL_ORCAMENTO := value;
+  try
+    FTOTAL_ORCAMENTO := strtocurr(value);
+  except
+    on e: exception do
+      raise exception.create('Informe um valor válido para o Total da Ordem');
+  end;
 end;
 
 function TEntityOrdemServico.getTOTAL_PARCELAS(value: integer): iOrdemServico;
@@ -468,10 +482,16 @@ begin
   FValor := UpperCase(value);
 end;
 
-function TEntityOrdemServico.getVALOR_DA_ORDEM(value: Currency): iOrdemServico;
+function TEntityOrdemServico.getVALOR_DA_ORDEM(value: string): iOrdemServico;
 begin
   result := self;
-  FVALOR_DA_ORDEM := value;
+  try
+    FVALOR_DA_ORDEM := strtocurr(value);
+  except
+    on e: exception do
+      raise exception.create
+        ('Informe um valor válido para o campo Valor da Ordem.');
+  end;
 end;
 
 function TEntityOrdemServico.Gravar: iOrdemServico;
@@ -500,8 +520,8 @@ begin
     FieldByName('ID_FUNCIONARIO').AsInteger := funcionarioLogado;
     FieldByName('NOME_FUNCIONARIO').AsString := nomeFuncionarioLogado;
     FieldByName('RETORNO').AsString := FRETORNO;
-    FieldByName('SITUACAO_DA_ORDEM').AsInteger := FSITUACAO_DA_ORDEM;
-    FieldByName('FORMA_PAGAMENTO').AsInteger := FFORMA_PAGAMENTO;
+    FieldByName('SITUACAO_DA_ORDEM').AsString := FSITUACAO_DA_ORDEM;
+    FieldByName('FORMA_PAGAMENTO').AsString := FFORMA_PAGAMENTO;
     FieldByName('PARCELADO').AsString := FPARCELADO;
     FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
     FieldByName('PGTO').AsString := FPGTO;
@@ -532,9 +552,9 @@ begin
   try
     FQuery.TQuery.Post;
   except
-    on e: Exception do
+    on e: exception do
     begin
-      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
 
   end;
@@ -663,7 +683,7 @@ begin
   except
     componet.SetFocus;
     componet.Clear;
-    raise Exception.create('Digite uma data válida.');
+    raise exception.create('Digite uma data válida.');
   end;
 end;
 

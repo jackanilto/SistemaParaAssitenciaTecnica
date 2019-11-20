@@ -1106,3 +1106,46 @@ GEN_SAIDA_PRODUTOS_ID
 19/11/19 12:33:09 - Caption: Localizar clientes
 19/11/19 12:33:09 - Erro:EVariantInvalidOpError
 19/11/19 12:33:09 - Erro:Invalid variant operation
+20/11/19 11:32:23 - ===========================================
+20/11/19 11:32:23 - Form: formLocalizarTecnico
+20/11/19 11:32:23 - Caption: Localizar técnico
+20/11/19 11:32:23 - Erro:EIBNativeException
+20/11/19 11:32:23 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 36
+like
+20/11/19 12:26:26 - ===========================================
+20/11/19 12:26:26 - Form: formOrdemDeServico
+20/11/19 12:26:26 - Caption: Ordem de serviço
+20/11/19 12:26:26 - Erro:EConvertError
+20/11/19 12:26:26 - Erro:'' is not a valid integer value for Integer type
+20/11/19 12:26:37 - ===========================================
+20/11/19 12:26:37 - Form: formOrdemDeServico
+20/11/19 12:26:37 - Caption: Ordem de serviço
+20/11/19 12:26:37 - Erro:Exception
+20/11/19 12:26:37 - Erro:Informe qual equipamento esta sendo cadastrado.
+20/11/19 12:26:50 - ===========================================
+20/11/19 12:26:50 - Form: formOrdemDeServico
+20/11/19 12:26:50 - Caption: Ordem de serviço
+20/11/19 12:26:50 - Erro:EConvertError
+20/11/19 12:26:50 - Erro:'' is not a valid integer value
+20/11/19 12:27:08 - ===========================================
+20/11/19 12:27:08 - Form: formOrdemDeServico
+20/11/19 12:27:08 - Caption: Ordem de serviço
+20/11/19 12:27:08 - Erro:EConvertError
+20/11/19 12:27:08 - Erro:'Edit4' is not a valid floating point value
+20/11/19 12:29:23 - ===========================================
+20/11/19 12:29:23 - Form: formOrdemDeServico
+20/11/19 12:29:23 - Caption: Ordem de serviço
+20/11/19 12:29:23 - Erro:EConvertError
+20/11/19 12:29:23 - Erro:'' is not a valid integer value
+20/11/19 12:29:37 - ===========================================
+20/11/19 12:29:37 - Form: formOrdemDeServico
+20/11/19 12:29:37 - Caption: Ordem de serviço
+20/11/19 12:29:37 - Erro:EConvertError
+20/11/19 12:29:37 - Erro:'' is not a valid floating point value
+20/11/19 12:32:57 - ===========================================
+20/11/19 12:32:57 - Form: formOrdemDeServico
+20/11/19 12:32:57 - Caption: Ordem de serviço
+20/11/19 12:32:57 - Erro:EConvertError
+20/11/19 12:32:57 - Erro:'' is not a valid floating point value

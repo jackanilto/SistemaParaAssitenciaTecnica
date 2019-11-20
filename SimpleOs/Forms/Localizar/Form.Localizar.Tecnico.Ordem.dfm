@@ -13,7 +13,9 @@ object formLocalizarTecnico: TformLocalizarTecnico
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -27,7 +29,6 @@ object formLocalizarTecnico: TformLocalizarTecnico
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitLeft = 8
     DesignSize = (
       843
       41)
@@ -137,6 +138,7 @@ object formLocalizarTecnico: TformLocalizarTecnico
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    OnDblClick = DBGrid1DblClick
   end
   object Panel2: TPanel
     Left = 0
@@ -148,7 +150,6 @@ object formLocalizarTecnico: TformLocalizarTecnico
     Color = 8406532
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 8
     object Label1: TLabel
       Left = 232
       Top = 7
@@ -188,9 +189,9 @@ object formLocalizarTecnico: TformLocalizarTecnico
       ParentFont = False
       TabOrder = 0
       Items.Strings = (
-        'C'#243'digo do cliente'
+        'C'#243'digo do funcion'#225'rio'
         'Nome'
-        'CPF ou CNPJ')
+        'Atividade')
     end
     object edtPesquisar: TEdit
       Left = 428
@@ -204,6 +205,7 @@ object formLocalizarTecnico: TformLocalizarTecnico
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnKeyUp = edtPesquisarKeyUp
     end
   end
   object DataSource1: TDataSource

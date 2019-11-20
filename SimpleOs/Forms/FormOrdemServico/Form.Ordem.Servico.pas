@@ -113,6 +113,7 @@ type
     procedure DBGrid1CellClick(Column: TColumn);
     procedure sbPesquisarClienteClick(Sender: TObject);
     procedure sbPequisarTecnicoClick(Sender: TObject);
+    procedure sbSalvarClick(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
@@ -216,8 +217,11 @@ end;
 
 procedure TformOrdemDeServico.sbPequisarTecnicoClick(Sender: TObject);
 begin
-  formLocalizarTecnico := TformLocalizarTecnico.Create(application);
-  TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
+  if sbNovo.Enabled = true then
+  begin
+    formLocalizarTecnico := TformLocalizarTecnico.Create(application);
+    TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
+  end;
 end;
 
 procedure TformOrdemDeServico.sbPesquisarClienteClick(Sender: TObject);
@@ -227,6 +231,39 @@ begin
     formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
     TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
   end;
+end;
+
+procedure TformOrdemDeServico.sbSalvarClick(Sender: TObject);
+begin
+   FEntityOrdem
+      .getID_CLIENTE(edtCodigoCliente.Text)
+      .getEQUIPAMENTO(edtEquipamento.Text)
+      .getMarca(edtMarca.Text)
+      .getModelo(edtModelo.Text)
+      .getNUMERO_SERIE(edtNumeroSerie.Text)
+      .getDATA_FABRICACAO(edtDataFabricacao.Text)
+      .getDataCadastro(edtDataDeEntrada.Text)
+      .getDEFEITO_RELATADO(edtDefeitoRelatado.Text)
+      .getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
+      .getSOLUCAO_DO_PROBLEMA(edtSulucaoDoProblema.Text)
+      .getPRIORIDADE(edtPrioridade.Text)
+      .getSITUACAO_DA_ORDEM(edtSituacaoDaOrdem.Text)
+      .getDataFinalizacao(edtDataFinalzacao.Text)
+      .getIdTecnico(edtCodigoTecnico.Text)
+      .getTecnico(edtTecnicoResponsave.Text)
+      .getDATA_RETORNO(edtDataRetorno.Text)
+      .getRETORNO(edtMotivoDoRetorno.Text)
+      .getObservacao(edtObservacaoes.Text)
+      .getVALOR_DA_ORDEM(edtValorDaOrdem.Text)
+      .getDesconto(edtDesconto.Text)
+      .getACRESCIMO(edtAcresimo.Text)
+      .getTotalDoOrcamento(edtTotalDaOrdem.Text)
+      .getFORMA_PAGAMENTO(edtFormaDePagamento.Text)
+      .getPARCELADO(edtParcelado.Text)
+      .getTOTAL_PARCELAS(strtoint(edtTotalDeParcelas.Text))
+      .getPGTO(edtPgto.Text)
+      .getDataPagamento(edtDataPagamento.Text)
+      .gravar;
 end;
 
 end.
