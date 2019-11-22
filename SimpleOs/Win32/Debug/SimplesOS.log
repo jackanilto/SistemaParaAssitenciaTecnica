@@ -1149,3 +1149,108 @@ like
 20/11/19 12:32:57 - Caption: Ordem de serviço
 20/11/19 12:32:57 - Erro:EConvertError
 20/11/19 12:32:57 - Erro:'' is not a valid floating point value
+21/11/19 21:40:40 - ===========================================
+21/11/19 21:40:40 - Form: formOrdemDeServico
+21/11/19 21:40:40 - Caption: Ordem de serviço
+21/11/19 21:40:40 - Erro:Exception
+21/11/19 21:40:40 - Erro:Informe um valor válido para o campo Valor da Ordem.
+21/11/19 21:40:52 - ===========================================
+21/11/19 21:40:52 - Form: formOrdemDeServico
+21/11/19 21:40:52 - Caption: Ordem de serviço
+21/11/19 21:40:52 - Erro:EConvertError
+21/11/19 21:40:52 - Erro:'' is not a valid integer value
+21/11/19 21:41:11 - ===========================================
+21/11/19 21:41:11 - Form: formOrdemDeServico
+21/11/19 21:41:11 - Caption: Ordem de serviço
+21/11/19 21:41:11 - Erro:EConvertError
+21/11/19 21:41:11 - Erro:'' is not a valid integer value
+21/11/19 21:41:25 - ===========================================
+21/11/19 21:41:25 - Form: formOrdemDeServico
+21/11/19 21:41:25 - Caption: Ordem de serviço
+21/11/19 21:41:25 - Erro:EConvertError
+21/11/19 21:41:25 - Erro:'' is not a valid date
+22/11/19 11:17:37 - ===========================================
+22/11/19 11:17:37 - Form: formOrdemDeServico
+22/11/19 11:17:37 - Caption: Ordem de serviço
+22/11/19 11:17:37 - Erro:Exception
+22/11/19 11:17:37 - Erro:Informe qual equipamento esta sendo cadastrado.
+22/11/19 11:17:45 - ===========================================
+22/11/19 11:17:45 - Form: formOrdemDeServico
+22/11/19 11:17:45 - Caption: Ordem de serviço
+22/11/19 11:17:45 - Erro:Exception
+22/11/19 11:17:45 - Erro:Informe um valor válido para o campo Valor da Ordem.
+22/11/19 11:18:33 - ===========================================
+22/11/19 11:18:33 - Form: formOrdemDeServico
+22/11/19 11:18:33 - Caption: Ordem de serviço
+22/11/19 11:18:33 - Erro:EConvertError
+22/11/19 11:18:33 - Erro:'' is not a valid integer value
+22/11/19 11:23:04 - ===========================================
+22/11/19 11:23:04 - Form: formOrdemDeServico
+22/11/19 11:23:04 - Caption: Ordem de serviço
+22/11/19 11:23:04 - Erro:EConvertError
+22/11/19 11:23:04 - Erro:'' is not a valid date
+22/11/19 11:23:24 - ===========================================
+22/11/19 11:23:24 - Form: formOrdemDeServico
+22/11/19 11:23:24 - Caption: Ordem de serviço
+22/11/19 11:23:24 - Erro:EConvertError
+22/11/19 11:23:24 - Erro:'' is not a valid date
+22/11/19 11:24:22 - ===========================================
+22/11/19 11:24:22 - Form: formOrdemDeServico
+22/11/19 11:24:22 - Caption: Ordem de serviço
+22/11/19 11:24:22 - Erro:EConvertError
+22/11/19 11:24:22 - Erro:'' is not a valid date
+22/11/19 11:56:44 - ===========================================
+22/11/19 11:56:44 - Form: formOrdemDeServico
+22/11/19 11:56:44 - Caption: Ordem de serviço
+22/11/19 11:56:44 - Erro:EConvertError
+22/11/19 11:56:44 - Erro:'' is not a valid date
+22/11/19 11:58:50 - ===========================================
+22/11/19 11:58:50 - Form: formOrdemDeServico
+22/11/19 11:58:50 - Caption: Ordem de serviço
+22/11/19 11:58:50 - Erro:EConvertError
+22/11/19 11:58:50 - Erro:'' is not a valid integer value for Integer type
+22/11/19 11:59:15 - ===========================================
+22/11/19 11:59:15 - Form: formOrdemDeServico
+22/11/19 11:59:15 - Caption: Ordem de serviço
+22/11/19 11:59:15 - Erro:EConvertError
+22/11/19 11:59:15 - Erro:'' is not a valid date
+22/11/19 11:59:22 - ===========================================
+22/11/19 11:59:22 - Form: formOrdemDeServico
+22/11/19 11:59:22 - Caption: Ordem de serviço
+22/11/19 11:59:22 - Erro:EConvertError
+22/11/19 11:59:22 - Erro:'' is not a valid date
+22/11/19 11:59:25 - ===========================================
+22/11/19 11:59:25 - Form: formOrdemDeServico
+22/11/19 11:59:25 - Caption: Ordem de serviço
+22/11/19 11:59:25 - Erro:EConvertError
+22/11/19 11:59:25 - Erro:'' is not a valid date
+22/11/19 12:00:04 - ===========================================
+22/11/19 12:00:04 - Form: formOrdemDeServico
+22/11/19 12:00:04 - Caption: Ordem de serviço
+22/11/19 12:00:04 - Erro:EConvertError
+22/11/19 12:00:04 - Erro:'' is not a valid date
+22/11/19 12:02:35 - ===========================================
+22/11/19 12:02:35 - Form: formOrdemDeServico
+22/11/19 12:02:35 - Caption: Ordem de serviço
+22/11/19 12:02:35 - Erro:EDatabaseError
+22/11/19 12:02:35 - Erro:Dataset not in edit or insert mode
+22/11/19 12:02:39 - ===========================================
+22/11/19 12:02:39 - Form: formOrdemDeServico
+22/11/19 12:02:39 - Caption: Ordem de serviço
+22/11/19 12:02:39 - Erro:EDatabaseError
+22/11/19 12:02:39 - Erro:Dataset not in edit or insert mode
+22/11/19 12:02:45 - ===========================================
+22/11/19 12:02:45 - Form: formOrdemDeServico
+22/11/19 12:02:45 - Caption: Ordem de serviço
+22/11/19 12:02:45 - Erro:EDatabaseError
+22/11/19 12:02:45 - Erro:Dataset not in edit or insert mode
+22/11/19 19:52:18 - ===========================================
+22/11/19 19:52:18 - Form: formOrdemDeServico
+22/11/19 19:52:18 - Caption: Ordem de serviço
+22/11/19 19:52:18 - Erro:EDatabaseError
+22/11/19 19:52:18 - Erro:Field 'ID' not found
+22/11/19 19:52:21 - ===========================================
+22/11/19 19:52:21 - Form: formOrdemDeServico
+22/11/19 19:52:21 - Caption: Ordem de serviço
+22/11/19 19:52:21 - Erro:EDatabaseError
+22/11/19 19:52:21 - Erro:Field 'ID' not found

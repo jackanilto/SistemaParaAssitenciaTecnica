@@ -62,7 +62,6 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
     inherited cardPanelCadatro: TCard
       Width = 1017
       Height = 446
-      ExplicitTop = 1
       ExplicitWidth = 1017
       ExplicitHeight = 446
       object Label1: TLabel

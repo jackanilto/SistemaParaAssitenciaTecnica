@@ -26,7 +26,7 @@ type
     cbPesquisar: TComboBox;
     edtPesquisar: TEdit;
     ds_DadosClientes: TDataSource;
-    ds_OrdensDoClientes: TDataSource;
+    ds_Ordens: TDataSource;
     PageControl1: TPageControl;
     tbListaDeOrdens: TTabSheet;
     Panel4: TPanel;
@@ -102,6 +102,7 @@ type
     GroupBox1: TGroupBox;
     Panel5: TPanel;
     DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -114,6 +115,7 @@ type
     procedure sbPesquisarClienteClick(Sender: TObject);
     procedure sbPequisarTecnicoClick(Sender: TObject);
     procedure sbSalvarClick(Sender: TObject);
+    procedure ds_OrdensDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
@@ -137,7 +139,9 @@ procedure TformOrdemDeServico.DBGrid1CellClick(Column: TColumn);
 begin
   if ds_DadosClientes.DataSet.RecordCount >= 1 then
   begin
-
+    FEntityOrdem.getCampo('ID')
+      .getValor(IntTostr(ds_DadosClientes.DataSet.FieldByName('ID_ORDEM').AsInteger))
+      .sqlPesquisa.listarGrid(ds_Ordens);
   end
   else
   begin
@@ -152,11 +156,11 @@ begin
   begin
     FCodigoClienteSelecionado := ds_DadosClientes.DataSet.FieldByName('ID')
       .AsInteger;
-    FNomeClienteSelecionado := ds_DadosClientes.DataSet.FieldByName
-      ('NOME').AsString;
-    FEntityOrdem.getCampo('ID_CLIENTE')
-      .getValor(FCodigoClienteSelecionado.ToString).sqlPesquisa.listarGrid
-      (ds_OrdensDoClientes);
+    // FNomeClienteSelecionado := ds_DadosClientes.DataSet.FieldByName
+    // ('NOME').AsString;
+    // FEntityOrdem.getCampo('ID_CLIENTE')
+    // .getValor(FCodigoClienteSelecionado.ToString).sqlPesquisa.listarGrid
+    // (ds_OrdensDoClientes);
   end
   else
   begin
@@ -177,17 +181,38 @@ begin
 
 end;
 
+procedure TformOrdemDeServico.ds_OrdensDataChange(Sender: TObject;
+  Field: TField);
+begin
+with ds_Ordens.DataSet do
+begin
+
+{Continuar apartir da deste ponto}
+//    edtCodigo.Text := IntToStr();
+
+end;
+end;
+
 procedure TformOrdemDeServico.FormCreate(Sender: TObject);
 begin
   FEntityOrdem := TEntityOrdemServico.new;
   FEntityListaOrdens := TEntityListarOrdensClientes.new;
+
+  TFactory.new.ftTable.FD_Table('SITUACAO_ORDEM')
+    .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox
+    (edtSituacaoDaOrdem);
+
+  TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
+    .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
+    (edtFormaDePagamento);
+
   ReportMemoryLeaksOnShutdown := true;
 end;
 
 procedure TformOrdemDeServico.FormShow(Sender: TObject);
 begin
   FEntityListaOrdens.abrir.listarGrid(ds_DadosClientes);
-  FEntityOrdem.abrir.listarGrid(ds_OrdensDoClientes);
+  FEntityOrdem.abrir.getCampo('ID').getValor('0').listarGrid(ds_Ordens);
 end;
 
 procedure TformOrdemDeServico.Panel1MouseDown(Sender: TObject;
@@ -213,6 +238,10 @@ begin
     ' > Inserindo uma nova ordem de serviço.';
   FEntityOrdem.inserir;
   PageControl1.ActivePage := tbCadastroOrdens;
+  edtValorDaOrdem.Text := '0';
+  edtDesconto.Text := '0';
+  edtAcresimo.Text := '0';
+  edtTotalDaOrdem.Text := '0';
 end;
 
 procedure TformOrdemDeServico.sbPequisarTecnicoClick(Sender: TObject);
@@ -235,35 +264,26 @@ end;
 
 procedure TformOrdemDeServico.sbSalvarClick(Sender: TObject);
 begin
-   FEntityOrdem
-      .getID_CLIENTE(edtCodigoCliente.Text)
-      .getEQUIPAMENTO(edtEquipamento.Text)
-      .getMarca(edtMarca.Text)
-      .getModelo(edtModelo.Text)
-      .getNUMERO_SERIE(edtNumeroSerie.Text)
-      .getDATA_FABRICACAO(edtDataFabricacao.Text)
-      .getDataCadastro(edtDataDeEntrada.Text)
-      .getDEFEITO_RELATADO(edtDefeitoRelatado.Text)
-      .getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
-      .getSOLUCAO_DO_PROBLEMA(edtSulucaoDoProblema.Text)
-      .getPRIORIDADE(edtPrioridade.Text)
-      .getSITUACAO_DA_ORDEM(edtSituacaoDaOrdem.Text)
-      .getDataFinalizacao(edtDataFinalzacao.Text)
-      .getIdTecnico(edtCodigoTecnico.Text)
-      .getTecnico(edtTecnicoResponsave.Text)
-      .getDATA_RETORNO(edtDataRetorno.Text)
-      .getRETORNO(edtMotivoDoRetorno.Text)
-      .getObservacao(edtObservacaoes.Text)
-      .getVALOR_DA_ORDEM(edtValorDaOrdem.Text)
-      .getDesconto(edtDesconto.Text)
-      .getACRESCIMO(edtAcresimo.Text)
-      .getTotalDoOrcamento(edtTotalDaOrdem.Text)
-      .getFORMA_PAGAMENTO(edtFormaDePagamento.Text)
-      .getPARCELADO(edtParcelado.Text)
-      .getTOTAL_PARCELAS(strtoint(edtTotalDeParcelas.Text))
-      .getPGTO(edtPgto.Text)
-      .getDataPagamento(edtDataPagamento.Text)
-      .gravar;
+  FEntityOrdem.getID_CLIENTE(edtCodigoCliente.Text)
+    .getEQUIPAMENTO(edtEquipamento.Text).getMarca(edtMarca.Text)
+    .getModelo(edtModelo.Text).getNUMERO_SERIE(edtNumeroSerie.Text)
+    .getDATA_FABRICACAO(edtDataFabricacao.Text)
+    .getDataCadastro(edtDataDeEntrada.Text).getDEFEITO_RELATADO
+    (edtDefeitoRelatado.Lines.Text).getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
+    .getSOLUCAO_DO_PROBLEMA(edtSulucaoDoProblema.Text)
+    .getPRIORIDADE(edtPrioridade.Text).getSITUACAO_DA_ORDEM
+    (edtSituacaoDaOrdem.Text).getDataFinalizacao(edtDataFinalzacao.Text)
+    .getIdTecnico(edtCodigoTecnico.Text).getTecnico(edtTecnicoResponsave.Text)
+    .getDATA_RETORNO(edtDataRetorno.Text).getRETORNO(edtMotivoDoRetorno.Text)
+    .getObservacao(edtObservacaoes.Text).getVALOR_DA_ORDEM(edtValorDaOrdem.Text)
+    .getDesconto(edtDesconto.Text).getACRESCIMO(edtAcresimo.Text)
+    .getTotalDoOrcamento(edtTotalDaOrdem.Text).getFORMA_PAGAMENTO
+    (edtFormaDePagamento.Text).getPARCELADO(edtParcelado.Text)
+    .getTOTAL_PARCELAS(edtTotalDeParcelas.Text).getPGTO(edtPgto.Text)
+    .getDataPagamento(edtDataPagamento.Text).gravar;
+
+  showmessage('Operação realizada com sucesso!');
+
 end;
 
 end.

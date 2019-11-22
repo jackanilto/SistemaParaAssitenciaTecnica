@@ -848,7 +848,7 @@ type
     function getSITUACAO_DA_ORDEM(value: string): iOrdemServico;
     function getFORMA_PAGAMENTO(value: String): iOrdemServico;
     function getPARCELADO(value: string): iOrdemServico;
-    function getTOTAL_PARCELAS(value: integer): iOrdemServico;
+    function getTOTAL_PARCELAS(value: string): iOrdemServico;
     function getPGTO(value: string): iOrdemServico;
     function getPRIORIDADE(value: string): iOrdemServico;
     function getDataCadastro(value: string): iOrdemServico;
@@ -909,6 +909,7 @@ type
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
     function criptPass: iCriptPasss;
+    function ftTable:iFDTable;
   end;
 
   iFactoryEntity = interface

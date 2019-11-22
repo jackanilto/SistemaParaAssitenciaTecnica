@@ -105,7 +105,7 @@ type
     function getSITUACAO_DA_ORDEM(value: string): iOrdemServico;
     function getFORMA_PAGAMENTO(value: string): iOrdemServico;
     function getPARCELADO(value: string): iOrdemServico;
-    function getTOTAL_PARCELAS(value: integer): iOrdemServico;
+    function getTOTAL_PARCELAS(value: string): iOrdemServico;
     function getPGTO(value: string): iOrdemServico;
     function getPRIORIDADE(value: string): iOrdemServico;
     function getDataCadastro(value: string): iOrdemServico;
@@ -470,10 +470,15 @@ begin
   end;
 end;
 
-function TEntityOrdemServico.getTOTAL_PARCELAS(value: integer): iOrdemServico;
+function TEntityOrdemServico.getTOTAL_PARCELAS(value: string): iOrdemServico;
 begin
   result := self;
-  FTOTAL_PARCELAS := value;
+
+  if value = EmptyStr then
+    FTOTAL_PARCELAS := 0
+  else
+    FTOTAL_PARCELAS := value.ToInteger;
+
 end;
 
 function TEntityOrdemServico.getValor(value: string): iOrdemServico;
@@ -529,20 +534,20 @@ begin
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
     FieldByName('STATUS').AsString := FSTATUS;
 
-    if FDATA_FABRICACAO <> '  /  /    ' then
+    if FDATA_FABRICACAO <> '' then
       FieldByName('DATA_FABRICACAO').AsDateTime := StrToDate(FDATA_FABRICACAO);
 
-    if FDATA_RETORNO <> '  /  /    ' then
+    if FDATA_RETORNO <> '' then
       FieldByName('DATA_RETORNO').AsDateTime := StrToDate(FDATA_RETORNO);
 
-    if FDATA_ENTRADA <> '  /  /    ' then
+    if FDATA_ENTRADA <> '' then
       FieldByName('DATA_ENTRADA').AsDateTime := StrToDate(FDATA_ENTRADA);
 
-    if FDATA_FINALIZACAO <> '  /  /    ' then
+    if FDATA_FINALIZACAO <> '' then
       FieldByName('DATA_FINALIZACAO').AsDateTime :=
         StrToDate(FDATA_FINALIZACAO);
 
-    if FDATA_PAGAMENTO <> '  /  /    ' then
+    if FDATA_PAGAMENTO <> '' then
       FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO);
 
     FGravarLog.getNomeRegistro(FieldByName('EQUIPAMENTO').AsString)

@@ -1017,6 +1017,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Height = 100
           Lines.Strings = (
             '')
+          ScrollBars = ssVertical
           TabOrder = 7
         end
         object edtLaudoTecnico: TMemo
@@ -1026,6 +1027,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Height = 60
           Lines.Strings = (
             '')
+          ScrollBars = ssVertical
           TabOrder = 8
         end
         object edtSulucaoDoProblema: TMemo
@@ -1035,6 +1037,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Height = 60
           Lines.Strings = (
             '')
+          ScrollBars = ssVertical
           TabOrder = 9
         end
         object edtFuncionario: TEdit
@@ -1120,6 +1123,10 @@ object formOrdemDeServico: TformOrdemDeServico
           Height = 25
           CharCase = ecUpperCase
           TabOrder = 18
+          Items.Strings = (
+            'URG'#202'NCIA'
+            'PRIORIDADE ALTA'
+            'NORMAL')
         end
         object edtSituacaoDaOrdem: TComboBox
           Left = 606
@@ -1152,7 +1159,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 15790320
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
         DesignSize = (
           1105
           457)
@@ -1253,6 +1259,9 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 81
           Height = 25
           TabOrder = 4
+          Items.Strings = (
+            'Sim'
+            'N'#227'o')
         end
         object edtTotalDeParcelas: TEdit
           Left = 28
@@ -1267,6 +1276,9 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 96
           Height = 25
           TabOrder = 6
+          Items.Strings = (
+            'Sim'
+            'N'#227'o')
         end
         object edtFormaDePagamento: TComboBox
           Left = 28
@@ -1337,11 +1349,16 @@ object formOrdemDeServico: TformOrdemDeServico
   end
   object ds_DadosClientes: TDataSource
     OnDataChange = ds_DadosClientesDataChange
-    Left = 724
+    Left = 652
     Top = 5
   end
-  object ds_OrdensDoClientes: TDataSource
+  object ds_Ordens: TDataSource
+    OnDataChange = ds_OrdensDataChange
     Left = 812
     Top = 5
+  end
+  object DataSource1: TDataSource
+    Left = 943
+    Top = 13
   end
 end
