@@ -1,23 +1,23 @@
-{Criar códificação para as partes
-  -calcular o total da ordem com desconto
-  -calcular o total da ordem com acrescimo
-  -chamar o cadastro de clientes ao pesquisar um cliente e este não existir
+{ Criar códificação para as partes
+  -calcular o total da ordem com desconto --FEITO
+  -calcular o total da ordem com acrescimo --FEITO
+  -chamar o cadastro de clientes ao pesquisar um cliente e este não existir --FEITO
   -inserir a códificação do botão editar
   -inserir a códificação do botão deletar;
   -inserir o codificação do botão cancelar
   -criar a rotina para estornar a ordem
 
   --criar os processo para a inserção dos itens do orçamento e calcular
-   automaticamento o valor total da ordem
+  automaticamento o valor total da ordem
   --criar a rotina para inserção dos pedidos de compra
 
   --criar as rotinas para a geração de parcelas:
-     gerar parcelas
-     rotina para quitar parcelas
-     rotina para incluir parcelas
-     rotina para deletar parcelas
-     rotina para cancelar
-     rotina para estornar  }
+  gerar parcelas
+  rotina para quitar parcelas
+  rotina para incluir parcelas
+  rotina para deletar parcelas
+  rotina para cancelar
+  rotina para estornar }
 unit Form.Ordem.Servico;
 
 interface
@@ -138,6 +138,7 @@ type
     procedure ds_OrdensDataChange(Sender: TObject; Field: TField);
     procedure edtValorDaOrdemExit(Sender: TObject);
     procedure edtDescontoExit(Sender: TObject);
+    procedure edtAcresimoExit(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
@@ -265,23 +266,17 @@ begin
     ('NOME_CLIENTE').AsString;
 end;
 
-procedure TformOrdemDeServico.edtDescontoExit(Sender: TObject);
-var
-  totalOrdem: currency;
-  desconto: currency;
+procedure TformOrdemDeServico.edtAcresimoExit(Sender: TObject);
 begin
-  if ((edtDesconto.Text <> EmptyStr) and (sbNovo.Enabled = false)) then
-  begin
-    if ((edtTotalDaOrdem.Text <> '') or (edtTotalDaOrdem.Text <> '0')) then
-    begin
-      totalOrdem := StrToCurr(edtValorDaOrdem.Text);
-      desconto := StrToCurr(edtDesconto.Text);
-      edtTotalDaOrdem.Text := CurrToStr(totalOrdem - desconto);
-    end;
+  edtTotalDaOrdem.Text := FEntityOrdem.calcularAcrescimo(edtValorDaOrdem,
+    edtDesconto, edtAcresimo);
+end;
 
-    // edtTotalDaOrdem.Text := CurrToStr(StrToCurr(edtValorDaOrdem.Text) -
-    // StrToCurr(edtDesconto.Text));
-  end;
+procedure TformOrdemDeServico.edtDescontoExit(Sender: TObject);
+begin
+
+  edtTotalDaOrdem.Text := FEntityOrdem.calcularDesconto(edtValorDaOrdem,
+    edtDesconto);
 
 end;
 
@@ -290,7 +285,21 @@ begin
 
   if ((edtValorDaOrdem.Text <> EmptyStr) and (sbNovo.Enabled = false)) then
   begin
+
+    try
+      StrToCurr(edtValorDaOrdem.Text);
+    except
+      on e: exception do
+      begin
+        edtValorDaOrdem.SetFocus;
+        raise exception.Create
+          ('Informe um valor válido para o campo Valor da Ordem.');
+      end;
+
+    end;
+
     edtTotalDaOrdem.Text := edtValorDaOrdem.Text;
+
   end;
 
 end;
@@ -349,7 +358,7 @@ end;
 
 procedure TformOrdemDeServico.sbPequisarTecnicoClick(Sender: TObject);
 begin
-  if sbNovo.Enabled = true then
+  if sbNovo.Enabled = false then
   begin
     formLocalizarTecnico := TformLocalizarTecnico.Create(application);
     TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
@@ -358,7 +367,7 @@ end;
 
 procedure TformOrdemDeServico.sbPesquisarClienteClick(Sender: TObject);
 begin
-  if sbNovo.Enabled = true then
+  if sbNovo.Enabled = false then
   begin
     formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
     TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');

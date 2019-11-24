@@ -859,6 +859,9 @@ type
     function getIdTecnico(value: string): iOrdemServico;
     function getTecnico(value: string): iOrdemServico;
 
+    function calcularDesconto(valor, desconto: TEdit): string;
+    function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
+
     function exportar: iOrdemServico;
 
   end;
@@ -909,7 +912,7 @@ type
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
     function criptPass: iCriptPasss;
-    function ftTable:iFDTable;
+    function ftTable: iFDTable;
   end;
 
   iFactoryEntity = interface

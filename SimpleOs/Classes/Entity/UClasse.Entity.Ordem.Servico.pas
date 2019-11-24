@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  Vcl.StdCtrls;
 
 type
 
@@ -116,6 +117,9 @@ type
     function getIdTecnico(value: string): iOrdemServico;
     function getTecnico(value: string): iOrdemServico;
 
+    function calcularDesconto(valor, desconto: TEdit): string;
+    function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
+
     function exportar: iOrdemServico;
 
     constructor create;
@@ -139,6 +143,84 @@ function TEntityOrdemServico.atualizar: iOrdemServico;
 begin
   result := self;
   FQuery.TQuery.Refresh;
+end;
+
+function TEntityOrdemServico.calcularAcrescimo(valor, desconto,
+  acrescimo: TEdit): string;
+var
+  FValorOrdem: Currency;
+  FDescontoOrdem: Currency;
+  FAcrescimoOrdem: Currency;
+begin
+
+  try
+    FValorOrdem := StrToCurr(valor.Text);
+  except
+    on e: exception do
+      raise exception.create('Informe um valor válido para a ordem.');
+  end;
+
+  try
+    FDescontoOrdem := StrToCurr(desconto.Text);
+  except
+    on e: exception do
+      raise exception.create
+        ('Informe um valor igual ou maior que zero para o campo Desconto.')
+  end;
+
+  try
+    FAcrescimoOrdem := StrToCurr(acrescimo.Text);
+  except
+    on e: exception do
+      raise exception.create
+        ('Informe um valor igual ou maior que zero para o campo Acréscimo');
+
+  end;
+
+  if ((valor.Text <> '0') and (acrescimo.Text <> '0')) then
+  begin
+    result := CurrToStr(FAcrescimoOrdem + (FValorOrdem - FDescontoOrdem));
+  end
+  else
+    result := valor.Text;
+
+end;
+
+function TEntityOrdemServico.calcularDesconto(valor, desconto: TEdit): string;
+var
+  FValorOrdem: Currency;
+  FDescontoOrdem: Currency;
+begin
+
+  try
+    FValorOrdem := StrToCurr(valor.Text);
+  except
+    on e: exception do
+    begin
+      valor.Text := '0';
+      valor.SetFocus;
+      raise exception.create('Informe um valor para o campo Valor da Ordem.');
+    end;
+  end;
+
+  try
+    FDescontoOrdem := StrToCurr(desconto.Text);
+  except
+    on e: exception do
+    begin
+      desconto.Text := '0';
+      raise exception.create
+        ('Informe um valor igual ou maior que zero para o campo Acréscimo.')
+    end;
+  end;
+
+  if ((valor.Text <> '0') and (desconto.Text <> '0')) then
+  begin
+    result := CurrToStr(FValorOrdem - FDescontoOrdem);
+  end
+  else
+    result := valor.Text;
+
 end;
 
 function TEntityOrdemServico.cancelar: iOrdemServico;
@@ -245,7 +327,7 @@ function TEntityOrdemServico.getACRESCIMO(value: string): iOrdemServico;
 begin
   result := self;
   try
-    FACRESCIMO := strtocurr(value);
+    FACRESCIMO := StrToCurr(value);
   except
     on e: exception do
       raise exception.create('Informe um valor válido para o acréscimo.');
@@ -320,7 +402,7 @@ function TEntityOrdemServico.getDESCONTO(value: string): iOrdemServico;
 begin
   result := self;
   try
-    FDESCONTO := strtocurr(value);
+    FDESCONTO := StrToCurr(value);
   except
     on e: exception do
       raise exception.create('Informe um valor válido para o Desconto');
@@ -463,7 +545,7 @@ function TEntityOrdemServico.getTotalDoOrcamento(value: string): iOrdemServico;
 begin
   result := self;
   try
-    FTOTAL_ORCAMENTO := strtocurr(value);
+    FTOTAL_ORCAMENTO := StrToCurr(value);
   except
     on e: exception do
       raise exception.create('Informe um valor válido para o Total da Ordem');
@@ -491,7 +573,7 @@ function TEntityOrdemServico.getVALOR_DA_ORDEM(value: string): iOrdemServico;
 begin
   result := self;
   try
-    FVALOR_DA_ORDEM := strtocurr(value);
+    FVALOR_DA_ORDEM := StrToCurr(value);
   except
     on e: exception do
       raise exception.create

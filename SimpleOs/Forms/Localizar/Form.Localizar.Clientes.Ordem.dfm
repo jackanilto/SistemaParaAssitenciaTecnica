@@ -129,6 +129,7 @@ object formLocalizarClientesOrdem: TformLocalizarClientesOrdem
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 262
     object Label1: TLabel
       Left = 232
       Top = 7
@@ -154,6 +155,25 @@ object formLocalizarClientesOrdem: TformLocalizarClientesOrdem
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
+    end
+    object sbCadastrarClientes: TSpeedButton
+      Left = 622
+      Top = 16
+      Width = 138
+      Height = 35
+      Hint = 'Inserir um novo registro'
+      Caption = 'Cadastrar Cliente'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Roboto'
+      Font.Style = []
+      Layout = blGlyphRight
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = sbCadastrarClientesClick
     end
     object cbPesquisar: TComboBox
       Left = 232

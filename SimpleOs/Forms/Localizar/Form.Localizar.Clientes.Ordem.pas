@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, UDados.Conexao, FireDAC.Comp.Client;
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, UDados.Conexao, FireDAC.Comp.Client,
+  UClasse.Chamar.Cadastro.Clientes.Ordens;
 
 type
   TformLocalizarClientesOrdem = class(TForm)
@@ -20,6 +21,7 @@ type
     Label2: TLabel;
     cbPesquisar: TComboBox;
     edtPesquisar: TEdit;
+    sbCadastrarClientes: TSpeedButton;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -29,12 +31,14 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure sbCadastrarClientesClick(Sender: TObject);
   private
     { Private declarations }
     procedure Localizar;
 
   var
     FQuery: TFDQuery;
+    FClasseChamarCadastroClientes: TclasseCadastroClientesOrdem;
     FCampo: string;
     FValor: string;
   public
@@ -80,6 +84,17 @@ begin
 
     Localizar;
 
+//    if DataSource1.DataSet.RecordCount = 0 then
+//    begin
+//      if application.MessageBox
+//        ('Nenhum registro foi encontrado. Deseja cadastrar este cliente?',
+//        'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+//      begin
+//
+//      end;
+//
+//    end;
+
   end;
 
 end;
@@ -88,12 +103,15 @@ procedure TformLocalizarClientesOrdem.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FQuery.Free;
+  FClasseChamarCadastroClientes.Free;
 end;
 
 procedure TformLocalizarClientesOrdem.FormCreate(Sender: TObject);
 begin
   FQuery := TFDQuery.Create(nil);
   FQuery.Connection := DataModule1.Conexao;
+  FClasseChamarCadastroClientes := TclasseCadastroClientesOrdem.Create;
+  ReportMemoryLeaksOnShutdown := true;
 end;
 
 procedure TformLocalizarClientesOrdem.FormShow(Sender: TObject);
@@ -148,6 +166,12 @@ begin
     ReleaseCapture;
     self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
   end;
+end;
+
+procedure TformLocalizarClientesOrdem.sbCadastrarClientesClick(Sender: TObject);
+begin
+//  FClasseChamarCadastroClientes.nome := edtPesquisar.Text;
+  FClasseChamarCadastroClientes.chamarCadastroClientes;
 end;
 
 procedure TformLocalizarClientesOrdem.sbFecharClick(Sender: TObject);

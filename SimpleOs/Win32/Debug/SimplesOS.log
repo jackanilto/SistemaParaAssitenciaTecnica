@@ -1254,3 +1254,148 @@ like
 22/11/19 19:52:21 - Caption: Ordem de serviço
 22/11/19 19:52:21 - Erro:EDatabaseError
 22/11/19 19:52:21 - Erro:Field 'ID' not found
+24/11/19 13:58:10 - ===========================================
+24/11/19 13:58:10 - Form: formOrdemDeServico
+24/11/19 13:58:10 - Caption: Ordem de serviço
+24/11/19 13:58:10 - Erro:Exception
+24/11/19 13:58:10 - Erro:Informe um valor válido para o desconto da ordem.
+24/11/19 14:04:57 - ===========================================
+24/11/19 14:04:57 - Form: formOrdemDeServico
+24/11/19 14:04:57 - Caption: Ordem de serviço
+24/11/19 14:04:57 - Erro:Exception
+24/11/19 14:04:57 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+24/11/19 14:05:02 - ===========================================
+24/11/19 14:05:02 - Form: formOrdemDeServico
+24/11/19 14:05:02 - Caption: Ordem de serviço
+24/11/19 14:05:02 - Erro:Exception
+24/11/19 14:05:02 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+24/11/19 14:05:05 - ===========================================
+24/11/19 14:05:05 - Form: formOrdemDeServico
+24/11/19 14:05:05 - Caption: Ordem de serviço
+24/11/19 14:05:05 - Erro:Exception
+24/11/19 14:05:05 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+24/11/19 14:05:10 - ===========================================
+24/11/19 14:05:10 - Form: formOrdemDeServico
+24/11/19 14:05:10 - Caption: Ordem de serviço
+24/11/19 14:05:10 - Erro:Exception
+24/11/19 14:05:10 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+24/11/19 14:05:13 - ===========================================
+24/11/19 14:05:13 - Form: formOrdemDeServico
+24/11/19 14:05:13 - Caption: Ordem de serviço
+24/11/19 14:05:13 - Erro:Exception
+24/11/19 14:05:13 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+24/11/19 14:09:07 - ===========================================
+24/11/19 14:09:07 - Form: formOrdemDeServico
+24/11/19 14:09:07 - Caption: Ordem de serviço
+24/11/19 14:09:07 - Erro:Exception
+24/11/19 14:09:07 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+24/11/19 14:09:19 - ===========================================
+24/11/19 14:09:19 - Form: formOrdemDeServico
+24/11/19 14:09:19 - Caption: Ordem de serviço
+24/11/19 14:09:19 - Erro:Exception
+24/11/19 14:09:19 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+24/11/19 14:11:48 - ===========================================
+24/11/19 14:11:48 - Form: formOrdemDeServico
+24/11/19 14:11:48 - Caption: Ordem de serviço
+24/11/19 14:11:48 - Erro:Exception
+24/11/19 14:11:48 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:11:52 - ===========================================
+24/11/19 14:11:52 - Form: formOrdemDeServico
+24/11/19 14:11:52 - Caption: Ordem de serviço
+24/11/19 14:11:52 - Erro:Exception
+24/11/19 14:11:52 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:12:18 - ===========================================
+24/11/19 14:12:18 - Form: formOrdemDeServico
+24/11/19 14:12:18 - Caption: Ordem de serviço
+24/11/19 14:12:18 - Erro:Exception
+24/11/19 14:12:18 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:12:20 - ===========================================
+24/11/19 14:12:20 - Form: formOrdemDeServico
+24/11/19 14:12:20 - Caption: Ordem de serviço
+24/11/19 14:12:20 - Erro:Exception
+24/11/19 14:12:20 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:12:23 - ===========================================
+24/11/19 14:12:23 - Form: formOrdemDeServico
+24/11/19 14:12:23 - Caption: Ordem de serviço
+24/11/19 14:12:23 - Erro:Exception
+24/11/19 14:12:23 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:12:24 - ===========================================
+24/11/19 14:12:24 - Form: formOrdemDeServico
+24/11/19 14:12:24 - Caption: Ordem de serviço
+24/11/19 14:12:24 - Erro:Exception
+24/11/19 14:12:24 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:13:43 - ===========================================
+24/11/19 14:13:43 - Form: formOrdemDeServico
+24/11/19 14:13:43 - Caption: Ordem de serviço
+24/11/19 14:13:43 - Erro:Exception
+24/11/19 14:13:43 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:13:46 - ===========================================
+24/11/19 14:13:46 - Form: formOrdemDeServico
+24/11/19 14:13:46 - Caption: Ordem de serviço
+24/11/19 14:13:46 - Erro:Exception
+24/11/19 14:13:46 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:13:49 - ===========================================
+24/11/19 14:13:49 - Form: formOrdemDeServico
+24/11/19 14:13:49 - Caption: Ordem de serviço
+24/11/19 14:13:49 - Erro:Exception
+24/11/19 14:13:49 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:14:38 - ===========================================
+24/11/19 14:14:38 - Form: formOrdemDeServico
+24/11/19 14:14:38 - Caption: Ordem de serviço
+24/11/19 14:14:38 - Erro:Exception
+24/11/19 14:14:38 - Erro:Informe um valor para o campo Valor da Ordem.
+24/11/19 14:20:48 - ===========================================
+24/11/19 14:20:48 - Form: formOrdemDeServico
+24/11/19 14:20:48 - Caption: Ordem de serviço
+24/11/19 14:20:48 - Erro:Exception
+24/11/19 14:20:48 - Erro:Informe um valor válido para o campo Valor da Ordem.
+24/11/19 14:20:54 - ===========================================
+24/11/19 14:20:54 - Form: formOrdemDeServico
+24/11/19 14:20:54 - Caption: Ordem de serviço
+24/11/19 14:20:54 - Erro:Exception
+24/11/19 14:20:54 - Erro:Informe um valor válido para o campo Valor da Ordem.
+24/11/19 14:21:02 - ===========================================
+24/11/19 14:21:02 - Form: formOrdemDeServico
+24/11/19 14:21:02 - Caption: Ordem de serviço
+24/11/19 14:21:02 - Erro:Exception
+24/11/19 14:21:02 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo.
+24/11/19 14:21:11 - ===========================================
+24/11/19 14:21:11 - Form: formOrdemDeServico
+24/11/19 14:21:11 - Caption: Ordem de serviço
+24/11/19 14:21:11 - Erro:Exception
+24/11/19 14:21:11 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+24/11/19 14:21:14 - ===========================================
+24/11/19 14:21:14 - Form: formOrdemDeServico
+24/11/19 14:21:14 - Caption: Ordem de serviço
+24/11/19 14:21:14 - Erro:Exception
+24/11/19 14:21:14 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+24/11/19 14:21:15 - ===========================================
+24/11/19 14:21:15 - Form: formOrdemDeServico
+24/11/19 14:21:15 - Caption: Ordem de serviço
+24/11/19 14:21:15 - Erro:Exception
+24/11/19 14:21:15 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+24/11/19 14:21:22 - ===========================================
+24/11/19 14:21:22 - Form: formOrdemDeServico
+24/11/19 14:21:22 - Caption: Ordem de serviço
+24/11/19 14:21:22 - Erro:Exception
+24/11/19 14:21:22 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+24/11/19 15:47:08 - ===========================================
+24/11/19 15:47:08 - Form: formLocalizarClientesOrdem
+24/11/19 15:47:08 - Caption: Localizar clientes
+24/11/19 15:47:08 - Erro:EInvalidOperation
+24/11/19 15:47:08 - Erro:Cannot focus a disabled or invisible window
+24/11/19 15:47:11 - ===========================================
+24/11/19 15:47:11 - Form: formLocalizarClientesOrdem
+24/11/19 15:47:11 - Caption: Localizar clientes
+24/11/19 15:47:11 - Erro:EInvalidOperation
+24/11/19 15:47:11 - Erro:Cannot focus a disabled or invisible window
+24/11/19 15:48:13 - ===========================================
+24/11/19 15:48:13 - Form: formLocalizarClientesOrdem
+24/11/19 15:48:13 - Caption: Localizar clientes
+24/11/19 15:48:13 - Erro:EInvalidOperation
+24/11/19 15:48:13 - Erro:Cannot focus a disabled or invisible window
+24/11/19 15:49:13 - ===========================================
+24/11/19 15:49:13 - Form: formLocalizarClientesOrdem
+24/11/19 15:49:13 - Caption: Localizar clientes
+24/11/19 15:49:13 - Erro:EInvalidOperation
+24/11/19 15:49:13 - Erro:Cannot focus a disabled or invisible window
