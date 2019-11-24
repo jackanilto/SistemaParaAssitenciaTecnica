@@ -605,7 +605,7 @@ object formOrdemDeServico: TformOrdemDeServico
     Top = 41
     Width = 1113
     Height = 489
-    ActivePage = tbListaDeOrdens
+    ActivePage = tbCadastroOrdens
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -1030,7 +1030,7 @@ object formOrdemDeServico: TformOrdemDeServico
           ScrollBars = ssVertical
           TabOrder = 8
         end
-        object edtSulucaoDoProblema: TMemo
+        object edtSolucaoDoProblema: TMemo
           Left = 469
           Top = 132
           Width = 622
@@ -1122,6 +1122,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 130
           Height = 25
           CharCase = ecUpperCase
+          ItemIndex = 0
           TabOrder = 18
           Items.Strings = (
             'URG'#202'NCIA'
@@ -1231,6 +1232,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 324
           Height = 25
           TabOrder = 0
+          OnExit = edtValorDaOrdemExit
         end
         object edtDesconto: TEdit
           Left = 28
@@ -1238,6 +1240,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 157
           Height = 25
           TabOrder = 1
+          OnExit = edtDescontoExit
         end
         object edtAcresimo: TEdit
           Left = 191

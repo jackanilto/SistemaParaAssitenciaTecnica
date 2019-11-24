@@ -1,3 +1,23 @@
+{Criar códificação para as partes
+  -calcular o total da ordem com desconto
+  -calcular o total da ordem com acrescimo
+  -chamar o cadastro de clientes ao pesquisar um cliente e este não existir
+  -inserir a códificação do botão editar
+  -inserir a códificação do botão deletar;
+  -inserir o codificação do botão cancelar
+  -criar a rotina para estornar a ordem
+
+  --criar os processo para a inserção dos itens do orçamento e calcular
+   automaticamento o valor total da ordem
+  --criar a rotina para inserção dos pedidos de compra
+
+  --criar as rotinas para a geração de parcelas:
+     gerar parcelas
+     rotina para quitar parcelas
+     rotina para incluir parcelas
+     rotina para deletar parcelas
+     rotina para cancelar
+     rotina para estornar  }
 unit Form.Ordem.Servico;
 
 interface
@@ -85,7 +105,7 @@ type
     edtNumeroSerie: TEdit;
     edtDefeitoRelatado: TMemo;
     edtLaudoTecnico: TMemo;
-    edtSulucaoDoProblema: TMemo;
+    edtSolucaoDoProblema: TMemo;
     edtFuncionario: TEdit;
     edtMotivoDoRetorno: TEdit;
     edtObservacaoes: TEdit;
@@ -116,6 +136,8 @@ type
     procedure sbPequisarTecnicoClick(Sender: TObject);
     procedure sbSalvarClick(Sender: TObject);
     procedure ds_OrdensDataChange(Sender: TObject; Field: TField);
+    procedure edtValorDaOrdemExit(Sender: TObject);
+    procedure edtDescontoExit(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
@@ -140,8 +162,8 @@ begin
   if ds_DadosClientes.DataSet.RecordCount >= 1 then
   begin
     FEntityOrdem.getCampo('ID')
-      .getValor(IntTostr(ds_DadosClientes.DataSet.FieldByName('ID_ORDEM').AsInteger))
-      .sqlPesquisa.listarGrid(ds_Ordens);
+      .getValor(IntTostr(ds_DadosClientes.DataSet.FieldByName('ID_ORDEM')
+      .AsInteger)).sqlPesquisa.listarGrid(ds_Ordens);
   end
   else
   begin
@@ -184,13 +206,93 @@ end;
 procedure TformOrdemDeServico.ds_OrdensDataChange(Sender: TObject;
   Field: TField);
 begin
-with ds_Ordens.DataSet do
-begin
+  with ds_Ordens.DataSet do
+  begin
 
-{Continuar apartir da deste ponto}
-//    edtCodigo.Text := IntToStr();
+    edtCodigo.Text := IntTostr(FieldByName('id').AsInteger);
+    edtCodigoCliente.Text := IntTostr(FieldByName('ID_CLIENTE').AsInteger);
+    edtEquipamento.Text := FieldByName('EQUIPAMENTO').AsString;
+    edtDefeitoRelatado.Text := FieldByName('DEFEITO_RELATADO').AsString;
+    edtMarca.Text := FieldByName('MARCA').AsString;
+    edtModelo.Text := FieldByName('MODELO').AsString;
+    edtNumeroSerie.Text := FieldByName('NUMERO_SERIE').AsString;
+    edtLaudoTecnico.Text := FieldByName('LAUDO_DO_TECNICO').AsString;
+    edtSolucaoDoProblema.Text := FieldByName('SOLUCAO_DO_PROBLEMA').AsString;
+    edtPrioridade.Text := FieldByName('PRIORIDADE').AsString;
+    edtSituacaoDaOrdem.Text := FieldByName('SITUACAO_DA_ORDEM').AsString;
+    edtFuncionario.Text := IntTostr(FieldByName('ID_FUNCIONARIO').AsInteger);
+    edtCodigoTecnico.Text := IntTostr(FieldByName('ID_TECNICO_RESPONSAVEL')
+      .AsInteger);
+    edtTecnicoResponsave.Text := FieldByName('TECNICO_RESPONSAVEL').AsString;
+    edtMotivoDoRetorno.Text := FieldByName('RETORNO').AsString;
+    edtObservacaoes.Text := FieldByName('OBSERVACAO').AsString;
+
+    edtValorDaOrdem.Text := CurrToStr(FieldByName('VALOR_DA_ORDEM').AsCurrency);
+    edtDesconto.Text := CurrToStr(FieldByName('DESCONTO').AsCurrency);
+    edtAcresimo.Text := CurrToStr(FieldByName('ACRESCIMO').AsCurrency);
+    edtTotalDaOrdem.Text := CurrToStr(FieldByName('TOTAL_ORCAMENTO')
+      .AsCurrency);
+    edtFormaDePagamento.Text := FieldByName('FORMA_PAGAMENTO').AsString;
+    edtParcelado.Text := FieldByName('PARCELADO').AsString;
+    edtTotalDeParcelas.Text := IntTostr(FieldByName('TOTAL_PARCELAS')
+      .AsInteger);
+    edtPgto.Text := FieldByName('PGTO').AsString;
+
+    // Tudo referentes as datas
+    if FieldByName('DATA_FABRICACAO').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataFabricacao.Text := datetostr(FieldByName('DATA_FABRICACAO')
+        .AsDateTime);
+
+    if FieldByName('DATA_RETORNO').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataRetorno.Text := datetostr(FieldByName('DATA_RETORNO').AsDateTime);
+
+    if FieldByName('DATA_ENTRADA').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataDeEntrada.Text :=
+        datetostr(FieldByName('DATA_ENTRADA').AsDateTime);
+
+    if FieldByName('DATA_FINALIZACAO').AsDateTime <> StrToDate('30/12/1899')
+    then
+      edtDataFinalzacao.Text := datetostr(FieldByName('DATA_FINALIZACAO')
+        .AsDateTime);
+
+    if FieldByName('DATA_PAGAMENTO').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataPagamento.Text := datetostr(FieldByName('DATA_PAGAMENTO')
+        .AsDateTime);
+
+  end;
+
+  edtCliente.Text := ds_DadosClientes.DataSet.FieldByName
+    ('NOME_CLIENTE').AsString;
+end;
+
+procedure TformOrdemDeServico.edtDescontoExit(Sender: TObject);
+var
+  totalOrdem: currency;
+  desconto: currency;
+begin
+  if ((edtDesconto.Text <> EmptyStr) and (sbNovo.Enabled = false)) then
+  begin
+    if ((edtTotalDaOrdem.Text <> '') or (edtTotalDaOrdem.Text <> '0')) then
+    begin
+      totalOrdem := StrToCurr(edtValorDaOrdem.Text);
+      desconto := StrToCurr(edtDesconto.Text);
+      edtTotalDaOrdem.Text := CurrToStr(totalOrdem - desconto);
+    end;
+
+    // edtTotalDaOrdem.Text := CurrToStr(StrToCurr(edtValorDaOrdem.Text) -
+    // StrToCurr(edtDesconto.Text));
+  end;
 
 end;
+
+procedure TformOrdemDeServico.edtValorDaOrdemExit(Sender: TObject);
+begin
+
+  if ((edtValorDaOrdem.Text <> EmptyStr) and (sbNovo.Enabled = false)) then
+  begin
+    edtTotalDaOrdem.Text := edtValorDaOrdem.Text;
+  end;
+
 end;
 
 procedure TformOrdemDeServico.FormCreate(Sender: TObject);
@@ -242,6 +344,7 @@ begin
   edtDesconto.Text := '0';
   edtAcresimo.Text := '0';
   edtTotalDaOrdem.Text := '0';
+  sbNovo.Enabled := false;
 end;
 
 procedure TformOrdemDeServico.sbPequisarTecnicoClick(Sender: TObject);
@@ -270,7 +373,7 @@ begin
     .getDATA_FABRICACAO(edtDataFabricacao.Text)
     .getDataCadastro(edtDataDeEntrada.Text).getDEFEITO_RELATADO
     (edtDefeitoRelatado.Lines.Text).getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
-    .getSOLUCAO_DO_PROBLEMA(edtSulucaoDoProblema.Text)
+    .getSOLUCAO_DO_PROBLEMA(edtSolucaoDoProblema.Text)
     .getPRIORIDADE(edtPrioridade.Text).getSITUACAO_DA_ORDEM
     (edtSituacaoDaOrdem.Text).getDataFinalizacao(edtDataFinalzacao.Text)
     .getIdTecnico(edtCodigoTecnico.Text).getTecnico(edtTecnicoResponsave.Text)

@@ -44,6 +44,7 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     ExplicitHeight = 223
     inherited cardPanelCadatro: TCard
       Height = 223
+      Caption = 'q'
       ExplicitHeight = 223
       object Label1: TLabel
         Left = 32
