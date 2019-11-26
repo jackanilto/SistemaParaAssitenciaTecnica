@@ -125,6 +125,7 @@ type
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
     sbEstornarOrdem: TSpeedButton;
+    Panel9: TPanel;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);

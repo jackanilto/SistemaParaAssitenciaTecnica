@@ -608,7 +608,7 @@ object formOrdemDeServico: TformOrdemDeServico
     Top = 41
     Width = 1034
     Height = 489
-    ActivePage = tbListaDeOrdens
+    ActivePage = tbItensOrdem
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -1396,6 +1396,24 @@ object formOrdemDeServico: TformOrdemDeServico
           Anchors = [akRight, akBottom]
           Caption = 'Itens inclusos na ordem'
           TabOrder = 9
+          object Panel9: TPanel
+            Left = 2
+            Top = 398
+            Width = 647
+            Height = 47
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alBottom
+            BevelOuter = bvNone
+            Color = 8406532
+            ParentBackground = False
+            TabOrder = 0
+            ExplicitLeft = 0
+            ExplicitTop = 410
+            ExplicitWidth = 1026
+          end
         end
       end
     end

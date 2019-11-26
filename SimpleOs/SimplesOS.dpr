@@ -67,7 +67,8 @@ uses
   UClasse.Entity.LIstar.Ordens.Clientes in 'Classes\Entity\UClasse.Entity.LIstar.Ordens.Clientes.pas',
   Form.Localizar.Clientes.Ordem in 'Forms\Localizar\Form.Localizar.Clientes.Ordem.pas' {formLocalizarClientesOrdem},
   Form.Localizar.Tecnico.Ordem in 'Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas' {formLocalizarTecnico},
-  UClasse.Chamar.Cadastro.Clientes.Ordens in 'Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas';
+  UClasse.Chamar.Cadastro.Clientes.Ordens in 'Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas',
+  UClasse.Entity.Ordem.Itens in 'Classes\Entity\UClasse.Entity.Ordem.Itens.pas';
 
 {$R *.res}
 

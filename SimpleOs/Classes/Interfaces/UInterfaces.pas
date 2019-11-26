@@ -826,7 +826,7 @@ type
     function codigoCadastro(sp: string): integer;
     function listarGrid(value: TDataSource): iOrdemServico;
     function ordenarGrid(column: TColumn): iOrdemServico;
-    function estornarOrdem(value:integer):iOrdemServico;
+    function estornarOrdem(value: integer): iOrdemServico;
 
     function getID(value: integer): iOrdemServico;
     function getID_CLIENTE(value: string): iOrdemServico;
@@ -882,7 +882,7 @@ type
     function sqlPesquisaEstatica: iListaClientesOrdemServico;
     function listarGrid(value: TDataSource): iListaClientesOrdemServico;
     function ordenarGrid(column: TColumn): iListaClientesOrdemServico;
-    function fecharQuery:iListaClientesOrdemServico;
+    function fecharQuery: iListaClientesOrdemServico;
 
     function abrir: iListaClientesOrdemServico;
     function exportar: iListaClientesOrdemServico;
@@ -891,6 +891,38 @@ type
 
   iItensOrdem = interface
     ['{F1A112F9-8495-4C23-9104-2A77CE79BAFA}']
+
+    function nomeTabela(value: string): iItensOrdem;
+    function getCampo(value: string): iItensOrdem;
+    function getValor(value: string): iItensOrdem;
+    function getDataInicial(value: TDate): iItensOrdem;
+    function getDataFinal(value: TDate): iItensOrdem;
+    function open(value: string): iItensOrdem;
+    function pesquisar: iItensOrdem;
+    function ExecSql: iItensOrdem;
+    function sqlPesquisa: iItensOrdem;
+    function sqlPesquisaData: iItensOrdem;
+    function sqlPesquisaEstatica: iItensOrdem;
+
+    function abrir: iItensOrdem;
+    function inserir: iItensOrdem;
+    function gravar: iItensOrdem;
+    function deletar: iItensOrdem;
+    function atualizar: iItensOrdem;
+    function editar: iItensOrdem;
+    function cancelar: iItensOrdem;
+    function fecharQuery: iItensOrdem;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iItensOrdem;
+    function ordenarGrid(column: TColumn): iItensOrdem;
+
+    function getID(value: integer): iItensOrdem;
+    function getID_ORDEM(value: integer): iItensOrdem;
+    function getID_PRODUTO(value: integer): iItensOrdem;
+    function getVALOR_ITEM(value: string): iItensOrdem;
+    function getQUANTIDADE(value: integer): iItensOrdem;
+    function getVALOR_TOTAL(value: string): iItensOrdem;
+
   end;
 
   iOrdemDeCompra = interface

@@ -1,0 +1,352 @@
+unit UClasse.Entity.Ordem.Itens;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TEntityOrdemItens = class(TInterfacedObject, iItensOrdem)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FID: integer;
+    FID_ORDEM: integer;
+    FID_PRODUTO: integer;
+    FVALOR_ITEM: Currency;
+    FQUANTIDADE: integer;
+    FVALOR_TOTAL: Currency;
+
+    FCodigo: integer;
+    FNome: string;
+    function getCodigo(value: integer): iItensOrdem;
+    function getNome(value: string): iItensOrdem;
+
+  public
+
+    function nomeTabela(value: string): iItensOrdem;
+    function getCampo(value: string): iItensOrdem;
+    function getValor(value: string): iItensOrdem;
+    function getDataInicial(value: TDate): iItensOrdem;
+    function getDataFinal(value: TDate): iItensOrdem;
+    function open(value: string): iItensOrdem;
+    function pesquisar: iItensOrdem;
+    function ExecSql: iItensOrdem;
+    function sqlPesquisa: iItensOrdem;
+    function sqlPesquisaData: iItensOrdem;
+    function sqlPesquisaEstatica: iItensOrdem;
+
+    function abrir: iItensOrdem;
+    function inserir: iItensOrdem;
+    function Gravar: iItensOrdem;
+    function deletar: iItensOrdem;
+    function atualizar: iItensOrdem;
+    function editar: iItensOrdem;
+    function cancelar: iItensOrdem;
+    function fecharQuery: iItensOrdem;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iItensOrdem;
+    function ordenarGrid(column: TColumn): iItensOrdem;
+
+    function exportar: iItensOrdem;
+    procedure validarData(componet: tmaskEdit);
+
+    function getID(value: integer): iItensOrdem;
+    function getID_ORDEM(value: integer): iItensOrdem;
+    function getID_PRODUTO(value: integer): iItensOrdem;
+    function getVALOR_ITEM(value: string): iItensOrdem;
+    function getQUANTIDADE(value: integer): iItensOrdem;
+    function getVALOR_TOTAL(value: string): iItensOrdem;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iItensOrdem;
+  end;
+
+implementation
+
+{ TEntityOrdemItens }
+
+function TEntityOrdemItens.abrir: iItensOrdem;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TEntityOrdemItens.atualizar: iItensOrdem;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TEntityOrdemItens.cancelar: iItensOrdem;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+function TEntityOrdemItens.codigoCadastro(sp: string): integer;
+begin
+  result := FQuery.codigoCadastro('');
+end;
+
+constructor TEntityOrdemItens.create;
+begin
+  FTabela := 'PRODUTOS';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TEntityOrdemItens.deletar: iItensOrdem;
+begin
+  result := self;
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .gravarLog;
+
+      FQuery.TQuery.Delete;
+    end;
+  end;
+
+end;
+
+destructor TEntityOrdemItens.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntityOrdemItens.editar: iItensOrdem;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .gravarLog;
+
+    FQuery.TQuery.Edit;
+
+  end;
+end;
+
+function TEntityOrdemItens.ExecSql: iItensOrdem;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntityOrdemItens.exportar: iItensOrdem;
+begin
+  result := self;
+end;
+
+function TEntityOrdemItens.fecharQuery: iItensOrdem;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntityOrdemItens.getCampo(value: string): iItensOrdem;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntityOrdemItens.getCodigo(value: integer): iItensOrdem;
+begin
+  result := self;
+  FCodigo := value;
+end;
+
+function TEntityOrdemItens.getDataFinal(value: TDate): iItensOrdem;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TEntityOrdemItens.getDataInicial(value: TDate): iItensOrdem;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TEntityOrdemItens.getID(value: integer): iItensOrdem;
+begin
+
+end;
+
+function TEntityOrdemItens.getID_ORDEM(value: integer): iItensOrdem;
+begin
+
+end;
+
+function TEntityOrdemItens.getID_PRODUTO(value: integer): iItensOrdem;
+begin
+
+end;
+
+function TEntityOrdemItens.getNome(value: string): iItensOrdem;
+begin
+  result := self;
+  FNome := value;
+end;
+
+function TEntityOrdemItens.getQUANTIDADE(value: integer): iItensOrdem;
+begin
+
+end;
+
+function TEntityOrdemItens.getValor(value: string): iItensOrdem;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TEntityOrdemItens.getVALOR_ITEM(value: string): iItensOrdem;
+begin
+
+end;
+
+function TEntityOrdemItens.getVALOR_TOTAL(value: string): iItensOrdem;
+begin
+
+end;
+
+function TEntityOrdemItens.Gravar: iItensOrdem;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+
+  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+    .gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: exception do
+    begin
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
+function TEntityOrdemItens.inserir: iItensOrdem;
+begin
+  result := self;
+  FQuery.TQuery.EmptyDataSet;
+  FQuery.TQuery.Append;
+end;
+
+function TEntityOrdemItens.listarGrid(value: TDataSource): iItensOrdem;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
+  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TEntityOrdemItens.new: iItensOrdem;
+begin
+  result := self.create;
+end;
+
+function TEntityOrdemItens.nomeTabela(value: string): iItensOrdem;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntityOrdemItens.open(value: string): iItensOrdem;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntityOrdemItens.ordenarGrid(column: TColumn): iItensOrdem;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntityOrdemItens.pesquisar: iItensOrdem;
+begin
+  result := self;
+end;
+
+function TEntityOrdemItens.sqlPesquisa: iItensOrdem;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityOrdemItens.sqlPesquisaData: iItensOrdem;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntityOrdemItens.sqlPesquisaEstatica: iItensOrdem;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TEntityOrdemItens.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.
