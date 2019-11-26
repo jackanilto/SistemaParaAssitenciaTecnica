@@ -1419,3 +1419,8 @@ like
 26/11/19 13:35:56 - Caption: Ordem de serviço
 26/11/19 13:35:56 - Erro:EAccessViolation
 26/11/19 13:35:56 - Erro:Access violation at address 0097E041 in module 'SimplesOS.exe'. Read of address 00000000
+26/11/19 16:44:30 - ===========================================
+26/11/19 16:44:30 - Form: formOrdemDeServico
+26/11/19 16:44:30 - Caption: Ordem de serviço
+26/11/19 16:44:30 - Erro:Exception
+26/11/19 16:44:30 - Erro:Esta ordem já foi estornada.

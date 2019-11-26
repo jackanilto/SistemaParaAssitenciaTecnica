@@ -741,7 +741,7 @@ object formOrdemDeServico: TformOrdemDeServico
           DataSource = ds_DadosClientes
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -13
+          Font.Height = -12
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
@@ -749,7 +749,7 @@ object formOrdemDeServico: TformOrdemDeServico
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
-          TitleFont.Height = -13
+          TitleFont.Height = -12
           TitleFont.Name = 'Segoe UI'
           TitleFont.Style = [fsBold]
           OnCellClick = DBGrid1CellClick

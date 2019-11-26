@@ -5,7 +5,7 @@
   -inserir a códificação do botão editar --FEITO
   -inserir a códificação do botão deletar --FEITO
   -inserir o codificação do botão cancelar --FEITO
-  -criar a rotina para estornar a ordem
+  -criar a rotina para estornar a ordem --FEITO
 
   --criar os processo para a inserção dos itens do orçamento e calcular
   automaticamento o valor total da ordem
@@ -18,6 +18,7 @@
   rotina para deletar parcelas
   rotina para cancelar
   rotina para estornar }
+
 unit Form.Ordem.Servico;
 
 interface
@@ -359,7 +360,8 @@ end;
 procedure TformOrdemDeServico.sbEstornarOrdemClick(Sender: TObject);
 begin
   if ds_Ordens.DataSet.RecordCount >= 1 then
-    FEntityOrdem.estornarOrdem()
+    FEntityOrdem.estornarOrdem(ds_Ordens.DataSet.FieldByName('ID')
+      .AsInteger);
 end;
 
 procedure TformOrdemDeServico.sbExcluirClick(Sender: TObject);

@@ -132,20 +132,21 @@ begin
   result := self;
   with FQuery.TQuery do
   begin
-    FieldByName('ID_ORDEM').DisplayLabel := 'Código';
+    FieldByName('ID_ORDEM').Visible := false;
     FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
     FieldByName('NOME_CLIENTE').DisplayLabel := 'Nome do cliente';
     FieldByName('CPF_CNPJ').DisplayLabel := 'CPF ou CNPJ';
     FieldByName('TELEFONE').DisplayLabel := 'Telefone';
     FieldByName('CELULAR').DisplayLabel := 'Celular';
-    FieldByName('EMAIL').DisplayLabel := 'E-Mail';
+    FieldByName('EMAIL').Visible := false;
     FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
-    FieldByName('DEFEITO_RELATADO').DisplayLabel := 'Defeito relatado';
-    FieldByName('MARCAS').DisplayLabel := 'Marca';
+    FieldByName('DEFEITO_RELATADO').Visible := false;
+    FieldByName('MARCAS').Visible := false;
     FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'Situação da ordem';
-    FieldByName('DATA_DE_ENTRADA').DisplayLabel := 'Data de etrada';
+    FieldByName('DATA_DE_ENTRADA').DisplayLabel := 'Entrada';
+    FieldByName('PGTO').DisplayLabel := 'PGTO';
 
-    FieldByName('NOME_CLIENTE').DisplayWidth := 40;
+    FieldByName('NOME_CLIENTE').DisplayWidth := 30;
     FieldByName('EMAIL').DisplayWidth := 30;
     FieldByName('EQUIPAMENTO').DisplayWidth := 30;
     FieldByName('DEFEITO_RELATADO').DisplayWidth := 30;

@@ -312,18 +312,24 @@ function TEntityOrdemServico.estornarOrdem(value: integer): iOrdemServico;
 begin
   result := self;
 
-  FQuery.getCampo('ID').getValor(value).sqlPesquisa(FTabela);
+  FQuery.getCampo('ID').getValor(value.ToString).sqlPesquisa(FTabela);
 
   if FQuery.TQuery.RecordCount >= 1 then
   begin
-    if application.MessageBox
-      ('Deseja realmente estornar esta ordem de serviço?',
-      'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+
+    if FQuery.TQuery.FieldByName('PGTO').AsString <> 'Estornada' then
     begin
-      FQuery.TQuery.Edit;
-      FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
-      FQuery.TQuery.Post;
-    end;
+      if application.MessageBox
+        ('Deseja realmente estornar esta ordem de serviço?',
+        'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+      begin
+        FQuery.TQuery.Edit;
+        FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
+        FQuery.TQuery.Post;
+      end;
+    end
+    else
+    raise Exception.Create('Esta ordem já foi estornada.');
   end;
 end;
 
