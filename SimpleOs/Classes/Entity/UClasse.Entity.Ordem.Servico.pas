@@ -311,6 +311,20 @@ end;
 function TEntityOrdemServico.estornarOrdem(value: integer): iOrdemServico;
 begin
   result := self;
+
+  FQuery.getCampo('ID').getValor(value).sqlPesquisa(FTabela);
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox
+      ('Deseja realmente estornar esta ordem de serviço?',
+      'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+      FQuery.TQuery.Edit;
+      FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
+      FQuery.TQuery.Post;
+    end;
+  end;
 end;
 
 function TEntityOrdemServico.ExecSql: iOrdemServico;
@@ -507,7 +521,10 @@ end;
 function TEntityOrdemServico.getPGTO(value: string): iOrdemServico;
 begin
   result := self;
-  FPGTO := value;
+  if value = EmptyStr then
+    FPGTO := 'Não'
+  else
+    FPGTO := value;
 end;
 
 function TEntityOrdemServico.getPRIORIDADE(value: string): iOrdemServico;

@@ -1399,3 +1399,23 @@ like
 24/11/19 15:49:13 - Caption: Localizar clientes
 24/11/19 15:49:13 - Erro:EInvalidOperation
 24/11/19 15:49:13 - Erro:Cannot focus a disabled or invisible window
+26/11/19 13:28:52 - ===========================================
+26/11/19 13:28:52 - Form: formOrdemDeServico
+26/11/19 13:28:52 - Caption: Ordem de serviço
+26/11/19 13:28:52 - Erro:Exception
+26/11/19 13:28:52 - Erro:Informe o defeito do equipamento.
+26/11/19 13:32:50 - ===========================================
+26/11/19 13:32:50 - Form: formCadastroDeClientes
+26/11/19 13:32:50 - Caption: Cadastro de clientes
+26/11/19 13:32:50 - Erro:Exception
+26/11/19 13:32:50 - Erro:Informe o tipo de cadastro realizado.
+26/11/19 13:35:37 - ===========================================
+26/11/19 13:35:37 - Form: formOrdemDeServico
+26/11/19 13:35:37 - Caption: Ordem de serviço
+26/11/19 13:35:37 - Erro:Exception
+26/11/19 13:35:37 - Erro:Informe o código do cliente.
+26/11/19 13:35:56 - ===========================================
+26/11/19 13:35:56 - Form: formOrdemDeServico
+26/11/19 13:35:56 - Caption: Ordem de serviço
+26/11/19 13:35:56 - Erro:EAccessViolation
+26/11/19 13:35:56 - Erro:Access violation at address 0097E041 in module 'SimplesOS.exe'. Read of address 00000000

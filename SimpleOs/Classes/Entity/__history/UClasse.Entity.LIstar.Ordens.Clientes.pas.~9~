@@ -38,7 +38,6 @@ type
     function sqlPesquisaEstatica: iListaClientesOrdemServico;
 
     function abrir: iListaClientesOrdemServico;
-    function fecharQuery: iListaClientesOrdemServico;
     function listarGrid(value: TDataSource): iListaClientesOrdemServico;
     function ordenarGrid(column: TColumn): iListaClientesOrdemServico;
 
@@ -88,11 +87,6 @@ end;
 function TEntityListarOrdensClientes.exportar: iListaClientesOrdemServico;
 begin
   result := self;
-end;
-
-function TEntityListarOrdensClientes.fecharQuery: iListaClientesOrdemServico;
-begin
-  FQuery.TQuery.close;
 end;
 
 function TEntityListarOrdensClientes.getCampo(value: string)

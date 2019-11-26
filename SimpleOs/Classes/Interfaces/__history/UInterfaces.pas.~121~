@@ -826,6 +826,7 @@ type
     function codigoCadastro(sp: string): integer;
     function listarGrid(value: TDataSource): iOrdemServico;
     function ordenarGrid(column: TColumn): iOrdemServico;
+    function estornarOrdem(value:integer):iOrdemServico;
 
     function getID(value: integer): iOrdemServico;
     function getID_CLIENTE(value: string): iOrdemServico;
@@ -837,18 +838,18 @@ type
     function getDATA_FABRICACAO(value: string): iOrdemServico;
     function getLAUDO_DO_TECNICO(value: string): iOrdemServico;
     function getSOLUCAO_DO_PROBLEMA(value: string): iOrdemServico;
-    function getVALOR_DA_ORDEM(value: currency): iOrdemServico;
-    function getDesconto(value: currency): iOrdemServico;
-    function getACRESCIMO(value: currency): iOrdemServico;
-    function getTotalDoOrcamento(value: currency): iOrdemServico;
+    function getVALOR_DA_ORDEM(value: string): iOrdemServico;
+    function getDesconto(value: string): iOrdemServico;
+    function getACRESCIMO(value: string): iOrdemServico;
+    function getTotalDoOrcamento(value: string): iOrdemServico;
     function getID_FUNCIONARIO(value: integer): iOrdemServico;
     function getNOME_FUNCIONARIO(value: string): iOrdemServico;
     function getRETORNO(value: string): iOrdemServico;
     function getDATA_RETORNO(value: string): iOrdemServico;
     function getSITUACAO_DA_ORDEM(value: string): iOrdemServico;
-    function getFORMA_PAGAMENTO(value: integer): iOrdemServico;
+    function getFORMA_PAGAMENTO(value: String): iOrdemServico;
     function getPARCELADO(value: string): iOrdemServico;
-    function getTOTAL_PARCELAS(value: integer): iOrdemServico;
+    function getTOTAL_PARCELAS(value: string): iOrdemServico;
     function getPGTO(value: string): iOrdemServico;
     function getPRIORIDADE(value: string): iOrdemServico;
     function getDataCadastro(value: string): iOrdemServico;
@@ -856,8 +857,11 @@ type
     function getDataPagamento(value: string): iOrdemServico;
     function getObservacao(value: string): iOrdemServico;
     function getSTATUS(value: string): iOrdemServico;
-    function getIdTecnico(value: integer): iOrdemServico;
+    function getIdTecnico(value: string): iOrdemServico;
     function getTecnico(value: string): iOrdemServico;
+
+    function calcularDesconto(valor, desconto: TEdit): string;
+    function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
 
     function exportar: iOrdemServico;
 
@@ -909,6 +913,7 @@ type
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
     function criptPass: iCriptPasss;
+    function ftTable: iFDTable;
   end;
 
   iFactoryEntity = interface

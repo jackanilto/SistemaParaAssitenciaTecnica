@@ -4,7 +4,7 @@ object formOrdemDeServico: TformOrdemDeServico
   BorderStyle = bsNone
   Caption = 'Ordem de servi'#231'o'
   ClientHeight = 600
-  ClientWidth = 1113
+  ClientWidth = 1034
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +20,7 @@ object formOrdemDeServico: TformOrdemDeServico
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1113
+    Width = 1034
     Height = 41
     Align = alTop
     BevelOuter = bvNone
@@ -28,11 +28,12 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
+    ExplicitWidth = 1113
     DesignSize = (
-      1113
+      1034
       41)
     object sbFechar: TSpeedButton
-      Left = 1061
+      Left = 982
       Top = 2
       Width = 52
       Height = 33
@@ -102,7 +103,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ExplicitLeft = 871
     end
     object lblCaption: TLabel
-      Left = 391
+      Left = 312
       Top = 10
       Width = 124
       Height = 19
@@ -122,15 +123,16 @@ object formOrdemDeServico: TformOrdemDeServico
   object Panel3: TPanel
     Left = 0
     Top = 530
-    Width = 1113
+    Width = 1034
     Height = 70
     Align = alBottom
     BevelOuter = bvNone
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 1113
     DesignSize = (
-      1113
+      1034
       70)
     object sbNovo: TSpeedButton
       Left = 30
@@ -376,6 +378,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbEditarClick
     end
     object sbExcluir: TSpeedButton
       Left = 367
@@ -457,6 +460,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbExcluirClick
     end
     object sbCancelar: TSpeedButton
       Left = 473
@@ -538,9 +542,10 @@ object formOrdemDeServico: TformOrdemDeServico
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbCancelarClick
     end
     object Label4: TLabel
-      Left = 779
+      Left = 700
       Top = 6
       Width = 97
       Height = 15
@@ -556,7 +561,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ExplicitTop = 11
     end
     object Label5: TLabel
-      Left = 914
+      Left = 835
       Top = 6
       Width = 168
       Height = 15
@@ -572,7 +577,7 @@ object formOrdemDeServico: TformOrdemDeServico
       ExplicitTop = 11
     end
     object cbPesquisar: TComboBox
-      Left = 779
+      Left = 700
       Top = 27
       Width = 129
       Height = 23
@@ -584,9 +589,10 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      ExplicitLeft = 779
     end
     object edtPesquisar: TEdit
-      Left = 914
+      Left = 835
       Top = 27
       Width = 168
       Height = 23
@@ -598,14 +604,15 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 914
     end
   end
   object PageControl1: TPageControl
     Left = 0
     Top = 41
-    Width = 1113
+    Width = 1034
     Height = 489
-    ActivePage = tbCadastroOrdens
+    ActivePage = tbListaDeOrdens
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -615,16 +622,18 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentFont = False
     TabOrder = 2
     StyleElements = [seFont, seClient]
+    ExplicitWidth = 1113
     object tbListaDeOrdens: TTabSheet
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
       Caption = 'Lista de ordens'
+      ExplicitWidth = 1105
       object Panel4: TPanel
         Left = 0
         Top = 410
-        Width = 1105
+        Width = 1026
         Height = 47
         Margins.Left = 0
         Margins.Top = 0
@@ -635,21 +644,105 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1105
+        object SpeedButton1: TSpeedButton
+          Left = 26
+          Top = 6
+          Width = 138
+          Height = 35
+          Hint = 'Inserir um novo registro'
+          Caption = 'Nova ordem'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -16
+          Font.Name = 'Roboto'
+          Font.Style = []
+          Glyph.Data = {
+            A2070000424DA207000000000000360000002800000019000000190000000100
+            1800000000006C070000120B0000120B0000000000000000000099361A99361A
+            99361A99361A99361A99361A99361A99361AC08372FEFDFDFFFFFFFFFFFFECDA
+            D599361A99361A99361AA8543CF9F2F1FFFFFFFFFFFFF9F4F2AA574099361A99
+            361A99361A4E99361A99361A99361A99361A99361A99361A99361A99361ACFA1
+            94FEFEFEFEFEFEFFFFFFFCF9F99A381C99361A99361AB36A55FEFDFDFEFEFEFE
+            FEFEFFFFFFB56D5999361A99361A99361A3099361A99361A99361A99361A9936
+            1A99361A99361A99361AB16550FAF6F5FFFFFFFFFFFFD9B5AB99361A99361A99
+            361AA0442AEDDCD7FFFFFFFEFEFEEEDFDAA1462C99361A99361A99361A009936
+            1A99361A99361A99361A99361A99361A99361A99361A9A381CB26853D4AA9EC5
+            8E7E9F412799361A99361A99361A99361AA75139CEA093CEA093A7523A99361A
+            99361A99361A99361A0099361A99361A99361A99361A99361A99361A99361A99
+            361A99361AA1462CBB7865C38A79C79080C68F80C79182C79182C79182C79182
+            C58E7EBA77649B3B1F99361A99361A99361A99361A0099361A99361A99361A99
+            361A99361A99361A99361A9B3B1FCB998BFBF7F6FFFFFFFFFFFFFFFFFFFEFEFE
+            FFFFFFFFFFFFFEFEFEFFFFFFFFFFFFFEFEFEDDBDB49C3C2199361A99361A9936
+            1A0099361A99361A99361A99361A99361A99361A99361ACE9E91FEFDFDFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFD
+            FDC9958699361A99361A99361A0099361A99361A99361A99361A99361A99361A
+            A54E35FDFAFAFFFFFFFCFBFAD1A497BD7D6BBA7764B87360B87360B87360B873
+            60B87360C18574FCFBFAFFFFFFFAF6F5A7523A99361A99361A0099361A99361A
+            99361A99361A99361A99361AC38A79FFFFFFFFFFFFCB998B99361A99361A9936
+            1A99361A99361A99361A99361A99361A99361ACE9F91FFFFFFFFFFFFDEBFB69B
+            391E99361A0099361A99361A99361A99361A99361A99361AD9B3A9FFFFFFFCFB
+            FAB0634E99361A99361A99361A99361A99361A99361A99361A99361A99361AA0
+            442AF0E1DDFFFFFFFDFAFAB36A5599361A0099361A99361A99361A99361A9936
+            1A9B3B1FE9D5D0FEFEFEF6EEECA2472E99361A99361A99361A99361A99361A99
+            361A99361A99361A99361A99361ABF8170FFFFFFFEFEFEE5CBC49B391E009936
+            1A99361A99361A99361A99361AA34930F9F2F1FEFEFEE9D4CF99361A99361A99
+            361A99361A99361A99361AA0442AC791829A381C99361A99361A9D3E23E9D4CF
+            FEFEFEFDFCFBB7725E0099361A99361A99361A99361A99361AB0644EFFFFFFFF
+            FFFFD5ADA299361A99361A99361A99361A99361A99361A99361AE7D0C9B46B57
+            99361A99361A99361ABA7764FFFFFFFFFFFFE5CDC60099361A99361A99361A99
+            361A99361AC48B7BFEFEFEFEFEFEC1857499361A99361A99361A99361A99361A
+            99361A99361ADAB7AEE9D3CD9B3B1F99361A99361A9A381CEAD7D1FEFEFEF7F0
+            EE0099361A99361A99361A99361A99361AD9B5ABFFFFFFFDFCFCAD5D4799361A
+            99361A99361A99361A99361A99361A99361AE3C8C0FDFAFAAF624C99361A9936
+            1A99361AAA5941D9B3A9BB78650099361A99361A99361A99361A9A381CEDDCD7
+            FFFFFFF5ECE9A1462C99361A99361A99361A99361A99361A99361AA34930FBF7
+            F6FFFFFFBF827099361A99361A99361A99361A99361A99361A0099361A99361A
+            99361A99361AA44C33F8F1EFFEFEFEE7D1CA9B391E99361A99361A9F4328D1A4
+            979E3F259B391ED9B5ABFEFEFEFEFEFEBD7D6B99361A99361A99361A99361A99
+            361A99361A0099361A99361A99361A99361AB46C57FEFDFDFFFFFFD4AA9E9936
+            1A99361A99361AB16550FFFFFFE6CEC7D4AA9EFEFEFEFEFEFEF9F4F2A8543C99
+            361A99361A99361A99361A99361A99361A0099361A99361A99361A9D3E23D8B2
+            A7FFFFFFFFFFFFBD7D6A99361A99361A99361ABF806EFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFD6AFA39A381C99361A99361A99361A99361A99361A99361A009936
+            1AB7705CDFC0B7ECDAD5FEFEFEFFFFFFF9F5F3A1462C99361A99361A99361ACB
+            998BFEFEFEFEFEFEFFFFFFFEFEFEE9D4CEA1462C99361A99361A99361A99361A
+            99361A99361A99361A0099361AF5ECE9FFFFFFFFFFFFFEFEFEFCF9F8BF827099
+            361A99361A99361A99361AD6AFA3FFFFFFFFFFFFFFFFFFFFFFFFE7D0C9A1462C
+            99361A99361A99361A99361A99361A99361A99361A0099361AD7B0A5F8F1EFF5
+            ECE9E4C9C2B66F5B9A381C99361A99361A99361A99361ADEBEB5FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFDCBBB199361A99361A99361A99361A99361A99361A9936
+            1A0099361A9B391EA34A319F432899361A99361A99361A99361A99361A99361A
+            99361AD6AEA3F1E5E1EAD6D0E0C2B9D4AA9EC58D7DAE604A99361A99361A9936
+            1A99361A99361A99361A99361A0099361A99361A99361A99361A99361A99361A
+            99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
+            1A99361A99361A99361A99361A99361A99361A99361A99361A0099361A99361A
+            99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
+            1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
+            361A99361A00}
+          Layout = blGlyphRight
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = sbNovoClick
+        end
       end
       object Panel5: TPanel
         Left = 0
         Top = 0
-        Width = 1105
+        Width = 1026
         Height = 410
         Align = alClient
         BevelOuter = bvNone
         Color = 15790320
         ParentBackground = False
         TabOrder = 1
+        ExplicitWidth = 1105
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
-          Width = 1105
+          Width = 1026
           Height = 410
           Align = alClient
           BorderStyle = bsNone
@@ -674,16 +767,19 @@ object formOrdemDeServico: TformOrdemDeServico
     object tbCadastroOrdens: TTabSheet
       Caption = 'Cadastro de ordens'
       ImageIndex = 1
+      ExplicitWidth = 1105
       object Panel8: TPanel
         Left = 0
         Top = 0
-        Width = 1105
+        Width = 1026
         Height = 457
         Align = alClient
         BevelOuter = bvNone
         Color = 15790320
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = -2
+        ExplicitWidth = 1105
         object Label1: TLabel
           Left = 16
           Top = 17
@@ -890,7 +986,7 @@ object formOrdemDeServico: TformOrdemDeServico
           OnClick = sbPesquisarClienteClick
         end
         object sbPequisarTecnico: TSpeedButton
-          Left = 1039
+          Left = 951
           Top = 284
           Width = 25
           Height = 25
@@ -1023,7 +1119,7 @@ object formOrdemDeServico: TformOrdemDeServico
         object edtLaudoTecnico: TMemo
           Left = 469
           Top = 40
-          Width = 622
+          Width = 499
           Height = 60
           Lines.Strings = (
             '')
@@ -1033,7 +1129,7 @@ object formOrdemDeServico: TformOrdemDeServico
         object edtSolucaoDoProblema: TMemo
           Left = 469
           Top = 132
-          Width = 622
+          Width = 499
           Height = 60
           Lines.Strings = (
             '')
@@ -1051,15 +1147,15 @@ object formOrdemDeServico: TformOrdemDeServico
         object edtMotivoDoRetorno: TEdit
           Left = 586
           Top = 350
-          Width = 505
+          Width = 390
           Height = 25
           CharCase = ecUpperCase
           TabOrder = 11
         end
         object edtObservacaoes: TEdit
-          Left = 469
-          Top = 409
-          Width = 622
+          Left = 468
+          Top = 410
+          Width = 508
           Height = 25
           CharCase = ecUpperCase
           TabOrder = 12
@@ -1141,7 +1237,7 @@ object formOrdemDeServico: TformOrdemDeServico
         object edtTecnicoResponsave: TEdit
           Left = 600
           Top = 284
-          Width = 433
+          Width = 345
           Height = 25
           CharCase = ecUpperCase
           TabOrder = 20
@@ -1151,18 +1247,20 @@ object formOrdemDeServico: TformOrdemDeServico
     object tbItensOrdem: TTabSheet
       Caption = 'Faturamento da ordem'
       ImageIndex = 2
+      ExplicitWidth = 1105
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 1105
+        Width = 1026
         Height = 457
         Align = alClient
         BevelOuter = bvNone
         Color = 15790320
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1105
         DesignSize = (
-          1105
+          1026
           457)
         object Label15: TLabel
           Left = 26
@@ -1303,23 +1401,25 @@ object formOrdemDeServico: TformOrdemDeServico
           Text = '  /  /    '
         end
         object GroupBox1: TGroupBox
-          Left = 387
+          Left = 308
           Top = 8
           Width = 702
           Height = 447
           Anchors = [akRight, akBottom]
           Caption = 'Itens inclusos na ordem'
           TabOrder = 9
+          ExplicitLeft = 387
         end
       end
     end
     object tbPedidoDeCompra: TTabSheet
       Caption = 'Pedido de compra'
       ImageIndex = 3
+      ExplicitWidth = 1105
       object Panel6: TPanel
         Left = 0
         Top = 410
-        Width = 1105
+        Width = 1026
         Height = 47
         Margins.Left = 0
         Margins.Top = 0
@@ -1330,15 +1430,17 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1105
       end
     end
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 4
+      ExplicitWidth = 1105
       object Panel7: TPanel
         Left = 0
         Top = 410
-        Width = 1105
+        Width = 1026
         Height = 47
         Margins.Left = 0
         Margins.Top = 0
@@ -1349,6 +1451,7 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1105
       end
     end
   end

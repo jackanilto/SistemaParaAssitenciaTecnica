@@ -123,7 +123,7 @@ type
     Panel5: TPanel;
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
-    SpeedButton1: TSpeedButton;
+    sbEstornarOrdem: TSpeedButton;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -143,6 +143,7 @@ type
     procedure sbEditarClick(Sender: TObject);
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
+    procedure sbEstornarOrdemClick(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
@@ -355,6 +356,12 @@ begin
   end;
 end;
 
+procedure TformOrdemDeServico.sbEstornarOrdemClick(Sender: TObject);
+begin
+  if ds_Ordens.DataSet.RecordCount >= 1 then
+    FEntityOrdem.estornarOrdem()
+end;
+
 procedure TformOrdemDeServico.sbExcluirClick(Sender: TObject);
 begin
   if ds_Ordens.DataSet.RecordCount >= 1 then
@@ -426,6 +433,9 @@ begin
     .getDataPagamento(edtDataPagamento.Text).gravar;
 
   showmessage('Operação realizada com sucesso!');
+
+  FEntityListaOrdens.abrir.getCampo('ID_ORDEM').getValor(edtCodigo.Text)
+    .sqlPesquisa.listarGrid(ds_DadosClientes);
 
 end;
 

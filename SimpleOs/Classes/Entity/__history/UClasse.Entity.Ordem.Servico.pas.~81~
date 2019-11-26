@@ -84,6 +84,7 @@ type
     function codigoCadastro(sp: string): integer;
     function listarGrid(value: TDataSource): iOrdemServico;
     function ordenarGrid(column: TColumn): iOrdemServico;
+    function estornarOrdem(value: integer): iOrdemServico;
 
     function getID(value: integer): iOrdemServico;
     function getID_CLIENTE(value: string): iOrdemServico;
@@ -118,7 +119,7 @@ type
     function getTecnico(value: string): iOrdemServico;
 
     function calcularDesconto(valor, desconto: TEdit): string;
-    function calcularAcrescimo(valor, desconto, acrescimo: string): string;
+    function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
 
     function exportar: iOrdemServico;
 
@@ -146,7 +147,7 @@ begin
 end;
 
 function TEntityOrdemServico.calcularAcrescimo(valor, desconto,
-  acrescimo: string): string;
+  acrescimo: TEdit): string;
 var
   FValorOrdem: Currency;
   FDescontoOrdem: Currency;
@@ -154,14 +155,14 @@ var
 begin
 
   try
-    FValorOrdem := StrToCurr(valor);
+    FValorOrdem := StrToCurr(valor.Text);
   except
     on e: exception do
       raise exception.create('Informe um valor válido para a ordem.');
   end;
 
   try
-    FDescontoOrdem := StrToCurr(desconto);
+    FDescontoOrdem := StrToCurr(desconto.Text);
   except
     on e: exception do
       raise exception.create
@@ -169,7 +170,7 @@ begin
   end;
 
   try
-    FAcrescimoOrdem := StrToCurr(acrescimo);
+    FAcrescimoOrdem := StrToCurr(acrescimo.Text);
   except
     on e: exception do
       raise exception.create
@@ -177,12 +178,12 @@ begin
 
   end;
 
-  if ((valor <> '0') and (acrescimo <> '0')) then
+  if ((valor.Text <> '0') and (acrescimo.Text <> '0')) then
   begin
     result := CurrToStr(FAcrescimoOrdem + (FValorOrdem - FDescontoOrdem));
   end
   else
-    result := valor;
+    result := valor.Text;
 
 end;
 
@@ -197,7 +198,8 @@ begin
   except
     on e: exception do
     begin
-      desconto.Text := '0';
+      valor.Text := '0';
+      valor.SetFocus;
       raise exception.create('Informe um valor para o campo Valor da Ordem.');
     end;
   end;
@@ -206,8 +208,11 @@ begin
     FDescontoOrdem := StrToCurr(desconto.Text);
   except
     on e: exception do
+    begin
+      desconto.Text := '0';
       raise exception.create
         ('Informe um valor igual ou maior que zero para o campo Acréscimo.')
+    end;
   end;
 
   if ((valor.Text <> '0') and (desconto.Text <> '0')) then
@@ -300,6 +305,17 @@ begin
 
     FQuery.TQuery.Edit;
 
+  end;
+end;
+
+function TEntityOrdemServico.estornarOrdem(value: integer): iOrdemServico;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    FQuery.TQuery.Edit;
+    FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
+    FQuery.TQuery.Post;
   end;
 end;
 
@@ -497,7 +513,10 @@ end;
 function TEntityOrdemServico.getPGTO(value: string): iOrdemServico;
 begin
   result := self;
-  FPGTO := value;
+  if value = EmptyStr then
+    FPGTO := 'Não'
+  else
+    FPGTO := value;
 end;
 
 function TEntityOrdemServico.getPRIORIDADE(value: string): iOrdemServico;

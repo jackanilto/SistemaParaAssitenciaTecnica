@@ -28,7 +28,6 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 1113
     DesignSize = (
       1034
       41)
@@ -130,7 +129,6 @@ object formOrdemDeServico: TformOrdemDeServico
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 1113
     DesignSize = (
       1034
       70)
@@ -589,7 +587,6 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 779
     end
     object edtPesquisar: TEdit
       Left = 835
@@ -604,7 +601,6 @@ object formOrdemDeServico: TformOrdemDeServico
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 914
     end
   end
   object PageControl1: TPageControl
@@ -622,14 +618,12 @@ object formOrdemDeServico: TformOrdemDeServico
     ParentFont = False
     TabOrder = 2
     StyleElements = [seFont, seClient]
-    ExplicitWidth = 1113
     object tbListaDeOrdens: TTabSheet
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
       Caption = 'Lista de ordens'
-      ExplicitWidth = 1105
       object Panel4: TPanel
         Left = 0
         Top = 410
@@ -644,14 +638,13 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1105
-        object SpeedButton1: TSpeedButton
+        object sbEstornarOrdem: TSpeedButton
           Left = 26
           Top = 6
           Width = 138
           Height = 35
           Hint = 'Inserir um novo registro'
-          Caption = 'Nova ordem'
+          Caption = 'Estornar ordem'
           Flat = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
@@ -725,7 +718,7 @@ object formOrdemDeServico: TformOrdemDeServico
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = sbNovoClick
+          OnClick = sbEstornarOrdemClick
         end
       end
       object Panel5: TPanel
@@ -738,7 +731,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 15790320
         ParentBackground = False
         TabOrder = 1
-        ExplicitWidth = 1105
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
@@ -767,7 +759,6 @@ object formOrdemDeServico: TformOrdemDeServico
     object tbCadastroOrdens: TTabSheet
       Caption = 'Cadastro de ordens'
       ImageIndex = 1
-      ExplicitWidth = 1105
       object Panel8: TPanel
         Left = 0
         Top = 0
@@ -778,8 +769,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 15790320
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
-        ExplicitWidth = 1105
         object Label1: TLabel
           Left = 16
           Top = 17
@@ -1247,7 +1236,6 @@ object formOrdemDeServico: TformOrdemDeServico
     object tbItensOrdem: TTabSheet
       Caption = 'Faturamento da ordem'
       ImageIndex = 2
-      ExplicitWidth = 1105
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -1258,7 +1246,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 15790320
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1105
         DesignSize = (
           1026
           457)
@@ -1357,14 +1344,15 @@ object formOrdemDeServico: TformOrdemDeServico
           TabOrder = 3
         end
         object edtPgto: TComboBox
-          Left = 136
+          Left = 134
           Top = 301
           Width = 81
           Height = 25
           TabOrder = 4
           Items.Strings = (
             'Sim'
-            'N'#227'o')
+            'N'#227'o'
+            'Estornada')
         end
         object edtTotalDeParcelas: TEdit
           Left = 28
@@ -1401,21 +1389,19 @@ object formOrdemDeServico: TformOrdemDeServico
           Text = '  /  /    '
         end
         object GroupBox1: TGroupBox
-          Left = 308
+          Left = 359
           Top = 8
-          Width = 702
+          Width = 651
           Height = 447
           Anchors = [akRight, akBottom]
           Caption = 'Itens inclusos na ordem'
           TabOrder = 9
-          ExplicitLeft = 387
         end
       end
     end
     object tbPedidoDeCompra: TTabSheet
       Caption = 'Pedido de compra'
       ImageIndex = 3
-      ExplicitWidth = 1105
       object Panel6: TPanel
         Left = 0
         Top = 410
@@ -1430,13 +1416,11 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1105
       end
     end
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 4
-      ExplicitWidth = 1105
       object Panel7: TPanel
         Left = 0
         Top = 410
@@ -1451,7 +1435,6 @@ object formOrdemDeServico: TformOrdemDeServico
         Color = 8406532
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1105
       end
     end
   end

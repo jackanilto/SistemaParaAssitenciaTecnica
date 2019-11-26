@@ -882,6 +882,7 @@ type
     function sqlPesquisaEstatica: iListaClientesOrdemServico;
     function listarGrid(value: TDataSource): iListaClientesOrdemServico;
     function ordenarGrid(column: TColumn): iListaClientesOrdemServico;
+    function fecharQuery:iListaClientesOrdemServico;
 
     function abrir: iListaClientesOrdemServico;
     function exportar: iListaClientesOrdemServico;

@@ -92,7 +92,7 @@ end;
 
 function TEntityListarOrdensClientes.fecharQuery: iListaClientesOrdemServico;
 begin
-  FQuery.TQuery.close;
+  FQuery.TQuery.Active := false;
 end;
 
 function TEntityListarOrdensClientes.getCampo(value: string)

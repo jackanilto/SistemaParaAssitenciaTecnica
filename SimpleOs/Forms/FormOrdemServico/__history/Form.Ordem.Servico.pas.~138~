@@ -2,9 +2,9 @@
   -calcular o total da ordem com desconto --FEITO
   -calcular o total da ordem com acrescimo --FEITO
   -chamar o cadastro de clientes ao pesquisar um cliente e este não existir --FEITO
-  -inserir a códificação do botão editar
-  -inserir a códificação do botão deletar;
-  -inserir o codificação do botão cancelar
+  -inserir a códificação do botão editar --FEITO
+  -inserir a códificação do botão deletar --FEITO
+  -inserir o codificação do botão cancelar --FEITO
   -criar a rotina para estornar a ordem
 
   --criar os processo para a inserção dos itens do orçamento e calcular
@@ -123,6 +123,7 @@ type
     Panel5: TPanel;
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
+    SpeedButton1: TSpeedButton;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -139,6 +140,9 @@ type
     procedure edtValorDaOrdemExit(Sender: TObject);
     procedure edtDescontoExit(Sender: TObject);
     procedure edtAcresimoExit(Sender: TObject);
+    procedure sbEditarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
@@ -336,6 +340,33 @@ begin
     ReleaseCapture;
     self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
   end;
+end;
+
+procedure TformOrdemDeServico.sbCancelarClick(Sender: TObject);
+begin
+  FEntityOrdem.cancelar;
+end;
+
+procedure TformOrdemDeServico.sbEditarClick(Sender: TObject);
+begin
+  if ds_Ordens.DataSet.RecordCount >= 1 then
+  begin
+    FEntityOrdem.editar;
+  end;
+end;
+
+procedure TformOrdemDeServico.sbExcluirClick(Sender: TObject);
+begin
+  if ds_Ordens.DataSet.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema', MB_YESNO + MB_ICONWARNING) = mryes then
+    begin
+      FEntityOrdem.deletar;
+    end;
+
+  end;
+
 end;
 
 procedure TformOrdemDeServico.sbFecharClick(Sender: TObject);
