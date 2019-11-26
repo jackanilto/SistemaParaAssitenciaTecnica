@@ -38,7 +38,6 @@ type
 
   var
     FQuery: TFDQuery;
-    FClasseChamarCadastroClientes: TclasseCadastroClientesOrdem;
     FCampo: string;
     FValor: string;
   public
@@ -47,6 +46,7 @@ type
 
 var
   formLocalizarClientesOrdem: TformLocalizarClientesOrdem;
+  FClasseChamarCadastroClientes: TclasseCadastroClientesOrdem;
 
 implementation
 
@@ -84,16 +84,16 @@ begin
 
     Localizar;
 
-//    if DataSource1.DataSet.RecordCount = 0 then
-//    begin
-//      if application.MessageBox
-//        ('Nenhum registro foi encontrado. Deseja cadastrar este cliente?',
-//        'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
-//      begin
-//
-//      end;
-//
-//    end;
+    // if DataSource1.DataSet.RecordCount = 0 then
+    // begin
+    // if application.MessageBox
+    // ('Nenhum registro foi encontrado. Deseja cadastrar este cliente?',
+    // 'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+    // begin
+    //
+    // end;
+    //
+    // end;
 
   end;
 
@@ -170,8 +170,12 @@ end;
 
 procedure TformLocalizarClientesOrdem.sbCadastrarClientesClick(Sender: TObject);
 begin
-//  FClasseChamarCadastroClientes.nome := edtPesquisar.Text;
+
+  if cbPesquisar.Text = 'Nome' then
+    FClasseChamarCadastroClientes.nome := edtPesquisar.Text;
+
   FClasseChamarCadastroClientes.chamarCadastroClientes;
+
 end;
 
 procedure TformLocalizarClientesOrdem.sbFecharClick(Sender: TObject);

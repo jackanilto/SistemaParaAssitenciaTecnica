@@ -129,7 +129,6 @@ object formLocalizarClientesOrdem: TformLocalizarClientesOrdem
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 262
     object Label1: TLabel
       Left = 232
       Top = 7

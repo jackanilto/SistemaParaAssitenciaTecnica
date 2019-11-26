@@ -1,21 +1,21 @@
 inherited formCadastroDeClientes: TformCadastroDeClientes
   Caption = 'Cadastro de clientes'
   ClientHeight = 607
-  ClientWidth = 1118
+  ClientWidth = 1031
   OnClose = FormClose
-  ExplicitWidth = 1118
+  ExplicitWidth = 1031
   ExplicitHeight = 607
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    Width = 1118
+    Width = 1031
     ExplicitWidth = 1118
     inherited sbFechar: TSpeedButton
-      Left = 1066
+      Left = 979
       ExplicitLeft = 1066
     end
     inherited lblCaption: TLabel
-      Left = 396
+      Left = 309
       Width = 144
       Caption = 'Cadastro de clientes'
       ExplicitLeft = 195
@@ -23,24 +23,24 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
     end
   end
   inherited Panel2: TPanel
-    Width = 1118
+    Width = 1031
     ExplicitWidth = 1118
   end
   inherited Panel3: TPanel
     Top = 532
-    Width = 1118
+    Width = 1031
     ExplicitTop = 532
     ExplicitWidth = 1118
     inherited Label4: TLabel
-      Left = 784
+      Left = 697
       ExplicitLeft = 784
     end
     inherited Label5: TLabel
-      Left = 919
+      Left = 832
       ExplicitLeft = 919
     end
     inherited cbPesquisar: TComboBox
-      Left = 784
+      Left = 697
       Items.Strings = (
         'C'#243'digo'
         'Nome'
@@ -49,24 +49,24 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
       ExplicitLeft = 784
     end
     inherited edtPesquisar: TEdit
-      Left = 919
+      Left = 832
       OnKeyUp = edtPesquisarKeyUp
       ExplicitLeft = 919
     end
   end
   inherited CardPanel1: TCardPanel
-    Width = 1118
+    Width = 1031
     Height = 451
     ActiveCard = cardPanelCadatro
     ExplicitWidth = 1118
     ExplicitHeight = 451
     inherited cardPanelCadatro: TCard
-      Width = 1118
+      Width = 1031
       Height = 451
       ExplicitWidth = 1118
       ExplicitHeight = 451
       object Label1: TLabel
-        Left = 48
+        Left = 10
         Top = 9
         Width = 43
         Height = 17
@@ -79,7 +79,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label2: TLabel
-        Left = 48
+        Left = 10
         Top = 70
         Width = 36
         Height = 17
@@ -92,7 +92,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 376
+        Left = 338
         Top = 104
         Width = 38
         Height = 17
@@ -105,7 +105,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label6: TLabel
-        Left = 263
+        Left = 225
         Top = 9
         Width = 100
         Height = 17
@@ -118,7 +118,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label7: TLabel
-        Left = 48
+        Left = 10
         Top = 135
         Width = 97
         Height = 17
@@ -131,7 +131,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object lblCPF: TLabel
-        Left = 263
+        Left = 225
         Top = 135
         Width = 73
         Height = 17
@@ -144,7 +144,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label9: TLabel
-        Left = 151
+        Left = 113
         Top = 135
         Width = 101
         Height = 17
@@ -157,7 +157,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 48
+        Left = 10
         Top = 198
         Width = 67
         Height = 17
@@ -170,7 +170,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label11: TLabel
-        Left = 48
+        Left = 10
         Top = 381
         Width = 35
         Height = 17
@@ -183,7 +183,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label12: TLabel
-        Left = 774
+        Left = 736
         Top = 9
         Width = 48
         Height = 17
@@ -196,7 +196,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 48
+        Left = 10
         Top = 260
         Width = 22
         Height = 17
@@ -209,7 +209,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label14: TLabel
-        Left = 495
+        Left = 457
         Top = 70
         Width = 41
         Height = 17
@@ -222,7 +222,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label15: TLabel
-        Left = 801
+        Left = 763
         Top = 70
         Width = 40
         Height = 17
@@ -235,7 +235,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label16: TLabel
-        Left = 495
+        Left = 457
         Top = 135
         Width = 49
         Height = 17
@@ -248,7 +248,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label17: TLabel
-        Left = 686
+        Left = 648
         Top = 135
         Width = 40
         Height = 17
@@ -261,7 +261,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label18: TLabel
-        Left = 495
+        Left = 457
         Top = 197
         Width = 37
         Height = 17
@@ -274,7 +274,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label19: TLabel
-        Left = 495
+        Left = 457
         Top = 260
         Width = 67
         Height = 17
@@ -287,7 +287,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label20: TLabel
-        Left = 622
+        Left = 584
         Top = 260
         Width = 110
         Height = 17
@@ -300,7 +300,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label21: TLabel
-        Left = 495
+        Left = 457
         Top = 9
         Width = 82
         Height = 17
@@ -313,7 +313,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object Label22: TLabel
-        Left = 495
+        Left = 457
         Top = 322
         Width = 70
         Height = 17
@@ -326,7 +326,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object sbPesquisarCep: TSpeedButton
-        Left = 420
+        Left = 382
         Top = 283
         Width = 25
         Height = 25
@@ -391,21 +391,21 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         OnClick = sbPesquisarCepClick
       end
       object Image1: TImage
-        Left = 912
+        Left = 858
         Top = 32
         Width = 153
         Height = 151
         Stretch = True
       end
       object Label23: TLabel
-        Left = 912
+        Left = 874
         Top = 13
         Width = 22
         Height = 13
         Caption = 'Foto'
       end
       object SpeedButton1: TSpeedButton
-        Left = 912
+        Left = 858
         Top = 198
         Width = 153
         Height = 29
@@ -477,7 +477,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         OnClick = SpeedButton1Click
       end
       object Label24: TLabel
-        Left = 48
+        Left = 10
         Top = 322
         Width = 55
         Height = 17
@@ -490,7 +490,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         ParentFont = False
       end
       object edtCodigo: TEdit
-        Left = 48
+        Left = 10
         Top = 32
         Width = 209
         Height = 25
@@ -505,7 +505,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 0
       end
       object edtNome: TEdit
-        Left = 48
+        Left = 10
         Top = 93
         Width = 400
         Height = 25
@@ -519,7 +519,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 2
       end
       object edtCPFCNPJ: TEdit
-        Left = 258
+        Left = 220
         Top = 158
         Width = 185
         Height = 25
@@ -534,7 +534,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         OnExit = edtCPFCNPJExit
       end
       object edtDocumento: TEdit
-        Left = 48
+        Left = 10
         Top = 221
         Width = 400
         Height = 25
@@ -548,7 +548,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 6
       end
       object edtBairro: TEdit
-        Left = 48
+        Left = 10
         Top = 404
         Width = 400
         Height = 25
@@ -562,7 +562,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 9
       end
       object edtComplemento: TEdit
-        Left = 495
+        Left = 457
         Top = 32
         Width = 273
         Height = 25
@@ -576,7 +576,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 10
       end
       object edtNumero: TEdit
-        Left = 774
+        Left = 736
         Top = 32
         Width = 105
         Height = 25
@@ -590,7 +590,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 11
       end
       object edtCidade: TEdit
-        Left = 495
+        Left = 457
         Top = 93
         Width = 300
         Height = 25
@@ -604,7 +604,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 12
       end
       object edtEmail: TEdit
-        Left = 495
+        Left = 457
         Top = 221
         Width = 383
         Height = 25
@@ -617,7 +617,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 16
       end
       object edtFuncionario: TEdit
-        Left = 495
+        Left = 457
         Top = 283
         Width = 121
         Height = 25
@@ -632,7 +632,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 17
       end
       object edtObservacao: TEdit
-        Left = 495
+        Left = 457
         Top = 345
         Width = 406
         Height = 25
@@ -646,7 +646,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 19
       end
       object edtTipoCadastro: TComboBox
-        Left = 263
+        Left = 225
         Top = 32
         Width = 185
         Height = 25
@@ -665,7 +665,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
           'PJ')
       end
       object edtEstado: TComboBox
-        Left = 801
+        Left = 763
         Top = 94
         Width = 77
         Height = 25
@@ -679,7 +679,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 13
       end
       object edtDataNascimento: TMaskEdit
-        Left = 48
+        Left = 10
         Top = 158
         Width = 96
         Height = 25
@@ -696,7 +696,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         OnExit = edtDataNascimentoExit
       end
       object edtDataCadastro: TMaskEdit
-        Left = 150
+        Left = 112
         Top = 158
         Width = 102
         Height = 25
@@ -713,7 +713,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         OnExit = edtDataCadastroExit
       end
       object edtTelefone: TMaskEdit
-        Left = 497
+        Left = 459
         Top = 158
         Width = 183
         Height = 25
@@ -729,7 +729,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Text = '(  )    -    '
       end
       object edtCelular: TMaskEdit
-        Left = 684
+        Left = 646
         Top = 158
         Width = 194
         Height = 25
@@ -745,7 +745,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         Text = '(  )    -    '
       end
       object edtCEP: TEdit
-        Left = 48
+        Left = 10
         Top = 283
         Width = 366
         Height = 25
@@ -759,7 +759,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 7
       end
       object edtEndereco: TEdit
-        Left = 48
+        Left = 10
         Top = 345
         Width = 400
         Height = 25
@@ -773,7 +773,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         TabOrder = 8
       end
       object edtSituacaoCliente: TComboBox
-        Left = 622
+        Left = 584
         Top = 283
         Width = 256
         Height = 25
@@ -793,28 +793,28 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
       end
     end
     inherited cardPanelConsulta: TCard
-      Width = 1118
+      Width = 1031
       Height = 451
       ExplicitWidth = 1118
       ExplicitHeight = 451
       inherited Panel4: TPanel
         Top = 406
-        Width = 1118
+        Width = 1031
         ExplicitTop = 406
         ExplicitWidth = 1118
         inherited sbImprimir: TSpeedButton
-          Left = 843
+          Left = 756
           OnClick = sbImprimirClick
           ExplicitLeft = 843
         end
         inherited sbExportar: TSpeedButton
-          Left = 954
+          Left = 867
           OnClick = sbExportarClick
           ExplicitLeft = 954
         end
       end
       inherited DBGrid1: TDBGrid
-        Width = 1118
+        Width = 1031
         Height = 406
         DataSource = DataSource1
         OnCellClick = DBGrid1CellClick

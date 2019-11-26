@@ -53,8 +53,8 @@
     <Transaction>2019/10/10 11:41:45.000.534,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/10 11:42:26.000.712,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Configurar.Parcelas.pas</Transaction>
     <Transaction>2019/10/11 16:21:28.000.143,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2019/10/11 16:21:55.000.654,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Atividade.Funcionario.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/11 16:21:55.000.654,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Atividade.Funcionario.dfm=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
+    <Transaction>2019/10/11 16:21:55.000.654,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Atividade.Funcionario.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/11 16:32:32.000.936,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/11 16:33:04.000.565,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Atividade.Funcionario.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/11 17:03:08.000.481,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
@@ -156,9 +156,9 @@
     <Transaction>2019/11/19 12:39:49.000.025,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/19 12:42:37.000.025,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Localizar\Form.Localizar.Tecnico.Ordem.dfm</Transaction>
     <Transaction>2019/11/19 12:42:37.000.025,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas</Transaction>
-    <Transaction>2019/11/24 14:52:16.995,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2019/11/24 14:53:01.080,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\UClasse.ChamarCadastro.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2019/11/24 14:53:40.673,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\UClasse.ChamarCadastro.pas</Transaction>
+    <Transaction>2019/11/24 14:52:16.000.995,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
+    <Transaction>2019/11/24 14:53:01.000.080,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\UClasse.ChamarCadastro.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
+    <Transaction>2019/11/24 14:53:40.000.673,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\UClasse.ChamarCadastro.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Classes"/>

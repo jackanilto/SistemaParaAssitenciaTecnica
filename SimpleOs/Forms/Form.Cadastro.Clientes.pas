@@ -100,6 +100,8 @@ implementation
 
 {$R *.dfm}
 
+uses Form.Localizar.Clientes.Ordem;
+
 procedure TformCadastroDeClientes.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
   i: integer;
@@ -256,6 +258,13 @@ begin
     (DataSource1);
   FEntityTableUF.FD_Table('UF').getCampoTabela('UF').popularComponenteComboBox
     (edtEstado);
+
+  if Assigned(formLocalizarClientesOrdem) then
+  begin
+    sbNovo.Click;
+    edtNome.Text := FClasseChamarCadastroClientes.nome;
+  end;
+
 end;
 
 procedure TformCadastroDeClientes.sbCancelarClick(Sender: TObject);

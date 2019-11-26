@@ -826,6 +826,7 @@ type
     function codigoCadastro(sp: string): integer;
     function listarGrid(value: TDataSource): iOrdemServico;
     function ordenarGrid(column: TColumn): iOrdemServico;
+    function estornarOrdem(value:integer):iOrdemServico;
 
     function getID(value: integer): iOrdemServico;
     function getID_CLIENTE(value: string): iOrdemServico;
