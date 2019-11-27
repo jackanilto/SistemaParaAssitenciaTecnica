@@ -1424,3 +1424,8 @@ like
 26/11/19 16:44:30 - Caption: Ordem de serviço
 26/11/19 16:44:30 - Erro:Exception
 26/11/19 16:44:30 - Erro:Esta ordem já foi estornada.
+27/11/19 20:36:54 - ===========================================
+27/11/19 20:36:54 - Form: formOrdemDeServico
+27/11/19 20:36:54 - Caption: Ordem de serviço
+27/11/19 20:36:54 - Erro:Exception
+27/11/19 20:36:54 - Erro:Esta ordem já foi estornada.

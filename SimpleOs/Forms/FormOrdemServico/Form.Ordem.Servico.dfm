@@ -853,13 +853,6 @@ object formOrdemDeServico: TformOrdemDeServico
           Height = 17
           Caption = 'Entrada'
         end
-        object Label19: TLabel
-          Left = 872
-          Top = 202
-          Width = 67
-          Height = 17
-          Caption = 'Funcion'#225'rio'
-        end
         object Label20: TLabel
           Left = 606
           Top = 202
@@ -877,9 +870,9 @@ object formOrdemDeServico: TformOrdemDeServico
         object Label27: TLabel
           Left = 748
           Top = 202
-          Width = 111
+          Width = 81
           Height = 17
-          Caption = 'Data de finaliza'#231#227'o'
+          Caption = 'Data de saida'
         end
         object Label28: TLabel
           Left = 469
@@ -1125,21 +1118,13 @@ object formOrdemDeServico: TformOrdemDeServico
           ScrollBars = ssVertical
           TabOrder = 9
         end
-        object edtFuncionario: TEdit
-          Left = 872
-          Top = 225
-          Width = 96
-          Height = 25
-          CharCase = ecUpperCase
-          TabOrder = 10
-        end
         object edtMotivoDoRetorno: TEdit
           Left = 586
           Top = 350
           Width = 390
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 11
+          TabOrder = 10
         end
         object edtObservacaoes: TEdit
           Left = 468
@@ -1147,7 +1132,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 508
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 12
+          TabOrder = 11
         end
         object edtCodigoTecnico: TEdit
           Left = 469
@@ -1155,7 +1140,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 125
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 13
+          TabOrder = 12
         end
         object edtDataFabricacao: TMaskEdit
           Left = 246
@@ -1165,7 +1150,7 @@ object formOrdemDeServico: TformOrdemDeServico
           CharCase = ecUpperCase
           EditMask = '00/00/0000'
           MaxLength = 10
-          TabOrder = 14
+          TabOrder = 13
           Text = '  /  /    '
         end
         object edtDataDeEntrada: TMaskEdit
@@ -1176,7 +1161,7 @@ object formOrdemDeServico: TformOrdemDeServico
           CharCase = ecUpperCase
           EditMask = '00/00/0000'
           MaxLength = 10
-          TabOrder = 15
+          TabOrder = 14
           Text = '  /  /    '
         end
         object edtDataFinalzacao: TMaskEdit
@@ -1187,7 +1172,7 @@ object formOrdemDeServico: TformOrdemDeServico
           CharCase = ecUpperCase
           EditMask = '00/00/0000'
           MaxLength = 10
-          TabOrder = 16
+          TabOrder = 15
           Text = '  /  /    '
         end
         object edtDataRetorno: TMaskEdit
@@ -1198,7 +1183,7 @@ object formOrdemDeServico: TformOrdemDeServico
           CharCase = ecUpperCase
           EditMask = '00/00/0000'
           MaxLength = 10
-          TabOrder = 17
+          TabOrder = 16
           Text = '  /  /    '
         end
         object edtPrioridade: TComboBox
@@ -1208,7 +1193,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Height = 25
           CharCase = ecUpperCase
           ItemIndex = 0
-          TabOrder = 18
+          TabOrder = 17
           Text = 'URG'#202'NCIA'
           Items.Strings = (
             'URG'#202'NCIA'
@@ -1221,7 +1206,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 136
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 19
+          TabOrder = 18
         end
         object edtTecnicoResponsave: TEdit
           Left = 600
@@ -1229,7 +1214,7 @@ object formOrdemDeServico: TformOrdemDeServico
           Width = 345
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 20
+          TabOrder = 19
         end
       end
     end
@@ -1391,15 +1376,46 @@ object formOrdemDeServico: TformOrdemDeServico
         object GroupBox1: TGroupBox
           Left = 359
           Top = 8
-          Width = 651
+          Width = 666
           Height = 447
           Anchors = [akRight, akBottom]
           Caption = 'Itens inclusos na ordem'
           TabOrder = 9
+          DesignSize = (
+            666
+            447)
+          object Label32: TLabel
+            Left = 24
+            Top = 33
+            Width = 47
+            Height = 17
+            Caption = 'Produto'
+          end
+          object Label33: TLabel
+            Left = 230
+            Top = 33
+            Width = 30
+            Height = 17
+            Caption = 'Valor'
+          end
+          object Label34: TLabel
+            Left = 351
+            Top = 33
+            Width = 32
+            Height = 17
+            Caption = 'QTDE'
+          end
+          object Label35: TLabel
+            Left = 408
+            Top = 33
+            Width = 28
+            Height = 17
+            Caption = 'Total'
+          end
           object Panel9: TPanel
             Left = 2
             Top = 398
-            Width = 647
+            Width = 662
             Height = 47
             Margins.Left = 0
             Margins.Top = 0
@@ -1410,9 +1426,208 @@ object formOrdemDeServico: TformOrdemDeServico
             Color = 8406532
             ParentBackground = False
             TabOrder = 0
-            ExplicitLeft = 0
-            ExplicitTop = 410
-            ExplicitWidth = 1026
+            ExplicitWidth = 647
+            object sbAdicionarItem: TSpeedButton
+              Left = 12
+              Top = 5
+              Width = 138
+              Height = 35
+              Hint = 'Incluir item do or'#231'amento'
+              Caption = 'Adicionar item'
+              Flat = True
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Roboto'
+              Font.Style = []
+              Glyph.Data = {
+                F6060000424DF606000000000000360000002800000018000000180000000100
+                180000000000C0060000C30E0000C30E0000000000000000000099361A99361A
+                99361A99361A99361AA75139DAB6ACF9F4F2FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFF8F3F1DAB6ACA7513999361A99361A99361A99361A99
+                361A99361A99361A99361A99361ABC7B69F4EBE9FEFEFEFFFFFFFEFEFEFEFEFE
+                FFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEF5ECE9BB78659936
+                1A99361A99361A99361A99361A99361A99361AC79080FDFCFBFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFFFFFFFFFFFFFEFEFEFFFFFFFFFFFF
+                FEFEFEFDFAFAC68E7F99361A99361A99361A99361A99361ABB7A67FDFAFAFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFAFABA786599361A99361A99361AA64F37
+                F5ECE9FEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEDFC1B8D6AFA3D6AF
+                A3E1C6BEFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEF4EBE9A64F3799
+                361A99361AD9B5ABFFFFFFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                B1655099361A99361AB66F5BFFFFFFFEFEFEFFFFFFFFFFFFFEFEFEFFFFFFFFFF
+                FFFEFEFED8B3A899361AA7523AF9F2F1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFB1655099361A99361AB56D59FFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFF8F1F0A7523AC58D7DFEFEFEFEFEFEFEFEFEFFFF
+                FFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEB1655099361A99361AB46C57FEFEFEFE
+                FEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFEFEFEC58D7DE1C5BDFFFFFF
+                FFFFFFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB1655099361A9936
+                1AB36A55FFFFFFFEFEFEFFFFFFFFFFFFFEFEFEFFFFFFFFFFFFFEFEFEFFFFFFE0
+                C2B9F1E4E0FFFFFFFFFFFFFFFFFFFFFFFFE4C9C2B26853B26853B26853B26853
+                9F432899361A99361A9F4127B0634EB16550B26751B26752E3C8C0FFFFFFFFFF
+                FFFFFFFFFFFFFFF1E3DFF9F2F1FFFFFFFEFEFEFEFEFEFFFFFFDAB6AC99361A99
+                361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A
+                D9B5ABFFFFFFFEFEFEFEFEFEFFFFFFF9F4F2F9F2F1FFFFFFFFFFFFFFFFFFFFFF
+                FFDAB6AC99361A99361A99361A99361A99361A99361A99361A99361A99361A99
+                361A99361A99361AD9B5ABFFFFFFFFFFFFFEFEFEFFFFFFF8F1F0F1E3DFFFFFFF
+                FFFFFFFFFFFFFFFFFFE3C9C1B46C57B46C57B46C57B46C579F432899361A9936
+                1AA1462CB46C57B46C57B46C57B46C57E4C9C2FFFFFFFFFFFFFFFFFFFFFFFFF0
+                E1DDE0C2B9FFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFE
+                B1655099361A99361AB66F5BFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFE
+                FEFEFEFEFEFEFEDEBEB5C48B7BFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF
+                FFFFFFFFFFFEFEFEB1655099361A99361AB66F5BFFFFFFFEFEFEFFFFFFFFFFFF
+                FEFEFEFFFFFFFFFFFFFEFEFEFFFFFFC38877A75139F8F1EFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB1655099361A99361AB66E5AFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F1EFA64F3799361AD7B0A5
+                FEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEB1655099361A9936
+                1AB66F5BFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFED5ADA299
+                361A99361AA44C33F3E7E4FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                E5CDC6DDBDB4DDBDB4E7D0C9FEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFE
+                FEF3E7E4A34A3199361A99361A99361AB7725EFDFAFAFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFCF9F8B7705C99361A99361A99361A99361A99361AC28676FCF9
+                F9FEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFE
+                FEFEFFFFFFFEFEFEFEFEFEFBF8F7C1847399361A99361A99361A99361A99361A
+                99361A99361AB7705CF3E7E4FEFEFEFFFFFFFFFFFFFEFEFEFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2E6E3B66F5B99361A99361A99361A99
+                361A99361A99361A99361A99361A99361AA34A31D4AB9FF7EFEDFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7EFEDD4AA9EA34A3199361A9936
+                1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361AA5
+                4E35C18574DDBBB2EEDED9F5EBE8F4E9E6EDDCD7DDBDB4C18473A54E3599361A
+                99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
+                1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
+                361A99361A99361A99361A99361A99361A99361A99361A99361A}
+              Layout = blGlyphRight
+              ParentFont = False
+              ParentShowHint = False
+              ShowHint = True
+            end
+            object sbRemoverItem: TSpeedButton
+              Left = 156
+              Top = 5
+              Width = 138
+              Height = 35
+              Hint = 'Remover item do or'#231'amento'
+              Caption = 'Remover item'
+              Flat = True
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Roboto'
+              Font.Style = []
+              Glyph.Data = {
+                F6060000424DF606000000000000360000002800000018000000180000000100
+                180000000000C0060000C30E0000C30E0000000000000000000099361A99361A
+                99361A99361AB36853E3C8C0E4C9C2E3C9C1E3C9C1E4C9C2E3C9C1E3C9C1E3C9
+                C1E3C9C1E4C9C2E3C9C1E3C9C1E3C9C1E3C8C0B3685399361A99361A99361A99
+                361A99361A99361A99361A9F4127E3C8C0A64F379B391E9B391E9B391E9B391E
+                9B391E9B391E9B391E9B391E9B391E9B391E9B391E9B391EA64F37E2C7BF9F41
+                2799361A99361A99361A99361A99361A99361AA8543CD7B0A599361A99361A99
+                361A9B391E99361A99361A9A381C9A381C99361A99361A9B391E99361A99361A
+                99361AD6B0A5A8543C99361A99361A99361A99361A99361A99361AA9563ED7B0
+                A599361A99361A99361ACE9F91AE5F4999361ABD7E6CBE7F6D99361AAE5F49CF
+                A09399361A99361A99361AD7B0A5A9563E99361A99361A99361A99361A99361A
+                99361AA9563ED7B0A599361A99361A99361AD0A295AF624C99361ABF8270BF82
+                7099361AAF624CD0A29599361A99361A99361AD7B0A5A9563E99361A99361A99
+                361A99361A99361A99361AA9563ED6B0A599361A99361A99361AD0A295AF624C
+                99361ABF8170BF817099361AAF624CD0A29599361A99361A99361AD7B0A5A956
+                3E99361A99361A99361A99361A99361A99361AA9563ED7B0A599361A99361A99
+                361AD0A295AF624C99361ABF8170BF817099361AAF624CCFA19499361A99361A
+                99361AD7B0A5A9563E99361A99361A99361A99361A99361A99361AA9563ED7B0
+                A599361A99361A99361AD0A295AF624C99361ABF8270BF827099361AAF624CD0
+                A29599361A99361A99361AD7B0A5A9563E99361A99361A99361A99361A99361A
+                99361AA9563ED6B0A599361A99361A99361AD0A295AF624C99361ABF8170BF81
+                7099361AAF624CD0A29599361A99361A99361AD7B0A5A9563E99361A99361A99
+                361A99361A99361A99361AA9563ED7B0A599361A99361A99361AD0A295AF624C
+                99361ABF8170BF817099361AAF624CCFA19499361A99361A99361AD7B0A5A956
+                3E99361A99361A99361A99361A99361A99361AA9563ED7B0A599361A99361A99
+                361AD0A295AF624C99361ABF8270BF827099361AAF624CD0A29599361A99361A
+                99361AD7B0A5A9563E99361A99361A99361A99361A99361A99361AA9563ED6B0
+                A599361A99361A99361AD0A295AF624C99361ABF8170BF817099361AAF624CD0
+                A29599361A99361A99361AD7B0A5A9563E99361A99361A99361A99361A99361A
+                99361AA9553ED6B0A599361A99361A99361AD0A295AF624C99361ABF8270BF81
+                7099361AAF624CD0A29599361A99361A99361AD7B0A5A9563E99361A99361A99
+                361A99361A99361A99361AA9563ED7B0A599361A99361A99361ACFA194AF624C
+                99361ABF8270BF817099361AAF624CCFA19499361A99361A99361AD7B0A5A956
+                3E99361A99361A99361A99361A99361A99361AA9563ED7B0A599361A99361A99
+                361AD0A295AF624C99361ABF8270BF817099361AAF624CD0A29599361A99361A
+                99361AD7B0A5A9563E99361A99361A99361A99361A99361A99361AA9553ED6B0
+                A599361A99361A99361AD0A295AF624C99361ABF8270BF817099361AAF624CD0
+                A29599361A99361A99361AD7B0A5A9563E99361A99361A99361A99361A99361A
+                99361AA65138D1A59899361A99361A99361AC99586AB5A4399361ABA7764BA77
+                6499361AAB5A43C9958699361A99361A99361AD1A598A7513999361A99361A99
+                361A99361A99361AA2472EA44C33A9553EA34A31A34A31A34A31A64F37A44C33
+                A34A31A54E35A54E35A34A31A44C33A64F37A34A31A34A31A34A31A9563EA44C
+                33A2472E99361A99361A99361AA3492FEEDED9DCBAB0DCBAB0DCBAB0DCBAB0DC
+                BAB0DCBAB0DCBAB0DCBAB0DCBAB0DBB9AFDCBAB0DCBAB0DBB9AFDCBAB0DCBAB0
+                DBB9AFDCBAB0DCBAB0EEDED9A3492F99361A99361AA0442AE3C8C0AB5A43AB59
+                42AB5942AB5942AB5942AA5941AB5942AB5942AA5941AB5942AA5941AB5942AB
+                5942AA5941AB5942AB5942AA5941AB5A43E4C9C2A0442A99361A99361A99361A
+                B66F5BD4AA9ED4AA9ED3A99DD4AA9ED3A99DD3A99DD4AA9ED3A99DD3A99DD3A9
+                9DD4AA9ED4AA9ED3A99DD4AA9ED4AA9ED3A99DD4AA9ED4AA9EB66F5B99361A99
+                361A99361A99361A99361A99361A99361A99361A99361A99361ACA97899A381C
+                99361A99361A99361A99361A9A381CCB988999361A99361A99361A99361A9936
+                1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
+                361AD2A89CB976639B3B1F9B391E9B391E9B3B1FB97663D3A89C99361A99361A
+                99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
+                1A99361A99361A99361AA0442ADBB8AEE5CBC4E4C9C2E4C9C2E5CBC4DBB8AEA0
+                442A99361A99361A99361A99361A99361A99361A99361A99361A}
+              Layout = blGlyphRight
+              ParentFont = False
+              ParentShowHint = False
+              ShowHint = True
+            end
+          end
+          object edtProdutoItem: TEdit
+            Left = 24
+            Top = 56
+            Width = 200
+            Height = 25
+            TabOrder = 1
+          end
+          object edtValorProdutoItem: TEdit
+            Left = 230
+            Top = 56
+            Width = 115
+            Height = 25
+            TabOrder = 2
+          end
+          object edtQtdeProdutoItem: TEdit
+            Left = 351
+            Top = 56
+            Width = 58
+            Height = 25
+            TabOrder = 3
+          end
+          object edtTotalProdutoItem: TEdit
+            Left = 415
+            Top = 56
+            Width = 138
+            Height = 25
+            TabOrder = 4
+          end
+          object GroupBox2: TGroupBox
+            Left = 18
+            Top = 102
+            Width = 638
+            Height = 293
+            Anchors = [akRight, akBottom]
+            Caption = 'Itens inclusos na ordem'
+            TabOrder = 5
+            ExplicitLeft = 3
+            object DBGrid2: TDBGrid
+              Left = 2
+              Top = 19
+              Width = 634
+              Height = 272
+              Align = alClient
+              TabOrder = 0
+              TitleFont.Charset = DEFAULT_CHARSET
+              TitleFont.Color = clWindowText
+              TitleFont.Height = -13
+              TitleFont.Name = 'Segoe UI'
+              TitleFont.Style = []
+            end
           end
         end
       end

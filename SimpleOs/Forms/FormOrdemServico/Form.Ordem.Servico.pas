@@ -89,7 +89,6 @@ type
     Label12: TLabel;
     Label13: TLabel;
     Label14: TLabel;
-    Label19: TLabel;
     Label20: TLabel;
     Label25: TLabel;
     Label27: TLabel;
@@ -107,7 +106,6 @@ type
     edtDefeitoRelatado: TMemo;
     edtLaudoTecnico: TMemo;
     edtSolucaoDoProblema: TMemo;
-    edtFuncionario: TEdit;
     edtMotivoDoRetorno: TEdit;
     edtObservacaoes: TEdit;
     edtCodigoTecnico: TEdit;
@@ -126,6 +124,18 @@ type
     DataSource1: TDataSource;
     sbEstornarOrdem: TSpeedButton;
     Panel9: TPanel;
+    edtProdutoItem: TEdit;
+    Label32: TLabel;
+    edtValorProdutoItem: TEdit;
+    Label33: TLabel;
+    edtQtdeProdutoItem: TEdit;
+    Label34: TLabel;
+    edtTotalProdutoItem: TEdit;
+    Label35: TLabel;
+    GroupBox2: TGroupBox;
+    sbAdicionarItem: TSpeedButton;
+    DBGrid2: TDBGrid;
+    sbRemoverItem: TSpeedButton;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -228,7 +238,7 @@ begin
     edtSolucaoDoProblema.Text := FieldByName('SOLUCAO_DO_PROBLEMA').AsString;
     edtPrioridade.Text := FieldByName('PRIORIDADE').AsString;
     edtSituacaoDaOrdem.Text := FieldByName('SITUACAO_DA_ORDEM').AsString;
-    edtFuncionario.Text := IntTostr(FieldByName('ID_FUNCIONARIO').AsInteger);
+//    edtFuncionario.Text := IntTostr(FieldByName('ID_FUNCIONARIO').AsInteger);
     edtCodigoTecnico.Text := IntTostr(FieldByName('ID_TECNICO_RESPONSAVEL')
       .AsInteger);
     edtTecnicoResponsave.Text := FieldByName('TECNICO_RESPONSAVEL').AsString;
