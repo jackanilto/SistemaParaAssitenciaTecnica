@@ -919,6 +919,7 @@ type
     function getID(value: integer): iItensOrdem;
     function getID_ORDEM(value: integer): iItensOrdem;
     function getID_PRODUTO(value: integer): iItensOrdem;
+    function getProduto(value: string): iItensOrdem;
     function getVALOR_ITEM(value: string): iItensOrdem;
     function getQUANTIDADE(value: integer): iItensOrdem;
     function getVALOR_TOTAL(value: string): iItensOrdem;
@@ -947,6 +948,7 @@ type
     function gerarCodigoEan13: iGerarCodigoBarras;
     function criptPass: iCriptPasss;
     function ftTable: iFDTable;
+    function FClassQuery: iConexaoQuery;
   end;
 
   iFactoryEntity = interface

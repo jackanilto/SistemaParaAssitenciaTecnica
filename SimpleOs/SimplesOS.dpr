@@ -61,14 +61,7 @@ uses
   Form.Localizar.Produtos.Entrada in 'Forms\Localizar\Form.Localizar.Produtos.Entrada.pas' {formLocalizarProdutosEntradas},
   Form.Saidas.Produtos in 'Forms\Form.Saidas.Produtos.pas' {formSaidaDeProdutos},
   UClasse.Entity.Saidas.Produtos in 'Classes\Entity\UClasse.Entity.Saidas.Produtos.pas',
-  Form.Localizar.Produtos.Saidas in 'Forms\Localizar\Form.Localizar.Produtos.Saidas.pas' {FormLocalizarProdutosSaida},
-  Form.Ordem.Servico in 'Forms\FormOrdemServico\Form.Ordem.Servico.pas' {formOrdemDeServico},
-  UClasse.Entity.Ordem.Servico in 'Classes\Entity\UClasse.Entity.Ordem.Servico.pas',
-  UClasse.Entity.LIstar.Ordens.Clientes in 'Classes\Entity\UClasse.Entity.LIstar.Ordens.Clientes.pas',
-  Form.Localizar.Clientes.Ordem in 'Forms\Localizar\Form.Localizar.Clientes.Ordem.pas' {formLocalizarClientesOrdem},
-  Form.Localizar.Tecnico.Ordem in 'Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas' {formLocalizarTecnico},
-  UClasse.Chamar.Cadastro.Clientes.Ordens in 'Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas',
-  UClasse.Entity.Ordem.Itens in 'Classes\Entity\UClasse.Entity.Ordem.Itens.pas';
+  Form.Localizar.Produtos.Saidas in 'Forms\Localizar\Form.Localizar.Produtos.Saidas.pas' {FormLocalizarProdutosSaida};
 
 {$R *.res}
 
@@ -76,7 +69,6 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TformOrdemDeServico, formOrdemDeServico);
   Application.CreateForm(TformPrincipal, formPrincipal);
   Application.Run;
 end.

@@ -29,7 +29,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
   UClasse.Entity.Ordem.Servico, UClasse.Entity.Cadastro.Clientes, Vcl.Mask,
-  UClasse.Entity.LIstar.Ordens.Clientes;
+  UClasse.Entity.LIstar.Ordens.Clientes, UClasse.Entity.Ordem.Itens;
 
 type
   TformOrdemDeServico = class(TForm)
@@ -118,24 +118,11 @@ type
     edtTecnicoResponsave: TEdit;
     sbPesquisarCliente: TSpeedButton;
     sbPequisarTecnico: TSpeedButton;
-    GroupBox1: TGroupBox;
     Panel5: TPanel;
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
     sbEstornarOrdem: TSpeedButton;
-    Panel9: TPanel;
-    edtProdutoItem: TEdit;
-    Label32: TLabel;
-    edtValorProdutoItem: TEdit;
-    Label33: TLabel;
-    edtQtdeProdutoItem: TEdit;
-    Label34: TLabel;
-    edtTotalProdutoItem: TEdit;
-    Label35: TLabel;
-    GroupBox2: TGroupBox;
-    sbAdicionarItem: TSpeedButton;
-    DBGrid2: TDBGrid;
-    sbRemoverItem: TSpeedButton;
+    ds_itensOrdem: TDataSource;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -156,10 +143,12 @@ type
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
     procedure sbEstornarOrdemClick(Sender: TObject);
+    procedure sbAdicionarItemClick(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdem: iOrdemServico;
     FEntityListaOrdens: iListaClientesOrdemServico;
+    FEntityItensOrdem: iItensOrdem;
     FCodigoClienteSelecionado: Integer;
     FNomeClienteSelecionado: string;
   public
@@ -173,7 +162,8 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Localizar.Clientes.Ordem, UFactory, Form.Localizar.Tecnico.Ordem;
+uses Form.Localizar.Clientes.Ordem, UFactory, Form.Localizar.Tecnico.Ordem,
+  Form.Adicionar.Itens.Ordem;
 
 procedure TformOrdemDeServico.DBGrid1CellClick(Column: TColumn);
 begin
@@ -238,7 +228,7 @@ begin
     edtSolucaoDoProblema.Text := FieldByName('SOLUCAO_DO_PROBLEMA').AsString;
     edtPrioridade.Text := FieldByName('PRIORIDADE').AsString;
     edtSituacaoDaOrdem.Text := FieldByName('SITUACAO_DA_ORDEM').AsString;
-//    edtFuncionario.Text := IntTostr(FieldByName('ID_FUNCIONARIO').AsInteger);
+    // edtFuncionario.Text := IntTostr(FieldByName('ID_FUNCIONARIO').AsInteger);
     edtCodigoTecnico.Text := IntTostr(FieldByName('ID_TECNICO_RESPONSAVEL')
       .AsInteger);
     edtTecnicoResponsave.Text := FieldByName('TECNICO_RESPONSAVEL').AsString;
@@ -325,6 +315,7 @@ procedure TformOrdemDeServico.FormCreate(Sender: TObject);
 begin
   FEntityOrdem := TEntityOrdemServico.new;
   FEntityListaOrdens := TEntityListarOrdensClientes.new;
+  FEntityItensOrdem := TEntityOrdemItens.new;
 
   TFactory.new.ftTable.FD_Table('SITUACAO_ORDEM')
     .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox
@@ -341,6 +332,7 @@ procedure TformOrdemDeServico.FormShow(Sender: TObject);
 begin
   FEntityListaOrdens.abrir.listarGrid(ds_DadosClientes);
   FEntityOrdem.abrir.getCampo('ID').getValor('0').listarGrid(ds_Ordens);
+  FEntityItensOrdem.abrir.listarGrid(ds_itensOrdem);
 end;
 
 procedure TformOrdemDeServico.Panel1MouseDown(Sender: TObject;
@@ -353,6 +345,12 @@ begin
     ReleaseCapture;
     self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
   end;
+end;
+
+procedure TformOrdemDeServico.sbAdicionarItemClick(Sender: TObject);
+begin
+  formAdicionarItensOrdem := TformAdicionarItensOrdem.Create(self);
+  TFactory.new.criarJanela.FormShow(formAdicionarItensOrdem, '');
 end;
 
 procedure TformOrdemDeServico.sbCancelarClick(Sender: TObject);
@@ -371,8 +369,7 @@ end;
 procedure TformOrdemDeServico.sbEstornarOrdemClick(Sender: TObject);
 begin
   if ds_Ordens.DataSet.RecordCount >= 1 then
-    FEntityOrdem.estornarOrdem(ds_Ordens.DataSet.FieldByName('ID')
-      .AsInteger);
+    FEntityOrdem.estornarOrdem(ds_Ordens.DataSet.FieldByName('ID').AsInteger);
 end;
 
 procedure TformOrdemDeServico.sbExcluirClick(Sender: TObject);

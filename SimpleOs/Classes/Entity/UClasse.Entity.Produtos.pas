@@ -152,7 +152,7 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
         .gravarLog;
 
@@ -174,7 +174,7 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO')
       .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
       .gravarLog;
 
@@ -205,26 +205,25 @@ begin
   pasta.visible := true;
 
   pasta.cells[1, 1] := 'Código';
-  pasta.cells[1, 2] := 'Tipo de cadastro';
-  pasta.cells[1, 3] := 'Produto/Serviço';
-  pasta.cells[1, 4] := 'Código de barras';
-  pasta.cells[1, 5] := 'Descrição';
-  pasta.cells[1, 6] := 'Valor de custo';
-  pasta.cells[1, 7] := 'margem de lucro';
-  pasta.cells[1, 8] := 'Valor de venda';
-  pasta.cells[1, 9] := 'Quantidade mínima';
-  pasta.cells[1, 10] := 'Quantidade atual';
-  pasta.cells[1, 11] := 'Data de validade';
-  pasta.cells[1, 12] := 'Data de alteração';
-  pasta.cells[1, 13] := 'Código grupo';
-  pasta.cells[1, 14] := 'Grupo';
-  pasta.cells[1, 15] := 'Código marca';
-  pasta.cells[1, 16] := 'Marca';
-  pasta.cells[1, 17] := 'Modelo';
-  pasta.cells[1, 18] := 'Número de serie';
-  pasta.cells[1, 19] := 'Data de fabricação';
-  pasta.cells[1, 20] := 'Funcionário';
-  pasta.cells[1, 21] := 'Obsercação';
+  pasta.cells[1, 2] := 'Produto';
+  pasta.cells[1, 3] := 'Código de barras';
+  pasta.cells[1, 4] := 'Descrição';
+  pasta.cells[1, 5] := 'Valor de custo';
+  pasta.cells[1, 6] := 'margem de lucro';
+  pasta.cells[1, 7] := 'Valor de venda';
+  pasta.cells[1, 8] := 'Quantidade mínima';
+  pasta.cells[1, 9] := 'Quantidade atual';
+  pasta.cells[1, 10] := 'Data de validade';
+  pasta.cells[1, 11] := 'Data de alteração';
+  pasta.cells[1, 12] := 'Código grupo';
+  pasta.cells[1, 13] := 'Grupo';
+  pasta.cells[1, 14] := 'Código marca';
+  pasta.cells[1, 15] := 'Marca';
+  pasta.cells[1, 16] := 'Modelo';
+  pasta.cells[1, 17]:= 'Número de serie';
+  pasta.cells[1, 18]:= 'Data de fabricação';
+  pasta.cells[1, 19]:= 'Funcionário';
+  pasta.cells[1, 20]:= 'Obsercação';
 
   try
     while not FQuery.TQuery.Eof do
@@ -232,39 +231,37 @@ begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
       pasta.cells[linha, 2] := FQuery.TQuery.FieldByName
-        ('TIPO_CADASTROS').AsString;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
-        ('SERVICO_PRODUTO').AsString;
-      pasta.cells[linha, 4] := '"' + FQuery.TQuery.FieldByName('CODIGO_BARRAS')
+        ('PRODUTO').AsString;
+      pasta.cells[linha, 3] := '"' + FQuery.TQuery.FieldByName('CODIGO_BARRAS')
         .AsString + '"';
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DESCRICAO').AsString;
-      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('VALOR_CUSTO')
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DESCRICAO').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('VALOR_CUSTO')
         .AsCurrency;
-      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName
         ('MARGEM_LUCRO').AsFloat;
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_VENDA')
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_VENDA')
         .AsCurrency;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA')
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA')
         .AsInteger;
-      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL')
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL')
         .AsInteger;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('DATA_VALIDADE')
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('DATA_VALIDADE')
         .AsDateTime;
-      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('DATA_ALTERACAO')
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('DATA_ALTERACAO')
         .AsDateTime;
-      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger;
-      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('GRUPO').AsString;
-      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('ID_MARCA').AsInteger;
-      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('MARCA').AsString;
-      pasta.cells[linha, 17] := '"' + FQuery.TQuery.FieldByName('MODELO')
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('GRUPO').AsString;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('ID_MARCA').AsInteger;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('MARCA').AsString;
+      pasta.cells[linha, 16] := '"' + FQuery.TQuery.FieldByName('MODELO')
         .AsString + '"';
-      pasta.cells[linha, 18] := '"' + FQuery.TQuery.FieldByName('NUMERO_SERIE')
+      pasta.cells[linha, 17] := '"' + FQuery.TQuery.FieldByName('NUMERO_SERIE')
         .AsString + '"';
-      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('DATA_FABRICACAO')
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('DATA_FABRICACAO')
         .AsDateTime;
-      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('FUNCIONARIO')
+      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('FUNCIONARIO')
         .AsInteger;
-      pasta.cells[linha, 21] := FQuery.TQuery.FieldByName('OBSERVACAO')
+      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('OBSERVACAO')
         .AsString;
 
       linha := linha + 1;
@@ -506,8 +503,7 @@ begin
     FQuery.TQuery.FieldByName('id').AsInteger :=
       FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
 
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FSERVICO_PRODUTO;
-  FQuery.TQuery.FieldByName('TIPO_CADASTROS').AsString := FTIPO_CADASTROS;
+  FQuery.TQuery.FieldByName('PRODUTO').AsString := FSERVICO_PRODUTO;
   FQuery.TQuery.FieldByName('CODIGO_BARRAS').AsString := FCodigoBarras;
   FQuery.TQuery.FieldByName('DESCRICAO').AsString := FDescricao;
   FQuery.TQuery.FieldByName('VALOR_CUSTO').AsCurrency := FVALOR_CUSTO;
@@ -549,7 +545,7 @@ begin
 
   // F_FOTO.Free;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO')
     .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
     .gravarLog;
 
@@ -578,10 +574,8 @@ begin
   result := self;
 
   FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').DisplayLabel :=
-    'Produtos ou serviço';
-  FQuery.TQuery.FieldByName('TIPO_CADASTROS').DisplayLabel :=
-    'Tipo de cadastro';
+  FQuery.TQuery.FieldByName('PRODUTO').DisplayLabel :=
+    'Produtos';
   FQuery.TQuery.FieldByName('CODIGO_BARRAS').DisplayLabel := 'Código de barras';
   FQuery.TQuery.FieldByName('DESCRICAO').DisplayLabel := 'Descrição';
   FQuery.TQuery.FieldByName('VALOR_CUSTO').DisplayLabel := 'Valor de custo';
@@ -610,7 +604,7 @@ begin
   FQuery.TQuery.FieldByName('GRUPO').DisplayWidth := 30;
   FQuery.TQuery.FieldByName('MARCA').DisplayWidth := 30;
   FQuery.TQuery.FieldByName('DESCRICAO').DisplayWidth := 30;
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').DisplayWidth := 40;
+  FQuery.TQuery.FieldByName('PRODUTO').DisplayWidth := 40;
   FQuery.TQuery.FieldByName('MODELO').DisplayWidth := 40;
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 40;
 

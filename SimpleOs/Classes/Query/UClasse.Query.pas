@@ -46,7 +46,6 @@ implementation
 
 function TConexaoQuery.codigoCadastro(sp: string): integer;
 begin
-
   spCodigoCadastro := TFDStoredProc.create(nil);
   spCodigoCadastro.Connection := DataModule1.Conexao;
   spCodigoCadastro.StoredProcName := sp;

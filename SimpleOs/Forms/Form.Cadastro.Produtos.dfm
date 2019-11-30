@@ -3,6 +3,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
   ClientHeight = 590
   ClientWidth = 1084
   OnClose = FormClose
+  ExplicitTop = -36
   ExplicitWidth = 1084
   ExplicitHeight = 590
   PixelsPerInch = 96
@@ -45,7 +46,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         'C'#243'digo'
         'C'#243'digo de barra'
         'Produto'
-        'Tipo de cadastro')
+        '')
       ExplicitLeft = 750
     end
     inherited edtPesquisar: TEdit
@@ -57,6 +58,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
   inherited CardPanel1: TCardPanel
     Width = 1084
     Height = 434
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1084
     ExplicitHeight = 434
     inherited cardPanelCadatro: TCard
@@ -70,19 +72,6 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Width = 43
         Height = 17
         Caption = 'C'#243'digo'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label2: TLabel
-        Left = 303
-        Top = 12
-        Width = 100
-        Height = 17
-        Caption = 'Tipo de cadastro'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -664,7 +653,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 1
       end
       object edtCodigoDeBarras: TEdit
         Left = 16
@@ -678,7 +667,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 2
       end
       object edtDescricao: TEdit
         Left = 16
@@ -692,7 +681,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 3
       end
       object edtValorDeCusto: TEdit
         Left = 16
@@ -706,7 +695,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 4
       end
       object edtMargemDeLucro: TEdit
         Left = 126
@@ -720,7 +709,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         OnExit = edtMargemDeLucroExit
       end
       object edtValorDeVenda: TEdit
@@ -735,7 +724,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
       end
       object edtQuantidadeMinima: TEdit
         Left = 16
@@ -749,7 +738,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
       end
       object edtQuantidadeAtual: TEdit
         Left = 106
@@ -763,7 +752,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 8
       end
       object edtCodigoGrupo: TEdit
         Left = 472
@@ -777,7 +766,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 11
       end
       object edtModelo: TEdit
         Left = 472
@@ -791,7 +780,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 13
       end
       object edtNumeroDeSerie: TEdit
         Left = 471
@@ -805,7 +794,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 16
       end
       object edtFuncionario: TEdit
         Left = 598
@@ -819,7 +808,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 19
+        TabOrder = 18
       end
       object edtCodigoDaMarca: TEdit
         Left = 471
@@ -833,7 +822,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 14
       end
       object edtObservacao: TEdit
         Left = 471
@@ -847,7 +836,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 20
+        TabOrder = 19
       end
       object edtDataDeValidade: TMaskEdit
         Left = 212
@@ -862,7 +851,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 9
         Text = '  /  /    '
       end
       object edtDataDeAlteracao: TMaskEdit
@@ -878,7 +867,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 10
         Text = '  /  /    '
       end
       object edtDataDeFabricacao: TMaskEdit
@@ -894,7 +883,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 18
+        TabOrder = 17
         Text = '  /  /    '
       end
       object edtGrupo: TEdit
@@ -909,7 +898,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 12
       end
       object edtMarca: TEdit
         Left = 548
@@ -923,25 +912,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 16
-      end
-      object edtTipoProduto: TComboBox
-        Left = 303
-        Top = 32
-        Width = 113
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        Text = 'PRODUTO'
-        Items.Strings = (
-          'SERVI'#199'O'
-          'PRODUTO')
+        TabOrder = 15
       end
     end
     inherited cardPanelConsulta: TCard

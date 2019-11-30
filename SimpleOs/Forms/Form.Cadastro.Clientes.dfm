@@ -9,7 +9,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 1031
-    ExplicitWidth = 1118
+    ExplicitWidth = 1031
     inherited sbFechar: TSpeedButton
       Left = 979
       ExplicitLeft = 1066
@@ -24,13 +24,13 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   end
   inherited Panel2: TPanel
     Width = 1031
-    ExplicitWidth = 1118
+    ExplicitWidth = 1031
   end
   inherited Panel3: TPanel
     Top = 532
     Width = 1031
     ExplicitTop = 532
-    ExplicitWidth = 1118
+    ExplicitWidth = 1031
     inherited Label4: TLabel
       Left = 697
       ExplicitLeft = 784
@@ -46,24 +46,24 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
         'Nome'
         'CPF ou CNPJ'
         'Tipo cadastro')
-      ExplicitLeft = 784
+      ExplicitLeft = 697
     end
     inherited edtPesquisar: TEdit
       Left = 832
       OnKeyUp = edtPesquisarKeyUp
-      ExplicitLeft = 919
+      ExplicitLeft = 832
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 1031
     Height = 451
     ActiveCard = cardPanelCadatro
-    ExplicitWidth = 1118
+    ExplicitWidth = 1031
     ExplicitHeight = 451
     inherited cardPanelCadatro: TCard
       Width = 1031
       Height = 451
-      ExplicitWidth = 1118
+      ExplicitWidth = 1031
       ExplicitHeight = 451
       object Label1: TLabel
         Left = 10

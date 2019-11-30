@@ -28,7 +28,6 @@ type
     edtFuncionario: TEdit;
     edtCodigoDaMarca: TEdit;
     Label1: TLabel;
-    Label2: TLabel;
     Label3: TLabel;
     Label6: TLabel;
     Label7: TLabel;
@@ -58,7 +57,6 @@ type
     sbPesquisarGrupo: TSpeedButton;
     edtMarca: TEdit;
     sbPesquisarMarca: TSpeedButton;
-    edtTipoProduto: TComboBox;
     OpenPictureDialog1: TOpenPictureDialog;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
@@ -116,8 +114,7 @@ begin
   with DataSource1.DataSet do
   begin
     edtCodigo.Text := IntToStr(FieldByName('ID').AsInteger);
-    edtTipoProduto.Text := FieldByName('TIPO_CADASTROS').AsString;
-    edtProduto.Text := FieldByName('SERVICO_PRODUTO').AsString;
+    edtProduto.Text := FieldByName('PRODUTO').AsString;
     edtCodigoDeBarras.Text := FieldByName('CODIGO_BARRAS').AsString;
     edtDescricao.Text := FieldByName('DESCRICAO').AsString;
     edtValorDeCusto.Text := CurrToStr(FieldByName('VALOR_CUSTO').AsCurrency);
@@ -190,9 +187,7 @@ begin
   else if cbPesquisar.Text = 'Código de barra' then
     campo := 'CODIGO_BARRAS'
   else if cbPesquisar.Text = 'Produto' then
-    campo := 'SERVICO_PRODUTO'
-  else if cbPesquisar.Text = 'Tipo de cadastro' then
-    campo := 'TIPO_CADASTROS';
+    campo := 'PRODUTO';
 
   if edtPesquisar.Text <> EmptyStr then
     FEntityProdutos.getCampo(campo).getValor(edtPesquisar.Text)
@@ -300,12 +295,7 @@ end;
 procedure TformCadastroProdutos.sbSalvarClick(Sender: TObject);
 begin
 
-  if edtTipoProduto.Text = '' then
-  begin
-    edtTipoProduto.ItemIndex := 1;
-  end;
-
-  FEntityProdutos.getTipoCadastro(edtTipoProduto.Text)
+  FEntityProdutos
     .getServicoProdutos(edtProduto.Text).getCodigoBarras(edtCodigoDeBarras.Text)
     .getDescricao(edtDescricao.Text).getValorDeCusto(edtValorDeCusto.Text)
     .getMargemDeLUcro(edtMargemDeLucro.Text)

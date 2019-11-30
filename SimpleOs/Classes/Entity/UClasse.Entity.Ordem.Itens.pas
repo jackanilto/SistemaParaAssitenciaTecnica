@@ -22,6 +22,7 @@ type
     FID: integer;
     FID_ORDEM: integer;
     FID_PRODUTO: integer;
+    FPRODUTO: string;
     FVALOR_ITEM: Currency;
     FQUANTIDADE: integer;
     FVALOR_TOTAL: Currency;
@@ -63,6 +64,7 @@ type
     function getID(value: integer): iItensOrdem;
     function getID_ORDEM(value: integer): iItensOrdem;
     function getID_PRODUTO(value: integer): iItensOrdem;
+    function getPRODUTO(value: string): iItensOrdem;
     function getVALOR_ITEM(value: string): iItensOrdem;
     function getQUANTIDADE(value: integer): iItensOrdem;
     function getVALOR_TOTAL(value: string): iItensOrdem;
@@ -220,6 +222,16 @@ begin
   FNome := value;
 end;
 
+function TEntityOrdemItens.getPRODUTO(value: string): iItensOrdem;
+begin
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create('Informe o produto que esta inserindo');
+
+  FPRODUTO := value;
+end;
+
 function TEntityOrdemItens.getQUANTIDADE(value: integer): iItensOrdem;
 begin
   result := self;
@@ -292,6 +304,7 @@ begin
 
   FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger := FID_ORDEM;
   FQuery.TQuery.FieldByName('ID_PRODUTO').AsInteger := FID_PRODUTO;
+  FQuery.TQuery.FieldByName('PRODUTO').AsString := FPRODUTO;
   FQuery.TQuery.FieldByName('VALOR').AsCurrency := FVALOR_ITEM;
   FQuery.TQuery.FieldByName('QUANTIDADE').AsInteger := FQUANTIDADE;
   FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
@@ -324,12 +337,16 @@ begin
   result := self;
   with FQuery.TQuery do
   begin
-    FieldByName('id').DisplayLabel := 'Código';
-    FieldByName('ID_ORDEM').DisplayLabel := 'Ordem de serviço';
-    FieldByName('ID_PRODUTO').DisplayLabel := 'Código do produto';
+    FieldByName('id').Visible := false;
+    FieldByName('ID_ORDEM').Visible := false;
+    FieldByName('ID_PRODUTO').Visible := false;
+    FieldByName('PRODUTO').DisplayLabel := 'Produtos';
     FieldByName('VALOR').DisplayLabel := 'Valor UN';
     FieldByName('QUANTIDADE').DisplayLabel := 'QTDE';
     FieldByName('VALOR_TOTAL').DisplayLabel := 'Valor total';
+
+    FieldByName('PRODUTO').DisplayWidth := 40;
+
   end;
 
   value.DataSet := FQuery.TQuery;

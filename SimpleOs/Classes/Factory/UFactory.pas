@@ -3,7 +3,8 @@ unit UFactory;
 interface
 
 uses UInterfaces, UClasse.Criar.Janela, UClasse.Validar.Documento,
-  UClasse.Calcular.Juros, UClasse.Cript.password, UClasse.Entity.Table;
+  UClasse.Calcular.Juros, UClasse.Cript.password, UClasse.Entity.Table,
+  UClasse.Query;
 
 type
   TFactory = class(TInterfacedObject, iFactory)
@@ -16,6 +17,7 @@ type
     function criarJanela: iCriarJanelas;
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
+    function FClassQuery:iConexaoQuery;
     function criptPass: iCriptPasss;
     function ftTable: iFDTable;
     function CalcJuros<T>: iCalcularJuros;
@@ -60,6 +62,11 @@ destructor TFactory.destroy;
 begin
 
   inherited;
+end;
+
+function TFactory.FClassQuery: iConexaoQuery;
+begin
+   Result := TConexaoQuery.new;
 end;
 
 function TFactory.ftTable: iFDTable;
