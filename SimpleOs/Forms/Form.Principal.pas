@@ -68,6 +68,8 @@ type
     CategoryButtons4: TCategoryButtons;
     acEntradasProdutos: TAction;
     acSaidaProdutos: TAction;
+    acOrdemServico: TAction;
+    acCriarOrdenServico: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -94,6 +96,7 @@ type
     procedure acClientesExecute(Sender: TObject);
     procedure acEntradasProdutosExecute(Sender: TObject);
     procedure acSaidaProdutosExecute(Sender: TObject);
+    procedure acOrdemServicoExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -116,7 +119,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Problemas.Frequentes, Form.Cadastro.Forncedores,
   Form.Cadastro.Transportadora, Form.Cadastro.Produtos,
   Form.Cadastro.Funcionarios, Form.Cadastro.Situacao.Ordem,
-  Form.Saidas.Produtos;
+  Form.Saidas.Produtos, Form.Ordem.Servico;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -243,6 +246,12 @@ begin
     spvMovimentacao.Opened := true;
     F_SplitView := spvMovimentacao;
   end;
+end;
+
+procedure TformPrincipal.acOrdemServicoExecute(Sender: TObject);
+begin
+  formOrdemServico := TformOrdemServico.Create(self);
+  TFactory.new.criarJanela.formShow(formOrdemServico, '');
 end;
 
 procedure TformPrincipal.acProblemasFrequentesExecute(Sender: TObject);

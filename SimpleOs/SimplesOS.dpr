@@ -61,7 +61,9 @@ uses
   Form.Localizar.Produtos.Entrada in 'Forms\Localizar\Form.Localizar.Produtos.Entrada.pas' {formLocalizarProdutosEntradas},
   Form.Saidas.Produtos in 'Forms\Form.Saidas.Produtos.pas' {formSaidaDeProdutos},
   UClasse.Entity.Saidas.Produtos in 'Classes\Entity\UClasse.Entity.Saidas.Produtos.pas',
-  Form.Localizar.Produtos.Saidas in 'Forms\Localizar\Form.Localizar.Produtos.Saidas.pas' {FormLocalizarProdutosSaida};
+  Form.Localizar.Produtos.Saidas in 'Forms\Localizar\Form.Localizar.Produtos.Saidas.pas' {FormLocalizarProdutosSaida},
+  Form.Ordem.Servico in 'Forms\Form.Ordem.Servico.pas' {formOrdemServico},
+  Form.Criar.Ordem.Servico in 'Forms\Form.Criar.Ordem.Servico.pas' {formCriarConsultarOrdemServico};
 
 {$R *.res}
 
@@ -70,5 +72,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TformCriarConsultarOrdemServico, formCriarConsultarOrdemServico);
   Application.Run;
 end.

@@ -64,6 +64,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
     inherited cardPanelCadatro: TCard
       Width = 1084
       Height = 434
+      ExplicitTop = -1
       ExplicitWidth = 1084
       ExplicitHeight = 434
       object Label1: TLabel

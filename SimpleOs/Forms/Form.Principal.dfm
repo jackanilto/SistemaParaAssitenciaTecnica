@@ -7202,8 +7202,10 @@ object formPrincipal: TformPrincipal
               Action = acSaidaProdutos
             end
             item
+              Action = acOrdemServico
             end
             item
+              Action = acCriarOrdenServico
             end
             item
             end
@@ -7980,6 +7982,13 @@ object formPrincipal: TformPrincipal
     object acSaidaProdutos: TAction
       Caption = 'Sa'#237'da produtos'
       OnExecute = acSaidaProdutosExecute
+    end
+    object acOrdemServico: TAction
+      Caption = 'Ordens de servi'#231'o'
+      OnExecute = acOrdemServicoExecute
+    end
+    object acCriarOrdenServico: TAction
+      Caption = 'Criar ordem'
     end
   end
   object PopupMenuFuncionario: TPopupMenu
