@@ -832,6 +832,8 @@ type
     function getVALORSERVICO(value: string): iCadastroServico;
     function getDescricao(value: string): iCadastroServico;
 
+    function exportar:iCadastroServico;
+
   end;
 
   iListarOrdensServico = interface

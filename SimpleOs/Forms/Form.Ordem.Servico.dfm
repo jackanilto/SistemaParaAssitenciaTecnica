@@ -28,7 +28,6 @@ object formOrdemServico: TformOrdemServico
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 1049
     DesignSize = (
       1071
       41)
@@ -130,7 +129,6 @@ object formOrdemServico: TformOrdemServico
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 1049
     DesignSize = (
       1071
       67)
@@ -182,7 +180,6 @@ object formOrdemServico: TformOrdemServico
         'C'#243'digo do cliente'
         'Nome do cliente'
         'CPF ou CNPJ')
-      ExplicitLeft = 715
     end
     object edtPesquisar: TEdit
       Left = 872
@@ -198,7 +195,6 @@ object formOrdemServico: TformOrdemServico
       ParentFont = False
       TabOrder = 1
       OnKeyUp = edtPesquisarKeyUp
-      ExplicitLeft = 850
     end
   end
   object DBGrid1: TDBGrid
@@ -214,6 +210,7 @@ object formOrdemServico: TformOrdemServico
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
+    PopupMenu = PopupMenu1
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

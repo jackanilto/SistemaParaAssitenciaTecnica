@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -26,7 +27,6 @@ type
 
     FCodigo: Integer;
     FNome: string;
-    function exportar: iCadastroServico;
     function getCodigo(value: Integer): iCadastroServico;
     function getNome(value: string): iCadastroServico;
     procedure validarData(componet: tmaskEdit);
@@ -61,6 +61,8 @@ type
     function getSERVICO(value: string): iCadastroServico;
     function getVALORSERVICO(value: string): iCadastroServico;
     function getDescricao(value: string): iCadastroServico;
+
+    function exportar: iCadastroServico;
 
     constructor create;
     destructor destroy; override;
@@ -154,8 +156,42 @@ begin
 end;
 
 function TEntityCadastroServicos.exportar: iCadastroServico;
+var
+  pasta: variant;
+  linha: Integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório de Serviçoes';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Serviço';
+  pasta.cells[1, 3] := 'Valor';
+  pasta.cells[1, 4] := 'Descrição';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('SERVICO').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DESCRICAO').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TEntityCadastroServicos.fecharQuery: iCadastroServico;

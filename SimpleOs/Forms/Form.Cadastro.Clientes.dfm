@@ -57,7 +57,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   inherited CardPanel1: TCardPanel
     Width = 1031
     Height = 451
-    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1031
     ExplicitHeight = 451
     inherited cardPanelCadatro: TCard
@@ -795,13 +794,13 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
     inherited cardPanelConsulta: TCard
       Width = 1031
       Height = 451
-      ExplicitWidth = 1118
+      ExplicitWidth = 1031
       ExplicitHeight = 451
       inherited Panel4: TPanel
         Top = 406
         Width = 1031
         ExplicitTop = 406
-        ExplicitWidth = 1118
+        ExplicitWidth = 1031
         inherited sbImprimir: TSpeedButton
           Left = 756
           OnClick = sbImprimirClick

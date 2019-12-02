@@ -1439,3 +1439,13 @@ like
 30/11/19 17:50:33 - Caption: Cadastro de produtos
 30/11/19 17:50:33 - Erro:EDatabaseError
 30/11/19 17:50:33 - Erro:Field 'SERVICO_PRODUTO' not found
+02/12/19 19:46:27 - ===========================================
+02/12/19 19:46:27 - Form: formCadastroDeServicos
+02/12/19 19:46:27 - Caption: Cadastro de serviços
+02/12/19 19:46:27 - Erro:EDatabaseError
+02/12/19 19:46:27 - Erro:Field 'DESCRIÇÃO' not found
+02/12/19 20:01:56 - ===========================================
+02/12/19 20:01:56 - Form: formCadastroDeServicos
+02/12/19 20:01:56 - Caption: Cadastro de serviços
+02/12/19 20:01:56 - Erro:Exception
+02/12/19 20:01:56 - Erro:Informe o nome para o serviço.

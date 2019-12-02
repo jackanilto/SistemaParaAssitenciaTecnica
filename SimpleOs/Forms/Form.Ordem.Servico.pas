@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, UInterfaces,
-  UClasse.Listar.Ordens.Servico, Vcl.Menus;
+  UClasse.Listar.Ordens.Servico, Vcl.Menus, UFactory;
 
 type
   TEnumPesquisar = (codigo_ordem, codigo_cliente, nome_cliente, CPF);
@@ -53,6 +53,8 @@ implementation
 
 {$R *.dfm}
 
+uses Form.Cadastro.Clientes, Form.Criar.Ordem.Servico;
+
 procedure TformOrdemServico.DBGrid1TitleClick(Column: TColumn);
 begin
   FEntityOrdensServico.ordenarGrid(Column);
@@ -86,9 +88,6 @@ begin
     FEntityOrdensServico.getCampo(FCampo).getValor(edtPesquisar.Text)
       .sqlPesquisa.listarGrid(DataSource1);
 
-  { Código
-    Código de barras
-    Produto }
 end;
 
 procedure TformOrdemServico.FormCreate(Sender: TObject);
@@ -123,7 +122,8 @@ procedure TformOrdemServico.VerCadastro1Click(Sender: TObject);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    { Função para chamar a janela Cadastro de Clientes }
+    formCadastroDeClientes := TformCadastroDeClientes.Create(self);
+    TFactory.new.criarJanela.FormShow(formCadastroDeClientes, '');
   end;
 end;
 
@@ -131,7 +131,9 @@ procedure TformOrdemServico.VerOrdemdeServio1Click(Sender: TObject);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    { Função para chamar a janela Ordem de Serviço }
+    formCriarConsultarOrdemServico :=
+      TformCriarConsultarOrdemServico.Create(self);
+    TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
   end;
 end;
 

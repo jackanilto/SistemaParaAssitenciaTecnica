@@ -6215,7 +6215,7 @@ object formPrincipal: TformPrincipal
     ParentBackground = False
     TabOrder = 2
     object Image2: TImage
-      Left = 20
+      Left = 37
       Top = 13
       Width = 163
       Height = 40
@@ -6841,7 +6841,7 @@ object formPrincipal: TformPrincipal
         653E}
     end
     object Image4: TImage
-      Left = 365
+      Left = 382
       Top = 13
       Width = 163
       Height = 40
@@ -6904,7 +6904,7 @@ object formPrincipal: TformPrincipal
       Stretch = True
     end
     object Image5: TImage
-      Left = 534
+      Left = 551
       Top = 13
       Width = 163
       Height = 40
@@ -6964,7 +6964,7 @@ object formPrincipal: TformPrincipal
       Stretch = True
     end
     object Image3: TImage
-      Left = 189
+      Left = 206
       Top = 13
       Width = 163
       Height = 40
