@@ -800,6 +800,63 @@ type
 
   end;
 
+  iCadastroServico = interface
+    ['{EEC5A558-B31A-45B6-A001-ACE569828ABE}']
+
+    function nomeTabela(value: string): iCadastroServico;
+    function getCampo(value: string): iCadastroServico;
+    function getValor(value: string): iCadastroServico;
+    function getDataInicial(value: TDate): iCadastroServico;
+    function getDataFinal(value: TDate): iCadastroServico;
+    function open(value: string): iCadastroServico;
+    function pesquisar: iCadastroServico;
+    function ExecSql: iCadastroServico;
+    function sqlPesquisa: iCadastroServico;
+    function sqlPesquisaData: iCadastroServico;
+    function sqlPesquisaEstatica: iCadastroServico;
+
+    function abrir: iCadastroServico;
+    function inserir: iCadastroServico;
+    function gravar: iCadastroServico;
+    function deletar: iCadastroServico;
+    function atualizar: iCadastroServico;
+    function editar: iCadastroServico;
+    function cancelar: iCadastroServico;
+    function fecharQuery: iCadastroServico;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroServico;
+    function ordenarGrid(column: TColumn): iCadastroServico;
+
+    function getID(value: integer): iCadastroServico;
+    function getSERVICO(value: string): iCadastroServico;
+    function getVALORSERVICO(value: string): iCadastroServico;
+    function getDescricao(value: string): iCadastroServico;
+
+  end;
+
+  iListarOrdensServico = interface
+    ['{E125147B-1F82-4CC6-BC05-D02F57EE71CF}']
+
+    function nomeTabela(value: string): iListarOrdensServico;
+    function getCampo(value: string): iListarOrdensServico;
+    function getValor(value: string): iListarOrdensServico;
+    function getDataInicial(value: TDate): iListarOrdensServico;
+    function getDataFinal(value: TDate): iListarOrdensServico;
+    function open(value: string): iListarOrdensServico;
+    function pesquisar: iListarOrdensServico;
+    function ExecSql: iListarOrdensServico;
+    function sqlPesquisa: iListarOrdensServico;
+    function sqlPesquisaData: iListarOrdensServico;
+    function sqlPesquisaEstatica: iListarOrdensServico;
+    function listarGrid(value: TDataSource): iListarOrdensServico;
+    function ordenarGrid(column: TColumn): iListarOrdensServico;
+    function fecharQuery: iListarOrdensServico;
+
+    function abrir: iListarOrdensServico;
+    function exportar: iListarOrdensServico;
+
+  end;
+
   iOrdemServico = interface
     ['{AB2ECEA0-3FC5-418C-A90E-31C33629351C}']
 
@@ -867,28 +924,6 @@ type
 
   end;
 
-  iListaClientesOrdemServico = interface
-    ['{E125147B-1F82-4CC6-BC05-D02F57EE71CF}']
-    function nomeTabela(value: string): iListaClientesOrdemServico;
-    function getCampo(value: string): iListaClientesOrdemServico;
-    function getValor(value: string): iListaClientesOrdemServico;
-    function getDataInicial(value: TDate): iListaClientesOrdemServico;
-    function getDataFinal(value: TDate): iListaClientesOrdemServico;
-    function open(value: string): iListaClientesOrdemServico;
-    function pesquisar: iListaClientesOrdemServico;
-    function ExecSql: iListaClientesOrdemServico;
-    function sqlPesquisa: iListaClientesOrdemServico;
-    function sqlPesquisaData: iListaClientesOrdemServico;
-    function sqlPesquisaEstatica: iListaClientesOrdemServico;
-    function listarGrid(value: TDataSource): iListaClientesOrdemServico;
-    function ordenarGrid(column: TColumn): iListaClientesOrdemServico;
-    function fecharQuery: iListaClientesOrdemServico;
-
-    function abrir: iListaClientesOrdemServico;
-    function exportar: iListaClientesOrdemServico;
-
-  end;
-
   iItensOrdem = interface
     ['{F1A112F9-8495-4C23-9104-2A77CE79BAFA}']
 
@@ -924,10 +959,6 @@ type
     function getQUANTIDADE(value: integer): iItensOrdem;
     function getVALOR_TOTAL(value: string): iItensOrdem;
 
-  end;
-
-  iOrdemDeCompra = interface
-    ['{915B62A4-7537-4D20-9A77-5B5674D7E4B4}']
   end;
 
   iPacelaOrdem = interface

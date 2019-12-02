@@ -70,6 +70,7 @@ type
     acSaidaProdutos: TAction;
     acOrdemServico: TAction;
     acCriarOrdenServico: TAction;
+    acCadastrarServicos: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -97,6 +98,8 @@ type
     procedure acEntradasProdutosExecute(Sender: TObject);
     procedure acSaidaProdutosExecute(Sender: TObject);
     procedure acOrdemServicoExecute(Sender: TObject);
+    procedure acCriarOrdenServicoExecute(Sender: TObject);
+    procedure acCadastrarServicosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -119,12 +122,19 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Problemas.Frequentes, Form.Cadastro.Forncedores,
   Form.Cadastro.Transportadora, Form.Cadastro.Produtos,
   Form.Cadastro.Funcionarios, Form.Cadastro.Situacao.Ordem,
-  Form.Saidas.Produtos, Form.Ordem.Servico;
+  Form.Saidas.Produtos, Form.Ordem.Servico, Form.Criar.Ordem.Servico,
+  Form.Cadastro.Servicos;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
   formAtividadeFuncionario := TformAtividadeFuncionario.Create(self);
   TFactory.new.criarJanela.formShow(formAtividadeFuncionario, '');
+end;
+
+procedure TformPrincipal.acCadastrarServicosExecute(Sender: TObject);
+begin
+  formCadastroDeServicos := TformCadastroDeServicos.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroDeServicos, '');
 end;
 
 procedure TformPrincipal.acCadastroFornecedoresExecute(Sender: TObject);
@@ -210,6 +220,13 @@ procedure TformPrincipal.acContasAPagarExecute(Sender: TObject);
 begin
   formCadastroContasAPagar := TformCadastroContasAPagar.Create(self);
   TFactory.new.criarJanela.formShow(formCadastroContasAPagar, '');
+end;
+
+procedure TformPrincipal.acCriarOrdenServicoExecute(Sender: TObject);
+begin
+  formCriarConsultarOrdemServico :=
+    TformCriarConsultarOrdemServico.Create(self);
+  TFactory.new.criarJanela.formShow(formCriarConsultarOrdemServico, '');
 end;
 
 procedure TformPrincipal.acEntradasProdutosExecute(Sender: TObject);

@@ -4,7 +4,7 @@ object formOrdemServico: TformOrdemServico
   BorderStyle = bsNone
   Caption = 'Ordem de servi'#231'os'
   ClientHeight = 523
-  ClientWidth = 1049
+  ClientWidth = 1071
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,24 +13,27 @@ object formOrdemServico: TformOrdemServico
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1049
+    Width = 1071
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 917
+    OnMouseDown = Panel1MouseDown
+    ExplicitWidth = 1049
     DesignSize = (
-      1049
+      1071
       41)
     object sbFechar: TSpeedButton
-      Left = 997
+      Left = 1019
       Top = 2
       Width = 52
       Height = 33
@@ -100,7 +103,7 @@ object formOrdemServico: TformOrdemServico
       ExplicitLeft = 871
     end
     object lblCaption: TLabel
-      Left = 327
+      Left = 349
       Top = 10
       Width = 132
       Height = 19
@@ -114,23 +117,25 @@ object formOrdemServico: TformOrdemServico
       Font.Style = []
       ParentColor = False
       ParentFont = False
+      ExplicitLeft = 327
     end
   end
   object Panel3: TPanel
     Left = 0
     Top = 456
-    Width = 1049
+    Width = 1071
     Height = 67
     Align = alBottom
     BevelOuter = bvNone
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 1049
     DesignSize = (
-      1049
+      1071
       67)
     object Label4: TLabel
-      Left = 715
+      Left = 737
       Top = 9
       Width = 97
       Height = 15
@@ -142,9 +147,10 @@ object formOrdemServico: TformOrdemServico
       Font.Name = 'Roboto'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 715
     end
     object Label5: TLabel
-      Left = 850
+      Left = 872
       Top = 9
       Width = 168
       Height = 15
@@ -156,9 +162,10 @@ object formOrdemServico: TformOrdemServico
       Font.Name = 'Roboto'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 850
     end
     object cbPesquisar: TComboBox
-      Left = 715
+      Left = 737
       Top = 30
       Width = 129
       Height = 23
@@ -170,9 +177,15 @@ object formOrdemServico: TformOrdemServico
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      Items.Strings = (
+        'Ordem'
+        'C'#243'digo do cliente'
+        'Nome do cliente'
+        'CPF ou CNPJ')
+      ExplicitLeft = 715
     end
     object edtPesquisar: TEdit
-      Left = 850
+      Left = 872
       Top = 30
       Width = 168
       Height = 23
@@ -184,24 +197,45 @@ object formOrdemServico: TformOrdemServico
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnKeyUp = edtPesquisarKeyUp
+      ExplicitLeft = 850
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
     Top = 41
-    Width = 1049
+    Width = 1071
     Height = 415
     Align = alClient
     DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+    OnTitleClick = DBGrid1TitleClick
   end
   object DataSource1: TDataSource
     Left = 720
     Top = 224
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 496
+    Top = 216
+    object VerCadastro1: TMenuItem
+      Caption = 'Ver Cadastro'
+      OnClick = VerCadastro1Click
+    end
+    object VerOrdemdeServio1: TMenuItem
+      Caption = 'Ver Ordem de Servi'#231'o'
+      OnClick = VerOrdemdeServio1Click
+    end
   end
 end

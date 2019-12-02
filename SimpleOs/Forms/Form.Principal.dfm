@@ -6204,8 +6204,8 @@ object formPrincipal: TformPrincipal
     end
   end
   object Panel2: TPanel
-    Left = 311
-    Top = 63
+    Left = 303
+    Top = 60
     Width = 869
     Height = 136
     Align = alCustom
@@ -7208,6 +7208,7 @@ object formPrincipal: TformPrincipal
               Action = acCriarOrdenServico
             end
             item
+              Action = acCadastrarServicos
             end
             item
             end>
@@ -7989,6 +7990,11 @@ object formPrincipal: TformPrincipal
     end
     object acCriarOrdenServico: TAction
       Caption = 'Criar ordem'
+      OnExecute = acCriarOrdenServicoExecute
+    end
+    object acCadastrarServicos: TAction
+      Caption = 'Cadastrar Servi'#231'os'
+      OnExecute = acCadastrarServicosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

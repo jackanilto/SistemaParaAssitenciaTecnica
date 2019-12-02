@@ -1,0 +1,217 @@
+unit UClasse.Listar.Ordens.Servico;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TEntityListarOrdensServico = class(TInterfacedObject,
+    iListarOrdensServiço)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FNome: string;
+
+  public
+
+    function nomeTabela(value: string): iListarOrdensServiço;
+    function getCampo(value: string): iListarOrdensServiço;
+    function getValor(value: string): iListarOrdensServiço;
+    function getDataInicial(value: TDate): iListarOrdensServiço;
+    function getDataFinal(value: TDate): iListarOrdensServiço;
+    function open(value: string): iListarOrdensServiço;
+    function pesquisar: iListarOrdensServiço;
+    function ExecSql: iListarOrdensServiço;
+    function sqlPesquisa: iListarOrdensServiço;
+    function sqlPesquisaData: iListarOrdensServiço;
+    function sqlPesquisaEstatica: iListarOrdensServiço;
+
+    function abrir: iListarOrdensServiço;
+    function fecharQuery: iListarOrdensServiço;
+    function listarGrid(value: TDataSource): iListarOrdensServiço;
+    function ordenarGrid(column: TColumn): iListarOrdensServiço;
+
+    function exportar: iListarOrdensServiço;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iListarOrdensServiço;
+  end;
+
+implementation
+
+{ TEntityListarOrdensServico }
+
+function TEntityListarOrdensServico.abrir: iListarOrdensServiço;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+constructor TEntityListarOrdensServico.create;
+begin
+  FTabela := 'VISUALIZAR_ORDENS_CLIENTES';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Lista de ordens').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+destructor TEntityListarOrdensServico.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntityListarOrdensServico.ExecSql: iListarOrdensServiço;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntityListarOrdensServico.exportar: iListarOrdensServiço;
+begin
+  result := self;
+end;
+
+function TEntityListarOrdensServico.fecharQuery: iListarOrdensServiço;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntityListarOrdensServico.getCampo(value: string)
+  : iListarOrdensServiço;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntityListarOrdensServico.getDataFinal(value: TDate)
+  : iListarOrdensServiço;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TEntityListarOrdensServico.getDataInicial(value: TDate)
+  : iListarOrdensServiço;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TEntityListarOrdensServico.getValor(value: string)
+  : iListarOrdensServiço;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TEntityListarOrdensServico.listarGrid(value: TDataSource)
+  : iListarOrdensServiço;
+begin
+
+  result := self;
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID_ORDEM').Visible := false;
+    FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
+    FieldByName('NOME_CLIENTE').DisplayLabel := 'Nome do cliente';
+    FieldByName('CPF_CNPJ').DisplayLabel := 'CPF ou CNPJ';
+    FieldByName('TELEFONE').DisplayLabel := 'Telefone';
+    FieldByName('CELULAR').DisplayLabel := 'Celular';
+    FieldByName('EMAIL').Visible := false;
+    FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
+    FieldByName('DEFEITO_RELATADO').Visible := false;
+    FieldByName('MARCAS').Visible := false;
+    FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'Situação da ordem';
+    FieldByName('DATA_DE_ENTRADA').DisplayLabel := 'Entrada';
+    FieldByName('PGTO').DisplayLabel := 'PGTO';
+
+    FieldByName('NOME_CLIENTE').DisplayWidth := 30;
+    FieldByName('EMAIL').DisplayWidth := 30;
+    FieldByName('EQUIPAMENTO').DisplayWidth := 30;
+    FieldByName('DEFEITO_RELATADO').DisplayWidth := 30;
+    FieldByName('MARCAS').DisplayWidth := 30;
+  end;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TEntityListarOrdensServico.new: iListarOrdensServiço;
+begin
+  result := self.create;
+end;
+
+function TEntityListarOrdensServico.nomeTabela(value: string)
+  : iListarOrdensServiço;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntityListarOrdensServico.open(value: string)
+  : iListarOrdensServiço;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntityListarOrdensServico.ordenarGrid(column: TColumn)
+  : iListarOrdensServiço;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntityListarOrdensServico.pesquisar: iListarOrdensServiço;
+begin
+  result := self;
+end;
+
+function TEntityListarOrdensServico.sqlPesquisa: iListarOrdensServiço;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityListarOrdensServico.sqlPesquisaData
+  : iListarOrdensServiço;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntityListarOrdensServico.sqlPesquisaEstatica
+  : iListarOrdensServiço;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+end.
+
