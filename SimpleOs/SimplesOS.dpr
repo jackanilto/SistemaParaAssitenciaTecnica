@@ -66,7 +66,8 @@ uses
   Form.Criar.Ordem.Servico in 'Forms\Form.Criar.Ordem.Servico.pas' {formCriarConsultarOrdemServico},
   UClasse.Listar.Ordens.Servico in 'Classes\Entity\UClasse.Listar.Ordens.Servico.pas',
   Form.Cadastro.Servicos in 'Forms\Form.Cadastro.Servicos.pas' {formCadastroDeServicos},
-  UClasse.Entity.Cadastro.Servicos in 'Classes\Entity\UClasse.Entity.Cadastro.Servicos.pas';
+  UClasse.Entity.Cadastro.Servicos in 'Classes\Entity\UClasse.Entity.Cadastro.Servicos.pas',
+  UClasse.Entity.Criar.Ordem.Servico in 'Classes\Entity\UClasse.Entity.Criar.Ordem.Servico.pas';
 
 {$R *.res}
 

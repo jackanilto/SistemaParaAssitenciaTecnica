@@ -27,6 +27,8 @@ type
     PopupMenu1: TPopupMenu;
     VerCadastro1: TMenuItem;
     VerOrdemdeServio1: TMenuItem;
+    sbImprimir: TSpeedButton;
+    sbExportar: TSpeedButton;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -37,6 +39,7 @@ type
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure VerCadastro1Click(Sender: TObject);
     procedure VerOrdemdeServio1Click(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdensServico: iListarOrdensServico;
@@ -116,6 +119,11 @@ end;
 procedure TformOrdemServico.sbFecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TformOrdemServico.sbImprimirClick(Sender: TObject);
+begin
+{CÓDIFICAR ESTA PARTE PARA A IMPESSÃO DA ORDEM DE SERVIÇO SELECIONADA}
 end;
 
 procedure TformOrdemServico.VerCadastro1Click(Sender: TObject);

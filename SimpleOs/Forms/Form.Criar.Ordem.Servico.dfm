@@ -13,6 +13,8 @@
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -122,7 +124,7 @@
     Top = 41
     Width = 973
     Height = 469
-    ActivePage = tbOrdemServiço
+    ActivePage = tbServicosEFaturamento
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -131,11 +133,8 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitHeight = 360
     object tbOrdemServiço: TTabSheet
       Caption = 'Ordem de servi'#231'o'
-      ExplicitTop = 24
-      ExplicitHeight = 516
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -146,17 +145,443 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 216
-        ExplicitTop = 112
-        ExplicitWidth = 185
-        ExplicitHeight = 41
+        ExplicitTop = -2
+        object Label1: TLabel
+          Left = 16
+          Top = 17
+          Width = 83
+          Height = 17
+          Caption = 'C'#243'digo da OS'
+        end
+        object Label2: TLabel
+          Left = 16
+          Top = 73
+          Width = 70
+          Height = 17
+          Caption = 'C'#243'd. Cliente'
+        end
+        object Label3: TLabel
+          Left = 106
+          Top = 73
+          Width = 39
+          Height = 17
+          Caption = 'Cliente'
+        end
+        object sbPesquisarCep: TSpeedButton
+          Left = 396
+          Top = 96
+          Width = 25
+          Height = 25
+          Flat = True
+          Glyph.Data = {
+            F6060000424DF606000000000000360000002800000018000000180000000100
+            180000000000C0060000C30E0000C30E00000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2E5E5AA5454881010A14242EB
+            D7D7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2E5E59C38388000
+            00800000800000A14242FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6EDED
+            9A3434800000800000800000800000881010FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFF6EDEDD7AFAFBA7474A95252A44848AC5858C18383E1C3C3FBF7F7FF
+            FFFFF2E5E59A3434800000800000800000800000800000AA5454FFFFFFFFFFFF
+            FFFFFFFFFFFFF6EDEDC183838D1A1A8102028000008000008000008000008000
+            00830606983030CF9F9F9C38388000008000008000008000008000009C3838F2
+            E5E5FFFFFFFFFFFFFFFFFFE9D3D3983030800000800000800000800000800000
+            8000008000008000008000008000008000008000008000008000008000008000
+            009A3434F2E5E5FFFFFFFFFFFFFFFFFFE6CDCD89121280000080000080000087
+            0E0EA34646BC7878C28585B76E6E9C3838830606800000800000800000800000
+            8000008000009A3434F6EDEDFFFFFFFFFFFFFFFFFFF2E5E59326268000008000
+            00820404B16262EDDBDBFEFDFDFFFFFFFFFFFFFFFFFFFCF9F9E3C7C7A0404080
+            00008000008000008000009C3838F2E5E5FFFFFFFFFFFFFFFFFFFFFFFFB46868
+            800000800000820404C68D8DFEFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFBF7F7AE5C5C800000800000800000CF9F9FFFFFFFFFFFFFFFFFFFFF
+            FFFFEBD7D7860C0C800000800000BA7474FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F7A04040800000800000983030FBF7
+            F7FFFFFFFFFFFFFFFFFFC38787800000800000902020F4E9E9FFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE3C7C7830606
+            800000830606E1C3C3FFFFFFFFFFFFFFFFFFA24444800000800000B76E6EFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFCF9F99C3838800000800000C18383FFFFFFFFFFFFFFFFFF8D1A1A800000
+            800000D6ADADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFB76E6E800000800000AC5858FFFFFFFFFFFFFF
+            FFFF860C0C800000800000E0C1C1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC28585800000800000A448
+            48FFFFFFFFFFFFFFFFFF8A1414800000800000DAB5B5FFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBC7878
+            800000800000A95252FFFFFFFFFFFFFFFFFF9C3838800000800000C08181FFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFEFDFDA34646800000800000BA7474FFFFFFFFFFFFFFFFFFBA7474800000
+            800000983030FAF5F5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFEDDBDB870E0E800000810202D7AFAFFFFFFFFFFFFFFF
+            FFFFE1C3C3830606800000810202CE9D9DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFDFDB162628000008000008D1A1AF6ED
+            EDFFFFFFFFFFFFFFFFFFFEFDFDA44848800000800000881010DFBFBFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC68D8D820404800000
+            800000C18383FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7CFCF8912128000008000
+            00881010CE9D9DFAF5F5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4E9E9BA747482
+            0404800000800000983030F6EDEDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            D3A7A7810202800000800000810202983030C08181DAB5B5E0C1C1D6ADADB76E
+            6E902020800000800000800000891212E9D3D3FFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFD3A7A7891212800000800000800000800000800000
+            800000800000800000800000800000800000932626E6CDCDFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7CFCFA4484883060680
+            0000800000800000800000800000800000800000860C0CB46868F2E5E5FFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        end
+        object Label4: TLabel
+          Left = 16
+          Top = 203
+          Width = 37
+          Height = 17
+          Caption = 'Marca'
+        end
+        object Label5: TLabel
+          Left = 222
+          Top = 203
+          Width = 46
+          Height = 17
+          Caption = 'Modelo'
+        end
+        object Label6: TLabel
+          Left = 16
+          Top = 264
+          Width = 99
+          Height = 17
+          Caption = 'N'#250'mero de serie'
+        end
+        object Label7: TLabel
+          Left = 314
+          Top = 264
+          Width = 63
+          Height = 17
+          Caption = 'Fabrica'#231#227'o'
+        end
+        object Label8: TLabel
+          Left = 16
+          Top = 135
+          Width = 77
+          Height = 21
+          Caption = 'Equipamento'
+        end
+        object Label9: TLabel
+          Left = 16
+          Top = 328
+          Width = 95
+          Height = 17
+          Caption = 'Defeito relatado'
+        end
+        object Label10: TLabel
+          Left = 464
+          Top = 17
+          Width = 81
+          Height = 17
+          Caption = 'Laudo tecnico'
+        end
+        object Label11: TLabel
+          Left = 464
+          Top = 104
+          Width = 95
+          Height = 17
+          Caption = 'Defeito relatado'
+        end
+        object Label12: TLabel
+          Left = 464
+          Top = 208
+          Width = 111
+          Height = 17
+          Caption = 'Situa'#231#227'o da ordem'
+        end
+        object Label13: TLabel
+          Left = 615
+          Top = 208
+          Width = 61
+          Height = 17
+          Caption = 'Prioridade'
+        end
+        object Label14: TLabel
+          Left = 724
+          Top = 203
+          Width = 95
+          Height = 17
+          Caption = 'Data de entrada'
+        end
+        object Label15: TLabel
+          Left = 464
+          Top = 259
+          Width = 81
+          Height = 17
+          Caption = 'Data de saida'
+        end
+        object Label16: TLabel
+          Left = 565
+          Top = 259
+          Width = 83
+          Height = 17
+          Caption = 'Hora de sa'#237'da'
+        end
+        object Label17: TLabel
+          Left = 660
+          Top = 259
+          Width = 117
+          Height = 17
+          Caption = 'Tecnico respons'#225'vel'
+        end
+        object Label18: TLabel
+          Left = 464
+          Top = 319
+          Width = 47
+          Height = 17
+          Caption = 'Retorno'
+        end
+        object Label19: TLabel
+          Left = 774
+          Top = 319
+          Width = 94
+          Height = 17
+          Caption = 'Data de retorno'
+        end
+        object Label20: TLabel
+          Left = 464
+          Top = 377
+          Width = 70
+          Height = 17
+          Caption = 'Observa'#231#227'o'
+        end
+        object SpeedButton3: TSpeedButton
+          Left = 855
+          Top = 282
+          Width = 25
+          Height = 25
+          Flat = True
+          Glyph.Data = {
+            F6060000424DF606000000000000360000002800000018000000180000000100
+            180000000000C0060000C30E0000C30E00000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2E5E5AA5454881010A14242EB
+            D7D7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2E5E59C38388000
+            00800000800000A14242FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6EDED
+            9A3434800000800000800000800000881010FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFF6EDEDD7AFAFBA7474A95252A44848AC5858C18383E1C3C3FBF7F7FF
+            FFFFF2E5E59A3434800000800000800000800000800000AA5454FFFFFFFFFFFF
+            FFFFFFFFFFFFF6EDEDC183838D1A1A8102028000008000008000008000008000
+            00830606983030CF9F9F9C38388000008000008000008000008000009C3838F2
+            E5E5FFFFFFFFFFFFFFFFFFE9D3D3983030800000800000800000800000800000
+            8000008000008000008000008000008000008000008000008000008000008000
+            009A3434F2E5E5FFFFFFFFFFFFFFFFFFE6CDCD89121280000080000080000087
+            0E0EA34646BC7878C28585B76E6E9C3838830606800000800000800000800000
+            8000008000009A3434F6EDEDFFFFFFFFFFFFFFFFFFF2E5E59326268000008000
+            00820404B16262EDDBDBFEFDFDFFFFFFFFFFFFFFFFFFFCF9F9E3C7C7A0404080
+            00008000008000008000009C3838F2E5E5FFFFFFFFFFFFFFFFFFFFFFFFB46868
+            800000800000820404C68D8DFEFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFBF7F7AE5C5C800000800000800000CF9F9FFFFFFFFFFFFFFFFFFFFF
+            FFFFEBD7D7860C0C800000800000BA7474FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F7A04040800000800000983030FBF7
+            F7FFFFFFFFFFFFFFFFFFC38787800000800000902020F4E9E9FFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE3C7C7830606
+            800000830606E1C3C3FFFFFFFFFFFFFFFFFFA24444800000800000B76E6EFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFCF9F99C3838800000800000C18383FFFFFFFFFFFFFFFFFF8D1A1A800000
+            800000D6ADADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFB76E6E800000800000AC5858FFFFFFFFFFFFFF
+            FFFF860C0C800000800000E0C1C1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC28585800000800000A448
+            48FFFFFFFFFFFFFFFFFF8A1414800000800000DAB5B5FFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBC7878
+            800000800000A95252FFFFFFFFFFFFFFFFFF9C3838800000800000C08181FFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFEFDFDA34646800000800000BA7474FFFFFFFFFFFFFFFFFFBA7474800000
+            800000983030FAF5F5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFEDDBDB870E0E800000810202D7AFAFFFFFFFFFFFFFFF
+            FFFFE1C3C3830606800000810202CE9D9DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFDFDB162628000008000008D1A1AF6ED
+            EDFFFFFFFFFFFFFFFFFFFEFDFDA44848800000800000881010DFBFBFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC68D8D820404800000
+            800000C18383FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7CFCF8912128000008000
+            00881010CE9D9DFAF5F5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4E9E9BA747482
+            0404800000800000983030F6EDEDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            D3A7A7810202800000800000810202983030C08181DAB5B5E0C1C1D6ADADB76E
+            6E902020800000800000800000891212E9D3D3FFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFD3A7A7891212800000800000800000800000800000
+            800000800000800000800000800000800000932626E6CDCDFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7CFCFA4484883060680
+            0000800000800000800000800000800000800000860C0CB46868F2E5E5FFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        end
+        object Edit1: TEdit
+          Left = 16
+          Top = 40
+          Width = 257
+          Height = 25
+          TabOrder = 0
+          Text = 'Edit1'
+        end
+        object Edit2: TEdit
+          Left = 16
+          Top = 96
+          Width = 89
+          Height = 25
+          TabOrder = 1
+          Text = 'Edit2'
+        end
+        object Edit3: TEdit
+          Left = 106
+          Top = 96
+          Width = 284
+          Height = 25
+          TabOrder = 2
+          Text = 'Edit3'
+        end
+        object Edit4: TEdit
+          Left = 16
+          Top = 226
+          Width = 200
+          Height = 25
+          TabOrder = 3
+          Text = 'Edit4'
+        end
+        object Edit5: TEdit
+          Left = 222
+          Top = 226
+          Width = 200
+          Height = 25
+          TabOrder = 4
+          Text = 'Edit4'
+        end
+        object Edit6: TEdit
+          Left = 16
+          Top = 287
+          Width = 292
+          Height = 25
+          TabOrder = 5
+          Text = 'Edit6'
+        end
+        object MaskEdit1: TMaskEdit
+          Left = 314
+          Top = 287
+          Width = 108
+          Height = 25
+          TabOrder = 6
+          Text = 'MaskEdit1'
+        end
+        object Edit7: TEdit
+          Left = 16
+          Top = 160
+          Width = 406
+          Height = 25
+          TabOrder = 7
+          Text = 'Edit7'
+        end
+        object Memo1: TMemo
+          Left = 16
+          Top = 351
+          Width = 405
+          Height = 74
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 8
+        end
+        object Memo2: TMemo
+          Left = 464
+          Top = 40
+          Width = 405
+          Height = 49
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 9
+        end
+        object Memo3: TMemo
+          Left = 464
+          Top = 127
+          Width = 405
+          Height = 49
+          Lines.Strings = (
+            'Memo1')
+          TabOrder = 10
+        end
+        object ComboBox1: TComboBox
+          Left = 464
+          Top = 226
+          Width = 145
+          Height = 25
+          TabOrder = 11
+          Text = 'ComboBox1'
+        end
+        object ComboBox2: TComboBox
+          Left = 615
+          Top = 226
+          Width = 103
+          Height = 25
+          TabOrder = 12
+          Text = 'ComboBox1'
+        end
+        object MaskEdit2: TMaskEdit
+          Left = 724
+          Top = 226
+          Width = 145
+          Height = 25
+          TabOrder = 13
+          Text = 'MaskEdit2'
+        end
+        object MaskEdit3: TMaskEdit
+          Left = 464
+          Top = 282
+          Width = 95
+          Height = 25
+          TabOrder = 14
+          Text = 'MaskEdit2'
+        end
+        object MaskEdit4: TMaskEdit
+          Left = 565
+          Top = 282
+          Width = 83
+          Height = 25
+          TabOrder = 15
+          Text = 'MaskEdit2'
+        end
+        object Edit8: TEdit
+          Left = 660
+          Top = 282
+          Width = 191
+          Height = 25
+          TabOrder = 16
+          Text = 'Edit8'
+        end
+        object Edit9: TEdit
+          Left = 464
+          Top = 342
+          Width = 304
+          Height = 25
+          TabOrder = 17
+          Text = 'Edit9'
+        end
+        object MaskEdit5: TMaskEdit
+          Left = 774
+          Top = 342
+          Width = 95
+          Height = 25
+          TabOrder = 18
+          Text = 'MaskEdit2'
+        end
+        object Edit10: TEdit
+          Left = 464
+          Top = 400
+          Width = 405
+          Height = 25
+          TabOrder = 19
+          Text = 'Edit9'
+        end
       end
     end
     object tbServicosEFaturamento: TTabSheet
-      Caption = 'Servi'#231'oes e faturametno'
+      Caption = 'Servi'#231'oes e faturamento'
       ImageIndex = 1
-      ExplicitTop = 24
-      ExplicitHeight = 516
       object Panel4: TPanel
         Left = 0
         Top = 0
@@ -167,16 +592,210 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 216
-        ExplicitTop = 112
-        ExplicitWidth = 185
-        ExplicitHeight = 41
+        ExplicitTop = -2
+        object SpeedButton4: TSpeedButton
+          Left = 442
+          Top = 256
+          Width = 85
+          Height = 33
+          Caption = 'Adicionar >>'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 8406532
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object SpeedButton5: TSpeedButton
+          Left = 444
+          Top = 295
+          Width = 83
+          Height = 33
+          Caption = '>> Remover'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 3939791
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object GroupBox1: TGroupBox
+          Left = 3
+          Top = 2
+          Width = 942
+          Height = 159
+          Caption = 'Faturamento'
+          TabOrder = 0
+          object Label21: TLabel
+            Left = 16
+            Top = 25
+            Width = 92
+            Height = 17
+            Caption = 'Valor da ordem'
+          end
+          object Label22: TLabel
+            Left = 16
+            Top = 89
+            Width = 55
+            Height = 17
+            Caption = 'Desconto'
+          end
+          object Label23: TLabel
+            Left = 143
+            Top = 89
+            Width = 60
+            Height = 17
+            Caption = 'Acr'#233'scimo'
+          end
+          object Label24: TLabel
+            Left = 345
+            Top = 89
+            Width = 127
+            Height = 17
+            Caption = 'Forma de pagamento'
+          end
+          object Label25: TLabel
+            Left = 345
+            Top = 25
+            Width = 58
+            Height = 17
+            Caption = 'Parcelado'
+          end
+          object Label26: TLabel
+            Left = 441
+            Top = 25
+            Width = 100
+            Height = 17
+            Caption = 'Total de parcelas'
+          end
+          object Label27: TLabel
+            Left = 651
+            Top = 89
+            Width = 32
+            Height = 17
+            Caption = 'PGTO'
+          end
+          object Label28: TLabel
+            Left = 528
+            Top = 89
+            Width = 117
+            Height = 17
+            Caption = 'Data de pagamento'
+          end
+          object Edit11: TEdit
+            Left = 16
+            Top = 48
+            Width = 249
+            Height = 25
+            TabOrder = 0
+            Text = 'Edit11'
+          end
+          object Edit12: TEdit
+            Left = 16
+            Top = 112
+            Width = 121
+            Height = 25
+            TabOrder = 1
+            Text = 'Edit11'
+          end
+          object Edit13: TEdit
+            Left = 143
+            Top = 112
+            Width = 122
+            Height = 25
+            TabOrder = 2
+            Text = 'Edit11'
+          end
+          object ComboBox3: TComboBox
+            Left = 345
+            Top = 112
+            Width = 176
+            Height = 25
+            TabOrder = 3
+            Text = 'ComboBox3'
+          end
+          object ComboBox4: TComboBox
+            Left = 345
+            Top = 48
+            Width = 90
+            Height = 25
+            TabOrder = 4
+            Text = 'ComboBox3'
+          end
+          object Edit14: TEdit
+            Left = 441
+            Top = 48
+            Width = 274
+            Height = 25
+            TabOrder = 5
+            Text = 'Edit14'
+          end
+          object ComboBox5: TComboBox
+            Left = 651
+            Top = 112
+            Width = 71
+            Height = 25
+            TabOrder = 6
+            Text = 'ComboBox3'
+          end
+          object MaskEdit6: TMaskEdit
+            Left = 527
+            Top = 112
+            Width = 118
+            Height = 25
+            TabOrder = 7
+            Text = 'MaskEdit2'
+          end
+        end
+        object GroupBox2: TGroupBox
+          Left = 7
+          Top = 167
+          Width = 431
+          Height = 258
+          Caption = 'Servi'#231'os inclusos'
+          TabOrder = 1
+          object DBGrid1: TDBGrid
+            Left = 2
+            Top = 19
+            Width = 427
+            Height = 237
+            Align = alClient
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -13
+            TitleFont.Name = 'Segoe UI'
+            TitleFont.Style = []
+          end
+        end
+        object GroupBox3: TGroupBox
+          Left = 531
+          Top = 167
+          Width = 417
+          Height = 258
+          Caption = 'Servi'#231'os inclusos'
+          TabOrder = 2
+          object DBGrid2: TDBGrid
+            Left = 2
+            Top = 19
+            Width = 413
+            Height = 237
+            Align = alClient
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -13
+            TitleFont.Name = 'Segoe UI'
+            TitleFont.Style = []
+          end
+        end
       end
     end
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 2
-      ExplicitHeight = 333
       object Panel5: TPanel
         Left = 0
         Top = 0
@@ -187,10 +806,7 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 216
-        ExplicitTop = 112
-        ExplicitWidth = 185
-        ExplicitHeight = 41
+        ExplicitTop = -2
         object Panel6: TPanel
           Left = 0
           Top = 392
@@ -215,7 +831,6 @@
     Color = 8406532
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 512
     object sbNovo: TSpeedButton
       Left = 7
       Top = 24
@@ -783,5 +1398,9 @@
       ParentShowHint = False
       ShowHint = True
     end
+  end
+  object DataSource1: TDataSource
+    Left = 532
+    Top = 5
   end
 end

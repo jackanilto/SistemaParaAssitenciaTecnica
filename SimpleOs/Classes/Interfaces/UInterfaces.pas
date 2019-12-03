@@ -859,70 +859,70 @@ type
 
   end;
 
-  iOrdemServico = interface
+  iCriarOrdemServico = interface
     ['{AB2ECEA0-3FC5-418C-A90E-31C33629351C}']
 
-    function nomeTabela(value: string): iOrdemServico;
-    function getCampo(value: string): iOrdemServico;
-    function getValor(value: string): iOrdemServico;
-    function getDataInicial(value: TDate): iOrdemServico;
-    function getDataFinal(value: TDate): iOrdemServico;
-    function open(value: string): iOrdemServico;
-    function pesquisar: iOrdemServico;
-    function ExecSql: iOrdemServico;
-    function sqlPesquisa: iOrdemServico;
-    function sqlPesquisaData: iOrdemServico;
-    function sqlPesquisaEstatica: iOrdemServico;
+    function nomeTabela(value: string): iCriarOrdemServico;
+    function getCampo(value: string): iCriarOrdemServico;
+    function getValor(value: string): iCriarOrdemServico;
+    function getDataInicial(value: TDate): iCriarOrdemServico;
+    function getDataFinal(value: TDate): iCriarOrdemServico;
+    function open(value: string): iCriarOrdemServico;
+    function pesquisar: iCriarOrdemServico;
+    function ExecSql: iCriarOrdemServico;
+    function sqlPesquisa: iCriarOrdemServico;
+    function sqlPesquisaData: iCriarOrdemServico;
+    function sqlPesquisaEstatica: iCriarOrdemServico;
 
-    function abrir: iOrdemServico;
-    function inserir: iOrdemServico;
-    function gravar: iOrdemServico;
-    function deletar: iOrdemServico;
-    function atualizar: iOrdemServico;
-    function editar: iOrdemServico;
-    function cancelar: iOrdemServico;
-    function fecharQuery: iOrdemServico;
+    function abrir: iCriarOrdemServico;
+    function inserir: iCriarOrdemServico;
+    function gravar: iCriarOrdemServico;
+    function deletar: iCriarOrdemServico;
+    function atualizar: iCriarOrdemServico;
+    function editar: iCriarOrdemServico;
+    function cancelar: iCriarOrdemServico;
+    function fecharQuery: iCriarOrdemServico;
     function codigoCadastro(sp: string): integer;
-    function listarGrid(value: TDataSource): iOrdemServico;
-    function ordenarGrid(column: TColumn): iOrdemServico;
-    function estornarOrdem(value: integer): iOrdemServico;
+    function listarGrid(value: TDataSource): iCriarOrdemServico;
+    function ordenarGrid(column: TColumn): iCriarOrdemServico;
+    function estornarOrdem(value: integer): iCriarOrdemServico;
 
-    function getID(value: integer): iOrdemServico;
-    function getID_CLIENTE(value: string): iOrdemServico;
-    function getEQUIPAMENTO(value: string): iOrdemServico;
-    function getDEFEITO_RELATADO(value: string): iOrdemServico;
-    function getMarca(value: string): iOrdemServico;
-    function getModelo(value: string): iOrdemServico;
-    function getNUMERO_SERIE(value: string): iOrdemServico;
-    function getDATA_FABRICACAO(value: string): iOrdemServico;
-    function getLAUDO_DO_TECNICO(value: string): iOrdemServico;
-    function getSOLUCAO_DO_PROBLEMA(value: string): iOrdemServico;
-    function getVALOR_DA_ORDEM(value: string): iOrdemServico;
-    function getDesconto(value: string): iOrdemServico;
-    function getACRESCIMO(value: string): iOrdemServico;
-    function getTotalDoOrcamento(value: string): iOrdemServico;
-    function getID_FUNCIONARIO(value: integer): iOrdemServico;
-    function getNOME_FUNCIONARIO(value: string): iOrdemServico;
-    function getRETORNO(value: string): iOrdemServico;
-    function getDATA_RETORNO(value: string): iOrdemServico;
-    function getSITUACAO_DA_ORDEM(value: string): iOrdemServico;
-    function getFORMA_PAGAMENTO(value: String): iOrdemServico;
-    function getPARCELADO(value: string): iOrdemServico;
-    function getTOTAL_PARCELAS(value: string): iOrdemServico;
-    function getPGTO(value: string): iOrdemServico;
-    function getPRIORIDADE(value: string): iOrdemServico;
-    function getDataCadastro(value: string): iOrdemServico;
-    function getDataFinalizacao(value: string): iOrdemServico;
-    function getDataPagamento(value: string): iOrdemServico;
-    function getObservacao(value: string): iOrdemServico;
-    function getSTATUS(value: string): iOrdemServico;
-    function getIdTecnico(value: string): iOrdemServico;
-    function getTecnico(value: string): iOrdemServico;
+    function getID(value: integer): iCriarOrdemServico;
+    function getID_CLIENTE(value: string): iCriarOrdemServico;
+    function getEQUIPAMENTO(value: string): iCriarOrdemServico;
+    function getDEFEITO_RELATADO(value: string): iCriarOrdemServico;
+    function getMarca(value: string): iCriarOrdemServico;
+    function getModelo(value: string): iCriarOrdemServico;
+    function getNUMERO_SERIE(value: string): iCriarOrdemServico;
+    function getDATA_FABRICACAO(value: string): iCriarOrdemServico;
+    function getLAUDO_DO_TECNICO(value: string): iCriarOrdemServico;
+    function getSOLUCAO_DO_PROBLEMA(value: string): iCriarOrdemServico;
+    function getVALOR_DA_ORDEM(value: string): iCriarOrdemServico;
+    function getDesconto(value: string): iCriarOrdemServico;
+    function getACRESCIMO(value: string): iCriarOrdemServico;
+    function getTotalDoOrcamento(value: string): iCriarOrdemServico;
+    function getID_FUNCIONARIO(value: integer): iCriarOrdemServico;
+    function getNOME_FUNCIONARIO(value: string): iCriarOrdemServico;
+    function getRETORNO(value: string): iCriarOrdemServico;
+    function getDATA_RETORNO(value: string): iCriarOrdemServico;
+    function getSITUACAO_DA_ORDEM(value: string): iCriarOrdemServico;
+    function getFORMA_PAGAMENTO(value: String): iCriarOrdemServico;
+    function getPARCELADO(value: string): iCriarOrdemServico;
+    function getTOTAL_PARCELAS(value: string): iCriarOrdemServico;
+    function getPGTO(value: string): iCriarOrdemServico;
+    function getPRIORIDADE(value: string): iCriarOrdemServico;
+    function getDataCadastro(value: string): iCriarOrdemServico;
+    function getDataFinalizacao(value: string): iCriarOrdemServico;
+    function getDataPagamento(value: string): iCriarOrdemServico;
+    function getObservacao(value: string): iCriarOrdemServico;
+    function getSTATUS(value: string): iCriarOrdemServico;
+    function getIdTecnico(value: string): iCriarOrdemServico;
+    function getTecnico(value: string): iCriarOrdemServico;
 
     function calcularDesconto(valor, desconto: TEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
 
-    function exportar: iOrdemServico;
+    function exportar: iCriarOrdemServico;
 
   end;
 
