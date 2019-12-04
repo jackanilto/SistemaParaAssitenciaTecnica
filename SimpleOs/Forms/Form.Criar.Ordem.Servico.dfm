@@ -124,7 +124,7 @@
     Top = 41
     Width = 973
     Height = 469
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbOrdemServiço
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -145,7 +145,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
         object Label1: TLabel
           Left = 16
           Top = 17
@@ -263,7 +262,7 @@
           Left = 16
           Top = 135
           Width = 77
-          Height = 21
+          Height = 17
           Caption = 'Equipamento'
         end
         object Label9: TLabel
@@ -283,20 +282,20 @@
         object Label11: TLabel
           Left = 464
           Top = 104
-          Width = 95
+          Width = 127
           Height = 17
-          Caption = 'Defeito relatado'
+          Caption = 'Solu'#231#227'o do problema'
         end
         object Label12: TLabel
           Left = 464
-          Top = 208
+          Top = 203
           Width = 111
           Height = 17
           Caption = 'Situa'#231#227'o da ordem'
         end
         object Label13: TLabel
           Left = 615
-          Top = 208
+          Top = 203
           Width = 61
           Height = 17
           Caption = 'Prioridade'
@@ -414,168 +413,184 @@
             FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
             FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
         end
-        object Edit1: TEdit
+        object edtCodigoOS: TEdit
           Left = 16
           Top = 40
           Width = 257
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 0
-          Text = 'Edit1'
         end
-        object Edit2: TEdit
+        object edtCodigoCliente: TEdit
           Left = 16
           Top = 96
           Width = 89
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 1
-          Text = 'Edit2'
         end
-        object Edit3: TEdit
+        object edtNomeCliente: TEdit
           Left = 106
           Top = 96
           Width = 284
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 2
-          Text = 'Edit3'
         end
-        object Edit4: TEdit
+        object edtMarca: TEdit
           Left = 16
           Top = 226
           Width = 200
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 3
-          Text = 'Edit4'
         end
-        object Edit5: TEdit
+        object edtModelo: TEdit
           Left = 222
           Top = 226
           Width = 200
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 4
-          Text = 'Edit4'
         end
-        object Edit6: TEdit
+        object edtNumeroDeSerie: TEdit
           Left = 16
           Top = 287
           Width = 292
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 5
-          Text = 'Edit6'
         end
-        object MaskEdit1: TMaskEdit
+        object edtDataFabricacao: TMaskEdit
           Left = 314
           Top = 287
-          Width = 108
+          Width = 107
           Height = 25
+          EditMask = '00/00/0000'
+          MaxLength = 10
           TabOrder = 6
-          Text = 'MaskEdit1'
+          Text = '  /  /    '
         end
-        object Edit7: TEdit
+        object edtEquipamento: TEdit
           Left = 16
           Top = 160
           Width = 406
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 7
-          Text = 'Edit7'
         end
-        object Memo1: TMemo
+        object edtDefeitoRelatado: TMemo
           Left = 16
           Top = 351
           Width = 405
           Height = 74
           Lines.Strings = (
-            'Memo1')
+            '')
           TabOrder = 8
         end
-        object Memo2: TMemo
+        object edtLaudoTecnico: TMemo
           Left = 464
           Top = 40
           Width = 405
           Height = 49
           Lines.Strings = (
-            'Memo1')
+            '')
           TabOrder = 9
         end
-        object Memo3: TMemo
+        object edtSolucaoDoProblema: TMemo
           Left = 464
           Top = 127
           Width = 405
           Height = 49
           Lines.Strings = (
-            'Memo1')
+            '')
           TabOrder = 10
         end
-        object ComboBox1: TComboBox
+        object edtSituacaoOrdem: TComboBox
           Left = 464
           Top = 226
           Width = 145
           Height = 25
+          CharCase = ecUpperCase
+          Ctl3D = False
+          ParentCtl3D = False
           TabOrder = 11
-          Text = 'ComboBox1'
         end
-        object ComboBox2: TComboBox
+        object edtPrioridade: TComboBox
           Left = 615
           Top = 226
           Width = 103
           Height = 25
+          Ctl3D = False
+          ParentCtl3D = False
           TabOrder = 12
-          Text = 'ComboBox1'
+          Items.Strings = (
+            'N'#195'O'
+            'SIM')
         end
-        object MaskEdit2: TMaskEdit
+        object edtDataEntrada: TMaskEdit
           Left = 724
           Top = 226
-          Width = 145
+          Width = 144
           Height = 25
+          EditMask = '00/00/0000'
+          MaxLength = 10
           TabOrder = 13
-          Text = 'MaskEdit2'
+          Text = '  /  /    '
         end
-        object MaskEdit3: TMaskEdit
+        object edtDataDeSaida: TMaskEdit
           Left = 464
           Top = 282
-          Width = 95
+          Width = 94
           Height = 25
+          EditMask = '00/00/0000'
+          MaxLength = 10
           TabOrder = 14
-          Text = 'MaskEdit2'
+          Text = '  /  /    '
         end
-        object MaskEdit4: TMaskEdit
+        object edtHoraSaida: TMaskEdit
           Left = 565
           Top = 282
-          Width = 83
+          Width = 82
           Height = 25
+          EditMask = '00:00:00'
+          MaxLength = 8
           TabOrder = 15
-          Text = 'MaskEdit2'
+          Text = '  :  :  '
         end
-        object Edit8: TEdit
+        object edtTecnicoResponsavel: TEdit
           Left = 660
           Top = 282
           Width = 191
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 16
-          Text = 'Edit8'
         end
-        object Edit9: TEdit
+        object edtRetorno: TEdit
           Left = 464
           Top = 342
           Width = 304
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 17
-          Text = 'Edit9'
         end
-        object MaskEdit5: TMaskEdit
+        object edtDataRetorno: TMaskEdit
           Left = 774
           Top = 342
-          Width = 95
+          Width = 94
           Height = 25
+          EditMask = '00/00/0000'
+          MaxLength = 10
           TabOrder = 18
-          Text = 'MaskEdit2'
+          Text = '  /  /    '
         end
-        object Edit10: TEdit
+        object edtObservacao: TEdit
           Left = 464
           Top = 400
           Width = 405
           Height = 25
+          CharCase = ecUpperCase
           TabOrder = 19
-          Text = 'Edit9'
         end
       end
     end
@@ -592,7 +607,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
         object SpeedButton4: TSpeedButton
           Left = 442
           Top = 256
@@ -622,36 +636,37 @@
           ParentFont = False
         end
         object GroupBox1: TGroupBox
-          Left = 3
-          Top = 2
-          Width = 942
-          Height = 159
+          Left = 0
+          Top = 0
+          Width = 965
+          Height = 201
+          Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
           object Label21: TLabel
             Left = 16
             Top = 25
-            Width = 92
+            Width = 70
             Height = 17
-            Caption = 'Valor da ordem'
+            Caption = 'Valor da OS'
           end
           object Label22: TLabel
             Left = 16
-            Top = 89
+            Top = 84
             Width = 55
             Height = 17
             Caption = 'Desconto'
           end
           object Label23: TLabel
             Left = 143
-            Top = 89
+            Top = 84
             Width = 60
             Height = 17
             Caption = 'Acr'#233'scimo'
           end
           object Label24: TLabel
             Left = 345
-            Top = 89
+            Top = 84
             Width = 127
             Height = 17
             Caption = 'Forma de pagamento'
@@ -672,95 +687,115 @@
           end
           object Label27: TLabel
             Left = 651
-            Top = 89
+            Top = 84
             Width = 32
             Height = 17
             Caption = 'PGTO'
           end
           object Label28: TLabel
             Left = 528
-            Top = 89
+            Top = 84
             Width = 117
             Height = 17
             Caption = 'Data de pagamento'
           end
-          object Edit11: TEdit
+          object Label29: TLabel
+            Left = 16
+            Top = 141
+            Width = 68
+            Height = 17
+            Caption = 'Total da OS'
+          end
+          object edtValorOrdem: TEdit
             Left = 16
             Top = 48
             Width = 249
             Height = 25
+            CharCase = ecUpperCase
             TabOrder = 0
-            Text = 'Edit11'
           end
-          object Edit12: TEdit
+          object edtDesconto: TEdit
             Left = 16
-            Top = 112
+            Top = 107
             Width = 121
             Height = 25
+            CharCase = ecUpperCase
             TabOrder = 1
-            Text = 'Edit11'
           end
-          object Edit13: TEdit
+          object edtAcrescimo: TEdit
             Left = 143
-            Top = 112
+            Top = 107
             Width = 122
             Height = 25
+            CharCase = ecUpperCase
             TabOrder = 2
-            Text = 'Edit11'
           end
-          object ComboBox3: TComboBox
+          object edtFormaDePagamento: TComboBox
             Left = 345
-            Top = 112
+            Top = 107
             Width = 176
             Height = 25
             TabOrder = 3
-            Text = 'ComboBox3'
           end
-          object ComboBox4: TComboBox
+          object edtParcelado: TComboBox
             Left = 345
             Top = 48
             Width = 90
             Height = 25
             TabOrder = 4
-            Text = 'ComboBox3'
+            Items.Strings = (
+              'N'#227'o'
+              'Sim')
           end
-          object Edit14: TEdit
+          object edtTotalDeParcelas: TEdit
             Left = 441
             Top = 48
             Width = 274
             Height = 25
+            CharCase = ecUpperCase
             TabOrder = 5
-            Text = 'Edit14'
           end
-          object ComboBox5: TComboBox
+          object edtPGTO: TComboBox
             Left = 651
-            Top = 112
+            Top = 107
             Width = 71
             Height = 25
             TabOrder = 6
-            Text = 'ComboBox3'
+            Items.Strings = (
+              'N'#227'o'
+              'Sim')
           end
-          object MaskEdit6: TMaskEdit
+          object edtDataDePagamento: TMaskEdit
             Left = 527
-            Top = 112
-            Width = 118
+            Top = 107
+            Width = 117
             Height = 25
+            EditMask = '00/00/0000'
+            MaxLength = 10
             TabOrder = 7
-            Text = 'MaskEdit2'
+            Text = '  /  /    '
+          end
+          object edtTotalDaOS: TEdit
+            Left = 16
+            Top = 162
+            Width = 249
+            Height = 25
+            CharCase = ecUpperCase
+            TabOrder = 8
           end
         end
         object GroupBox2: TGroupBox
           Left = 7
-          Top = 167
+          Top = 200
           Width = 431
-          Height = 258
+          Height = 225
           Caption = 'Servi'#231'os inclusos'
           TabOrder = 1
           object DBGrid1: TDBGrid
             Left = 2
             Top = 19
             Width = 427
-            Height = 237
+            Height = 204
             Align = alClient
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
@@ -772,16 +807,16 @@
         end
         object GroupBox3: TGroupBox
           Left = 531
-          Top = 167
+          Top = 219
           Width = 417
-          Height = 258
+          Height = 206
           Caption = 'Servi'#231'os inclusos'
           TabOrder = 2
           object DBGrid2: TDBGrid
             Left = 2
             Top = 19
             Width = 413
-            Height = 237
+            Height = 185
             Align = alClient
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
@@ -806,7 +841,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
         object Panel6: TPanel
           Left = 0
           Top = 392
@@ -1400,6 +1434,7 @@
     end
   end
   object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
     Left = 532
     Top = 5
   end

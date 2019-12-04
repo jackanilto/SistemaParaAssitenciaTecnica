@@ -59,7 +59,7 @@ begin
   if codigo <> '0' then
   begin
     F_Table.Locate(campo, codigo);
-    result := F_Table.FieldByName('ATIVIDADE').AsString;
+    result := F_Table.FieldByName(campo).AsString;
   end
   else
   begin

@@ -68,6 +68,12 @@ type
     function localizarRegistro(codigo, campo: string): string;
   end;
 
+  iLocalizarRegistroEspecifico = interface
+    ['{7BB256A7-0108-4712-AF4C-CE8B542BC43C}']
+    function localizarRegistro(campo: string; valor: integer): string; overload;
+    function localizarRegistro(campo: string; valor: string): string; overload;
+  end;
+
   iObterValorPorExtenso = interface
     ['{A3F846DB-7D1C-4C55-9AF7-F55F9416601C}']
     function ValorPorExtenso(vlr: real): string;
@@ -832,7 +838,7 @@ type
     function getVALORSERVICO(value: string): iCadastroServico;
     function getDescricao(value: string): iCadastroServico;
 
-    function exportar:iCadastroServico;
+    function exportar: iCadastroServico;
 
   end;
 
@@ -982,6 +988,7 @@ type
     function criptPass: iCriptPasss;
     function ftTable: iFDTable;
     function FClassQuery: iConexaoQuery;
+    function localizarRegistroEspecifico: iLocalizarRegistroEspecifico;
   end;
 
   iFactoryEntity = interface

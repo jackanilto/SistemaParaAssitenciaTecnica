@@ -67,7 +67,11 @@ uses
   UClasse.Listar.Ordens.Servico in 'Classes\Entity\UClasse.Listar.Ordens.Servico.pas',
   Form.Cadastro.Servicos in 'Forms\Form.Cadastro.Servicos.pas' {formCadastroDeServicos},
   UClasse.Entity.Cadastro.Servicos in 'Classes\Entity\UClasse.Entity.Cadastro.Servicos.pas',
-  UClasse.Entity.Criar.Ordem.Servico in 'Classes\Entity\UClasse.Entity.Criar.Ordem.Servico.pas';
+  UClasse.Entity.Criar.Ordem.Servico in 'Classes\Entity\UClasse.Entity.Criar.Ordem.Servico.pas',
+  Form.Localizar.Clientes.Ordem in 'Forms\Localizar\Form.Localizar.Clientes.Ordem.pas' {formLocalizarClientesOrdem},
+  UClasse.ChamarCadastro in 'Classes\UClasse.ChamarCadastro.pas',
+  UClasse.Chamar.Cadastro.Clientes.Ordens in 'Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas',
+  UClasse.Localizar.Registro.Especifico in 'Classes\Entity\UClasse.Localizar.Registro.Especifico.pas';
 
 {$R *.res}
 

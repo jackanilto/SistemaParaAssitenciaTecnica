@@ -52,15 +52,16 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Ordem.Servico;
+uses Form.Criar.Ordem.Servico;
+
 
 procedure TformLocalizarClientesOrdem.DBGrid1CellClick(Column: TColumn);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    formOrdemDeServico.edtCodigoCliente.Text :=
+    formCriarConsultarOrdemServico.edtCodigoCliente.Text :=
       inttostr(DataSource1.DataSet.FieldByName('ID').AsInteger);
-    formOrdemDeServico.edtCliente.Text := DataSource1.DataSet.FieldByName
+    formCriarConsultarOrdemServico.edtNomeCliente.Text := DataSource1.DataSet.FieldByName
       ('NOME').AsString;
     close;
   end;

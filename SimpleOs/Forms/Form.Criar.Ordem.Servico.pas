@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, UInterfaces, UClasse.Entity.Criar.Ordem.Servico, Vcl.Mask,
-  Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -31,78 +31,83 @@ type
     Panel5: TPanel;
     Panel6: TPanel;
     DataSource1: TDataSource;
-    Edit1: TEdit;
+    edtCodigoOS: TEdit;
     Label1: TLabel;
-    Edit2: TEdit;
+    edtCodigoCliente: TEdit;
     Label2: TLabel;
-    Edit3: TEdit;
+    edtNomeCliente: TEdit;
     Label3: TLabel;
     sbPesquisarCep: TSpeedButton;
-    Edit4: TEdit;
-    Edit5: TEdit;
+    edtMarca: TEdit;
+    edtModelo: TEdit;
     Label4: TLabel;
     Label5: TLabel;
-    Edit6: TEdit;
+    edtNumeroDeSerie: TEdit;
     Label6: TLabel;
-    MaskEdit1: TMaskEdit;
+    edtDataFabricacao: TMaskEdit;
     Label7: TLabel;
-    Edit7: TEdit;
+    edtEquipamento: TEdit;
     Label8: TLabel;
-    Memo1: TMemo;
+    edtDefeitoRelatado: TMemo;
     Label9: TLabel;
-    Memo2: TMemo;
+    edtLaudoTecnico: TMemo;
     Label10: TLabel;
-    Memo3: TMemo;
+    edtSolucaoDoProblema: TMemo;
     Label11: TLabel;
-    ComboBox1: TComboBox;
+    edtSituacaoOrdem: TComboBox;
     Label12: TLabel;
-    ComboBox2: TComboBox;
+    edtPrioridade: TComboBox;
     Label13: TLabel;
-    MaskEdit2: TMaskEdit;
+    edtDataEntrada: TMaskEdit;
     Label14: TLabel;
-    MaskEdit3: TMaskEdit;
+    edtDataDeSaida: TMaskEdit;
     Label15: TLabel;
-    MaskEdit4: TMaskEdit;
+    edtHoraSaida: TMaskEdit;
     Label16: TLabel;
-    Edit8: TEdit;
+    edtTecnicoResponsavel: TEdit;
     Label17: TLabel;
-    Edit9: TEdit;
+    edtRetorno: TEdit;
     Label18: TLabel;
-    MaskEdit5: TMaskEdit;
+    edtDataRetorno: TMaskEdit;
     Label19: TLabel;
     Label20: TLabel;
-    Edit10: TEdit;
+    edtObservacao: TEdit;
     SpeedButton3: TSpeedButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
-    Edit11: TEdit;
+    edtValorOrdem: TEdit;
     Label21: TLabel;
     Label22: TLabel;
-    Edit12: TEdit;
-    Edit13: TEdit;
+    edtDesconto: TEdit;
+    edtAcrescimo: TEdit;
     Label23: TLabel;
-    ComboBox3: TComboBox;
+    edtFormaDePagamento: TComboBox;
     Label24: TLabel;
     Label25: TLabel;
-    ComboBox4: TComboBox;
+    edtParcelado: TComboBox;
     Label26: TLabel;
-    Edit14: TEdit;
+    edtTotalDeParcelas: TEdit;
     Label27: TLabel;
-    ComboBox5: TComboBox;
-    MaskEdit6: TMaskEdit;
+    edtPGTO: TComboBox;
+    edtDataDePagamento: TMaskEdit;
     Label28: TLabel;
     GroupBox3: TGroupBox;
     DBGrid2: TDBGrid;
     SpeedButton4: TSpeedButton;
     SpeedButton5: TSpeedButton;
     DBGrid1: TDBGrid;
+    edtTotalDaOS: TEdit;
+    Label29: TLabel;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
+
+  var
     FEntityCriarOrdem: iCriarOrdemServico;
   public
     { Public declarations }
@@ -115,14 +120,94 @@ implementation
 
 {$R *.dfm}
 
+procedure TformCriarConsultarOrdemServico.DataSource1DataChange(Sender: TObject;
+  Field: TField);
+begin
+  with DataSource1.DataSet do
+  begin
+
+    edtCodigoOS.Text := IntToStr(FieldByName('ID').AsInteger);
+    edtCodigoCliente.Text := IntToStr(FieldByName('ID_CLIENTE').AsInteger);
+    edtEquipamento.Text := FieldByName('EQUIPAMENTO').AsString;
+    edtDefeitoRelatado.Text := FieldByName('DEFEITO_RELATADO').AsString;
+    edtMarca.Text := FieldByName('MARCA').AsString;
+    edtModelo.Text := FieldByName('MODELO').AsString;
+    edtNumeroDeSerie.Text := FieldByName('NUMERO_SERIE').AsString;
+    edtLaudoTecnico.Text := FieldByName('LAUDO_DO_TECNICO').AsString;
+    edtSolucaoDoProblema.Text := FieldByName('SOLUCAO_DO_PROBLEMA').AsString;
+    edtValorOrdem.Text := CurrToStr(FieldByName('VALOR_DA_ORDEM').AsCurrency);
+    edtDesconto.Text := CurrToStr(FieldByName('DESCONTO').AsCurrency);
+    edtAcrescimo.Text := CurrToStr(FieldByName('ACRESCIMO').AsCurrency);
+    edtTotalDaOS.Text := CurrToStr(FieldByName('TOTAL_ORCAMENTO').AsCurrency);
+    edtRetorno.Text := FieldByName('RETORNO').AsString;
+    edtSituacaoOrdem.Text := FieldByName('SITUACAO_DA_ORDEM').AsString;
+    edtFormaDePagamento.Text := FieldByName('FORMA_PAGAMENTO').AsString;
+    edtParcelado.Text := FieldByName('PARCELADO').AsString;
+    edtTotalDeParcelas.Text := IntToStr(FieldByName('TOTAL_PARCELAS')
+      .AsInteger);
+    edtPGTO.Text := FieldByName('PGTO').AsString;
+    edtPrioridade.Text := FieldByName('PRIORIDADE').AsString;
+    edtTecnicoResponsavel.Text := FieldByName('TECNICO_RESPONSAVEL').AsString;
+    edtObservacao.Text := FieldByName('OBSERVACAO').AsString;
+    edtHoraSaida.Text := TimeToStr(FieldByName('HORA_SAIDA').AsDateTime);
+
+    // Tudo referente a datas
+    if DataSource1.DataSet.FieldByName('DATA_FABRICACAO').AsDateTime <>
+      StrToDate('30/12/1899') then
+      edtDataFabricacao.Text := DateToStr(FieldByName('DATA_FABRICACAO')
+        .AsDateTime);
+
+    if DataSource1.DataSet.FieldByName('DATA_RETORNO').AsDateTime <>
+      StrToDate('30/12/1899') then
+      edtDataRetorno.Text := DateToStr(FieldByName('DATA_RETORNO').AsDateTime);
+
+    if DataSource1.DataSet.FieldByName('DATA_ENTRADA').AsDateTime <>
+      StrToDate('30/12/1899') then
+      edtDataEntrada.Text := DateToStr(FieldByName('DATA_ENTRADA').AsDateTime);
+
+    if DataSource1.DataSet.FieldByName('DATA_FINALIZACAO').AsDateTime <>
+      StrToDate('30/12/1899') then
+      edtDataDeSaida.Text := DateToStr(FieldByName('DATA_FINALIZACAO')
+        .AsDateTime);
+
+    if DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime <>
+      StrToDate('30/12/1899') then
+      edtDataDePagamento.Text :=
+        DateToStr(FieldByName('DATA_PAGAMENTO').AsDateTime);
+
+  end;
+end;
+
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
 begin
   FEntityCriarOrdem := TEntityCriarOrdemServico.new;
+
+  ReportMemoryLeaksOnShutdown := true;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
- FEntityCriarOrdem.abrir.listarGrid(DataSource1);
+
+  FEntityCriarOrdem.abrir.listarGrid(DataSource1);
+
+  TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
+    .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
+    (edtFormaDePagamento);
+
+  TFactory.new.ftTable.FD_Table('SITUACAO_ORDEM')
+    .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox
+    (edtSituacaoOrdem);
+
+  DataSource1.DataSet.First;
+
+  showmessage(DataSource1.DataSet.FieldByName('ID_CLIENTE')
+    .AsInteger.ToString)
+
+//  edtNomeCliente.Text := TFactory.new.ftTable.FD_Table('CLIENTES')
+//    .localizarRegistro(DataSource1.DataSet.FieldByName('ID_CLIENTE')
+//    .AsInteger.ToString, 'NOME');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.Panel1MouseDown(Sender: TObject;

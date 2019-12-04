@@ -4,7 +4,7 @@ interface
 
 uses UInterfaces, UClasse.Criar.Janela, UClasse.Validar.Documento,
   UClasse.Calcular.Juros, UClasse.Cript.password, UClasse.Entity.Table,
-  UClasse.Query;
+  UClasse.Query, UClasse.Localizar.Registro.Especifico;
 
 type
   TFactory = class(TInterfacedObject, iFactory)
@@ -17,10 +17,11 @@ type
     function criarJanela: iCriarJanelas;
     function validarDocumento: iValidarDocumento;
     function gerarCodigoEan13: iGerarCodigoBarras;
-    function FClassQuery:iConexaoQuery;
+    function FClassQuery: iConexaoQuery;
     function criptPass: iCriptPasss;
     function ftTable: iFDTable;
     function CalcJuros<T>: iCalcularJuros;
+    function localizarRegistroEspecifico: iLocalizarRegistroEspecifico;
     constructor create;
     destructor destroy; override;
     class function new: iFactory;
@@ -66,7 +67,7 @@ end;
 
 function TFactory.FClassQuery: iConexaoQuery;
 begin
-   Result := TConexaoQuery.new;
+  result := TConexaoQuery.new;
 end;
 
 function TFactory.ftTable: iFDTable;
@@ -77,6 +78,11 @@ end;
 function TFactory.gerarCodigoEan13: iGerarCodigoBarras;
 begin
   result := TClasseGerarCodigoBarras.new;
+end;
+
+function TFactory.localizarRegistroEspecifico: iLocalizarRegistroEspecifico;
+begin
+   result := TClassLocalizarRegistro.new;
 end;
 
 class function TFactory.new: iFactory;

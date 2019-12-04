@@ -1449,3 +1449,13 @@ like
 02/12/19 20:01:56 - Caption: Cadastro de serviços
 02/12/19 20:01:56 - Erro:Exception
 02/12/19 20:01:56 - Erro:Informe o nome para o serviço.
+03/12/19 20:53:54 - ===========================================
+03/12/19 20:53:54 - Form: formCriarConsultarOrdemServico
+03/12/19 20:53:54 - Caption: Criar / Consultar ordem de serviço
+03/12/19 20:53:54 - Erro:EDatabaseError
+03/12/19 20:53:54 - Erro:Field 'ATIVIDADE' not found
+03/12/19 20:54:58 - ===========================================
+03/12/19 20:54:58 - Form: formCriarConsultarOrdemServico
+03/12/19 20:54:58 - Caption: Criar / Consultar ordem de serviço
+03/12/19 20:54:58 - Erro:EDatabaseError
+03/12/19 20:54:58 - Erro:Field 'ATIVIDADE' not found
