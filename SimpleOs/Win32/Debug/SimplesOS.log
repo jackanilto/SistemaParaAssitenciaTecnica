@@ -1459,3 +1459,28 @@ like
 03/12/19 20:54:58 - Caption: Criar / Consultar ordem de serviço
 03/12/19 20:54:58 - Erro:EDatabaseError
 03/12/19 20:54:58 - Erro:Field 'ATIVIDADE' not found
+04/12/19 11:44:48 - ===========================================
+04/12/19 11:44:48 - Form: formCadastroDeClientes
+04/12/19 11:44:48 - Caption: Cadastro de clientes
+04/12/19 11:44:48 - Erro:EAccessViolation
+04/12/19 11:44:48 - Erro:Access violation at address 0097E769 in module 'SimplesOS.exe'. Read of address 00000004
+04/12/19 11:46:25 - ===========================================
+04/12/19 11:46:25 - Form: formCadastroDeClientes
+04/12/19 11:46:25 - Caption: Cadastro de clientes
+04/12/19 11:46:25 - Erro:EAccessViolation
+04/12/19 11:46:25 - Erro:Access violation at address 0097E771 in module 'SimplesOS.exe'. Read of address 00000004
+04/12/19 12:12:53 - ===========================================
+04/12/19 12:12:53 - Form: formCriarConsultarOrdemServico
+04/12/19 12:12:53 - Caption: Criar / Consultar ordem de serviço
+04/12/19 12:12:53 - Erro:EInvalidOperation
+04/12/19 12:12:53 - Erro:Cannot focus a disabled or invisible window
+04/12/19 12:13:16 - ===========================================
+04/12/19 12:13:16 - Form: formCriarConsultarOrdemServico
+04/12/19 12:13:16 - Caption: Criar / Consultar ordem de serviço
+04/12/19 12:13:16 - Erro:Exception
+04/12/19 12:13:16 - Erro:Informe o defeito do equipamento.
+04/12/19 12:15:56 - ===========================================
+04/12/19 12:15:56 - Form: formCriarConsultarOrdemServico
+04/12/19 12:15:56 - Caption: Criar / Consultar ordem de serviço
+04/12/19 12:15:56 - Erro:EInvalidOperation
+04/12/19 12:15:56 - Erro:Cannot focus a disabled or invisible window

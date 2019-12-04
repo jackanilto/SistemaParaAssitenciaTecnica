@@ -46,6 +46,7 @@ type
     FPRIORIDADE: string;
     FDATA_ENTRADA: string;
     FDATA_FINALIZACAO: string;
+    FHORA_FINALIZACAO: string;
     FDATA_PAGAMENTO: string;
     FOBSERVACAO: string;
     FSTATUS: string;
@@ -112,6 +113,7 @@ type
     function getPRIORIDADE(value: string): iCriarOrdemServico;
     function getDataCadastro(value: string): iCriarOrdemServico;
     function getDataFinalizacao(value: string): iCriarOrdemServico;
+    function getHoraFinalizacao(value: string): iCriarOrdemServico;
     function getDataPagamento(value: string): iCriarOrdemServico;
     function getOBSERVACAO(value: string): iCriarOrdemServico;
     function getSTATUS(value: string): iCriarOrdemServico;
@@ -187,7 +189,8 @@ begin
 
 end;
 
-function TEntityCriarOrdemServico.calcularDesconto(valor, desconto: TEdit): string;
+function TEntityCriarOrdemServico.calcularDesconto(valor,
+  desconto: TEdit): string;
 var
   FValorOrdem: Currency;
   FDescontoOrdem: Currency;
@@ -247,7 +250,8 @@ begin
 
 end;
 
-function TEntityCriarOrdemServico.getDataFinalizacao(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDataFinalizacao(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
 
@@ -257,7 +261,8 @@ begin
     FDATA_FINALIZACAO := value;
 end;
 
-function TEntityCriarOrdemServico.getDataPagamento(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDataPagamento(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
 
@@ -308,7 +313,8 @@ begin
   end;
 end;
 
-function TEntityCriarOrdemServico.estornarOrdem(value: integer): iCriarOrdemServico;
+function TEntityCriarOrdemServico.estornarOrdem(value: integer)
+  : iCriarOrdemServico;
 begin
   result := self;
 
@@ -329,7 +335,7 @@ begin
       end;
     end
     else
-    raise Exception.Create('Esta ordem já foi estornada.');
+      raise exception.create('Esta ordem já foi estornada.');
   end;
 end;
 
@@ -349,7 +355,8 @@ begin
   FQuery.TQuery.close;
 end;
 
-function TEntityCriarOrdemServico.getACRESCIMO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getACRESCIMO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   try
@@ -372,7 +379,8 @@ begin
   FCodigo := value;
 end;
 
-function TEntityCriarOrdemServico.getDataCadastro(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDataCadastro(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
 
@@ -382,21 +390,24 @@ begin
     FDATA_ENTRADA := value;
 end;
 
-function TEntityCriarOrdemServico.getDataFinal(value: TDate): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDataFinal(value: TDate)
+  : iCriarOrdemServico;
 begin
   result := self;
   FDataFinal := value;
   // FQuery.getDataFinal(value);
 end;
 
-function TEntityCriarOrdemServico.getDataInicial(value: TDate): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDataInicial(value: TDate)
+  : iCriarOrdemServico;
 begin
   result := self;
   FDataInicial := value;
   // FQuery.getDataInicial(value);
 end;
 
-function TEntityCriarOrdemServico.getDATA_FABRICACAO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDATA_FABRICACAO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
 
@@ -406,7 +417,8 @@ begin
     FDATA_FABRICACAO := value;
 end;
 
-function TEntityCriarOrdemServico.getDATA_RETORNO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDATA_RETORNO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
 
@@ -416,7 +428,8 @@ begin
     FDATA_RETORNO := value;
 end;
 
-function TEntityCriarOrdemServico.getDEFEITO_RELATADO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDEFEITO_RELATADO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   if value = EmptyStr then
@@ -424,7 +437,8 @@ begin
   FDEFEITO_RELATADO := value;
 end;
 
-function TEntityCriarOrdemServico.getDESCONTO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getDESCONTO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   try
@@ -435,7 +449,8 @@ begin
   end;
 end;
 
-function TEntityCriarOrdemServico.getEQUIPAMENTO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getEQUIPAMENTO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   if value = EmptyStr then
@@ -443,10 +458,18 @@ begin
   FEQUIPAMENTO := value;
 end;
 
-function TEntityCriarOrdemServico.getFORMA_PAGAMENTO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getFORMA_PAGAMENTO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   FFORMA_PAGAMENTO := value;
+end;
+
+function TEntityCriarOrdemServico.getHoraFinalizacao(value: string)
+  : iCriarOrdemServico;
+begin
+  result := self;
+  FHORA_FINALIZACAO := value;
 end;
 
 function TEntityCriarOrdemServico.getID(value: integer): iCriarOrdemServico;
@@ -454,14 +477,16 @@ begin
   result := self;
 end;
 
-function TEntityCriarOrdemServico.getIdTecnico(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getIdTecnico(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   if value <> EmptyStr then
     FID_TECNICO_RESPONSAVEL := value.ToInteger;
 end;
 
-function TEntityCriarOrdemServico.getID_CLIENTE(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getID_CLIENTE(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   if value = '0' then
@@ -470,13 +495,15 @@ begin
 
 end;
 
-function TEntityCriarOrdemServico.getID_FUNCIONARIO(value: integer): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getID_FUNCIONARIO(value: integer)
+  : iCriarOrdemServico;
 begin
   result := self;
   FID_FUNCIONARIO := value;
 end;
 
-function TEntityCriarOrdemServico.getLAUDO_DO_TECNICO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getLAUDO_DO_TECNICO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   FLAUDO_DO_TECNICO := value;
@@ -500,25 +527,29 @@ begin
   FNome := value;
 end;
 
-function TEntityCriarOrdemServico.getNOME_FUNCIONARIO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getNOME_FUNCIONARIO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   FNOME_FUNCIONARIO := value;
 end;
 
-function TEntityCriarOrdemServico.getNUMERO_SERIE(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getNUMERO_SERIE(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   FNUMERO_SERIE := value;
 end;
 
-function TEntityCriarOrdemServico.getOBSERVACAO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getOBSERVACAO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   FOBSERVACAO := value;
 end;
 
-function TEntityCriarOrdemServico.getPARCELADO(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getPARCELADO(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   FPARCELADO := value;
@@ -533,7 +564,8 @@ begin
     FPGTO := value;
 end;
 
-function TEntityCriarOrdemServico.getPRIORIDADE(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getPRIORIDADE(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   FPRIORIDADE := value;
@@ -545,7 +577,8 @@ begin
   FRETORNO := value;
 end;
 
-function TEntityCriarOrdemServico.getSITUACAO_DA_ORDEM(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getSITUACAO_DA_ORDEM(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   FSITUACAO_DA_ORDEM := value;
@@ -570,7 +603,8 @@ begin
   FTECNICO_RESPONSAVEL := value;
 end;
 
-function TEntityCriarOrdemServico.getTotalDoOrcamento(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getTotalDoOrcamento(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   try
@@ -581,7 +615,8 @@ begin
   end;
 end;
 
-function TEntityCriarOrdemServico.getTOTAL_PARCELAS(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getTOTAL_PARCELAS(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
 
@@ -598,7 +633,8 @@ begin
   FValor := UpperCase(value);
 end;
 
-function TEntityCriarOrdemServico.getVALOR_DA_ORDEM(value: string): iCriarOrdemServico;
+function TEntityCriarOrdemServico.getVALOR_DA_ORDEM(value: string)
+  : iCriarOrdemServico;
 begin
   result := self;
   try
@@ -644,6 +680,7 @@ begin
     FieldByName('PRIORIDADE').AsString := FPRIORIDADE;
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
     FieldByName('STATUS').AsString := FSTATUS;
+    FieldByName('HORA_SAIDA').AsDateTime := StrToTime(FHORA_FINALIZACAO);
 
     if FDATA_FABRICACAO <> '' then
       FieldByName('DATA_FABRICACAO').AsDateTime := StrToDate(FDATA_FABRICACAO);
@@ -684,7 +721,8 @@ begin
   FQuery.TQuery.Append;
 end;
 
-function TEntityCriarOrdemServico.listarGrid(value: TDataSource): iCriarOrdemServico;
+function TEntityCriarOrdemServico.listarGrid(value: TDataSource)
+  : iCriarOrdemServico;
 var
   campoVirtual: TStringField;
 begin
@@ -755,7 +793,8 @@ begin
   FQuery.Query(FTabela);
 end;
 
-function TEntityCriarOrdemServico.ordenarGrid(column: TColumn): iCriarOrdemServico;
+function TEntityCriarOrdemServico.ordenarGrid(column: TColumn)
+  : iCriarOrdemServico;
 begin
 
   if FQuery.TQuery.IndexFieldNames = column.FieldName then
@@ -804,4 +843,3 @@ begin
 end;
 
 end.
-

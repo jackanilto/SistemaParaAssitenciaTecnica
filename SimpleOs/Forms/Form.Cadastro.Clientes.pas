@@ -100,6 +100,8 @@ implementation
 
 {$R *.dfm}
 
+uses Form.Localizar.Clientes.Ordem;
+
 procedure TformCadastroDeClientes.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
   i: integer;
@@ -252,6 +254,7 @@ end;
 procedure TformCadastroDeClientes.FormShow(Sender: TObject);
 begin
   inherited;
+
   FEntityClientes.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
     (DataSource1);
   FEntityTableUF.FD_Table('UF').getCampoTabela('UF').popularComponenteComboBox

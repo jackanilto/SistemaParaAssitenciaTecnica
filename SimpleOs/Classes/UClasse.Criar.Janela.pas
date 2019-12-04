@@ -44,7 +44,7 @@ begin
     else
       raise Exception.create('Você não possui acesso a este recurso.');
   finally
-    form.Free;
+    FreeAndNil(form);
   end;
 
 end;

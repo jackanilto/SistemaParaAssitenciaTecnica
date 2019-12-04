@@ -261,6 +261,10 @@
         <DCCReference Include="Classes\UClasse.ChamarCadastro.pas"/>
         <DCCReference Include="Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas"/>
         <DCCReference Include="Classes\Entity\UClasse.Localizar.Registro.Especifico.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas">
+            <Form>formLocalizarTecnico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

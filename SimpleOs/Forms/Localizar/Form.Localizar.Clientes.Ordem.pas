@@ -10,6 +10,9 @@ uses
   UClasse.Chamar.Cadastro.Clientes.Ordens;
 
 type
+  TEnumPesquisar = (codigo, nome, cpf_cnpj);
+
+type
   TformLocalizarClientesOrdem = class(TForm)
     Panel1: TPanel;
     sbFechar: TSpeedButton;
@@ -54,15 +57,14 @@ implementation
 
 uses Form.Criar.Ordem.Servico;
 
-
 procedure TformLocalizarClientesOrdem.DBGrid1CellClick(Column: TColumn);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
     formCriarConsultarOrdemServico.edtCodigoCliente.Text :=
       inttostr(DataSource1.DataSet.FieldByName('ID').AsInteger);
-    formCriarConsultarOrdemServico.edtNomeCliente.Text := DataSource1.DataSet.FieldByName
-      ('NOME').AsString;
+    formCriarConsultarOrdemServico.edtNomeCliente.Text :=
+      DataSource1.DataSet.FieldByName('NOME').AsString;
     close;
   end;
 end;
@@ -71,12 +73,23 @@ procedure TformLocalizarClientesOrdem.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
 
-  if cbPesquisar.Text = 'Código do cliente' then
-    FCampo := 'ID'
-  else if cbPesquisar.Text = 'Nome' then
-    FCampo := 'NOME'
-  else if cbPesquisar.Text = 'CPF ou CNPJ' then
-    FCampo := 'CPF_CNPJ';
+  if cbPesquisar.Text = EmptyStr then
+    raise Exception.Create('Informe por qual campo deseja pesquisar.');
+
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+    codigo:
+      begin
+        FCampo := 'ID';
+      end;
+    nome:
+      begin
+        FCampo := 'NOME';
+      end;
+    cpf_cnpj:
+      begin
+        FCampo := 'CPF_CNPJ';
+      end;
+  end;
 
   if edtPesquisar.Text <> EmptyStr then
   begin
@@ -84,17 +97,6 @@ begin
     FValor := UpperCase(edtPesquisar.Text);
 
     Localizar;
-
-    // if DataSource1.DataSet.RecordCount = 0 then
-    // begin
-    // if application.MessageBox
-    // ('Nenhum registro foi encontrado. Deseja cadastrar este cliente?',
-    // 'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
-    // begin
-    //
-    // end;
-    //
-    // end;
 
   end;
 
@@ -104,7 +106,7 @@ procedure TformLocalizarClientesOrdem.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FQuery.Free;
-  FClasseChamarCadastroClientes.Free;
+  FreeAndNil(FClasseChamarCadastroClientes);
 end;
 
 procedure TformLocalizarClientesOrdem.FormCreate(Sender: TObject);
@@ -173,7 +175,7 @@ procedure TformLocalizarClientesOrdem.sbCadastrarClientesClick(Sender: TObject);
 begin
 
   if cbPesquisar.Text = 'Nome' then
-    FClasseChamarCadastroClientes.nome := edtPesquisar.Text;
+//    FClasseChamarCadastroClientes.nome := edtPesquisar.Text;
 
   FClasseChamarCadastroClientes.chamarCadastroClientes;
 

@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, UInterfaces, UClasse.Entity.Criar.Ordem.Servico, Vcl.Mask,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory, Form.Localizar.Clientes.Ordem;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -98,27 +98,37 @@ type
     DBGrid1: TDBGrid;
     edtTotalDaOS: TEdit;
     Label29: TLabel;
+    s_Servicos: TDataSource;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure sbNovoClick(Sender: TObject);
+    procedure sbPesquisarCepClick(Sender: TObject);
+    procedure sbSalvarClick(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure s_ServicosDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
-
   var
     FEntityCriarOrdem: iCriarOrdemServico;
+    FEntityTableServicos: iFDTable;
+    procedure limparDatas;
   public
     { Public declarations }
   end;
 
 var
   formCriarConsultarOrdemServico: TformCriarConsultarOrdemServico;
+  FIdTecnico: Integer;
 
 implementation
 
 {$R *.dfm}
+
+uses Form.Localizar.Tecnico.Ordem, UClasse.Entity.Table;
 
 procedure TformCriarConsultarOrdemServico.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -181,6 +191,7 @@ end;
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
 begin
   FEntityCriarOrdem := TEntityCriarOrdemServico.new;
+  FEntityTableServicos := TEntityTable.new;
 
   ReportMemoryLeaksOnShutdown := true;
 
@@ -191,6 +202,8 @@ begin
 
   FEntityCriarOrdem.abrir.listarGrid(DataSource1);
 
+  FEntityTableServicos.FD_Table('SERVICOS').retornaTable(s_Servicos);
+
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
     (edtFormaDePagamento);
@@ -199,14 +212,9 @@ begin
     .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox
     (edtSituacaoOrdem);
 
-  DataSource1.DataSet.First;
-
-  showmessage(DataSource1.DataSet.FieldByName('ID_CLIENTE')
-    .AsInteger.ToString)
-
-//  edtNomeCliente.Text := TFactory.new.ftTable.FD_Table('CLIENTES')
-//    .localizarRegistro(DataSource1.DataSet.FieldByName('ID_CLIENTE')
-//    .AsInteger.ToString, 'NOME');
+  edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
+    ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',
+    DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger);
 
 end;
 
@@ -225,6 +233,72 @@ end;
 procedure TformCriarConsultarOrdemServico.sbFecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TformCriarConsultarOrdemServico.sbNovoClick(Sender: TObject);
+begin
+
+  FEntityCriarOrdem.inserir;
+  PageControl1.ActivePageIndex := 0;
+  edtNomeCliente.Clear;
+  edtNomeCliente.SetFocus;
+
+  limparDatas;
+
+end;
+
+procedure TformCriarConsultarOrdemServico.sbPesquisarCepClick(Sender: TObject);
+begin
+  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
+  TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
+end;
+
+procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
+begin
+  FEntityCriarOrdem.getID_CLIENTE(edtCodigoCliente.Text)
+    .getEQUIPAMENTO(edtEquipamento.Text).getMarca(edtMarca.Text)
+    .getModelo(edtModelo.Text).getNUMERO_SERIE(edtNumeroDeSerie.Text)
+    .getDATA_FABRICACAO(edtDataFabricacao.Text).getDEFEITO_RELATADO
+    (edtDefeitoRelatado.Text).getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
+    .getSOLUCAO_DO_PROBLEMA(edtSolucaoDoProblema.Text)
+    .getSITUACAO_DA_ORDEM(edtSituacaoOrdem.Text)
+    .getPRIORIDADE(edtPrioridade.Text).getDataCadastro(edtDataEntrada.Text)
+    .getDataFinalizacao(edtDataDeSaida.Text).getHoraFinalizacao
+    (edtHoraSaida.Text).getIdTecnico(FIdTecnico.ToString)
+    .getRETORNO(edtRetorno.Text).getDATA_RETORNO(edtDataRetorno.Text)
+    .getObservacao(edtObservacao.Text).getVALOR_DA_ORDEM(edtValorOrdem.Text)
+    .getDesconto(edtDesconto.Text).getACRESCIMO(edtAcrescimo.Text)
+    .getVALOR_DA_ORDEM(edtTotalDaOS.Text).getPARCELADO(edtParcelado.Text)
+    .getTOTAL_PARCELAS(edtTotalDeParcelas.Text).getFORMA_PAGAMENTO
+    (edtFormaDePagamento.Text).getDataPagamento(edtDataDePagamento.Text)
+    .getPGTO(edtPGTO.Text).gravar;
+
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
+begin
+  formLocalizarTecnico := TformLocalizarTecnico.Create(self);
+  TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
+end;
+
+procedure TformCriarConsultarOrdemServico.s_ServicosDataChange(Sender: TObject;
+  Field: TField);
+begin
+  s_Servicos.DataSet.FieldByName('ID').Visible := false;
+  s_Servicos.DataSet.FieldByName('SERVICO').DisplayLabel := 'Serviços';
+  s_Servicos.DataSet.FieldByName('SERVICO').DisplayWidth := 30;
+  s_Servicos.DataSet.FieldByName('VALOR').DisplayLabel := 'valor';
+  s_Servicos.DataSet.FieldByName('DESCRICAO').DisplayLabel := 'Descrição';
+end;
+
+procedure TformCriarConsultarOrdemServico.limparDatas;
+begin
+  edtDataFabricacao.Clear;
+  edtDataEntrada.Clear;
+  edtDataDeSaida.Clear;
+  edtDataRetorno.Clear;
+  edtDataDePagamento.Clear;
+  edtHoraSaida.Text := '00:00:00';
 end;
 
 end.

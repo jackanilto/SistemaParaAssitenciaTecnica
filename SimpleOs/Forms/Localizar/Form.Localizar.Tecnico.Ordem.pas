@@ -49,13 +49,12 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Ordem.Servico;
+uses Form.Ordem.Servico, Form.Criar.Ordem.Servico;
 
 procedure TformLocalizarTecnico.DBGrid1DblClick(Sender: TObject);
 begin
-  formOrdemDeServico.edtCodigoTecnico.Text :=
-    IntToStr(DataSource1.DataSet.FieldByName('ID').AsInteger);
-  formOrdemDeServico.edtTecnicoResponsave.Text :=
+  FIdTecnico := DataSource1.DataSet.FieldByName('ID').AsInteger;
+  formCriarConsultarOrdemServico.edtTecnicoResponsavel.Text :=
     DataSource1.DataSet.FieldByName('NOME').AsString;
   close;
 end;

@@ -66,10 +66,13 @@ type
     function getCampoTabela(value: string): iFDTable;
     function popularComponenteComboBox(value: TcomboBox): iFDTable;
     function localizarRegistro(codigo, campo: string): string;
+    function retornaTable(value:TDataSource):iFDTable;
   end;
 
   iLocalizarRegistroEspecifico = interface
     ['{7BB256A7-0108-4712-AF4C-CE8B542BC43C}']
+    function getTabela(value: string): iLocalizarRegistroEspecifico;
+    function getCampoRetorno(value: string): iLocalizarRegistroEspecifico;
     function localizarRegistro(campo: string; valor: integer): string; overload;
     function localizarRegistro(campo: string; valor: string): string; overload;
   end;
@@ -919,6 +922,7 @@ type
     function getPRIORIDADE(value: string): iCriarOrdemServico;
     function getDataCadastro(value: string): iCriarOrdemServico;
     function getDataFinalizacao(value: string): iCriarOrdemServico;
+    function getHoraFinalizacao(value: string): iCriarOrdemServico;
     function getDataPagamento(value: string): iCriarOrdemServico;
     function getObservacao(value: string): iCriarOrdemServico;
     function getSTATUS(value: string): iCriarOrdemServico;
