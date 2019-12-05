@@ -7,7 +7,7 @@ uses
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
-  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask;
+  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask, Datasnap.DBClient;
 
 type
   iConexaoQuery = interface
@@ -928,6 +928,7 @@ type
     function getSTATUS(value: string): iCriarOrdemServico;
     function getIdTecnico(value: string): iCriarOrdemServico;
     function getTecnico(value: string): iCriarOrdemServico;
+    function setId: integer;
 
     function calcularDesconto(valor, desconto: TEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
@@ -979,6 +980,11 @@ type
     function getID_SERVICO(value: integer): iAdicionarServicosOrdem;
     function getSERVICO(value: string): iAdicionarServicosOrdem;
     function getVALOR_ITEM(value: string): iAdicionarServicosOrdem;
+
+    function gravarServicosAdicionadosInsert(value: TclientDataSet)
+      : iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosEdit(value: TclientDataSet)
+      : iAdicionarServicosOrdem;
 
   end;
 

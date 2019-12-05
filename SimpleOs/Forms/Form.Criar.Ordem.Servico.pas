@@ -105,6 +105,11 @@ type
     cds_tem_servicos_adicionadosservico: TStringField;
     cds_tem_servicos_adicionadosvalor: TCurrencyField;
     s_tem_servicos_adicionados: TDataSource;
+    cds_tem_servicos_adicionados_edit: TClientDataSet;
+    cds_tem_servicos_adicionados_editid: TIntegerField;
+    cds_tem_servicos_adicionados_editservico: TStringField;
+    cds_tem_servicos_adicionados_editValor: TCurrencyField;
+    s_tem_servicos_adicionados_edit: TDataSource;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -120,14 +125,21 @@ type
     procedure edtDescontoExit(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure DBGrid2DblClick(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
   private
     { Private declarations }
   var
     FEntityCriarOrdem: iCriarOrdemServico;
     FEntityServicosOrdem: iAdicionarServicosOrdem;
     FEntityTableServicos: iFDTable;
+
+    FValorTotalOrdemServico: Currency;
+    FValorServicosIncluidos: Currency;
+
     procedure limparDatas;
     procedure adicionarServico;
+    procedure SomarValoresServicosIncluidos;
+    procedure subtrairValoresServicosIncluidos;
   public
     { Public declarations }
   end;
@@ -203,6 +215,7 @@ end;
 procedure TformCriarConsultarOrdemServico.DBGrid2DblClick(Sender: TObject);
 begin
   adicionarServico;
+  SomarValoresServicosIncluidos
 end;
 
 procedure TformCriarConsultarOrdemServico.edtAcrescimoExit(Sender: TObject);
@@ -213,8 +226,13 @@ end;
 
 procedure TformCriarConsultarOrdemServico.edtDescontoExit(Sender: TObject);
 begin
+
   edtTotalDaOS.Text := FEntityCriarOrdem.calcularDesconto(edtValorOrdem,
     edtDesconto);
+
+  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
+    edtDesconto, edtAcrescimo);
+
 end;
 
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
@@ -284,7 +302,12 @@ begin
 end;
 
 procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
+var
+  estado: string;
 begin
+
+  estado := FEntityCriarOrdem.estadoDaTabela;
+
   FEntityCriarOrdem.getID_CLIENTE(edtCodigoCliente.Text)
     .getEQUIPAMENTO(edtEquipamento.Text).getMarca(edtMarca.Text)
     .getModelo(edtModelo.Text).getNUMERO_SERIE(edtNumeroDeSerie.Text)
@@ -303,6 +326,9 @@ begin
     (edtFormaDePagamento.Text).getDataPagamento(edtDataDePagamento.Text)
     .getPGTO(edtPGTO.Text).gravar;
 
+  FEntityServicosOrdem.gravarServicosAdicionadosInsert
+    (cds_tem_servicos_adicionados);
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
@@ -314,6 +340,21 @@ end;
 procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);
 begin
   adicionarServico;
+  SomarValoresServicosIncluidos;
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton5Click(Sender: TObject);
+begin
+
+  if FEntityCriarOrdem.estadoDaTabela = 'insert' then
+  begin
+    subtrairValoresServicosIncluidos;
+  end
+  else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
+  begin
+    subtrairValoresServicosIncluidos;
+  end;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.s_ServicosDataChange(Sender: TObject;
@@ -338,8 +379,7 @@ end;
 
 procedure TformCriarConsultarOrdemServico.adicionarServico;
 begin
-  if ((FEntityCriarOrdem.estadoDaTabela = 'insert') or
-    (FEntityCriarOrdem.estadoDaTabela = 'edit')) then
+  if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
     if s_Servicos.DataSet.RecordCount >= 1 then
     begin
@@ -351,7 +391,66 @@ begin
         (s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
         .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
     end;
+  end
+  else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
+  begin
+
+    FEntityServicosOrdem.adicionarItemsTemporiamenteID
+      (s_Servicos.DataSet.FieldByName('ID').AsInteger)
+      .adicionarItemsTemporariamenteServico
+      (s_Servicos.DataSet.FieldByName('SERVICO').AsString)
+      .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR')
+      .AsCurrency).adicionarItemsTemporariamente(s_tem_servicos_adicionados);
+
+    FEntityServicosOrdem.adicionarItemsTemporiamenteID
+      (s_Servicos.DataSet.FieldByName('ID').AsInteger)
+      .adicionarItemsTemporariamenteServico
+      (s_Servicos.DataSet.FieldByName('SERVICO').AsString)
+      .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR')
+      .AsCurrency).adicionarItemsTemporariamente
+      (s_tem_servicos_adicionados_edit);
   end;
+end;
+
+procedure TformCriarConsultarOrdemServico.SomarValoresServicosIncluidos;
+var
+  valorDaOS: Currency;
+begin
+
+  valorDaOS := StrToCurr(edtValorOrdem.Text);
+
+  try
+    FValorTotalOrdemServico := StrToCurr(edtTotalDaOS.Text);
+  except
+    on e: exception do
+      raise exception.Create('Informe um valor válido para o Total da OS');
+  end;
+  FValorServicosIncluidos := s_tem_servicos_adicionados.DataSet.FieldByName
+    ('valor').AsCurrency;
+  edtTotalDaOS.Text := CurrToStr(FValorTotalOrdemServico +
+    FValorServicosIncluidos);
+
+  edtValorOrdem.Text := CurrToStr(valorDaOS + FValorServicosIncluidos);
+
+end;
+
+procedure TformCriarConsultarOrdemServico.subtrairValoresServicosIncluidos;
+var
+  valorDaOS: Currency;
+  subTotalDaOS: Currency;
+begin
+
+  valorDaOS := StrToCurr(edtTotalDaOS.Text);
+  subTotalDaOS := StrToCurr(edtValorOrdem.Text);
+
+  edtTotalDaOS.Text :=
+    CurrToStr(valorDaOS - cds_tem_servicos_adicionadosvalor.AsCurrency);
+
+  edtValorOrdem.Text :=
+    CurrToStr(subTotalDaOS - cds_tem_servicos_adicionadosvalor.AsCurrency);
+
+  cds_tem_servicos_adicionados.Delete;
+
 end;
 
 end.

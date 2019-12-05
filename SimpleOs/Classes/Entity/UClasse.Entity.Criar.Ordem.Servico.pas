@@ -119,9 +119,11 @@ type
     function getSTATUS(value: string): iCriarOrdemServico;
     function getIdTecnico(value: string): iCriarOrdemServico;
     function getTecnico(value: string): iCriarOrdemServico;
+    function setId: integer;
 
     function calcularDesconto(valor, desconto: TEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
+    // function calcularValorTotal():string;
 
     function exportar: iCriarOrdemServico;
 
@@ -182,12 +184,14 @@ begin
 
   end;
 
-  if ((valor.Text <> '0') and (acrescimo.Text <> '0')) then
+  if valor.Text <> '0' then
   begin
-    result := CurrToStr(FAcrescimoOrdem + (FValorOrdem - FDescontoOrdem));
+    result := CurrToStr((FAcrescimoOrdem + FValorOrdem) - FDescontoOrdem);
   end
   else
+  begin
     result := valor.Text;
+  end;
 
 end;
 
@@ -669,6 +673,7 @@ begin
 
   with FQuery.TQuery do
   begin
+    FID := FieldByName('ID').AsInteger;
     FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
     FieldByName('EQUIPAMENTO').AsString := FEQUIPAMENTO;
     FieldByName('DEFEITO_RELATADO').AsString := FDEFEITO_RELATADO;
@@ -716,6 +721,7 @@ begin
 
   try
     FQuery.TQuery.Post;
+    showmessage('Ordem de Serviço inserida com sucesso');
   except
     on e: exception do
     begin
@@ -819,6 +825,11 @@ end;
 function TEntityCriarOrdemServico.pesquisar: iCriarOrdemServico;
 begin
   result := self;
+end;
+
+function TEntityCriarOrdemServico.setId: integer;
+begin
+  result := FID;
 end;
 
 function TEntityCriarOrdemServico.sqlPesquisa: iCriarOrdemServico;

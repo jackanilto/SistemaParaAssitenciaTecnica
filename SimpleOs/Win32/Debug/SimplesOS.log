@@ -1489,3 +1489,8 @@ like
 04/12/19 20:38:10 - Caption: Criar / Consultar ordem de serviço
 04/12/19 20:38:10 - Erro:EDatabaseError
 04/12/19 20:38:10 - Erro:cds_tem_servicos_adicionados: Dataset not in edit or insert mode
+05/12/19 12:19:37 - ===========================================
+05/12/19 12:19:37 - Form: formCriarConsultarOrdemServico
+05/12/19 12:19:37 - Caption: Criar / Consultar ordem de serviço
+05/12/19 12:19:37 - Erro:Exception
+05/12/19 12:19:37 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo

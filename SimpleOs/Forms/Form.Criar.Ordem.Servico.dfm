@@ -609,6 +609,7 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = -2
         object SpeedButton4: TSpeedButton
           Left = 442
           Top = 256
@@ -637,6 +638,7 @@
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
+          OnClick = SpeedButton5Click
         end
         object GroupBox1: TGroupBox
           Left = 0
@@ -646,6 +648,8 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
+          ExplicitLeft = -4
+          ExplicitTop = 12
           object Label21: TLabel
             Left = 16
             Top = 25
@@ -1503,7 +1507,34 @@
   end
   object s_tem_servicos_adicionados: TDataSource
     DataSet = cds_tem_servicos_adicionados
-    Left = 492
+    Left = 516
     Top = 221
+  end
+  object cds_tem_servicos_adicionados_edit: TClientDataSet
+    PersistDataPacket.Data = {
+      630000009619E0BD010000001800000003000000000003000000630002696404
+      00010000000000077365727669636F0100490000000100055749445448020002
+      0064000556616C6F72080004000000010007535542545950450200490006004D
+      6F6E6579000000}
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 780
+    Top = 141
+    object cds_tem_servicos_adicionados_editid: TIntegerField
+      FieldName = 'id'
+    end
+    object cds_tem_servicos_adicionados_editservico: TStringField
+      FieldName = 'servico'
+      Size = 100
+    end
+    object cds_tem_servicos_adicionados_editValor: TCurrencyField
+      FieldName = 'Valor'
+    end
+  end
+  object s_tem_servicos_adicionados_edit: TDataSource
+    DataSet = cds_tem_servicos_adicionados_edit
+    Left = 780
+    Top = 205
   end
 end

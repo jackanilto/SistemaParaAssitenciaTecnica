@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  Datasnap.DBClient;
 
 type
 
@@ -77,9 +78,15 @@ type
     function getSERVICO(value: string): iAdicionarServicosOrdem;
     function getVALOR_ITEM(value: string): iAdicionarServicosOrdem;
 
+    function gravarServicosAdicionadosInsert(value: TclientDataSet)
+      : iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosEdit(value: TclientDataSet)
+      : iAdicionarServicosOrdem;
+
     constructor create;
     destructor destroy; override;
     class function new: iAdicionarServicosOrdem;
+
   end;
 
 implementation
@@ -312,6 +319,18 @@ begin
 
   end;
 
+end;
+
+function TEntityAdicionarItemsOrdem.gravarServicosAdicionadosEdit
+  (value: TclientDataSet): iAdicionarServicosOrdem;
+begin
+
+end;
+
+function TEntityAdicionarItemsOrdem.gravarServicosAdicionadosInsert
+  (value: TclientDataSet): iAdicionarServicosOrdem;
+begin
+  result := self;
 end;
 
 function TEntityAdicionarItemsOrdem.inserir: iAdicionarServicosOrdem;
