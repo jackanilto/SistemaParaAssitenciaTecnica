@@ -72,7 +72,8 @@ uses
   UClasse.ChamarCadastro in 'Classes\UClasse.ChamarCadastro.pas',
   UClasse.Chamar.Cadastro.Clientes.Ordens in 'Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas',
   UClasse.Localizar.Registro.Especifico in 'Classes\Entity\UClasse.Localizar.Registro.Especifico.pas',
-  Form.Localizar.Tecnico.Ordem in 'Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas' {formLocalizarTecnico};
+  Form.Localizar.Tecnico.Ordem in 'Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas' {formLocalizarTecnico},
+  UClasse.Entity.Ordem.Adicionar.Servico in 'Classes\Entity\UClasse.Entity.Ordem.Adicionar.Servico.pas';
 
 {$R *.res}
 

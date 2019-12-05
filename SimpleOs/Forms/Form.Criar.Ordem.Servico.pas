@@ -7,7 +7,8 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, UInterfaces, UClasse.Entity.Criar.Ordem.Servico, Vcl.Mask,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory, Form.Localizar.Clientes.Ordem;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory, Form.Localizar.Clientes.Ordem,
+  Datasnap.DBClient, UClasse.Entity.Ordem.Adicionar.Servico;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -99,6 +100,11 @@ type
     edtTotalDaOS: TEdit;
     Label29: TLabel;
     s_Servicos: TDataSource;
+    cds_tem_servicos_adicionados: TClientDataSet;
+    cds_tem_servicos_adicionadosid: TIntegerField;
+    cds_tem_servicos_adicionadosservico: TStringField;
+    cds_tem_servicos_adicionadosvalor: TCurrencyField;
+    s_tem_servicos_adicionados: TDataSource;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -110,12 +116,18 @@ type
     procedure sbSalvarClick(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure s_ServicosDataChange(Sender: TObject; Field: TField);
+    procedure edtAcrescimoExit(Sender: TObject);
+    procedure edtDescontoExit(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure DBGrid2DblClick(Sender: TObject);
   private
     { Private declarations }
   var
     FEntityCriarOrdem: iCriarOrdemServico;
+    FEntityServicosOrdem: iAdicionarServicosOrdem;
     FEntityTableServicos: iFDTable;
     procedure limparDatas;
+    procedure adicionarServico;
   public
     { Public declarations }
   end;
@@ -188,9 +200,27 @@ begin
   end;
 end;
 
+procedure TformCriarConsultarOrdemServico.DBGrid2DblClick(Sender: TObject);
+begin
+  adicionarServico;
+end;
+
+procedure TformCriarConsultarOrdemServico.edtAcrescimoExit(Sender: TObject);
+begin
+  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
+    edtDesconto, edtAcrescimo);
+end;
+
+procedure TformCriarConsultarOrdemServico.edtDescontoExit(Sender: TObject);
+begin
+  edtTotalDaOS.Text := FEntityCriarOrdem.calcularDesconto(edtValorOrdem,
+    edtDesconto);
+end;
+
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
 begin
   FEntityCriarOrdem := TEntityCriarOrdemServico.new;
+  FEntityServicosOrdem := TEntityAdicionarItemsOrdem.new;
   FEntityTableServicos := TEntityTable.new;
 
   ReportMemoryLeaksOnShutdown := true;
@@ -281,6 +311,11 @@ begin
   TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
 end;
 
+procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);
+begin
+  adicionarServico;
+end;
+
 procedure TformCriarConsultarOrdemServico.s_ServicosDataChange(Sender: TObject;
   Field: TField);
 begin
@@ -299,6 +334,24 @@ begin
   edtDataRetorno.Clear;
   edtDataDePagamento.Clear;
   edtHoraSaida.Text := '00:00:00';
+end;
+
+procedure TformCriarConsultarOrdemServico.adicionarServico;
+begin
+  if ((FEntityCriarOrdem.estadoDaTabela = 'insert') or
+    (FEntityCriarOrdem.estadoDaTabela = 'edit')) then
+  begin
+    if s_Servicos.DataSet.RecordCount >= 1 then
+    begin
+      FEntityServicosOrdem.adicionarItemsTemporiamenteID
+        (s_Servicos.DataSet.FieldByName('ID').AsInteger)
+        .adicionarItemsTemporariamenteServico
+        (s_Servicos.DataSet.FieldByName('SERVICO').AsString)
+        .adicionarItemTemporariamenteValor
+        (s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
+        .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
+    end;
+  end;
 end;
 
 end.

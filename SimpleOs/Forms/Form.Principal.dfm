@@ -7029,8 +7029,8 @@ object formPrincipal: TformPrincipal
         0D948C8A68A0645444837F011D41362B786DE3850000000049454E44AE426082}
     end
     object Label3: TLabel
-      Left = 20
-      Top = 77
+      Left = 40
+      Top = 72
       Width = 171
       Height = 19
       Caption = #218'ltima ordem realizada:'
@@ -7042,7 +7042,7 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 20
+      Left = 40
       Top = 102
       Width = 186
       Height = 19
@@ -7055,7 +7055,7 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 197
+      Left = 217
       Top = 72
       Width = 110
       Height = 19
@@ -7068,7 +7068,7 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 212
+      Left = 232
       Top = 102
       Width = 110
       Height = 19

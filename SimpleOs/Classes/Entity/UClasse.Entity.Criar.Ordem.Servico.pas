@@ -125,6 +125,8 @@ type
 
     function exportar: iCriarOrdemServico;
 
+    function estadoDaTabela: string;
+
     constructor create;
     destructor destroy; override;
     class function new: iCriarOrdemServico;
@@ -311,6 +313,16 @@ begin
     FQuery.TQuery.Edit;
 
   end;
+end;
+
+function TEntityCriarOrdemServico.estadoDaTabela: string;
+begin
+  if FQuery.TQuery.State in [dsInsert] then
+    result := 'insert'
+  else if FQuery.TQuery.State in [dsEdit] then
+    result := 'edit'
+  else
+    result := '';
 end;
 
 function TEntityCriarOrdemServico.estornarOrdem(value: integer)

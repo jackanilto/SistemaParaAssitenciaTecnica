@@ -622,6 +622,7 @@
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
+          OnClick = SpeedButton4Click
         end
         object SpeedButton5: TSpeedButton
           Left = 444
@@ -723,6 +724,7 @@
             Height = 25
             CharCase = ecUpperCase
             TabOrder = 1
+            OnExit = edtDescontoExit
           end
           object edtAcrescimo: TEdit
             Left = 143
@@ -731,6 +733,7 @@
             Height = 25
             CharCase = ecUpperCase
             TabOrder = 2
+            OnExit = edtAcrescimoExit
           end
           object edtFormaDePagamento: TComboBox
             Left = 345
@@ -799,12 +802,37 @@
             Width = 427
             Height = 204
             Align = alClient
+            DataSource = s_tem_servicos_adicionados
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
             TitleFont.Height = -13
             TitleFont.Name = 'Segoe UI'
             TitleFont.Style = []
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'id'
+                Visible = False
+              end
+              item
+                Expanded = False
+                FieldName = 'servico'
+                Width = 282
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'valor'
+                Width = 125
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'descricao'
+                Width = 200
+                Visible = True
+              end>
           end
         end
         object GroupBox3: TGroupBox
@@ -821,12 +849,14 @@
             Height = 185
             Align = alClient
             DataSource = s_Servicos
+            Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
             TitleFont.Height = -13
             TitleFont.Name = 'Segoe UI'
             TitleFont.Style = []
+            OnDblClick = DBGrid2DblClick
           end
         end
       end
@@ -1447,5 +1477,33 @@
     OnDataChange = s_ServicosDataChange
     Left = 743
     Top = 344
+  end
+  object cds_tem_servicos_adicionados: TClientDataSet
+    PersistDataPacket.Data = {
+      810000009619E0BD010000001800000004000000000003000000810002696404
+      00010000000000077365727669636F0100490000000100055749445448020002
+      0064000576616C6F72080004000000010007535542545950450200490006004D
+      6F6E6579000964657363726963616F0200490000000100055749445448020002
+      00FF000000}
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 364
+    Top = 221
+    object cds_tem_servicos_adicionadosid: TIntegerField
+      FieldName = 'id'
+    end
+    object cds_tem_servicos_adicionadosservico: TStringField
+      FieldName = 'servico'
+      Size = 100
+    end
+    object cds_tem_servicos_adicionadosvalor: TCurrencyField
+      FieldName = 'valor'
+    end
+  end
+  object s_tem_servicos_adicionados: TDataSource
+    DataSet = cds_tem_servicos_adicionados
+    Left = 492
+    Top = 221
   end
 end

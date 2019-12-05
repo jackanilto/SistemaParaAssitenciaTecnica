@@ -1484,3 +1484,8 @@ like
 04/12/19 12:15:56 - Caption: Criar / Consultar ordem de serviço
 04/12/19 12:15:56 - Erro:EInvalidOperation
 04/12/19 12:15:56 - Erro:Cannot focus a disabled or invisible window
+04/12/19 20:38:10 - ===========================================
+04/12/19 20:38:10 - Form: formCriarConsultarOrdemServico
+04/12/19 20:38:10 - Caption: Criar / Consultar ordem de serviço
+04/12/19 20:38:10 - Erro:EDatabaseError
+04/12/19 20:38:10 - Erro:cds_tem_servicos_adicionados: Dataset not in edit or insert mode
