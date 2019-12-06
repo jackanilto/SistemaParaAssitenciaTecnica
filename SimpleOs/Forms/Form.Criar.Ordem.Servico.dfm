@@ -609,7 +609,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
         object SpeedButton4: TSpeedButton
           Left = 442
           Top = 256
@@ -648,8 +647,6 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
-          ExplicitLeft = -4
-          ExplicitTop = 12
           object Label21: TLabel
             Left = 16
             Top = 25

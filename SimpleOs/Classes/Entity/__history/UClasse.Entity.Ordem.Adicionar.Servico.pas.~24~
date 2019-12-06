@@ -78,8 +78,10 @@ type
     function getSERVICO(value: string): iAdicionarServicosOrdem;
     function getVALOR_ITEM(value: string): iAdicionarServicosOrdem;
 
-    function gravarServicosAdicionados(value: TclientDataSet; estado: string)
-      : iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosInsert(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosEdit(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
 
     constructor create;
     destructor destroy; override;
@@ -319,10 +321,40 @@ begin
 
 end;
 
-function TEntityAdicionarItemsOrdem.gravarServicosAdicionados
-  (value: TclientDataSet; estado: string): iAdicionarServicosOrdem;
+function TEntityAdicionarItemsOrdem.gravarServicosAdicionadosEdit
+  (value: TclientDataSet; codigoOrdem: integer): iAdicionarServicosOrdem;
+begin
+
+end;
+
+function TEntityAdicionarItemsOrdem.gravarServicosAdicionadosInsert
+  (value: TclientDataSet; codigoOrdem: integer): iAdicionarServicosOrdem;
 begin
   result := self;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+
+    FQuery.TQuery.Insert;
+
+    with FQuery.TQuery do
+    begin
+      FieldByName('ID').AsInteger := FQuery.codigoCadastro('SP_GEN_SERVICOS_ID');
+
+      FieldByName('ID_ORDEM').AsInteger := codigoOrdem;
+      FieldByName('ID_SERVICO').AsInteger := value.FieldByName('id').AsInteger;
+      FieldByName('SERVICO').AsString := value.FieldByName('servico').AsString;
+      FieldByName('VALOR').AsCurrency := value.FieldByName('valor').AsCurrency;
+    end;
+
+    FQuery.TQuery.Post;
+
+    value.Next;
+
+  end;
+
 end;
 
 function TEntityAdicionarItemsOrdem.inserir: iAdicionarServicosOrdem;

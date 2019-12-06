@@ -981,10 +981,11 @@ type
     function getSERVICO(value: string): iAdicionarServicosOrdem;
     function getVALOR_ITEM(value: string): iAdicionarServicosOrdem;
 
-    function gravarServicosAdicionadosInsert(value: TclientDataSet)
-      : iAdicionarServicosOrdem;
-    function gravarServicosAdicionadosEdit(value: TclientDataSet)
-      : iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosInsert(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosEdit(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
+    function listarItensDaOS(value: TclientDataSet): iAdicionarServicosOrdem;
 
   end;
 

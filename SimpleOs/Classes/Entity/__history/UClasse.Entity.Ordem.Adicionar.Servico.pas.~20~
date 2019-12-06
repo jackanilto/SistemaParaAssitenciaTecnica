@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  Datasnap.DBClient;
 
 type
 
@@ -77,9 +78,15 @@ type
     function getSERVICO(value: string): iAdicionarServicosOrdem;
     function getVALOR_ITEM(value: string): iAdicionarServicosOrdem;
 
+    function gravarServicosAdicionadosInsert(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosEdit(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
+
     constructor create;
     destructor destroy; override;
     class function new: iAdicionarServicosOrdem;
+
   end;
 
 implementation
@@ -101,6 +108,7 @@ begin
   result := self;
 
   value.DataSet.open;
+  value.DataSet.Append;
 
   value.DataSet.FieldByName('id').AsInteger := FID_Servico_Temporario;
   value.DataSet.FieldByName('servico').AsString := FServico_Temporario;
@@ -308,6 +316,34 @@ begin
     begin
       raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
+
+  end;
+
+end;
+
+function TEntityAdicionarItemsOrdem.gravarServicosAdicionadosEdit
+  (value: TclientDataSet; codigoOrdem:integer): iAdicionarServicosOrdem;
+begin
+
+end;
+
+function TEntityAdicionarItemsOrdem.gravarServicosAdicionadosInsert
+  (value: TclientDataSet; codigoOrdem: integer): iAdicionarServicosOrdem;
+begin
+  result := self;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+
+    FQuery.TQuery.Insert;
+
+    FQuery.TQuery.FieldByName('ID').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_SERVICOS_ID');
+    FQuery.TQuery.FieldByName('').AsInteger := FQuery.TQuery.FieldByName('')
+      .AsInteger := FQuery.TQuery.FieldByName('').AsInteger :=
+      FQuery.TQuery.FieldByName('').AsInteger :=
 
   end;
 

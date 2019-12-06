@@ -232,6 +232,7 @@ begin
 
   edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
     edtDesconto, edtAcrescimo);
+
 end;
 
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
@@ -248,6 +249,11 @@ procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
 
   FEntityCriarOrdem.abrir.listarGrid(DataSource1);
+
+  FEntityServicosOrdem.abrir.getCampo('ID_ORDEM')
+
+    .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
+    .listarItensDaOS(cds_tem_servicos_adicionados);
 
   FEntityTableServicos.FD_Table('SERVICOS').retornaTable(s_Servicos);
 
@@ -301,7 +307,12 @@ begin
 end;
 
 procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
+var
+  estado: string;
 begin
+
+  estado := FEntityCriarOrdem.estadoDaTabela;
+
   FEntityCriarOrdem.getID_CLIENTE(edtCodigoCliente.Text)
     .getEQUIPAMENTO(edtEquipamento.Text).getMarca(edtMarca.Text)
     .getModelo(edtModelo.Text).getNUMERO_SERIE(edtNumeroDeSerie.Text)
@@ -320,6 +331,15 @@ begin
     (edtFormaDePagamento.Text).getDataPagamento(edtDataDePagamento.Text)
     .getPGTO(edtPGTO.Text).gravar;
 
+  if estado = 'insert' then
+    FEntityServicosOrdem.gravarServicosAdicionadosInsert
+      (cds_tem_servicos_adicionados, FEntityCriarOrdem.setId)
+  else if estado = 'edit' then
+    FEntityServicosOrdem.gravarServicosAdicionadosEdit
+      (cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
+
+  showmessage('Ordem de Serviço inserida com sucesso');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
@@ -332,7 +352,6 @@ procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);
 begin
   adicionarServico;
   SomarValoresServicosIncluidos;
-
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton5Click(Sender: TObject);
@@ -341,11 +360,10 @@ begin
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
     subtrairValoresServicosIncluidos;
-
   end
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
-
+    subtrairValoresServicosIncluidos;
   end;
 
 end;

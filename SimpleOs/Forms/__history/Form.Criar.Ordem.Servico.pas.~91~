@@ -138,7 +138,8 @@ type
 
     procedure limparDatas;
     procedure adicionarServico;
-    procedure CalcularValoresServicosIncluidos;
+    procedure SomarValoresServicosIncluidos;
+    procedure subtrairValoresServicosIncluidos;
   public
     { Public declarations }
   end;
@@ -214,7 +215,7 @@ end;
 procedure TformCriarConsultarOrdemServico.DBGrid2DblClick(Sender: TObject);
 begin
   adicionarServico;
-  CalcularValoresServicosIncluidos
+  SomarValoresServicosIncluidos
 end;
 
 procedure TformCriarConsultarOrdemServico.edtAcrescimoExit(Sender: TObject);
@@ -225,8 +226,13 @@ end;
 
 procedure TformCriarConsultarOrdemServico.edtDescontoExit(Sender: TObject);
 begin
+
   edtTotalDaOS.Text := FEntityCriarOrdem.calcularDesconto(edtValorOrdem,
     edtDesconto);
+
+  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
+    edtDesconto, edtAcrescimo);
+
 end;
 
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
@@ -296,7 +302,12 @@ begin
 end;
 
 procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
+var
+  estado: string;
 begin
+
+  estado := FEntityCriarOrdem.estadoDaTabela;
+
   FEntityCriarOrdem.getID_CLIENTE(edtCodigoCliente.Text)
     .getEQUIPAMENTO(edtEquipamento.Text).getMarca(edtMarca.Text)
     .getModelo(edtModelo.Text).getNUMERO_SERIE(edtNumeroDeSerie.Text)
@@ -315,6 +326,11 @@ begin
     (edtFormaDePagamento.Text).getDataPagamento(edtDataDePagamento.Text)
     .getPGTO(edtPGTO.Text).gravar;
 
+  FEntityServicosOrdem.gravarServicosAdicionadosInsert
+    (cds_tem_servicos_adicionados, FEntityCriarOrdem.setId);
+
+  showmessage('Ordem de Serviço inserida com sucesso');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
@@ -326,8 +342,7 @@ end;
 procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);
 begin
   adicionarServico;
-  CalcularValoresServicosIncluidos;
-
+  SomarValoresServicosIncluidos;
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton5Click(Sender: TObject);
@@ -335,11 +350,11 @@ begin
 
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
-    cds_tem_servicos_adicionados.Delete;
+    subtrairValoresServicosIncluidos;
   end
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
-
+    subtrairValoresServicosIncluidos;
   end;
 
 end;
@@ -399,7 +414,7 @@ begin
   end;
 end;
 
-procedure TformCriarConsultarOrdemServico.CalcularValoresServicosIncluidos;
+procedure TformCriarConsultarOrdemServico.SomarValoresServicosIncluidos;
 var
   valorDaOS: Currency;
 begin
@@ -418,6 +433,25 @@ begin
     FValorServicosIncluidos);
 
   edtValorOrdem.Text := CurrToStr(valorDaOS + FValorServicosIncluidos);
+
+end;
+
+procedure TformCriarConsultarOrdemServico.subtrairValoresServicosIncluidos;
+var
+  valorDaOS: Currency;
+  subTotalDaOS: Currency;
+begin
+
+  valorDaOS := StrToCurr(edtTotalDaOS.Text);
+  subTotalDaOS := StrToCurr(edtValorOrdem.Text);
+
+  edtTotalDaOS.Text :=
+    CurrToStr(valorDaOS - cds_tem_servicos_adicionadosvalor.AsCurrency);
+
+  edtValorOrdem.Text :=
+    CurrToStr(subTotalDaOS - cds_tem_servicos_adicionadosvalor.AsCurrency);
+
+  cds_tem_servicos_adicionados.Delete;
 
 end;
 

@@ -7,7 +7,7 @@ uses
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
-  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask;
+  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask, Datasnap.DBClient;
 
 type
   iConexaoQuery = interface
@@ -66,6 +66,7 @@ type
     function getCampoTabela(value: string): iFDTable;
     function popularComponenteComboBox(value: TcomboBox): iFDTable;
     function localizarRegistro(codigo, campo: string): string;
+    function retornaTable(value: TDataSource): iFDTable;
   end;
 
   iLocalizarRegistroEspecifico = interface
@@ -927,48 +928,63 @@ type
     function getSTATUS(value: string): iCriarOrdemServico;
     function getIdTecnico(value: string): iCriarOrdemServico;
     function getTecnico(value: string): iCriarOrdemServico;
+    function setId: integer;
 
     function calcularDesconto(valor, desconto: TEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
+
+    function estadoDaTabela: string;
 
     function exportar: iCriarOrdemServico;
 
   end;
 
-  iItensOrdem = interface
+  iAdicionarServicosOrdem = interface
     ['{F1A112F9-8495-4C23-9104-2A77CE79BAFA}']
 
-    function nomeTabela(value: string): iItensOrdem;
-    function getCampo(value: string): iItensOrdem;
-    function getValor(value: string): iItensOrdem;
-    function getDataInicial(value: TDate): iItensOrdem;
-    function getDataFinal(value: TDate): iItensOrdem;
-    function open(value: string): iItensOrdem;
-    function pesquisar: iItensOrdem;
-    function ExecSql: iItensOrdem;
-    function sqlPesquisa: iItensOrdem;
-    function sqlPesquisaData: iItensOrdem;
-    function sqlPesquisaEstatica: iItensOrdem;
+    function nomeTabela(value: string): iAdicionarServicosOrdem;
+    function getCampo(value: string): iAdicionarServicosOrdem;
+    function getValor(value: string): iAdicionarServicosOrdem;
+    function getDataInicial(value: TDate): iAdicionarServicosOrdem;
+    function getDataFinal(value: TDate): iAdicionarServicosOrdem;
+    function open(value: string): iAdicionarServicosOrdem;
+    function pesquisar: iAdicionarServicosOrdem;
+    function ExecSql: iAdicionarServicosOrdem;
+    function sqlPesquisa: iAdicionarServicosOrdem;
+    function sqlPesquisaData: iAdicionarServicosOrdem;
+    function sqlPesquisaEstatica: iAdicionarServicosOrdem;
 
-    function abrir: iItensOrdem;
-    function inserir: iItensOrdem;
-    function gravar: iItensOrdem;
-    function deletar: iItensOrdem;
-    function atualizar: iItensOrdem;
-    function editar: iItensOrdem;
-    function cancelar: iItensOrdem;
-    function fecharQuery: iItensOrdem;
+    function abrir: iAdicionarServicosOrdem;
+    function inserir: iAdicionarServicosOrdem;
+    function gravar: iAdicionarServicosOrdem;
+    function deletar: iAdicionarServicosOrdem;
+    function atualizar: iAdicionarServicosOrdem;
+    function editar: iAdicionarServicosOrdem;
+    function cancelar: iAdicionarServicosOrdem;
+    function fecharQuery: iAdicionarServicosOrdem;
     function codigoCadastro(sp: string): integer;
-    function listarGrid(value: TDataSource): iItensOrdem;
-    function ordenarGrid(column: TColumn): iItensOrdem;
+    function listarGrid(value: TDataSource): iAdicionarServicosOrdem;
+    function ordenarGrid(column: TColumn): iAdicionarServicosOrdem;
 
-    function getID(value: integer): iItensOrdem;
-    function getID_ORDEM(value: integer): iItensOrdem;
-    function getID_PRODUTO(value: integer): iItensOrdem;
-    function getProduto(value: string): iItensOrdem;
-    function getVALOR_ITEM(value: string): iItensOrdem;
-    function getQUANTIDADE(value: integer): iItensOrdem;
-    function getVALOR_TOTAL(value: string): iItensOrdem;
+    function adicionarItemsTemporiamenteID(value: integer)
+      : iAdicionarServicosOrdem;
+    function adicionarItemsTemporariamenteServico(value: string)
+      : iAdicionarServicosOrdem;
+    function adicionarItemTemporariamenteValor(value: currency)
+      : iAdicionarServicosOrdem;
+    function adicionarItemsTemporariamente(value: TDataSource)
+      : iAdicionarServicosOrdem;
+
+    function getID(value: integer): iAdicionarServicosOrdem;
+    function getID_ORDEM(value: integer): iAdicionarServicosOrdem;
+    function getID_SERVICO(value: integer): iAdicionarServicosOrdem;
+    function getSERVICO(value: string): iAdicionarServicosOrdem;
+    function getVALOR_ITEM(value: string): iAdicionarServicosOrdem;
+
+    function gravarServicosAdicionadosInsert(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosEdit(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
 
   end;
 

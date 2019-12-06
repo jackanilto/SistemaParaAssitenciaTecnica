@@ -1494,3 +1494,13 @@ like
 05/12/19 12:19:37 - Caption: Criar / Consultar ordem de serviço
 05/12/19 12:19:37 - Erro:Exception
 05/12/19 12:19:37 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+06/12/19 11:31:03 - ===========================================
+06/12/19 11:31:03 - Form: formCriarConsultarOrdemServico
+06/12/19 11:31:03 - Caption: Criar / Consultar ordem de serviço
+06/12/19 11:31:03 - Erro:EFDException
+06/12/19 11:31:03 - Erro:[FireDAC][Phys][FB]-306. Command [TFDStoredProc($04772F50)] text must be not empty
+06/12/19 12:01:35 - ===========================================
+06/12/19 12:01:35 - Form: formCriarConsultarOrdemServico
+06/12/19 12:01:35 - Caption: Criar / Consultar ordem de serviço
+06/12/19 12:01:35 - Erro:EDatabaseError
+06/12/19 12:01:35 - Erro:Field 'ID_ORDEM' not found

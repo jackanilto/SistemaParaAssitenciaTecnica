@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  Datasnap.DBClient;
 
 type
 
@@ -77,9 +78,15 @@ type
     function getSERVICO(value: string): iAdicionarServicosOrdem;
     function getVALOR_ITEM(value: string): iAdicionarServicosOrdem;
 
+    function gravarServicosAdicionadosInsert(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
+    function gravarServicosAdicionadosEdit(value: TclientDataSet;
+      codigoOrdem: integer): iAdicionarServicosOrdem;
+
     constructor create;
     destructor destroy; override;
     class function new: iAdicionarServicosOrdem;
+
   end;
 
 implementation
@@ -309,6 +316,67 @@ begin
     begin
       raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
+
+  end;
+
+end;
+
+function TEntityAdicionarItemsOrdem.gravarServicosAdicionadosEdit
+  (value: TclientDataSet; codigoOrdem: integer): iAdicionarServicosOrdem;
+begin
+  result := self;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+
+    FQuery.TQuery.Insert;
+
+    with FQuery.TQuery do
+    begin
+      FieldByName('ID').AsInteger := FQuery.codigoCadastro
+        ('SP_GEN_SERVICOS_ID');
+
+      FieldByName('ID_ORDEM').AsInteger := codigoOrdem;
+      FieldByName('ID_SERVICO').AsInteger := value.FieldByName('id').AsInteger;
+      FieldByName('SERVICO').AsString := value.FieldByName('servico').AsString;
+      FieldByName('VALOR').AsCurrency := value.FieldByName('valor').AsCurrency;
+    end;
+
+    FQuery.TQuery.Post;
+
+    value.Next;
+
+  end;
+end;
+
+function TEntityAdicionarItemsOrdem.gravarServicosAdicionadosInsert
+  (value: TclientDataSet; codigoOrdem: integer): iAdicionarServicosOrdem;
+begin
+  result := self;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+
+    FQuery.TQuery.Insert;
+
+    with FQuery.TQuery do
+    begin
+      FieldByName('ID').AsInteger := FQuery.codigoCadastro
+        ('SP_GEN_SERVICOS_ID');
+
+      FieldByName('ID_ORDEM').AsInteger := codigoOrdem;
+      FieldByName('ID_SERVICO').AsInteger := value.FieldByName('id').AsInteger;
+      FieldByName('SERVICO').AsString := value.FieldByName('servico').AsString;
+      FieldByName('VALOR').AsCurrency := value.FieldByName('valor').AsCurrency;
+    end;
+
+    FQuery.TQuery.Post;
+
+    value.Next;
 
   end;
 

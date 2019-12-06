@@ -326,16 +326,8 @@ begin
     (edtFormaDePagamento.Text).getDataPagamento(edtDataDePagamento.Text)
     .getPGTO(edtPGTO.Text).gravar;
 
-    if estado = 'insert' then
-    begin
-      cds_tem_servicos_adicionados.First;
-      while not cds_tem_servicos_adicionados.Eof do
-      begin
-
-      end;
-    end;
-
-  ShowMessage(FEntityCriarOrdem.setId.ToString);
+  FEntityServicosOrdem.gravarServicosAdicionadosInsert
+    (cds_tem_servicos_adicionados, FEntityCriarOrdem.setId);
 
 end;
 

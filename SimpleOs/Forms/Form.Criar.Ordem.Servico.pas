@@ -250,6 +250,10 @@ begin
 
   FEntityCriarOrdem.abrir.listarGrid(DataSource1);
 
+  FEntityServicosOrdem.abrir.getCampo('ID_ORDEM')
+    .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
+    .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
+
   FEntityTableServicos.FD_Table('SERVICOS').retornaTable(s_Servicos);
 
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
@@ -326,8 +330,14 @@ begin
     (edtFormaDePagamento.Text).getDataPagamento(edtDataDePagamento.Text)
     .getPGTO(edtPGTO.Text).gravar;
 
-  FEntityServicosOrdem.gravarServicosAdicionadosInsert
-    (cds_tem_servicos_adicionados);
+  if estado = 'insert' then
+    FEntityServicosOrdem.gravarServicosAdicionadosInsert
+      (cds_tem_servicos_adicionados, FEntityCriarOrdem.setId)
+  else if estado = 'edit' then
+    FEntityServicosOrdem.gravarServicosAdicionadosEdit
+      (cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
+
+  showmessage('Ordem de Serviço inserida com sucesso');
 
 end;
 

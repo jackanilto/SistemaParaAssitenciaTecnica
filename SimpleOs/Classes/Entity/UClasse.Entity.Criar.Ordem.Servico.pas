@@ -721,7 +721,6 @@ begin
 
   try
     FQuery.TQuery.Post;
-    showmessage('Ordem de Serviço inserida com sucesso');
   except
     on e: exception do
     begin
