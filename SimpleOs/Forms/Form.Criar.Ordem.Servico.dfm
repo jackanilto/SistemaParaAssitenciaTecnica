@@ -145,6 +145,7 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = -2
         object Label1: TLabel
           Left = 16
           Top = 17
@@ -1143,6 +1144,7 @@
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbEditarClick
     end
     object sbExcluir: TSpeedButton
       Left = 400
@@ -1224,6 +1226,7 @@
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbExcluirClick
     end
     object sbCancelar: TSpeedButton
       Left = 506
@@ -1305,6 +1308,7 @@
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbCancelarClick
     end
     object SpeedButton1: TSpeedButton
       Left = 608
@@ -1386,6 +1390,7 @@
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = SpeedButton1Click
     end
     object SpeedButton2: TSpeedButton
       Left = 784

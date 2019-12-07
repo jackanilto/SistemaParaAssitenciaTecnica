@@ -111,6 +111,8 @@ type
 
 var
   formPrincipal: TformPrincipal;
+  codigoDaOS: integer;
+  codigoDocliente: integer;
 
 implementation
 
@@ -336,6 +338,10 @@ end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
+
+  codigoDaOS := 0;
+  codigoDocliente := 0;
+
   { Centraliza a imagem da LOGO }
   imgLogo.Left := (formPrincipal.Width - Image2.Width) div 2;
   imgLogo.Top := (formPrincipal.Height - Image2.Height) div 2;

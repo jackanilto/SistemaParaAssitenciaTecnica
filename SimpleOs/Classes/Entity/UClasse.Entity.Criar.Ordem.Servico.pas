@@ -164,23 +164,32 @@ begin
     FValorOrdem := StrToCurr(valor.Text);
   except
     on e: exception do
+    begin
+      valor.Text := '0';
       raise exception.create('Informe um valor válido para a ordem.');
+    end;
   end;
 
   try
     FDescontoOrdem := StrToCurr(desconto.Text);
   except
     on e: exception do
+    begin
+      desconto.Text := '0';
       raise exception.create
         ('Informe um valor igual ou maior que zero para o campo Desconto.')
+    end;
   end;
 
   try
     FAcrescimoOrdem := StrToCurr(acrescimo.Text);
   except
     on e: exception do
+    begin
+      acrescimo.Text := '0';
       raise exception.create
         ('Informe um valor igual ou maior que zero para o campo Acréscimo');
+    end;
 
   end;
 
@@ -220,7 +229,7 @@ begin
     begin
       desconto.Text := '0';
       raise exception.create
-        ('Informe um valor igual ou maior que zero para o campo Acréscimo.')
+        ('Informe um valor igual ou maior que zero para o campo Desconto.')
     end;
   end;
 
@@ -653,6 +662,7 @@ function TEntityCriarOrdemServico.getVALOR_DA_ORDEM(value: string)
   : iCriarOrdemServico;
 begin
   result := self;
+
   try
     FVALOR_DA_ORDEM := StrToCurr(value);
   except

@@ -225,7 +225,7 @@ object formLocalizarClientesOrdem: TformLocalizarClientesOrdem
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
-    OnCellClick = DBGrid1CellClick
+    OnDblClick = DBGrid1DblClick
   end
   object DataSource1: TDataSource
     Left = 424

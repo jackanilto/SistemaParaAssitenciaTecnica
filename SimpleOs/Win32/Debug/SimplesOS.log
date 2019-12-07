@@ -1504,3 +1504,128 @@ like
 06/12/19 12:01:35 - Caption: Criar / Consultar ordem de serviço
 06/12/19 12:01:35 - Erro:EDatabaseError
 06/12/19 12:01:35 - Erro:Field 'ID_ORDEM' not found
+06/12/19 20:25:35 - ===========================================
+06/12/19 20:25:35 - Form: formCriarConsultarOrdemServico
+06/12/19 20:25:35 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:25:35 - Erro:EAccessViolation
+06/12/19 20:25:35 - Erro:Access violation at address 006C8EBE in module 'SimplesOS.exe'. Read of address 00000040
+06/12/19 20:27:02 - ===========================================
+06/12/19 20:27:02 - Form: formCriarConsultarOrdemServico
+06/12/19 20:27:02 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:27:02 - Erro:EAccessViolation
+06/12/19 20:27:02 - Erro:Access violation at address 006C8EBE in module 'SimplesOS.exe'. Read of address 00000040
+06/12/19 20:31:09 - ===========================================
+06/12/19 20:31:09 - Form: formCriarConsultarOrdemServico
+06/12/19 20:31:09 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:31:09 - Erro:EAccessViolation
+06/12/19 20:31:09 - Erro:Access violation at address 006C8EBE in module 'SimplesOS.exe'. Read of address 00000040
+06/12/19 20:33:10 - ===========================================
+06/12/19 20:33:10 - Form: formCriarConsultarOrdemServico
+06/12/19 20:33:10 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:33:10 - Erro:EAccessViolation
+06/12/19 20:33:10 - Erro:Access violation at address 006C8EBE in module 'SimplesOS.exe'. Read of address 00000040
+06/12/19 20:44:41 - ===========================================
+06/12/19 20:44:41 - Form: formCriarConsultarOrdemServico
+06/12/19 20:44:41 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:44:41 - Erro:EAccessViolation
+06/12/19 20:44:41 - Erro:Access violation at address 006C8EBE in module 'SimplesOS.exe'. Read of address 00000040
+06/12/19 20:45:27 - ===========================================
+06/12/19 20:45:27 - Form: formCriarConsultarOrdemServico
+06/12/19 20:45:27 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:45:27 - Erro:EAccessViolation
+06/12/19 20:45:27 - Erro:Access violation at address 006C8EBE in module 'SimplesOS.exe'. Read of address 00000040
+06/12/19 20:50:42 - ===========================================
+06/12/19 20:50:42 - Form: formCriarConsultarOrdemServico
+06/12/19 20:50:42 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:50:42 - Erro:EDatabaseError
+06/12/19 20:50:42 - Erro:cds_tem_servicos_adicionados: Cannot perform this operation on an empty dataset
+06/12/19 20:52:48 - ===========================================
+06/12/19 20:52:48 - Form: formCadastroDeClientes
+06/12/19 20:52:48 - Caption: Cadastro de clientes
+06/12/19 20:52:48 - Erro:Exception
+06/12/19 20:52:48 - Erro:Informe o tipo de cadastro realizado.
+06/12/19 20:57:01 - ===========================================
+06/12/19 20:57:01 - Form: formCadastroDeClientes
+06/12/19 20:57:01 - Caption: Cadastro de clientes
+06/12/19 20:57:01 - Erro:Exception
+06/12/19 20:57:01 - Erro:Informe o tipo de cadastro realizado.
+06/12/19 20:58:37 - ===========================================
+06/12/19 20:58:37 - Form: formCriarConsultarOrdemServico
+06/12/19 20:58:37 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:58:37 - Erro:Exception
+06/12/19 20:58:37 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+06/12/19 20:58:41 - ===========================================
+06/12/19 20:58:41 - Form: formCriarConsultarOrdemServico
+06/12/19 20:58:41 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:58:41 - Erro:Exception
+06/12/19 20:58:41 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+06/12/19 20:58:50 - ===========================================
+06/12/19 20:58:50 - Form: formCriarConsultarOrdemServico
+06/12/19 20:58:50 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:58:50 - Erro:Exception
+06/12/19 20:58:50 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+06/12/19 20:58:53 - ===========================================
+06/12/19 20:58:53 - Form: formCriarConsultarOrdemServico
+06/12/19 20:58:53 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:58:53 - Erro:Exception
+06/12/19 20:58:53 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+06/12/19 20:58:57 - ===========================================
+06/12/19 20:58:57 - Form: formCriarConsultarOrdemServico
+06/12/19 20:58:57 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:58:57 - Erro:Exception
+06/12/19 20:58:57 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+06/12/19 20:59:02 - ===========================================
+06/12/19 20:59:02 - Form: formCriarConsultarOrdemServico
+06/12/19 20:59:02 - Caption: Criar / Consultar ordem de serviço
+06/12/19 20:59:02 - Erro:Exception
+06/12/19 20:59:02 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+07/12/19 14:42:21 - ===========================================
+07/12/19 14:42:21 - Form: formCriarConsultarOrdemServico
+07/12/19 14:42:21 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:42:21 - Erro:Exception
+07/12/19 14:42:21 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+07/12/19 14:46:59 - ===========================================
+07/12/19 14:46:59 - Form: formCriarConsultarOrdemServico
+07/12/19 14:46:59 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:46:59 - Erro:Exception
+07/12/19 14:46:59 - Erro:Informe um valor válido para o campo Valor da Ordem.
+07/12/19 14:47:05 - ===========================================
+07/12/19 14:47:05 - Form: formCriarConsultarOrdemServico
+07/12/19 14:47:05 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:47:05 - Erro:Exception
+07/12/19 14:47:05 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo.
+07/12/19 14:47:10 - ===========================================
+07/12/19 14:47:10 - Form: formCriarConsultarOrdemServico
+07/12/19 14:47:10 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:47:10 - Erro:Exception
+07/12/19 14:47:10 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+07/12/19 14:47:14 - ===========================================
+07/12/19 14:47:14 - Form: formCriarConsultarOrdemServico
+07/12/19 14:47:14 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:47:14 - Erro:Exception
+07/12/19 14:47:14 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+07/12/19 14:49:01 - ===========================================
+07/12/19 14:49:01 - Form: formCriarConsultarOrdemServico
+07/12/19 14:49:01 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:49:01 - Erro:Exception
+07/12/19 14:49:01 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+07/12/19 14:50:36 - ===========================================
+07/12/19 14:50:36 - Form: formCriarConsultarOrdemServico
+07/12/19 14:50:36 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:50:36 - Erro:Exception
+07/12/19 14:50:36 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+07/12/19 14:50:57 - ===========================================
+07/12/19 14:50:57 - Form: formCriarConsultarOrdemServico
+07/12/19 14:50:57 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:50:57 - Erro:EConvertError
+07/12/19 14:50:57 - Erro:'' is not a valid integer value for Integer type
+07/12/19 14:51:05 - ===========================================
+07/12/19 14:51:05 - Form: formCriarConsultarOrdemServico
+07/12/19 14:51:05 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:51:05 - Erro:EConvertError
+07/12/19 14:51:05 - Erro:'' is not a valid integer value for Integer type
+07/12/19 14:57:47 - ===========================================
+07/12/19 14:57:47 - Form: formCriarConsultarOrdemServico
+07/12/19 14:57:47 - Caption: Criar / Consultar ordem de serviço
+07/12/19 14:57:47 - Erro:Exception
+07/12/19 14:57:47 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo

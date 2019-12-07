@@ -16,7 +16,7 @@ object formPrincipal: TformPrincipal
   PixelsPerInch = 96
   TextHeight = 13
   object imgLogo: TImage
-    Left = 184
+    Left = 192
     Top = 242
     Width = 584
     Height = 274

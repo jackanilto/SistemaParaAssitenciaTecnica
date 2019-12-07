@@ -8,7 +8,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.ComCtrls, UInterfaces, UClasse.Entity.Criar.Ordem.Servico, Vcl.Mask,
   Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory, Form.Localizar.Clientes.Ordem,
-  Datasnap.DBClient, UClasse.Entity.Ordem.Adicionar.Servico;
+  Datasnap.DBClient, UClasse.Entity.Ordem.Adicionar.Servico, Form.Ordem.Servico,
+  Form.Principal;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -126,6 +127,10 @@ type
     procedure SpeedButton4Click(Sender: TObject);
     procedure DBGrid2DblClick(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
+    procedure sbEditarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -248,11 +253,19 @@ end;
 procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
 
-  FEntityCriarOrdem.abrir.listarGrid(DataSource1);
+  if codigoDaOS <> 0 then
+  begin
+    FEntityCriarOrdem.abrir.getCampo('ID').getValor(codigoDaOS.ToString)
+      .sqlPesquisa.listarGrid(DataSource1);
 
-  FEntityServicosOrdem.abrir.getCampo('ID_ORDEM')
-    .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
-    .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
+    FEntityServicosOrdem.abrir.getCampo('ID_ORDEM')
+      .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
+      .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
+
+    edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
+      ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',
+      DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger);
+  end;
 
   FEntityTableServicos.FD_Table('SERVICOS').retornaTable(s_Servicos);
 
@@ -263,10 +276,6 @@ begin
   TFactory.new.ftTable.FD_Table('SITUACAO_ORDEM')
     .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox
     (edtSituacaoOrdem);
-
-  edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
-    ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',
-    DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger);
 
 end;
 
@@ -282,6 +291,21 @@ begin
   end;
 end;
 
+procedure TformCriarConsultarOrdemServico.sbCancelarClick(Sender: TObject);
+begin
+FEntityCriarOrdem.cancelar;
+end;
+
+procedure TformCriarConsultarOrdemServico.sbEditarClick(Sender: TObject);
+begin
+  FEntityCriarOrdem.editar;
+end;
+
+procedure TformCriarConsultarOrdemServico.sbExcluirClick(Sender: TObject);
+begin
+ FEntityCriarOrdem.deletar;
+end;
+
 procedure TformCriarConsultarOrdemServico.sbFecharClick(Sender: TObject);
 begin
   Close;
@@ -294,6 +318,10 @@ begin
   PageControl1.ActivePageIndex := 0;
   edtNomeCliente.Clear;
   edtNomeCliente.SetFocus;
+  edtValorOrdem.Text := '0';
+  edtDesconto.Text := '0';
+  edtAcrescimo.Text := '0';
+  edtTotalDaOS.Text := '0';
 
   limparDatas;
 
@@ -325,7 +353,7 @@ begin
     .getRETORNO(edtRetorno.Text).getDATA_RETORNO(edtDataRetorno.Text)
     .getObservacao(edtObservacao.Text).getVALOR_DA_ORDEM(edtValorOrdem.Text)
     .getDesconto(edtDesconto.Text).getACRESCIMO(edtAcrescimo.Text)
-    .getVALOR_DA_ORDEM(edtTotalDaOS.Text).getPARCELADO(edtParcelado.Text)
+    .getTotalDoOrcamento(edtTotalDaOS.Text).getPARCELADO(edtParcelado.Text)
     .getTOTAL_PARCELAS(edtTotalDeParcelas.Text).getFORMA_PAGAMENTO
     (edtFormaDePagamento.Text).getDataPagamento(edtDataDePagamento.Text)
     .getPGTO(edtPGTO.Text).gravar;
@@ -339,6 +367,11 @@ begin
 
   showmessage('Ordem de Serviço inserida com sucesso');
 
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
+begin
+ FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID').AsInteger);
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
@@ -362,7 +395,12 @@ begin
   end
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
+
+    FEntityServicosOrdem.excluiServicoDaOS
+      (cds_tem_servicos_adicionadosid.AsInteger);
+
     subtrairValoresServicosIncluidos;
+
   end;
 
 end;

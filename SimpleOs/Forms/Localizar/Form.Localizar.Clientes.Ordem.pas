@@ -33,8 +33,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure DBGrid1CellClick(Column: TColumn);
     procedure sbCadastrarClientesClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
     procedure Localizar;
@@ -57,7 +57,7 @@ implementation
 
 uses Form.Criar.Ordem.Servico;
 
-procedure TformLocalizarClientesOrdem.DBGrid1CellClick(Column: TColumn);
+procedure TformLocalizarClientesOrdem.DBGrid1DblClick(Sender: TObject);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
@@ -175,9 +175,9 @@ procedure TformLocalizarClientesOrdem.sbCadastrarClientesClick(Sender: TObject);
 begin
 
   if cbPesquisar.Text = 'Nome' then
-//    FClasseChamarCadastroClientes.nome := edtPesquisar.Text;
+    // FClasseChamarCadastroClientes.nome := edtPesquisar.Text;
 
-  FClasseChamarCadastroClientes.chamarCadastroClientes;
+    FClasseChamarCadastroClientes.chamarCadastroClientes;
 
 end;
 

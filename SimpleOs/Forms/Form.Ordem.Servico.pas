@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, UInterfaces,
-  UClasse.Listar.Ordens.Servico, Vcl.Menus, UFactory;
+  UClasse.Listar.Ordens.Servico, Vcl.Menus, UFactory, Form.Principal;
 
 type
   TEnumPesquisar = (codigo_ordem, codigo_cliente, nome_cliente, CPF);
@@ -139,6 +139,9 @@ procedure TformOrdemServico.VerOrdemdeServio1Click(Sender: TObject);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
+
+  codigoDaOs:= DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+
     formCriarConsultarOrdemServico :=
       TformCriarConsultarOrdemServico.Create(self);
     TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');

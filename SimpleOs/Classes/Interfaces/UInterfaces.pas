@@ -985,7 +985,9 @@ type
       codigoOrdem: integer): iAdicionarServicosOrdem;
     function gravarServicosAdicionadosEdit(value: TclientDataSet;
       codigoOrdem: integer): iAdicionarServicosOrdem;
+
     function listarItensDaOS(value: TclientDataSet): iAdicionarServicosOrdem;
+    function excluiServicoDaOS(value: integer): iAdicionarServicosOrdem;
 
   end;
 

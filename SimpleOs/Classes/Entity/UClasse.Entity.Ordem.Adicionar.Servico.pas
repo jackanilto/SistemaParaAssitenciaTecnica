@@ -84,6 +84,7 @@ type
       codigoOrdem: integer): iAdicionarServicosOrdem;
 
     function listarItensDaOS(value: TclientDataSet): iAdicionarServicosOrdem;
+    function excluiServicoDaOS(value: integer): iAdicionarServicosOrdem;
 
     constructor create;
     destructor destroy; override;
@@ -207,6 +208,27 @@ begin
     FQuery.TQuery.Edit;
 
   end;
+end;
+
+function TEntityAdicionarItemsOrdem.excluiServicoDaOS(value: integer)
+  : iAdicionarServicosOrdem;
+begin
+
+  result := self;
+
+  FQuery.getCampo('ID_SERVICO').getValor(value.ToString)
+    .sqlPesquisaEstatica(FTabela);
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja excluir este item da ordem?',
+      'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+      FQuery.TQuery.Delete;
+    end;
+
+  end;
+
 end;
 
 function TEntityAdicionarItemsOrdem.ExecSql: iAdicionarServicosOrdem;
