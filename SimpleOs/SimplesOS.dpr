@@ -12,7 +12,7 @@ uses
   UInterfaces in 'Classes\Interfaces\UInterfaces.pas',
   UFactory.Entity in 'Classes\Factory\UFactory.Entity.pas',
   UFactory.Query in 'Classes\Factory\UFactory.Query.pas',
-  UClasse.Entity in 'Classes\Entity\UClasse.Entity.pas',
+  UClasse.Entity.Criar.Ordem.Parcelas in 'Classes\Entity\UClasse.Entity.Criar.Ordem.Parcelas.pas',
   UClasse.Entity.Table in 'Classes\Entity\UClasse.Entity.Table.pas',
   UDados.Conexao in 'DataModule\UDados.Conexao.pas' {DataModule1: TDataModule},
   UForm.Exemplo.Embeded in 'Forms\Exemplos\UForm.Exemplo.Embeded.pas' {formExemploEmbeded},
@@ -73,7 +73,8 @@ uses
   UClasse.Chamar.Cadastro.Clientes.Ordens in 'Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas',
   UClasse.Localizar.Registro.Especifico in 'Classes\Entity\UClasse.Localizar.Registro.Especifico.pas',
   Form.Localizar.Tecnico.Ordem in 'Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas' {formLocalizarTecnico},
-  UClasse.Entity.Ordem.Adicionar.Servico in 'Classes\Entity\UClasse.Entity.Ordem.Adicionar.Servico.pas';
+  UClasse.Entity.Ordem.Adicionar.Servico in 'Classes\Entity\UClasse.Entity.Ordem.Adicionar.Servico.pas',
+  UClasse.Entity in 'Classes\Entity\UClasse.Entity.pas';
 
 {$R *.res}
 

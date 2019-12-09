@@ -9,7 +9,7 @@ uses
   Vcl.ComCtrls, UInterfaces, UClasse.Entity.Criar.Ordem.Servico, Vcl.Mask,
   Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory, Form.Localizar.Clientes.Ordem,
   Datasnap.DBClient, UClasse.Entity.Ordem.Adicionar.Servico, Form.Ordem.Servico,
-  Form.Principal;
+  Form.Principal, UClasse.Entity.Criar.Ordem.Parcelas, Vcl.DBCtrls;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -111,6 +111,39 @@ type
     cds_tem_servicos_adicionados_editservico: TStringField;
     cds_tem_servicos_adicionados_editValor: TCurrencyField;
     s_tem_servicos_adicionados_edit: TDataSource;
+    SpeedButton6: TSpeedButton;
+    SpeedButton7: TSpeedButton;
+    SpeedButton8: TSpeedButton;
+    SpeedButton9: TSpeedButton;
+    SpeedButton10: TSpeedButton;
+    SpeedButton11: TSpeedButton;
+    DBGrid3: TDBGrid;
+    s_ParcelasOS: TDataSource;
+    DBNavigator1: TDBNavigator;
+    edtNumeroParcela: TEdit;
+    Label30: TLabel;
+    edtValorParcela: TEdit;
+    Label31: TLabel;
+    edtVencimentoParcela: TEdit;
+    Label32: TLabel;
+    edtDescontoParcela: TEdit;
+    Label33: TLabel;
+    edtJurosParcelas: TEdit;
+    Label34: TLabel;
+    edtMultaParcela: TEdit;
+    Label35: TLabel;
+    edtTotalParcela: TEdit;
+    Label36: TLabel;
+    edtDataPagamentoParcela: TDateTimePicker;
+    Label37: TLabel;
+    edtHoraPagamento: TMaskEdit;
+    Label38: TLabel;
+    edtFormaPagamentoParcela: TComboBox;
+    Label39: TLabel;
+    edtPgtoParcela: TComboBox;
+    Label40: TLabel;
+    edtObservacoesParcela: TEdit;
+    Label41: TLabel;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -131,11 +164,13 @@ type
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure s_ParcelasOSDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
   var
     FEntityCriarOrdem: iCriarOrdemServico;
     FEntityServicosOrdem: iAdicionarServicosOrdem;
+    FEntityParcelasOrdem: iParcelaOrdem;
     FEntityTableServicos: iFDTable;
 
     FValorTotalOrdemServico: Currency;
@@ -145,6 +180,9 @@ type
     procedure adicionarServico;
     procedure SomarValoresServicosIncluidos;
     procedure subtrairValoresServicosIncluidos;
+    procedure selecionarOrdem;
+    procedure popularComboBox;
+    procedure abreATabelaDeParcelas;
   public
     { Public declarations }
   end;
@@ -244,6 +282,7 @@ procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
 begin
   FEntityCriarOrdem := TEntityCriarOrdemServico.new;
   FEntityServicosOrdem := TEntityAdicionarItemsOrdem.new;
+  FEntityParcelasOrdem := TEntityGerarParcelas.new;
   FEntityTableServicos := TEntityTable.new;
 
   ReportMemoryLeaksOnShutdown := true;
@@ -252,31 +291,10 @@ end;
 
 procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
-
-  if codigoDaOS <> 0 then
-  begin
-    FEntityCriarOrdem.abrir.getCampo('ID').getValor(codigoDaOS.ToString)
-      .sqlPesquisa.listarGrid(DataSource1);
-
-    FEntityServicosOrdem.abrir.getCampo('ID_ORDEM')
-      .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
-      .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
-
-    edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
-      ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',
-      DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger);
-  end;
-
-  FEntityTableServicos.FD_Table('SERVICOS').retornaTable(s_Servicos);
-
-  TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
-    .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
-    (edtFormaDePagamento);
-
-  TFactory.new.ftTable.FD_Table('SITUACAO_ORDEM')
-    .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox
-    (edtSituacaoOrdem);
-
+  selecionarOrdem;
+  popularComboBox;
+  abreATabelaDeParcelas;
+  edtDataPagamentoParcela.DateTime := date;
 end;
 
 procedure TformCriarConsultarOrdemServico.Panel1MouseDown(Sender: TObject;
@@ -293,7 +311,7 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbCancelarClick(Sender: TObject);
 begin
-FEntityCriarOrdem.cancelar;
+  FEntityCriarOrdem.cancelar;
 end;
 
 procedure TformCriarConsultarOrdemServico.sbEditarClick(Sender: TObject);
@@ -303,7 +321,7 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbExcluirClick(Sender: TObject);
 begin
- FEntityCriarOrdem.deletar;
+  FEntityCriarOrdem.deletar;
 end;
 
 procedure TformCriarConsultarOrdemServico.sbFecharClick(Sender: TObject);
@@ -322,6 +340,7 @@ begin
   edtDesconto.Text := '0';
   edtAcrescimo.Text := '0';
   edtTotalDaOS.Text := '0';
+  edtTotalDeParcelas.Text := '1';
 
   limparDatas;
 
@@ -371,7 +390,8 @@ end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
 begin
- FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID').AsInteger);
+  FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
+    .AsInteger);
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
@@ -403,6 +423,31 @@ begin
 
   end;
 
+end;
+
+procedure TformCriarConsultarOrdemServico.s_ParcelasOSDataChange
+  (Sender: TObject; Field: TField);
+begin
+  with s_ParcelasOS.DataSet do
+  begin
+
+    edtNumeroParcela.Text := IntToStr(FieldByName('PARCELA').AsInteger);
+    edtValorParcela.Text := CurrToStr(FieldByName('VALOR_PARCELA').AsCurrency);
+    edtVencimentoParcela.Text :=
+      DateToStr(FieldByName('DATA_VENCIMENTO').AsDateTime);
+    edtDescontoParcela.Text := CurrToStr(FieldByName('DESCONTO').AsCurrency);
+    edtJurosParcelas.Text := CurrToStr(FieldByName('JUROS').AsFloat);
+    edtMultaParcela.Text := CurrToStr(FieldByName('MULTA').AsCurrency);
+    edtTotalParcela.Text := CurrToStr(FieldByName('VALOR_TOTAL').AsCurrency);
+    edtDataPagamentoParcela.DateTime := FieldByName('DATA_PAGAMENTO')
+      .AsDateTime;
+    edtHoraPagamento.Text := TimeToStr(FieldByName('HORA_PAGAMENTO')
+      .AsDateTime);
+    edtFormaPagamentoParcela.Text := FieldByName('FORMA_PAGAMENTO').AsString;
+    edtPGTO.Text := FieldByName('PGTO').AsString;
+    edtObservacoesParcela.Text := FieldByName('OBSERVACAO').AsString;
+
+  end;
 end;
 
 procedure TformCriarConsultarOrdemServico.s_ServicosDataChange(Sender: TObject;
@@ -499,6 +544,49 @@ begin
 
   cds_tem_servicos_adicionados.Delete;
 
+end;
+
+procedure TformCriarConsultarOrdemServico.selecionarOrdem;
+begin
+  if codigoDaOS <> 0 then
+  begin
+    FEntityCriarOrdem.abrir.getCampo('ID').getValor(codigoDaOS.ToString)
+      .sqlPesquisa.listarGrid(DataSource1);
+    FEntityServicosOrdem.abrir.getCampo('ID_ORDEM')
+      .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
+      .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
+    FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM')
+      .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
+      .sqlPesquisa.listarGrid(s_ParcelasOS);
+    edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
+      ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',
+      DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger);
+  end;
+end;
+
+procedure TformCriarConsultarOrdemServico.popularComboBox;
+begin
+
+  FEntityTableServicos.FD_Table('SERVICOS').retornaTable(s_Servicos);
+
+  TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
+    .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
+    (edtFormaDePagamento);
+
+  TFactory.new.ftTable.FD_Table('SITUACAO_ORDEM')
+    .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox
+    (edtSituacaoOrdem);
+
+  TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
+    .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
+    (edtFormaPagamentoParcela);
+
+end;
+
+procedure TformCriarConsultarOrdemServico.abreATabelaDeParcelas;
+begin
+  FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM').getValor('0')
+    .sqlPesquisa.listarGrid(s_ParcelasOS);
 end;
 
 end.

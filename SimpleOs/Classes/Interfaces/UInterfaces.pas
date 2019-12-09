@@ -991,8 +991,55 @@ type
 
   end;
 
-  iPacelaOrdem = interface
+  iParcelaOrdem = interface
     ['{7B51AACF-1531-4749-B330-411CCEFD4CC6}']
+
+    function nomeTabela(value: string): iParcelaOrdem;
+    function getCampo(value: string): iParcelaOrdem;
+    function getValor(value: string): iParcelaOrdem;
+    function getDataInicial(value: TDate): iParcelaOrdem;
+    function getDataFinal(value: TDate): iParcelaOrdem;
+    function open(value: string): iParcelaOrdem;
+    function pesquisar: iParcelaOrdem;
+    function ExecSql: iParcelaOrdem;
+    function sqlPesquisa: iParcelaOrdem;
+    function sqlPesquisaData: iParcelaOrdem;
+    function sqlPesquisaEstatica: iParcelaOrdem;
+
+    function abrir: iParcelaOrdem;
+    function inserir: iParcelaOrdem;
+    function gravar: iParcelaOrdem;
+    function deletar: iParcelaOrdem;
+    function atualizar: iParcelaOrdem;
+    function editar: iParcelaOrdem;
+    function cancelar: iParcelaOrdem;
+    function fecharQuery: iParcelaOrdem;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iParcelaOrdem;
+    function ordenarGrid(column: TColumn): iParcelaOrdem;
+
+    function getID(value: integer): iParcelaOrdem;
+    function getID_ORDEM(value: integer): iParcelaOrdem;
+    function getID_CLIENTE(value: integer): iParcelaOrdem;
+    function getTOTAL_PARCELAS(value: integer): iParcelaOrdem;
+    function getPARCELA(value: integer): iParcelaOrdem;
+    function getVALOR_PARCELA(value: currency): iParcelaOrdem;
+    function getDATA_VENCIMENTO(value: string): iParcelaOrdem;
+    function getDesconto(value: string): iParcelaOrdem;
+    function getJuros(value: string): iParcelaOrdem;
+    function getMulta(value: string): iParcelaOrdem;
+    function getVALOR_TOTAL(value: string): iParcelaOrdem;
+    function getDATA_PAGAMENTO(value: string): iParcelaOrdem;
+    function getHORA_PAGAMENTO(value: string): iParcelaOrdem;
+    function getFORMA_PAGAMENTO(value: string): iParcelaOrdem;
+    function getPGTO(value: string): iParcelaOrdem;
+    function getID_FUNCIONARIO(value: integer): iParcelaOrdem;
+    function getNOME_FUNCIONARIO(value: string): iParcelaOrdem;
+    function getObservacao(value: string): iParcelaOrdem;
+
+    function exportar: iParcelaOrdem;
+    function gerarParcelas: iParcelaOrdem;
+
   end;
 
   iNivelAcessoFuncionario = interface

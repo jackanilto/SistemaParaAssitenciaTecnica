@@ -113,7 +113,7 @@
         <DCCReference Include="Classes\Interfaces\UInterfaces.pas"/>
         <DCCReference Include="Classes\Factory\UFactory.Entity.pas"/>
         <DCCReference Include="Classes\Factory\UFactory.Query.pas"/>
-        <DCCReference Include="Classes\Entity\UClasse.Entity.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Criar.Ordem.Parcelas.pas"/>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Table.pas"/>
         <DCCReference Include="DataModule\UDados.Conexao.pas">
             <Form>DataModule1</Form>
@@ -266,6 +266,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Ordem.Adicionar.Servico.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

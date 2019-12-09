@@ -646,7 +646,9 @@ begin
   result := self;
 
   if value = EmptyStr then
-    FTOTAL_PARCELAS := 0
+    FTOTAL_PARCELAS := 1
+  else if value = '0' then
+    FTOTAL_PARCELAS := 1
   else
     FTOTAL_PARCELAS := value.ToInteger;
 
