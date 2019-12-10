@@ -194,8 +194,53 @@ begin
 end;
 
 function TEntityGerarParcelas.gerarParcelas: iParcelaOrdem;
+var
+  parcelaAtual: integer;
+  vencimento: TDate;
 begin
   result := self;
+
+  parcelaAtual := 1;
+  vencimento := strtodate(FDATA_VENCIMENTO);
+
+  while parcelaAtual <= FTOTAL_PARCELAS do
+  begin
+
+    FQuery.TQuery.open;
+    FQuery.TQuery.Append;
+
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
+
+    with FQuery.TQuery do
+    begin
+      FieldByName('ID_ORDEM').AsInteger := FID_ORDEM;
+      FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+      FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
+      FieldByName('PARCELA').AsInteger := parcelaAtual;
+      FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
+      FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
+      FieldByName('PGTO').AsString := 'Não';
+    end;
+
+    try
+
+      FQuery.TQuery.Post;
+
+      inc(parcelaAtual);
+      vencimento := IncMonth(vencimento, 1)
+
+    except
+      on e: exception do
+      begin
+        raise exception.create('Erro ao tentar Gerar as parcelas. ' +
+          e.Message);
+      end;
+
+    end;
+
+  end;
+
 end;
 
 function TEntityGerarParcelas.getCampo(value: string): iParcelaOrdem;
@@ -254,7 +299,7 @@ begin
   try
     FDESCONTO := StrToCurr(value);
   except
-    raise Exception.create
+    raise exception.create
       ('Informe um valor válido para o desconto da parcela.');
 
   end;
@@ -288,7 +333,7 @@ begin
   result := self;
 
   if value = 0 then
-    raise Exception.create('Informe um cliente para esta parcela.');
+    raise exception.create('Informe um cliente para esta parcela.');
 
   FID_CLIENTE := value
 
@@ -304,7 +349,7 @@ function TEntityGerarParcelas.getID_ORDEM(value: integer): iParcelaOrdem;
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Informe o código do orçamento.');
+    raise exception.create('Informe o código do orçamento.');
 
   FID_ORDEM := value;
 
@@ -316,7 +361,7 @@ begin
   try
     FJUROS := StrToFloat(value);
   except
-    raise Exception.create
+    raise exception.create
       ('Informe um valor válido para o campo juros da parcela.');
 
   end;
@@ -328,7 +373,7 @@ begin
   try
     FMULTA := StrToCurr(value);
   except
-    raise Exception.create('Informe um valor válido para a Multa da parccela.');
+    raise exception.create('Informe um valor válido para a Multa da parccela.');
 
   end;
 
@@ -358,7 +403,7 @@ function TEntityGerarParcelas.getPARCELA(value: integer): iParcelaOrdem;
 begin
   result := self;
   if value = 0 then
-    raise Exception.create
+    raise exception.create
       ('Informe um valor superior a 0(Zero) para o número da parcela.');
 end;
 
@@ -385,7 +430,7 @@ function TEntityGerarParcelas.getVALOR_PARCELA(value: Currency): iParcelaOrdem;
 begin
   result := self;
   if value = 0 then
-    raise Exception.create
+    raise exception.create
       ('informe um valor deferente de 0(Zero) para o valor da parcela.');
   FVALOR_PARCELA := value;
 end;
@@ -396,7 +441,7 @@ begin
   try
     FVALOR_TOTAL := StrToCurr(value);
   except
-    raise Exception.create
+    raise exception.create
       ('Digite um valor válido para o Valor total da parcela.');
   end;
 end;
@@ -418,9 +463,9 @@ begin
   try
     FQuery.TQuery.Post;
   except
-    on e: Exception do
+    on e: exception do
     begin
-      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
 
   end;
@@ -528,7 +573,7 @@ begin
   except
     componet.SetFocus;
     componet.Clear;
-    raise Exception.create('Digite uma data válida.');
+    raise exception.create('Digite uma data válida.');
   end;
 end;
 

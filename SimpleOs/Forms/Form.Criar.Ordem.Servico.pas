@@ -83,15 +83,9 @@ type
     edtDesconto: TEdit;
     edtAcrescimo: TEdit;
     Label23: TLabel;
-    edtFormaDePagamento: TComboBox;
-    Label24: TLabel;
-    Label25: TLabel;
-    edtParcelado: TComboBox;
     Label26: TLabel;
     edtTotalDeParcelas: TEdit;
-    Label27: TLabel;
-    edtPGTO: TComboBox;
-    edtDataDePagamento: TMaskEdit;
+    edtDataBaseVencimento: TMaskEdit;
     Label28: TLabel;
     GroupBox3: TGroupBox;
     DBGrid2: TDBGrid;
@@ -144,6 +138,8 @@ type
     Label40: TLabel;
     edtObservacoesParcela: TEdit;
     Label41: TLabel;
+    edtValorOrdemParcelado: TEdit;
+    Label24: TLabel;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -218,11 +214,8 @@ begin
     edtTotalDaOS.Text := CurrToStr(FieldByName('TOTAL_ORCAMENTO').AsCurrency);
     edtRetorno.Text := FieldByName('RETORNO').AsString;
     edtSituacaoOrdem.Text := FieldByName('SITUACAO_DA_ORDEM').AsString;
-    edtFormaDePagamento.Text := FieldByName('FORMA_PAGAMENTO').AsString;
-    edtParcelado.Text := FieldByName('PARCELADO').AsString;
     edtTotalDeParcelas.Text := IntToStr(FieldByName('TOTAL_PARCELAS')
       .AsInteger);
-    edtPGTO.Text := FieldByName('PGTO').AsString;
     edtPrioridade.Text := FieldByName('PRIORIDADE').AsString;
     edtTecnicoResponsavel.Text := FieldByName('TECNICO_RESPONSAVEL').AsString;
     edtObservacao.Text := FieldByName('OBSERVACAO').AsString;
@@ -247,10 +240,10 @@ begin
       edtDataDeSaida.Text := DateToStr(FieldByName('DATA_FINALIZACAO')
         .AsDateTime);
 
-    if DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime <>
+    if DataSource1.DataSet.FieldByName('DATA_BASE_VENCIMENTO').AsDateTime <>
       StrToDate('30/12/1899') then
-      edtDataDePagamento.Text :=
-        DateToStr(FieldByName('DATA_PAGAMENTO').AsDateTime);
+      edtDataBaseVencimento.Text :=
+        DateToStr(FieldByName('DATA_BASE_VENCIMENTO').AsDateTime);
 
   end;
 end;
@@ -372,10 +365,9 @@ begin
     .getRETORNO(edtRetorno.Text).getDATA_RETORNO(edtDataRetorno.Text)
     .getObservacao(edtObservacao.Text).getVALOR_DA_ORDEM(edtValorOrdem.Text)
     .getDesconto(edtDesconto.Text).getACRESCIMO(edtAcrescimo.Text)
-    .getTotalDoOrcamento(edtTotalDaOS.Text).getPARCELADO(edtParcelado.Text)
-    .getTOTAL_PARCELAS(edtTotalDeParcelas.Text).getFORMA_PAGAMENTO
-    (edtFormaDePagamento.Text).getDataPagamento(edtDataDePagamento.Text)
-    .getPGTO(edtPGTO.Text).gravar;
+    .getTotalDoOrcamento(edtTotalDaOS.Text).getTOTAL_PARCELAS
+    (edtTotalDeParcelas.Text).getDataBaseVencimento(edtDataBaseVencimento.Text)
+    .getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text).gravar;
 
   if estado = 'insert' then
     FEntityServicosOrdem.gravarServicosAdicionadosInsert
@@ -385,6 +377,15 @@ begin
       (cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
 
   showmessage('Ordem de Serviço inserida com sucesso');
+
+  FEntityParcelasOrdem.getID_ORDEM(FEntityCriarOrdem.setId)
+    .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
+    .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
+    .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
+    .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
+    .gerarParcelas;
+
+  showmessage('Parcelas geradas com sucesso!');
 
 end;
 
@@ -444,7 +445,7 @@ begin
     edtHoraPagamento.Text := TimeToStr(FieldByName('HORA_PAGAMENTO')
       .AsDateTime);
     edtFormaPagamentoParcela.Text := FieldByName('FORMA_PAGAMENTO').AsString;
-    edtPGTO.Text := FieldByName('PGTO').AsString;
+    edtPgtoParcela.Text := FieldByName('PGTO').AsString;
     edtObservacoesParcela.Text := FieldByName('OBSERVACAO').AsString;
 
   end;
@@ -466,7 +467,7 @@ begin
   edtDataEntrada.Clear;
   edtDataDeSaida.Clear;
   edtDataRetorno.Clear;
-  edtDataDePagamento.Clear;
+  edtDataBaseVencimento.Clear;
   edtHoraSaida.Text := '00:00:00';
 end;
 
@@ -568,10 +569,6 @@ procedure TformCriarConsultarOrdemServico.popularComboBox;
 begin
 
   FEntityTableServicos.FD_Table('SERVICOS').retornaTable(s_Servicos);
-
-  TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
-    .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
-    (edtFormaDePagamento);
 
   TFactory.new.ftTable.FD_Table('SITUACAO_ORDEM')
     .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox

@@ -1634,3 +1634,18 @@ like
 08/12/19 14:46:53 - Caption: Criar / Consultar ordem de serviço
 08/12/19 14:46:53 - Erro:EAccessViolation
 08/12/19 14:46:53 - Erro:Access violation at address 006C8EBE in module 'SimplesOS.exe'. Read of address 00000040
+09/12/19 21:12:03 - ===========================================
+09/12/19 21:12:03 - Form: formCriarConsultarOrdemServico
+09/12/19 21:12:03 - Caption: Criar / Consultar ordem de serviço
+09/12/19 21:12:03 - Erro:Exception
+09/12/19 21:12:03 - Erro:Informe um valor para o campo Valor da Ordem.
+09/12/19 21:12:09 - ===========================================
+09/12/19 21:12:09 - Form: formCriarConsultarOrdemServico
+09/12/19 21:12:09 - Caption: Criar / Consultar ordem de serviço
+09/12/19 21:12:09 - Erro:Exception
+09/12/19 21:12:09 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+09/12/19 21:12:13 - ===========================================
+09/12/19 21:12:13 - Form: formCriarConsultarOrdemServico
+09/12/19 21:12:13 - Caption: Criar / Consultar ordem de serviço
+09/12/19 21:12:13 - Erro:Exception
+09/12/19 21:12:13 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo

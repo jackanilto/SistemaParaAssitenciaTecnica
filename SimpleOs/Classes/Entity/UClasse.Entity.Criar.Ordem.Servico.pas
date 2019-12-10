@@ -39,15 +39,14 @@ type
     FRETORNO: string;
     FDATA_RETORNO: string;
     FSITUACAO_DA_ORDEM: string;
-    FFORMA_PAGAMENTO: string;
-    FPARCELADO: string;
     FTOTAL_PARCELAS: integer;
+    FVALOR_DA_PARCELA: Currency;
     FPGTO: string;
     FPRIORIDADE: string;
     FDATA_ENTRADA: string;
     FDATA_FINALIZACAO: string;
     FHORA_FINALIZACAO: string;
-    FDATA_PAGAMENTO: string;
+    FDATA_BASE_VENCIMENTO: string;
     FOBSERVACAO: string;
     FSTATUS: string;
     FID_TECNICO_RESPONSAVEL: integer;
@@ -106,23 +105,27 @@ type
     function getRETORNO(value: string): iCriarOrdemServico;
     function getDATA_RETORNO(value: string): iCriarOrdemServico;
     function getSITUACAO_DA_ORDEM(value: string): iCriarOrdemServico;
-    function getFORMA_PAGAMENTO(value: string): iCriarOrdemServico;
-    function getPARCELADO(value: string): iCriarOrdemServico;
     function getTOTAL_PARCELAS(value: string): iCriarOrdemServico;
-    function getPGTO(value: string): iCriarOrdemServico;
+    function getVALOR_DA_PARCELA(value: string): iCriarOrdemServico;
     function getPRIORIDADE(value: string): iCriarOrdemServico;
     function getDataCadastro(value: string): iCriarOrdemServico;
     function getDataFinalizacao(value: string): iCriarOrdemServico;
     function getHoraFinalizacao(value: string): iCriarOrdemServico;
-    function getDataPagamento(value: string): iCriarOrdemServico;
+    function getDataBaseVencimento(value: string): iCriarOrdemServico;
     function getOBSERVACAO(value: string): iCriarOrdemServico;
     function getSTATUS(value: string): iCriarOrdemServico;
     function getIdTecnico(value: string): iCriarOrdemServico;
     function getTecnico(value: string): iCriarOrdemServico;
+
     function setId: integer;
+    function setId_Cliente: integer;
+    function setTotalDeParcelas: integer;
+    function setValorDaParcelas: Currency;
+    function setDataBaseVencimento: TDate;
 
     function calcularDesconto(valor, desconto: TEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
+    function calularTotalPorNumeroDeParcela(total, qtde: TEdit): string;
     // function calcularValorTotal():string;
 
     function exportar: iCriarOrdemServico;
@@ -242,6 +245,30 @@ begin
 
 end;
 
+function TEntityCriarOrdemServico.calularTotalPorNumeroDeParcela(total,
+  qtde: TEdit): string;
+var
+  valor: Currency;
+  quantidade: integer;
+begin
+
+  try
+    valor := StrToCurr(total.Text);
+  except
+    raise exception.create
+      ('Informe um número válido para o campo Total Da OS.');
+  end;
+
+  try
+    quantidade := StrToInt(qtde.Text);
+  except
+    raise exception.create('Informe um número válido para a quantidade.');
+  end;
+
+  { continuar a códificação }
+
+end;
+
 function TEntityCriarOrdemServico.cancelar: iCriarOrdemServico;
 begin
   FQuery.TQuery.Cancel;
@@ -276,15 +303,15 @@ begin
     FDATA_FINALIZACAO := value;
 end;
 
-function TEntityCriarOrdemServico.getDataPagamento(value: string)
+function TEntityCriarOrdemServico.getDataBaseVencimento(value: string)
   : iCriarOrdemServico;
 begin
   result := self;
 
   if value = '  /  /    ' then
-    FDATA_PAGAMENTO := ''
+    FDATA_BASE_VENCIMENTO := ''
   else
-    FDATA_PAGAMENTO := value;
+    FDATA_BASE_VENCIMENTO := value;
 end;
 
 function TEntityCriarOrdemServico.deletar: iCriarOrdemServico;
@@ -483,13 +510,6 @@ begin
   FEQUIPAMENTO := value;
 end;
 
-function TEntityCriarOrdemServico.getFORMA_PAGAMENTO(value: string)
-  : iCriarOrdemServico;
-begin
-  result := self;
-  FFORMA_PAGAMENTO := value;
-end;
-
 function TEntityCriarOrdemServico.getHoraFinalizacao(value: string)
   : iCriarOrdemServico;
 begin
@@ -571,22 +591,6 @@ function TEntityCriarOrdemServico.getOBSERVACAO(value: string)
 begin
   result := self;
   FOBSERVACAO := value;
-end;
-
-function TEntityCriarOrdemServico.getPARCELADO(value: string)
-  : iCriarOrdemServico;
-begin
-  result := self;
-  FPARCELADO := value;
-end;
-
-function TEntityCriarOrdemServico.getPGTO(value: string): iCriarOrdemServico;
-begin
-  result := self;
-  if value = EmptyStr then
-    FPGTO := 'Não'
-  else
-    FPGTO := value;
 end;
 
 function TEntityCriarOrdemServico.getPRIORIDADE(value: string)
@@ -674,6 +678,19 @@ begin
   end;
 end;
 
+function TEntityCriarOrdemServico.getVALOR_DA_PARCELA(value: string)
+  : iCriarOrdemServico;
+begin
+  result := self;
+
+  try
+    FVALOR_DA_PARCELA := StrToCurr(value);
+  except
+    raise exception.create('Informe um valor válido para o Valor da Parcela.');
+  end;
+
+end;
+
 function TEntityCriarOrdemServico.Gravar: iCriarOrdemServico;
 begin
 
@@ -702,10 +719,9 @@ begin
     FieldByName('NOME_FUNCIONARIO').AsString := nomeFuncionarioLogado;
     FieldByName('RETORNO').AsString := FRETORNO;
     FieldByName('SITUACAO_DA_ORDEM').AsString := FSITUACAO_DA_ORDEM;
-    FieldByName('FORMA_PAGAMENTO').AsString := FFORMA_PAGAMENTO;
-    FieldByName('PARCELADO').AsString := FPARCELADO;
     FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
-    FieldByName('PGTO').AsString := FPGTO;
+    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_ORDEM;
+    // FieldByName('PGTO').Visible := False;
     FieldByName('PRIORIDADE').AsString := FPRIORIDADE;
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
     FieldByName('STATUS').AsString := FSTATUS;
@@ -724,8 +740,9 @@ begin
       FieldByName('DATA_FINALIZACAO').AsDateTime :=
         StrToDate(FDATA_FINALIZACAO);
 
-    if FDATA_PAGAMENTO <> '' then
-      FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO);
+    if FDATA_BASE_VENCIMENTO <> '' then
+      FieldByName('DATA_BASE_VENCIMENTO').AsDateTime :=
+        StrToDate(FDATA_BASE_VENCIMENTO);
 
     FGravarLog.getNomeRegistro(FieldByName('EQUIPAMENTO').AsString)
       .getCodigoRegistro(FieldByName('id').AsInteger).gravarLog;
@@ -838,9 +855,29 @@ begin
   result := self;
 end;
 
+function TEntityCriarOrdemServico.setDataBaseVencimento: TDate;
+begin
+  result := StrToDate(FDATA_BASE_VENCIMENTO);
+end;
+
 function TEntityCriarOrdemServico.setId: integer;
 begin
   result := FID;
+end;
+
+function TEntityCriarOrdemServico.setId_Cliente: integer;
+begin
+  result := FID_CLIENTE;
+end;
+
+function TEntityCriarOrdemServico.setTotalDeParcelas: integer;
+begin
+  result := FTOTAL_PARCELAS;
+end;
+
+function TEntityCriarOrdemServico.setValorDaParcelas: Currency;
+begin
+  result := FVALOR_DA_PARCELA;
 end;
 
 function TEntityCriarOrdemServico.sqlPesquisa: iCriarOrdemServico;

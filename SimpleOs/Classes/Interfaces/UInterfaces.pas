@@ -915,20 +915,22 @@ type
     function getRETORNO(value: string): iCriarOrdemServico;
     function getDATA_RETORNO(value: string): iCriarOrdemServico;
     function getSITUACAO_DA_ORDEM(value: string): iCriarOrdemServico;
-    function getFORMA_PAGAMENTO(value: String): iCriarOrdemServico;
-    function getPARCELADO(value: string): iCriarOrdemServico;
     function getTOTAL_PARCELAS(value: string): iCriarOrdemServico;
-    function getPGTO(value: string): iCriarOrdemServico;
+    function getVALOR_DA_PARCELA(value: string): iCriarOrdemServico;
     function getPRIORIDADE(value: string): iCriarOrdemServico;
     function getDataCadastro(value: string): iCriarOrdemServico;
     function getDataFinalizacao(value: string): iCriarOrdemServico;
     function getHoraFinalizacao(value: string): iCriarOrdemServico;
-    function getDataPagamento(value: string): iCriarOrdemServico;
+    function getDataBaseVencimento(value: string): iCriarOrdemServico;
     function getObservacao(value: string): iCriarOrdemServico;
     function getSTATUS(value: string): iCriarOrdemServico;
     function getIdTecnico(value: string): iCriarOrdemServico;
     function getTecnico(value: string): iCriarOrdemServico;
     function setId: integer;
+    function setId_Cliente: integer;
+    function setTotalDeParcelas: integer;
+    function setValorDaParcelas: currency;
+    function setDataBaseVencimento: TDate;
 
     function calcularDesconto(valor, desconto: TEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
