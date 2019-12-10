@@ -262,10 +262,16 @@ begin
   try
     quantidade := StrToInt(qtde.Text);
   except
-    raise exception.create('Informe um número válido para a quantidade.');
+    begin
+      qtde.Text := '1';
+      raise exception.create('Informe um número válido para a quantidade.');
+    end;
   end;
 
-  { continuar a códificação }
+  if ((valor <> 0) and (quantidade <> 0)) then
+  begin
+    result := CurrToStr(valor / quantidade);
+  end;
 
 end;
 
@@ -796,14 +802,14 @@ begin
     FieldByName('RETORNO').DisplayLabel := 'Retorno';
     FieldByName('DATA_RETORNO').DisplayLabel := 'Data do retorno';
     FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'situação da ordem';
-    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
-    FieldByName('PARCELADO').DisplayLabel := 'Parcelado';
+//    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
+//    FieldByName('PARCELADO').DisplayLabel := 'Parcelado';
     FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
     FieldByName('PGTO').DisplayLabel := 'PGTO';
     FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
     FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
     FieldByName('DATA_FINALIZACAO').DisplayLabel := 'DAta de finaliação';
-    FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Data de pagamento';
+//    FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Data de pagamento';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
     FieldByName('STATUS').DisplayLabel := 'Status';
 

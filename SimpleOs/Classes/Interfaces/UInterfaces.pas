@@ -934,6 +934,7 @@ type
 
     function calcularDesconto(valor, desconto: TEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
+    function calularTotalPorNumeroDeParcela(total, qtde: TEdit): string;
 
     function estadoDaTabela: string;
 

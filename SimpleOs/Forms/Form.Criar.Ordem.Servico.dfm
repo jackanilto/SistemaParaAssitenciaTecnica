@@ -124,7 +124,7 @@
     Top = 41
     Width = 973
     Height = 469
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbOrdemServiço
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -692,9 +692,9 @@
           object Label24: TLabel
             Left = 484
             Top = 25
-            Width = 93
+            Width = 112
             Height = 17
-            Caption = 'Valor parcelado'
+            Caption = 'Valor parcelado R$'
           end
           object edtValorOrdem: TEdit
             Left = 16
@@ -729,6 +729,7 @@
             Height = 25
             CharCase = ecUpperCase
             TabOrder = 3
+            OnExit = edtTotalDeParcelasExit
           end
           object edtDataBaseVencimento: TMaskEdit
             Left = 369
@@ -747,6 +748,7 @@
             Height = 25
             CharCase = ecUpperCase
             TabOrder = 5
+            OnExit = edtTotalDaOSExit
           end
           object edtValorOrdemParcelado: TEdit
             Left = 484

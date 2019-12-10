@@ -210,7 +210,7 @@ begin
     FQuery.TQuery.Append;
 
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
+      FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
 
     with FQuery.TQuery do
     begin

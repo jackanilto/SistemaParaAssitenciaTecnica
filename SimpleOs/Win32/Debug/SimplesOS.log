@@ -1649,3 +1649,78 @@ like
 09/12/19 21:12:13 - Caption: Criar / Consultar ordem de serviço
 09/12/19 21:12:13 - Erro:Exception
 09/12/19 21:12:13 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+10/12/19 12:06:35 - ===========================================
+10/12/19 12:06:35 - Form: formCriarConsultarOrdemServico
+10/12/19 12:06:35 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:06:35 - Erro:Exception
+10/12/19 12:06:35 - Erro:Informe um número válido para a quantidade.
+10/12/19 12:06:38 - ===========================================
+10/12/19 12:06:38 - Form: formCriarConsultarOrdemServico
+10/12/19 12:06:38 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:06:38 - Erro:EInvalidOperation
+10/12/19 12:06:38 - Erro:Cannot focus a disabled or invisible window
+10/12/19 12:06:45 - ===========================================
+10/12/19 12:06:45 - Form: formCriarConsultarOrdemServico
+10/12/19 12:06:45 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:06:45 - Erro:Exception
+10/12/19 12:06:45 - Erro:Informe um número válido para a quantidade.
+10/12/19 12:06:47 - ===========================================
+10/12/19 12:06:47 - Form: formCriarConsultarOrdemServico
+10/12/19 12:06:47 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:06:47 - Erro:EInvalidOperation
+10/12/19 12:06:47 - Erro:Cannot focus a disabled or invisible window
+10/12/19 12:14:52 - ===========================================
+10/12/19 12:14:52 - Form: formCriarConsultarOrdemServico
+10/12/19 12:14:52 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:14:52 - Erro:EFDException
+10/12/19 12:14:52 - Erro:[FireDAC][Phys][FB]-306. Command [TFDStoredProc($04763630)] text must be not empty
+10/12/19 12:21:30 - ===========================================
+10/12/19 12:21:30 - Form: formCriarConsultarOrdemServico
+10/12/19 12:21:30 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:21:30 - Erro:Exception
+10/12/19 12:21:30 - Erro:Informe um valor válido para o Valor da Parcela.
+10/12/19 12:22:20 - ===========================================
+10/12/19 12:22:20 - Form: formCriarConsultarOrdemServico
+10/12/19 12:22:20 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:22:20 - Erro:EFDException
+10/12/19 12:22:20 - Erro:[FireDAC][Phys][FB]-306. Command [TFDStoredProc($04973630)] text must be not empty
+10/12/19 12:25:21 - ===========================================
+10/12/19 12:25:21 - Form: formCriarConsultarOrdemServico
+10/12/19 12:25:21 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:25:21 - Erro:EDatabaseError
+10/12/19 12:25:21 - Erro:Field 'FORMA_PAGAMENTO' not found
+10/12/19 12:25:35 - ===========================================
+10/12/19 12:25:35 - Form: formCriarConsultarOrdemServico
+10/12/19 12:25:35 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:25:35 - Erro:EDatabaseError
+10/12/19 12:25:35 - Erro:Field 'FORMA_PAGAMENTO' not found
+10/12/19 12:27:07 - ===========================================
+10/12/19 12:27:07 - Form: formCriarConsultarOrdemServico
+10/12/19 12:27:07 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:27:07 - Erro:EDatabaseError
+10/12/19 12:27:07 - Erro:Field 'FORMA_PAGAMENTO' not found
+10/12/19 12:28:32 - ===========================================
+10/12/19 12:28:32 - Form: formCriarConsultarOrdemServico
+10/12/19 12:28:32 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:28:32 - Erro:EDatabaseError
+10/12/19 12:28:32 - Erro:Field 'FORMA_PAGAMENTO' not found
+10/12/19 12:33:14 - ===========================================
+10/12/19 12:33:14 - Form: formCriarConsultarOrdemServico
+10/12/19 12:33:14 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:33:14 - Erro:EDatabaseError
+10/12/19 12:33:14 - Erro:Field 'FORMA_PAGAMENTO' not found
+10/12/19 12:35:01 - ===========================================
+10/12/19 12:35:01 - Form: formCriarConsultarOrdemServico
+10/12/19 12:35:01 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:35:01 - Erro:EDatabaseError
+10/12/19 12:35:01 - Erro:Field 'PARCELADO' not found
+10/12/19 12:39:22 - ===========================================
+10/12/19 12:39:22 - Form: formCriarConsultarOrdemServico
+10/12/19 12:39:22 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:39:22 - Erro:EDatabaseError
+10/12/19 12:39:22 - Erro:Field 'PARCELADO' not found
+10/12/19 12:39:48 - ===========================================
+10/12/19 12:39:48 - Form: formCriarConsultarOrdemServico
+10/12/19 12:39:48 - Caption: Criar / Consultar ordem de serviço
+10/12/19 12:39:48 - Erro:EDatabaseError
+10/12/19 12:39:48 - Erro:Field 'DATA_PAGAMENTO' not found
