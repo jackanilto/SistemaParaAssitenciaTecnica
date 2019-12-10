@@ -91,6 +91,10 @@ type
 
     function exportar: iParcelaOrdem;
     function gerarParcelas: iParcelaOrdem;
+    function getMontante(value: Currency): iParcelaOrdem;
+    function getJurosPorAtraso(value: Real): iParcelaOrdem;
+    function getMultaPorAtraso(value: Currency): iParcelaOrdem;
+    function calularJuros: string;
 
     constructor create;
     destructor destroy; override;
@@ -148,8 +152,8 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsInteger)
-        .gravarLog;
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID')
+        .AsInteger.ToString).gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -194,8 +198,53 @@ begin
 end;
 
 function TEntityGerarParcelas.gerarParcelas: iParcelaOrdem;
+var
+  parcelaAtual: integer;
+  vencimento: TDate;
 begin
   result := self;
+
+  parcelaAtual := 1;
+  vencimento := strtodate(FDATA_VENCIMENTO);
+
+  while parcelaAtual <= FTOTAL_PARCELAS do
+  begin
+
+    FQuery.TQuery.open;
+    FQuery.TQuery.Append;
+
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
+
+    with FQuery.TQuery do
+    begin
+      FieldByName('ID_ORDEM').AsInteger := FID_ORDEM;
+      FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+      FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
+      FieldByName('PARCELA').AsInteger := parcelaAtual;
+      FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
+      FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
+      FieldByName('PGTO').AsString := 'Não';
+    end;
+
+    try
+
+      FQuery.TQuery.Post;
+
+      inc(parcelaAtual);
+      vencimento := IncMonth(vencimento, 1)
+
+    except
+      on e: exception do
+      begin
+        raise exception.create('Erro ao tentar Gerar as parcelas. ' +
+          e.Message);
+      end;
+
+    end;
+
+  end;
+
 end;
 
 function TEntityGerarParcelas.getCampo(value: string): iParcelaOrdem;
@@ -254,7 +303,7 @@ begin
   try
     FDESCONTO := StrToCurr(value);
   except
-    raise Exception.create
+    raise exception.create
       ('Informe um valor válido para o desconto da parcela.');
 
   end;
@@ -288,7 +337,7 @@ begin
   result := self;
 
   if value = 0 then
-    raise Exception.create('Informe um cliente para esta parcela.');
+    raise exception.create('Informe um cliente para esta parcela.');
 
   FID_CLIENTE := value
 
@@ -304,7 +353,7 @@ function TEntityGerarParcelas.getID_ORDEM(value: integer): iParcelaOrdem;
 begin
   result := self;
   if value = 0 then
-    raise Exception.create('Informe o código do orçamento.');
+    raise exception.create('Informe o código do orçamento.');
 
   FID_ORDEM := value;
 
@@ -316,7 +365,7 @@ begin
   try
     FJUROS := StrToFloat(value);
   except
-    raise Exception.create
+    raise exception.create
       ('Informe um valor válido para o campo juros da parcela.');
 
   end;
@@ -328,7 +377,7 @@ begin
   try
     FMULTA := StrToCurr(value);
   except
-    raise Exception.create('Informe um valor válido para a Multa da parccela.');
+    raise exception.create('Informe um valor válido para a Multa da parccela.');
 
   end;
 
@@ -358,7 +407,7 @@ function TEntityGerarParcelas.getPARCELA(value: integer): iParcelaOrdem;
 begin
   result := self;
   if value = 0 then
-    raise Exception.create
+    raise exception.create
       ('Informe um valor superior a 0(Zero) para o número da parcela.');
 end;
 
@@ -385,7 +434,7 @@ function TEntityGerarParcelas.getVALOR_PARCELA(value: Currency): iParcelaOrdem;
 begin
   result := self;
   if value = 0 then
-    raise Exception.create
+    raise exception.create
       ('informe um valor deferente de 0(Zero) para o valor da parcela.');
   FVALOR_PARCELA := value;
 end;
@@ -396,7 +445,7 @@ begin
   try
     FVALOR_TOTAL := StrToCurr(value);
   except
-    raise Exception.create
+    raise exception.create
       ('Digite um valor válido para o Valor total da parcela.');
   end;
 end;
@@ -408,20 +457,19 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+      FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
 
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+  // FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
     .gravarLog;
 
   try
     FQuery.TQuery.Post;
   except
-    on e: Exception do
+    on e: exception do
     begin
-      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
 
   end;
@@ -440,9 +488,30 @@ begin
 
   result := self;
 
-  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
-  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+  with FQuery.TQuery do
+  begin
+    FieldByName('id').DisplayLabel := 'Código';
+    FieldByName('ID_ORDEM').DisplayLabel := 'Código OS';
+    FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
+    FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
+    FieldByName('PARCELA').DisplayLabel := 'Parcela';
+    FieldByName('VALOR_PARCELA').DisplayLabel := 'Valor da parcela';
+    FieldByName('DATA_VENCIMENTO').DisplayLabel := 'vencimento';
+    FieldByName('DESCONTO').DisplayLabel := 'Desconto';
+    FieldByName('JUROS').DisplayLabel := 'Juros';
+    FieldByName('MULTA').DisplayLabel := 'Multa';
+    FieldByName('VALOR_TOTAL').DisplayLabel := 'Valor total';
+    FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Pagamento';
+    FieldByName('HORA_PAGAMENTO').DisplayLabel := 'Hora do pagamento';
+    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
+    FieldByName('PGTO').DisplayLabel := 'PGTO';
+    FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Funcionário';
+    FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Furcionário';
+    FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+    FieldByName('ID_CLIENTE').visible := false;
+
+  end;
 
   value.DataSet := FQuery.TQuery;
 
@@ -508,7 +577,7 @@ begin
   except
     componet.SetFocus;
     componet.Clear;
-    raise Exception.create('Digite uma data válida.');
+    raise exception.create('Digite uma data válida.');
   end;
 end;
 

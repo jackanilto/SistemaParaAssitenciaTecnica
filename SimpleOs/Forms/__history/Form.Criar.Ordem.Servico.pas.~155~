@@ -221,6 +221,8 @@ begin
     edtPrioridade.Text := FieldByName('PRIORIDADE').AsString;
     edtTecnicoResponsavel.Text := FieldByName('TECNICO_RESPONSAVEL').AsString;
     edtObservacao.Text := FieldByName('OBSERVACAO').AsString;
+    edtValorOrdemParcelado.Text :=
+      CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
     edtHoraSaida.Text := TimeToStr(FieldByName('HORA_SAIDA').AsDateTime);
     edtDataBaseVencimento.Text := DateToStr(FieldByName('DATA_BASE_VENCIMENTO')
       .AsDateTime);
@@ -578,9 +580,11 @@ begin
       .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
       .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
 
-    FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM')
-      .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
-      .sqlPesquisa.listarGrid(s_ParcelasOS);
+    FEntityParcelasOrdem.abrir.listarGrid(s_ParcelasOS);
+
+    // FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM')
+    // .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
+    // .sqlPesquisa.listarGrid(s_ParcelasOS);
 
     edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
       ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',

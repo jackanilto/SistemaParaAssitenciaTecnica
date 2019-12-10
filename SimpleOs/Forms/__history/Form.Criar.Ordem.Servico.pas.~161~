@@ -221,7 +221,11 @@ begin
     edtPrioridade.Text := FieldByName('PRIORIDADE').AsString;
     edtTecnicoResponsavel.Text := FieldByName('TECNICO_RESPONSAVEL').AsString;
     edtObservacao.Text := FieldByName('OBSERVACAO').AsString;
+    edtValorOrdemParcelado.Text :=
+      CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
     edtHoraSaida.Text := TimeToStr(FieldByName('HORA_SAIDA').AsDateTime);
+    edtDataBaseVencimento.Text := DateToStr(FieldByName('DATA_BASE_VENCIMENTO')
+      .AsDateTime);
 
     // Tudo referente a datas
     if DataSource1.DataSet.FieldByName('DATA_FABRICACAO').AsDateTime <>
@@ -302,9 +306,9 @@ end;
 
 procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
+  abreATabelaDeParcelas;
   selecionarOrdem;
   popularComboBox;
-  abreATabelaDeParcelas;
   edtDataPagamentoParcela.DateTime := date;
 end;
 

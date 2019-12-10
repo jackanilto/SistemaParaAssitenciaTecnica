@@ -161,6 +161,8 @@ type
     procedure sbCancelarClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure s_ParcelasOSDataChange(Sender: TObject; Field: TField);
+    procedure edtTotalDeParcelasExit(Sender: TObject);
+    procedure edtTotalDaOSExit(Sender: TObject);
   private
     { Private declarations }
   var
@@ -219,7 +221,11 @@ begin
     edtPrioridade.Text := FieldByName('PRIORIDADE').AsString;
     edtTecnicoResponsavel.Text := FieldByName('TECNICO_RESPONSAVEL').AsString;
     edtObservacao.Text := FieldByName('OBSERVACAO').AsString;
+    edtValorOrdemParcelado.Text :=
+      CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
     edtHoraSaida.Text := TimeToStr(FieldByName('HORA_SAIDA').AsDateTime);
+    edtDataBaseVencimento.Text := DateToStr(FieldByName('DATA_BASE_VENCIMENTO')
+      .AsDateTime);
 
     // Tudo referente a datas
     if DataSource1.DataSet.FieldByName('DATA_FABRICACAO').AsDateTime <>
@@ -271,6 +277,22 @@ begin
 
 end;
 
+procedure TformCriarConsultarOrdemServico.edtTotalDaOSExit(Sender: TObject);
+begin
+  edtValorOrdemParcelado.Text := edtTotalDaOS.Text;
+end;
+
+procedure TformCriarConsultarOrdemServico.edtTotalDeParcelasExit
+  (Sender: TObject);
+begin
+  if FEntityCriarOrdem.estadoDaTabela = 'insert' then
+  begin
+    edtValorOrdemParcelado.Text :=
+      FEntityCriarOrdem.calularTotalPorNumeroDeParcela(edtTotalDaOS,
+      edtTotalDeParcelas);
+  end;
+end;
+
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
 begin
   FEntityCriarOrdem := TEntityCriarOrdemServico.new;
@@ -286,7 +308,7 @@ procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
   selecionarOrdem;
   popularComboBox;
-  abreATabelaDeParcelas;
+//  abreATabelaDeParcelas;
   edtDataPagamentoParcela.DateTime := date;
 end;
 
@@ -382,7 +404,8 @@ begin
     .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
     .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
     .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
-    .getDATA_VENCIMENTO(FEntityCriarOrdem.setDataBaseVencimento).gerarParcelas;
+    .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
+    .gerarParcelas;
 
   showmessage('Parcelas geradas com sucesso!');
 
@@ -552,12 +575,17 @@ begin
   begin
     FEntityCriarOrdem.abrir.getCampo('ID').getValor(codigoDaOS.ToString)
       .sqlPesquisa.listarGrid(DataSource1);
+
     FEntityServicosOrdem.abrir.getCampo('ID_ORDEM')
       .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
       .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
-    FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM')
-      .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
-      .sqlPesquisa.listarGrid(s_ParcelasOS);
+
+    FEntityParcelasOrdem.abrir.listarGrid(s_ParcelasOS);
+
+     FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM')
+     .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
+     .sqlPesquisa.listarGrid(s_ParcelasOS);
+
     edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
       ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',
       DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger);

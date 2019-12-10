@@ -124,7 +124,7 @@
     Top = 41
     Width = 973
     Height = 469
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbParcelas
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -668,40 +668,19 @@
             Height = 17
             Caption = 'Acr'#233'scimo RS'
           end
-          object Label24: TLabel
-            Left = 345
-            Top = 84
-            Width = 127
-            Height = 17
-            Caption = 'Forma de pagamento'
-          end
-          object Label25: TLabel
-            Left = 345
-            Top = 25
-            Width = 58
-            Height = 17
-            Caption = 'Parcelado'
-          end
           object Label26: TLabel
-            Left = 441
+            Left = 369
             Top = 25
             Width = 100
             Height = 17
             Caption = 'Total de parcelas'
           end
-          object Label27: TLabel
-            Left = 651
-            Top = 84
-            Width = 32
-            Height = 17
-            Caption = 'PGTO'
-          end
           object Label28: TLabel
-            Left = 528
+            Left = 369
             Top = 84
-            Width = 117
+            Width = 148
             Height = 17
-            Caption = 'Data de pagamento'
+            Caption = 'Data base de vencimento'
           end
           object Label29: TLabel
             Left = 16
@@ -709,6 +688,13 @@
             Width = 87
             Height = 17
             Caption = 'Total da OS R$'
+          end
+          object Label24: TLabel
+            Left = 484
+            Top = 25
+            Width = 112
+            Height = 17
+            Caption = 'Valor parcelado R$'
           end
           object edtValorOrdem: TEdit
             Left = 16
@@ -736,49 +722,23 @@
             TabOrder = 2
             OnExit = edtAcrescimoExit
           end
-          object edtFormaDePagamento: TComboBox
-            Left = 345
-            Top = 107
-            Width = 176
-            Height = 25
-            TabOrder = 3
-          end
-          object edtParcelado: TComboBox
-            Left = 345
-            Top = 48
-            Width = 90
-            Height = 25
-            TabOrder = 4
-            Items.Strings = (
-              'N'#227'o'
-              'Sim')
-          end
           object edtTotalDeParcelas: TEdit
-            Left = 441
+            Left = 369
             Top = 48
-            Width = 274
+            Width = 109
             Height = 25
             CharCase = ecUpperCase
-            TabOrder = 5
+            TabOrder = 3
+            OnExit = edtTotalDeParcelasExit
           end
-          object edtPGTO: TComboBox
-            Left = 651
+          object edtDataBaseVencimento: TMaskEdit
+            Left = 369
             Top = 107
-            Width = 71
-            Height = 25
-            TabOrder = 6
-            Items.Strings = (
-              'N'#227'o'
-              'Sim')
-          end
-          object edtDataDePagamento: TMaskEdit
-            Left = 527
-            Top = 107
-            Width = 117
+            Width = 288
             Height = 25
             EditMask = '00/00/0000'
             MaxLength = 10
-            TabOrder = 7
+            TabOrder = 4
             Text = '  /  /    '
           end
           object edtTotalDaOS: TEdit
@@ -787,7 +747,15 @@
             Width = 249
             Height = 25
             CharCase = ecUpperCase
-            TabOrder = 8
+            TabOrder = 5
+            OnExit = edtTotalDaOSExit
+          end
+          object edtValorOrdemParcelado: TEdit
+            Left = 484
+            Top = 48
+            Width = 173
+            Height = 25
+            TabOrder = 6
           end
         end
         object GroupBox2: TGroupBox

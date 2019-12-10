@@ -163,6 +163,7 @@ type
     procedure s_ParcelasOSDataChange(Sender: TObject; Field: TField);
     procedure edtTotalDeParcelasExit(Sender: TObject);
     procedure edtTotalDaOSExit(Sender: TObject);
+    procedure DBGrid3CellClick(Column: TColumn);
   private
     { Private declarations }
   var
@@ -260,6 +261,14 @@ begin
   SomarValoresServicosIncluidos
 end;
 
+procedure TformCriarConsultarOrdemServico.DBGrid3CellClick(Column: TColumn);
+begin
+  if s_ParcelasOS.DataSet.RecordCount >= 1 then
+  begin
+    FEntityParcelasOrdem.editar;
+  end;
+end;
+
 procedure TformCriarConsultarOrdemServico.edtAcrescimoExit(Sender: TObject);
 begin
   edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
@@ -306,9 +315,9 @@ end;
 
 procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
+  abreATabelaDeParcelas;
   selecionarOrdem;
   popularComboBox;
-  abreATabelaDeParcelas;
   edtDataPagamentoParcela.DateTime := date;
 end;
 
@@ -398,8 +407,6 @@ begin
     FEntityServicosOrdem.gravarServicosAdicionadosEdit
       (cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
 
-  showmessage('Ordem de Serviço inserida com sucesso');
-
   FEntityParcelasOrdem.getID_ORDEM(FEntityCriarOrdem.setId)
     .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
     .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
@@ -407,7 +414,7 @@ begin
     .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
     .gerarParcelas;
 
-  showmessage('Parcelas geradas com sucesso!');
+  showmessage('Ordem de Serviço inserida com sucesso');
 
 end;
 
@@ -580,11 +587,9 @@ begin
       .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
       .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
 
-    FEntityParcelasOrdem.abrir.listarGrid(s_ParcelasOS);
-
-    // FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM')
-    // .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
-    // .sqlPesquisa.listarGrid(s_ParcelasOS);
+    FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM')
+      .getValor(DataSource1.DataSet.FieldByName('ID').AsInteger.ToString)
+      .sqlPesquisa.listarGrid(s_ParcelasOS);
 
     edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
       ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',

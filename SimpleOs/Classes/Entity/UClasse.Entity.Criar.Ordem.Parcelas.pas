@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  UClasse.Calcular.Juros;
 
 type
 
@@ -13,6 +14,7 @@ type
 
     FQuery: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
+    FCalcularJuros: iCalcularJuros;
     FTabela: string;
     FCampo: string;
     FValor: string;
@@ -92,6 +94,8 @@ type
     function exportar: iParcelaOrdem;
     function gerarParcelas: iParcelaOrdem;
 
+    function calularJuros: string;
+
     constructor create;
     destructor destroy; override;
     class function new: iParcelaOrdem;
@@ -115,6 +119,15 @@ begin
   FQuery.TQuery.Refresh;
 end;
 
+function TEntityGerarParcelas.calularJuros: string;
+begin
+
+    result := '0';
+
+    {CRIAR A CÓDIFICAÇÃO PARA CALCULAR  A MULTA POR ATRASO}
+
+end;
+
 function TEntityGerarParcelas.cancelar: iParcelaOrdem;
 begin
   FQuery.TQuery.Cancel;
@@ -130,6 +143,8 @@ constructor TEntityGerarParcelas.create;
 begin
   FTabela := 'PARCELAS_ORDEM';
   FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FCalcularJuros := TCalcularJuros.new;
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Parcelas da OS').getCodigoFuncionario
