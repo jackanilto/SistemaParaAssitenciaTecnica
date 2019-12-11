@@ -213,7 +213,7 @@ begin
       FQuery.codigoCadastro('SP_GEN_CONFIGURAR_PARCELA_ID');
 
   FQuery.TQuery.FieldByName('juros').AsCurrency := StrToCurr(FValorJuros);
-  FQuery.TQuery.FieldByName('multa').AsCurrency := StrToCurr(FValorJuros);
+  FQuery.TQuery.FieldByName('multa').AsCurrency := StrToCurr(FValorMulta);
 
   // FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
   // .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;

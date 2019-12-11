@@ -74,7 +74,9 @@ uses
   UClasse.Localizar.Registro.Especifico in 'Classes\Entity\UClasse.Localizar.Registro.Especifico.pas',
   Form.Localizar.Tecnico.Ordem in 'Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas' {formLocalizarTecnico},
   UClasse.Entity.Ordem.Adicionar.Servico in 'Classes\Entity\UClasse.Entity.Ordem.Adicionar.Servico.pas',
-  UClasse.Entity in 'Classes\Entity\UClasse.Entity.pas';
+  UClasse.Entity in 'Classes\Entity\UClasse.Entity.pas',
+  UClasse.ExtrairDiaData in 'Classes\Reusable\UClasse.ExtrairDiaData.pas',
+  UClasse.DiasMeses in 'Classes\Reusable\UClasse.DiasMeses.pas';
 
 {$R *.res}
 

@@ -1729,3 +1729,18 @@ like
 10/12/19 18:42:56 - Caption: Criar / Consultar ordem de serviço
 10/12/19 18:42:56 - Erro:EAccessViolation
 10/12/19 18:42:56 - Erro:Access violation at address 006CE1D2 in module 'SimplesOS.exe'. Read of address 00000040
+11/12/19 11:49:41 - ===========================================
+11/12/19 11:49:41 - Form: formCriarConsultarOrdemServico
+11/12/19 11:49:41 - Caption: Criar / Consultar ordem de serviço
+11/12/19 11:49:41 - Erro:Exception
+11/12/19 11:49:41 - Erro:A data data atual não pode ser menor que a data inicial
+11/12/19 11:50:05 - ===========================================
+11/12/19 11:50:05 - Form: formCriarConsultarOrdemServico
+11/12/19 11:50:05 - Caption: Criar / Consultar ordem de serviço
+11/12/19 11:50:05 - Erro:Exception
+11/12/19 11:50:05 - Erro:A data data atual não pode ser menor que a data inicial
+11/12/19 11:50:08 - ===========================================
+11/12/19 11:50:08 - Form: formCriarConsultarOrdemServico
+11/12/19 11:50:08 - Caption: Criar / Consultar ordem de serviço
+11/12/19 11:50:08 - Erro:Exception
+11/12/19 11:50:08 - Erro:A data data atual não pode ser menor que a data inicial

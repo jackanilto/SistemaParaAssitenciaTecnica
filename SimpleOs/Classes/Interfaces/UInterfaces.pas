@@ -139,6 +139,16 @@ type
     function exibirCodigo: string;
   end;
 
+  iExtrairDiaData = interface
+    ['{529649F1-DF15-44EE-B87F-9DA89DE48050}']
+    function dia(Data: string): string;
+    function mes(Data: string): string;
+    function ano(Data: string): string;
+    function dataPorExtenso(Data: TDate): string;
+    function dataTexto(Data: TDate): string;
+    function horaTexto(hora: TTime): string;
+  end;
+
   iCadastroMarcas = interface
     ['{8E103BB1-A4BC-4EA6-AB36-339FDDF2E46B}']
 
@@ -1042,6 +1052,7 @@ type
 
     function exportar: iParcelaOrdem;
     function gerarParcelas: iParcelaOrdem;
+    function calularJuros: string;
 
   end;
 

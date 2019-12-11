@@ -164,6 +164,7 @@ type
     procedure edtTotalDeParcelasExit(Sender: TObject);
     procedure edtTotalDaOSExit(Sender: TObject);
     procedure DBGrid3CellClick(Column: TColumn);
+    procedure SpeedButton6Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -265,7 +266,12 @@ procedure TformCriarConsultarOrdemServico.DBGrid3CellClick(Column: TColumn);
 begin
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
+
+  if DataSource1.DataSet.FieldByName('PGTO').AsString <> 'Sim' then
+   begin
     FEntityParcelasOrdem.editar;
+     edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+   end;
   end;
 end;
 
@@ -453,6 +459,15 @@ begin
 
   end;
 
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton6Click(Sender: TObject);
+begin
+ FEntityParcelasOrdem
+                     .getFORMA_PAGAMENTO(edtFormaPagamentoParcela.Text)
+                     .getVALOR_TOTAL(edtValorParcela.Text)
+                     .getPGTO('Sim')
+                     .gravar;
 end;
 
 procedure TformCriarConsultarOrdemServico.s_ParcelasOSDataChange

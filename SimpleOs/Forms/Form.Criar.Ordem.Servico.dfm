@@ -1011,6 +1011,7 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
+            OnClick = SpeedButton6Click
           end
           object SpeedButton7: TSpeedButton
             Left = 119

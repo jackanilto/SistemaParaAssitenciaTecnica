@@ -60,7 +60,6 @@ inherited formConfigurarParcelas: TformConfigurarParcelas
     inherited cardPanelCadatro: TCard
       Width = 833
       Height = 240
-      ExplicitTop = 1
       ExplicitWidth = 833
       ExplicitHeight = 240
       object Label1: TLabel

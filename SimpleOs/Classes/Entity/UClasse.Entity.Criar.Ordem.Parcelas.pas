@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  UClasse.Calcular.Juros;
+  UClasse.Calcular.Juros, UClasse.DiasMeses;
 
 type
 
@@ -13,6 +13,8 @@ type
   private
 
     FQuery: iConexaoQuery;
+    FQueryConfigurarParcelas: iConexaoQuery;
+    FCalularDiferencaDiasMes: TCalcularDiaMeses;
     FGravarLog: iGravarLogOperacoes;
     FCalcularJuros: iCalcularJuros;
     FTabela: string;
@@ -39,6 +41,9 @@ type
     FID_FUNCIONARIO: integer;
     FNOME_FUNCIONARIO: string;
     FOBSERVACAO: string;
+
+    F_JurosAtraso: Real;
+    F_MultaAtraso: Currency;
 
     FCodigo: integer;
     FNome: string;
@@ -120,11 +125,55 @@ begin
 end;
 
 function TEntityGerarParcelas.calularJuros: string;
+var
+  periodo: integer;
+  total: Currency;
+  valorParcela: Currency;
+  totalJuros: Currency;
 begin
 
-    result := '0';
+  result := '0';
 
-    {CRIAR A CÓDIFICAÇÃO PARA CALCULAR  A MULTA POR ATRASO}
+  valorParcela := FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency;
+
+  if date > FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime then
+  begin
+
+    periodo := FCalularDiferencaDiasMes.DifDiasMeses
+      (FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime, date);
+
+    if periodo >= 1 then
+    begin
+      total := valorParcela * (F_JurosAtraso / 100);
+      total := valorParcela + (total * periodo);
+      totalJuros := total - valorParcela;
+    end
+    else if periodo = 0 then
+    begin
+      total := valorParcela * (F_JurosAtraso / 100);
+      total := valorParcela + (total * 1);
+      totalJuros := total - valorParcela;
+    end;
+
+    FQuery.TQuery.FieldByName('JUROS').AsFloat := totalJuros;
+    FQuery.TQuery.FieldByName('MULTA').AsCurrency := F_MultaAtraso;
+    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+
+    result := currtostr(totalJuros + F_MultaAtraso + valorParcela);
+
+  end
+  else
+  begin
+
+    FQuery.TQuery.FieldByName('JUROS').AsFloat := 0;
+    FQuery.TQuery.FieldByName('MULTA').AsCurrency := 0;
+    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+
+    result := currtostr(valorParcela);
+
+  end;
 
 end;
 
@@ -144,7 +193,15 @@ begin
   FTabela := 'PARCELAS_ORDEM';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
+  FQueryConfigurarParcelas := TConexaoQuery.new.Query('CONFIGURAR_PARCELA');
+
+  F_JurosAtraso := FQueryConfigurarParcelas.TQuery.FieldByName('JUROS').AsFloat;
+  F_MultaAtraso := FQueryConfigurarParcelas.TQuery.FieldByName('MULTA')
+    .AsCurrency;
+
   FCalcularJuros := TCalcularJuros.new;
+
+  FCalularDiferencaDiasMes := TCalcularDiaMeses.create;
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Parcelas da OS').getCodigoFuncionario
@@ -174,7 +231,7 @@ end;
 
 destructor TEntityGerarParcelas.destroy;
 begin
-
+  FreeAndNil(FCalularDiferencaDiasMes);
   inherited;
 end;
 
@@ -326,6 +383,8 @@ begin
 
   result := self;
 
+  if value = EmptyStr then
+    raise exception.create('Informe a forma de pagamento.');
   F_FORMA_PAGAMENTO := value;
 
 end;
@@ -470,7 +529,27 @@ begin
     FQuery.TQuery.FieldByName('id').AsInteger :=
       FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
 
-  // FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID_ORDEM').DisplayLabel := 'Código OS';
+    FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
+    FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
+    FieldByName('PARCELA').DisplayLabel := 'Parcela';
+    FieldByName('VALOR_PARCELA').DisplayLabel := 'Valor da parcela';
+    FieldByName('DESCONTO').DisplayLabel := 'Desconto';
+    FieldByName('JUROS').DisplayLabel := 'Juros';
+    FieldByName('MULTA').DisplayLabel := 'Multa';
+    FieldByName('VALOR_TOTAL').DisplayLabel := 'Valor total';
+    FieldByName('HORA_PAGAMENTO').DisplayLabel := 'Hora do pagamento';
+    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
+    FieldByName('PGTO').DisplayLabel := 'PGTO';
+    FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Funcionário';
+    FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Furcionário';
+    FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+    FieldByName('DATA_VENCIMENTO').DisplayLabel := 'vencimento';
+    FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Pagamento';
+  end;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
     .gravarLog;
