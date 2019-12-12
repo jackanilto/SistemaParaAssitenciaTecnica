@@ -937,6 +937,7 @@
           Color = 8406532
           ParentBackground = False
           TabOrder = 0
+          ExplicitTop = 374
           object SpeedButton6: TSpeedButton
             Left = 15
             Top = 10
@@ -1093,6 +1094,7 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
+            OnClick = SpeedButton7Click
           end
           object SpeedButton8: TSpeedButton
             Left = 219

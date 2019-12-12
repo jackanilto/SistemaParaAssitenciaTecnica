@@ -165,6 +165,7 @@ type
     procedure edtTotalDaOSExit(Sender: TObject);
     procedure DBGrid3CellClick(Column: TColumn);
     procedure SpeedButton6Click(Sender: TObject);
+    procedure SpeedButton7Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -267,11 +268,11 @@ begin
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
 
-  if DataSource1.DataSet.FieldByName('PGTO').AsString <> 'Sim' then
-   begin
-    FEntityParcelasOrdem.editar;
-     edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
-   end;
+    if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Sim' then
+    begin
+      FEntityParcelasOrdem.editar;
+      edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+    end;
   end;
 end;
 
@@ -463,11 +464,29 @@ end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton6Click(Sender: TObject);
 begin
- FEntityParcelasOrdem
-                     .getFORMA_PAGAMENTO(edtFormaPagamentoParcela.Text)
-                     .getVALOR_TOTAL(edtValorParcela.Text)
-                     .getPGTO('Sim')
-                     .gravar;
+
+  FEntityParcelasOrdem
+                  .getID(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger)
+                  .getID_ORDEM(s_ParcelasOS.DataSet.FieldByName('ID_ORDEM').AsInteger)
+                  .getID_CLIENTE(s_ParcelasOS.DataSet.FieldByName('ID_CLIENTE').AsInteger)
+                  .getTOTAL_PARCELAS(s_ParcelasOS.DataSet.FieldByName('TOTAL_PARCELAS').AsInteger)
+                  .getPARCELA(StrToInt(edtNumeroParcela.Text))
+                  .getVALOR_PARCELA(s_ParcelasOS.DataSet.FieldByName('VALOR_PARCELA').AsCurrency)
+                  .getDATA_VENCIMENTO(edtVencimentoParcela.Text).getDesconto(edtDescontoParcela.Text)
+                  .getJuros(edtJurosParcelas.Text).getMulta(edtMultaParcela.Text)
+                  .getVALOR_TOTAL(edtTotalParcela.Text)
+                  .getDATA_PAGAMENTO(DateToStr(edtDataPagamentoParcela.date))
+                  .getHORA_PAGAMENTO(edtHoraPagamento.Text)
+                  .getObservacao(edtObservacoesParcela.Text)
+                  .getFORMA_PAGAMENTO(edtFormaPagamentoParcela.Text)
+                  .getVALOR_TOTAL(edtValorParcela.Text)
+                  .getPGTO('Sim')
+                  .gravar;
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton7Click(Sender: TObject);
+begin
+  FEntityParcelasOrdem.extornarParcelaSelecionada(0);
 end;
 
 procedure TformCriarConsultarOrdemServico.s_ParcelasOSDataChange
@@ -478,19 +497,23 @@ begin
 
     edtNumeroParcela.Text := IntToStr(FieldByName('PARCELA').AsInteger);
     edtValorParcela.Text := CurrToStr(FieldByName('VALOR_PARCELA').AsCurrency);
-    edtVencimentoParcela.Text :=
-      DateToStr(FieldByName('DATA_VENCIMENTO').AsDateTime);
     edtDescontoParcela.Text := CurrToStr(FieldByName('DESCONTO').AsCurrency);
     edtJurosParcelas.Text := CurrToStr(FieldByName('JUROS').AsFloat);
     edtMultaParcela.Text := CurrToStr(FieldByName('MULTA').AsCurrency);
     edtTotalParcela.Text := CurrToStr(FieldByName('VALOR_TOTAL').AsCurrency);
-    edtDataPagamentoParcela.DateTime := FieldByName('DATA_PAGAMENTO')
-      .AsDateTime;
     edtHoraPagamento.Text := TimeToStr(FieldByName('HORA_PAGAMENTO')
       .AsDateTime);
     edtFormaPagamentoParcela.Text := FieldByName('FORMA_PAGAMENTO').AsString;
     edtPgtoParcela.Text := FieldByName('PGTO').AsString;
     edtObservacoesParcela.Text := FieldByName('OBSERVACAO').AsString;
+
+    if FieldByName('DATA_VENCIMENTO').AsDateTime <> StrToDate('30/12/1899') then
+      edtVencimentoParcela.Text :=
+        DateToStr(FieldByName('DATA_VENCIMENTO').AsDateTime);
+
+    if FieldByName('DATA_PAGAMENTO').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataPagamentoParcela.DateTime := FieldByName('DATA_PAGAMENTO')
+        .AsDateTime;
 
   end;
 end;

@@ -139,6 +139,16 @@ type
     function exibirCodigo: string;
   end;
 
+  iExtrairDiaData = interface
+    ['{529649F1-DF15-44EE-B87F-9DA89DE48050}']
+    function dia(Data: string): string;
+    function mes(Data: string): string;
+    function ano(Data: string): string;
+    function dataPorExtenso(Data: TDate): string;
+    function dataTexto(Data: TDate): string;
+    function horaTexto(hora: TTime): string;
+  end;
+
   iCadastroMarcas = interface
     ['{8E103BB1-A4BC-4EA6-AB36-339FDDF2E46B}']
 
@@ -915,23 +925,26 @@ type
     function getRETORNO(value: string): iCriarOrdemServico;
     function getDATA_RETORNO(value: string): iCriarOrdemServico;
     function getSITUACAO_DA_ORDEM(value: string): iCriarOrdemServico;
-    function getFORMA_PAGAMENTO(value: String): iCriarOrdemServico;
-    function getPARCELADO(value: string): iCriarOrdemServico;
     function getTOTAL_PARCELAS(value: string): iCriarOrdemServico;
-    function getPGTO(value: string): iCriarOrdemServico;
+    function getVALOR_DA_PARCELA(value: string): iCriarOrdemServico;
     function getPRIORIDADE(value: string): iCriarOrdemServico;
     function getDataCadastro(value: string): iCriarOrdemServico;
     function getDataFinalizacao(value: string): iCriarOrdemServico;
     function getHoraFinalizacao(value: string): iCriarOrdemServico;
-    function getDataPagamento(value: string): iCriarOrdemServico;
+    function getDataBaseVencimento(value: string): iCriarOrdemServico;
     function getObservacao(value: string): iCriarOrdemServico;
     function getSTATUS(value: string): iCriarOrdemServico;
     function getIdTecnico(value: string): iCriarOrdemServico;
     function getTecnico(value: string): iCriarOrdemServico;
     function setId: integer;
+    function setId_Cliente: integer;
+    function setTotalDeParcelas: integer;
+    function setValorDaParcelas: currency;
+    function setDataBaseVencimento: TDate;
 
     function calcularDesconto(valor, desconto: TEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
+    function calularTotalPorNumeroDeParcela(total, qtde: TEdit): string;
 
     function estadoDaTabela: string;
 
@@ -1039,6 +1052,7 @@ type
 
     function exportar: iParcelaOrdem;
     function gerarParcelas: iParcelaOrdem;
+    function calularJuros: string;
 
   end;
 

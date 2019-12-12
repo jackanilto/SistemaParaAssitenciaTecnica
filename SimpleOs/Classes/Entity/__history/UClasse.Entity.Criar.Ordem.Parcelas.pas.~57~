@@ -127,22 +127,52 @@ end;
 function TEntityGerarParcelas.calularJuros: string;
 var
   periodo: integer;
+  total: Currency;
+  valorParcela: Currency;
+  totalJuros: Currency;
 begin
 
   result := '0';
 
+  valorParcela := FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency;
+
   if date > FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime then
   begin
 
-  showmessage('Vencida');
+    periodo := FCalularDiferencaDiasMes.DifDiasMeses
+      (FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime, date);
 
-    periodo := FCalularDiferencaDiasMes
-              .DifDiasMeses(FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime, date);
+    if periodo >= 1 then
+    begin
+      total := valorParcela * (F_JurosAtraso / 100);
+      total := valorParcela + (total * periodo);
+      totalJuros := total - valorParcela;
+    end
+    else if periodo = 0 then
+    begin
+      total := valorParcela * (F_JurosAtraso / 100);
+      total := valorParcela + (total * 1);
+      totalJuros := total - valorParcela;
+    end;
 
-    result := FloatToStr(FCalcularJuros
-             .getPeriodo(periodo).getJuros(F_JurosAtraso)
-             .getCapital(FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency)
-             .calcularJurosSimplesPorPeriodo);
+    FQuery.TQuery.FieldByName('JUROS').AsFloat := totalJuros;
+    FQuery.TQuery.FieldByName('MULTA').AsCurrency := F_MultaAtraso;
+    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+
+    result := currtostr(totalJuros + F_MultaAtraso + valorParcela);
+
+  end
+  else
+  begin
+
+    FQuery.TQuery.FieldByName('JUROS').AsFloat := 0;
+    FQuery.TQuery.FieldByName('MULTA').AsCurrency := 0;
+    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+
+    result := currtostr(valorParcela);
+
   end;
 
 end;
@@ -353,6 +383,8 @@ begin
 
   result := self;
 
+  if value = EmptyStr then
+    raise exception.create('Informe a forma de pagamento.');
   F_FORMA_PAGAMENTO := value;
 
 end;
@@ -497,7 +529,37 @@ begin
     FQuery.TQuery.FieldByName('id').AsInteger :=
       FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
 
-  // FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+  if FQuery.TQuery.State in [dsEdit] then
+  begin
+    FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger := FID_FUNCIONARIO;
+    FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').AsString := FNOME_FUNCIONARIO;
+  end;
+
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID_ORDEM').AsInteger := FID_ORDEM;
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
+    FieldByName('PARCELA').AsInteger := FPARCELA;
+    FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
+    FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FieldByName('JUROS').AsCurrency := FJUROS;
+    FieldByName('MULTA').AsCurrency := FMULTA;
+    FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
+    FieldByName('FORMA_PAGAMENTO').AsString := F_FORMA_PAGAMENTO;
+    FieldByName('PGTO').AsString := FPGTO;
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+    if FDATA_VENCIMENTO <> '  /  /    ' then
+      FieldByName('DATA_VENCIMENTO').AsDateTime := strtodate(FDATA_VENCIMENTO);
+
+    if FDATA_PAGAMENTO <> '  /  /    ' then
+      FieldByName('DATA_PAGAMENTO').AsDateTime := strtodate(FDATA_PAGAMENTO);
+
+    if FHORA_PAGAMENTO <> '  :  :  ' then
+      FieldByName('HORA_PAGAMENTO').AsDateTime := StrToTime(FHORA_PAGAMENTO);
+
+  end;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
     .gravarLog;

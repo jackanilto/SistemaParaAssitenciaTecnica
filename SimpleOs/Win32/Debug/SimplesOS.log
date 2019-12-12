@@ -1744,3 +1744,18 @@ like
 11/12/19 11:50:08 - Caption: Criar / Consultar ordem de serviço
 11/12/19 11:50:08 - Erro:Exception
 11/12/19 11:50:08 - Erro:A data data atual não pode ser menor que a data inicial
+11/12/19 20:35:24 - ===========================================
+11/12/19 20:35:24 - Form: formCriarConsultarOrdemServico
+11/12/19 20:35:24 - Caption: Criar / Consultar ordem de serviço
+11/12/19 20:35:24 - Erro:Exception
+11/12/19 20:35:24 - Erro:Informe um valor superior a 0(Zero) para o número da parcela.
+11/12/19 20:49:42 - ===========================================
+11/12/19 20:49:42 - Form: formCriarConsultarOrdemServico
+11/12/19 20:49:42 - Caption: Criar / Consultar ordem de serviço
+11/12/19 20:49:42 - Erro:Exception
+11/12/19 20:49:42 - Erro:Informe o código do orçamento.
+12/12/19 12:16:00 - ===========================================
+12/12/19 12:16:00 - Form: formCriarConsultarOrdemServico
+12/12/19 12:16:00 - Caption: Criar / Consultar ordem de serviço
+12/12/19 12:16:00 - Erro:Exception
+12/12/19 12:16:00 - Erro:Informe um valor superior a 0(Zero) para o número da parcela.

@@ -1053,6 +1053,7 @@ type
     function exportar: iParcelaOrdem;
     function gerarParcelas: iParcelaOrdem;
     function calularJuros: string;
+    function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
 
   end;
 

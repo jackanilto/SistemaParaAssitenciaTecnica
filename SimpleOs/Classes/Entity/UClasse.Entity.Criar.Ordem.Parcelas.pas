@@ -101,6 +101,8 @@ type
 
     function calularJuros: string;
 
+    function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
+
     constructor create;
     destructor destroy; override;
     class function new: iParcelaOrdem;
@@ -258,6 +260,39 @@ end;
 function TEntityGerarParcelas.exportar: iParcelaOrdem;
 begin
   result := self;
+end;
+
+function TEntityGerarParcelas.extornarParcelaSelecionada(value: integer)
+  : iParcelaOrdem;
+begin
+
+  result := self;
+
+  if application.MessageBox('Deseja realmente estornar esta parcela?',
+    'Pergunta do sistma', MB_YESNO + MB_ICONQUESTION) = mryes then
+  begin
+
+    try
+      FQuery.TQuery.Edit;
+      FQuery.TQuery.FieldByName('PGTO').AsString := 'Não';
+      FQuery.TQuery.FieldByName('DATA_PAGAMENTO').Clear;
+      FQuery.TQuery.FieldByName('HORA_PAGAMENTO').Clear;
+      FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := '';
+      FQuery.TQuery.FieldByName('DESCONTO').AsCurrency := 0;
+      FQuery.TQuery.FieldByName('JUROS').AsCurrency := 0;
+      FQuery.TQuery.FieldByName('MULTA').AsCurrency := 0;
+      FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := 0;
+      FQuery.TQuery.Post;
+    except
+      on e: exception do
+      begin
+        raise exception.create('Erro ao tentar extornar a parcela. ' +
+          e.Message);
+      end;
+
+    end;
+  end;
+
 end;
 
 function TEntityGerarParcelas.fecharQuery: iParcelaOrdem;
@@ -469,7 +504,7 @@ end;
 
 function TEntityGerarParcelas.getObservacao(value: string): iParcelaOrdem;
 begin
-  result := self;
+  result := self;                                       
   FOBSERVACAO := value;
 end;
 
@@ -479,6 +514,8 @@ begin
   if value = 0 then
     raise exception.create
       ('Informe um valor superior a 0(Zero) para o número da parcela.');
+  FPARCELA := value;
+
 end;
 
 function TEntityGerarParcelas.getPGTO(value: string): iParcelaOrdem;
@@ -529,26 +566,38 @@ begin
     FQuery.TQuery.FieldByName('id').AsInteger :=
       FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
 
+  if FQuery.TQuery.State in [dsEdit] then
+  begin
+    FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger := funcionarioLogado;
+    FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').AsString :=
+      NomeFuncionarioLogado;
+    FQuery.TQuery.FieldByName('ID').AsInteger := FID;
+  end;
+
   with FQuery.TQuery do
   begin
-    FieldByName('ID_ORDEM').DisplayLabel := 'Código OS';
-    FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
-    FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
-    FieldByName('PARCELA').DisplayLabel := 'Parcela';
-    FieldByName('VALOR_PARCELA').DisplayLabel := 'Valor da parcela';
-    FieldByName('DESCONTO').DisplayLabel := 'Desconto';
-    FieldByName('JUROS').DisplayLabel := 'Juros';
-    FieldByName('MULTA').DisplayLabel := 'Multa';
-    FieldByName('VALOR_TOTAL').DisplayLabel := 'Valor total';
-    FieldByName('HORA_PAGAMENTO').DisplayLabel := 'Hora do pagamento';
-    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
-    FieldByName('PGTO').DisplayLabel := 'PGTO';
-    FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Funcionário';
-    FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Furcionário';
-    FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+    FieldByName('ID_ORDEM').AsInteger := FID_ORDEM;
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
+    FieldByName('PARCELA').AsInteger := FPARCELA;
+    FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
+    FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FieldByName('JUROS').AsCurrency := FJUROS;
+    FieldByName('MULTA').AsCurrency := FMULTA;
+    FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
+    FieldByName('FORMA_PAGAMENTO').AsString := F_FORMA_PAGAMENTO;
+    FieldByName('PGTO').AsString := FPGTO;
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
-    FieldByName('DATA_VENCIMENTO').DisplayLabel := 'vencimento';
-    FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Pagamento';
+    if FDATA_VENCIMENTO <> '  /  /    ' then
+      FieldByName('DATA_VENCIMENTO').AsDateTime := strtodate(FDATA_VENCIMENTO);
+
+    if FDATA_PAGAMENTO <> '  /  /    ' then
+      FieldByName('DATA_PAGAMENTO').AsDateTime := strtodate(FDATA_PAGAMENTO);
+
+    if FHORA_PAGAMENTO <> '  :  :  ' then
+      FieldByName('HORA_PAGAMENTO').AsDateTime := StrToTime(FHORA_PAGAMENTO);
+
   end;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
@@ -556,6 +605,7 @@ begin
 
   try
     FQuery.TQuery.Post;
+    ShowMessage('Parcela quitada com sucesso.');
   except
     on e: exception do
     begin

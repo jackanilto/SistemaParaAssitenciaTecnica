@@ -939,7 +939,7 @@
           TabOrder = 0
           object SpeedButton6: TSpeedButton
             Left = 15
-            Top = 10
+            Top = 6
             Width = 98
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
@@ -1011,6 +1011,7 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
+            OnClick = SpeedButton6Click
           end
           object SpeedButton7: TSpeedButton
             Left = 119
@@ -1425,13 +1426,16 @@
           Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           ParentFont = False
+          ReadOnly = True
           TabOrder = 1
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
           TitleFont.Height = -13
           TitleFont.Name = 'Segoe UI'
           TitleFont.Style = [fsBold]
+          OnCellClick = DBGrid3CellClick
         end
         object DBNavigator1: TDBNavigator
           Left = 0
