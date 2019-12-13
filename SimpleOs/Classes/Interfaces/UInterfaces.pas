@@ -1054,6 +1054,7 @@ type
     function gerarParcelas: iParcelaOrdem;
     function calularJuros: string;
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
+    function adicionarParcela: iParcelaOrdem;
 
   end;
 

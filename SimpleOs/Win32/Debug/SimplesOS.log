@@ -1759,3 +1759,38 @@ like
 12/12/19 12:16:00 - Caption: Criar / Consultar ordem de serviço
 12/12/19 12:16:00 - Erro:Exception
 12/12/19 12:16:00 - Erro:Informe um valor superior a 0(Zero) para o número da parcela.
+13/12/19 16:38:09 - ===========================================
+13/12/19 16:38:09 - Form: formCriarConsultarOrdemServico
+13/12/19 16:38:09 - Caption: Criar / Consultar ordem de serviço
+13/12/19 16:38:09 - Erro:Exception
+13/12/19 16:38:09 - Erro:Erro ao tentar extornar a parcela. Field 'Código' must have a value
+13/12/19 18:58:55 - ===========================================
+13/12/19 18:58:55 - Form: formCriarConsultarOrdemServico
+13/12/19 18:58:55 - Caption: Criar / Consultar ordem de serviço
+13/12/19 18:58:55 - Erro:EConvertError
+13/12/19 18:58:55 - Erro:'' is not a valid date
+13/12/19 18:59:13 - ===========================================
+13/12/19 18:59:13 - Form: formCriarConsultarOrdemServico
+13/12/19 18:59:13 - Caption: Criar / Consultar ordem de serviço
+13/12/19 18:59:13 - Erro:EConvertError
+13/12/19 18:59:13 - Erro:'' is not a valid date
+13/12/19 18:59:58 - ===========================================
+13/12/19 18:59:58 - Form: formCriarConsultarOrdemServico
+13/12/19 18:59:58 - Caption: Criar / Consultar ordem de serviço
+13/12/19 18:59:58 - Erro:EConvertError
+13/12/19 18:59:58 - Erro:'' is not a valid date
+13/12/19 20:25:32 - ===========================================
+13/12/19 20:25:32 - Form: formCriarConsultarOrdemServico
+13/12/19 20:25:32 - Caption: Criar / Consultar ordem de serviço
+13/12/19 20:25:32 - Erro:EDatabaseError
+13/12/19 20:25:32 - Erro:Dataset not in edit or insert mode
+13/12/19 20:33:42 - ===========================================
+13/12/19 20:33:42 - Form: formCadastroDeClientes
+13/12/19 20:33:42 - Caption: Cadastro de clientes
+13/12/19 20:33:42 - Erro:Exception
+13/12/19 20:33:42 - Erro:Informe o tipo de cadastro realizado.
+13/12/19 20:34:01 - ===========================================
+13/12/19 20:34:01 - Form: formCriarConsultarOrdemServico
+13/12/19 20:34:01 - Caption: Criar / Consultar ordem de serviço
+13/12/19 20:34:01 - Erro:Exception
+13/12/19 20:34:01 - Erro:Informe um valor válido para o Valor da Parcela.

@@ -140,6 +140,16 @@ type
     Label41: TLabel;
     edtValorOrdemParcelado: TEdit;
     Label24: TLabel;
+    cds_AdicionarParcela: TClientDataSet;
+    cds_AdicionarParcelaid_ordem: TIntegerField;
+    cds_AdicionarParcelaid_cliente: TIntegerField;
+    cds_AdicionarParcelaTotal_de_parcelas: TIntegerField;
+    cds_AdicionarParcelaNumero_da_parcela: TIntegerField;
+    cds_AdicionarParcelaValor_da_parcela: TCurrencyField;
+    cds_AdicionarParcelavencimento: TDateTimeField;
+    cds_AdicionarParcelapgto: TStringField;
+    SpeedButton12: TSpeedButton;
+    SpeedButton13: TSpeedButton;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -166,6 +176,10 @@ type
     procedure DBGrid3CellClick(Column: TColumn);
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton7Click(Sender: TObject);
+    procedure SpeedButton8Click(Sender: TObject);
+    procedure SpeedButton9Click(Sender: TObject);
+    procedure SpeedButton10Click(Sender: TObject);
+    procedure SpeedButton12Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -270,8 +284,11 @@ begin
 
     if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Sim' then
     begin
-      FEntityParcelasOrdem.editar;
-      edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+      if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Estornada' then
+      begin
+        FEntityParcelasOrdem.editar;
+        edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+      end;
     end;
   end;
 end;
@@ -425,6 +442,19 @@ begin
 
 end;
 
+procedure TformCriarConsultarOrdemServico.SpeedButton10Click(Sender: TObject);
+begin
+  if s_ParcelasOS.DataSet.RecordCount >= 1 then
+  begin
+    FEntityCriarOrdem.deletar;
+  end;
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton12Click(Sender: TObject);
+begin
+  FEntityParcelasOrdem.cancelar;
+end;
+
 procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
 begin
   FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
@@ -465,28 +495,90 @@ end;
 procedure TformCriarConsultarOrdemServico.SpeedButton6Click(Sender: TObject);
 begin
 
-  FEntityParcelasOrdem
-                  .getID(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger)
-                  .getID_ORDEM(s_ParcelasOS.DataSet.FieldByName('ID_ORDEM').AsInteger)
-                  .getID_CLIENTE(s_ParcelasOS.DataSet.FieldByName('ID_CLIENTE').AsInteger)
-                  .getTOTAL_PARCELAS(s_ParcelasOS.DataSet.FieldByName('TOTAL_PARCELAS').AsInteger)
-                  .getPARCELA(StrToInt(edtNumeroParcela.Text))
-                  .getVALOR_PARCELA(s_ParcelasOS.DataSet.FieldByName('VALOR_PARCELA').AsCurrency)
-                  .getDATA_VENCIMENTO(edtVencimentoParcela.Text).getDesconto(edtDescontoParcela.Text)
-                  .getJuros(edtJurosParcelas.Text).getMulta(edtMultaParcela.Text)
-                  .getVALOR_TOTAL(edtTotalParcela.Text)
-                  .getDATA_PAGAMENTO(DateToStr(edtDataPagamentoParcela.date))
-                  .getHORA_PAGAMENTO(edtHoraPagamento.Text)
-                  .getObservacao(edtObservacoesParcela.Text)
-                  .getFORMA_PAGAMENTO(edtFormaPagamentoParcela.Text)
-                  .getVALOR_TOTAL(edtValorParcela.Text)
-                  .getPGTO('Sim')
-                  .gravar;
+  FEntityParcelasOrdem.getID(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger)
+    .getID_ORDEM(s_ParcelasOS.DataSet.FieldByName('ID_ORDEM').AsInteger)
+    .getID_CLIENTE(s_ParcelasOS.DataSet.FieldByName('ID_CLIENTE').AsInteger)
+    .getTOTAL_PARCELAS(s_ParcelasOS.DataSet.FieldByName('TOTAL_PARCELAS')
+    .AsInteger).getPARCELA(StrToInt(edtNumeroParcela.Text))
+    .getVALOR_PARCELA(s_ParcelasOS.DataSet.FieldByName('VALOR_PARCELA')
+    .AsCurrency).getDATA_VENCIMENTO(edtVencimentoParcela.Text)
+    .getDesconto(edtDescontoParcela.Text).getJuros(edtJurosParcelas.Text)
+    .getMulta(edtMultaParcela.Text).getVALOR_TOTAL(edtTotalParcela.Text)
+    .getDATA_PAGAMENTO(DateToStr(edtDataPagamentoParcela.date))
+    .getHORA_PAGAMENTO(edtHoraPagamento.Text)
+    .getObservacao(edtObservacoesParcela.Text).getFORMA_PAGAMENTO
+    (edtFormaPagamentoParcela.Text).getVALOR_TOTAL(edtValorParcela.Text)
+    .getPGTO('Sim').gravar;
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton7Click(Sender: TObject);
 begin
   FEntityParcelasOrdem.extornarParcelaSelecionada(0);
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton8Click(Sender: TObject);
+begin
+  if s_ParcelasOS.DataSet.RecordCount >= 1 then
+  begin
+
+    s_ParcelasOS.DataSet.Last;
+
+    cds_AdicionarParcela.Open;
+    cds_AdicionarParcela.Append;
+
+    cds_AdicionarParcelaid_ordem.AsInteger := s_ParcelasOS.DataSet.FieldByName
+      ('ID_ORDEM').AsInteger;
+
+    cds_AdicionarParcelaid_cliente.AsInteger := s_ParcelasOS.DataSet.FieldByName
+      ('ID_CLIENTE').AsInteger;
+
+    cds_AdicionarParcelaTotal_de_parcelas.AsInteger :=
+      s_ParcelasOS.DataSet.FieldByName('TOTAL_PARCELAS').AsInteger + 1;
+
+    cds_AdicionarParcelaNumero_da_parcela.AsInteger :=
+      s_ParcelasOS.DataSet.FieldByName('PARCELA').AsInteger + 1;
+
+    cds_AdicionarParcelaValor_da_parcela.AsCurrency :=
+      s_ParcelasOS.DataSet.FieldByName('VALOR_PARCELA').AsCurrency;
+
+    cds_AdicionarParcelavencimento.AsDateTime :=
+      s_ParcelasOS.DataSet.FieldByName('DATA_VENCIMENTO').AsDateTime;
+
+    cds_AdicionarParcelapgto.AsString := s_ParcelasOS.DataSet.FieldByName
+      ('PGTO').AsString;
+
+    cds_AdicionarParcela.Post;
+
+    FEntityParcelasOrdem.inserir;
+
+    edtNumeroParcela.Text :=
+      IntToStr(cds_AdicionarParcelaTotal_de_parcelas.AsInteger + 1);
+
+    edtValorParcela.Text :=
+      CurrToStr(cds_AdicionarParcelaValor_da_parcela.AsCurrency);
+
+    edtVencimentoParcela.Text :=
+      DateToStr(cds_AdicionarParcelavencimento.AsDateTime);
+
+    edtPgtoParcela.Text := cds_AdicionarParcelapgto.AsString;
+
+  end;
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton9Click(Sender: TObject);
+begin
+
+  if cds_AdicionarParcela.RecordCount >= 1 then
+  begin
+    FEntityParcelasOrdem.getID_ORDEM(cds_AdicionarParcelaid_ordem.AsInteger)
+      .getID_CLIENTE(cds_AdicionarParcelaid_cliente.AsInteger)
+      .getDATA_VENCIMENTO(edtVencimentoParcela.Text)
+      .getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
+      .getTOTAL_PARCELAS(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)
+      .getPARCELA(StrToInt(edtNumeroParcela.Text)).getPGTO(edtPgtoParcela.Text)
+      .getObservacao(edtObservacoesParcela.Text).adicionarParcela;
+  end;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.s_ParcelasOSDataChange

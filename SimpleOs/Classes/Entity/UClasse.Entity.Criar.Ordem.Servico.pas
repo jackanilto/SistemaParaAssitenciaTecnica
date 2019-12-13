@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Vcl.StdCtrls;
+  Vcl.StdCtrls, UClasse.Entity.Criar.Ordem.Parcelas;
 
 type
 
@@ -13,6 +13,7 @@ type
   private
 
     FQuery: iConexaoQuery;
+    FQueryParcelas: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
     FTabela: string;
     FCampo: string;
@@ -58,6 +59,8 @@ type
     function getCodigo(value: integer): iCriarOrdemServico;
     function getNome(value: string): iCriarOrdemServico;
     procedure validarData(componet: tmaskEdit);
+
+    procedure estornarParcelas(value: integer);
 
   public
 
@@ -288,8 +291,10 @@ end;
 
 constructor TEntityCriarOrdemServico.create;
 begin
+
   FTabela := 'ORDEM_SERVICO';
   FQuery := TConexaoQuery.new.Query(FTabela);
+  FQueryParcelas := TConexaoQuery.new.Query('PARCELAS_ORDEM');
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Ordem de serviço').getCodigoFuncionario
@@ -390,11 +395,40 @@ begin
         FQuery.TQuery.Edit;
         FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
         FQuery.TQuery.Post;
+
+        estornarParcelas(FQuery.TQuery.FieldByName('ID').AsInteger);
+
       end;
     end
     else
       raise exception.create('Esta ordem já foi estornada.');
   end;
+end;
+
+procedure TEntityCriarOrdemServico.estornarParcelas(value: integer);
+begin
+
+  FQueryParcelas.getCampo('ID_ORDEM').getValor(value.ToString)
+    .sqlPesquisa('PARCELAS_ORDEM');
+
+  if FQueryParcelas.TQuery.RecordCount >= 1 then
+  begin
+
+    FQueryParcelas.TQuery.First;
+
+    while not FQueryParcelas.TQuery.Eof do
+    begin
+
+      FQueryParcelas.TQuery.Edit;
+      FQueryParcelas.TQuery.FieldByName('PGTO').AsString := 'Estornada';
+      FQueryParcelas.TQuery.Post;
+
+      FQueryParcelas.TQuery.Next;
+
+    end;
+
+  end;
+
 end;
 
 function TEntityCriarOrdemServico.ExecSql: iCriarOrdemServico;
@@ -802,14 +836,14 @@ begin
     FieldByName('RETORNO').DisplayLabel := 'Retorno';
     FieldByName('DATA_RETORNO').DisplayLabel := 'Data do retorno';
     FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'situação da ordem';
-//    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
-//    FieldByName('PARCELADO').DisplayLabel := 'Parcelado';
+    // FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
+    // FieldByName('PARCELADO').DisplayLabel := 'Parcelado';
     FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
     FieldByName('PGTO').DisplayLabel := 'PGTO';
     FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
     FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
     FieldByName('DATA_FINALIZACAO').DisplayLabel := 'DAta de finaliação';
-//    FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Data de pagamento';
+    // FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Data de pagamento';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
     FieldByName('STATUS').DisplayLabel := 'Status';
 

@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  UClasse.Calcular.Juros, UClasse.DiasMeses;
+  UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls;
 
 type
 
@@ -102,6 +102,7 @@ type
     function calularJuros: string;
 
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
+    function adicionarParcela: iParcelaOrdem;
 
     constructor create;
     destructor destroy; override;
@@ -117,6 +118,38 @@ begin
 
   result := self;
   FQuery.Query(FTabela);
+
+end;
+
+function TEntityGerarParcelas.adicionarParcela: iParcelaOrdem;
+begin
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
+
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID_ORDEM').AsInteger := FID_ORDEM;
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
+    FieldByName('PARCELA').AsInteger := FPARCELA;
+    FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
+    FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
+    FieldByName('PGTO').AsString := FPGTO;
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+  end;
+
+  try
+    FQuery.TQuery.Post;
+    showmessage('Parcela adicionada com sucesso!');
+  except
+    on e: exception do
+    begin
+      raise exception.create('Erro ao tentar adicionar a nova parcela. ' +
+        e.Message);
+    end;
+
+  end;
 
 end;
 
@@ -308,7 +341,7 @@ begin
   result := self;
 
   parcelaAtual := 1;
-  vencimento := strtodate(FDATA_VENCIMENTO);
+  vencimento := StrToDate(FDATA_VENCIMENTO);
 
   while parcelaAtual <= FTOTAL_PARCELAS do
   begin
@@ -504,7 +537,7 @@ end;
 
 function TEntityGerarParcelas.getObservacao(value: string): iParcelaOrdem;
 begin
-  result := self;                                       
+  result := self;
   FOBSERVACAO := value;
 end;
 
@@ -590,10 +623,10 @@ begin
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
     if FDATA_VENCIMENTO <> '  /  /    ' then
-      FieldByName('DATA_VENCIMENTO').AsDateTime := strtodate(FDATA_VENCIMENTO);
+      FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
 
     if FDATA_PAGAMENTO <> '  /  /    ' then
-      FieldByName('DATA_PAGAMENTO').AsDateTime := strtodate(FDATA_PAGAMENTO);
+      FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO);
 
     if FHORA_PAGAMENTO <> '  :  :  ' then
       FieldByName('HORA_PAGAMENTO').AsDateTime := StrToTime(FHORA_PAGAMENTO);
@@ -605,7 +638,7 @@ begin
 
   try
     FQuery.TQuery.Post;
-    ShowMessage('Parcela quitada com sucesso.');
+    showmessage('Parcela quitada com sucesso.');
   except
     on e: exception do
     begin
@@ -713,7 +746,7 @@ var
   d: TDate;
 begin
   try
-    d := strtodate(componet.Text);
+    d := StrToDate(componet.Text);
   except
     componet.SetFocus;
     componet.Clear;
