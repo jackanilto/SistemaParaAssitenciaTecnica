@@ -1058,6 +1058,29 @@ type
 
   end;
 
+  iVisualizarOrdens = interface
+    ['{9CADDFBD-CBF2-4294-8310-928571A77E6F}']
+
+    function nomeTabela(value: string): iVisualizarOrdens;
+    function getCampo(value: string): iVisualizarOrdens;
+    function getValor(value: string): iVisualizarOrdens;
+    function getDataInicial(value: TDate): iVisualizarOrdens;
+    function getDataFinal(value: TDate): iVisualizarOrdens;
+    function open(value: string): iVisualizarOrdens;
+    function pesquisar: iVisualizarOrdens;
+    function ExecSql: iVisualizarOrdens;
+    function sqlPesquisa: iVisualizarOrdens;
+    function sqlPesquisaData: iVisualizarOrdens;
+    function sqlPesquisaEstatica: iVisualizarOrdens;
+
+    function abrir: iVisualizarOrdens;
+    function listarGrid(value: TDataSource): iVisualizarOrdens;
+    function ordenarGrid(column: TColumn): iVisualizarOrdens;
+    function atualizar: iVisualizarOrdens;
+    function exportar: iVisualizarOrdens;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

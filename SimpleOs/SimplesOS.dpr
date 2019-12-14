@@ -76,7 +76,8 @@ uses
   UClasse.Entity.Ordem.Adicionar.Servico in 'Classes\Entity\UClasse.Entity.Ordem.Adicionar.Servico.pas',
   UClasse.Entity in 'Classes\Entity\UClasse.Entity.pas',
   UClasse.ExtrairDiaData in 'Classes\Reusable\UClasse.ExtrairDiaData.pas',
-  UClasse.DiasMeses in 'Classes\Reusable\UClasse.DiasMeses.pas';
+  UClasse.DiasMeses in 'Classes\Reusable\UClasse.DiasMeses.pas',
+  UClasse.Visualizar.Ordens.Servico in 'Classes\Entity\UClasse.Visualizar.Ordens.Servico.pas';
 
 {$R *.res}
 

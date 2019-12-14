@@ -124,7 +124,7 @@
     Top = 41
     Width = 973
     Height = 469
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbOrdemServiço
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -2196,7 +2196,7 @@
       OnClick = SpeedButton1Click
     end
     object SpeedButton2: TSpeedButton
-      Left = 784
+      Left = 778
       Top = 24
       Width = 114
       Height = 35
