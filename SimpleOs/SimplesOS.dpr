@@ -77,7 +77,11 @@ uses
   UClasse.Entity in 'Classes\Entity\UClasse.Entity.pas',
   UClasse.ExtrairDiaData in 'Classes\Reusable\UClasse.ExtrairDiaData.pas',
   UClasse.DiasMeses in 'Classes\Reusable\UClasse.DiasMeses.pas',
-  UClasse.Visualizar.Ordens.Servico in 'Classes\Entity\UClasse.Visualizar.Ordens.Servico.pas';
+  UClasse.Visualizar.Ordens.Servico in 'Classes\Entity\UClasse.Visualizar.Ordens.Servico.pas',
+  UClasse.Visualizar.Ordens.Servicos.Incluidos in 'Classes\Entity\UClasse.Visualizar.Ordens.Servicos.Incluidos.pas',
+  UClasse.Visualizar.Ordens.Servico.Parcelas in 'Classes\Entity\UClasse.Visualizar.Ordens.Servico.Parcelas.pas',
+  UClasse.Entity.Dados.Empresa in 'Classes\Entity\UClasse.Entity.Dados.Empresa.pas',
+  Form.Cadastro.Empresa in 'Forms\Form.Cadastro.Empresa.pas' {formCadastroEmpresa};
 
 {$R *.res}
 

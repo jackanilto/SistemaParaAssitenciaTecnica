@@ -1081,6 +1081,105 @@ type
 
   end;
 
+  iVisualizarServicosOrdem = interface
+    ['{A8EF0695-9710-4E49-A8CA-13D0FE1E2C22}']
+
+    function nomeTabela(value: string): iVisualizarServicosOrdem;
+    function getCampo(value: string): iVisualizarServicosOrdem;
+    function getValor(value: string): iVisualizarServicosOrdem;
+    function getDataInicial(value: TDate): iVisualizarServicosOrdem;
+    function getDataFinal(value: TDate): iVisualizarServicosOrdem;
+    function open(value: string): iVisualizarServicosOrdem;
+    function pesquisar: iVisualizarServicosOrdem;
+    function ExecSql: iVisualizarServicosOrdem;
+    function sqlPesquisa: iVisualizarServicosOrdem;
+    function sqlPesquisaData: iVisualizarServicosOrdem;
+    function sqlPesquisaEstatica: iVisualizarServicosOrdem;
+
+    function abrir: iVisualizarServicosOrdem;
+    function listarGrid(value: TDataSource): iVisualizarServicosOrdem;
+    function ordenarGrid(column: TColumn): iVisualizarServicosOrdem;
+    function atualizar: iVisualizarServicosOrdem;
+    function exportar: iVisualizarServicosOrdem;
+
+  end;
+
+  iVisualizarParcelasOrdem = interface
+    ['{95A568DB-04FF-491F-A5AC-D004EB9A1881}']
+
+    function nomeTabela(value: string): iVisualizarParcelasOrdem;
+    function getCampo(value: string): iVisualizarParcelasOrdem;
+    function getValor(value: string): iVisualizarParcelasOrdem;
+    function getDataInicial(value: TDate): iVisualizarParcelasOrdem;
+    function getDataFinal(value: TDate): iVisualizarParcelasOrdem;
+    function open(value: string): iVisualizarParcelasOrdem;
+    function pesquisar: iVisualizarParcelasOrdem;
+    function ExecSql: iVisualizarParcelasOrdem;
+    function sqlPesquisa: iVisualizarParcelasOrdem;
+    function sqlPesquisaData: iVisualizarParcelasOrdem;
+    function sqlPesquisaEstatica: iVisualizarParcelasOrdem;
+
+    function abrir: iVisualizarParcelasOrdem;
+    function listarGrid(value: TDataSource): iVisualizarParcelasOrdem;
+    function ordenarGrid(column: TColumn): iVisualizarParcelasOrdem;
+    function atualizar: iVisualizarParcelasOrdem;
+    function exportar: iVisualizarParcelasOrdem;
+
+  end;
+
+  iDadosEmpresa = interface
+    ['{FD9AE2A8-18B6-4855-BBF7-3F8AA44CBEB1}']
+
+    function nomeTabela(value: string): iDadosEmpresa;
+    function getCampo(value: string): iDadosEmpresa;
+    function getValor(value: string): iDadosEmpresa;
+    function getDataInicial(value: TDate): iDadosEmpresa;
+    function getDataFinal(value: TDate): iDadosEmpresa;
+    function open(value: string): iDadosEmpresa;
+    function pesquisar: iDadosEmpresa;
+    function ExecSql: iDadosEmpresa;
+    function sqlPesquisa: iDadosEmpresa;
+    function sqlPesquisaData: iDadosEmpresa;
+    function sqlPesquisaEstatica: iDadosEmpresa;
+
+    function abrir: iDadosEmpresa;
+    function inserir: iDadosEmpresa;
+    function gravar: iDadosEmpresa;
+    function deletar: iDadosEmpresa;
+    function atualizar: iDadosEmpresa;
+    function editar: iDadosEmpresa;
+    function cancelar: iDadosEmpresa;
+    function fecharQuery: iDadosEmpresa;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iDadosEmpresa;
+    function ordenarGrid(column: TColumn): iDadosEmpresa;
+
+    function getID(value: integer): iDadosEmpresa;
+    function getNOME_FANTASIA(value: string): iDadosEmpresa;
+    function getRAZAO_SOCIAL(value: string): iDadosEmpresa;
+    function getCNPJ(value: string): iDadosEmpresa;
+    function getINSCRICAO_ESTADUAL(value: string): iDadosEmpresa;
+    function getEndereco(value: string): iDadosEmpresa;
+    function getBairro(value: string): iDadosEmpresa;
+    function getNumero(value: integer): iDadosEmpresa;
+    function getComplemento(value: string): iDadosEmpresa;
+    function getCep(value: string): iDadosEmpresa;
+    function getCidade(value: string): iDadosEmpresa;
+    function getEstado(value: string): iDadosEmpresa;
+    function getTelefone(value: string): iDadosEmpresa;
+    function getCelular(value: string): iDadosEmpresa;
+    function getEmail(value: string): iDadosEmpresa;
+    function getResponsavel(value: string): iDadosEmpresa;
+    function getObservacao(value: string): iDadosEmpresa;
+
+    function exportar: iDadosEmpresa;
+    procedure validarData(componet: tmaskEdit);
+
+    function getCodigo(value: integer): iDadosEmpresa;
+    function getNome(value: string): iDadosEmpresa;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

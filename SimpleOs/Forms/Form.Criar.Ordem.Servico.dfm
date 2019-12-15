@@ -145,6 +145,7 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = -2
         object Label1: TLabel
           Left = 16
           Top = 17
@@ -2275,6 +2276,7 @@
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = SpeedButton2Click
     end
   end
   object DataSource1: TDataSource
@@ -2383,5 +2385,73 @@
       FieldName = 'pgto'
       Size = 3
     end
+  end
+  object s_imprimirOS: TDataSource
+    Left = 612
+    Top = 69
+  end
+  object s_imprimirServicosOS: TDataSource
+    Left = 612
+    Top = 125
+  end
+  object s_imprimirparcelasOS: TDataSource
+    Left = 612
+    Top = 181
+  end
+  object frxDB_ImprimirOS: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    DataSource = s_imprimirOS
+    BCDToCurrency = False
+    Left = 756
+    Top = 69
+  end
+  object frxDB_ImprimirServicosOS: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    DataSource = s_imprimirServicosOS
+    BCDToCurrency = False
+    Left = 756
+    Top = 125
+  end
+  object frxDB_ImprimirParcelasOS: TfrxDBDataset
+    UserName = 'frxDB_ImprimirParcelasOS'
+    CloseDataSource = False
+    DataSource = s_imprimirparcelasOS
+    BCDToCurrency = False
+    Left = 756
+    Top = 173
+  end
+  object frx_ImprimirOS: TfrxReport
+    Version = '6.3.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43814.583497731480000000
+    ReportOptions.LastChange = 43814.583497731480000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 676
+    Top = 21
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object frxDB_ImprimirDadosEmpresa: TfrxDBDataset
+    UserName = 'frxDB_ImprimirParcelasOS'
+    CloseDataSource = False
+    BCDToCurrency = False
+    Left = 756
+    Top = 221
+  end
+  object s_ImprimirEmpresa: TDataSource
+    Left = 612
+    Top = 237
   end
 end

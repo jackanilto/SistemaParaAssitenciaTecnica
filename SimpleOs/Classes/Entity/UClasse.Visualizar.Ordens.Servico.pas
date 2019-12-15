@@ -8,12 +8,10 @@ uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
 
 type
 
-  TEntityVisualizar = class(TInterfacedObject, iVisualizarOrdens)
+  TEntityVisualizarOrdem = class(TInterfacedObject, iVisualizarOrdens)
   private
 
     FQuery: iConexaoQuery;
-    FQueryOrdemItens: iConexaoQuery;
-    FQuerOrdemParcelas: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
     FTabela: string;
     FCampo: string;
@@ -37,8 +35,6 @@ type
 
     function abrir: iVisualizarOrdens;
     function listarGrid(value: TDataSource): iVisualizarOrdens;
-    function listarGridOrdemServicos(value: TDataSource): iVisualizarOrdens;
-    function listargridOrdemParcelas(value: TDataSource): iVisualizarOrdens;
     function ordenarGrid(column: TColumn): iVisualizarOrdens;
     function atualizar: iVisualizarOrdens;
     function exportar: iVisualizarOrdens;
@@ -50,9 +46,9 @@ type
 
 implementation
 
-{ TEntityVisualizar }
+{ TEntityVisualizarOrdem }
 
-function TEntityVisualizar.abrir: iVisualizarOrdens;
+function TEntityVisualizarOrdem.abrir: iVisualizarOrdens;
 begin
 
   result := self;
@@ -60,19 +56,16 @@ begin
 
 end;
 
-function TEntityVisualizar.atualizar: iVisualizarOrdens;
+function TEntityVisualizarOrdem.atualizar: iVisualizarOrdens;
 begin
   result := self;
   FQuery.TQuery.Refresh;
 end;
 
-constructor TEntityVisualizar.create;
+constructor TEntityVisualizarOrdem.create;
 begin
-  FTabela := 'ORDEM_SERVICO';
+  FTabela := 'VISUALIZAR_ORDENS';
   FQuery := TConexaoQuery.new.Query(FTabela);
-
-  FQueryOrdemItens := TConexaoQuery.new.Query('SERVICOS_ORDEM');
-  FQuerOrdemParcelas := TConexaoQuery.new.Query('PARCELAS_ORDEM');
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Visulizar ordens').getCodigoFuncionario
@@ -81,50 +74,50 @@ begin
 
 end;
 
-destructor TEntityVisualizar.destroy;
+destructor TEntityVisualizarOrdem.destroy;
 begin
 
   inherited;
 end;
 
-function TEntityVisualizar.ExecSql: iVisualizarOrdens;
+function TEntityVisualizarOrdem.ExecSql: iVisualizarOrdens;
 begin
   result := self;
   FQuery.ExecSql(FTabela);
 end;
 
-function TEntityVisualizar.exportar: iVisualizarOrdens;
+function TEntityVisualizarOrdem.exportar: iVisualizarOrdens;
 begin
   result := self;
 end;
 
-function TEntityVisualizar.getCampo(value: string): iVisualizarOrdens;
+function TEntityVisualizarOrdem.getCampo(value: string): iVisualizarOrdens;
 begin
   result := self;
   FCampo := value;
 end;
 
-function TEntityVisualizar.getDataFinal(value: TDate): iVisualizarOrdens;
+function TEntityVisualizarOrdem.getDataFinal(value: TDate): iVisualizarOrdens;
 begin
   result := self;
   FDataFinal := value;
   // FQuery.getDataFinal(value);
 end;
 
-function TEntityVisualizar.getDataInicial(value: TDate): iVisualizarOrdens;
+function TEntityVisualizarOrdem.getDataInicial(value: TDate): iVisualizarOrdens;
 begin
   result := self;
   FDataInicial := value;
   // FQuery.getDataInicial(value);
 end;
 
-function TEntityVisualizar.getValor(value: string): iVisualizarOrdens;
+function TEntityVisualizarOrdem.getValor(value: string): iVisualizarOrdens;
 begin
   result := self;
   FValor := UpperCase(value);
 end;
 
-function TEntityVisualizar.listarGrid(value: TDataSource): iVisualizarOrdens;
+function TEntityVisualizarOrdem.listarGrid(value: TDataSource): iVisualizarOrdens;
 begin
 
   result := self;
@@ -132,11 +125,12 @@ begin
   with FQuery.TQuery do
   begin
 
-    FieldByName('id').DisplayLabel := 'Código';
+    FieldByName('ID_ORDEM').DisplayLabel := 'Código';
     FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
+    FieldByName('NOME_CLIENTE').DisplayLabel := 'Cliente';
     FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
     FieldByName('DEFEITO_RELATADO').DisplayLabel := 'Defeito relatado';
-    FieldByName('MARCA').DisplayLabel := 'Marca';
+    FieldByName('MARCAS').DisplayLabel := 'Marca';
     FieldByName('MODELO').DisplayLabel := 'Modelo';
     FieldByName('NUMERO_SERIE').DisplayLabel := 'Número de serie';
     FieldByName('DATA_FABRICACAO').DisplayLabel := 'Data de fabricação';
@@ -157,7 +151,7 @@ begin
     FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
     FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
     FieldByName('DATA_FINALIZACAO').DisplayLabel := 'Data de saída';
-    FieldByName('HORA_SAIDA0').DisplayLabel := 'Horário de saída';
+    FieldByName('HORA_SAIDA').DisplayLabel := 'Horário de saída';
     FieldByName('DATA_BASE_VENCIMENTO').DisplayLabel :=
       'Data base de vencimento';
     FieldByName('ID_TECNICO_RESPONSAVEL').DisplayLabel :=
@@ -171,35 +165,23 @@ begin
 
 end;
 
-function TEntityVisualizar.listargridOrdemParcelas(value: TDataSource)
-  : iVisualizarOrdens;
-begin
-  result := self;
-end;
-
-function TEntityVisualizar.listarGridOrdemServicos(value: TDataSource)
-  : iVisualizarOrdens;
-begin
-  result := self;
-end;
-
-class function TEntityVisualizar.new: iVisualizarOrdens;
+class function TEntityVisualizarOrdem.new: iVisualizarOrdens;
 begin
   result := self.create;
 end;
 
-function TEntityVisualizar.nomeTabela(value: string): iVisualizarOrdens;
+function TEntityVisualizarOrdem.nomeTabela(value: string): iVisualizarOrdens;
 begin
   result := self;
   FTabela := value;
 end;
 
-function TEntityVisualizar.open(value: string): iVisualizarOrdens;
+function TEntityVisualizarOrdem.open(value: string): iVisualizarOrdens;
 begin
   FQuery.Query(FTabela);
 end;
 
-function TEntityVisualizar.ordenarGrid(column: TColumn): iVisualizarOrdens;
+function TEntityVisualizarOrdem.ordenarGrid(column: TColumn): iVisualizarOrdens;
 begin
 
   if FQuery.TQuery.IndexFieldNames = column.FieldName then
@@ -209,25 +191,25 @@ begin
 
 end;
 
-function TEntityVisualizar.pesquisar: iVisualizarOrdens;
+function TEntityVisualizarOrdem.pesquisar: iVisualizarOrdens;
 begin
   result := self;
 end;
 
-function TEntityVisualizar.sqlPesquisa: iVisualizarOrdens;
+function TEntityVisualizarOrdem.sqlPesquisa: iVisualizarOrdens;
 begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
 end;
 
-function TEntityVisualizar.sqlPesquisaData: iVisualizarOrdens;
+function TEntityVisualizarOrdem.sqlPesquisaData: iVisualizarOrdens;
 begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
     .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
 end;
 
-function TEntityVisualizar.sqlPesquisaEstatica: iVisualizarOrdens;
+function TEntityVisualizarOrdem.sqlPesquisaEstatica: iVisualizarOrdens;
 begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)

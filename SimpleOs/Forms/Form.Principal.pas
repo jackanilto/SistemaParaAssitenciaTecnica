@@ -71,6 +71,7 @@ type
     acOrdemServico: TAction;
     acCriarOrdenServico: TAction;
     acCadastrarServicos: TAction;
+    acDadosEmpresa: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -100,6 +101,7 @@ type
     procedure acOrdemServicoExecute(Sender: TObject);
     procedure acCriarOrdenServicoExecute(Sender: TObject);
     procedure acCadastrarServicosExecute(Sender: TObject);
+    procedure acDadosEmpresaExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -125,7 +127,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Transportadora, Form.Cadastro.Produtos,
   Form.Cadastro.Funcionarios, Form.Cadastro.Situacao.Ordem,
   Form.Saidas.Produtos, Form.Ordem.Servico, Form.Criar.Ordem.Servico,
-  Form.Cadastro.Servicos;
+  Form.Cadastro.Servicos, Form.Cadastro.Empresa;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -229,6 +231,12 @@ begin
   formCriarConsultarOrdemServico :=
     TformCriarConsultarOrdemServico.Create(self);
   TFactory.new.criarJanela.formShow(formCriarConsultarOrdemServico, '');
+end;
+
+procedure TformPrincipal.acDadosEmpresaExecute(Sender: TObject);
+begin
+  formCadastroEmpresa := TformCadastroEmpresa.Create(self);
+  TFactory.new.criarJanela.formShow(formCadastroEmpresa, '');
 end;
 
 procedure TformPrincipal.acEntradasProdutosExecute(Sender: TObject);

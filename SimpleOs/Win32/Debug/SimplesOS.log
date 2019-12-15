@@ -1794,3 +1794,91 @@ like
 13/12/19 20:34:01 - Caption: Criar / Consultar ordem de serviço
 13/12/19 20:34:01 - Erro:Exception
 13/12/19 20:34:01 - Erro:Informe um valor válido para o Valor da Parcela.
+14/12/19 20:57:52 - ===========================================
+14/12/19 20:57:52 - Form: formCriarConsultarOrdemServico
+14/12/19 20:57:52 - Caption: Criar / Consultar ordem de serviço
+14/12/19 20:57:52 - Erro:EIBNativeException
+14/12/19 20:57:52 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -206
+Column unknown
+ID_ORDEM
+At line 1, column 35
+14/12/19 20:58:49 - ===========================================
+14/12/19 20:58:49 - Form: formCriarConsultarOrdemServico
+14/12/19 20:58:49 - Caption: Criar / Consultar ordem de serviço
+14/12/19 20:58:49 - Erro:EIBNativeException
+14/12/19 20:58:49 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -206
+Column unknown
+ID_ORDEM
+At line 1, column 35
+15/12/19 13:43:41 - ===========================================
+15/12/19 13:43:41 - Form: formCriarConsultarOrdemServico
+15/12/19 13:43:41 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:43:41 - Erro:EDatabaseError
+15/12/19 13:43:41 - Erro:Field 'id' not found
+15/12/19 13:45:01 - ===========================================
+15/12/19 13:45:01 - Form: formCriarConsultarOrdemServico
+15/12/19 13:45:01 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:45:01 - Erro:EDatabaseError
+15/12/19 13:45:01 - Erro:Field 'id' not found
+15/12/19 13:45:05 - ===========================================
+15/12/19 13:45:05 - Form: formCriarConsultarOrdemServico
+15/12/19 13:45:05 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:45:05 - Erro:EDatabaseError
+15/12/19 13:45:05 - Erro:Field 'id' not found
+15/12/19 13:45:35 - ===========================================
+15/12/19 13:45:35 - Form: formCriarConsultarOrdemServico
+15/12/19 13:45:35 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:45:35 - Erro:EDatabaseError
+15/12/19 13:45:35 - Erro:Field 'id' not found
+15/12/19 13:49:02 - ===========================================
+15/12/19 13:49:02 - Form: formCriarConsultarOrdemServico
+15/12/19 13:49:02 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:49:02 - Erro:EDatabaseError
+15/12/19 13:49:02 - Erro:Field 'id' not found
+15/12/19 13:50:14 - ===========================================
+15/12/19 13:50:14 - Form: formCriarConsultarOrdemServico
+15/12/19 13:50:14 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:50:14 - Erro:EDatabaseError
+15/12/19 13:50:14 - Erro:Field 'MARCA' not found
+15/12/19 13:50:41 - ===========================================
+15/12/19 13:50:41 - Form: formCriarConsultarOrdemServico
+15/12/19 13:50:41 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:50:41 - Erro:EDatabaseError
+15/12/19 13:50:41 - Erro:Field 'HORA_SAIDA0' not found
+15/12/19 13:51:21 - ===========================================
+15/12/19 13:51:21 - Form: formCriarConsultarOrdemServico
+15/12/19 13:51:21 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:51:21 - Erro:EDatabaseError
+15/12/19 13:51:21 - Erro:Field 'CLIENTE,' not found
+15/12/19 13:52:37 - ===========================================
+15/12/19 13:52:37 - Form: formCriarConsultarOrdemServico
+15/12/19 13:52:37 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:52:37 - Erro:EDatabaseError
+15/12/19 13:52:37 - Erro:Field 'CLIENTE,' not found
+15/12/19 13:53:45 - ===========================================
+15/12/19 13:53:45 - Form: formCriarConsultarOrdemServico
+15/12/19 13:53:45 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:53:45 - Erro:EDatabaseError
+15/12/19 13:53:45 - Erro:Field 'CLIENTE,' not found
+15/12/19 13:55:04 - ===========================================
+15/12/19 13:55:04 - Form: formCriarConsultarOrdemServico
+15/12/19 13:55:04 - Caption: Criar / Consultar ordem de serviço
+15/12/19 13:55:04 - Erro:EDatabaseError
+15/12/19 13:55:04 - Erro:Field 'CLIENTE,' not found
+15/12/19 15:36:17 - ===========================================
+15/12/19 15:36:17 - Form: formCadastroEmpresa
+15/12/19 15:36:17 - Caption: Dados da empresa
+15/12/19 15:36:17 - Erro:EACBrCEPException
+15/12/19 15:36:17 - Erro:WebService TACBrCEPWSClass não implementa o método: BuscarPorCEP
+15/12/19 15:37:25 - ===========================================
+15/12/19 15:37:25 - Form: formCadastroEmpresa
+15/12/19 15:37:25 - Caption: Dados da empresa
+15/12/19 15:37:25 - Erro:EACBrCEPException
+15/12/19 15:37:25 - Erro:WebService TACBrCEPWSClass não implementa o método: BuscarPorCEP
+15/12/19 15:39:21 - ===========================================
+15/12/19 15:39:21 - Form: formCadastroEmpresa
+15/12/19 15:39:21 - Caption: Dados da empresa
+15/12/19 15:39:21 - Erro:EACBrCEPException
+15/12/19 15:39:21 - Erro:WebService TACBrCEPWSClass não implementa o método: BuscarPorCEP

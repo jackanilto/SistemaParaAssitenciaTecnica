@@ -9,7 +9,9 @@ uses
   Vcl.ComCtrls, UInterfaces, UClasse.Entity.Criar.Ordem.Servico, Vcl.Mask,
   Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory, Form.Localizar.Clientes.Ordem,
   Datasnap.DBClient, UClasse.Entity.Ordem.Adicionar.Servico, Form.Ordem.Servico,
-  Form.Principal, UClasse.Entity.Criar.Ordem.Parcelas, Vcl.DBCtrls;
+  Form.Principal, UClasse.Entity.Criar.Ordem.Parcelas, Vcl.DBCtrls,
+  UClasse.Visualizar.Ordens.Servico.Parcelas, UClasse.Visualizar.Ordens.Servico,
+  UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -150,6 +152,15 @@ type
     cds_AdicionarParcelapgto: TStringField;
     SpeedButton12: TSpeedButton;
     SpeedButton13: TSpeedButton;
+    s_imprimirOS: TDataSource;
+    s_imprimirServicosOS: TDataSource;
+    s_imprimirparcelasOS: TDataSource;
+    frxDB_ImprimirOS: TfrxDBDataset;
+    frxDB_ImprimirServicosOS: TfrxDBDataset;
+    frxDB_ImprimirParcelasOS: TfrxDBDataset;
+    frx_ImprimirOS: TfrxReport;
+    frxDB_ImprimirDadosEmpresa: TfrxDBDataset;
+    s_ImprimirEmpresa: TDataSource;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -180,6 +191,7 @@ type
     procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton10Click(Sender: TObject);
     procedure SpeedButton12Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -187,6 +199,10 @@ type
     FEntityServicosOrdem: iAdicionarServicosOrdem;
     FEntityParcelasOrdem: iParcelaOrdem;
     FEntityTableServicos: iFDTable;
+
+    FEntityVisualizarOS: iVisualizarOrdens;
+    FEntityVisualizasOSServicos: iVisualizarServicosOrdem;
+    FEntityVisualizarOSParcelas: iVisualizarParcelasOrdem;
 
     FValorTotalOrdemServico: Currency;
     FValorServicosIncluidos: Currency;
@@ -198,6 +214,7 @@ type
     procedure selecionarOrdem;
     procedure popularComboBox;
     procedure abreATabelaDeParcelas;
+    procedure prepararParaImprimir(value: Integer);
   public
     { Public declarations }
   end;
@@ -328,10 +345,15 @@ end;
 
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
 begin
+
   FEntityCriarOrdem := TEntityCriarOrdemServico.new;
   FEntityServicosOrdem := TEntityAdicionarItemsOrdem.new;
   FEntityParcelasOrdem := TEntityGerarParcelas.new;
   FEntityTableServicos := TEntityTable.new;
+
+  FEntityVisualizarOS := TEntityVisualizarOrdem.new;
+  FEntityVisualizasOSServicos := TEntityVisualizarOrdemServicosIncluidos.new;
+  FEntityVisualizarOSParcelas := TEntityVisualizarOrdemServicoParcelas.new;
 
   ReportMemoryLeaksOnShutdown := true;
 
@@ -459,6 +481,11 @@ procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
 begin
   FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
     .AsInteger);
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton2Click(Sender: TObject);
+begin
+  prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
@@ -707,7 +734,7 @@ begin
 end;
 
 procedure TformCriarConsultarOrdemServico.selecionarOrdem;
-begin
+begin // selecionar a OS ao chamar através do form  Ordem de Servico
   if codigoDaOS <> 0 then
   begin
     FEntityCriarOrdem.abrir.getCampo('ID').getValor(codigoDaOS.ToString)
@@ -739,6 +766,20 @@ begin
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
     (edtFormaPagamentoParcela);
+
+end;
+
+procedure TformCriarConsultarOrdemServico.prepararParaImprimir(value: Integer);
+begin
+
+  FEntityVisualizarOS.getCampo('ID_ORDEM').getValor(value.ToString)
+    .sqlPesquisaEstatica.listarGrid(s_imprimirOS);
+
+  FEntityVisualizasOSServicos.getCampo('ID_ORDEM').getValor(value.ToString)
+    .sqlPesquisaEstatica.listarGrid(s_imprimirServicosOS);
+
+  FEntityVisualizarOSParcelas.getCampo('ID_ORDEM').getValor(value.ToString)
+    .sqlPesquisaEstatica.listarGrid(s_imprimirparcelasOS);
 
 end;
 
