@@ -1882,3 +1882,8 @@ At line 1, column 35
 15/12/19 15:39:21 - Caption: Dados da empresa
 15/12/19 15:39:21 - Erro:EACBrCEPException
 15/12/19 15:39:21 - Erro:WebService TACBrCEPWSClass não implementa o método: BuscarPorCEP
+16/12/19 12:22:46 - ===========================================
+16/12/19 12:22:46 - Form: formCadastroEmpresa
+16/12/19 12:22:46 - Caption: Dados da empresa
+16/12/19 12:22:46 - Erro:Exception
+16/12/19 12:22:46 - Erro:Informe um CNPJ válido.

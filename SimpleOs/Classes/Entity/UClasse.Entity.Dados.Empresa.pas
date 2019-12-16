@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -184,8 +185,64 @@ begin
 end;
 
 function TEntityCadastroDadosEmpresa.exportar: iDadosEmpresa;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Dados da Empresa';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Nome fantasia';
+  pasta.cells[1, 2] := 'Razão social';
+  pasta.cells[1, 3] := 'CNPJ';
+  pasta.cells[1, 4] := 'Inscrição estadual';
+  pasta.cells[1, 5] := 'Endereço';
+  pasta.cells[1, 6] := 'Bairro';
+  pasta.cells[1, 7] := 'Número';
+  pasta.cells[1, 8] := 'Complemento';
+  pasta.cells[1, 9] := 'CEP';
+  pasta.cells[1, 10] := 'Cidade';
+  pasta.cells[1, 11] := 'Estado';
+  pasta.cells[1, 12] := 'Telefone';
+  pasta.cells[1, 13] := 'Celular';
+  pasta.cells[1, 14] := 'E-Mail';
+  pasta.cells[1, 15] := 'Responsável';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('NOME_FANTASIA').AsString;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('RAZAO_SOCIAL').AsString;
+      pasta.cells[linha, 3] := '"'+FQuery.TQuery.FieldByName('CNPJ').AsString+'"';
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('INSCRICAO_ESTADUAL').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('ENDERECO').AsString;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('BAIRRO').AsString;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('NUMERO').AsInteger;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('COMPLEMENTO').AsString;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('CEP').AsString;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('CIDADE').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('ESTADO').AsString;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('TELEFONE').AsString;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('CELULAR').AsString;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('EMAIL').AsString;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('RESPONSAVEL').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TEntityCadastroDadosEmpresa.fecharQuery: iDadosEmpresa;

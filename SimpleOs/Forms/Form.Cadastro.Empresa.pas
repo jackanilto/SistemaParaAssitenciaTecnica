@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Dados.Empresa, Vcl.Mask, ACBrBase,
-  ACBrSocket, ACBrCEP, UFactory;
+  ACBrSocket, ACBrCEP, UFactory, frxClass, frxDBSet;
 
 type
   TformCadastroEmpresa = class(TformExemploEmbeded)
@@ -27,7 +27,7 @@ type
     edtCidade: TEdit;
     Label2: TLabel;
     Label3: TLabel;
-    Label6: TLabel;
+    lblCNPJ: TLabel;
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
@@ -47,6 +47,8 @@ type
     edtResponsavel: TEdit;
     Label17: TLabel;
     Label18: TLabel;
+    frxDB_DadosEmpresa: TfrxDBDataset;
+    frx_DadosEmpresa: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ACBrCEP1BuscaEfetuada(Sender: TObject);
@@ -59,6 +61,9 @@ type
     procedure sbCancelarClick(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure DBGrid1TitleClick(Column: TColumn);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure edtCNPJExit(Sender: TObject);
   private
     { Private declarations }
     FEntityEmpresa: iDadosEmpresa;
@@ -139,6 +144,21 @@ begin
   FEntityEmpresa.ordenarGrid(Column);
 end;
 
+procedure TformCadastroEmpresa.edtCNPJExit(Sender: TObject);
+begin
+  inherited;
+  if tfactory.new.validarDocumento.getDocumento(edtCNPJ.Text) = false then
+  begin
+    lblCNPJ.Caption := 'CNPJ inválido';
+    lblCNPJ.Font.Color := clred;
+  end
+  else
+  begin
+    lblCNPJ.Caption := 'CNPJ';
+    lblCNPJ.Font.Color := clWindowText;
+  end;
+end;
+
 procedure TformCadastroEmpresa.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -170,6 +190,20 @@ procedure TformCadastroEmpresa.sbExcluirClick(Sender: TObject);
 begin
   inherited;
   FEntityEmpresa.deletar;
+end;
+
+procedure TformCadastroEmpresa.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FEntityEmpresa.exportar;
+end;
+
+procedure TformCadastroEmpresa.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frx_DadosEmpresa.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_dados_empresa.fr3');
+  frx_DadosEmpresa.ShowReport();
 end;
 
 procedure TformCadastroEmpresa.sbNovoClick(Sender: TObject);

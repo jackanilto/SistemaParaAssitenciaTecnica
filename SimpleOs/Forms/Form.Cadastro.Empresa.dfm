@@ -1,7 +1,7 @@
 inherited formCadastroEmpresa: TformCadastroEmpresa
   Caption = 'Dados da empresa'
   ClientHeight = 585
-  ExplicitTop = -7
+  ExplicitTop = -31
   ExplicitHeight = 585
   PixelsPerInch = 96
   TextHeight = 13
@@ -12,16 +12,31 @@ inherited formCadastroEmpresa: TformCadastroEmpresa
   end
   inherited Panel3: TPanel
     Top = 510
+    ExplicitTop = 510
+    inherited Label4: TLabel
+      Visible = False
+    end
+    inherited Label5: TLabel
+      Visible = False
+    end
+    inherited cbPesquisar: TComboBox
+      Visible = False
+    end
+    inherited edtPesquisar: TEdit
+      Visible = False
+    end
   end
   inherited CardPanel1: TCardPanel
     Height = 429
+    ActiveCard = cardPanelCadatro
+    ExplicitHeight = 429
     inherited cardPanelCadatro: TCard
       Height = 429
       Font.Height = -13
       Font.Name = 'Segoe UI'
       ParentFont = False
-      ExplicitLeft = -120
-      ExplicitTop = -136
+      ExplicitTop = 5
+      ExplicitHeight = 429
       object Label1: TLabel
         Left = 14
         Top = 25
@@ -43,7 +58,7 @@ inherited formCadastroEmpresa: TformCadastroEmpresa
         Height = 17
         Caption = 'raz'#227'o social'
       end
-      object Label6: TLabel
+      object lblCNPJ: TLabel
         Left = 14
         Top = 217
         Width = 29
@@ -230,6 +245,7 @@ inherited formCadastroEmpresa: TformCadastroEmpresa
         Height = 25
         CharCase = ecUpperCase
         TabOrder = 3
+        OnExit = edtCNPJExit
       end
       object edtInscricaoEstadual: TEdit
         Left = 240
@@ -334,8 +350,16 @@ inherited formCadastroEmpresa: TformCadastroEmpresa
     end
     inherited cardPanelConsulta: TCard
       Height = 429
+      ExplicitHeight = 429
       inherited Panel4: TPanel
         Top = 384
+        ExplicitTop = 384
+        inherited sbImprimir: TSpeedButton
+          OnClick = sbImprimirClick
+        end
+        inherited sbExportar: TSpeedButton
+          OnClick = sbExportarClick
+        end
       end
       inherited DBGrid1: TDBGrid
         Height = 384
@@ -361,5 +385,551 @@ inherited formCadastroEmpresa: TformCadastroEmpresa
     OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
     Left = 376
     Top = 113
+  end
+  object frxDB_DadosEmpresa: TfrxDBDataset
+    UserName = 'frxDB_DadosEmpresa'
+    CloseDataSource = False
+    DataSource = DataSource1
+    BCDToCurrency = False
+    Left = 712
+    Top = 273
+  end
+  object frx_DadosEmpresa: TfrxReport
+    Version = '6.3.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43815.494107812500000000
+    ReportOptions.LastChange = 43815.515247152800000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      ''
+      'begin'
+      ''
+      'end.')
+    Left = 592
+    Top = 273
+    Datasets = <
+      item
+        DataSet = frxDB_DadosEmpresa
+        DataSetName = 'frxDB_DadosEmpresa'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 132.283550000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Top = 18.897650000000000000
+          Width = 718.110700000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -24
+          Font.Name = 'roboto'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'Relat'#243'rio Dados da Empresa')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Left = 22.779530000000000000
+          Top = 53.133890000000000000
+          Width = 665.197280000000000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+        object SysMemo1: TfrxSysMemoView
+          AllowVectorExport = True
+          Left = 593.386210000000000000
+          Top = 56.913420000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[DATE]')
+          ParentFont = False
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 393.071120000000000000
+        Top = 211.653680000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDB_DadosEmpresa
+        DataSetName = 'frxDB_DadosEmpresa'
+        RowCount = 0
+        object Shape1: TfrxShapeView
+          AllowVectorExport = True
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Shape2: TfrxShapeView
+          AllowVectorExport = True
+          Top = 34.015770000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Shape3: TfrxShapeView
+          AllowVectorExport = True
+          Top = 68.031540000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Shape4: TfrxShapeView
+          AllowVectorExport = True
+          Top = 102.047310000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Shape5: TfrxShapeView
+          AllowVectorExport = True
+          Top = 136.063080000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Shape6: TfrxShapeView
+          AllowVectorExport = True
+          Top = 170.078850000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 15.118120000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Nome fantasia:')
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 105.826840000000000000
+          Top = 15.118120000000000000
+          Width = 604.724800000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."NOME_FANTASIA"]')
+        end
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 49.133890000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Raz'#227'o social:')
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 98.267780000000000000
+          Top = 49.133890000000000000
+          Width = 612.283860000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."RAZAO_SOCIAL"]')
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 83.149660000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'CNPJ:')
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 60.472480000000000000
+          Top = 83.149660000000000000
+          Width = 185.196970000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."CNPJ"]')
+        end
+        object Line2: TfrxLineView
+          AllowVectorExport = True
+          Left = 260.787570000000000000
+          Top = 69.811070000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 268.346630000000000000
+          Top = 83.149660000000000000
+          Width = 120.944960000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Inscri'#231#227'o estadual:')
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 396.850650000000000000
+          Top = 83.149660000000000000
+          Width = 257.008040000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."INSCRICAO_ESTADUAL"]')
+        end
+        object Memo11: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 116.385900000000000000
+          Width = 64.252010000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Endere'#231'o:')
+        end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 79.370130000000000000
+          Top = 117.165430000000000000
+          Width = 631.181510000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."ENDERECO"]')
+        end
+        object Memo13: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 151.181200000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Bairro:')
+        end
+        object Memo14: TfrxMemoView
+          AllowVectorExport = True
+          Left = 52.913420000000000000
+          Top = 151.181200000000000000
+          Width = 423.307360000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."BAIRRO"]')
+        end
+        object Line3: TfrxLineView
+          AllowVectorExport = True
+          Left = 487.559370000000000000
+          Top = 136.063080000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo15: TfrxMemoView
+          AllowVectorExport = True
+          Left = 494.118430000000000000
+          Top = 151.960730000000000000
+          Width = 60.472480000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'N'#250'mero:')
+        end
+        object Memo16: TfrxMemoView
+          AllowVectorExport = True
+          Left = 559.370440000000000000
+          Top = 151.181200000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."NUMERO"]')
+        end
+        object Shape7: TfrxShapeView
+          AllowVectorExport = True
+          Top = 204.094620000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Shape8: TfrxShapeView
+          AllowVectorExport = True
+          Top = 238.110390000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Memo17: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 185.196970000000000000
+          Width = 90.708720000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Complemento:')
+        end
+        object Memo18: TfrxMemoView
+          AllowVectorExport = True
+          Left = 102.047310000000000000
+          Top = 185.196970000000000000
+          Width = 287.244280000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."COMPLEMENTO"]')
+        end
+        object Line4: TfrxLineView
+          AllowVectorExport = True
+          Left = 400.630180000000000000
+          Top = 170.078850000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo19: TfrxMemoView
+          AllowVectorExport = True
+          Left = 408.189240000000000000
+          Top = 185.196970000000000000
+          Width = 34.015770000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'CEP:')
+        end
+        object Memo20: TfrxMemoView
+          AllowVectorExport = True
+          Left = 445.984540000000000000
+          Top = 185.196970000000000000
+          Width = 211.653680000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."CEP"]')
+        end
+        object Shape9: TfrxShapeView
+          AllowVectorExport = True
+          Top = 272.126160000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Shape10: TfrxShapeView
+          AllowVectorExport = True
+          Top = 306.141930000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Memo21: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 217.433210000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Cidade:')
+        end
+        object Memo22: TfrxMemoView
+          AllowVectorExport = True
+          Left = 60.472480000000000000
+          Top = 217.212740000000000000
+          Width = 328.819110000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."CIDADE"]')
+        end
+        object Line5: TfrxLineView
+          AllowVectorExport = True
+          Left = 400.630180000000000000
+          Top = 204.094620000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo23: TfrxMemoView
+          AllowVectorExport = True
+          Left = 408.189240000000000000
+          Top = 219.212740000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Estado:')
+        end
+        object Memo24: TfrxMemoView
+          AllowVectorExport = True
+          Left = 461.102660000000000000
+          Top = 219.212740000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."ESTADO"]')
+        end
+        object Memo25: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 251.448980000000000000
+          Width = 60.472480000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Telefone:')
+        end
+        object Memo26: TfrxMemoView
+          AllowVectorExport = True
+          Left = 71.811070000000000000
+          Top = 252.448980000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."TELEFONE"]')
+        end
+        object Line6: TfrxLineView
+          AllowVectorExport = True
+          Left = 234.330860000000000000
+          Top = 238.110390000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo27: TfrxMemoView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 253.228510000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Celular:')
+        end
+        object Memo28: TfrxMemoView
+          AllowVectorExport = True
+          Left = 294.803340000000000000
+          Top = 253.228510000000000000
+          Width = 257.008040000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."CELULAR"]')
+        end
+        object Memo29: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 287.464750000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'E-Mail:')
+        end
+        object Memo30: TfrxMemoView
+          AllowVectorExport = True
+          Left = 55.472480000000000000
+          Top = 287.244280000000000000
+          Width = 642.520100000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."EMAIL"]')
+        end
+        object Memo31: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 321.260050000000000000
+          Width = 90.708720000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Respons'#225'vel:')
+        end
+        object Memo32: TfrxMemoView
+          AllowVectorExport = True
+          Left = 102.047310000000000000
+          Top = 321.260050000000000000
+          Width = 597.165740000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_DadosEmpresa."RESPONSAVEL"]')
+        end
+        object Line7: TfrxLineView
+          AllowVectorExport = True
+          Left = 22.677180000000000000
+          Top = 366.614410000000000000
+          Width = 680.315400000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 665.197280000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Left = 642.520100000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[Page#]')
+        end
+      end
+    end
   end
 end

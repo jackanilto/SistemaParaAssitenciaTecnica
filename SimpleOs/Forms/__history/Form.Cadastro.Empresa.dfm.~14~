@@ -1,0 +1,365 @@
+inherited formCadastroEmpresa: TformCadastroEmpresa
+  Caption = 'Dados da empresa'
+  ClientHeight = 585
+  ExplicitTop = -7
+  ExplicitHeight = 585
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited lblCaption: TLabel
+      Caption = 'Dados da empresa'
+    end
+  end
+  inherited Panel3: TPanel
+    Top = 510
+  end
+  inherited CardPanel1: TCardPanel
+    Height = 429
+    inherited cardPanelCadatro: TCard
+      Height = 429
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      ParentFont = False
+      ExplicitLeft = -120
+      ExplicitTop = -136
+      object Label1: TLabel
+        Left = 14
+        Top = 25
+        Width = 43
+        Height = 17
+        Caption = 'C'#243'digo'
+      end
+      object Label2: TLabel
+        Left = 14
+        Top = 89
+        Width = 85
+        Height = 17
+        Caption = 'Nome fantasia'
+      end
+      object Label3: TLabel
+        Left = 14
+        Top = 153
+        Width = 70
+        Height = 17
+        Caption = 'raz'#227'o social'
+      end
+      object Label6: TLabel
+        Left = 14
+        Top = 217
+        Width = 29
+        Height = 17
+        Caption = 'CNPJ'
+      end
+      object Label7: TLabel
+        Left = 240
+        Top = 217
+        Width = 104
+        Height = 17
+        Caption = 'Inscri'#231#227'o estadual'
+      end
+      object Label8: TLabel
+        Left = 14
+        Top = 285
+        Width = 22
+        Height = 17
+        Caption = 'CEP'
+      end
+      object Label9: TLabel
+        Left = 14
+        Top = 354
+        Width = 55
+        Height = 17
+        Caption = 'Endere'#231'o'
+      end
+      object Label10: TLabel
+        Left = 456
+        Top = 25
+        Width = 35
+        Height = 17
+        Caption = 'Bairro'
+      end
+      object Label11: TLabel
+        Left = 735
+        Top = 25
+        Width = 48
+        Height = 17
+        Caption = 'N'#250'mero'
+      end
+      object Label12: TLabel
+        Left = 456
+        Top = 89
+        Width = 82
+        Height = 17
+        Caption = 'Complemento'
+      end
+      object Label13: TLabel
+        Left = 456
+        Top = 153
+        Width = 41
+        Height = 17
+        Caption = 'Cidade'
+      end
+      object Label14: TLabel
+        Left = 786
+        Top = 153
+        Width = 40
+        Height = 17
+        Caption = 'Estado'
+      end
+      object Label15: TLabel
+        Left = 456
+        Top = 217
+        Width = 49
+        Height = 17
+        Caption = 'Telefone'
+      end
+      object sbPesquisarCep: TSpeedButton
+        Left = 389
+        Top = 308
+        Width = 25
+        Height = 25
+        Flat = True
+        Glyph.Data = {
+          F6060000424DF606000000000000360000002800000018000000180000000100
+          180000000000C0060000C30E0000C30E00000000000000000000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2E5E5AA5454881010A14242EB
+          D7D7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2E5E59C38388000
+          00800000800000A14242FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6EDED
+          9A3434800000800000800000800000881010FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFF6EDEDD7AFAFBA7474A95252A44848AC5858C18383E1C3C3FBF7F7FF
+          FFFFF2E5E59A3434800000800000800000800000800000AA5454FFFFFFFFFFFF
+          FFFFFFFFFFFFF6EDEDC183838D1A1A8102028000008000008000008000008000
+          00830606983030CF9F9F9C38388000008000008000008000008000009C3838F2
+          E5E5FFFFFFFFFFFFFFFFFFE9D3D3983030800000800000800000800000800000
+          8000008000008000008000008000008000008000008000008000008000008000
+          009A3434F2E5E5FFFFFFFFFFFFFFFFFFE6CDCD89121280000080000080000087
+          0E0EA34646BC7878C28585B76E6E9C3838830606800000800000800000800000
+          8000008000009A3434F6EDEDFFFFFFFFFFFFFFFFFFF2E5E59326268000008000
+          00820404B16262EDDBDBFEFDFDFFFFFFFFFFFFFFFFFFFCF9F9E3C7C7A0404080
+          00008000008000008000009C3838F2E5E5FFFFFFFFFFFFFFFFFFFFFFFFB46868
+          800000800000820404C68D8DFEFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFBF7F7AE5C5C800000800000800000CF9F9FFFFFFFFFFFFFFFFFFFFF
+          FFFFEBD7D7860C0C800000800000BA7474FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F7A04040800000800000983030FBF7
+          F7FFFFFFFFFFFFFFFFFFC38787800000800000902020F4E9E9FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE3C7C7830606
+          800000830606E1C3C3FFFFFFFFFFFFFFFFFFA24444800000800000B76E6EFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFCF9F99C3838800000800000C18383FFFFFFFFFFFFFFFFFF8D1A1A800000
+          800000D6ADADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFB76E6E800000800000AC5858FFFFFFFFFFFFFF
+          FFFF860C0C800000800000E0C1C1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC28585800000800000A448
+          48FFFFFFFFFFFFFFFFFF8A1414800000800000DAB5B5FFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBC7878
+          800000800000A95252FFFFFFFFFFFFFFFFFF9C3838800000800000C08181FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFEFDFDA34646800000800000BA7474FFFFFFFFFFFFFFFFFFBA7474800000
+          800000983030FAF5F5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFEDDBDB870E0E800000810202D7AFAFFFFFFFFFFFFFFF
+          FFFFE1C3C3830606800000810202CE9D9DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFDFDB162628000008000008D1A1AF6ED
+          EDFFFFFFFFFFFFFFFFFFFEFDFDA44848800000800000881010DFBFBFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC68D8D820404800000
+          800000C18383FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7CFCF8912128000008000
+          00881010CE9D9DFAF5F5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4E9E9BA747482
+          0404800000800000983030F6EDEDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          D3A7A7810202800000800000810202983030C08181DAB5B5E0C1C1D6ADADB76E
+          6E902020800000800000800000891212E9D3D3FFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFD3A7A7891212800000800000800000800000800000
+          800000800000800000800000800000800000932626E6CDCDFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7CFCFA4484883060680
+          0000800000800000800000800000800000800000860C0CB46868F2E5E5FFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFEFDFDE1C3C3B972729C38388A1414860C0C8D1A1AA24444C38787EBD7D7FF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        OnClick = sbPesquisarCepClick
+      end
+      object Label16: TLabel
+        Left = 684
+        Top = 217
+        Width = 40
+        Height = 17
+        Caption = 'Celular'
+      end
+      object Label17: TLabel
+        Left = 456
+        Top = 285
+        Width = 37
+        Height = 17
+        Caption = 'E-Mail'
+      end
+      object Label18: TLabel
+        Left = 456
+        Top = 354
+        Width = 73
+        Height = 17
+        Caption = 'Respons'#225'vel'
+      end
+      object edtCodigo: TEdit
+        Left = 14
+        Top = 48
+        Width = 300
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 0
+      end
+      object edtNomeFantasia: TEdit
+        Left = 14
+        Top = 112
+        Width = 400
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 1
+      end
+      object edtRazaoSocial: TEdit
+        Left = 14
+        Top = 176
+        Width = 400
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 2
+      end
+      object edtCNPJ: TEdit
+        Left = 14
+        Top = 240
+        Width = 211
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 3
+      end
+      object edtInscricaoEstadual: TEdit
+        Left = 240
+        Top = 240
+        Width = 174
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 4
+      end
+      object edtCEP: TEdit
+        Left = 14
+        Top = 308
+        Width = 369
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 5
+      end
+      object edtEndereco: TEdit
+        Left = 14
+        Top = 377
+        Width = 400
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 6
+      end
+      object edtBairro: TEdit
+        Left = 456
+        Top = 48
+        Width = 273
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 7
+      end
+      object edtNumero: TEdit
+        Left = 735
+        Top = 48
+        Width = 121
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 8
+      end
+      object edtComplemento: TEdit
+        Left = 456
+        Top = 112
+        Width = 400
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 9
+      end
+      object edtCidade: TEdit
+        Left = 456
+        Top = 176
+        Width = 324
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 10
+      end
+      object edtEstado: TComboBox
+        Left = 786
+        Top = 176
+        Width = 70
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 11
+      end
+      object edtTelefone: TMaskEdit
+        Left = 456
+        Top = 240
+        Width = 220
+        Height = 25
+        EditMask = '(00) 0000-0000'
+        MaxLength = 14
+        TabOrder = 12
+        Text = '(  )     -    '
+      end
+      object edtCelular: TMaskEdit
+        Left = 684
+        Top = 240
+        Width = 170
+        Height = 25
+        EditMask = '(00)00000-0000'
+        MaxLength = 14
+        TabOrder = 13
+        Text = '(  )     -    '
+      end
+      object edtEMail: TEdit
+        Left = 456
+        Top = 307
+        Width = 400
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 14
+      end
+      object edtResponsavel: TEdit
+        Left = 456
+        Top = 377
+        Width = 400
+        Height = 25
+        CharCase = ecUpperCase
+        TabOrder = 15
+      end
+    end
+    inherited cardPanelConsulta: TCard
+      Height = 429
+      inherited Panel4: TPanel
+        Top = 384
+      end
+      inherited DBGrid1: TDBGrid
+        Height = 384
+        DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
+        OnTitleClick = DBGrid1TitleClick
+      end
+    end
+  end
+  inherited PopupMenu1: TPopupMenu
+    Left = 656
+    Top = 17
+  end
+  object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
+    Left = 544
+    Top = 17
+  end
+  object ACBrCEP1: TACBrCEP
+    ProxyPort = '8080'
+    WebService = wsRepublicaVirtual
+    PesquisarIBGE = True
+    OnBuscaEfetuada = ACBrCEP1BuscaEfetuada
+    Left = 376
+    Top = 113
+  end
+end
