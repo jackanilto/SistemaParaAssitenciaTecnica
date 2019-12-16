@@ -11,7 +11,8 @@ uses
   Datasnap.DBClient, UClasse.Entity.Ordem.Adicionar.Servico, Form.Ordem.Servico,
   Form.Principal, UClasse.Entity.Criar.Ordem.Parcelas, Vcl.DBCtrls,
   UClasse.Visualizar.Ordens.Servico.Parcelas, UClasse.Visualizar.Ordens.Servico,
-  UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet;
+  UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
+  UClasse.Entity.Dados.Empresa;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -203,6 +204,7 @@ type
     FEntityVisualizarOS: iVisualizarOrdens;
     FEntityVisualizasOSServicos: iVisualizarServicosOrdem;
     FEntityVisualizarOSParcelas: iVisualizarParcelasOrdem;
+    FEntityVisualizarEmpresa: iDadosEmpresa;
 
     FValorTotalOrdemServico: Currency;
     FValorServicosIncluidos: Currency;
@@ -354,6 +356,7 @@ begin
   FEntityVisualizarOS := TEntityVisualizarOrdem.new;
   FEntityVisualizasOSServicos := TEntityVisualizarOrdemServicosIncluidos.new;
   FEntityVisualizarOSParcelas := TEntityVisualizarOrdemServicoParcelas.new;
+  FEntityVisualizarEmpresa := TEntityCadastroDadosEmpresa.new;
 
   ReportMemoryLeaksOnShutdown := true;
 
@@ -486,6 +489,11 @@ end;
 procedure TformCriarConsultarOrdemServico.SpeedButton2Click(Sender: TObject);
 begin
   prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
+
+  frx_ImprimirOS.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/ordem_servico.fr3');
+  frx_ImprimirOS.ShowReport();
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
@@ -780,6 +788,8 @@ begin
 
   FEntityVisualizarOSParcelas.getCampo('ID_ORDEM').getValor(value.ToString)
     .sqlPesquisaEstatica.listarGrid(s_imprimirparcelasOS);
+
+  FEntityVisualizarEmpresa.abrir.listarGrid(s_ImprimirEmpresa);
 
 end;
 
