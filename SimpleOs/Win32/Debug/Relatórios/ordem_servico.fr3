@@ -1,3 +1,20 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@noelsonneres 
+1
+00noelsonneres/SistemaParaAssitenciaTecnica Private
+ Code Issues 0 Pull requests 0 Actions Projects 0 Security Insights Settings
+SistemaParaAssitenciaTecnica/SimpleOs/Win32/Debug/Relatórios/ordem_servico.fr3
+@noelsonneres noelsonneres Commmit 17-12-19 --01
+66ff64a 23 hours ago
+107 lines (107 sloc)  17.7 KB
+  
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <TfrxReport Version="6.3.3" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="43815,7773973495" ReportOptions.Description.Text="" ReportOptions.LastChange="43816,8262247454" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;begin&#13;&#10;&#13;&#10;end.">
   <Datasets>
@@ -105,3 +122,16 @@
     </TfrxPageFooter>
   </TfrxReportPage>
 </TfrxReport>
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+50 results found.

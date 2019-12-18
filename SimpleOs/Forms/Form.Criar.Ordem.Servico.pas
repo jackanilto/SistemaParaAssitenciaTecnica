@@ -12,7 +12,8 @@ uses
   Form.Principal, UClasse.Entity.Criar.Ordem.Parcelas, Vcl.DBCtrls,
   UClasse.Visualizar.Ordens.Servico.Parcelas, UClasse.Visualizar.Ordens.Servico,
   UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
-  UClasse.Entity.Dados.Empresa;
+  UClasse.Entity.Dados.Empresa, frxBarcode, UClasse.Calcular.Juros,
+  UClasse.Entity.Configurar.Parcelas;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -163,6 +164,9 @@ type
     frxDB_ImprimirDadosEmpresa: TfrxDBDataset;
     s_ImprimirEmpresa: TDataSource;
     frx_ImprimirParcelas: TfrxReport;
+    frxBarCodeObject1: TfrxBarCodeObject;
+    s_ImprimirInfoJuros: TDataSource;
+    frxDB_ImprimirInfoJuros: TfrxDBDataset;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -207,6 +211,7 @@ type
     FEntityVisualizasOSServicos: iVisualizarServicosOrdem;
     FEntityVisualizarOSParcelas: iVisualizarParcelasOrdem;
     FEntityVisualizarEmpresa: iDadosEmpresa;
+    FEntityVisualizarJuros: iConfigurarParcelas;
 
     FValorTotalOrdemServico: Currency;
     FValorServicosIncluidos: Currency;
@@ -359,6 +364,7 @@ begin
   FEntityVisualizasOSServicos := TEntityVisualizarOrdemServicosIncluidos.new;
   FEntityVisualizarOSParcelas := TEntityVisualizarOrdemServicoParcelas.new;
   FEntityVisualizarEmpresa := TEntityCadastroDadosEmpresa.new;
+  FEntityVisualizarJuros := TEntityConfigurarParcelas.new;
 
   ReportMemoryLeaksOnShutdown := true;
 
@@ -802,6 +808,8 @@ begin
     .sqlPesquisaEstatica.listarGrid(s_imprimirparcelasOS);
 
   FEntityVisualizarEmpresa.abrir.listarGrid(s_ImprimirEmpresa);
+
+  FEntityVisualizarJuros.abrir.listarGrid(s_ImprimirInfoJuros);
 
 end;
 
