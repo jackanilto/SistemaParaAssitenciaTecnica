@@ -162,6 +162,7 @@ type
     frx_ImprimirOS: TfrxReport;
     frxDB_ImprimirDadosEmpresa: TfrxDBDataset;
     s_ImprimirEmpresa: TDataSource;
+    frx_ImprimirParcelas: TfrxReport;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -193,6 +194,7 @@ type
     procedure SpeedButton10Click(Sender: TObject);
     procedure SpeedButton12Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton11Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -473,6 +475,16 @@ begin
   begin
     FEntityCriarOrdem.deletar;
   end;
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton11Click(Sender: TObject);
+begin
+
+  prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
+
+  frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/parcelas_os.fr3');
+  frx_ImprimirParcelas.ShowReport();
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton12Click(Sender: TObject);
