@@ -11,7 +11,8 @@ uses
   Datasnap.DBClient, UClasse.Entity.Ordem.Adicionar.Servico, Form.Ordem.Servico,
   Form.Principal, UClasse.Entity.Criar.Ordem.Parcelas, Vcl.DBCtrls,
   UClasse.Visualizar.Ordens.Servico.Parcelas, UClasse.Visualizar.Ordens.Servico,
-  UClasse.Visualizar.Ordens.Servicos.Incluidos;
+  UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
+  UClasse.Entity.Dados.Empresa;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -152,6 +153,15 @@ type
     cds_AdicionarParcelapgto: TStringField;
     SpeedButton12: TSpeedButton;
     SpeedButton13: TSpeedButton;
+    s_imprimirOS: TDataSource;
+    s_imprimirServicosOS: TDataSource;
+    s_imprimirparcelasOS: TDataSource;
+    frxDB_ImprimirOS: TfrxDBDataset;
+    frxDB_ImprimirServicosOS: TfrxDBDataset;
+    frxDB_ImprimirParcelasOS: TfrxDBDataset;
+    frx_ImprimirOS: TfrxReport;
+    frxDB_ImprimirDadosEmpresa: TfrxDBDataset;
+    s_ImprimirEmpresa: TDataSource;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -182,6 +192,7 @@ type
     procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton10Click(Sender: TObject);
     procedure SpeedButton12Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -193,6 +204,7 @@ type
     FEntityVisualizarOS: iVisualizarOrdens;
     FEntityVisualizasOSServicos: iVisualizarServicosOrdem;
     FEntityVisualizarOSParcelas: iVisualizarParcelasOrdem;
+    FEntityVisualizarEmpresa: iDadosEmpresa;
 
     FValorTotalOrdemServico: Currency;
     FValorServicosIncluidos: Currency;
@@ -344,6 +356,7 @@ begin
   FEntityVisualizarOS := TEntityVisualizarOrdem.new;
   FEntityVisualizasOSServicos := TEntityVisualizarOrdemServicosIncluidos.new;
   FEntityVisualizarOSParcelas := TEntityVisualizarOrdemServicoParcelas.new;
+  FEntityVisualizarEmpresa := TEntityCadastroDadosEmpresa.new;
 
   ReportMemoryLeaksOnShutdown := true;
 
@@ -471,6 +484,16 @@ procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
 begin
   FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
     .AsInteger);
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton2Click(Sender: TObject);
+begin
+  prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
+
+  frx_ImprimirOS.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/ordem_servico.fr3');
+  frx_ImprimirOS.ShowReport();
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
@@ -719,7 +742,7 @@ begin
 end;
 
 procedure TformCriarConsultarOrdemServico.selecionarOrdem;
-begin//selecionar a OS ao chamar através do form  Ordem de Servico
+begin // selecionar a OS ao chamar através do form  Ordem de Servico
   if codigoDaOS <> 0 then
   begin
     FEntityCriarOrdem.abrir.getCampo('ID').getValor(codigoDaOS.ToString)
@@ -758,13 +781,15 @@ procedure TformCriarConsultarOrdemServico.prepararParaImprimir(value: Integer);
 begin
 
   FEntityVisualizarOS.getCampo('ID_ORDEM').getValor(value.ToString)
-    .sqlPesquisaEstatica;
+    .sqlPesquisaEstatica.listarGrid(s_imprimirOS);
 
   FEntityVisualizasOSServicos.getCampo('ID_ORDEM').getValor(value.ToString)
-    .sqlPesquisaEstatica;
+    .sqlPesquisaEstatica.listarGrid(s_imprimirServicosOS);
 
   FEntityVisualizarOSParcelas.getCampo('ID_ORDEM').getValor(value.ToString)
-    .sqlPesquisaEstatica;
+    .sqlPesquisaEstatica.listarGrid(s_imprimirparcelasOS);
+
+  FEntityVisualizarEmpresa.abrir.listarGrid(s_ImprimirEmpresa);
 
 end;
 

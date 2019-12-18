@@ -124,7 +124,7 @@
     Top = 41
     Width = 973
     Height = 469
-    ActivePage = tbOrdemServiço
+    ActivePage = tbParcelas
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -2430,7 +2430,7 @@
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43815.777397349500000000
-    ReportOptions.LastChange = 43815.847781342590000000
+    ReportOptions.LastChange = 43816.826224745370000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -2475,7 +2475,7 @@
       object ReportTitle1: TfrxReportTitle
         FillType = ftBrush
         Frame.Typ = []
-        Height = 748.346940000000000000
+        Height = 767.244590000000000000
         Top = 18.897650000000000000
         Width = 718.110700000000000000
         object Memo3: TfrxMemoView
@@ -2520,7 +2520,7 @@
         end
         object Shape1: TfrxShapeView
           AllowVectorExport = True
-          Top = 253.228510000000000000
+          Top = 239.228510000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
@@ -2578,7 +2578,7 @@
         object Memo8: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 257.008040000000000000
+          Top = 243.008040000000000000
           Width = 71.811070000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2588,7 +2588,7 @@
         object Memo9: TfrxMemoView
           AllowVectorExport = True
           Left = 86.929190000000000000
-          Top = 257.008040000000000000
+          Top = 243.008040000000000000
           Width = 124.724490000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2597,7 +2597,7 @@
         end
         object Shape2: TfrxShapeView
           AllowVectorExport = True
-          Top = 279.685220000000000000
+          Top = 265.685220000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
@@ -2605,7 +2605,7 @@
         object Memo10: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 287.244280000000000000
+          Top = 273.244280000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2615,7 +2615,7 @@
         object Memo11: TfrxMemoView
           AllowVectorExport = True
           Left = 90.708720000000000000
-          Top = 287.244280000000000000
+          Top = 273.244280000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2625,7 +2625,7 @@
         object Line2: TfrxLineView
           AllowVectorExport = True
           Left = 211.653680000000000000
-          Top = 279.685220000000000000
+          Top = 265.685220000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -2634,7 +2634,7 @@
         object Memo12: TfrxMemoView
           AllowVectorExport = True
           Left = 219.212740000000000000
-          Top = 287.244280000000000000
+          Top = 273.244280000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2644,7 +2644,7 @@
         object Memo13: TfrxMemoView
           AllowVectorExport = True
           Left = 272.126160000000000000
-          Top = 287.244280000000000000
+          Top = 273.244280000000000000
           Width = 430.866420000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2653,7 +2653,7 @@
         end
         object Shape3: TfrxShapeView
           AllowVectorExport = True
-          Top = 306.141930000000000000
+          Top = 292.141930000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
@@ -2661,7 +2661,7 @@
         object Memo14: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 313.700990000000000000
+          Top = 299.700990000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2671,7 +2671,7 @@
         object Memo15: TfrxMemoView
           AllowVectorExport = True
           Left = 102.047310000000000000
-          Top = 313.700990000000000000
+          Top = 299.700990000000000000
           Width = 600.945270000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2680,7 +2680,7 @@
         end
         object Shape4: TfrxShapeView
           AllowVectorExport = True
-          Top = 332.598640000000000000
+          Top = 317.700990000000000000
           Width = 718.110700000000000000
           Height = 49.133890000000000000
           Frame.Typ = []
@@ -2688,7 +2688,7 @@
         object Memo16: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 336.378170000000000000
+          Top = 324.378170000000000000
           Width = 105.826840000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2698,16 +2698,22 @@
         object Memo17: TfrxMemoView
           AllowVectorExport = True
           Left = 124.724490000000000000
-          Top = 336.378170000000000000
-          Width = 585.827150000000000000
+          Top = 324.378170000000000000
+          Width = 589.606680000000000000
           Height = 37.795300000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirOS."DEFEITO_RELATADO"]')
+          ParentFont = False
         end
         object Shape5: TfrxShapeView
           AllowVectorExport = True
-          Top = 381.732530000000000000
+          Top = 366.732530000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
@@ -2715,7 +2721,7 @@
         object Memo18: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 389.291590000000000000
+          Top = 374.291590000000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2725,7 +2731,7 @@
         object Memo19: TfrxMemoView
           AllowVectorExport = True
           Left = 68.031540000000000000
-          Top = 389.291590000000000000
+          Top = 374.291590000000000000
           Width = 272.126160000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2735,7 +2741,7 @@
         object Line3: TfrxLineView
           AllowVectorExport = True
           Left = 348.464750000000000000
-          Top = 381.732530000000000000
+          Top = 366.732530000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -2744,7 +2750,7 @@
         object Memo20: TfrxMemoView
           AllowVectorExport = True
           Left = 356.023810000000000000
-          Top = 389.291590000000000000
+          Top = 374.291590000000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2753,8 +2759,8 @@
         end
         object Memo21: TfrxMemoView
           AllowVectorExport = True
-          Left = 416.496290000000000000
-          Top = 389.291590000000000000
+          Left = 412.716760000000000000
+          Top = 374.953000000000000000
           Width = 249.448980000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2763,28 +2769,28 @@
         end
         object Shape6: TfrxShapeView
           AllowVectorExport = True
-          Top = 408.189240000000000000
+          Top = 393.189240000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
         end
         object Shape7: TfrxShapeView
           AllowVectorExport = True
-          Top = 434.645950000000000000
-          Width = 718.110700000000000000
-          Height = 60.472480000000000000
-          Frame.Typ = []
-        end
-        object Shape8: TfrxShapeView
-          AllowVectorExport = True
-          Top = 495.118430000000000000
+          Top = 419.645950000000000000
           Width = 718.110700000000000000
           Height = 56.692950000000000000
           Frame.Typ = []
         end
+        object Shape8: TfrxShapeView
+          AllowVectorExport = True
+          Top = 476.220780000000000000
+          Width = 718.110700000000000000
+          Height = 60.472480000000000000
+          Frame.Typ = []
+        end
         object Shape9: TfrxShapeView
           AllowVectorExport = True
-          Top = 551.811380000000000000
+          Top = 536.811380000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
@@ -2792,7 +2798,7 @@
         object Memo22: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 416.527830000000000000
+          Top = 401.527830000000000000
           Width = 105.826840000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2802,7 +2808,7 @@
         object Memo23: TfrxMemoView
           AllowVectorExport = True
           Left = 120.944960000000000000
-          Top = 415.748300000000000000
+          Top = 400.748300000000000000
           Width = 211.653680000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2812,7 +2818,7 @@
         object Line4: TfrxLineView
           AllowVectorExport = True
           Left = 338.378170000000000000
-          Top = 408.189240000000000000
+          Top = 393.189240000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -2821,7 +2827,7 @@
         object Memo24: TfrxMemoView
           AllowVectorExport = True
           Left = 343.937230000000000000
-          Top = 415.748300000000000000
+          Top = 400.748300000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2831,7 +2837,7 @@
         object Memo25: TfrxMemoView
           AllowVectorExport = True
           Left = 468.661720000000000000
-          Top = 415.748300000000000000
+          Top = 401.409710000000000000
           Width = 219.212740000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2841,7 +2847,7 @@
         object Memo26: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 441.984540000000000000
+          Top = 426.984540000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2851,17 +2857,23 @@
         object Memo27: TfrxMemoView
           AllowVectorExport = True
           Left = 105.826840000000000000
-          Top = 442.205010000000000000
+          Top = 427.205010000000000000
           Width = 604.724800000000000000
           Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirOS."LAUDO_DO_TECNICO"]')
+          ParentFont = False
         end
         object Memo28: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 498.897960000000000000
+          Top = 482.779840000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2871,17 +2883,23 @@
         object Memo29: TfrxMemoView
           AllowVectorExport = True
           Left = 151.181200000000000000
-          Top = 498.897960000000000000
+          Top = 482.779840000000000000
           Width = 559.370440000000000000
           Height = 49.133890000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirOS."SOLUCAO_DO_PROBLEMA"]')
+          ParentFont = False
         end
         object Memo30: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 558.590910000000000000
+          Top = 543.590910000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2891,7 +2909,7 @@
         object Memo31: TfrxMemoView
           AllowVectorExport = True
           Left = 115.488250000000000000
-          Top = 559.370440000000000000
+          Top = 544.370440000000000000
           Width = 117.165430000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2901,7 +2919,7 @@
         object Line5: TfrxLineView
           AllowVectorExport = True
           Left = 239.212740000000000000
-          Top = 551.811380000000000000
+          Top = 536.811380000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -2910,7 +2928,7 @@
         object Memo32: TfrxMemoView
           AllowVectorExport = True
           Left = 244.992270000000000000
-          Top = 559.370440000000000000
+          Top = 544.370440000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2920,7 +2938,7 @@
         object Memo33: TfrxMemoView
           AllowVectorExport = True
           Left = 330.464750000000000000
-          Top = 559.370440000000000000
+          Top = 544.370440000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2930,7 +2948,7 @@
         object Line6: TfrxLineView
           AllowVectorExport = True
           Left = 417.393940000000000000
-          Top = 551.811380000000000000
+          Top = 536.811380000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -2939,7 +2957,7 @@
         object Memo34: TfrxMemoView
           AllowVectorExport = True
           Left = 424.953000000000000000
-          Top = 559.370440000000000000
+          Top = 544.370440000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2949,7 +2967,7 @@
         object Memo35: TfrxMemoView
           AllowVectorExport = True
           Left = 518.661720000000000000
-          Top = 559.370440000000000000
+          Top = 544.370440000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2958,14 +2976,14 @@
         end
         object Shape10: TfrxShapeView
           AllowVectorExport = True
-          Top = 578.268090000000000000
+          Top = 563.268090000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
         end
         object Shape11: TfrxShapeView
           AllowVectorExport = True
-          Top = 604.724800000000000000
+          Top = 589.724800000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
@@ -2973,7 +2991,7 @@
         object Memo36: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 586.606680000000000000
+          Top = 571.606680000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2983,7 +3001,7 @@
         object Memo37: TfrxMemoView
           AllowVectorExport = True
           Left = 111.708720000000000000
-          Top = 585.827150000000000000
+          Top = 570.827150000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -2993,7 +3011,7 @@
         object Line7: TfrxLineView
           AllowVectorExport = True
           Left = 247.771800000000000000
-          Top = 578.268090000000000000
+          Top = 563.268090000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -3002,7 +3020,7 @@
         object Memo38: TfrxMemoView
           AllowVectorExport = True
           Left = 255.330860000000000000
-          Top = 585.827150000000000000
+          Top = 570.827150000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3012,7 +3030,7 @@
         object Memo39: TfrxMemoView
           AllowVectorExport = True
           Left = 380.055350000000000000
-          Top = 585.827150000000000000
+          Top = 570.827150000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3021,7 +3039,7 @@
         end
         object Shape12: TfrxShapeView
           AllowVectorExport = True
-          Top = 631.181510000000000000
+          Top = 616.181510000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
@@ -3029,7 +3047,7 @@
         object Memo40: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 612.063390000000000000
+          Top = 597.063390000000000000
           Width = 109.606370000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3039,7 +3057,7 @@
         object Memo41: TfrxMemoView
           AllowVectorExport = True
           Left = 124.724490000000000000
-          Top = 612.283860000000000000
+          Top = 597.283860000000000000
           Width = 71.811070000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3049,7 +3067,7 @@
         object Line8: TfrxLineView
           AllowVectorExport = True
           Left = 204.094620000000000000
-          Top = 604.724800000000000000
+          Top = 589.724800000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -3058,7 +3076,7 @@
         object Memo42: TfrxMemoView
           AllowVectorExport = True
           Left = 211.653680000000000000
-          Top = 612.283860000000000000
+          Top = 597.283860000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3068,7 +3086,7 @@
         object Memo43: TfrxMemoView
           AllowVectorExport = True
           Left = 341.260050000000000000
-          Top = 612.283860000000000000
+          Top = 597.283860000000000000
           Width = 117.165430000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3078,7 +3096,7 @@
         object Line9: TfrxLineView
           AllowVectorExport = True
           Left = 465.984540000000000000
-          Top = 604.724800000000000000
+          Top = 589.724800000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -3087,7 +3105,7 @@
         object Memo44: TfrxMemoView
           AllowVectorExport = True
           Left = 473.543600000000000000
-          Top = 612.283860000000000000
+          Top = 597.283860000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3097,7 +3115,7 @@
         object Memo45: TfrxMemoView
           AllowVectorExport = True
           Left = 579.370440000000000000
-          Top = 612.283860000000000000
+          Top = 597.283860000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3106,21 +3124,14 @@
         end
         object Shape13: TfrxShapeView
           AllowVectorExport = True
-          Top = 657.638220000000000000
+          Top = 642.638220000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
         end
         object Shape14: TfrxShapeView
           AllowVectorExport = True
-          Top = 684.094930000000000000
-          Width = 718.110700000000000000
-          Height = 26.456710000000000000
-          Frame.Typ = []
-        end
-        object Shape15: TfrxShapeView
-          AllowVectorExport = True
-          Top = 710.551640000000000000
+          Top = 669.094930000000000000
           Width = 718.110700000000000000
           Height = 26.456710000000000000
           Frame.Typ = []
@@ -3128,7 +3139,7 @@
         object Memo46: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 638.740570000000000000
+          Top = 623.740570000000000000
           Width = 68.031540000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3138,7 +3149,7 @@
         object Memo47: TfrxMemoView
           AllowVectorExport = True
           Left = 83.149660000000000000
-          Top = 638.740570000000000000
+          Top = 623.740570000000000000
           Width = 132.283550000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3148,7 +3159,7 @@
         object Line10: TfrxLineView
           AllowVectorExport = True
           Left = 219.212740000000000000
-          Top = 631.181510000000000000
+          Top = 616.181510000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -3157,7 +3168,7 @@
         object Memo48: TfrxMemoView
           AllowVectorExport = True
           Left = 222.992270000000000000
-          Top = 638.740570000000000000
+          Top = 623.740570000000000000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3167,7 +3178,7 @@
         object Memo49: TfrxMemoView
           AllowVectorExport = True
           Left = 283.464750000000000000
-          Top = 638.740570000000000000
+          Top = 623.740570000000000000
           Width = 117.165430000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3177,7 +3188,7 @@
         object Line11: TfrxLineView
           AllowVectorExport = True
           Left = 408.189240000000000000
-          Top = 631.181510000000000000
+          Top = 616.181510000000000000
           Height = 26.456710000000000000
           Color = clBlack
           Frame.Typ = []
@@ -3186,7 +3197,7 @@
         object Memo50: TfrxMemoView
           AllowVectorExport = True
           Left = 415.748300000000000000
-          Top = 638.740570000000000000
+          Top = 623.740570000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3196,7 +3207,7 @@
         object Memo51: TfrxMemoView
           AllowVectorExport = True
           Left = 461.102660000000000000
-          Top = 638.740570000000000000
+          Top = 623.740570000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3206,7 +3217,7 @@
         object Memo52: TfrxMemoView
           AllowVectorExport = True
           Left = 563.149970000000000000
-          Top = 638.740570000000000000
+          Top = 623.740570000000000000
           Width = 117.165430000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3216,7 +3227,7 @@
         object Memo53: TfrxMemoView
           AllowVectorExport = True
           Left = 10.559060000000000000
-          Top = 664.976810000000000000
+          Top = 649.976810000000000000
           Width = 132.283550000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3226,7 +3237,7 @@
         object Memo54: TfrxMemoView
           AllowVectorExport = True
           Left = 147.401670000000000000
-          Top = 665.197280000000000000
+          Top = 650.197280000000000000
           Width = 532.913730000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3236,7 +3247,7 @@
         object Memo55: TfrxMemoView
           AllowVectorExport = True
           Left = 12.338590000000000000
-          Top = 692.433520000000000000
+          Top = 677.433520000000000000
           Width = 83.149660000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -3246,27 +3257,123 @@
         object Memo56: TfrxMemoView
           AllowVectorExport = True
           Left = 98.267780000000000000
-          Top = 691.653990000000000000
+          Top = 676.653990000000000000
           Width = 582.047620000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirOS."OBSERVACAO"]')
         end
+        object Memo57: TfrxMemoView
+          AllowVectorExport = True
+          Top = 729.449290000000000000
+          Width = 718.110700000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'Servi'#231'o(s) realizado(s)')
+          ParentFont = False
+        end
       end
       object MasterData1: TfrxMasterData
         FillType = ftBrush
         Frame.Typ = []
-        Height = 22.677180000000000000
-        Top = 827.717070000000000000
+        Height = 26.456710000000000000
+        Top = 846.614720000000000000
         Width = 718.110700000000000000
+        DataSet = frxDB_ImprimirServicosOS
+        DataSetName = 'frxDB_ImprimirServicosOS'
         RowCount = 0
+        object Shape15: TfrxShapeView
+          AllowVectorExport = True
+          Width = 718.110700000000000000
+          Height = 26.456710000000000000
+          Frame.Typ = []
+        end
+        object Memo58: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 3.779530000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Servi'#231'o:')
+          ParentFont = False
+        end
+        object Memo59: TfrxMemoView
+          AllowVectorExport = True
+          Left = 68.031540000000000000
+          Top = 3.779530000000000000
+          Width = 328.819110000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirServicosOS."SERVICO"]')
+          ParentFont = False
+        end
+        object Line12: TfrxLineView
+          AllowVectorExport = True
+          Left = 408.189240000000000000
+          Height = 26.456710000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo60: TfrxMemoView
+          AllowVectorExport = True
+          Left = 411.968770000000000000
+          Top = 3.779530000000000000
+          Width = 37.795300000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Valor:')
+          ParentFont = False
+        end
+        object Memo61: TfrxMemoView
+          AllowVectorExport = True
+          Left = 457.323130000000000000
+          Top = 3.779530000000000000
+          Width = 253.228510000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirServicosOS."VALOR"]')
+          ParentFont = False
+        end
       end
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 910.866730000000000000
+        Top = 933.543910000000000000
         Width = 718.110700000000000000
         object Memo1: TfrxMemoView
           AllowVectorExport = True
