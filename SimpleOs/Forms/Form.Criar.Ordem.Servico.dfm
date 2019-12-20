@@ -908,6 +908,7 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = -2
         object Label30: TLabel
           Left = 15
           Top = 9
@@ -2346,8 +2347,8 @@
   end
   object s_ParcelasOS: TDataSource
     OnDataChange = s_ParcelasOSDataChange
-    Left = 260
-    Top = 309
+    Left = 420
+    Top = 293
   end
   object cds_AdicionarParcela: TClientDataSet
     PersistDataPacket.Data = {
@@ -4210,5 +4211,38 @@
     BCDToCurrency = False
     Left = 860
     Top = 109
+  end
+  object s_ImprirmirRecibo: TDataSource
+    Left = 132
+    Top = 205
+  end
+  object frxDB_ImprimirParcela: TfrxDBDataset
+    UserName = 'frxDB_ImprimirParcela'
+    CloseDataSource = False
+    DataSource = s_ImprirmirRecibo
+    BCDToCurrency = False
+    Left = 124
+    Top = 269
+  end
+  object frx_ImprimirRecibo: TfrxReport
+    Version = '6.3.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43819.474863784720000000
+    ReportOptions.LastChange = 43819.474863784720000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 116
+    Top = 325
+    Datasets = <>
+    Variables = <>
+    Style = <>
   end
 end

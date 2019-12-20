@@ -1180,6 +1180,30 @@ type
 
   end;
 
+  iPrepararRecibo = interface
+    ['{95A568DB-04FF-491F-A5AC-D004EB9A1881}']
+
+    function nomeTabela(value: string): iPrepararRecibo;
+    function getCampo(value: string): iPrepararRecibo;
+    function getValor(value: string): iPrepararRecibo;
+    function getDataInicial(value: TDate): iPrepararRecibo;
+    function getDataFinal(value: TDate): iPrepararRecibo;
+    function open(value: string): iPrepararRecibo;
+    function pesquisar: iPrepararRecibo;
+    function ExecSql: iPrepararRecibo;
+    function sqlPesquisa: iPrepararRecibo;
+    function sqlPesquisaData: iPrepararRecibo;
+    function sqlPesquisaEstatica: iPrepararRecibo;
+
+    function abrir: iPrepararRecibo;
+    function listarGrid(value: TDataSource): iPrepararRecibo;
+    function ordenarGrid(column: TColumn): iPrepararRecibo;
+    function atualizar: iPrepararRecibo;
+    function exportar: iPrepararRecibo;
+    function imprimirComprovante: iPrepararRecibo;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
