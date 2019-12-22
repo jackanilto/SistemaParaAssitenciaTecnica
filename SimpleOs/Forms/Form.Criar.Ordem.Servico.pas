@@ -13,7 +13,8 @@ uses
   UClasse.Visualizar.Ordens.Servico.Parcelas, UClasse.Visualizar.Ordens.Servico,
   UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
   UClasse.Entity.Dados.Empresa, frxBarcode, UClasse.Calcular.Juros,
-  UClasse.Entity.Configurar.Parcelas, UClasse.Preparar.Imprimir.Recibo;
+  UClasse.Entity.Configurar.Parcelas, UClasse.Preparar.Imprimir.Recibo,
+  UClasse.Ativar.Desativar.Botoes.Ordem.Servico;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -30,8 +31,8 @@ type
     sbEditar: TSpeedButton;
     sbExcluir: TSpeedButton;
     sbCancelar: TSpeedButton;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
+    sbEstornarOS: TSpeedButton;
+    sbImprimirOS: TSpeedButton;
     Panel2: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
@@ -168,8 +169,9 @@ type
     s_ImprimirInfoJuros: TDataSource;
     frxDB_ImprimirInfoJuros: TfrxDBDataset;
     s_ImprirmirRecibo: TDataSource;
-    frxDB_ImprimirParcela: TfrxDBDataset;
+    frxDB_Imprimirrecibo: TfrxDBDataset;
     frx_ImprimirRecibo: TfrxReport;
+    Button1: TButton;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -189,7 +191,7 @@ type
     procedure sbEditarClick(Sender: TObject);
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure sbEstornarOSClick(Sender: TObject);
     procedure s_ParcelasOSDataChange(Sender: TObject; Field: TField);
     procedure edtTotalDeParcelasExit(Sender: TObject);
     procedure edtTotalDaOSExit(Sender: TObject);
@@ -200,8 +202,11 @@ type
     procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton10Click(Sender: TObject);
     procedure SpeedButton12Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
+    procedure sbImprimirOSClick(Sender: TObject);
     procedure SpeedButton11Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure SpeedButton13Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   var
@@ -216,6 +221,7 @@ type
     FEntityVisualizarEmpresa: iDadosEmpresa;
     FEntityVisualizarJuros: iConfigurarParcelas;
     FEntityImprimirRecibo: iPrepararRecibo;
+    FAtivarBotoes: TAtivarDesativarBotoesOrdemServico;
 
     FValorTotalOrdemServico: Currency;
     FValorServicosIncluidos: Currency;
@@ -228,6 +234,7 @@ type
     procedure popularComboBox;
     procedure abreATabelaDeParcelas;
     procedure prepararParaImprimir(value: Integer);
+    procedure imprimirRecibo;
   public
     { Public declarations }
   end;
@@ -271,8 +278,8 @@ begin
     edtValorOrdemParcelado.Text :=
       CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
     edtHoraSaida.Text := TimeToStr(FieldByName('HORA_SAIDA').AsDateTime);
-    edtDataBaseVencimento.Text := DateToStr(FieldByName('DATA_BASE_VENCIMENTO')
-      .AsDateTime);
+//    edtDataBaseVencimento.Text := DateToStr(FieldByName('DATA_BASE_VENCIMENTO')
+//      .AsDateTime);
 
     // Tudo referente a datas
     if DataSource1.DataSet.FieldByName('DATA_FABRICACAO').AsDateTime <>
@@ -356,6 +363,13 @@ begin
   end;
 end;
 
+procedure TformCriarConsultarOrdemServico.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FreeAndNil(FAtivarBotoes);
+  codigoDaOS := 0;
+end;
+
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
 begin
 
@@ -370,6 +384,18 @@ begin
   FEntityVisualizarEmpresa := TEntityCadastroDadosEmpresa.new;
   FEntityVisualizarJuros := TEntityConfigurarParcelas.new;
   FEntityImprimirRecibo := TEntityPrepararRecibo.new;
+  FAtivarBotoes := TAtivarDesativarBotoesOrdemServico.create;
+
+  with FAtivarBotoes do
+  begin
+    botaoNovo(sbNovo);
+    botaoSalvar(sbSalvar);
+    botaoEditar(sbEditar);
+    botaoExcluir(sbExcluir);
+    botaoCancelar(sbCancelar);
+    botaoImprimir(sbImprimirOS);
+    botaoEstornar(sbEstornarOS);
+  end;
 
   ReportMemoryLeaksOnShutdown := true;
 
@@ -381,6 +407,7 @@ begin
   selecionarOrdem;
   popularComboBox;
   edtDataPagamentoParcela.DateTime := date;
+  PageControl1.ActivePageIndex := 0;
 end;
 
 procedure TformCriarConsultarOrdemServico.Panel1MouseDown(Sender: TObject;
@@ -398,16 +425,19 @@ end;
 procedure TformCriarConsultarOrdemServico.sbCancelarClick(Sender: TObject);
 begin
   FEntityCriarOrdem.cancelar;
+  FAtivarBotoes.ativarBotaoCancelar;
 end;
 
 procedure TformCriarConsultarOrdemServico.sbEditarClick(Sender: TObject);
 begin
   FEntityCriarOrdem.editar;
+  FAtivarBotoes.ativarBotaoEditar;
 end;
 
 procedure TformCriarConsultarOrdemServico.sbExcluirClick(Sender: TObject);
 begin
   FEntityCriarOrdem.deletar;
+  FAtivarBotoes.ativarBotaoExcluir
 end;
 
 procedure TformCriarConsultarOrdemServico.sbFecharClick(Sender: TObject);
@@ -430,11 +460,13 @@ begin
 
   limparDatas;
 
+  FAtivarBotoes.ativarBotaoNovo;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbPesquisarCepClick(Sender: TObject);
 begin
-  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
+  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.create(self);
   TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
 end;
 
@@ -478,6 +510,8 @@ begin
 
   showmessage('Ordem de Serviço inserida com sucesso');
 
+  FAtivarBotoes.ativarBotaoSalvar;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton10Click(Sender: TObject);
@@ -503,25 +537,52 @@ begin
   FEntityParcelasOrdem.cancelar;
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.SpeedButton13Click(Sender: TObject);
+var
+  valorMaoDeObra: Currency;
+  valorDoDesconto: Currency;
+  valorDoAcrescimo: Currency;
+  totalDaOS: Currency;
+  qtdeParcelas: Integer;
+begin
+
+  valorMaoDeObra := StrToCurr(edtValorOrdem.Text);
+  valorDoDesconto := StrToCurr(edtDesconto.Text);
+  valorDoAcrescimo := StrToCurr(edtAcrescimo.Text);
+  qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
+
+  edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) -
+    valorDoDesconto);
+
+  totalDaOS := StrToCurr(edtTotalDaOS.Text);
+
+  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
+
+end;
+
+procedure TformCriarConsultarOrdemServico.sbEstornarOSClick(Sender: TObject);
 begin
   FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
     .AsInteger);
+  FAtivarBotoes.ativarbotaoEstornar;
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton2Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbImprimirOSClick(Sender: TObject);
 begin
+
   prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
 
   frx_ImprimirOS.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/ordem_servico.fr3');
   frx_ImprimirOS.ShowReport();
 
+  FAtivarBotoes.ativarBotaoImpimir;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
 begin
-  formLocalizarTecnico := TformLocalizarTecnico.Create(self);
+  formLocalizarTecnico := TformLocalizarTecnico.create(self);
   TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
 end;
 
@@ -567,6 +628,14 @@ begin
     .getObservacao(edtObservacoesParcela.Text).getFORMA_PAGAMENTO
     (edtFormaPagamentoParcela.Text).getVALOR_TOTAL(edtValorParcela.Text)
     .getPGTO('Sim').gravar;
+
+  if application.MessageBox
+    ('Deseja imprimir o comprovante de pagamento desta OS?',
+    'Pergunta do sistema', MB_YESNO + MB_ICONWARNING) = mryes then
+  begin
+    imprimirRecibo;
+  end;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton7Click(Sender: TObject);
@@ -681,7 +750,7 @@ end;
 procedure TformCriarConsultarOrdemServico.limparDatas;
 begin
   edtDataFabricacao.Clear;
-  edtDataEntrada.Clear;
+  edtDataEntrada.Text := DateToStr(date);
   edtDataDeSaida.Clear;
   edtDataRetorno.Clear;
   edtDataBaseVencimento.Clear;
@@ -723,6 +792,11 @@ begin
   end;
 end;
 
+procedure TformCriarConsultarOrdemServico.Button1Click(Sender: TObject);
+begin
+  imprimirRecibo;
+end;
+
 procedure TformCriarConsultarOrdemServico.SomarValoresServicosIncluidos;
 var
   valorDaOS: Currency;
@@ -734,7 +808,7 @@ begin
     FValorTotalOrdemServico := StrToCurr(edtTotalDaOS.Text);
   except
     on e: exception do
-      raise exception.Create('Informe um valor válido para o Total da OS');
+      raise exception.create('Informe um valor válido para o Total da OS');
   end;
   FValorServicosIncluidos := s_tem_servicos_adicionados.DataSet.FieldByName
     ('valor').AsCurrency;
@@ -768,6 +842,7 @@ procedure TformCriarConsultarOrdemServico.selecionarOrdem;
 begin // selecionar a OS ao chamar através do form  Ordem de Servico
   if codigoDaOS <> 0 then
   begin
+
     FEntityCriarOrdem.abrir.getCampo('ID').getValor(codigoDaOS.ToString)
       .sqlPesquisa.listarGrid(DataSource1);
 
@@ -782,6 +857,29 @@ begin // selecionar a OS ao chamar através do form  Ordem de Servico
     edtNomeCliente.Text := TFactory.new.localizarRegistroEspecifico.getTabela
       ('CLIENTES').getCampoRetorno('nome').localizarRegistro('ID',
       DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger);
+
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+    sbImprimirOS.Enabled := true;
+    sbEstornarOS.Enabled := true;
+
+    sbNovo.Enabled := false;
+    sbSalvar.Enabled := false;
+
+  end
+  else
+  begin
+
+    FEntityCriarOrdem.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+      (DataSource1);
+
+    FEntityServicosOrdem.abrir.getCampo('ID_ORDEM').getValor('0')
+      .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
+
+    FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM').getValor('0')
+      .sqlPesquisa.listarGrid(s_ParcelasOS);
+
+    FAtivarBotoes.ativarBotoesIniciarForm;
   end;
 end;
 
@@ -816,6 +914,17 @@ begin
 
   FEntityVisualizarJuros.abrir.listarGrid(s_ImprimirInfoJuros);
 
+end;
+
+procedure TformCriarConsultarOrdemServico.imprimirRecibo;
+begin
+  FEntityImprimirRecibo.getCampo('ID_PARCELA')
+    .getValor(IntToStr(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger))
+    .sqlPesquisaEstatica.listarGrid(s_ImprirmirRecibo).imprimirComprovante;
+  prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
+  frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/comprovante_pagamento.fr3');
+  frx_ImprimirRecibo.ShowReport;
 end;
 
 procedure TformCriarConsultarOrdemServico.abreATabelaDeParcelas;

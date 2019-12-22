@@ -320,9 +320,9 @@ begin
   result := self;
 
   if value = '  /  /    ' then
-    FDATA_BASE_VENCIMENTO := ''
-  else
-    FDATA_BASE_VENCIMENTO := value;
+    raise exception.create('Informe a data base para o vencimento.');
+
+  FDATA_BASE_VENCIMENTO := value;
 end;
 
 function TEntityCriarOrdemServico.deletar: iCriarOrdemServico;
@@ -576,6 +576,10 @@ begin
   result := self;
   if value = '0' then
     raise exception.create('Informe o código do cliente.');
+
+  if value = EmptyStr then
+    raise exception.create('Informe o código do cliente.');
+
   FID_CLIENTE := value.ToInteger;
 
 end;
@@ -760,7 +764,7 @@ begin
     FieldByName('RETORNO').AsString := FRETORNO;
     FieldByName('SITUACAO_DA_ORDEM').AsString := FSITUACAO_DA_ORDEM;
     FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
-    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_ORDEM;
+    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
     // FieldByName('PGTO').Visible := False;
     FieldByName('PRIORIDADE').AsString := FPRIORIDADE;
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;

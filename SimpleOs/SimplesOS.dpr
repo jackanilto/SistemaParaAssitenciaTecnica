@@ -82,7 +82,8 @@ uses
   UClasse.Visualizar.Ordens.Servico.Parcelas in 'Classes\Entity\UClasse.Visualizar.Ordens.Servico.Parcelas.pas',
   UClasse.Entity.Dados.Empresa in 'Classes\Entity\UClasse.Entity.Dados.Empresa.pas',
   Form.Cadastro.Empresa in 'Forms\Form.Cadastro.Empresa.pas' {formCadastroEmpresa},
-  UClasse.Preparar.Imprimir.Recibo in 'Classes\Entity\UClasse.Preparar.Imprimir.Recibo.pas';
+  UClasse.Preparar.Imprimir.Recibo in 'Classes\Entity\UClasse.Preparar.Imprimir.Recibo.pas',
+  UClasse.Ativar.Desativar.Botoes.Ordem.Servico in 'Classes\Entity\UClasse.Ativar.Desativar.Botoes.Ordem.Servico.pas';
 
 {$R *.res}
 

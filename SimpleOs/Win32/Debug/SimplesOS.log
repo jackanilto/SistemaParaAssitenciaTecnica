@@ -1887,3 +1887,103 @@ At line 1, column 35
 16/12/19 12:22:46 - Caption: Dados da empresa
 16/12/19 12:22:46 - Erro:Exception
 16/12/19 12:22:46 - Erro:Informe um CNPJ válido.
+20/12/19 20:21:07 - ===========================================
+20/12/19 20:21:07 - Form: formCriarConsultarOrdemServico
+20/12/19 20:21:07 - Caption: Criar / Consultar ordem de serviço
+20/12/19 20:21:07 - Erro:Exception
+20/12/19 20:21:07 - Erro:Esta parela não esta quitada.
+20/12/19 20:26:22 - ===========================================
+20/12/19 20:26:22 - Form: formCriarConsultarOrdemServico
+20/12/19 20:26:22 - Caption: Criar / Consultar ordem de serviço
+20/12/19 20:26:22 - Erro:Exception
+20/12/19 20:26:22 - Erro:Informe um valor superior a 0(Zero) para o número da parcela.
+20/12/19 20:33:30 - ===========================================
+20/12/19 20:33:30 - Form: formCriarConsultarOrdemServico
+20/12/19 20:33:30 - Caption: Criar / Consultar ordem de serviço
+20/12/19 20:33:30 - Erro:Exception
+20/12/19 20:33:30 - Erro:Esta parela não esta quitada.
+22/12/19 13:41:58 - ===========================================
+22/12/19 13:41:58 - Form: formCriarConsultarOrdemServico
+22/12/19 13:41:58 - Caption: Criar / Consultar ordem de serviço
+22/12/19 13:41:58 - Erro:EConvertError
+22/12/19 13:41:58 - Erro:'' is not a valid integer value for Integer type
+22/12/19 13:42:25 - ===========================================
+22/12/19 13:42:25 - Form: formCriarConsultarOrdemServico
+22/12/19 13:42:25 - Caption: Criar / Consultar ordem de serviço
+22/12/19 13:42:25 - Erro:EConvertError
+22/12/19 13:42:25 - Erro:'' is not a valid date
+22/12/19 13:42:37 - ===========================================
+22/12/19 13:42:37 - Form: formCriarConsultarOrdemServico
+22/12/19 13:42:37 - Caption: Criar / Consultar ordem de serviço
+22/12/19 13:42:37 - Erro:EDatabaseError
+22/12/19 13:42:37 - Erro:Dataset not in edit or insert mode
+22/12/19 13:42:40 - ===========================================
+22/12/19 13:42:40 - Form: formCriarConsultarOrdemServico
+22/12/19 13:42:40 - Caption: Criar / Consultar ordem de serviço
+22/12/19 13:42:40 - Erro:EDatabaseError
+22/12/19 13:42:40 - Erro:Dataset not in edit or insert mode
+22/12/19 13:46:35 - ===========================================
+22/12/19 13:46:35 - Form: formCriarConsultarOrdemServico
+22/12/19 13:46:35 - Caption: Criar / Consultar ordem de serviço
+22/12/19 13:46:35 - Erro:Exception
+22/12/19 13:46:35 - Erro:Informe o código do cliente.
+22/12/19 13:46:47 - ===========================================
+22/12/19 13:46:47 - Form: formCriarConsultarOrdemServico
+22/12/19 13:46:47 - Caption: Criar / Consultar ordem de serviço
+22/12/19 13:46:47 - Erro:Exception
+22/12/19 13:46:47 - Erro:Informe qual equipamento esta sendo cadastrado.
+22/12/19 13:58:06 - ===========================================
+22/12/19 13:58:06 - Form: formCriarConsultarOrdemServico
+22/12/19 13:58:06 - Caption: Criar / Consultar ordem de serviço
+22/12/19 13:58:06 - Erro:Exception
+22/12/19 13:58:06 - Erro:Informe qual equipamento esta sendo cadastrado.
+22/12/19 13:58:21 - ===========================================
+22/12/19 13:58:21 - Form: formCriarConsultarOrdemServico
+22/12/19 13:58:21 - Caption: Criar / Consultar ordem de serviço
+22/12/19 13:58:21 - Erro:Exception
+22/12/19 13:58:21 - Erro:Informe a data base para o vencimento.
+22/12/19 14:04:54 - ===========================================
+22/12/19 14:04:54 - Form: formCriarConsultarOrdemServico
+22/12/19 14:04:54 - Caption: Criar / Consultar ordem de serviço
+22/12/19 14:04:54 - Erro:Exception
+22/12/19 14:04:54 - Erro:Informe a forma de pagamento.
+22/12/19 14:14:51 - ===========================================
+22/12/19 14:14:51 - Form: formCriarConsultarOrdemServico
+22/12/19 14:14:51 - Caption: Criar / Consultar ordem de serviço
+22/12/19 14:14:51 - Erro:Exception
+22/12/19 14:14:51 - Erro:Informe a data base para o vencimento.
+22/12/19 14:52:26 - ===========================================
+22/12/19 14:52:26 - Form: formCriarConsultarOrdemServico
+22/12/19 14:52:26 - Caption: Criar / Consultar ordem de serviço
+22/12/19 14:52:26 - Erro:EAccessViolation
+22/12/19 14:52:26 - Erro:Access violation at address 00AAD25B in module 'SimplesOS.exe'. Read of address 00000000
+22/12/19 14:53:19 - ===========================================
+22/12/19 14:53:19 - Form: formCriarConsultarOrdemServico
+22/12/19 14:53:19 - Caption: Criar / Consultar ordem de serviço
+22/12/19 14:53:19 - Erro:EAccessViolation
+22/12/19 14:53:19 - Erro:Access violation at address 00AAD25B in module 'SimplesOS.exe'. Read of address 00000000
+22/12/19 14:57:31 - ===========================================
+22/12/19 14:57:31 - Form: formCriarConsultarOrdemServico
+22/12/19 14:57:31 - Caption: Criar / Consultar ordem de serviço
+22/12/19 14:57:31 - Erro:EAccessViolation
+22/12/19 14:57:31 - Erro:Access violation at address 006E6732 in module 'SimplesOS.exe'. Read of address 00000040
+22/12/19 14:57:35 - ===========================================
+22/12/19 14:57:35 - Form: formCriarConsultarOrdemServico
+22/12/19 14:57:35 - Caption: Criar / Consultar ordem de serviço
+22/12/19 14:57:35 - Erro:EAccessViolation
+22/12/19 14:57:35 - Erro:Access violation at address 006E6732 in module 'SimplesOS.exe'. Read of address 00000040
+22/12/19 15:03:53 - ===========================================
+22/12/19 15:03:53 - Form: formCriarConsultarOrdemServico
+22/12/19 15:03:53 - Caption: Criar / Consultar ordem de serviço
+22/12/19 15:03:53 - Erro:Exception
+22/12/19 15:03:53 - Erro:Informe a data base para o vencimento.
+22/12/19 15:04:05 - ===========================================
+22/12/19 15:04:05 - Form: formCriarConsultarOrdemServico
+22/12/19 15:04:05 - Caption: Criar / Consultar ordem de serviço
+22/12/19 15:04:05 - Erro:EAccessViolation
+22/12/19 15:04:05 - Erro:Access violation at address 006E6732 in module 'SimplesOS.exe'. Read of address 00000040
+22/12/19 15:17:43 - ===========================================
+22/12/19 15:17:43 - Form: formCriarConsultarOrdemServico
+22/12/19 15:17:43 - Caption: Criar / Consultar ordem de serviço
+22/12/19 15:17:43 - Erro:EAccessViolation
+22/12/19 15:17:43 - Erro:Access violation at address 006E6732 in module 'SimplesOS.exe'. Read of address 00000040

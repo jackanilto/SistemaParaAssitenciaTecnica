@@ -7184,7 +7184,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 150
     object CategoryButtons4: TCategoryButtons
       Left = -22
       Top = 3

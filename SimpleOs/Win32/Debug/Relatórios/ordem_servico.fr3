@@ -1,22 +1,5 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@noelsonneres 
-1
-00noelsonneres/SistemaParaAssitenciaTecnica Private
- Code Issues 0 Pull requests 0 Actions Projects 0 Security Insights Settings
-SistemaParaAssitenciaTecnica/SimpleOs/Win32/Debug/Relatórios/ordem_servico.fr3
-@noelsonneres noelsonneres Commmit 17-12-19 --01
-66ff64a 23 hours ago
-107 lines (107 sloc)  17.7 KB
-  
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<TfrxReport Version="6.3.3" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="43815,7773973495" ReportOptions.Description.Text="" ReportOptions.LastChange="43816,8262247454" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;begin&#13;&#10;&#13;&#10;end.">
+<TfrxReport Version="6.3.3" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="43815,7773973495" ReportOptions.Description.Text="" ReportOptions.LastChange="43821,647114456" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;begin&#13;&#10;&#13;&#10;end.">
   <Datasets>
     <item DataSet="frxDB_ImprimirDadosEmpresa" DataSetName="frxDB_ImprimirDadosEmpresa"/>
     <item DataSet="frxDB_ImprimirOS" DataSetName="frxDB_ImprimirOS"/>
@@ -114,24 +97,11 @@ SistemaParaAssitenciaTecnica/SimpleOs/Win32/Debug/Relatórios/ordem_servico.fr3
       <TfrxMemoView Name="Memo58" AllowVectorExport="True" Left="11,33859" Top="3,77953" Width="52,91342" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="Serviço:"/>
       <TfrxMemoView Name="Memo59" AllowVectorExport="True" Left="68,03154" Top="3,77953" Width="328,81911" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ImprimirServicosOS.&#34;SERVICO&#34;]"/>
       <TfrxLineView Name="Line12" AllowVectorExport="True" Left="408,18924" Top="0" Width="0" Height="26,45671" Color="0" Frame.Typ="0" Diagonal="True"/>
-      <TfrxMemoView Name="Memo60" AllowVectorExport="True" Left="411,96877" Top="3,77953" Width="37,7953" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="Valor:"/>
-      <TfrxMemoView Name="Memo61" AllowVectorExport="True" Left="457,32313" Top="3,77953" Width="253,22851" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ImprimirServicosOS.&#34;VALOR&#34;]"/>
+      <TfrxMemoView Name="Memo60" AllowVectorExport="True" Left="411,96877" Top="3,77953" Width="60,47248" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="Valor: R$"/>
+      <TfrxMemoView Name="Memo61" AllowVectorExport="True" Left="472,44125" Top="3,77953" Width="230,55133" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ImprimirServicosOS.&#34;VALOR&#34;]"/>
     </TfrxMasterData>
     <TfrxPageFooter Name="PageFooter1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="933,54391" Width="718,1107">
       <TfrxMemoView Name="Memo1" AllowVectorExport="True" Left="642,5201" Top="0" Width="75,5906" Height="18,89765" Frame.Typ="0" HAlign="haRight" Text="[Page#]"/>
     </TfrxPageFooter>
   </TfrxReportPage>
 </TfrxReport>
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-50 results found.
