@@ -320,9 +320,9 @@ begin
   result := self;
 
   if value = '  /  /    ' then
-    FDATA_BASE_VENCIMENTO := ''
-  else
-    FDATA_BASE_VENCIMENTO := value;
+    raise exception.create('Informe a data base para o vencimento.');
+
+  FDATA_BASE_VENCIMENTO := value;
 end;
 
 function TEntityCriarOrdemServico.deletar: iCriarOrdemServico;
@@ -395,6 +395,9 @@ begin
         FQuery.TQuery.Edit;
         FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
         FQuery.TQuery.Post;
+
+        estornarParcelas(FQuery.TQuery.FieldByName('ID').AsInteger);
+
       end;
     end
     else
@@ -404,19 +407,24 @@ end;
 
 procedure TEntityCriarOrdemServico.estornarParcelas(value: integer);
 begin
-  FQuery.getCampo('ID_ORDEM').getValor(value.ToString)
+
+  FQueryParcelas.getCampo('ID_ORDEM').getValor(value.ToString)
     .sqlPesquisa('PARCELAS_ORDEM');
 
-  if FQuery.TQuery.RecordCount >= 1 then
+  if FQueryParcelas.TQuery.RecordCount >= 1 then
   begin
 
-    FQuery.TQuery.First;
+    FQueryParcelas.TQuery.First;
 
-    while not FQuery.TQuery.Eof do
+    while not FQueryParcelas.TQuery.Eof do
     begin
-      FQuery.TQuery.Edit;
-      FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
-      FQuery.TQuery.Post;
+
+      FQueryParcelas.TQuery.Edit;
+      FQueryParcelas.TQuery.FieldByName('PGTO').AsString := 'Estornada';
+      FQueryParcelas.TQuery.Post;
+
+      FQueryParcelas.TQuery.Next;
+
     end;
 
   end;
@@ -568,6 +576,10 @@ begin
   result := self;
   if value = '0' then
     raise exception.create('Informe o código do cliente.');
+
+  if value = EmptyStr then
+    raise exception.create('Informe o código do cliente.');
+
   FID_CLIENTE := value.ToInteger;
 
 end;
@@ -752,7 +764,7 @@ begin
     FieldByName('RETORNO').AsString := FRETORNO;
     FieldByName('SITUACAO_DA_ORDEM').AsString := FSITUACAO_DA_ORDEM;
     FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
-    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_ORDEM;
+    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
     // FieldByName('PGTO').Visible := False;
     FieldByName('PRIORIDADE').AsString := FPRIORIDADE;
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;

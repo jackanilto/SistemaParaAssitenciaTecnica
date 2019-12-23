@@ -339,7 +339,10 @@ begin
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
         .gravarLog;
 
-      FQuery.TQuery.Delete;
+      FQuery.TQuery.Edit;
+      FQuery.TQuery.FieldByName('STATUS').AsString := 'Deletado';
+      FQuery.TQuery.Post;
+
     end;
   end;
 
@@ -444,7 +447,7 @@ end;
 
 function TEntityCriarOrdemServico.fecharQuery: iCriarOrdemServico;
 begin
-  FQuery.TQuery.close;
+  FQuery.TQuery.Close;
 end;
 
 function TEntityCriarOrdemServico.getACRESCIMO(value: string)

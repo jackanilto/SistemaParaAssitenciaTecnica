@@ -470,6 +470,19 @@ begin
   FEntityCriarOrdem.deletar;
   FAtivarBotoes.ativarBotaoExcluir;
   lblCaption.Caption := 'Ordem de serviços - OS excluida';
+
+  FEntityCriarOrdem.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
+
+  FEntityServicosOrdem.abrir.getCampo('ID_ORDEM').getValor('0')
+    .sqlPesquisaEstatica.listarItensDaOS(cds_tem_servicos_adicionados);
+
+  FEntityParcelasOrdem.abrir.getCampo('ID_ORDEM').getValor('0')
+    .sqlPesquisa.listarGrid(s_ParcelasOS);
+
+  edtNomeCliente.Clear;
+  edtDataFabricacao.Clear;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbFecharClick(Sender: TObject);

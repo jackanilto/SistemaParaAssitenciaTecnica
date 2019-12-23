@@ -14,7 +14,7 @@ uses
   UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
   UClasse.Entity.Dados.Empresa, frxBarcode, UClasse.Calcular.Juros,
   UClasse.Entity.Configurar.Parcelas, UClasse.Preparar.Imprimir.Recibo,
-  UClasse.Ativar.Desativar.Botoes.Ordem.Servico;
+  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -171,10 +171,8 @@ type
     s_ImprirmirRecibo: TDataSource;
     frxDB_Imprimirrecibo: TfrxDBDataset;
     frx_ImprimirRecibo: TfrxReport;
-    Button1: TButton;
-    cds_servico_excluidos: TClientDataSet;
-    cds_servico_excluidosservico_excluido: TIntegerField;
-    cds_servico_excluidosos: TIntegerField;
+    PopupMenu1: TPopupMenu;
+    Editarparcela1: TMenuItem;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -457,18 +455,27 @@ procedure TformCriarConsultarOrdemServico.sbCancelarClick(Sender: TObject);
 begin
   FEntityCriarOrdem.cancelar;
   FAtivarBotoes.ativarBotaoCancelar;
+  lblCaption.Caption := 'Ordem de serviços';
 end;
 
 procedure TformCriarConsultarOrdemServico.sbEditarClick(Sender: TObject);
 begin
   FEntityCriarOrdem.editar;
   FAtivarBotoes.ativarBotaoEditar;
+  lblCaption.Caption := 'Ordem de serviços - Editando OS';
 end;
 
 procedure TformCriarConsultarOrdemServico.sbExcluirClick(Sender: TObject);
 begin
   FEntityCriarOrdem.deletar;
-  FAtivarBotoes.ativarBotaoExcluir
+  FAtivarBotoes.ativarBotaoExcluir;
+  lblCaption.Caption := 'Ordem de serviços - OS excluida';
+  FEntityCriarOrdem.getCampo('ID').getValor('0').sqlPesquisa.listarGrid
+    (DataSource1);
+
+  edtNomeCliente.Clear;
+  edtDataFabricacao.Clear;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbFecharClick(Sender: TObject);
@@ -492,6 +499,8 @@ begin
   limparDatas;
 
   FAtivarBotoes.ativarBotaoNovo;
+
+  lblCaption.Caption := 'Ordem de serviços - Nova OS';
 
 end;
 
@@ -544,6 +553,8 @@ begin
   showmessage('Ordem de Serviço inserida com sucesso');
 
   FAtivarBotoes.ativarBotaoSalvar;
+
+  lblCaption.Caption := 'Ordem de serviços';
 
 end;
 
@@ -603,12 +614,19 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbEstornarOSClick(Sender: TObject);
 begin
-  FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
-    .AsInteger);
 
-  FEntityParcelasOrdem.atualizar;
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
+      .AsInteger);
 
-  FAtivarBotoes.ativarbotaoEstornar;
+    FEntityParcelasOrdem.atualizar;
+
+    FAtivarBotoes.ativarbotaoEstornar;
+
+    lblCaption.Caption := 'Ordem de serviços - OS Estornada';
+  end;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbImprimirOSClick(Sender: TObject);
@@ -621,6 +639,8 @@ begin
   frx_ImprimirOS.ShowReport();
 
   FAtivarBotoes.ativarBotaoImpimir;
+
+  lblCaption.Caption := 'Ordem de serviços';
 
 end;
 
@@ -646,8 +666,8 @@ begin
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
 
-     FEntityServicosOrdem.excluiServicoDaOS
-     (cds_tem_servicos_adicionadosid.AsInteger);
+    FEntityServicosOrdem.getID_ORDEM(DataSource1.DataSet.FieldByName('ID')
+      .AsInteger).excluiServicoDaOS(cds_tem_servicos_adicionadosid.AsInteger);
 
     subtrairValoresServicosIncluidos;
 

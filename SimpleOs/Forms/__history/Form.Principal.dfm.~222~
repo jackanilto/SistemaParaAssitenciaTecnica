@@ -16,7 +16,7 @@ object formPrincipal: TformPrincipal
   PixelsPerInch = 96
   TextHeight = 13
   object imgLogo: TImage
-    Left = 184
+    Left = 192
     Top = 242
     Width = 584
     Height = 274
@@ -6204,8 +6204,8 @@ object formPrincipal: TformPrincipal
     end
   end
   object Panel2: TPanel
-    Left = 311
-    Top = 63
+    Left = 303
+    Top = 60
     Width = 869
     Height = 136
     Align = alCustom
@@ -6215,7 +6215,7 @@ object formPrincipal: TformPrincipal
     ParentBackground = False
     TabOrder = 2
     object Image2: TImage
-      Left = 20
+      Left = 37
       Top = 13
       Width = 163
       Height = 40
@@ -6841,7 +6841,7 @@ object formPrincipal: TformPrincipal
         653E}
     end
     object Image4: TImage
-      Left = 365
+      Left = 382
       Top = 13
       Width = 163
       Height = 40
@@ -6904,7 +6904,7 @@ object formPrincipal: TformPrincipal
       Stretch = True
     end
     object Image5: TImage
-      Left = 534
+      Left = 551
       Top = 13
       Width = 163
       Height = 40
@@ -6964,7 +6964,7 @@ object formPrincipal: TformPrincipal
       Stretch = True
     end
     object Image3: TImage
-      Left = 189
+      Left = 206
       Top = 13
       Width = 163
       Height = 40
@@ -7029,8 +7029,8 @@ object formPrincipal: TformPrincipal
         0D948C8A68A0645444837F011D41362B786DE3850000000049454E44AE426082}
     end
     object Label3: TLabel
-      Left = 20
-      Top = 77
+      Left = 40
+      Top = 72
       Width = 171
       Height = 19
       Caption = #218'ltima ordem realizada:'
@@ -7042,7 +7042,7 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 20
+      Left = 40
       Top = 102
       Width = 186
       Height = 19
@@ -7055,7 +7055,7 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 197
+      Left = 217
       Top = 72
       Width = 110
       Height = 19
@@ -7068,7 +7068,7 @@ object formPrincipal: TformPrincipal
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 212
+      Left = 232
       Top = 102
       Width = 110
       Height = 19
@@ -7082,15 +7082,14 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvCadastros: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
-    Width = 0
+    Width = 173
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
     DockSite = True
-    Opened = False
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
@@ -7153,6 +7152,12 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acCadastroSituacaoOrdem
+            end
+            item
+              Action = acCadastrarServicos
+            end
+            item
+              Action = acDadosEmpresa
             end>
           TextColor = 13402157
         end>
@@ -7170,11 +7175,12 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 150
+    Left = 323
     Top = 57
-    Width = 173
+    Width = 0
     Height = 467
     Color = 13401438
+    Opened = False
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
@@ -7208,6 +7214,7 @@ object formPrincipal: TformPrincipal
               Action = acCriarOrdenServico
             end
             item
+              Action = acCadastrarServicos
             end
             item
             end>
@@ -7985,9 +7992,19 @@ object formPrincipal: TformPrincipal
     end
     object acOrdemServico: TAction
       Caption = 'Ordens de servi'#231'o'
+      OnExecute = acOrdemServicoExecute
     end
     object acCriarOrdenServico: TAction
       Caption = 'Criar ordem'
+      OnExecute = acCriarOrdenServicoExecute
+    end
+    object acCadastrarServicos: TAction
+      Caption = 'Cadastrar Servi'#231'os'
+      OnExecute = acCadastrarServicosExecute
+    end
+    object acDadosEmpresa: TAction
+      Caption = 'Dados da Empresa'
+      OnExecute = acDadosEmpresaExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

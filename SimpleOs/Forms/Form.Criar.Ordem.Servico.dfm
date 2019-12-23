@@ -653,7 +653,6 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
-          ExplicitLeft = -4
           object Label21: TLabel
             Left = 16
             Top = 25
@@ -916,8 +915,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 144
-        ExplicitTop = 22
         object Label30: TLabel
           Left = 15
           Top = 9

@@ -2167,3 +2167,13 @@ At line 1, column 35
 23/12/19 15:53:54 - Caption: Criar / Consultar ordem de serviço
 23/12/19 15:53:54 - Erro:EInvalidOp
 23/12/19 15:53:54 - Erro:Invalid floating point operation
+23/12/19 18:48:36 - ===========================================
+23/12/19 18:48:36 - Form: formCriarConsultarOrdemServico
+23/12/19 18:48:36 - Caption: Criar / Consultar ordem de serviço
+23/12/19 18:48:36 - Erro:EDatabaseError
+23/12/19 18:48:36 - Erro:Cannot perform this operation on a closed dataset
+23/12/19 18:51:26 - ===========================================
+23/12/19 18:51:26 - Form: formCriarConsultarOrdemServico
+23/12/19 18:51:26 - Caption: Criar / Consultar ordem de serviço
+23/12/19 18:51:26 - Erro:Exception
+23/12/19 18:51:26 - Erro:Esta parcela já foi quitada.

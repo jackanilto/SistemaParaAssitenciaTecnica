@@ -7084,12 +7084,13 @@ object formPrincipal: TformPrincipal
   object spvCadastros: TSplitView
     Left = 150
     Top = 57
-    Width = 173
+    Width = 0
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
     DockSite = True
+    Opened = False
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
@@ -7175,7 +7176,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7184,6 +7185,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
+    ExplicitLeft = 323
     object CategoryButtons4: TCategoryButtons
       Left = -22
       Top = 3
@@ -7232,7 +7234,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7242,9 +7244,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 323
   end
   object spvExtras: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7255,9 +7258,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 323
   end
   object spvSobre: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7268,9 +7272,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 323
   end
   object spvConfiguracoes: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7281,6 +7286,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 323
   end
   object ImageList1: TImageList
     Height = 24

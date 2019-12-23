@@ -60,6 +60,8 @@ type
     function getNome(value: string): iCriarOrdemServico;
     procedure validarData(componet: tmaskEdit);
 
+    procedure estornarParcelas(value: integer);
+
   public
 
     function nomeTabela(value: string): iCriarOrdemServico;
@@ -318,9 +320,9 @@ begin
   result := self;
 
   if value = '  /  /    ' then
-    FDATA_BASE_VENCIMENTO := ''
-  else
-    FDATA_BASE_VENCIMENTO := value;
+    raise exception.create('Informe a data base para o vencimento.');
+
+  FDATA_BASE_VENCIMENTO := value;
 end;
 
 function TEntityCriarOrdemServico.deletar: iCriarOrdemServico;
@@ -337,7 +339,11 @@ begin
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
         .gravarLog;
 
-      FQuery.TQuery.Delete;
+      FQuery.TQuery.Edit;
+      FQuery.TQuery.FieldByName('STATUS').AsString := 'Deletado';
+      FQuery.TQuery.Post;
+      FQuery.TQuery.Close;
+
     end;
   end;
 
@@ -393,11 +399,40 @@ begin
         FQuery.TQuery.Edit;
         FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
         FQuery.TQuery.Post;
+
+        estornarParcelas(FQuery.TQuery.FieldByName('ID').AsInteger);
+
       end;
     end
     else
       raise exception.create('Esta ordem já foi estornada.');
   end;
+end;
+
+procedure TEntityCriarOrdemServico.estornarParcelas(value: integer);
+begin
+
+  FQueryParcelas.getCampo('ID_ORDEM').getValor(value.ToString)
+    .sqlPesquisa('PARCELAS_ORDEM');
+
+  if FQueryParcelas.TQuery.RecordCount >= 1 then
+  begin
+
+    FQueryParcelas.TQuery.First;
+
+    while not FQueryParcelas.TQuery.Eof do
+    begin
+
+      FQueryParcelas.TQuery.Edit;
+      FQueryParcelas.TQuery.FieldByName('PGTO').AsString := 'Estornada';
+      FQueryParcelas.TQuery.Post;
+
+      FQueryParcelas.TQuery.Next;
+
+    end;
+
+  end;
+
 end;
 
 function TEntityCriarOrdemServico.ExecSql: iCriarOrdemServico;
@@ -413,7 +448,7 @@ end;
 
 function TEntityCriarOrdemServico.fecharQuery: iCriarOrdemServico;
 begin
-  FQuery.TQuery.close;
+  FQuery.TQuery.Close;
 end;
 
 function TEntityCriarOrdemServico.getACRESCIMO(value: string)
@@ -545,6 +580,10 @@ begin
   result := self;
   if value = '0' then
     raise exception.create('Informe o código do cliente.');
+
+  if value = EmptyStr then
+    raise exception.create('Informe o código do cliente.');
+
   FID_CLIENTE := value.ToInteger;
 
 end;
@@ -729,7 +768,7 @@ begin
     FieldByName('RETORNO').AsString := FRETORNO;
     FieldByName('SITUACAO_DA_ORDEM').AsString := FSITUACAO_DA_ORDEM;
     FieldByName('TOTAL_PARCELAS').AsInteger := FTOTAL_PARCELAS;
-    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_ORDEM;
+    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
     // FieldByName('PGTO').Visible := False;
     FieldByName('PRIORIDADE').AsString := FPRIORIDADE;
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
