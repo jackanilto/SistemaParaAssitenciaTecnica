@@ -125,7 +125,7 @@
     Top = 41
     Width = 973
     Height = 469
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbParcelas
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -1006,13 +1006,14 @@
           Color = 8406532
           ParentBackground = False
           TabOrder = 0
-          object SpeedButton6: TSpeedButton
+          object sbQuitarParcela: TSpeedButton
             Left = 15
             Top = 10
             Width = 98
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
             Caption = 'Quitar'
+            Enabled = False
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWhite
@@ -1080,15 +1081,16 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            OnClick = SpeedButton6Click
+            OnClick = sbQuitarParcelaClick
           end
-          object SpeedButton7: TSpeedButton
+          object sbEstornarParcela: TSpeedButton
             Left = 119
             Top = 10
             Width = 94
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
             Caption = 'Estornar'
+            Enabled = False
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWhite
@@ -1162,15 +1164,16 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            OnClick = SpeedButton7Click
+            OnClick = sbEstornarParcelaClick
           end
-          object SpeedButton8: TSpeedButton
+          object sbAdicionarParcela: TSpeedButton
             Left = 219
             Top = 10
             Width = 171
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
             Caption = 'Adicionar parcela'
+            Enabled = False
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWhite
@@ -1244,15 +1247,16 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            OnClick = SpeedButton8Click
+            OnClick = sbAdicionarParcelaClick
           end
-          object SpeedButton9: TSpeedButton
+          object sbSalvarParcela: TSpeedButton
             Left = 393
             Top = 10
             Width = 133
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
             Caption = 'Salvar parcela'
+            Enabled = False
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWhite
@@ -1326,15 +1330,16 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            OnClick = SpeedButton9Click
+            OnClick = sbSalvarParcelaClick
           end
-          object SpeedButton10: TSpeedButton
+          object sbExcluirParcela: TSpeedButton
             Left = 535
             Top = 10
             Width = 82
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
             Caption = 'Excluir'
+            Enabled = False
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWhite
@@ -1402,15 +1407,16 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            OnClick = SpeedButton10Click
+            OnClick = sbExcluirParcelaClick
           end
-          object SpeedButton11: TSpeedButton
+          object sbImprimirParcelas: TSpeedButton
             Left = 751
             Top = 10
             Width = 178
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
             Caption = 'Imprimir parcelas'
+            Enabled = False
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWhite
@@ -1484,15 +1490,16 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            OnClick = SpeedButton11Click
+            OnClick = sbImprimirParcelasClick
           end
-          object SpeedButton12: TSpeedButton
-            Left = 623
+          object sbCancelarOperacaoParcela: TSpeedButton
+            Left = 619
             Top = 10
             Width = 95
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
             Caption = 'Cancelar'
+            Enabled = False
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWhite
@@ -1566,7 +1573,7 @@
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            OnClick = SpeedButton12Click
+            OnClick = sbCancelarOperacaoParcelaClick
           end
         end
         object DBGrid3: TDBGrid

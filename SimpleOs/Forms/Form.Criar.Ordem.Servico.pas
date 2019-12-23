@@ -110,12 +110,12 @@ type
     cds_tem_servicos_adicionados_editservico: TStringField;
     cds_tem_servicos_adicionados_editValor: TCurrencyField;
     s_tem_servicos_adicionados_edit: TDataSource;
-    SpeedButton6: TSpeedButton;
-    SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
-    SpeedButton9: TSpeedButton;
-    SpeedButton10: TSpeedButton;
-    SpeedButton11: TSpeedButton;
+    sbQuitarParcela: TSpeedButton;
+    sbEstornarParcela: TSpeedButton;
+    sbAdicionarParcela: TSpeedButton;
+    sbSalvarParcela: TSpeedButton;
+    sbExcluirParcela: TSpeedButton;
+    sbImprimirParcelas: TSpeedButton;
     DBGrid3: TDBGrid;
     s_ParcelasOS: TDataSource;
     DBNavigator1: TDBNavigator;
@@ -153,7 +153,7 @@ type
     cds_AdicionarParcelaValor_da_parcela: TCurrencyField;
     cds_AdicionarParcelavencimento: TDateTimeField;
     cds_AdicionarParcelapgto: TStringField;
-    SpeedButton12: TSpeedButton;
+    sbCancelarOperacaoParcela: TSpeedButton;
     SpeedButton13: TSpeedButton;
     s_imprimirOS: TDataSource;
     s_imprimirServicosOS: TDataSource;
@@ -196,14 +196,14 @@ type
     procedure edtTotalDeParcelasExit(Sender: TObject);
     procedure edtTotalDaOSExit(Sender: TObject);
     procedure DBGrid3CellClick(Column: TColumn);
-    procedure SpeedButton6Click(Sender: TObject);
-    procedure SpeedButton7Click(Sender: TObject);
-    procedure SpeedButton8Click(Sender: TObject);
-    procedure SpeedButton9Click(Sender: TObject);
-    procedure SpeedButton10Click(Sender: TObject);
-    procedure SpeedButton12Click(Sender: TObject);
+    procedure sbQuitarParcelaClick(Sender: TObject);
+    procedure sbEstornarParcelaClick(Sender: TObject);
+    procedure sbAdicionarParcelaClick(Sender: TObject);
+    procedure sbSalvarParcelaClick(Sender: TObject);
+    procedure sbExcluirParcelaClick(Sender: TObject);
+    procedure sbCancelarOperacaoParcelaClick(Sender: TObject);
     procedure sbImprimirOSClick(Sender: TObject);
-    procedure SpeedButton11Click(Sender: TObject);
+    procedure sbImprimirParcelasClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure SpeedButton13Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -235,6 +235,8 @@ type
     procedure abreATabelaDeParcelas;
     procedure prepararParaImprimir(value: Integer);
     procedure imprimirRecibo;
+    procedure desabilitarBotoesParcelasEstornar;
+    procedure habilitarBotoesQuitarParcela;
   public
     { Public declarations }
   end;
@@ -278,8 +280,8 @@ begin
     edtValorOrdemParcelado.Text :=
       CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
     edtHoraSaida.Text := TimeToStr(FieldByName('HORA_SAIDA').AsDateTime);
-//    edtDataBaseVencimento.Text := DateToStr(FieldByName('DATA_BASE_VENCIMENTO')
-//      .AsDateTime);
+    // edtDataBaseVencimento.Text := DateToStr(FieldByName('DATA_BASE_VENCIMENTO')
+    // .AsDateTime);
 
     // Tudo referente a datas
     if DataSource1.DataSet.FieldByName('DATA_FABRICACAO').AsDateTime <>
@@ -325,8 +327,25 @@ begin
       begin
         FEntityParcelasOrdem.editar;
         edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+      end
+      else
+      begin
+        desabilitarBotoesParcelasEstornar;
+        raise Exception.Create
+          ('Esta parcela foi estornada e não poderá ser quitada');
       end;
+
     end;
+
+    habilitarBotoesQuitarParcela;
+
+  end
+  else
+  begin
+
+    desabilitarBotoesParcelasEstornar;
+    raise Exception.Create('Esta parcela já foi quitada.');
+
   end;
 end;
 
@@ -384,7 +403,7 @@ begin
   FEntityVisualizarEmpresa := TEntityCadastroDadosEmpresa.new;
   FEntityVisualizarJuros := TEntityConfigurarParcelas.new;
   FEntityImprimirRecibo := TEntityPrepararRecibo.new;
-  FAtivarBotoes := TAtivarDesativarBotoesOrdemServico.create;
+  FAtivarBotoes := TAtivarDesativarBotoesOrdemServico.Create;
 
   with FAtivarBotoes do
   begin
@@ -395,6 +414,15 @@ begin
     botaoCancelar(sbCancelar);
     botaoImprimir(sbImprimirOS);
     botaoEstornar(sbEstornarOS);
+
+    botaoQuitarParcela(sbQuitarParcela);
+    botaoAdicionarParcela(sbAdicionarParcela);
+    botaoEstornarParcela(sbEstornarParcela);
+    botaoSalvarParcela(sbSalvarParcela);
+    botaoExcluirParcela(sbExcluirParcela);
+    botaoCancelarParcela(sbCancelarOperacaoParcela);
+    botaoImprimirParcelas(sbImprimirParcelas);
+
   end;
 
   ReportMemoryLeaksOnShutdown := true;
@@ -466,7 +494,7 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbPesquisarCepClick(Sender: TObject);
 begin
-  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.create(self);
+  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
   TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
 end;
 
@@ -501,12 +529,13 @@ begin
     FEntityServicosOrdem.gravarServicosAdicionadosEdit
       (cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
 
-  FEntityParcelasOrdem.getID_ORDEM(FEntityCriarOrdem.setId)
-    .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
-    .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
-    .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
-    .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
-    .gerarParcelas;
+  if estado = 'insert' then
+    FEntityParcelasOrdem.getID_ORDEM(FEntityCriarOrdem.setId)
+      .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
+      .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
+      .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
+      .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
+      .gerarParcelas;
 
   showmessage('Ordem de Serviço inserida com sucesso');
 
@@ -514,15 +543,18 @@ begin
 
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton10Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbExcluirParcelaClick
+  (Sender: TObject);
 begin
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
-    FEntityCriarOrdem.deletar;
+    FEntityParcelasOrdem.deletar;
+    FAtivarBotoes.ativarbotaoExcluirParcela;
   end;
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton11Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbImprimirParcelasClick
+  (Sender: TObject);
 begin
 
   prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
@@ -530,11 +562,16 @@ begin
   frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/parcelas_os.fr3');
   frx_ImprimirParcelas.ShowReport();
+
+  FAtivarBotoes.ativarbotaoImprimirParcelas;
+
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton12Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbCancelarOperacaoParcelaClick
+  (Sender: TObject);
 begin
   FEntityParcelasOrdem.cancelar;
+  FAtivarBotoes.ativarBotaoCancelar;
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton13Click(Sender: TObject);
@@ -582,7 +619,7 @@ end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
 begin
-  formLocalizarTecnico := TformLocalizarTecnico.create(self);
+  formLocalizarTecnico := TformLocalizarTecnico.Create(self);
   TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
 end;
 
@@ -611,39 +648,62 @@ begin
 
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton6Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbQuitarParcelaClick(Sender: TObject);
 begin
-
-  FEntityParcelasOrdem.getID(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger)
-    .getID_ORDEM(s_ParcelasOS.DataSet.FieldByName('ID_ORDEM').AsInteger)
-    .getID_CLIENTE(s_ParcelasOS.DataSet.FieldByName('ID_CLIENTE').AsInteger)
-    .getTOTAL_PARCELAS(s_ParcelasOS.DataSet.FieldByName('TOTAL_PARCELAS')
-    .AsInteger).getPARCELA(StrToInt(edtNumeroParcela.Text))
-    .getVALOR_PARCELA(s_ParcelasOS.DataSet.FieldByName('VALOR_PARCELA')
-    .AsCurrency).getDATA_VENCIMENTO(edtVencimentoParcela.Text)
-    .getDesconto(edtDescontoParcela.Text).getJuros(edtJurosParcelas.Text)
-    .getMulta(edtMultaParcela.Text).getVALOR_TOTAL(edtTotalParcela.Text)
-    .getDATA_PAGAMENTO(DateToStr(edtDataPagamentoParcela.date))
-    .getHORA_PAGAMENTO(edtHoraPagamento.Text)
-    .getObservacao(edtObservacoesParcela.Text).getFORMA_PAGAMENTO
-    (edtFormaPagamentoParcela.Text).getVALOR_TOTAL(edtValorParcela.Text)
-    .getPGTO('Sim').gravar;
-
-  if application.MessageBox
-    ('Deseja imprimir o comprovante de pagamento desta OS?',
-    'Pergunta do sistema', MB_YESNO + MB_ICONWARNING) = mryes then
+  if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Sim' then
   begin
-    imprimirRecibo;
+    if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Estornada' then
+    begin
+      FEntityParcelasOrdem.getID(s_ParcelasOS.DataSet.FieldByName('ID')
+        .AsInteger).getID_ORDEM(s_ParcelasOS.DataSet.FieldByName('ID_ORDEM')
+        .AsInteger).getID_CLIENTE(s_ParcelasOS.DataSet.FieldByName('ID_CLIENTE')
+        .AsInteger).getTOTAL_PARCELAS
+        (s_ParcelasOS.DataSet.FieldByName('TOTAL_PARCELAS').AsInteger)
+        .getPARCELA(StrToInt(edtNumeroParcela.Text))
+        .getVALOR_PARCELA(s_ParcelasOS.DataSet.FieldByName('VALOR_PARCELA')
+        .AsCurrency).getDATA_VENCIMENTO(edtVencimentoParcela.Text)
+        .getDesconto(edtDescontoParcela.Text).getJuros(edtJurosParcelas.Text)
+        .getMulta(edtMultaParcela.Text).getVALOR_TOTAL(edtTotalParcela.Text)
+        .getDATA_PAGAMENTO(DateToStr(edtDataPagamentoParcela.date))
+        .getHORA_PAGAMENTO(edtHoraPagamento.Text)
+        .getObservacao(edtObservacoesParcela.Text)
+        .getFORMA_PAGAMENTO(edtFormaPagamentoParcela.Text)
+        .getVALOR_TOTAL(edtValorParcela.Text).getPGTO('Sim').gravar;
+
+      FAtivarBotoes.ativarbotaoQuitarParcela;
+
+      if application.MessageBox
+        ('Deseja imprimir o comprovante de pagamento desta OS?',
+        'Pergunta do sistema', MB_YESNO + MB_ICONWARNING) = mryes then
+      begin
+        imprimirRecibo;
+      end;
+    end
+    else
+    begin
+      desabilitarBotoesParcelasEstornar;
+      raise Exception.Create
+        ('Esta parcela foi estornada e não poderá ser quitada.');
+    end;
+
+  end
+  else
+  begin
+    desabilitarBotoesParcelasEstornar;
+    raise Exception.Create('Esta parcela já esta quitada.');
   end;
 
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton7Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbEstornarParcelaClick
+  (Sender: TObject);
 begin
   FEntityParcelasOrdem.extornarParcelaSelecionada(0);
+  FAtivarBotoes.ativarbotaoEstornarParcela;
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton8Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbAdicionarParcelaClick
+  (Sender: TObject);
 begin
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
@@ -689,10 +749,12 @@ begin
 
     edtPgtoParcela.Text := cds_AdicionarParcelapgto.AsString;
 
+    FAtivarBotoes.ativarbotaoAdicionarParcela;
+
   end;
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton9Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbSalvarParcelaClick(Sender: TObject);
 begin
 
   if cds_AdicionarParcela.RecordCount >= 1 then
@@ -704,6 +766,9 @@ begin
       .getTOTAL_PARCELAS(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)
       .getPARCELA(StrToInt(edtNumeroParcela.Text)).getPGTO(edtPgtoParcela.Text)
       .getObservacao(edtObservacoesParcela.Text).adicionarParcela;
+
+    FAtivarBotoes.ativarbotaoSalvarParcela;
+
   end;
 
 end;
@@ -807,8 +872,8 @@ begin
   try
     FValorTotalOrdemServico := StrToCurr(edtTotalDaOS.Text);
   except
-    on e: exception do
-      raise exception.create('Informe um valor válido para o Total da OS');
+    on e: Exception do
+      raise Exception.Create('Informe um valor válido para o Total da OS');
   end;
   FValorServicosIncluidos := s_tem_servicos_adicionados.DataSet.FieldByName
     ('valor').AsCurrency;
@@ -865,6 +930,8 @@ begin // selecionar a OS ao chamar através do form  Ordem de Servico
 
     sbNovo.Enabled := false;
     sbSalvar.Enabled := false;
+
+    // habilitarBotoesQuitarParcela
 
   end
   else
@@ -925,6 +992,26 @@ begin
   frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/comprovante_pagamento.fr3');
   frx_ImprimirRecibo.ShowReport;
+end;
+
+procedure TformCriarConsultarOrdemServico.desabilitarBotoesParcelasEstornar;
+begin
+  sbAdicionarParcela.Enabled := true;
+  sbQuitarParcela.Enabled := false;
+  sbEstornarParcela.Enabled := false;
+  sbExcluirParcela.Enabled := true;
+  sbImprimirParcelas.Enabled := true;
+  sbCancelar.Enabled := false;
+end;
+
+procedure TformCriarConsultarOrdemServico.habilitarBotoesQuitarParcela;
+begin
+  sbAdicionarParcela.Enabled := true;
+  sbQuitarParcela.Enabled := true;
+  sbEstornarParcela.Enabled := true;
+  sbExcluirParcela.Enabled := true;
+  sbImprimirParcelas.Enabled := true;
+  sbCancelar.Enabled := false;
 end;
 
 procedure TformCriarConsultarOrdemServico.abreATabelaDeParcelas;
