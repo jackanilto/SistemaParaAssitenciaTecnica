@@ -448,7 +448,7 @@
           Width = 200
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 3
+          TabOrder = 4
         end
         object edtModelo: TEdit
           Left = 222
@@ -456,7 +456,7 @@
           Width = 200
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 4
+          TabOrder = 5
         end
         object edtNumeroDeSerie: TEdit
           Left = 16
@@ -464,7 +464,7 @@
           Width = 292
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 5
+          TabOrder = 6
         end
         object edtDataFabricacao: TMaskEdit
           Left = 314
@@ -473,7 +473,7 @@
           Height = 25
           EditMask = '00/00/0000'
           MaxLength = 10
-          TabOrder = 6
+          TabOrder = 7
           Text = '  /  /    '
         end
         object edtEquipamento: TEdit
@@ -482,7 +482,7 @@
           Width = 406
           Height = 25
           CharCase = ecUpperCase
-          TabOrder = 7
+          TabOrder = 3
         end
         object edtDefeitoRelatado: TMemo
           Left = 16
@@ -491,6 +491,7 @@
           Height = 74
           Lines.Strings = (
             '')
+          ScrollBars = ssVertical
           TabOrder = 8
         end
         object edtLaudoTecnico: TMemo
@@ -500,6 +501,7 @@
           Height = 49
           Lines.Strings = (
             '')
+          ScrollBars = ssVertical
           TabOrder = 9
         end
         object edtSolucaoDoProblema: TMemo
@@ -509,6 +511,7 @@
           Height = 49
           Lines.Strings = (
             '')
+          ScrollBars = ssVertical
           TabOrder = 10
         end
         object edtSituacaoOrdem: TComboBox
@@ -628,7 +631,7 @@
           OnClick = SpeedButton4Click
         end
         object SpeedButton5: TSpeedButton
-          Left = 444
+          Left = 442
           Top = 295
           Width = 83
           Height = 33
@@ -650,6 +653,7 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
+          ExplicitLeft = -4
           object Label21: TLabel
             Left = 16
             Top = 25
@@ -797,7 +801,7 @@
             Width = 109
             Height = 25
             CharCase = ecUpperCase
-            TabOrder = 3
+            TabOrder = 4
             OnExit = edtTotalDeParcelasExit
           end
           object edtDataBaseVencimento: TMaskEdit
@@ -807,7 +811,7 @@
             Height = 25
             EditMask = '00/00/0000'
             MaxLength = 10
-            TabOrder = 4
+            TabOrder = 6
             Text = '  /  /    '
           end
           object edtTotalDaOS: TEdit
@@ -816,7 +820,7 @@
             Width = 249
             Height = 25
             CharCase = ecUpperCase
-            TabOrder = 5
+            TabOrder = 3
             OnExit = edtTotalDaOSExit
           end
           object edtValorOrdemParcelado: TEdit
@@ -824,7 +828,7 @@
             Top = 48
             Width = 173
             Height = 25
-            TabOrder = 6
+            TabOrder = 5
           end
         end
         object GroupBox2: TGroupBox
@@ -912,6 +916,8 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 144
+        ExplicitTop = 22
         object Label30: TLabel
           Left = 15
           Top = 9
@@ -922,9 +928,9 @@
         object Label31: TLabel
           Left = 111
           Top = 9
-          Width = 96
+          Width = 115
           Height = 17
-          Caption = 'Valor da parcela'
+          Caption = 'Valor da parcela R$'
         end
         object Label32: TLabel
           Left = 238
@@ -957,9 +963,9 @@
         object Label36: TLabel
           Left = 654
           Top = 9
-          Width = 60
+          Width = 79
           Height = 17
-          Caption = 'Valor total'
+          Caption = 'Valor total R$'
         end
         object Label37: TLabel
           Left = 15
@@ -1591,6 +1597,7 @@
           Font.Style = []
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           ParentFont = False
+          PopupMenu = PopupMenu1
           ReadOnly = True
           TabOrder = 1
           TitleFont.Charset = DEFAULT_CHARSET
@@ -1688,7 +1695,7 @@
         object edtPgtoParcela: TComboBox
           Left = 442
           Top = 91
-          Width = 63
+          Width = 156
           Height = 25
           TabOrder = 13
           Items.Strings = (
@@ -1701,15 +1708,6 @@
           Width = 760
           Height = 25
           TabOrder = 14
-        end
-        object Button1: TButton
-          Left = 854
-          Top = 111
-          Width = 75
-          Height = 25
-          Caption = 'Button1'
-          TabOrder = 15
-          OnClick = Button1Click
         end
       end
     end
@@ -4942,6 +4940,13 @@
             '[Page#]')
         end
       end
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 316
+    Top = 293
+    object Editarparcela1: TMenuItem
+      Caption = 'Editar parcela'
     end
   end
 end

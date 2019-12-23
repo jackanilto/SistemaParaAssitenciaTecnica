@@ -22,6 +22,7 @@ type
     FValor: string;
     FDataInicial: TDate;
     FDataFinal: TDate;
+    FEstadoTabela: string;
 
     FID: integer;
     FID_ORDEM: integer;
@@ -103,6 +104,7 @@ type
 
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
     function adicionarParcela: iParcelaOrdem;
+    function estadoDaTabela(value: string): iParcelaOrdem;
 
     constructor create;
     destructor destroy; override;
@@ -123,9 +125,16 @@ end;
 
 function TEntityGerarParcelas.adicionarParcela: iParcelaOrdem;
 begin
-  if FQuery.TQuery.State in [dsInsert] then
-    FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
+
+  if FEstadoTabela = 'insert' then
+  begin
+
+    FQuery.TQuery.Insert;
+
+    if FQuery.TQuery.State in [dsInsert] then
+      FQuery.TQuery.FieldByName('id').AsInteger :=
+        FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
+  end;
 
   with FQuery.TQuery do
   begin
@@ -282,6 +291,12 @@ begin
     FQuery.TQuery.Edit;
 
   end;
+end;
+
+function TEntityGerarParcelas.estadoDaTabela(value: string): iParcelaOrdem;
+begin
+  result := self;
+  FEstadoTabela := value;
 end;
 
 function TEntityGerarParcelas.ExecSql: iParcelaOrdem;

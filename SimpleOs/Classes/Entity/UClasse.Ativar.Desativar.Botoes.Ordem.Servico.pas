@@ -109,8 +109,8 @@ begin
   btEditar.Enabled := false;
   btExcluir.Enabled := false;
   btCancelar.Enabled := false;
-  btImprimir.Enabled := false;
-  btEstornar.Enabled := false;
+  btImprimir.Enabled := true;
+  btEstornar.Enabled := true;
 end;
 
 procedure TAtivarDesativarBotoesOrdemServico.ativarBotaoEditar;

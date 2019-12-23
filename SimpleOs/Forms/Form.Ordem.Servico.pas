@@ -142,9 +142,14 @@ begin
 
   codigoDaOs:= DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
 
+   try
     formCriarConsultarOrdemServico :=
       TformCriarConsultarOrdemServico.Create(self);
     TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
+   finally
+     FEntityOrdensServico.atualizar;
+   end;
+
   end;
 end;
 

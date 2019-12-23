@@ -383,6 +383,7 @@ object formOrdemServico: TformOrdemServico
     Top = 224
   end
   object PopupMenu1: TPopupMenu
+    Images = formPrincipal.ImageList1
     Left = 496
     Top = 216
     object VerCadastro1: TMenuItem

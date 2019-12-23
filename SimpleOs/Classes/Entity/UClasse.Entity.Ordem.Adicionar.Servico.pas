@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Datasnap.DBClient;
+  Datasnap.DBClient, FireDAC.Comp.Client;
 
 type
 
@@ -212,21 +212,38 @@ end;
 
 function TEntityAdicionarItemsOrdem.excluiServicoDaOS(value: integer)
   : iAdicionarServicosOrdem;
+var
+  F_Query: TFDQuery;
 begin
 
   result := self;
+  try
+    F_Query := TFDQuery.create(nil);
+    F_Query.Connection := DataModule1.Conexao;
 
-  FQuery.getCampo('ID_SERVICO').getValor(value.ToString)
-    .sqlPesquisaEstatica(FTabela);
+    F_Query.Active := false;
+    F_Query.SQL.Clear;
+    F_Query.SQL.Add
+      ('select * from SERVICOS_ORDEM where ID_SERVICO =:s and ID_ORDEM =:o');
+    F_Query.ParamByName('s').AsInteger := value;
+    F_Query.ParamByName('o').AsInteger := FID_ORDEM;
+    F_Query.Active := true;
 
-  if FQuery.TQuery.RecordCount >= 1 then
-  begin
-    if application.MessageBox('Deseja excluir este item da ordem?',
-      'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+    if F_Query.RecordCount >= 1 then
     begin
-      FQuery.TQuery.Delete;
-    end;
+      if application.MessageBox
+        ('Deseja excluir este item permanentemente da OS?',
+        'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+      begin
+        F_Query.Delete;
+        atualizar;
+      end
+      else
+        abort;
 
+    end;
+  finally
+    FreeAndNil(F_Query);
   end;
 
 end;
@@ -286,7 +303,8 @@ end;
 function TEntityAdicionarItemsOrdem.getID_ORDEM(value: integer)
   : iAdicionarServicosOrdem;
 begin
-
+  result := self;
+  FID_ORDEM := value;
 end;
 
 function TEntityAdicionarItemsOrdem.getID_SERVICO(value: integer)

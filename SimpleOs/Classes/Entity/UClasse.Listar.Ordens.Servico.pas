@@ -40,6 +40,7 @@ type
     function fecharQuery: iListarOrdensServico;
     function listarGrid(value: TDataSource): iListarOrdensServico;
     function ordenarGrid(column: TColumn): iListarOrdensServico;
+    function atualizar: iListarOrdensServico;
 
     function exportar: iListarOrdensServico;
 
@@ -58,6 +59,12 @@ begin
   result := self;
   FQuery.Query(FTabela);
 
+end;
+
+function TEntityListarOrdensServico.atualizar: iListarOrdensServico;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
 end;
 
 constructor TEntityListarOrdensServico.create;

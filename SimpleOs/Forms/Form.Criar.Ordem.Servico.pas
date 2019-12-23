@@ -14,7 +14,7 @@ uses
   UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
   UClasse.Entity.Dados.Empresa, frxBarcode, UClasse.Calcular.Juros,
   UClasse.Entity.Configurar.Parcelas, UClasse.Preparar.Imprimir.Recibo,
-  UClasse.Ativar.Desativar.Botoes.Ordem.Servico;
+  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -171,7 +171,8 @@ type
     s_ImprirmirRecibo: TDataSource;
     frxDB_Imprimirrecibo: TfrxDBDataset;
     frx_ImprimirRecibo: TfrxReport;
-    Button1: TButton;
+    PopupMenu1: TPopupMenu;
+    Editarparcela1: TMenuItem;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -454,18 +455,21 @@ procedure TformCriarConsultarOrdemServico.sbCancelarClick(Sender: TObject);
 begin
   FEntityCriarOrdem.cancelar;
   FAtivarBotoes.ativarBotaoCancelar;
+  lblCaption.Caption := 'Ordem de serviços';
 end;
 
 procedure TformCriarConsultarOrdemServico.sbEditarClick(Sender: TObject);
 begin
   FEntityCriarOrdem.editar;
   FAtivarBotoes.ativarBotaoEditar;
+  lblCaption.Caption := 'Ordem de serviços - Editando OS';
 end;
 
 procedure TformCriarConsultarOrdemServico.sbExcluirClick(Sender: TObject);
 begin
   FEntityCriarOrdem.deletar;
-  FAtivarBotoes.ativarBotaoExcluir
+  FAtivarBotoes.ativarBotaoExcluir;
+  lblCaption.Caption := 'Ordem de serviços - OS excluida';
 end;
 
 procedure TformCriarConsultarOrdemServico.sbFecharClick(Sender: TObject);
@@ -489,6 +493,8 @@ begin
   limparDatas;
 
   FAtivarBotoes.ativarBotaoNovo;
+
+  lblCaption.Caption := 'Ordem de serviços - Nova OS';
 
 end;
 
@@ -525,6 +531,7 @@ begin
   if estado = 'insert' then
     FEntityServicosOrdem.gravarServicosAdicionadosInsert
       (cds_tem_servicos_adicionados, FEntityCriarOrdem.setId)
+
   else if estado = 'edit' then
     FEntityServicosOrdem.gravarServicosAdicionadosEdit
       (cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
@@ -540,6 +547,8 @@ begin
   showmessage('Ordem de Serviço inserida com sucesso');
 
   FAtivarBotoes.ativarBotaoSalvar;
+
+  lblCaption.Caption := 'Ordem de serviços';
 
 end;
 
@@ -599,9 +608,19 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbEstornarOSClick(Sender: TObject);
 begin
-  FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
-    .AsInteger);
-  FAtivarBotoes.ativarbotaoEstornar;
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
+      .AsInteger);
+
+    FEntityParcelasOrdem.atualizar;
+
+    FAtivarBotoes.ativarbotaoEstornar;
+
+    lblCaption.Caption := 'Ordem de serviços - OS Estornada';
+  end;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbImprimirOSClick(Sender: TObject);
@@ -614,6 +633,8 @@ begin
   frx_ImprimirOS.ShowReport();
 
   FAtivarBotoes.ativarBotaoImpimir;
+
+  lblCaption.Caption := 'Ordem de serviços';
 
 end;
 
@@ -639,8 +660,8 @@ begin
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
 
-    FEntityServicosOrdem.excluiServicoDaOS
-      (cds_tem_servicos_adicionadosid.AsInteger);
+    FEntityServicosOrdem.getID_ORDEM(DataSource1.DataSet.FieldByName('ID')
+      .AsInteger).excluiServicoDaOS(cds_tem_servicos_adicionadosid.AsInteger);
 
     subtrairValoresServicosIncluidos;
 
@@ -736,8 +757,6 @@ begin
 
     cds_AdicionarParcela.Post;
 
-    FEntityParcelasOrdem.inserir;
-
     edtNumeroParcela.Text :=
       IntToStr(cds_AdicionarParcelaTotal_de_parcelas.AsInteger + 1);
 
@@ -747,9 +766,11 @@ begin
     edtVencimentoParcela.Text :=
       DateToStr(cds_AdicionarParcelavencimento.AsDateTime);
 
-    edtPgtoParcela.Text := cds_AdicionarParcelapgto.AsString;
+    edtPgtoParcela.Text := 'Não';
 
     FAtivarBotoes.ativarbotaoAdicionarParcela;
+
+    FEntityParcelasOrdem.estadoDaTabela('insert');
 
   end;
 end;
@@ -764,10 +785,16 @@ begin
       .getDATA_VENCIMENTO(edtVencimentoParcela.Text)
       .getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
       .getTOTAL_PARCELAS(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)
-      .getPARCELA(StrToInt(edtNumeroParcela.Text)).getPGTO(edtPgtoParcela.Text)
-      .getObservacao(edtObservacoesParcela.Text).adicionarParcela;
+      .getPARCELA
+      (StrToInt(IntToStr(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)))
+      .getPGTO(edtPgtoParcela.Text).getObservacao(edtObservacoesParcela.Text)
+      .adicionarParcela;
 
     FAtivarBotoes.ativarbotaoSalvarParcela;
+
+    FEntityParcelasOrdem.getCampo('ID_ORDEM')
+      .getValor(IntToStr(cds_AdicionarParcelaid_ordem.AsInteger))
+      .sqlPesquisaEstatica.listarGrid(s_ParcelasOS);
 
   end;
 

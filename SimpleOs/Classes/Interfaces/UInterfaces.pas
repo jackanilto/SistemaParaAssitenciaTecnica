@@ -871,6 +871,7 @@ type
     function sqlPesquisaEstatica: iListarOrdensServico;
     function listarGrid(value: TDataSource): iListarOrdensServico;
     function ordenarGrid(column: TColumn): iListarOrdensServico;
+    function atualizar: iListarOrdensServico;
     function fecharQuery: iListarOrdensServico;
 
     function abrir: iListarOrdensServico;
@@ -1055,6 +1056,7 @@ type
     function calularJuros: string;
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
     function adicionarParcela: iParcelaOrdem;
+    function estadoDaTabela(value: string): iParcelaOrdem;
 
   end;
 

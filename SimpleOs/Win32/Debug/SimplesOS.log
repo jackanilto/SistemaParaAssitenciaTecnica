@@ -2042,3 +2042,128 @@ At line 1, column 35
 23/12/19 12:08:00 - Caption: Criar / Consultar ordem de serviço
 23/12/19 12:08:00 - Erro:Exception
 23/12/19 12:08:00 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 13:56:00 - ===========================================
+23/12/19 13:56:00 - Form: formCriarConsultarOrdemServico
+23/12/19 13:56:00 - Caption: Criar / Consultar ordem de serviço
+23/12/19 13:56:00 - Erro:Exception
+23/12/19 13:56:00 - Erro:Informe um valor superior a 0(Zero) para o número da parcela.
+23/12/19 14:01:46 - ===========================================
+23/12/19 14:01:46 - Form: formCriarConsultarOrdemServico
+23/12/19 14:01:46 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:01:46 - Erro:EDatabaseError
+23/12/19 14:01:46 - Erro:Dataset not in edit or insert mode
+23/12/19 14:02:02 - ===========================================
+23/12/19 14:02:02 - Form: formCriarConsultarOrdemServico
+23/12/19 14:02:02 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:02:02 - Erro:EDatabaseError
+23/12/19 14:02:02 - Erro:Dataset not in edit or insert mode
+23/12/19 14:06:00 - ===========================================
+23/12/19 14:06:00 - Form: formCriarConsultarOrdemServico
+23/12/19 14:06:00 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:06:00 - Erro:EDatabaseError
+23/12/19 14:06:00 - Erro:Dataset not in edit or insert mode
+23/12/19 14:07:47 - ===========================================
+23/12/19 14:07:47 - Form: formCriarConsultarOrdemServico
+23/12/19 14:07:47 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:07:47 - Erro:EDatabaseError
+23/12/19 14:07:47 - Erro:Dataset not in edit or insert mode
+23/12/19 14:10:59 - ===========================================
+23/12/19 14:10:59 - Form: formCriarConsultarOrdemServico
+23/12/19 14:10:59 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:10:59 - Erro:EDatabaseError
+23/12/19 14:10:59 - Erro:Dataset not in edit or insert mode
+23/12/19 14:11:23 - ===========================================
+23/12/19 14:11:23 - Form: formCriarConsultarOrdemServico
+23/12/19 14:11:23 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:11:23 - Erro:Exception
+23/12/19 14:11:23 - Erro:informe um valor deferente de 0(Zero) para o valor da parcela.
+23/12/19 14:20:30 - ===========================================
+23/12/19 14:20:30 - Form: formCriarConsultarOrdemServico
+23/12/19 14:20:30 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:20:30 - Erro:Exception
+23/12/19 14:20:30 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:20:33 - ===========================================
+23/12/19 14:20:33 - Form: formCriarConsultarOrdemServico
+23/12/19 14:20:33 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:20:33 - Erro:Exception
+23/12/19 14:20:33 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:21:13 - ===========================================
+23/12/19 14:21:13 - Form: formCriarConsultarOrdemServico
+23/12/19 14:21:13 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:21:13 - Erro:Exception
+23/12/19 14:21:13 - Erro:Informe a forma de pagamento.
+23/12/19 14:23:35 - ===========================================
+23/12/19 14:23:35 - Form: formCriarConsultarOrdemServico
+23/12/19 14:23:35 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:23:35 - Erro:Exception
+23/12/19 14:23:35 - Erro:Esta ordem já foi estornada.
+23/12/19 14:23:58 - ===========================================
+23/12/19 14:23:58 - Form: formCriarConsultarOrdemServico
+23/12/19 14:23:58 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:23:58 - Erro:Exception
+23/12/19 14:23:58 - Erro:Esta ordem já foi estornada.
+23/12/19 14:32:22 - ===========================================
+23/12/19 14:32:22 - Form: formCriarConsultarOrdemServico
+23/12/19 14:32:22 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:32:22 - Erro:Exception
+23/12/19 14:32:22 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:32:23 - ===========================================
+23/12/19 14:32:23 - Form: formCriarConsultarOrdemServico
+23/12/19 14:32:23 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:32:23 - Erro:Exception
+23/12/19 14:32:23 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:32:26 - ===========================================
+23/12/19 14:32:26 - Form: formCriarConsultarOrdemServico
+23/12/19 14:32:26 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:32:26 - Erro:Exception
+23/12/19 14:32:26 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:34:29 - ===========================================
+23/12/19 14:34:29 - Form: formCriarConsultarOrdemServico
+23/12/19 14:34:29 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:34:29 - Erro:Exception
+23/12/19 14:34:29 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:34:31 - ===========================================
+23/12/19 14:34:31 - Form: formCriarConsultarOrdemServico
+23/12/19 14:34:31 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:34:31 - Erro:Exception
+23/12/19 14:34:31 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:34:33 - ===========================================
+23/12/19 14:34:33 - Form: formCriarConsultarOrdemServico
+23/12/19 14:34:33 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:34:33 - Erro:Exception
+23/12/19 14:34:33 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:34:34 - ===========================================
+23/12/19 14:34:34 - Form: formCriarConsultarOrdemServico
+23/12/19 14:34:34 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:34:34 - Erro:Exception
+23/12/19 14:34:34 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:34:37 - ===========================================
+23/12/19 14:34:37 - Form: formCriarConsultarOrdemServico
+23/12/19 14:34:37 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:34:37 - Erro:Exception
+23/12/19 14:34:37 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:40:52 - ===========================================
+23/12/19 14:40:52 - Form: formCriarConsultarOrdemServico
+23/12/19 14:40:52 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:40:52 - Erro:Exception
+23/12/19 14:40:52 - Erro:Esta parcela foi estornada e não poderá ser quitada
+23/12/19 14:44:18 - ===========================================
+23/12/19 14:44:18 - Form: formCriarConsultarOrdemServico
+23/12/19 14:44:18 - Caption: Criar / Consultar ordem de serviço
+23/12/19 14:44:18 - Erro:Exception
+23/12/19 14:44:18 - Erro:Informe a data base para o vencimento.
+23/12/19 15:09:52 - ===========================================
+23/12/19 15:09:52 - Form: formCriarConsultarOrdemServico
+23/12/19 15:09:52 - Caption: Criar / Consultar ordem de serviço
+23/12/19 15:09:52 - Erro:EDatabaseError
+23/12/19 15:09:52 - Erro:cds_servico_excluidos: Dataset not in edit or insert mode
+23/12/19 15:24:53 - ===========================================
+23/12/19 15:24:53 - Form: formCriarConsultarOrdemServico
+23/12/19 15:24:53 - Caption: Criar / Consultar ordem de serviço
+23/12/19 15:24:53 - Erro:EAccessViolation
+23/12/19 15:24:53 - Erro:Access violation at address 00AB4AF2 in module 'SimplesOS.exe'. Read of address 00000000
+23/12/19 15:53:54 - ===========================================
+23/12/19 15:53:54 - Form: formCriarConsultarOrdemServico
+23/12/19 15:53:54 - Caption: Criar / Consultar ordem de serviço
+23/12/19 15:53:54 - Erro:EInvalidOp
+23/12/19 15:53:54 - Erro:Invalid floating point operation
