@@ -131,7 +131,8 @@ end;
 
 procedure TformOrdemServico.FormShow(Sender: TObject);
 begin
-  FEntityOrdensServico.abrir.listarGrid(DataSource1);
+  FEntityOrdensServico.abrir.getCampo('ID_ORDEM').getValor('0')
+    .sqlPesquisa.listarGrid(DataSource1);
 end;
 
 procedure TformOrdemServico.Panel1MouseDown(Sender: TObject;
@@ -158,7 +159,11 @@ end;
 
 procedure TformOrdemServico.sbImprimirClick(Sender: TObject);
 begin
-  { CÓDIFICAR ESTA PARTE PARA A IMPESSÃO DA ORDEM DE SERVIÇO SELECIONADA }
+
+  frx_ListaOrdemServico.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_lista_ordem_servico.fr3');
+  frx_ListaOrdemServico.ShowReport();
+
 end;
 
 procedure TformOrdemServico.SpeedButton1Click(Sender: TObject);
@@ -181,18 +186,18 @@ end;
 
 procedure TformOrdemServico.SpeedButton2Click(Sender: TObject);
 begin
-FEntityOrdensServico
-                    .getDataInicial(StrToDate(edtData1.Text))
-                    .getDataFinal(StrToDate(edtData2.Text))
-                    .getCampo('DATA_DE_ENTRADA')
-                    .sqlPesquisaData
-                    .listarGrid(DataSource1);
+  FEntityOrdensServico.getDataInicial(StrToDate(edtData1.Text))
+    .getDataFinal(StrToDate(edtData2.Text)).getCampo('DATA_DE_ENTRADA')
+    .sqlPesquisaData.listarGrid(DataSource1);
 end;
 
 procedure TformOrdemServico.VerCadastro1Click(Sender: TObject);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
+
+    codigoDocliente := DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger;
+
     formCadastroDeClientes := TformCadastroDeClientes.Create(self);
     TFactory.new.criarJanela.FormShow(formCadastroDeClientes, '');
   end;
