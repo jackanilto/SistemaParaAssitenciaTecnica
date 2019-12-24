@@ -208,6 +208,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure SpeedButton13Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   var
@@ -430,12 +431,50 @@ begin
 
 end;
 
+procedure TformCriarConsultarOrdemServico.FormKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+
+  if Key = 113 then
+  begin
+    if sbNovo.Enabled = true then
+      sbNovo.Click;
+  end;
+
+  if Key = 114 then
+  begin
+    if sbSalvar.Enabled = true then
+      sbSalvar.Click;
+  end;
+
+  if Key = 115 then
+  begin
+    if sbEditar.Enabled = true then
+      sbEditar.Click;
+  end;
+
+  if Key = 116 then
+  begin
+    if sbExcluir.Enabled = true then
+      sbExcluir.Click;
+  end;
+
+  if Key = 117 then
+  begin
+    if sbCancelar.Enabled = true then
+      sbCancelar.Click;
+  end;
+
+end;
+
+
 procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
   abreATabelaDeParcelas;
   selecionarOrdem;
   popularComboBox;
   edtDataPagamentoParcela.DateTime := date;
+  edtDataBaseVencimento.Text := DateToStr(date);
   PageControl1.ActivePageIndex := 0;
 end;
 
@@ -534,12 +573,13 @@ begin
     .getPRIORIDADE(edtPrioridade.Text).getDataCadastro(edtDataEntrada.Text)
     .getDataFinalizacao(edtDataDeSaida.Text).getHoraFinalizacao
     (edtHoraSaida.Text).getIdTecnico(FIdTecnico.ToString)
-    .getRETORNO(edtRetorno.Text).getDATA_RETORNO(edtDataRetorno.Text)
-    .getObservacao(edtObservacao.Text).getVALOR_DA_ORDEM(edtValorOrdem.Text)
-    .getDesconto(edtDesconto.Text).getACRESCIMO(edtAcrescimo.Text)
-    .getTotalDoOrcamento(edtTotalDaOS.Text).getTOTAL_PARCELAS
-    (edtTotalDeParcelas.Text).getDataBaseVencimento(edtDataBaseVencimento.Text)
-    .getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text).gravar;
+    .getTecnico(edtTecnicoResponsavel.Text).getRETORNO(edtRetorno.Text)
+    .getDATA_RETORNO(edtDataRetorno.Text).getObservacao(edtObservacao.Text)
+    .getVALOR_DA_ORDEM(edtValorOrdem.Text).getDesconto(edtDesconto.Text)
+    .getACRESCIMO(edtAcrescimo.Text).getTotalDoOrcamento(edtTotalDaOS.Text)
+    .getTOTAL_PARCELAS(edtTotalDeParcelas.Text).getDataBaseVencimento
+    (edtDataBaseVencimento.Text).getVALOR_DA_PARCELA
+    (edtValorOrdemParcelado.Text).gravar;
 
   if estado = 'insert' then
     FEntityServicosOrdem.gravarServicosAdicionadosInsert
@@ -604,18 +644,26 @@ var
   totalDaOS: Currency;
   qtdeParcelas: Integer;
 begin
+  try
+    valorMaoDeObra := StrToCurr(edtValorOrdem.Text);
+    valorDoDesconto := StrToCurr(edtDesconto.Text);
+    valorDoAcrescimo := StrToCurr(edtAcrescimo.Text);
+    qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
 
-  valorMaoDeObra := StrToCurr(edtValorOrdem.Text);
-  valorDoDesconto := StrToCurr(edtDesconto.Text);
-  valorDoAcrescimo := StrToCurr(edtAcrescimo.Text);
-  qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
+    edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) -
+      valorDoDesconto);
 
-  edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) -
-    valorDoDesconto);
+    totalDaOS := StrToCurr(edtTotalDaOS.Text);
 
-  totalDaOS := StrToCurr(edtTotalDaOS.Text);
+    edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
+  except
+    on e: Exception do
+    begin
+      raise Exception.Create('Preencha os campos com valores válidos. ' +
+        e.Message);
+    end;
 
-  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
+  end;
 
 end;
 

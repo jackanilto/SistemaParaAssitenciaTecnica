@@ -209,7 +209,7 @@ begin
   pasta.cells[1, 3] := 'Código de barras';
   pasta.cells[1, 4] := 'Descrição';
   pasta.cells[1, 5] := 'Valor de custo';
-  pasta.cells[1, 6] := 'margem de lucro';
+  pasta.cells[1, 6] := 'Margem de lucro';
   pasta.cells[1, 7] := 'Valor de venda';
   pasta.cells[1, 8] := 'Quantidade mínima';
   pasta.cells[1, 9] := 'Quantidade atual';

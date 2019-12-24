@@ -2177,3 +2177,53 @@ At line 1, column 35
 23/12/19 18:51:26 - Caption: Criar / Consultar ordem de serviço
 23/12/19 18:51:26 - Erro:Exception
 23/12/19 18:51:26 - Erro:Esta parcela já foi quitada.
+24/12/19 11:28:27 - ===========================================
+24/12/19 11:28:27 - Form: formCriarConsultarOrdemServico
+24/12/19 11:28:27 - Caption: Criar / Consultar ordem de serviço
+24/12/19 11:28:27 - Erro:Exception
+24/12/19 11:28:27 - Erro:Informe a data base para o vencimento.
+24/12/19 11:29:50 - ===========================================
+24/12/19 11:29:50 - Form: formCriarConsultarOrdemServico
+24/12/19 11:29:50 - Caption: Criar / Consultar ordem de serviço
+24/12/19 11:29:50 - Erro:Exception
+24/12/19 11:29:50 - Erro:Informe a forma de pagamento.
+24/12/19 11:30:46 - ===========================================
+24/12/19 11:30:46 - Form: formCriarConsultarOrdemServico
+24/12/19 11:30:46 - Caption: Criar / Consultar ordem de serviço
+24/12/19 11:30:46 - Erro:Exception
+24/12/19 11:30:46 - Erro:Informe a forma de pagamento.
+24/12/19 14:31:23 - ===========================================
+24/12/19 14:31:23 - Form: formCriarConsultarOrdemServico
+24/12/19 14:31:23 - Caption: Criar / Consultar ordem de serviço
+24/12/19 14:31:23 - Erro:Exception
+24/12/19 14:31:23 - Erro:Informe a data base para o vencimento.
+24/12/19 14:35:05 - ===========================================
+24/12/19 14:35:05 - Form: formCriarConsultarOrdemServico
+24/12/19 14:35:05 - Caption: Criar / Consultar ordem de serviço
+24/12/19 14:35:05 - Erro:EInvalidOp
+24/12/19 14:35:05 - Erro:Invalid floating point operation
+24/12/19 14:39:36 - ===========================================
+24/12/19 14:39:36 - Form: formCriarConsultarOrdemServico
+24/12/19 14:39:36 - Caption: Criar / Consultar ordem de serviço
+24/12/19 14:39:36 - Erro:Exception
+24/12/19 14:39:36 - Erro:Informe o código do cliente.
+24/12/19 14:42:03 - ===========================================
+24/12/19 14:42:03 - Form: formCriarConsultarOrdemServico
+24/12/19 14:42:03 - Caption: Criar / Consultar ordem de serviço
+24/12/19 14:42:03 - Erro:Exception
+24/12/19 14:42:03 - Erro:Esta parcela já foi quitada.
+24/12/19 15:30:47 - ===========================================
+24/12/19 15:30:47 - Form: formOrdemServico
+24/12/19 15:30:47 - Caption: Ordem de serviços
+24/12/19 15:30:47 - Erro:EConvertError
+24/12/19 15:30:47 - Erro:'  /  /    ' is not a valid date
+24/12/19 15:30:50 - ===========================================
+24/12/19 15:30:50 - Form: formOrdemServico
+24/12/19 15:30:50 - Caption: Ordem de serviços
+24/12/19 15:30:50 - Erro:EDBEditError
+24/12/19 15:30:50 - Erro:Invalid input value.  Use escape key to abandon changes
+24/12/19 15:31:00 - ===========================================
+24/12/19 15:31:00 - Form: formOrdemServico
+24/12/19 15:31:00 - Caption: Ordem de serviços
+24/12/19 15:31:00 - Erro:EDBEditError
+24/12/19 15:31:00 - Erro:Invalid input value.  Use escape key to abandon changes

@@ -7,7 +7,8 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, UInterfaces,
-  UClasse.Listar.Ordens.Servico, Vcl.Menus, UFactory, Form.Principal;
+  UClasse.Listar.Ordens.Servico, Vcl.Menus, UFactory, Form.Principal, Vcl.Mask,
+  frxClass, frxDBSet;
 
 type
   TEnumPesquisar = (codigo_ordem, codigo_cliente, nome_cliente, CPF);
@@ -29,6 +30,13 @@ type
     VerOrdemdeServio1: TMenuItem;
     sbImprimir: TSpeedButton;
     sbExportar: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    edtData1: TMaskEdit;
+    edtData2: TMaskEdit;
+    Label1: TLabel;
+    SpeedButton2: TSpeedButton;
+    frxDB_ListaOrdemServico: TfrxDBDataset;
+    frx_ListaOrdemServico: TfrxReport;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -40,6 +48,10 @@ type
     procedure VerCadastro1Click(Sender: TObject);
     procedure VerOrdemdeServio1Click(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdensServico: iListarOrdensServico;
@@ -57,6 +69,24 @@ implementation
 {$R *.dfm}
 
 uses Form.Cadastro.Clientes, Form.Criar.Ordem.Servico;
+
+procedure TformOrdemServico.DBGrid1DblClick(Sender: TObject);
+begin
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+
+    codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+
+    try
+      formCriarConsultarOrdemServico :=
+        TformCriarConsultarOrdemServico.Create(self);
+      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
+    finally
+      FEntityOrdensServico.atualizar;
+    end;
+
+  end;
+end;
 
 procedure TformOrdemServico.DBGrid1TitleClick(Column: TColumn);
 begin
@@ -116,6 +146,11 @@ begin
   end;
 end;
 
+procedure TformOrdemServico.sbExportarClick(Sender: TObject);
+begin
+  FEntityOrdensServico.exportar;
+end;
+
 procedure TformOrdemServico.sbFecharClick(Sender: TObject);
 begin
   Close;
@@ -123,7 +158,35 @@ end;
 
 procedure TformOrdemServico.sbImprimirClick(Sender: TObject);
 begin
-{CÓDIFICAR ESTA PARTE PARA A IMPESSÃO DA ORDEM DE SERVIÇO SELECIONADA}
+  { CÓDIFICAR ESTA PARTE PARA A IMPESSÃO DA ORDEM DE SERVIÇO SELECIONADA }
+end;
+
+procedure TformOrdemServico.SpeedButton1Click(Sender: TObject);
+begin
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+
+    codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+
+    try
+      formCriarConsultarOrdemServico :=
+        TformCriarConsultarOrdemServico.Create(self);
+      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
+    finally
+      FEntityOrdensServico.atualizar;
+    end;
+
+  end;
+end;
+
+procedure TformOrdemServico.SpeedButton2Click(Sender: TObject);
+begin
+FEntityOrdensServico
+                    .getDataInicial(StrToDate(edtData1.Text))
+                    .getDataFinal(StrToDate(edtData2.Text))
+                    .getCampo('DATA_DE_ENTRADA')
+                    .sqlPesquisaData
+                    .listarGrid(DataSource1);
 end;
 
 procedure TformOrdemServico.VerCadastro1Click(Sender: TObject);
@@ -140,15 +203,15 @@ begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
 
-  codigoDaOs:= DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+    codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
 
-   try
-    formCriarConsultarOrdemServico :=
-      TformCriarConsultarOrdemServico.Create(self);
-    TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
-   finally
-     FEntityOrdensServico.atualizar;
-   end;
+    try
+      formCriarConsultarOrdemServico :=
+        TformCriarConsultarOrdemServico.Create(self);
+      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
+    finally
+      FEntityOrdensServico.atualizar;
+    end;
 
   end;
 end;

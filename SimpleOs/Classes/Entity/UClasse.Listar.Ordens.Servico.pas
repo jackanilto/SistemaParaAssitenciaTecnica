@@ -51,6 +51,9 @@ type
 
 implementation
 
+uses
+  System.Win.ComObj;
+
 { TEntityListarOrdensServico }
 
 function TEntityListarOrdensServico.abrir: iListarOrdensServico;
@@ -92,8 +95,67 @@ begin
 end;
 
 function TEntityListarOrdensServico.exportar: iListarOrdensServico;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Lista de O.S selecionadas';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código da O.S';
+  pasta.cells[1, 2] := 'Código do cliente';
+  pasta.cells[1, 3] := 'Nome do cliente';
+  pasta.cells[1, 4] := 'CPF ou CNPJ';
+  pasta.cells[1, 5] := 'Telefone';
+  pasta.cells[1, 6] := 'Celular';
+  pasta.cells[1, 7] := 'E-Mail';
+  pasta.cells[1, 8] := 'Equipamento';
+  pasta.cells[1, 9] := 'Defeito relatado';
+  pasta.cells[1, 10] := 'Marca';
+  pasta.cells[1, 11] := 'Situação da ordem';
+  pasta.cells[1, 12] := 'Data de entrada';
+  pasta.cells[1, 13] := 'Data de saída';
+  pasta.cells[1, 14] := 'PGTO';
+  pasta.cells[1, 15] := 'Status';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      with FQuery.TQuery do
+      begin
+        pasta.cells[linha, 1] := FieldByName('ID_ORDEM').AsInteger;
+        pasta.cells[linha, 2] := FieldByName('ID_CLIENTE').AsInteger;
+        pasta.cells[linha, 3] := FieldByName('NOME_CLIENTE').AsString;
+        pasta.cells[linha, 4] := FieldByName('CPF_CNPJ').AsString;
+        pasta.cells[linha, 5] := FieldByName('TELEFONE').AsString;
+        pasta.cells[linha, 6] := FieldByName('CELULAR').AsString;
+        pasta.cells[linha, 7] := FieldByName('EMAIL').AsString;
+        pasta.cells[linha, 8] := FieldByName('EQUIPAMENTO').AsString;
+        pasta.cells[linha, 9] := FieldByName('DEFEITO_RELATADO').AsString;
+        pasta.cells[linha, 10] := FieldByName('MARCAS').AsString;
+        pasta.cells[linha, 11] := FieldByName('SITUACAO_DA_ORDEM').AsString;
+        pasta.cells[linha, 12] := FieldByName('DATA_DE_ENTRADA').AsDateTime;
+        pasta.cells[linha, 13] := FieldByName('DATA_SAIDA').AsDateTime;
+        pasta.cells[linha, 14] := FieldByName('PGTO').AsString;
+        pasta.cells[linha, 15] := FieldByName('STATUS').AsString;
+      end;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TEntityListarOrdensServico.fecharQuery: iListarOrdensServico;
@@ -142,12 +204,12 @@ begin
     FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
     FieldByName('NOME_CLIENTE').DisplayLabel := 'Nome do cliente';
     FieldByName('CPF_CNPJ').DisplayLabel := 'CPF ou CNPJ';
-    FieldByName('TELEFONE').Visible := false;
-    FieldByName('CELULAR').Visible := false;
-    FieldByName('EMAIL').Visible := false;
+    FieldByName('TELEFONE').visible := false;
+    FieldByName('CELULAR').visible := false;
+    FieldByName('EMAIL').visible := false;
     FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
-    FieldByName('DEFEITO_RELATADO').Visible := false;
-    FieldByName('MARCAS').Visible := false;
+    FieldByName('DEFEITO_RELATADO').visible := false;
+    FieldByName('MARCAS').visible := false;
     FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'Situação da ordem';
     FieldByName('DATA_DE_ENTRADA').DisplayLabel := 'Entrada';
     FieldByName('DATA_SAIDA').DisplayLabel := 'Saida';

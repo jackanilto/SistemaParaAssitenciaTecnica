@@ -773,6 +773,8 @@ begin
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
     FieldByName('STATUS').AsString := FSTATUS;
     FieldByName('HORA_SAIDA').AsDateTime := StrToTime(FHORA_FINALIZACAO);
+    FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger := FID_TECNICO_RESPONSAVEL;
+    FieldByName('TECNICO_RESPONSAVEL').AsString := FTECNICO_RESPONSAVEL;
 
     if FDATA_FABRICACAO <> '' then
       FieldByName('DATA_FABRICACAO').AsDateTime := StrToDate(FDATA_FABRICACAO);
@@ -843,16 +845,15 @@ begin
     FieldByName('RETORNO').DisplayLabel := 'Retorno';
     FieldByName('DATA_RETORNO').DisplayLabel := 'Data do retorno';
     FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'situação da ordem';
-    // FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
-    // FieldByName('PARCELADO').DisplayLabel := 'Parcelado';
     FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
     FieldByName('PGTO').DisplayLabel := 'PGTO';
     FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
     FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
     FieldByName('DATA_FINALIZACAO').DisplayLabel := 'DAta de finaliação';
-    // FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Data de pagamento';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
     FieldByName('STATUS').DisplayLabel := 'Status';
+    FieldByName('ID_TECNICO_RESPONSAVEL').DisplayLabel := 'Cód. Técnico';
+    FieldByName('TECNICO_RESPONSAVEL').DisplayLabel := 'Técnico responsável';
 
     FieldByName('EQUIPAMENTO').DisplayWidth := 40;
     FieldByName('DEFEITO_RELATADO').DisplayWidth := 40;
