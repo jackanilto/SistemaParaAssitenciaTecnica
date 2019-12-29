@@ -1206,6 +1206,172 @@ type
 
   end;
 
+  iVenda = interface
+    ['{B74B28A0-82AA-432A-A449-304A683425B2}']
+
+    function nomeTabela(value: string): iVenda;
+    function getCampo(value: string): iVenda;
+    function getValor(value: string): iVenda;
+    function getDataInicial(value: TDate): iVenda;
+    function getDataFinal(value: TDate): iVenda;
+    function open(value: string): iVenda;
+    function pesquisar: iVenda;
+    function ExecSql: iVenda;
+    function sqlPesquisa: iVenda;
+    function sqlPesquisaData: iVenda;
+    function sqlPesquisaEstatica: iVenda;
+
+    function abrir: iVenda;
+    function inserir: iVenda;
+    function gravar: iVenda;
+    function deletar: iVenda;
+    function atualizar: iVenda;
+    function editar: iVenda;
+    function cancelar: iVenda;
+    function fecharQuery: iVenda;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iVenda;
+    function ordenarGrid(column: TColumn): iVenda;
+
+    function getID(value: integer): iVenda;
+    function getID_CLIENTE(value: integer): iVenda;
+    function getNOME_CLIENTE(value: string): iVenda;
+    function getFuncionario(value: integer): iVenda;
+    function getNOME_FUNCIONARIO(value: string): iVenda;
+    function getDATA_VENDA(value: string): iVenda;
+    function getHORA_VENDA(value: string): iVenda;
+    function getSUBTOTAL(value: string): iVenda; overload;
+    function getDesconto(value: string): iVenda; overload;
+    function getACRESCIMO(value: string): iVenda; overload;
+    function getTOTAL(value: string): iVenda; overload;
+    function getQUANTIDADE_PARCELAS(value: integer): iVenda;
+    function getFORMA_PAGAMENTO(value: string): iVenda;
+    function getSTATUS(value: string): iVenda;
+    function getOBSERACAO(value: string): iVenda;
+
+    function getDesconto(value: TEdit): iVenda; overload;
+    function getACRESCIMO(value: TEdit): iVenda; overload;
+    function getSUBTOTAL(value: TEdit): iVenda; overload;
+    function getTOTAL(value: TEdit): iVenda; overload;
+
+    function EstornarVenda: iVenda;
+    function calularDesconto: string;
+    function calularAcrescimo: string;
+
+    function exportar: iVenda;
+    procedure validarData(componet: tmaskEdit);
+
+    function getCodigo(value: integer): iVenda;
+    function getNome(value: string): iVenda;
+
+  end;
+
+  iItensVendas = interface
+    ['{BC801838-71A5-404C-95C4-185E2BD5FEDD}']
+
+    function nomeTabela(value: string): iItensVendas;
+    function getCampo(value: string): iItensVendas;
+    function getValor(value: string): iItensVendas;
+    function getDataInicial(value: TDate): iItensVendas;
+    function getDataFinal(value: TDate): iItensVendas;
+    function open(value: string): iItensVendas;
+    function pesquisar: iItensVendas;
+    function ExecSql: iItensVendas;
+    function sqlPesquisa: iItensVendas;
+    function sqlPesquisaData: iItensVendas;
+    function sqlPesquisaEstatica: iItensVendas;
+
+    function abrir: iItensVendas;
+    function inserir: iItensVendas;
+    function gravar: iItensVendas;
+    function deletar: iItensVendas;
+    function atualizar: iItensVendas;
+    function editar: iItensVendas;
+    function cancelar: iItensVendas;
+    function fecharQuery: iItensVendas;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iItensVendas;
+    function ordenarGrid(column: TColumn): iItensVendas;
+
+    function getID(value: integer): iItensVendas;
+    function getID_VENDA(value: integer): iItensVendas;
+    function getID_CLIENTE(value: integer): iItensVendas;
+    function getID_PRODUTO(value: integer): iItensVendas;
+    function getProduto(value: string): iItensVendas;
+    function getVALOR_UNITARIO(value: string): iItensVendas;
+    function getQUANTIDADE(value: integer): iItensVendas;
+    function getTOTAL(value: string): iItensVendas;
+
+    function calularTotalXvalor(vlrProduto, qtdeProduto: TEdit): currency;
+
+    function exportar: iItensVendas;
+    procedure validarData(componet: tmaskEdit);
+
+    function getCodigo(value: integer): iItensVendas;
+    function getNome(value: string): iItensVendas;
+
+  end;
+
+  iParcelasVendas = interface
+    ['{CC1FC427-3E1C-41BF-B0C6-0AD372ABA68D}']
+
+    function nomeTabela(value: string): iParcelasVendas;
+    function getCampo(value: string): iParcelasVendas;
+    function getValor(value: string): iParcelasVendas;
+    function getDataInicial(value: TDate): iParcelasVendas;
+    function getDataFinal(value: TDate): iParcelasVendas;
+    function open(value: string): iParcelasVendas;
+    function pesquisar: iParcelasVendas;
+    function ExecSql: iParcelasVendas;
+    function sqlPesquisa: iParcelasVendas;
+    function sqlPesquisaData: iParcelasVendas;
+    function sqlPesquisaEstatica: iParcelasVendas;
+
+    function abrir: iParcelasVendas;
+    function inserir: iParcelasVendas;
+    function gravar: iParcelasVendas;
+    function deletar: iParcelasVendas;
+    function atualizar: iParcelasVendas;
+    function editar: iParcelasVendas;
+    function cancelar: iParcelasVendas;
+    function fecharQuery: iParcelasVendas;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iParcelasVendas;
+    function ordenarGrid(column: TColumn): iParcelasVendas;
+
+    function quitarParcelas: iParcelasVendas;
+    function estornarParcela: iParcelasVendas;
+
+    function getID(value: integer): iParcelasVendas;
+    function getID_VENDA(value: integer): iParcelasVendas;
+    function getID_CLIENTE(value: integer): iParcelasVendas;
+    function getVALOR_VENDA(value: string): iParcelasVendas;
+    function getQUANTIDADE_PARCELAS(value: integer): iParcelasVendas;
+    function getPARCELA(value: integer): iParcelasVendas;
+    function getVALOR_DA_PARCELA(value: string): iParcelasVendas;
+    function getDATA_VENCIMENTO(value: string): iParcelasVendas;
+    function getJuros(value: string): iParcelasVendas;
+    function getMulta(value: string): iParcelasVendas;
+    function getDesconto(value: string): iParcelasVendas; overload;
+    function getTOTAL(value: string): iParcelasVendas;
+    function getDATA_PAGAMENTO(value: string): iParcelasVendas;
+    function getHORA_PAGAMENTO(value: string): iParcelasVendas;
+    function getFUNCIONARIO_PGTO(value: integer): iParcelasVendas;
+    function getPAGO(value: string): iParcelasVendas;
+    function getObservacao(value: string): iParcelasVendas;
+
+    function getDesconto(value: TEdit): iParcelasVendas; overload;
+    function getSUBTOTAL(value: TEdit): iParcelasVendas;
+    function calcularTotal: string;
+
+    function exportar: iParcelasVendas;
+    procedure validarData(componet: tmaskEdit);
+
+    function getCodigo(value: integer): iParcelasVendas;
+    function getNome(value: string): iParcelasVendas;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
