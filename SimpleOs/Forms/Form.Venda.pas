@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Vcl.Imaging.jpeg, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TformVendas = class(TForm)
@@ -17,6 +18,31 @@ type
     sbCancelar: TSpeedButton;
     Label1: TLabel;
     Label2: TLabel;
+    Panel2: TPanel;
+    Panel4: TPanel;
+    edtLocalizarCPF: TEdit;
+    Label3: TLabel;
+    Label4: TLabel;
+    SpeedButton1: TSpeedButton;
+    Panel5: TPanel;
+    Edit1: TEdit;
+    SpeedButton2: TSpeedButton;
+    Label5: TLabel;
+    Image1: TImage;
+    Edit2: TEdit;
+    Label6: TLabel;
+    Edit3: TEdit;
+    Label7: TLabel;
+    SpeedButton3: TSpeedButton;
+    Panel6: TPanel;
+    DBGrid1: TDBGrid;
+    Panel7: TPanel;
+    SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
