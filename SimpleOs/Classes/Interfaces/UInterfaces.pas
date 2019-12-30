@@ -1302,7 +1302,7 @@ type
     function getQUANTIDADE(value: integer): iItensVendas;
     function getTOTAL(value: string): iItensVendas;
 
-    function calularTotalXvalor(vlrProduto, qtdeProduto: TEdit): currency;
+    function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): currency;
 
     function exportar: iItensVendas;
     procedure validarData(componet: tmaskEdit);
@@ -1363,6 +1363,7 @@ type
     function getDesconto(value: TEdit): iParcelasVendas; overload;
     function getSUBTOTAL(value: TEdit): iParcelasVendas;
     function calcularTotal: string;
+    function gerarParcelas: iParcelasVendas;
 
     function exportar: iParcelasVendas;
     procedure validarData(componet: tmaskEdit);

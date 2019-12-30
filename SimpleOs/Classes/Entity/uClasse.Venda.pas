@@ -20,6 +20,11 @@ type
     FDataInicial: TDate;
     FDataFinal: TDate;
 
+    FValorDeAcrescimo: Currency;
+    FValorDeDesconto: Currency;
+    FValorSubtotal: Currency;
+    FValorTotal: Currency;
+
     FID: integer;
     FID_CLIENTE: integer;
     FNOME_CLIENTE: string;
@@ -27,10 +32,10 @@ type
     FNOME_FUNCIONARIO: string;
     FDATA_VENDA: string;
     FHORA_VENDA: string;
-    FSUBTOTAL: currency;
-    FDESCONTO: currency;
-    FACRESCIMO: currency;
-    FTOTAL: currency;
+    FSUBTOTAL: Currency;
+    FDESCONTO: Currency;
+    FACRESCIMO: Currency;
+    FTOTAL: Currency;
     FQUANTIDADE_PARCELAS: integer;
     F_FORMA_PAGAMENTO: string;
     FSTATUS: string;
@@ -122,10 +127,17 @@ end;
 function TEntityVenda.calularAcrescimo: string;
 begin
 
+  result := '0';
+
+  result := CurrToStr((FValorSubtotal + FValorDeAcrescimo) - FValorDeDesconto);
+
 end;
 
 function TEntityVenda.calularDesconto: string;
 begin
+  result := '0';
+
+  result := CurrToStr((FValorSubtotal + FValorDeAcrescimo) - FValorDeDesconto);
 
 end;
 
@@ -195,7 +207,7 @@ end;
 
 function TEntityVenda.EstornarVenda: iVenda;
 begin
-
+  result := self;
 end;
 
 function TEntityVenda.ExecSql: iVenda;
@@ -216,12 +228,33 @@ end;
 
 function TEntityVenda.getACRESCIMO(value: string): iVenda;
 begin
+  result := self;
+
+  try
+    FACRESCIMO := StrToCurr(value);
+  except
+    on e: exception do
+      raise exception.create('Informe um valor de acréscimo válido.');
+
+  end;
 
 end;
 
 function TEntityVenda.getACRESCIMO(value: TEdit): iVenda;
 begin
+  result := self;
 
+  try
+    FValorDeAcrescimo := StrToCurr(value.Text);
+  except
+    on e: exception do
+    begin
+      value.Clear;
+      value.SetFocus;
+      raise exception.create('Informe um válor válido para o acréscimo.');
+    end;
+
+  end;
 end;
 
 function TEntityVenda.getCampo(value: string): iVenda;
@@ -253,40 +286,86 @@ end;
 function TEntityVenda.getDATA_VENDA(value: string): iVenda;
 begin
 
+  result := self;
+
+  if value = '  /  /    ' then
+    FDATA_VENDA := ''
+  else
+    FDATA_VENDA := value;
+
 end;
 
 function TEntityVenda.getDesconto(value: TEdit): iVenda;
 begin
+  result := self;
 
+  try
+    FValorDeDesconto := StrToCurr(value.Text);
+  except
+    on e: exception do
+    begin
+      value.Clear;
+      value.SetFocus;
+      raise exception.create('Informe um válor válido para o desconto.');
+    end;
+
+  end;
 end;
 
 function TEntityVenda.getDesconto(value: string): iVenda;
 begin
+
+  result := self;
+
+  try
+    FDESCONTO := StrToCurr(value);
+  except
+    on e: exception do
+      raise exception.create('Informe um valor válido para o Desconto.');
+
+  end;
 
 end;
 
 function TEntityVenda.getFORMA_PAGAMENTO(value: string): iVenda;
 begin
 
+  result := self;
+
+  if value = EmptyStr then
+    raise exception.create('Infome o meio de pagamento da venda.');
+
+  F_FORMA_PAGAMENTO := value;
+
 end;
 
 function TEntityVenda.getFuncionario(value: integer): iVenda;
 begin
-
+  result := self;
+  F_FUNCIONARIO := value;
 end;
 
 function TEntityVenda.getHORA_VENDA(value: string): iVenda;
 begin
+
+  result := self;
+  FHORA_VENDA := value;
 
 end;
 
 function TEntityVenda.getID(value: integer): iVenda;
 begin
 
+  result := self;
+  FID := value;
+
 end;
 
 function TEntityVenda.getID_CLIENTE(value: integer): iVenda;
 begin
+
+  result := self;
+  FID_CLIENTE := value;
 
 end;
 
@@ -298,46 +377,96 @@ end;
 
 function TEntityVenda.getNOME_CLIENTE(value: string): iVenda;
 begin
-
+  result := self;
+  FNOME_CLIENTE := value;
 end;
 
 function TEntityVenda.getNOME_FUNCIONARIO(value: string): iVenda;
 begin
-
+  result := self;
+  FNOME_FUNCIONARIO := value;
 end;
 
 function TEntityVenda.getOBSERACAO(value: string): iVenda;
 begin
-
+  result := self;
+  FOBSERACAO := value;
 end;
 
 function TEntityVenda.getQUANTIDADE_PARCELAS(value: integer): iVenda;
 begin
-
+  result := self;
+  if value = 0 then
+    raise exception.create('Informe a quantidade de parcelas da venda.');
+  FQUANTIDADE_PARCELAS := value;
 end;
 
 function TEntityVenda.getSTATUS(value: string): iVenda;
 begin
-
+  result := self;
+  FSTATUS := value;
 end;
 
 function TEntityVenda.getSUBTOTAL(value: string): iVenda;
 begin
+  result := self;
 
+  try
+    FSUBTOTAL := StrToCurr(value);
+  except
+    on e: exception do
+      raise exception.create('Informe um valor válido para o campo Subtotal.');
+  end;
 end;
 
 function TEntityVenda.getSUBTOTAL(value: TEdit): iVenda;
 begin
+  result := self;
+
+  try
+    FValorSubtotal := StrToCurr(value.Text);
+
+  except
+    on e: exception do
+    begin
+      value.Clear;
+      value.SetFocus;
+      raise exception.create('Informe um valor válido para o campo Subtotal');
+    end;
+
+  end;
 
 end;
 
 function TEntityVenda.getTOTAL(value: TEdit): iVenda;
 begin
+  result := self;
 
+  try
+    FValorTotal := StrToCurr(value.Text);
+
+  except
+    on e: exception do
+    begin
+      value.Clear;
+      value.SetFocus;
+      raise exception.create('Informe um valor válido para o campo Total');
+    end;
+
+  end;
 end;
 
 function TEntityVenda.getTOTAL(value: string): iVenda;
 begin
+  result := self;
+
+  try
+    FTOTAL := StrToCurr(value);
+  except
+    on e: exception do
+      raise exception.create('Informe um valor válido para o campo Total');
+
+  end;
 
 end;
 
@@ -354,9 +483,27 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+      FQuery.codigoCadastro('SP_GEN_VENDA_ID');
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('NOME_CLIENTE').AsString := FNOME_CLIENTE;
+    FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
+    FieldByName('NOME_FUNCIONARIO').AsString := NomeFuncionarioLogado;
+    FieldByName('HORA_VENDA').AsDateTime := StrToTime(FHORA_VENDA);
+    FieldByName('SUBTOTAL').AsCurrency := FSUBTOTAL;
+    FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FieldByName('ACRESCIMO').AsCurrency := FACRESCIMO;
+    FieldByName('TOTAL').AsCurrency := FTOTAL;
+    FieldByName('QUANTIDADE_PARCELAS').AsInteger := FQUANTIDADE_PARCELAS;
+    FieldByName('FORMA_PAGAMENTO').AsString := F_FORMA_PAGAMENTO;
+    FieldByName('STATUS').AsString := FSTATUS;
+    FieldByName('OBSERACAO').AsString := FOBSERACAO;
 
-  FQuery.TQuery.FieldByName('NOME_CLIENTE').AsString := FNome;
+    if FDATA_VENDA <> EmptyStr then
+    FieldByName('DATA_VENDA').AsDateTime := StrToDate(FDATA_VENDA);
+
+  end;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_CLIENTE').AsString)
     .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;

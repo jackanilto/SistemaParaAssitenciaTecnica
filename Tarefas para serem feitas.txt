@@ -1,14 +1,17 @@
-Terceira parte do projeto - sompleOS
+Terceira parte do projeto - simpleOS
 
 #Criar a representações da classes das tabelas:
-    #Venda
-	#Itens da vendas
-	#Parcelas vendas
-	#Criar classe para o calcula da quantidade x valor do produtos
-	   e calcular o tatol do produtos quando adicionado ou excluido
+    #Venda --FEITO
+	#Itens da vendas --FEITO
+	#Parcelas vendas --FEITO (parcialmente)
+	#Criar classe para o calcula da quantidade x valor do produtos --FEITO
+	#Criar classe para calcular o tatol do produtos quando adicionado ou excluido
 
-#Criar o form base para a janela de vendas:
+#Criar o#Criar classe para form base para a janela de vendas:
      #Criar o form para buscar o cliente
 	 #Criar o form para buscar o produto
 	 #Criar o form para finalizar a vendas
+	 
+	 
+	 ####METODOS ANONIMOS
 
