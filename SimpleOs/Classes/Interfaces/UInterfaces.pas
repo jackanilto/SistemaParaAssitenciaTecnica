@@ -1373,6 +1373,26 @@ type
 
   end;
 
+  iLocalizarClienteVenda = interface
+    ['{285B6157-B95E-46B4-9084-9D07D5F9BFC4}']
+
+    function nomeTabela(value: string): iLocalizarClienteVenda;
+    function getCampo(value: string): iLocalizarClienteVenda;
+    function getValor(value: string): iLocalizarClienteVenda;
+    function getDataInicial(value: TDate): iLocalizarClienteVenda;
+    function getDataFinal(value: TDate): iLocalizarClienteVenda;
+    function open(value: string): iLocalizarClienteVenda;
+    function pesquisar: iLocalizarClienteVenda;
+    function ExecSql: iLocalizarClienteVenda;
+    function sqlPesquisa: iLocalizarClienteVenda;
+    function sqlPesquisaData: iLocalizarClienteVenda;
+    function sqlPesquisaEstatica: iLocalizarClienteVenda;
+    function abrir: iLocalizarClienteVenda;
+    function listarGrid(value: TDataSource): iLocalizarClienteVenda;
+    function ordenarGrid(column: TColumn): iLocalizarClienteVenda;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

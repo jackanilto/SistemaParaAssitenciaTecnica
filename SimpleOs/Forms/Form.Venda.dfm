@@ -26,7 +26,6 @@ object formVendas: TformVendas
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 917
     DesignSize = (
       1083
       41)
@@ -143,8 +142,6 @@ object formVendas: TformVendas
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 486
-    ExplicitWidth = 917
     DesignSize = (
       1083
       75)
@@ -339,8 +336,6 @@ object formVendas: TformVendas
     Color = clSilver
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = 35
     DesignSize = (
       1083
       534)
@@ -370,7 +365,7 @@ object formVendas: TformVendas
       object Label4: TLabel
         Left = 424
         Top = 24
-        Width = 145
+        Width = 114
         Height = 21
         Caption = 'Nome do cliente'
         Font.Charset = DEFAULT_CHARSET
@@ -443,6 +438,7 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727}
+        OnClick = SpeedButton1Click
       end
       object edtLocalizarCPF: TEdit
         Left = 16

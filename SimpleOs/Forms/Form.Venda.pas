@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.Imaging.jpeg, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Vcl.Imaging.jpeg, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Form.Localizar.Clientes.Venda;
 
 type
   TformVendas = class(TForm)
@@ -46,6 +47,7 @@ type
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,6 +76,16 @@ end;
 procedure TformVendas.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformVendas.SpeedButton1Click(Sender: TObject);
+begin
+  formLocalizarClientesVenda := TformLocalizarClientesVenda.Create(self);
+  try
+    formLocalizarClientesVenda.ShowModal;
+  finally
+    formLocalizarClientesVenda.Free;
+  end;
 end;
 
 end.

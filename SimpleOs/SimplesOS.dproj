@@ -286,6 +286,11 @@
             <Form>formVendas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Clientes.Venda.pas">
+            <Form>formLocalizarClientesVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Localizar\UClasse.Entity.Localizar.Cliente.Venda.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
