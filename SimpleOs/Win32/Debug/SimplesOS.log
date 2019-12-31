@@ -2247,3 +2247,58 @@ At line 1, column 35
 31/12/19 17:44:16 - Caption: Localizar produtos - Venda
 31/12/19 17:44:16 - Erro:Exception
 31/12/19 17:44:16 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+31/12/19 20:12:28 - ===========================================
+31/12/19 20:12:28 - Form: formLocalizarProdutoVenda
+31/12/19 20:12:28 - Caption: Localizar produtos - Venda
+31/12/19 20:12:28 - Erro:Exception
+31/12/19 20:12:28 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+31/12/19 20:12:33 - ===========================================
+31/12/19 20:12:33 - Form: formLocalizarProdutoVenda
+31/12/19 20:12:33 - Caption: Localizar produtos - Venda
+31/12/19 20:12:33 - Erro:EAccessViolation
+31/12/19 20:12:33 - Erro:Access violation at address 00B0E1EB in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:13:08 - ===========================================
+31/12/19 20:13:08 - Form: formLocalizarProdutoVenda
+31/12/19 20:13:08 - Caption: Localizar produtos - Venda
+31/12/19 20:13:08 - Erro:EAccessViolation
+31/12/19 20:13:08 - Erro:Access violation at address 00B0E1EB in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:13:50 - ===========================================
+31/12/19 20:13:50 - Form: formLocalizarProdutoVenda
+31/12/19 20:13:50 - Caption: Localizar produtos - Venda
+31/12/19 20:13:50 - Erro:EAccessViolation
+31/12/19 20:13:50 - Erro:Access violation at address 00B0E1EB in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:13:53 - ===========================================
+31/12/19 20:13:53 - Form: formLocalizarProdutoVenda
+31/12/19 20:13:53 - Caption: Localizar produtos - Venda
+31/12/19 20:13:53 - Erro:EAccessViolation
+31/12/19 20:13:53 - Erro:Access violation at address 00B0E1EB in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:13:58 - ===========================================
+31/12/19 20:13:58 - Form: formLocalizarProdutoVenda
+31/12/19 20:13:58 - Caption: Localizar produtos - Venda
+31/12/19 20:13:58 - Erro:EAccessViolation
+31/12/19 20:13:58 - Erro:Access violation at address 00B0E1EB in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:15:29 - ===========================================
+31/12/19 20:15:29 - Form: formLocalizarProdutoVenda
+31/12/19 20:15:29 - Caption: Localizar produtos - Venda
+31/12/19 20:15:29 - Erro:EAccessViolation
+31/12/19 20:15:29 - Erro:Access violation at address 00B0E1EB in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:21:19 - ===========================================
+31/12/19 20:21:19 - Form: formLocalizarProdutoVenda
+31/12/19 20:21:19 - Caption: Localizar produtos - Venda
+31/12/19 20:21:19 - Erro:EAccessViolation
+31/12/19 20:21:19 - Erro:Access violation at address 004090D2 in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:22:47 - ===========================================
+31/12/19 20:22:47 - Form: formLocalizarProdutoVenda
+31/12/19 20:22:47 - Caption: Localizar produtos - Venda
+31/12/19 20:22:47 - Erro:EAccessViolation
+31/12/19 20:22:47 - Erro:Access violation at address 004090D2 in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:23:20 - ===========================================
+31/12/19 20:23:20 - Form: formLocalizarProdutoVenda
+31/12/19 20:23:20 - Caption: Localizar produtos - Venda
+31/12/19 20:23:20 - Erro:EAccessViolation
+31/12/19 20:23:20 - Erro:Access violation at address 004090D2 in module 'SimplesOS.exe'. Read of address 00000009
+31/12/19 20:30:49 - ===========================================
+31/12/19 20:30:49 - Form: formPrincipal
+31/12/19 20:30:49 - Caption: formPrincipal
+31/12/19 20:30:49 - Erro:EInvalidPointer
+31/12/19 20:30:49 - Erro:Invalid pointer operation

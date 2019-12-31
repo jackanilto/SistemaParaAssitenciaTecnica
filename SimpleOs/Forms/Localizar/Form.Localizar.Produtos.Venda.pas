@@ -59,6 +59,7 @@ begin
     CodigoDeBarras := FEntityLocalizarProdutoVenda.setCodigoDeBarras;
     QuantidadeDeProdutos := FEntityLocalizarProdutoVenda.setQuantidade;
     QuantidadeEmEstoque := FEntityLocalizarProdutoVenda.setQuantidadeEmEstoque;
+    FEntityLocalizarProdutoVenda.setFotoProduto(formVendas.Image1);
 
     close;
 

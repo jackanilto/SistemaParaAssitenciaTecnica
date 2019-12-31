@@ -7,7 +7,8 @@ uses
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
-  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask, Datasnap.DBClient;
+  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask, Datasnap.DBClient,
+  Vcl.ExtCtrls;
 
 type
   iConexaoQuery = interface
@@ -1418,9 +1419,10 @@ type
     function setCodigoDoProduto: integer;
     function setNomeDoProduto: string;
     function setQuantidade: integer;
-    function setQuantidadeEmEstoque:integer;
-    function setSituacaoDoEstoque:string;
+    function setQuantidadeEmEstoque: integer;
+    function setSituacaoDoEstoque: string;
     function setCodigoDeBarras: string;
+    function setFotoProduto(value: TImage): iLocalizarProdutosVenda;
 
   end;
 

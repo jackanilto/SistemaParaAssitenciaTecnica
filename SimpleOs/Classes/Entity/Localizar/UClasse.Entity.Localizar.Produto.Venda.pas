@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls;
 
 type
 
@@ -45,6 +46,7 @@ type
     function setQuantidadeEmEstoque: integer;
     function setSituacaoDoEstoque: string;
     function setCodigoDeBarras: string;
+    function setFotoProduto(value: TImage): iLocalizarProdutosVenda;
 
     constructor create;
     destructor destroy; override;
@@ -198,6 +200,13 @@ end;
 function TEntityLocalizarProdutoVenda.setCodigoDoProduto: integer;
 begin
   result := FQuery.TQuery.FieldByName('ID').AsInteger;
+end;
+
+function TEntityLocalizarProdutoVenda.setFotoProduto(value: TImage)
+  : iLocalizarProdutosVenda;
+begin
+  result := self;
+  value.Picture.Assign(FQuery.TQuery.FieldByName('FOTO'));
 end;
 
 function TEntityLocalizarProdutoVenda.setNomeDoProduto: string;

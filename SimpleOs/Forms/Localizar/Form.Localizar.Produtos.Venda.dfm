@@ -28,8 +28,6 @@ object formLocalizarProdutoVenda: TformLocalizarProdutoVenda
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -181
-    ExplicitWidth = 843
     DesignSize = (
       868
       41)
@@ -131,8 +129,6 @@ object formLocalizarProdutoVenda: TformLocalizarProdutoVenda
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 273
-    ExplicitWidth = 807
     object Label1: TLabel
       Left = 232
       Top = 7
