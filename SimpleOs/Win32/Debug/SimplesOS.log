@@ -2227,3 +2227,23 @@ At line 1, column 35
 24/12/19 15:31:00 - Caption: Ordem de serviços
 24/12/19 15:31:00 - Erro:EDBEditError
 24/12/19 15:31:00 - Erro:Invalid input value.  Use escape key to abandon changes
+31/12/19 14:46:10 - ===========================================
+31/12/19 14:46:10 - Form: formVendas
+31/12/19 14:46:10 - Caption: Venda de produtos
+31/12/19 14:46:10 - Erro:EFDException
+31/12/19 14:46:10 - Erro:[FireDAC][Phys][FB]-345. Data too large for variable [VALOR]. Max len = [12], actual len = [14] Hint: set the TFDParam.Size to a greater value
+31/12/19 15:41:03 - ===========================================
+31/12/19 15:41:03 - Form: formVendas
+31/12/19 15:41:03 - Caption: Venda de produtos
+31/12/19 15:41:03 - Erro:EFDException
+31/12/19 15:41:03 - Erro:[FireDAC][Phys][FB]-345. Data too large for variable [VALOR]. Max len = [12], actual len = [14] Hint: set the TFDParam.Size to a greater value
+31/12/19 17:44:10 - ===========================================
+31/12/19 17:44:10 - Form: formLocalizarProdutoVenda
+31/12/19 17:44:10 - Caption: Localizar produtos - Venda
+31/12/19 17:44:10 - Erro:Exception
+31/12/19 17:44:10 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+31/12/19 17:44:16 - ===========================================
+31/12/19 17:44:16 - Form: formLocalizarProdutoVenda
+31/12/19 17:44:16 - Caption: Localizar produtos - Venda
+31/12/19 17:44:16 - Erro:Exception
+31/12/19 17:44:16 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.

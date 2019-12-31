@@ -89,7 +89,9 @@ uses
   uClasse.Venda.Parcelas in 'Classes\Entity\uClasse.Venda.Parcelas.pas',
   Form.Venda in 'Forms\Form.Venda.pas' {formVendas},
   Form.Localizar.Clientes.Venda in 'Forms\Localizar\Form.Localizar.Clientes.Venda.pas' {formLocalizarClientesVenda},
-  UClasse.Entity.Localizar.Cliente.Venda in 'Classes\Entity\Localizar\UClasse.Entity.Localizar.Cliente.Venda.pas';
+  UClasse.Entity.Localizar.Cliente.Venda in 'Classes\Entity\Localizar\UClasse.Entity.Localizar.Cliente.Venda.pas',
+  Form.Localizar.Produtos.Venda in 'Forms\Localizar\Form.Localizar.Produtos.Venda.pas' {formLocalizarProdutoVenda},
+  UClasse.Entity.Localizar.Produto.Venda in 'Classes\Entity\Localizar\UClasse.Entity.Localizar.Produto.Venda.pas';
 
 {$R *.res}
 

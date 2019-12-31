@@ -40,6 +40,10 @@ type
     function listarGrid(value: TDataSource): iLocalizarClienteVenda;
     function ordenarGrid(column: TColumn): iLocalizarClienteVenda;
 
+    function setCodigoDoCliente: string;
+    function setNomeDoCliente: string;
+    function setCpf_CnpjDoCliente: string;
+
     function exportar: iLocalizarClienteVenda;
     procedure validarData(componet: tmaskEdit);
 
@@ -165,6 +169,8 @@ begin
     FieldByName('FOTO').Visible := false;
     FieldByName('OBSERVACAO').Visible := false;
 
+    FieldByName('NOME').DisplayWidth := 40;
+
   end;
 
   value.DataSet := FQuery.TQuery;
@@ -202,6 +208,21 @@ end;
 function TEntityPesquisarCliente.pesquisar: iLocalizarClienteVenda;
 begin
   result := self;
+end;
+
+function TEntityPesquisarCliente.setCodigoDoCliente: string;
+begin
+  result := FQuery.TQuery.FieldByName('ID').AsInteger.ToString;
+end;
+
+function TEntityPesquisarCliente.setCpf_CnpjDoCliente: string;
+begin
+  result := FQuery.TQuery.FieldByName('CPF_CNPJ').AsString;
+end;
+
+function TEntityPesquisarCliente.setNomeDoCliente: string;
+begin
+  result := FQuery.TQuery.FieldByName('NOME').AsString;
 end;
 
 function TEntityPesquisarCliente.sqlPesquisa: iLocalizarClienteVenda;

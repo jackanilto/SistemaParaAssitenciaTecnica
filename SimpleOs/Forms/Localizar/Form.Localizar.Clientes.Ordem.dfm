@@ -219,6 +219,7 @@ object formLocalizarClientesOrdem: TformLocalizarClientesOrdem
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
+    ReadOnly = True
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

@@ -13,6 +13,7 @@ object formVendas: TformVendas
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -352,9 +353,9 @@ object formVendas: TformVendas
       object Label3: TLabel
         Left = 16
         Top = 2
-        Width = 332
+        Width = 336
         Height = 20
-        Caption = 'Localizar cliente (00 para cliente n'#227'o identificado)'
+        Caption = 'Localizar cliente (AA para cliente n'#227'o identificado)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindow
         Font.Height = -15
@@ -362,9 +363,9 @@ object formVendas: TformVendas
         Font.Style = []
         ParentFont = False
       end
-      object Label4: TLabel
-        Left = 424
-        Top = 24
+      object lblNomeDoCliente: TLabel
+        Left = 528
+        Top = 21
         Width = 114
         Height = 21
         Caption = 'Nome do cliente'
@@ -376,11 +377,17 @@ object formVendas: TformVendas
         ParentFont = False
       end
       object SpeedButton1: TSpeedButton
-        Left = 350
-        Top = 19
-        Width = 35
+        Left = 365
+        Top = 16
+        Width = 143
         Height = 33
+        Caption = 'Localizar cliente'
         Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
           180000000000C0060000120B0000120B00000000000000000000272727272727
@@ -438,12 +445,13 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727}
+        ParentFont = False
         OnClick = SpeedButton1Click
       end
       object edtLocalizarCPF: TEdit
         Left = 16
-        Top = 23
-        Width = 332
+        Top = 22
+        Width = 343
         Height = 28
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -452,7 +460,8 @@ object formVendas: TformVendas
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        Text = 'edtLocalizarCPF'
+        TextHint = 'Informe o CPF OU CNPJ  do cliente e tecle Enter'
+        OnKeyUp = edtLocalizarCPFKeyUp
       end
     end
     object Panel5: TPanel
@@ -470,11 +479,17 @@ object formVendas: TformVendas
       ParentBackground = False
       TabOrder = 1
       object SpeedButton2: TSpeedButton
-        Left = 281
+        Left = 285
         Top = 40
-        Width = 35
+        Width = 86
         Height = 33
+        Caption = 'Localizar'
         Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
           180000000000C0060000120B0000120B00000000000000000000272727272727
@@ -532,6 +547,8 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727}
+        ParentFont = False
+        OnClick = SpeedButton2Click
       end
       object Label5: TLabel
         Left = 25
@@ -1543,7 +1560,7 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727}
         ParentFont = False
       end
-      object Edit1: TEdit
+      object edtLocalizarProduto: TEdit
         Left = 25
         Top = 48
         Width = 250
@@ -1555,9 +1572,9 @@ object formVendas: TformVendas
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        Text = 'Edit1'
+        TextHint = 'Informe o c'#243'digo de barras do produto'
       end
-      object Edit2: TEdit
+      object edtValorUnitario: TEdit
         Left = 16
         Top = 336
         Width = 205
@@ -1569,9 +1586,8 @@ object formVendas: TformVendas
         Font.Style = []
         ParentFont = False
         TabOrder = 1
-        Text = 'Edit1'
       end
-      object Edit3: TEdit
+      object edtQuantidade: TEdit
         Left = 227
         Top = 336
         Width = 89
@@ -1583,7 +1599,6 @@ object formVendas: TformVendas
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        Text = 'Edit1'
       end
     end
     object Panel6: TPanel

@@ -1391,6 +1391,37 @@ type
     function listarGrid(value: TDataSource): iLocalizarClienteVenda;
     function ordenarGrid(column: TColumn): iLocalizarClienteVenda;
 
+    function setCodigoDoCliente: string;
+    function setNomeDoCliente: string;
+    function setCpf_CnpjDoCliente: string;
+
+  end;
+
+  iLocalizarProdutosVenda = interface
+    ['{91274845-9750-427E-8569-194A19587DB8}']
+
+    function nomeTabela(value: string): iLocalizarProdutosVenda;
+    function getCampo(value: string): iLocalizarProdutosVenda;
+    function getValor(value: string): iLocalizarProdutosVenda;
+    function getDataInicial(value: TDate): iLocalizarProdutosVenda;
+    function getDataFinal(value: TDate): iLocalizarProdutosVenda;
+    function open(value: string): iLocalizarProdutosVenda;
+    function pesquisar: iLocalizarProdutosVenda;
+    function ExecSql: iLocalizarProdutosVenda;
+    function sqlPesquisa: iLocalizarProdutosVenda;
+    function sqlPesquisaData: iLocalizarProdutosVenda;
+    function sqlPesquisaEstatica: iLocalizarProdutosVenda;
+    function abrir: iLocalizarProdutosVenda;
+    function listarGrid(value: TDataSource): iLocalizarProdutosVenda;
+    function ordenarGrid(column: TColumn): iLocalizarProdutosVenda;
+
+    function setCodigoDoProduto: integer;
+    function setNomeDoProduto: string;
+    function setQuantidade: integer;
+    function setQuantidadeEmEstoque:integer;
+    function setSituacaoDoEstoque:string;
+    function setCodigoDeBarras: string;
+
   end;
 
   iNivelAcessoFuncionario = interface

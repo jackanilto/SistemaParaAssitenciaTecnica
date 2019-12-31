@@ -13,6 +13,7 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -27,6 +28,7 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
+    OnMouseDown = Panel1MouseDown
     ExplicitLeft = -181
     ExplicitWidth = 843
     DesignSize = (
@@ -175,6 +177,7 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbCadastrarClientesClick
     end
     object cbPesquisar: TComboBox
       Left = 232
@@ -205,6 +208,7 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnKeyUp = edtPesquisarKeyUp
     end
   end
   object DBGrid1: TDBGrid
@@ -226,6 +230,8 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    OnDblClick = DBGrid1DblClick
+    OnTitleClick = DBGrid1TitleClick
   end
   object DataSource1: TDataSource
     Left = 408
