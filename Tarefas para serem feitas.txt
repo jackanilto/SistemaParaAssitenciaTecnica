@@ -8,8 +8,8 @@ Terceira parte do projeto - simpleOS
 	#Criar classe para calcular o tatol do produtos quando adicionado ou excluido
 
 #Criar o#Criar classe para form base para a janela de vendas:
-     #Criar o form para buscar o cliente
-	 #Criar o form para buscar o produto
+     #Criar o form para buscar o cliente --FEITO
+	 #Criar o form para buscar o produto --EM ANDAMENTO
 	 #Criar o form para finalizar a vendas
 	 
 	 

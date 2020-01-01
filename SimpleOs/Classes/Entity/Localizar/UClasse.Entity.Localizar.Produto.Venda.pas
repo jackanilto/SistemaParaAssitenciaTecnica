@@ -47,6 +47,7 @@ type
     function setSituacaoDoEstoque: string;
     function setCodigoDeBarras: string;
     function setFotoProduto(value: TImage): iLocalizarProdutosVenda;
+    function setValorUnitarioProduto:Currency;
 
     constructor create;
     destructor destroy; override;
@@ -246,6 +247,11 @@ begin
     result := 'normal';
   end;
 
+end;
+
+function TEntityLocalizarProdutoVenda.setValorUnitarioProduto: Currency;
+begin
+  result := FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency;
 end;
 
 function TEntityLocalizarProdutoVenda.sqlPesquisa: iLocalizarProdutosVenda;

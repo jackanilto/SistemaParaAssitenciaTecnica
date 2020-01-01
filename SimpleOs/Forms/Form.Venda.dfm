@@ -480,7 +480,7 @@ object formVendas: TformVendas
       TabOrder = 1
       object SpeedButton2: TSpeedButton
         Left = 285
-        Top = 40
+        Top = 27
         Width = 86
         Height = 33
         Caption = 'Localizar'
@@ -552,7 +552,7 @@ object formVendas: TformVendas
       end
       object Label5: TLabel
         Left = 25
-        Top = 22
+        Top = 9
         Width = 115
         Height = 20
         Caption = 'C'#243'digo de barras'
@@ -565,7 +565,7 @@ object formVendas: TformVendas
       end
       object Image1: TImage
         Left = 49
-        Top = 86
+        Top = 73
         Width = 200
         Height = 201
         Picture.Data = {
@@ -1423,10 +1423,10 @@ object formVendas: TformVendas
       end
       object Label6: TLabel
         Left = 16
-        Top = 310
-        Width = 89
+        Top = 288
+        Width = 110
         Height = 20
-        Caption = 'Valor unir'#225'rio'
+        Caption = 'Valor unit'#225'rio R$'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindow
         Font.Height = -15
@@ -1436,7 +1436,7 @@ object formVendas: TformVendas
       end
       object Label7: TLabel
         Left = 227
-        Top = 310
+        Top = 288
         Width = 78
         Height = 20
         Caption = 'Quantidade'
@@ -1448,10 +1448,10 @@ object formVendas: TformVendas
         ParentFont = False
       end
       object SpeedButton3: TSpeedButton
-        Left = 64
-        Top = 401
+        Left = 80
+        Top = 430
         Width = 169
-        Height = 41
+        Height = 32
         Caption = 'Adicionar item'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -1559,10 +1559,24 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727}
         ParentFont = False
+        OnClick = SpeedButton3Click
+      end
+      object Label4: TLabel
+        Left = 16
+        Top = 348
+        Width = 54
+        Height = 20
+        Caption = 'Total R$'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindow
+        Font.Height = -15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object edtLocalizarProduto: TEdit
         Left = 25
-        Top = 48
+        Top = 35
         Width = 250
         Height = 25
         Font.Charset = DEFAULT_CHARSET
@@ -1576,20 +1590,22 @@ object formVendas: TformVendas
       end
       object edtValorUnitario: TEdit
         Left = 16
-        Top = 336
+        Top = 314
         Width = 205
         Height = 25
+        TabStop = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 1
       end
       object edtQuantidade: TEdit
         Left = 227
-        Top = 336
+        Top = 314
         Width = 89
         Height = 25
         Font.Charset = DEFAULT_CHARSET
@@ -1599,6 +1615,21 @@ object formVendas: TformVendas
         Font.Style = []
         ParentFont = False
         TabOrder = 2
+        OnExit = edtQuantidadeExit
+        OnKeyUp = edtQuantidadeKeyUp
+      end
+      object edtTotalDoProduto: TEdit
+        Left = 16
+        Top = 374
+        Width = 300
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
       end
     end
     object Panel6: TPanel
@@ -1622,6 +1653,7 @@ object formVendas: TformVendas
         Height = 361
         Align = alTop
         BorderStyle = bsNone
+        DataSource = S_temp_produtos
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -1897,7 +1929,7 @@ object formVendas: TformVendas
           ParentFont = False
         end
         object Label10: TLabel
-          Left = 421
+          Left = 445
           Top = 14
           Width = 54
           Height = 21
@@ -1924,5 +1956,40 @@ object formVendas: TformVendas
         end
       end
     end
+  end
+  object cds_tem_produtos: TClientDataSet
+    PersistDataPacket.Data = {
+      B80000009619E0BD010000001800000005000000000003000000B8000E636F64
+      69676F5F70726F6475746F04000100000000000750726F6475746F0100490000
+      0001000557494454480200020064000E56616C6F725F756E69746172696F0800
+      04000000010007535542545950450200490006004D6F6E6579000A5175616E74
+      6964616465040001000000000010546F74616C5F646F5F70726F6475746F0800
+      04000000010007535542545950450200490006004D6F6E6579000000}
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 613
+    Top = 147
+    object cds_tem_produtoscodigo_produto: TIntegerField
+      FieldName = 'codigo_produto'
+    end
+    object cds_tem_produtosProduto: TStringField
+      FieldName = 'Produto'
+      Size = 100
+    end
+    object cds_tem_produtosValor_unitario: TCurrencyField
+      FieldName = 'Valor_unitario'
+    end
+    object cds_tem_produtosQuantidade: TIntegerField
+      FieldName = 'Quantidade'
+    end
+    object cds_tem_produtosTotal_do_produto: TCurrencyField
+      FieldName = 'Total_do_produto'
+    end
+  end
+  object S_temp_produtos: TDataSource
+    DataSet = cds_tem_produtos
+    Left = 749
+    Top = 147
   end
 end

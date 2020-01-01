@@ -49,15 +49,17 @@ uses Form.Venda;
 
 procedure TformLocalizarProdutoVenda.DBGrid1DblClick(Sender: TObject);
 begin
+
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
 
+    SituacaoDoEstoque := FEntityLocalizarProdutoVenda.setSituacaoDoEstoque;
     CodigoDoProduto := FEntityLocalizarProdutoVenda.setCodigoDoProduto;
     NomeDoProduto := FEntityLocalizarProdutoVenda.setNomeDoProduto;
     CodigoDeBarras := FEntityLocalizarProdutoVenda.setCodigoDeBarras;
     QuantidadeDeProdutos := FEntityLocalizarProdutoVenda.setQuantidade;
     QuantidadeEmEstoque := FEntityLocalizarProdutoVenda.setQuantidadeEmEstoque;
-    SituacaoDoEstoque := FEntityLocalizarProdutoVenda.setSituacaoDoEstoque;
+    FEntityLocalizarProdutoVenda.setFotoProduto(formVendas.Image1);
 
     close;
 

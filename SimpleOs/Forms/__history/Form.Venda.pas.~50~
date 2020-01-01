@@ -53,8 +53,6 @@ type
     cds_tem_produtosQuantidade: TIntegerField;
     cds_tem_produtosTotal_do_produto: TCurrencyField;
     S_temp_produtos: TDataSource;
-    Label4: TLabel;
-    edtTotalDoProduto: TEdit;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -64,9 +62,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
-    procedure edtQuantidadeKeyUp(Sender: TObject; var Key: Word;
+    procedure edtValorUnitarioKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure edtQuantidadeExit(Sender: TObject);
   private
     { Private declarations }
     FLocalizarClienteVenda: iLocalizarClienteVenda;
@@ -124,36 +121,13 @@ begin
   end;
 end;
 
-procedure TformVendas.edtQuantidadeExit(Sender: TObject);
-var
-  total: Currency;
-begin
-
-  total := FEntityItensVenda.calularTotalXquantidade(edtValorUnitario,
-    edtQuantidade);
-
-  valorTotalDoProduto := total;
-
-  edtTotalDoProduto.Text := CurrToStr(total);
-
-end;
-
-procedure TformVendas.edtQuantidadeKeyUp(Sender: TObject; var Key: Word;
+procedure TformVendas.edtValorUnitarioKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
-var
-  total: Currency;
 begin
-  if Key = 13 then
-  begin
-
-    total := FEntityItensVenda.calularTotalXquantidade(edtValorUnitario,
-      edtQuantidade);
-
-    valorTotalDoProduto := total;
-
-    edtTotalDoProduto.Text := CurrToStr(total);
-
-  end;
+ if key = 13 then
+ begin
+//    CurrToStr(FEntityItensVenda.calularTotalXquantidade(edtValorUnitario, edtQuantidade));
+ end;
 end;
 
 procedure TformVendas.FormCreate(Sender: TObject);
@@ -203,7 +177,7 @@ begin
 
     edtLocalizarProduto.Text := CodigoDeBarras;
     edtQuantidade.Text := inttostr(QuantidadeDeProdutos);
-    edtValorUnitario.Text := CurrToStr(valorUnitario)
+    edtValorUnitario.Text := FormatFloat('R$ #,##0', valorUnitario);
 
   end;
 end;

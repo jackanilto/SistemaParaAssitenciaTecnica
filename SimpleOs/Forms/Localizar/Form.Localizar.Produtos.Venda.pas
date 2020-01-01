@@ -60,6 +60,8 @@ begin
     QuantidadeDeProdutos := FEntityLocalizarProdutoVenda.setQuantidade;
     QuantidadeEmEstoque := FEntityLocalizarProdutoVenda.setQuantidadeEmEstoque;
     FEntityLocalizarProdutoVenda.setFotoProduto(formVendas.Image1);
+    valorUnitario := FEntityLocalizarProdutoVenda.setValorUnitarioProduto;
+    valorTotalDoProduto := FEntityLocalizarProdutoVenda.setValorUnitarioProduto;
 
     close;
 

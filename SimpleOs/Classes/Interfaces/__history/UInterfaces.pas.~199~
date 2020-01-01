@@ -7,7 +7,8 @@ uses
   FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
-  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask, Datasnap.DBClient;
+  Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask, Datasnap.DBClient,
+  Vcl.ExtCtrls;
 
 type
   iConexaoQuery = interface
@@ -1363,12 +1364,65 @@ type
     function getDesconto(value: TEdit): iParcelasVendas; overload;
     function getSUBTOTAL(value: TEdit): iParcelasVendas;
     function calcularTotal: string;
+    function gerarParcelas: iParcelasVendas;
 
     function exportar: iParcelasVendas;
     procedure validarData(componet: tmaskEdit);
 
     function getCodigo(value: integer): iParcelasVendas;
     function getNome(value: string): iParcelasVendas;
+
+  end;
+
+  iLocalizarClienteVenda = interface
+    ['{285B6157-B95E-46B4-9084-9D07D5F9BFC4}']
+
+    function nomeTabela(value: string): iLocalizarClienteVenda;
+    function getCampo(value: string): iLocalizarClienteVenda;
+    function getValor(value: string): iLocalizarClienteVenda;
+    function getDataInicial(value: TDate): iLocalizarClienteVenda;
+    function getDataFinal(value: TDate): iLocalizarClienteVenda;
+    function open(value: string): iLocalizarClienteVenda;
+    function pesquisar: iLocalizarClienteVenda;
+    function ExecSql: iLocalizarClienteVenda;
+    function sqlPesquisa: iLocalizarClienteVenda;
+    function sqlPesquisaData: iLocalizarClienteVenda;
+    function sqlPesquisaEstatica: iLocalizarClienteVenda;
+    function abrir: iLocalizarClienteVenda;
+    function listarGrid(value: TDataSource): iLocalizarClienteVenda;
+    function ordenarGrid(column: TColumn): iLocalizarClienteVenda;
+
+    function setCodigoDoCliente: string;
+    function setNomeDoCliente: string;
+    function setCpf_CnpjDoCliente: string;
+
+  end;
+
+  iLocalizarProdutosVenda = interface
+    ['{91274845-9750-427E-8569-194A19587DB8}']
+
+    function nomeTabela(value: string): iLocalizarProdutosVenda;
+    function getCampo(value: string): iLocalizarProdutosVenda;
+    function getValor(value: string): iLocalizarProdutosVenda;
+    function getDataInicial(value: TDate): iLocalizarProdutosVenda;
+    function getDataFinal(value: TDate): iLocalizarProdutosVenda;
+    function open(value: string): iLocalizarProdutosVenda;
+    function pesquisar: iLocalizarProdutosVenda;
+    function ExecSql: iLocalizarProdutosVenda;
+    function sqlPesquisa: iLocalizarProdutosVenda;
+    function sqlPesquisaData: iLocalizarProdutosVenda;
+    function sqlPesquisaEstatica: iLocalizarProdutosVenda;
+    function abrir: iLocalizarProdutosVenda;
+    function listarGrid(value: TDataSource): iLocalizarProdutosVenda;
+    function ordenarGrid(column: TColumn): iLocalizarProdutosVenda;
+
+    function setCodigoDoProduto: integer;
+    function setNomeDoProduto: string;
+    function setQuantidade: integer;
+    function setQuantidadeEmEstoque: integer;
+    function setSituacaoDoEstoque: string;
+    function setCodigoDeBarras: string;
+    function setFotoProduto(value: TImage): iLocalizarProdutosVenda;
 
   end;
 

@@ -5,7 +5,7 @@ interface
 uses uClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   uClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Vcl.StdCtrls;
+  Vcl.StdCtrls, Datasnap.DBClient;
 
 type
 

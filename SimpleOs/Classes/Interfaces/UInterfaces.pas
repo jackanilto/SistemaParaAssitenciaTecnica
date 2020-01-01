@@ -1423,6 +1423,7 @@ type
     function setSituacaoDoEstoque: string;
     function setCodigoDeBarras: string;
     function setFotoProduto(value: TImage): iLocalizarProdutosVenda;
+    function setValorUnitarioProduto: currency;
 
   end;
 

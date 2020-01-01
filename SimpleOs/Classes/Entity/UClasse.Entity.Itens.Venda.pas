@@ -106,8 +106,6 @@ end;
 
 function TEntityItensVenda.calularTotalXquantidade(vlrProduto,
   qtdeProduto: TEdit): Currency;
-var
-  quantidade: integer;
 begin
 
   result := 0;
@@ -115,7 +113,7 @@ begin
   getValorUnitatio(vlrProduto);
   totalDeItens(qtdeProduto);
 
-  result := FtotalUnitario + FQuantidadeUnitario;
+  result := FtotalUnitario * FQuantidadeUnitario;
 
 end;
 
