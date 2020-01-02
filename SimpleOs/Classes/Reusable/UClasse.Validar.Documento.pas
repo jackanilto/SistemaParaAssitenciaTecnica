@@ -12,6 +12,7 @@ type
     function validarCPF(value: string): boolean;
     function validarCNPJ(value: string): boolean;
     function limparDocumento(value: string; cartacterRemove: string): string;
+    function limparValorRS(value:string):string;
 
   var
     FDocumento: string;
@@ -71,6 +72,18 @@ begin
     exit;
   for i := 1 to Length(value) do
     if Pos(value[i], cartacterRemove) = 0 then
+      result := result + value[i];
+end;
+
+function TValidarDocumento.limparValorRS(value: string): string;
+var
+  i: Integer;
+begin
+  result := '';
+  if value = '' then
+    exit;
+  for i := 1 to Length(value) do
+    if Pos(value[i], 'R$') = 0 then
       result := result + value[i];
 end;
 

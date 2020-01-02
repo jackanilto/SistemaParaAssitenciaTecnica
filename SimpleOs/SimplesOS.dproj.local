@@ -37,8 +37,8 @@
     <Transaction>2019/10/08 11:22:40.000.811,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Grupos.dfm</Transaction>
     <Transaction>2019/10/08 11:22:40.000.811,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Grupos.pas</Transaction>
     <Transaction>2019/10/08 16:42:07.000.600,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2019/10/08 16:42:34.000.072,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Forma.Pagamento.dfm=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
     <Transaction>2019/10/08 16:42:34.000.072,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Forma.Pagamento.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
+    <Transaction>2019/10/08 16:42:34.000.072,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Forma.Pagamento.dfm=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
     <Transaction>2019/10/08 16:53:07.000.607,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/08 16:53:40.000.601,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Forma.Pagamento.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/09 20:10:43.000.797,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
@@ -141,8 +141,8 @@
     <Transaction>2019/11/09 19:31:45.000.690,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/09 19:32:08.000.253,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Saidas.Produtos.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/10 14:03:22.000.804,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2019/11/10 14:03:37.000.941,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Localizar\Form.Localizar.Produtos.Saidas.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/10 14:03:37.000.941,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Localizar\Form.Localizar.Produtos.Saidas.dfm=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
+    <Transaction>2019/11/10 14:03:37.000.941,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Localizar\Form.Localizar.Produtos.Saidas.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/12 20:06:55.000.106,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/12 20:07:31.000.611,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\FormOrdemServico\Form.Ordem.Servico.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/12 20:07:31.000.611,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\FormOrdemServico\Form.Ordem.Servico.dfm=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
@@ -162,13 +162,13 @@
     <Transaction>2019/11/26 19:54:52.000.924,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/26 19:55:55.000.523,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Ordem.Itens.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/28 20:01:03.000.284,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2019/11/28 20:02:25.000.614,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Adicionar ItensOrdem\Form.Adicionar.Itens.Ordem.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/28 20:02:25.000.614,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Adicionar ItensOrdem\Form.Adicionar.Itens.Ordem.dfm=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
+    <Transaction>2019/11/28 20:02:25.000.614,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Adicionar ItensOrdem\Form.Adicionar.Itens.Ordem.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/28 20:50:45.000.468,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/28 20:51:54.000.812,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\AdicionarItensOrdem\UClasse.Adicionar.Itens.Ordem.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/11/30 17:44:41.000.229,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\AdicionarItensOrdem\UClasse.Adicionar.Itens.Ordem.pas=</Transaction>
-    <Transaction>2019/11/30 17:44:56.000.706,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Ordem.Servico.pas=</Transaction>
     <Transaction>2019/11/30 17:44:56.000.696,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Ordem.Itens.pas=</Transaction>
+    <Transaction>2019/11/30 17:44:56.000.706,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Ordem.Servico.pas=</Transaction>
     <Transaction>2019/11/30 17:45:22.000.521,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Adicionar ItensOrdem\Form.Adicionar.Itens.Ordem.pas=</Transaction>
     <Transaction>2019/11/30 17:45:30.000.101,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\FormOrdemServico\Form.Ordem.Servico.pas=</Transaction>
     <Transaction>2019/11/30 17:46:24.000.614,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas=</Transaction>
@@ -241,9 +241,9 @@
     <Transaction>2019/12/31 14:58:18.000.181,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Localizar\Unit1.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Localizar\Form.Localizar.Produtos.Venda.pas</Transaction>
     <Transaction>2019/12/31 15:11:37.000.999,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/12/31 15:12:03.000.820,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Localizar\UClasse.Entity.Localizar.Produto.Venda.pas</Transaction>
-    <Transaction>2020/01/01 15:45:50.530,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2020/01/01 15:46:13.767,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.venda.Confirmar.Pagamento.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2020/01/01 15:46:13.767,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.venda.Confirmar.Pagamento.dfm=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
+    <Transaction>2020/01/01 15:45:50.000.530,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
+    <Transaction>2020/01/01 15:46:13.000.767,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.venda.Confirmar.Pagamento.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
+    <Transaction>2020/01/01 15:46:13.000.767,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.venda.Confirmar.Pagamento.dfm=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Classes"/>

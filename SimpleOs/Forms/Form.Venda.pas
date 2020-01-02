@@ -79,8 +79,6 @@ type
     { Private declarations }
     FLocalizarClienteVenda: iLocalizarClienteVenda;
     FLocalizarPrutoVenda: iLocalizarProdutosVenda;
-    FEntityVenda: iVenda;
-    FEntityItensVenda: iItensVendas;
     procedure calcularTotalPorQuantidade;
   public
     { Public declarations }
@@ -88,6 +86,9 @@ type
 
 var
   formVendas: TformVendas;
+
+  FEntityVenda: iVenda;
+  FEntityItensVenda: iItensVendas;
 
   CodigoCliente: Integer;
   NomeCliente: string;
@@ -193,7 +194,7 @@ end;
 procedure TformVendas.edtQuantidadeExit(Sender: TObject);
 begin
 
-  calcularTotalPorQuantidade;
+  // calcularTotalPorQuantidade;
 
 end;
 

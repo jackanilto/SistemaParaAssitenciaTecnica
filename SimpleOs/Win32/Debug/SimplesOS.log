@@ -2367,3 +2367,68 @@ At line 1, column 35
 01/01/20 15:01:57 - Caption: Venda de produtos
 01/01/20 15:01:57 - Erro:Exception
 01/01/20 15:01:57 - Erro:Não há produtos no estoque suficiente para esta venda. Escola uma quantidade menor.
+02/01/20 13:58:45 - ===========================================
+02/01/20 13:58:45 - Form: FormVendaConfirmarPagamento_1
+02/01/20 13:58:45 - Caption: Confirmar venda
+02/01/20 13:58:45 - Erro:Exception
+02/01/20 13:58:45 - Erro:Informe um valor válido para o desconto
+02/01/20 13:58:54 - ===========================================
+02/01/20 13:58:54 - Form: FormVendaConfirmarPagamento_1
+02/01/20 13:58:54 - Caption: Confirmar venda
+02/01/20 13:58:54 - Erro:Exception
+02/01/20 13:58:54 - Erro:Informe um valor válido para o desconto
+02/01/20 14:16:02 - ===========================================
+02/01/20 14:16:02 - Form: FormVendaConfirmarPagamento_1
+02/01/20 14:16:02 - Caption: Confirmar venda
+02/01/20 14:16:02 - Erro:Exception
+02/01/20 14:16:02 - Erro:Informe um valor válido para o número de parcelas.
+02/01/20 15:21:04 - ===========================================
+02/01/20 15:21:04 - Form: formVendas
+02/01/20 15:21:04 - Caption: Venda de produtos
+02/01/20 15:21:04 - Erro:EConvertError
+02/01/20 15:21:04 - Erro:'' is not a valid integer value
+02/01/20 15:21:07 - ===========================================
+02/01/20 15:21:07 - Form: formVendas
+02/01/20 15:21:07 - Caption: Venda de produtos
+02/01/20 15:21:07 - Erro:EConvertError
+02/01/20 15:21:07 - Erro:'' is not a valid integer value
+02/01/20 15:21:11 - ===========================================
+02/01/20 15:21:11 - Form: formVendas
+02/01/20 15:21:11 - Caption: Venda de produtos
+02/01/20 15:21:11 - Erro:EConvertError
+02/01/20 15:21:11 - Erro:'' is not a valid integer value
+02/01/20 15:27:51 - ===========================================
+02/01/20 15:27:51 - Form: formVendas
+02/01/20 15:27:51 - Caption: Venda de produtos
+02/01/20 15:27:51 - Erro:Exception
+02/01/20 15:27:51 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+02/01/20 15:27:54 - ===========================================
+02/01/20 15:27:54 - Form: formVendas
+02/01/20 15:27:54 - Caption: Venda de produtos
+02/01/20 15:27:54 - Erro:Exception
+02/01/20 15:27:54 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+02/01/20 15:27:56 - ===========================================
+02/01/20 15:27:56 - Form: formVendas
+02/01/20 15:27:56 - Caption: Venda de produtos
+02/01/20 15:27:56 - Erro:Exception
+02/01/20 15:27:56 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+02/01/20 15:28:25 - ===========================================
+02/01/20 15:28:25 - Form: formVendas
+02/01/20 15:28:25 - Caption: Venda de produtos
+02/01/20 15:28:25 - Erro:Exception
+02/01/20 15:28:25 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+02/01/20 20:20:41 - ===========================================
+02/01/20 20:20:41 - Form: formCriarConsultarOrdemServico
+02/01/20 20:20:41 - Caption: Criar / Consultar ordem de serviço
+02/01/20 20:20:41 - Erro:Exception
+02/01/20 20:20:41 - Erro:Esta parcela já foi quitada.
+02/01/20 20:20:44 - ===========================================
+02/01/20 20:20:44 - Form: formCriarConsultarOrdemServico
+02/01/20 20:20:44 - Caption: Criar / Consultar ordem de serviço
+02/01/20 20:20:44 - Erro:Exception
+02/01/20 20:20:44 - Erro:Esta parcela já foi quitada.
+02/01/20 20:28:42 - ===========================================
+02/01/20 20:28:42 - Form: FormVendaConfirmarPagamento_1
+02/01/20 20:28:42 - Caption: Confirmar venda
+02/01/20 20:28:42 - Erro:Exception
+02/01/20 20:28:42 - Erro:Informe um valor válido para o Desconto.

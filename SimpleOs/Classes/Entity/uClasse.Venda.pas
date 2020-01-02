@@ -40,6 +40,7 @@ type
     F_FORMA_PAGAMENTO: string;
     FSTATUS: string;
     FOBSERACAO: string;
+    FVENCIMENTO: string;
 
     FCodigo: integer;
     FNome: string;
@@ -81,6 +82,7 @@ type
     function getDesconto(value: string): iVenda; overload;
     function getACRESCIMO(value: string): iVenda; overload;
     function getTOTAL(value: string): iVenda; overload;
+    function getVENCIMENTO(value: string): iVenda;
     function getQUANTIDADE_PARCELAS(value: integer): iVenda;
     function getFORMA_PAGAMENTO(value: string): iVenda;
     function getSTATUS(value: string): iVenda;
@@ -499,6 +501,17 @@ begin
   FValor := UpperCase(value);
 end;
 
+function TEntityVenda.getVENCIMENTO(value: string): iVenda;
+begin
+  result := self;
+
+  if value = '  /  /    ' then
+    FVENCIMENTO := ''
+  else
+    FVENCIMENTO := value;
+
+end;
+
 function TEntityVenda.Gravar: iVenda;
 begin
 
@@ -525,6 +538,9 @@ begin
 
     if FDATA_VENDA <> EmptyStr then
       FieldByName('DATA_VENDA').AsDateTime := StrToDate(FDATA_VENDA);
+
+    if FVENCIMENTO <> EmptyStr then
+      FieldByName('VENCIMENTO').AsDateTime := StrToDate(FVENCIMENTO);
 
   end;
 

@@ -123,6 +123,7 @@ type
   iValidarDocumento = interface
     ['{E0F56A96-5255-4E34-B8E3-018D6AA8FD65}']
     function getDocumento(value: String): boolean;
+    function limparValorRS(value: string): string;
   end;
 
   iCriarJanelas = interface
@@ -1246,6 +1247,7 @@ type
     function getACRESCIMO(value: string): iVenda; overload;
     function getTOTAL(value: string): iVenda; overload;
     function getQUANTIDADE_PARCELAS(value: integer): iVenda;
+    function getVENCIMENTO(value: string): iVenda;
     function getFORMA_PAGAMENTO(value: string): iVenda;
     function getSTATUS(value: string): iVenda;
     function getOBSERACAO(value: string): iVenda;
@@ -1259,8 +1261,8 @@ type
     function calularDesconto: string;
     function calularAcrescimo: string;
     function contarTotalItens(value: TclientDataSet): integer;
-    function somarItensDaVenda(value: TclientDataSet): Currency;
-    function setNomeFuncionario:string;
+    function somarItensDaVenda(value: TclientDataSet): currency;
+    function setNomeFuncionario: string;
 
     function exportar: iVenda;
     procedure validarData(componet: tmaskEdit);
