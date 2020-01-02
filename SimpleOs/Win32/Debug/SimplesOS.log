@@ -2352,3 +2352,18 @@ At line 1, column 35
 01/01/20 11:49:47 - Caption: Venda de produtos
 01/01/20 11:49:47 - Erro:Exception
 01/01/20 11:49:47 - Erro:Digite um valor válido para o Valor do Produto.
+01/01/20 14:14:58 - ===========================================
+01/01/20 14:14:58 - Form: formVendas
+01/01/20 14:14:58 - Caption: Venda de produtos
+01/01/20 14:14:58 - Erro:Exception
+01/01/20 14:14:58 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+01/01/20 15:01:49 - ===========================================
+01/01/20 15:01:49 - Form: formVendas
+01/01/20 15:01:49 - Caption: Venda de produtos
+01/01/20 15:01:49 - Erro:Exception
+01/01/20 15:01:49 - Erro:Não há produtos no estoque suficiente para esta venda. Escola uma quantidade menor.
+01/01/20 15:01:57 - ===========================================
+01/01/20 15:01:57 - Form: formVendas
+01/01/20 15:01:57 - Caption: Venda de produtos
+01/01/20 15:01:57 - Erro:Exception
+01/01/20 15:01:57 - Erro:Não há produtos no estoque suficiente para esta venda. Escola uma quantidade menor.

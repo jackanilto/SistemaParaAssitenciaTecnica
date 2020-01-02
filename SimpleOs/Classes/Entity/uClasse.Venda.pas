@@ -94,6 +94,9 @@ type
     function EstornarVenda: iVenda;
     function calularDesconto: string;
     function calularAcrescimo: string;
+    function contarTotalItens(value: TClientDataSet): integer;
+    function somarItensDaVenda(value: TClientDataSet): Currency;
+    function setNomeFuncionario: string;
 
     function exportar: iVenda;
     procedure validarData(componet: tmaskEdit);
@@ -150,6 +153,26 @@ end;
 function TEntityVenda.codigoCadastro(sp: string): integer;
 begin
   result := FQuery.codigoCadastro('');
+end;
+
+function TEntityVenda.contarTotalItens(value: TClientDataSet): integer;
+var
+  total: integer;
+begin
+
+  result := 0;
+  total := 0;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+    total := total + value.FieldByName('Quantidade').AsInteger;
+    value.Next;
+  end;
+
+  result := total;
+
 end;
 
 constructor TEntityVenda.create;
@@ -501,7 +524,7 @@ begin
     FieldByName('OBSERACAO').AsString := FOBSERACAO;
 
     if FDATA_VENDA <> EmptyStr then
-    FieldByName('DATA_VENDA').AsDateTime := StrToDate(FDATA_VENDA);
+      FieldByName('DATA_VENDA').AsDateTime := StrToDate(FDATA_VENDA);
 
   end;
 
@@ -586,6 +609,32 @@ begin
   result := self;
 end;
 
+function TEntityVenda.setNomeFuncionario: string;
+begin
+  result := NomeFuncionarioLogado;
+end;
+
+function TEntityVenda.somarItensDaVenda(value: TClientDataSet): Currency;
+var
+  total: Currency;
+begin
+
+  result := 0;
+
+  value.First;
+
+  total := 0;
+
+  while not value.Eof do
+  begin
+    total := total + value.FieldByName('Total_do_produto').AsCurrency;
+    value.Next;
+  end;
+
+  result := total;
+
+end;
+
 function TEntityVenda.sqlPesquisa: iVenda;
 begin
   result := self;
@@ -611,7 +660,7 @@ var
   d: TDate;
 begin
   try
-    d := strtodate(componet.Text);
+    d := StrToDate(componet.Text);
   except
     componet.SetFocus;
     componet.Clear;

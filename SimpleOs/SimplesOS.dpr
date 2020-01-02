@@ -91,7 +91,8 @@ uses
   Form.Localizar.Clientes.Venda in 'Forms\Localizar\Form.Localizar.Clientes.Venda.pas' {formLocalizarClientesVenda},
   UClasse.Entity.Localizar.Cliente.Venda in 'Classes\Entity\Localizar\UClasse.Entity.Localizar.Cliente.Venda.pas',
   Form.Localizar.Produtos.Venda in 'Forms\Localizar\Form.Localizar.Produtos.Venda.pas' {formLocalizarProdutoVenda},
-  UClasse.Entity.Localizar.Produto.Venda in 'Classes\Entity\Localizar\UClasse.Entity.Localizar.Produto.Venda.pas';
+  UClasse.Entity.Localizar.Produto.Venda in 'Classes\Entity\Localizar\UClasse.Entity.Localizar.Produto.Venda.pas',
+  Form.venda.Confirmar.Pagamento in 'Forms\Form.venda.Confirmar.Pagamento.pas' {FormVendaConfirmarPagamento};
 
 {$R *.res}
 
@@ -100,5 +101,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TFormVendaConfirmarPagamento, FormVendaConfirmarPagamento);
   Application.Run;
 end.

@@ -9,7 +9,8 @@ uses
   Vcl.Imaging.jpeg, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Form.Localizar.Clientes.Venda, UClasse.Entity.Localizar.Cliente.Venda,
   UInterfaces, Form.Localizar.Produtos.Venda, Datasnap.DBClient,
-  UClasse.Entity.Itens.Venda;
+  UClasse.Entity.Itens.Venda, UClasse.Entity.Localizar.Produto.Venda,
+  UClasse.Venda, Form.Venda.Confirmar.Pagamento;
 
 type
   TformVendas = class(TForm)
@@ -30,7 +31,7 @@ type
     Panel5: TPanel;
     edtLocalizarProduto: TEdit;
     SpeedButton2: TSpeedButton;
-    Label5: TLabel;
+    lblProduto: TLabel;
     Image1: TImage;
     edtValorUnitario: TEdit;
     Label6: TLabel;
@@ -43,8 +44,8 @@ type
     SpeedButton4: TSpeedButton;
     SpeedButton5: TSpeedButton;
     Label8: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
+    lblTotalItens: TLabel;
+    lblTotalDaVenda: TLabel;
     Label11: TLabel;
     cds_tem_produtos: TClientDataSet;
     cds_tem_produtoscodigo_produto: TIntegerField;
@@ -55,6 +56,8 @@ type
     S_temp_produtos: TDataSource;
     Label4: TLabel;
     edtTotalDoProduto: TEdit;
+    lblOperador: TLabel;
+    Label9: TLabel;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -67,10 +70,18 @@ type
     procedure edtQuantidadeKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure edtQuantidadeExit(Sender: TObject);
+    procedure edtLocalizarProdutoKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
   private
     { Private declarations }
     FLocalizarClienteVenda: iLocalizarClienteVenda;
+    FLocalizarPrutoVenda: iLocalizarProdutosVenda;
+    FEntityVenda: iVenda;
     FEntityItensVenda: iItensVendas;
+    procedure calcularTotalPorQuantidade;
   public
     { Public declarations }
   end;
@@ -90,6 +101,8 @@ var
   SituacaoDoEstoque: string;
   valorUnitario: Currency;
   valorTotalDoProduto: Currency;
+  TotalDeItens: Integer;
+  TotalDaVenda: Currency;
 
 implementation
 
@@ -117,41 +130,80 @@ begin
       lblNomeDoCliente.Caption := FLocalizarClienteVenda.setNomeDoCliente;
 
       CodigoCliente := StrToInt(FLocalizarClienteVenda.setCodigoDoCliente);
-      NomeCliente := FLocalizarClienteVenda.setNomeDoCliente;
-      CPF_CNPJ_Cliente := FLocalizarClienteVenda.setCpf_CnpjDoCliente;
+
+      if CodigoCliente <> 0 then
+      begin
+
+        NomeCliente := FLocalizarClienteVenda.setNomeDoCliente;
+        CPF_CNPJ_Cliente := FLocalizarClienteVenda.setCpf_CnpjDoCliente;
+        edtLocalizarProduto.SetFocus;
+
+      end;
 
     end;
   end;
 end;
 
-procedure TformVendas.edtQuantidadeExit(Sender: TObject);
+procedure TformVendas.edtLocalizarProdutoKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = 13 then
+  begin
+    FLocalizarPrutoVenda.getCampo('CODIGO_BARRAS')
+      .getValor(edtLocalizarProduto.Text).sqlPesquisa;
+
+    SituacaoDoEstoque := FLocalizarPrutoVenda.setSituacaoDoEstoque;
+    CodigoDoProduto := FLocalizarPrutoVenda.setCodigoDoProduto;
+    NomeDoProduto := FLocalizarPrutoVenda.setNomeDoProduto;
+    CodigoDeBarras := FLocalizarPrutoVenda.setCodigoDeBarras;
+    QuantidadeDeProdutos := FLocalizarPrutoVenda.setQuantidade;
+    QuantidadeEmEstoque := FLocalizarPrutoVenda.setQuantidadeEmEstoque;
+    FLocalizarPrutoVenda.setFotoProduto(formVendas.Image1);
+    valorUnitario := FLocalizarPrutoVenda.setValorUnitarioProduto;
+    valorTotalDoProduto := FLocalizarPrutoVenda.setValorUnitarioProduto;
+
+    edtLocalizarProduto.Text := CodigoDeBarras;
+    edtQuantidade.Text := inttostr(QuantidadeDeProdutos);
+    edtValorUnitario.Text := CurrToStr(valorUnitario);
+    edtTotalDoProduto.Text := CurrToStr(valorTotalDoProduto);
+    lblProduto.Caption := NomeDoProduto;
+
+  end;
+end;
+
+procedure TformVendas.calcularTotalPorQuantidade;
 var
   total: Currency;
 begin
 
+  if StrToInt(edtQuantidade.Text) > QuantidadeDeProdutos then
+  begin
+    edtQuantidade.SetFocus;
+    raise Exception.Create
+      ('Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.');
+  end;
+
   total := FEntityItensVenda.calularTotalXquantidade(edtValorUnitario,
     edtQuantidade);
-
   valorTotalDoProduto := total;
-
   edtTotalDoProduto.Text := CurrToStr(total);
+  QuantidadeDeProdutos := StrToInt(edtQuantidade.Text);
+end;
+
+procedure TformVendas.edtQuantidadeExit(Sender: TObject);
+begin
+
+  calcularTotalPorQuantidade;
 
 end;
 
 procedure TformVendas.edtQuantidadeKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
-var
-  total: Currency;
 begin
   if Key = 13 then
   begin
 
-    total := FEntityItensVenda.calularTotalXquantidade(edtValorUnitario,
-      edtQuantidade);
-
-    valorTotalDoProduto := total;
-
-    edtTotalDoProduto.Text := CurrToStr(total);
+    calcularTotalPorQuantidade;
 
   end;
 end;
@@ -159,7 +211,14 @@ end;
 procedure TformVendas.FormCreate(Sender: TObject);
 begin
   FLocalizarClienteVenda := TEntityPesquisarCliente.new;
+  FLocalizarPrutoVenda := TEntityLocalizarProdutoVenda.new;
+  FEntityVenda := TEntityVenda.new;
   FEntityItensVenda := TEntityItensVenda.new;
+end;
+
+procedure TformVendas.FormShow(Sender: TObject);
+begin
+  lblOperador.Caption := FEntityVenda.setNomeFuncionario;
 end;
 
 procedure TformVendas.Panel1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -187,8 +246,12 @@ begin
   finally
     formLocalizarClientesVenda.Free;
 
-    edtLocalizarCPF.Text := CPF_CNPJ_Cliente;
-    lblNomeDoCliente.Caption := NomeCliente;
+    if CodigoCliente <> 0 then
+    begin
+      edtLocalizarCPF.Text := CPF_CNPJ_Cliente;
+      lblNomeDoCliente.Caption := NomeCliente;
+      edtLocalizarProduto.SetFocus;
+    end;
 
   end;
 end;
@@ -203,7 +266,9 @@ begin
 
     edtLocalizarProduto.Text := CodigoDeBarras;
     edtQuantidade.Text := inttostr(QuantidadeDeProdutos);
-    edtValorUnitario.Text := CurrToStr(valorUnitario)
+    edtValorUnitario.Text := CurrToStr(valorUnitario);
+    edtTotalDoProduto.Text := CurrToStr(valorTotalDoProduto);
+    lblProduto.Caption := NomeDoProduto;
 
   end;
 end;
@@ -212,6 +277,8 @@ procedure TformVendas.SpeedButton3Click(Sender: TObject);
 begin
   if CodigoDoProduto <> 0 then
   begin
+
+    calcularTotalPorQuantidade;
 
     try
       cds_tem_produtos.Open;
@@ -224,15 +291,50 @@ begin
       cds_tem_produtosTotal_do_produto.AsCurrency := valorTotalDoProduto;
 
       cds_tem_produtos.Post;
+
+      lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
+        FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+
+      lblTotalItens.Caption :=
+        inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
+
     except
-      on e: exception do
+      on e: Exception do
       begin
-        raise exception.Create('Erro ao tentar adicionar o produto na lista. ' +
+        raise Exception.Create('Erro ao tentar adicionar o produto na lista. ' +
           e.Message);
       end;
 
     end;
 
+  end;
+end;
+
+procedure TformVendas.SpeedButton4Click(Sender: TObject);
+begin
+
+  cds_tem_produtos.Delete;
+
+  lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
+    FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+
+  lblTotalItens.Caption :=
+    inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
+
+end;
+
+procedure TformVendas.SpeedButton5Click(Sender: TObject);
+begin
+
+  TotalDaVenda := FEntityVenda.somarItensDaVenda(cds_tem_produtos);
+
+  TotalDeItens := FEntityVenda.contarTotalItens(cds_tem_produtos);
+
+  FormVendaConfirmarPagamento := TFormVendaConfirmarPagamento.Create(self);
+  try
+    FormVendaConfirmarPagamento.ShowModal;
+  finally
+    FormVendaConfirmarPagamento.Free;
   end;
 end;
 

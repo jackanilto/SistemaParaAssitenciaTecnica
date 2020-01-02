@@ -1258,6 +1258,9 @@ type
     function EstornarVenda: iVenda;
     function calularDesconto: string;
     function calularAcrescimo: string;
+    function contarTotalItens(value: TclientDataSet): integer;
+    function somarItensDaVenda(value: TclientDataSet): Currency;
+    function setNomeFuncionario:string;
 
     function exportar: iVenda;
     procedure validarData(componet: tmaskEdit);
