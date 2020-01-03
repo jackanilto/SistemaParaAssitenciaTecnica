@@ -356,10 +356,6 @@ function TEntityVenda.getFORMA_PAGAMENTO(value: string): iVenda;
 begin
 
   result := self;
-
-  if value = EmptyStr then
-    raise exception.create('Infome o meio de pagamento da venda.');
-
   F_FORMA_PAGAMENTO := value;
 
 end;

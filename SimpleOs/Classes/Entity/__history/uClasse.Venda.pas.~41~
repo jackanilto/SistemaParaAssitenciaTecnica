@@ -40,6 +40,7 @@ type
     F_FORMA_PAGAMENTO: string;
     FSTATUS: string;
     FOBSERACAO: string;
+    FVENCIMENTO: string;
 
     FCodigo: integer;
     FNome: string;
@@ -81,6 +82,7 @@ type
     function getDesconto(value: string): iVenda; overload;
     function getACRESCIMO(value: string): iVenda; overload;
     function getTOTAL(value: string): iVenda; overload;
+    function getVENCIMENTO(value: string): iVenda;
     function getQUANTIDADE_PARCELAS(value: integer): iVenda;
     function getFORMA_PAGAMENTO(value: string): iVenda;
     function getSTATUS(value: string): iVenda;
@@ -94,8 +96,9 @@ type
     function EstornarVenda: iVenda;
     function calularDesconto: string;
     function calularAcrescimo: string;
-    function contarTotalItens(value: TClientDataSet): Currency;
+    function contarTotalItens(value: TClientDataSet): integer;
     function somarItensDaVenda(value: TClientDataSet): Currency;
+    function setNomeFuncionario: string;
 
     function exportar: iVenda;
     procedure validarData(componet: tmaskEdit);
@@ -155,8 +158,23 @@ begin
 end;
 
 function TEntityVenda.contarTotalItens(value: TClientDataSet): integer;
+var
+  total: integer;
 begin
-  result := value.RecordCount;
+
+  result := 0;
+  total := 0;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+    total := total + value.FieldByName('Quantidade').AsInteger;
+    value.Next;
+  end;
+
+  result := total;
+
 end;
 
 constructor TEntityVenda.create;
@@ -483,6 +501,17 @@ begin
   FValor := UpperCase(value);
 end;
 
+function TEntityVenda.getVENCIMENTO(value: string): iVenda;
+begin
+  result := self;
+
+  if value = '  /  /    ' then
+    FVENCIMENTO := ''
+  else
+    FVENCIMENTO := value;
+
+end;
+
 function TEntityVenda.Gravar: iVenda;
 begin
 
@@ -509,6 +538,9 @@ begin
 
     if FDATA_VENDA <> EmptyStr then
       FieldByName('DATA_VENDA').AsDateTime := StrToDate(FDATA_VENDA);
+
+    if FVENCIMENTO <> EmptyStr then
+      FieldByName('VENCIMENTO').AsDateTime := StrToDate(FVENCIMENTO);
 
   end;
 
@@ -591,6 +623,11 @@ end;
 function TEntityVenda.pesquisar: iVenda;
 begin
   result := self;
+end;
+
+function TEntityVenda.setNomeFuncionario: string;
+begin
+  result := NomeFuncionarioLogado;
 end;
 
 function TEntityVenda.somarItensDaVenda(value: TClientDataSet): Currency;

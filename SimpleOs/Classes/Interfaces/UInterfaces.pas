@@ -1308,6 +1308,8 @@ type
     function getQUANTIDADE(value: integer): iItensVendas;
     function getTOTAL(value: string): iItensVendas;
 
+    function gravarItensDaVenda(value: TclientDataSet): iItensVendas;
+
     function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): currency;
 
     function exportar: iItensVendas;
@@ -1459,11 +1461,10 @@ type
     function listarGrid(value: TDataSource): iNumeroParcelas;
     function ordenarGrid(column: TColumn): iNumeroParcelas;
 
-
-    function getID(value:integer):iNumeroParcelas;
-    function getNUM_PARCELAS(value:integer):iNumeroParcelas;
-    function getJUROS(value:real):iNumeroParcelas;
-    function getAPLICAR_NA_OS(value:string):iNumeroParcelas;
+    function getID(value: integer): iNumeroParcelas;
+    function getNUM_PARCELAS(value: integer): iNumeroParcelas;
+    function getJuros(value: real): iNumeroParcelas;
+    function getAPLICAR_NA_OS(value: string): iNumeroParcelas;
 
     function exportar: iNumeroParcelas;
     procedure validarData(componet: tmaskEdit);
@@ -1476,9 +1477,9 @@ type
   iCalcularParcelas = interface
     ['{A036FFF1-4FC1-4314-935E-7FE13D5679C1}']
 
-    function getvalor(value:currency):iCalcularParcelas;
-    function getNumeroParcelas(value:integer):iCalcularParcelas;
-    function valorDeCadaParcela:Currency;
+    function getValor(value: currency): iCalcularParcelas;
+    function getNumeroParcelas(value: integer): iCalcularParcelas;
+    function valorDeCadaParcela: currency;
 
   end;
 
@@ -1498,7 +1499,7 @@ type
     function ftTable: iFDTable;
     function FClassQuery: iConexaoQuery;
     function localizarRegistroEspecifico: iLocalizarRegistroEspecifico;
-    function calcularParcela:iCalcularParcelas;
+    function calcularParcela: iCalcularParcelas;
   end;
 
   iFactoryEntity = interface

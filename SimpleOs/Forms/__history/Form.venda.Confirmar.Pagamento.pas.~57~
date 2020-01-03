@@ -31,7 +31,7 @@ type
     edtConfirmarTroco: TEdit;
     Label8: TLabel;
     Label9: TLabel;
-    Label10: TLabel;
+    lblValorParcelado: TLabel;
     edtParcelado: TComboBox;
     Label4: TLabel;
     edtDataVencimento: TDateTimePicker;
@@ -51,6 +51,7 @@ type
     procedure edtConfirmarValorRecebidoKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbConfirmarVendaClick(Sender: TObject);
+    procedure edtParceladoChange(Sender: TObject);
   private
     procedure calcularDesconto;
     procedure validarParcelas;
@@ -58,6 +59,8 @@ type
 
   var
     totalDaVendaCalulado: CurrencY;
+    totalParcelado: CurrencY;
+    numeroDeParcelas: Integer;
 
     { Private declarations }
   public
@@ -109,6 +112,34 @@ procedure TFormVendaConfirmarPagamento.edtConfirmarValorRecebidoKeyUp
 begin
   if Key = 13 then
     calcularTroco;
+end;
+
+procedure TFormVendaConfirmarPagamento.edtParceladoChange(Sender: TObject);
+begin
+
+  if edtParcelado.Text = EmptyStr then
+    raise Exception.Create('Informe um valor para o parcelamento da venda');
+
+  if edtParcelado.Text = 'Avista' then
+  begin
+    lblValorParcelado.Caption := 'Valor a vista de ' +
+      FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
+    edtConfirmarFormaPagamento.Enabled := true;
+    edtConfirmarValorRecebido.Enabled := true;
+    edtConfirmarTroco.Enabled := true;
+  end
+  else
+  begin
+    lblValorParcelado.Caption := edtParcelado.Text + ' de ' +
+      FormatFloat('R$ ###,##0.00', TFactory.new.calcularParcela.getvalor
+      (totalDaVendaCalulado).getNumeroParcelas(StrToInt(edtParcelado.Text))
+      .valorDeCadaParcela);
+
+    edtConfirmarFormaPagamento.Enabled := false;
+    edtConfirmarValorRecebido.Enabled := false;
+    edtConfirmarTroco.Enabled := false;
+
+  end;
 end;
 
 procedure TFormVendaConfirmarPagamento.calcularDesconto;
@@ -192,6 +223,9 @@ begin
   totalDaVendaCalulado := TotalDaVenda;
 
   edtDataVencimento.Date := Date;
+
+  lblValorParcelado.Caption := 'Valor a vista de ' +
+    FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
 
 end;
 

@@ -2,7 +2,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'Confirmar venda'
+  Caption = #39
   ClientHeight = 451
   ClientWidth = 805
   Color = clBtnFace
@@ -171,6 +171,8 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     ParentBackground = False
     TabOrder = 5
     OnMouseDown = Panel1MouseDown
+    ExplicitLeft = 8
+    ExplicitTop = 24
     DesignSize = (
       805
       41)
@@ -272,7 +274,6 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     Color = 8406532
     ParentBackground = False
     TabOrder = 6
-    ExplicitTop = 390
     object sbConfirmarVenda: TSpeedButton
       Left = 20
       Top = 24
@@ -669,10 +670,10 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     ItemIndex = 0
     ParentFont = False
     TabOrder = 7
-    Text = 'Avista'
+    Text = #192' vista'
     OnChange = edtParceladoChange
     Items.Strings = (
-      'Avista')
+      #192' vista')
   end
   object edtDataVencimento: TDateTimePicker
     Left = 142

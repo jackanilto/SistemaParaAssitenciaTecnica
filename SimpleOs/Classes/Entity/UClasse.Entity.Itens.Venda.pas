@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Vcl.StdCtrls;
+  Vcl.StdCtrls, Datasnap.DBClient;
 
 type
 
@@ -72,6 +72,8 @@ type
     function getVALOR_UNITARIO(value: string): iItensVendas;
     function getQUANTIDADE(value: integer): iItensVendas;
     function getTOTAL(value: string): iItensVendas;
+
+    function gravarItensDaVenda(value:TClientDataSet):iItensVendas;
 
     function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): Currency;
 
@@ -347,6 +349,13 @@ begin
 
   end;
 
+end;
+
+function TEntityItensVenda.gravarItensDaVenda(
+  value: TClientDataSet): iItensVendas;
+begin
+   result := self;
+   {Inserir a códificação desta parte}
 end;
 
 function TEntityItensVenda.inserir: iItensVendas;

@@ -69,19 +69,6 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label5: TLabel
-    Left = 24
-    Top = 256
-    Width = 153
-    Height = 21
-    Caption = 'N'#250'mero de parcelas'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
   object Label6: TLabel
     Left = 385
     Top = 56
@@ -121,12 +108,38 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label4: TLabel
-    Left = 183
-    Top = 256
-    Width = 92
+  object Label9: TLabel
+    Left = 25
+    Top = 328
+    Width = 152
     Height = 21
-    Caption = 'Vencimento'
+    Caption = 'Valor parcelado em:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 131784
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblValorParcelado: TLabel
+    Left = 183
+    Top = 328
+    Width = 54
+    Height = 21
+    Caption = 'R$:0,00'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 131784
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 25
+    Top = 248
+    Width = 106
+    Height = 21
+    Caption = 'Parcelamento'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -134,28 +147,15 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label9: TLabel
-    Left = 25
-    Top = 328
-    Width = 136
-    Height = 28
-    Caption = 'Total parcelas:'
+  object Label5: TLabel
+    Left = 142
+    Top = 248
+    Width = 92
+    Height = 21
+    Caption = 'Vencimento'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = 131784
-    Font.Height = -20
-    Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
-  object Label10: TLabel
-    Left = 167
-    Top = 328
-    Width = 71
-    Height = 28
-    Caption = 'R$:0,00'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = 131784
-    Font.Height = -20
+    Font.Color = clWindowText
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -656,35 +656,37 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     ParentFont = False
     TabOrder = 4
   end
-  object edtConfirmarParcela: TEdit
+  object edtParcelado: TComboBox
     Left = 24
-    Top = 283
-    Width = 153
+    Top = 275
+    Width = 112
     Height = 29
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
+    ItemIndex = 0
     ParentFont = False
     TabOrder = 7
-    OnExit = edtConfirmarParcelaExit
-    OnKeyUp = edtConfirmarParcelaKeyUp
+    Text = 'Avista'
+    OnChange = edtParceladoChange
+    Items.Strings = (
+      'Avista')
   end
-  object edtConfirmarVencimento: TMaskEdit
-    Left = 183
-    Top = 283
-    Width = 104
+  object edtDataVencimento: TDateTimePicker
+    Left = 142
+    Top = 275
+    Width = 145
     Height = 29
-    EditMask = '00/00/0000'
+    Date = 43833.000000000000000000
+    Time = 0.724787395833118400
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    MaxLength = 10
     ParentFont = False
     TabOrder = 8
-    Text = '  /  /    '
   end
 end

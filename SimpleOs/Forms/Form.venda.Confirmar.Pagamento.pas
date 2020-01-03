@@ -120,9 +120,9 @@ begin
   if edtParcelado.Text = EmptyStr then
     raise Exception.Create('Informe um valor para o parcelamento da venda');
 
-  if edtParcelado.Text = 'Avista' then
+  if edtParcelado.Text = 'À vista' then
   begin
-    lblValorParcelado.Caption := 'Valor a vista de ' +
+    lblValorParcelado.Caption := 'Valor à vista de ' +
       FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
     edtConfirmarFormaPagamento.Enabled := true;
     edtConfirmarValorRecebido.Enabled := true;
@@ -156,6 +156,9 @@ begin
     TotalDaVenda - desconto);
 
   totalDaVendaCalulado := TotalDaVenda - desconto;
+
+  lblValorParcelado.Caption := 'Valor à vista de ' +
+    FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
 
 end;
 
@@ -215,6 +218,7 @@ end;
 
 procedure TFormVendaConfirmarPagamento.FormShow(Sender: TObject);
 begin
+
   edtConfirmarTotalDaVenda.Text := FormatFloat('R$ ###,##0.00', TotalDaVenda);
   edtConfirmarDesconto.Text := FormatFloat('R$ ###,##0.00', 0);
   lblTotalAPagar.Caption := FormatFloat('R$ ###,##0.00', TotalDaVenda);
@@ -224,8 +228,10 @@ begin
 
   edtDataVencimento.Date := Date;
 
-  lblValorParcelado.Caption := 'Valor a vista de ' +
+  lblValorParcelado.Caption := 'Valor à vista de ' +
     FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
+
+  FEntityVenda.inserir;
 
 end;
 
@@ -243,13 +249,33 @@ begin
 end;
 
 procedure TFormVendaConfirmarPagamento.sbConfirmarVendaClick(Sender: TObject);
+var
+  desconto_atual: string;
+  parcelas: Integer;
 begin
+
+  desconto_atual := TFactory.new.validarDocumento.limparValorRS
+    (edtConfirmarDesconto.Text);
+
+  try
+    if edtParcelado.Text = 'À vista' then
+      parcelas := 1
+    else
+      parcelas := StrToInt(edtParcelado.Text);
+  except
+    on e: Exception do
+    begin
+      raise Exception.Create
+        ('Informe um valor válido para o campo Parcelamento.');
+    end;
+
+  end;
+
   FEntityVenda.getID_CLIENTE(CodigoCliente).getNOME_CLIENTE(NomeCliente)
     .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
-    .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(edtConfirmarDesconto.Text)
-    .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS
-    (StrToInt(edtParcelado.Text)).getFORMA_PAGAMENTO
-    (edtConfirmarFormaPagamento.Text);
+    .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(desconto_atual)
+    .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS(parcelas)
+    .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text).gravar;
 
 end;
 

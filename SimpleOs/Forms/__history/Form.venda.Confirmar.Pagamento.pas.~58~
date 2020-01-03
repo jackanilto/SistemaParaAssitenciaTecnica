@@ -59,6 +59,8 @@ type
 
   var
     totalDaVendaCalulado: CurrencY;
+    totalParcelado: CurrencY;
+    numeroDeParcelas: Integer;
 
     { Private declarations }
   public
@@ -115,12 +117,29 @@ end;
 procedure TFormVendaConfirmarPagamento.edtParceladoChange(Sender: TObject);
 begin
 
-  lblValorParcelado.Caption := edtParcelado.Text+' '+
-  FormatFloat('R$ ###,##0.00', TFactory.new
-                               .calcularParcela
-                               .getvalor(totalDaVendaCalulado)
-                               .getNumeroParcelas(StrToInt(edtParcelado.Text))
-                               .valorDeCadaParcela);
+  if edtParcelado.Text = EmptyStr then
+    raise Exception.Create('Informe um valor para o parcelamento da venda');
+
+  if edtParcelado.Text = 'Avista' then
+  begin
+    lblValorParcelado.Caption := 'Valor a vista de ' +
+      FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
+    edtConfirmarFormaPagamento.Enabled := true;
+    edtConfirmarValorRecebido.Enabled := true;
+    edtConfirmarTroco.Enabled := true;
+  end
+  else
+  begin
+    lblValorParcelado.Caption := edtParcelado.Text + ' de ' +
+      FormatFloat('R$ ###,##0.00', TFactory.new.calcularParcela.getvalor
+      (totalDaVendaCalulado).getNumeroParcelas(StrToInt(edtParcelado.Text))
+      .valorDeCadaParcela);
+
+    edtConfirmarFormaPagamento.Enabled := false;
+    edtConfirmarValorRecebido.Enabled := false;
+    edtConfirmarTroco.Enabled := false;
+
+  end;
 end;
 
 procedure TFormVendaConfirmarPagamento.calcularDesconto;
@@ -205,6 +224,9 @@ begin
 
   edtDataVencimento.Date := Date;
 
+  lblValorParcelado.Caption := 'Valor a vista de ' +
+    FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
+
 end;
 
 procedure TFormVendaConfirmarPagamento.Panel1MouseDown(Sender: TObject;
@@ -221,7 +243,13 @@ begin
 end;
 
 procedure TFormVendaConfirmarPagamento.sbConfirmarVendaClick(Sender: TObject);
+var
+  desconto_atual: string;
 begin
+
+  desconto_atual := TFactory.new.validarDocumento.limparValorRS
+    (edtConfirmarDesconto.Text);
+
   FEntityVenda.getID_CLIENTE(CodigoCliente).getNOME_CLIENTE(NomeCliente)
     .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
     .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(edtConfirmarDesconto.Text)
