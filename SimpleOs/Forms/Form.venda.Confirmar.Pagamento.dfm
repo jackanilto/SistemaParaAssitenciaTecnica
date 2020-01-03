@@ -3,7 +3,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
   Top = 0
   BorderStyle = bsNone
   Caption = 'Confirmar venda'
-  ClientHeight = 465
+  ClientHeight = 451
   ClientWidth = 805
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -31,7 +31,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 24
+    Left = 25
     Top = 128
     Width = 72
     Height = 21
@@ -135,8 +135,8 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     ParentFont = False
   end
   object Label9: TLabel
-    Left = 24
-    Top = 336
+    Left = 25
+    Top = 328
     Width = 136
     Height = 28
     Caption = 'Total parcelas:'
@@ -148,8 +148,8 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     ParentFont = False
   end
   object Label10: TLabel
-    Left = 166
-    Top = 336
+    Left = 167
+    Top = 328
     Width = 71
     Height = 28
     Caption = 'R$:0,00'
@@ -171,7 +171,6 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     ParentBackground = False
     TabOrder = 5
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 764
     DesignSize = (
       805
       41)
@@ -265,7 +264,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
   end
   object Panel3: TPanel
     Left = 0
-    Top = 390
+    Top = 376
     Width = 805
     Height = 75
     Align = alBottom
@@ -273,8 +272,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     Color = 8406532
     ParentBackground = False
     TabOrder = 6
-    ExplicitTop = 351
-    ExplicitWidth = 764
+    ExplicitTop = 390
     object sbConfirmarVenda: TSpeedButton
       Left = 20
       Top = 24
@@ -592,7 +590,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
   object edtConfirmarTotalDaVenda: TEdit
     Left = 24
     Top = 83
-    Width = 264
+    Width = 263
     Height = 29
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -605,7 +603,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
   object edtConfirmarDesconto: TEdit
     Left = 24
     Top = 155
-    Width = 264
+    Width = 263
     Height = 29
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

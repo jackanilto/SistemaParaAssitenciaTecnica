@@ -300,6 +300,12 @@
             <Form>FormVendaConfirmarPagamento</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Numero.Parcelas.pas"/>
+        <DCCReference Include="Forms\Form.Numero.Parcelas.pas">
+            <Form>formNumeroParcelas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Calcular.Parcela.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

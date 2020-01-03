@@ -1432,6 +1432,56 @@ type
 
   end;
 
+  iNumeroParcelas = interface
+    ['{CEA04445-CE41-4199-A3DA-214579087AB6}']
+
+    function nomeTabela(value: string): iNumeroParcelas;
+    function getCampo(value: string): iNumeroParcelas;
+    function getValor(value: string): iNumeroParcelas;
+    function getDataInicial(value: TDate): iNumeroParcelas;
+    function getDataFinal(value: TDate): iNumeroParcelas;
+    function open(value: string): iNumeroParcelas;
+    function pesquisar: iNumeroParcelas;
+    function ExecSql: iNumeroParcelas;
+    function sqlPesquisa: iNumeroParcelas;
+    function sqlPesquisaData: iNumeroParcelas;
+    function sqlPesquisaEstatica: iNumeroParcelas;
+
+    function abrir: iNumeroParcelas;
+    function inserir: iNumeroParcelas;
+    function gravar: iNumeroParcelas;
+    function deletar: iNumeroParcelas;
+    function atualizar: iNumeroParcelas;
+    function editar: iNumeroParcelas;
+    function cancelar: iNumeroParcelas;
+    function fecharQuery: iNumeroParcelas;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iNumeroParcelas;
+    function ordenarGrid(column: TColumn): iNumeroParcelas;
+
+
+    function getID(value:integer):iNumeroParcelas;
+    function getNUM_PARCELAS(value:integer):iNumeroParcelas;
+    function getJUROS(value:real):iNumeroParcelas;
+    function getAPLICAR_NA_OS(value:string):iNumeroParcelas;
+
+    function exportar: iNumeroParcelas;
+    procedure validarData(componet: tmaskEdit);
+
+    function getCodigo(value: integer): iNumeroParcelas;
+    function getNome(value: string): iNumeroParcelas;
+
+  end;
+
+  iCalcularParcelas = interface
+    ['{A036FFF1-4FC1-4314-935E-7FE13D5679C1}']
+
+    function getvalor(value:currency):iCalcularParcelas;
+    function getNumeroParcelas(value:integer):iCalcularParcelas;
+    function valorDeCadaParcela:Currency;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

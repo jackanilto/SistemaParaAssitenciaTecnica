@@ -2432,3 +2432,9 @@ At line 1, column 35
 02/01/20 20:28:42 - Caption: Confirmar venda
 02/01/20 20:28:42 - Erro:Exception
 02/01/20 20:28:42 - Erro:Informe um valor válido para o Desconto.
+03/01/20 14:39:41 - ===========================================
+03/01/20 14:39:41 - Form: formNumeroParcelas
+03/01/20 14:39:41 - Caption: Configurar Número de parcelas
+03/01/20 14:39:41 - Erro:Exception
+03/01/20 14:39:41 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of PRIMARY or UNIQUE KEY constraint "PK_NUMERO_PARCELAS_1" on table "NUMERO_PARCELAS"
+Problematic key value is ("ID" = 2)

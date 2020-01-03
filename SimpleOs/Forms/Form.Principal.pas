@@ -74,6 +74,7 @@ type
     acCadastrarServicos: TAction;
     acDadosEmpresa: TAction;
     acVenda: TAction;
+    acNumeroDeParcelas: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -105,6 +106,7 @@ type
     procedure acCadastrarServicosExecute(Sender: TObject);
     procedure acDadosEmpresaExecute(Sender: TObject);
     procedure acVendaExecute(Sender: TObject);
+    procedure acNumeroDeParcelasExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -130,7 +132,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Transportadora, Form.Cadastro.Produtos,
   Form.Cadastro.Funcionarios, Form.Cadastro.Situacao.Ordem,
   Form.Saidas.Produtos, Form.Ordem.Servico, Form.Criar.Ordem.Servico,
-  Form.Cadastro.Servicos, Form.Cadastro.Empresa, Form.Venda;
+  Form.Cadastro.Servicos, Form.Cadastro.Empresa, Form.Venda,
+  Form.Numero.Parcelas;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -276,6 +279,12 @@ begin
     spvMovimentacao.Opened := true;
     F_SplitView := spvMovimentacao;
   end;
+end;
+
+procedure TformPrincipal.acNumeroDeParcelasExecute(Sender: TObject);
+begin
+  formNumeroParcelas := TformNumeroParcelas.Create(self);
+  TFactory.new.criarJanela.formShow(formNumeroParcelas, '');
 end;
 
 procedure TformPrincipal.acOrdemServicoExecute(Sender: TObject);

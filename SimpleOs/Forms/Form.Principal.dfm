@@ -7084,13 +7084,12 @@ object formPrincipal: TformPrincipal
   object spvCadastros: TSplitView
     Left = 323
     Top = 57
-    Width = 0
+    Width = 173
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
     DockSite = True
-    Opened = False
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
@@ -7159,6 +7158,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acDadosEmpresa
+            end
+            item
+              Action = acNumeroDeParcelas
             end>
           TextColor = 13402157
         end>
@@ -7233,7 +7235,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 323
+    Left = 496
     Top = 57
     Width = 0
     Height = 467
@@ -7243,9 +7245,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 323
   end
   object spvExtras: TSplitView
-    Left = 323
+    Left = 496
     Top = 57
     Width = 0
     Height = 467
@@ -7256,9 +7259,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 323
   end
   object spvSobre: TSplitView
-    Left = 323
+    Left = 496
     Top = 57
     Width = 0
     Height = 467
@@ -7269,9 +7273,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 323
   end
   object spvConfiguracoes: TSplitView
-    Left = 323
+    Left = 496
     Top = 57
     Width = 0
     Height = 467
@@ -7282,6 +7287,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 323
   end
   object ImageList1: TImageList
     Height = 24
@@ -8010,6 +8016,10 @@ object formPrincipal: TformPrincipal
     object acVenda: TAction
       Caption = 'Venda de produtos'
       OnExecute = acVendaExecute
+    end
+    object acNumeroDeParcelas: TAction
+      Caption = 'N'#250'mero de parcelas'
+      OnExecute = acNumeroDeParcelasExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu
