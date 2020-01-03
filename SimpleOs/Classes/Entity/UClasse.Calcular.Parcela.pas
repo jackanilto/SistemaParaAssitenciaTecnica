@@ -2,7 +2,7 @@ unit UClasse.Calcular.Parcela;
 
 interface
 
-uses UInterfaces, UDados.Conexao, FireDAC.Comp.Client;
+uses UInterfaces, UDados.Conexao, FireDAC.Comp.Client, System.SysUtils;
 
 type
   TCalcularParcela = class(TInterfacedObject, iCalcularParcelas)
@@ -35,7 +35,7 @@ end;
 
 destructor TCalcularParcela.destroy;
 begin
-
+  FreeAndNil(FQuery);
   inherited;
 end;
 
@@ -57,7 +57,30 @@ begin
 end;
 
 function TCalcularParcela.valorDeCadaParcela: Currency;
+var
+  valorDaParcela: Currency;
+  Fjuros: Real;
+  valorParceladoComJuros: Currency;
 begin
+
+  result := 0;
+
+  FQuery.Active := false;
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add('select * from NUMERO_PARCELAS where NUM_PARCELAS =:n');
+  FQuery.ParamByName('n').AsInteger := FNumeroParcela;
+  FQuery.Active := true;
+
+  if FQuery.RecordCount >= 1 then
+  begin
+
+    valorDaParcela := FValor / FNumeroParcela;
+    Fjuros := FQuery.FieldByName('JUROS').AsFloat;
+
+    valorParceladoComJuros := valorDaParcela * (Fjuros / 100);
+    result := valorDaParcela + valorParceladoComJuros;
+
+  end;
 
 end;
 

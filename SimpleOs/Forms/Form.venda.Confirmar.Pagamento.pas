@@ -24,18 +24,18 @@ type
     Label2: TLabel;
     Label3: TLabel;
     lblTotalAPagar: TLabel;
-    Label5: TLabel;
     edtConfirmarFormaPagamento: TComboBox;
     Label6: TLabel;
     edtConfirmarValorRecebido: TEdit;
     Label7: TLabel;
     edtConfirmarTroco: TEdit;
     Label8: TLabel;
-    Label4: TLabel;
     Label9: TLabel;
-    Label10: TLabel;
-    edtConfirmarParcela: TEdit;
-    edtConfirmarVencimento: TMaskEdit;
+    lblValorParcelado: TLabel;
+    edtParcelado: TComboBox;
+    Label4: TLabel;
+    edtDataVencimento: TDateTimePicker;
+    Label5: TLabel;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -51,6 +51,7 @@ type
     procedure edtConfirmarValorRecebidoKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbConfirmarVendaClick(Sender: TObject);
+    procedure edtParceladoChange(Sender: TObject);
   private
     procedure calcularDesconto;
     procedure validarParcelas;
@@ -58,6 +59,8 @@ type
 
   var
     totalDaVendaCalulado: CurrencY;
+    totalParcelado: CurrencY;
+    numeroDeParcelas: Integer;
 
     { Private declarations }
   public
@@ -111,6 +114,34 @@ begin
     calcularTroco;
 end;
 
+procedure TFormVendaConfirmarPagamento.edtParceladoChange(Sender: TObject);
+begin
+
+  if edtParcelado.Text = EmptyStr then
+    raise Exception.Create('Informe um valor para o parcelamento da venda');
+
+  if edtParcelado.Text = 'Avista' then
+  begin
+    lblValorParcelado.Caption := 'Valor a vista de ' +
+      FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
+    edtConfirmarFormaPagamento.Enabled := true;
+    edtConfirmarValorRecebido.Enabled := true;
+    edtConfirmarTroco.Enabled := true;
+  end
+  else
+  begin
+    lblValorParcelado.Caption := edtParcelado.Text + ' de ' +
+      FormatFloat('R$ ###,##0.00', TFactory.new.calcularParcela.getvalor
+      (totalDaVendaCalulado).getNumeroParcelas(StrToInt(edtParcelado.Text))
+      .valorDeCadaParcela);
+
+    edtConfirmarFormaPagamento.Enabled := false;
+    edtConfirmarValorRecebido.Enabled := false;
+    edtConfirmarTroco.Enabled := false;
+
+  end;
+end;
+
 procedure TFormVendaConfirmarPagamento.calcularDesconto;
 var
   desconto: CurrencY;
@@ -133,16 +164,16 @@ var
   parcela: Integer;
 begin
   try
-    parcela := StrToInt(edtConfirmarParcela.Text);
+    parcela := StrToInt(edtParcelado.Text);
   except
     raise Exception.Create
       ('Informe um valor válido para o número de parcelas.');
   end;
-  if edtConfirmarParcela.Text = '0' then
-    edtConfirmarParcela.Text := '1';
+  if edtParcelado.Text = '0' then
+    edtParcelado.Text := '1';
   if edtConfirmarTotalDaVenda.Text = EmptyStr then
-    edtConfirmarParcela.Text := '1';
-  if edtConfirmarParcela.Text = '1' then
+    edtParcelado.Text := '1';
+  if edtParcelado.Text = '1' then
   begin
     edtConfirmarFormaPagamento.Enabled := true;
     edtConfirmarValorRecebido.Enabled := true;
@@ -176,6 +207,10 @@ begin
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
     (edtConfirmarFormaPagamento);
+
+  TFactory.new.ftTable.FD_Table('NUMERO_PARCELAS')
+    .getCampoTabela('NUM_PARCELAS').popularComponenteComboBox(edtParcelado);
+
 end;
 
 procedure TFormVendaConfirmarPagamento.FormShow(Sender: TObject);
@@ -185,9 +220,13 @@ begin
   lblTotalAPagar.Caption := FormatFloat('R$ ###,##0.00', TotalDaVenda);
   edtConfirmarValorRecebido.Text := FormatFloat('R$ ###,##0.00', 0);
   edtConfirmarTroco.Text := FormatFloat('R$ ###,##0.00', 0);
-  edtConfirmarParcela.Text := '1';
-  edtConfirmarVencimento.Text := DateToStr(date);
   totalDaVendaCalulado := TotalDaVenda;
+
+  edtDataVencimento.Date := Date;
+
+  lblValorParcelado.Caption := 'Valor a vista de ' +
+    FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
+
 end;
 
 procedure TFormVendaConfirmarPagamento.Panel1MouseDown(Sender: TObject;
@@ -206,10 +245,10 @@ end;
 procedure TFormVendaConfirmarPagamento.sbConfirmarVendaClick(Sender: TObject);
 begin
   FEntityVenda.getID_CLIENTE(CodigoCliente).getNOME_CLIENTE(NomeCliente)
-    .getDATA_VENDA(DateToStr(date)).getHORA_VENDA(TimeToStr(time))
+    .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
     .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(edtConfirmarDesconto.Text)
     .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS
-    (StrToInt(edtConfirmarParcela.Text)).getFORMA_PAGAMENTO
+    (StrToInt(edtParcelado.Text)).getFORMA_PAGAMENTO
     (edtConfirmarFormaPagamento.Text);
 
 end;

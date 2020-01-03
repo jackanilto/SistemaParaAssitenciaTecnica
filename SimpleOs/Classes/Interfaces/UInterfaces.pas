@@ -1498,6 +1498,7 @@ type
     function ftTable: iFDTable;
     function FClassQuery: iConexaoQuery;
     function localizarRegistroEspecifico: iLocalizarRegistroEspecifico;
+    function calcularParcela:iCalcularParcelas;
   end;
 
   iFactoryEntity = interface

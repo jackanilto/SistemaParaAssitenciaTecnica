@@ -216,8 +216,17 @@ begin
 end;
 
 function TEntityVendasParcelas.gerarParcelas: iParcelasVendas;
+var
+  i: integer;
 begin
-  { CÓDIFICAR ESTA PARTE ASSIM QUE A PARTE DE VENDAS ESTIVER FINALIZADA }
+
+  result := self;
+
+  for i := 0 to FQUANTIDADE_PARCELAS do
+  begin
+    {TODO:Continuar desta parte}
+  end;
+
 end;
 
 function TEntityVendasParcelas.getCampo(value: string): iParcelasVendas;

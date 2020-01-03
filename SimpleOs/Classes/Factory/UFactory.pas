@@ -4,7 +4,8 @@ interface
 
 uses UInterfaces, UClasse.Criar.Janela, UClasse.Validar.Documento,
   UClasse.Calcular.Juros, UClasse.Cript.password, UClasse.Entity.Table,
-  UClasse.Query, UClasse.Localizar.Registro.Especifico;
+  UClasse.Query, UClasse.Localizar.Registro.Especifico,
+  UClasse.Calcular.Parcela;
 
 type
   TFactory = class(TInterfacedObject, iFactory)
@@ -22,6 +23,7 @@ type
     function ftTable: iFDTable;
     function CalcJuros<T>: iCalcularJuros;
     function localizarRegistroEspecifico: iLocalizarRegistroEspecifico;
+    function calcularParcela: iCalcularParcelas;
     constructor create;
     destructor destroy; override;
     class function new: iFactory;
@@ -42,6 +44,11 @@ end;
 function TFactory.CalcularJuros: iCalcularJuros;
 begin
   result := TCalcularJuros.new;
+end;
+
+function TFactory.calcularParcela: iCalcularParcelas;
+begin
+  result := TCalcularParcela.new;
 end;
 
 constructor TFactory.create;
@@ -82,7 +89,7 @@ end;
 
 function TFactory.localizarRegistroEspecifico: iLocalizarRegistroEspecifico;
 begin
-   result := TClassLocalizarRegistro.new;
+  result := TClassLocalizarRegistro.new;
 end;
 
 class function TFactory.new: iFactory;

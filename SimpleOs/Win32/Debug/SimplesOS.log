@@ -2438,3 +2438,23 @@ At line 1, column 35
 03/01/20 14:39:41 - Erro:Exception
 03/01/20 14:39:41 - Erro:Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of PRIMARY or UNIQUE KEY constraint "PK_NUMERO_PARCELAS_1" on table "NUMERO_PARCELAS"
 Problematic key value is ("ID" = 2)
+03/01/20 17:31:12 - ===========================================
+03/01/20 17:31:12 - Form: FormVendaConfirmarPagamento
+03/01/20 17:31:12 - Caption: Confirmar venda
+03/01/20 17:31:12 - Erro:EConvertError
+03/01/20 17:31:12 - Erro:'Avista' is not a valid integer value
+03/01/20 17:39:37 - ===========================================
+03/01/20 17:39:37 - Form: FormVendaConfirmarPagamento
+03/01/20 17:39:37 - Caption: Confirmar venda
+03/01/20 17:39:37 - Erro:EConvertError
+03/01/20 17:39:37 - Erro:'Avista' is not a valid integer value
+03/01/20 17:39:42 - ===========================================
+03/01/20 17:39:42 - Form: FormVendaConfirmarPagamento
+03/01/20 17:39:42 - Caption: Confirmar venda
+03/01/20 17:39:42 - Erro:EConvertError
+03/01/20 17:39:42 - Erro:'Avista' is not a valid integer value
+03/01/20 17:43:54 - ===========================================
+03/01/20 17:43:54 - Form: FormVendaConfirmarPagamento
+03/01/20 17:43:54 - Caption: Confirmar venda
+03/01/20 17:43:54 - Erro:Exception
+03/01/20 17:43:54 - Erro:Informe um valor válido para o Desconto.
