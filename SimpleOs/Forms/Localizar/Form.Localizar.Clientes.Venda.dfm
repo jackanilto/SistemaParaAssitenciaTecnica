@@ -29,8 +29,6 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitLeft = -181
-    ExplicitWidth = 843
     DesignSize = (
       807
       41)
@@ -131,9 +129,6 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -94
-    ExplicitTop = 240
-    ExplicitWidth = 843
     object Label1: TLabel
       Left = 232
       Top = 7
@@ -223,7 +218,9 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
+    ReadOnly = True
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

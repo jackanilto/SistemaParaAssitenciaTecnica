@@ -10,7 +10,7 @@ uses
   Form.Localizar.Clientes.Venda, UClasse.Entity.Localizar.Cliente.Venda,
   UInterfaces, Form.Localizar.Produtos.Venda, Datasnap.DBClient,
   UClasse.Entity.Itens.Venda, UClasse.Entity.Localizar.Produto.Venda,
-  UClasse.Venda, Form.Venda.Confirmar.Pagamento;
+  UClasse.Venda, Form.Venda.Confirmar.Pagamento, UClasse.Venda.Parcelas;
 
 type
   TformVendas = class(TForm)
@@ -20,7 +20,7 @@ type
     Panel3: TPanel;
     sbNovo: TSpeedButton;
     sbCancelar: TSpeedButton;
-    Label1: TLabel;
+    lblVenda: TLabel;
     Label2: TLabel;
     Panel2: TPanel;
     Panel4: TPanel;
@@ -89,6 +89,7 @@ var
 
   FEntityVenda: iVenda;
   FEntityItensVenda: iItensVendas;
+  FentityParcelas: iParcelasVendas;
 
   CodigoCliente: Integer;
   NomeCliente: string;
@@ -119,7 +120,9 @@ begin
     if UpperCase(edtLocalizarCPF.Text) = 'AA' then
     begin
       lblNomeDoCliente.Caption := 'Cliente não informado';
-      edtLocalizarCPF.Text := '000.000.000-00'
+      edtLocalizarCPF.Text := '000.000.000-00';
+      CodigoCliente := 0;
+      NomeCliente := 'Cliente não informado';
     end
     else
     begin
@@ -211,10 +214,16 @@ end;
 
 procedure TformVendas.FormCreate(Sender: TObject);
 begin
+
   FLocalizarClienteVenda := TEntityPesquisarCliente.new;
   FLocalizarPrutoVenda := TEntityLocalizarProdutoVenda.new;
   FEntityVenda := TEntityVenda.new;
   FEntityItensVenda := TEntityItensVenda.new;
+  FentityParcelas := TEntityVendasParcelas.new;
+
+  CodigoCliente := 0;
+  NomeCliente := 'Cliente não informado';
+
 end;
 
 procedure TformVendas.FormShow(Sender: TObject);

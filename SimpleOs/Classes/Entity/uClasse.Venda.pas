@@ -42,6 +42,8 @@ type
     FOBSERACAO: string;
     FVENCIMENTO: string;
 
+    FTipo_De_Venda: string;
+
     FCodigo: integer;
     FNome: string;
 
@@ -99,6 +101,8 @@ type
     function contarTotalItens(value: TClientDataSet): integer;
     function somarItensDaVenda(value: TClientDataSet): Currency;
     function setNomeFuncionario: string;
+    function setCodigoVenda: integer;
+    function tipoDeVenda(value: string): iVenda;
 
     function exportar: iVenda;
     procedure validarData(componet: tmaskEdit);
@@ -356,7 +360,18 @@ function TEntityVenda.getFORMA_PAGAMENTO(value: string): iVenda;
 begin
 
   result := self;
-  F_FORMA_PAGAMENTO := value;
+
+  if FTipo_De_Venda = 'à vista' then
+  begin
+
+    if value = EmptyStr then
+      raise exception.create('Infome o meio de pagamento do venda');
+
+    F_FORMA_PAGAMENTO := value;
+
+  end
+  else
+    F_FORMA_PAGAMENTO := value;
 
 end;
 
@@ -621,6 +636,11 @@ begin
   result := self;
 end;
 
+function TEntityVenda.setCodigoVenda: integer;
+begin
+  result := FQuery.TQuery.FieldByName('ID').AsInteger;
+end;
+
 function TEntityVenda.setNomeFuncionario: string;
 begin
   result := NomeFuncionarioLogado;
@@ -665,6 +685,12 @@ begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
     .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+function TEntityVenda.tipoDeVenda(value: string): iVenda;
+begin
+  result := self;
+  FTipo_De_Venda := value;
 end;
 
 procedure TEntityVenda.validarData(componet: tmaskEdit);

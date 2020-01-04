@@ -95,6 +95,7 @@ type
     function getSUBTOTAL(value: TEdit): iParcelasVendas;
     function calcularTotal: string;
     function gerarParcelas: iParcelasVendas;
+    function gerarParcelaAvista: iParcelasVendas;
 
     function exportar: iParcelasVendas;
     procedure validarData(componet: tmaskEdit);
@@ -218,13 +219,32 @@ end;
 function TEntityVendasParcelas.gerarParcelas: iParcelasVendas;
 var
   i: integer;
+  vencimento: TDate;
 begin
 
   result := self;
 
-  for i := 0 to FQUANTIDADE_PARCELAS do
+  vencimento := StrToDate(FDATA_VENCIMENTO);
+
+  for i := 1 to FQUANTIDADE_PARCELAS do
   begin
-    {TODO:Continuar desta parte}
+    FQuery.TQuery.Insert;
+    with FQuery.TQuery do
+    begin
+      FieldByName('id').AsInteger := FQuery.codigoCadastro
+        ('SP_GEN_PARCELAS_VENDAS_ID');
+      FieldByName('ID_VENDA').AsInteger := FID_VENDA;
+      FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+      FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
+      FieldByName('QUANTIDADE_PARCELAS').AsInteger := FQUANTIDADE_PARCELAS;
+      FieldByName('PARCELA').AsInteger := i;
+      FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
+      FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
+      vencimento := IncMonth(vencimento, 1);
+    end;
+
+    FQuery.TQuery.Post;
+
   end;
 
 end;
@@ -620,6 +640,44 @@ end;
 function TEntityVendasParcelas.pesquisar: iParcelasVendas;
 begin
   result := self;
+end;
+
+function TEntityVendasParcelas.gerarParcelaAvista: iParcelasVendas;
+var
+  i: integer;
+  vencimento: TDate;
+begin
+
+  result := self;
+
+  FQuery.TQuery.Insert;
+  with FQuery.TQuery do
+  begin
+    FieldByName('id').AsInteger := FQuery.codigoCadastro
+      ('SP_GEN_PARCELAS_VENDAS_ID');
+    FieldByName('ID_VENDA').AsInteger := FID_VENDA;
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
+    FieldByName('QUANTIDADE_PARCELAS').AsInteger := FQUANTIDADE_PARCELAS;
+    FieldByName('PARCELA').AsInteger := 1;
+    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
+    FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
+    FieldByName('JUROS').AsFloat := 0;
+    FieldByName('MULTA').AsFloat := 0;
+    FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FieldByName('TOTAL').AsCurrency := FVALOR_DA_PARCELA;
+    FieldByName('DATA_PAGAMENTO').AsDateTime := Date;
+    FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+    FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
+    FieldByName('PAGO').AsString := 'sim';
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+    vencimento := IncMonth(vencimento, 1);
+
+    FQuery.TQuery.Post;
+
+  end;
+
 end;
 
 function TEntityVendasParcelas.quitarParcelas: iParcelasVendas;

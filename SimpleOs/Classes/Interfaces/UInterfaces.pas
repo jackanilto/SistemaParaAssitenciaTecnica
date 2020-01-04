@@ -1263,6 +1263,9 @@ type
     function contarTotalItens(value: TclientDataSet): integer;
     function somarItensDaVenda(value: TclientDataSet): currency;
     function setNomeFuncionario: string;
+    function setCodigoVenda: integer;
+
+    function tipoDeVenda(value: string): iVenda;
 
     function exportar: iVenda;
     procedure validarData(componet: tmaskEdit);
@@ -1372,6 +1375,7 @@ type
     function getSUBTOTAL(value: TEdit): iParcelasVendas;
     function calcularTotal: string;
     function gerarParcelas: iParcelasVendas;
+    function gerarParcelaAvista: iParcelasVendas;
 
     function exportar: iParcelasVendas;
     procedure validarData(componet: tmaskEdit);

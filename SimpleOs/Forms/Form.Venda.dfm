@@ -117,13 +117,13 @@ object formVendas: TformVendas
       ParentColor = False
       ParentFont = False
     end
-    object Label1: TLabel
-      Left = 785
+    object lblVenda: TLabel
+      Left = 713
       Top = 10
-      Width = 90
+      Width = 84
       Height = 19
       Anchors = [akTop, akRight]
-      Caption = 'Caixa aberto'
+      Caption = 'Nova venda'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -471,7 +471,7 @@ object formVendas: TformVendas
       end
       object edtLocalizarCPF: TEdit
         Left = 16
-        Top = 22
+        Top = 23
         Width = 343
         Height = 28
         Font.Charset = DEFAULT_CHARSET

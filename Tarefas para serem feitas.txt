@@ -6,6 +6,10 @@ Terceira parte do projeto - simpleOS
 	#Parcelas vendas --FEITO (parcialmente)
 	#Criar classe para o calcula da quantidade x valor do produtos --FEITO
 	#Criar classe para calcular o tatol do produtos quando adicionado ou excluido-FEITO
+	
+#Criar procedimento para decrementar o estoque
+#Criar Procedimento para gravar os itens da venda na tabelas
+#Criar processo para gerar as parcelas --FEITO	
 
 #Criar o#Criar classe para form base para a janela de vendas:
      #Criar o form para buscar o cliente --FEITO

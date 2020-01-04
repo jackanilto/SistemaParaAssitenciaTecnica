@@ -171,8 +171,6 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     ParentBackground = False
     TabOrder = 5
     OnMouseDown = Panel1MouseDown
-    ExplicitLeft = 8
-    ExplicitTop = 24
     DesignSize = (
       805
       41)

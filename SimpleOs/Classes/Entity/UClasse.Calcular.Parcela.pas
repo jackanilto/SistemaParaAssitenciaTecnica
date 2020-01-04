@@ -80,7 +80,9 @@ begin
     valorParceladoComJuros := valorDaParcela * (Fjuros / 100);
     result := valorDaParcela + valorParceladoComJuros;
 
-  end;
+  end
+  else
+    result := FValor / FNumeroParcela;
 
 end;
 

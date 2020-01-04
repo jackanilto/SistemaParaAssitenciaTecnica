@@ -130,14 +130,24 @@ begin
   end
   else
   begin
-    lblValorParcelado.Caption := edtParcelado.Text + ' de ' +
-      FormatFloat('R$ ###,##0.00', TFactory.new.calcularParcela.getvalor
-      (totalDaVendaCalulado).getNumeroParcelas(StrToInt(edtParcelado.Text))
-      .valorDeCadaParcela);
 
-    edtConfirmarFormaPagamento.Enabled := false;
-    edtConfirmarValorRecebido.Enabled := false;
-    edtConfirmarTroco.Enabled := false;
+    if CodigoCliente <> 0 then
+    begin
+
+      lblValorParcelado.Caption := edtParcelado.Text + ' de ' +
+        FormatFloat('R$ ###,##0.00', TFactory.new.calcularParcela.getvalor
+        (totalDaVendaCalulado).getNumeroParcelas(StrToInt(edtParcelado.Text))
+        .valorDeCadaParcela);
+
+      edtConfirmarFormaPagamento.Enabled := false;
+      edtConfirmarValorRecebido.Enabled := false;
+      edtConfirmarTroco.Enabled := false;
+    end
+    else
+    begin
+      raise Exception.Create
+        ('Não é possível parcelas um venda sem um cliente definido.');
+    end;
 
   end;
 end;
@@ -259,9 +269,15 @@ begin
 
   try
     if edtParcelado.Text = 'À vista' then
-      parcelas := 1
+    begin
+      parcelas := 1;
+      FEntityVenda.tipoDeVenda('à vista');
+    end
     else
+    begin
       parcelas := StrToInt(edtParcelado.Text);
+      FEntityVenda.tipoDeVenda('Parcelado');
+    end;
   except
     on e: Exception do
     begin
@@ -271,11 +287,52 @@ begin
 
   end;
 
-  FEntityVenda.getID_CLIENTE(CodigoCliente).getNOME_CLIENTE(NomeCliente)
-    .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
-    .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(desconto_atual)
-    .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS(parcelas)
-    .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text).gravar;
+  FEntityVenda
+            .getID_CLIENTE(CodigoCliente)
+            .getNOME_CLIENTE(NomeCliente)
+            .getDATA_VENDA(DateToStr(Date))
+            .getHORA_VENDA(TimeToStr(time))
+            .getSUBTOTAL(CurrToStr(TotalDaVenda))
+            .getDesconto(desconto_atual)
+            .getTOTAL(CurrToStr(totalDaVendaCalulado))
+            .getQUANTIDADE_PARCELAS(parcelas)
+            .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text)
+            .gravar;
+
+  if edtParcelado.Text = 'À vista' then
+  begin
+      FentityParcelas
+            .getID_CLIENTE(CodigoCliente)
+            .getID_VENDA(FEntityVenda.setCodigoVenda)
+            .getVALOR_VENDA(CurrToStr(TotalDaVenda))
+            .getQUANTIDADE_PARCELAS(parcelas)
+            .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
+            .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
+            .getDesconto(desconto_atual)
+            .getTOTAL(CurrToStr(totalDaVendaCalulado))
+            .gerarParcelaAvista;
+  end
+  else
+  begin
+  FentityParcelas
+            .getID_CLIENTE(CodigoCliente)
+            .getID_VENDA(FEntityVenda.setCodigoVenda)
+            .getVALOR_VENDA(CurrToStr(totalDaVendaCalulado))
+            .getQUANTIDADE_PARCELAS(parcelas)
+
+            .getVALOR_DA_PARCELA(CurrToStr(
+                  TFactory.new.calcularParcela.getvalor
+                 (totalDaVendaCalulado).getNumeroParcelas(parcelas)
+                 .valorDeCadaParcela))
+
+            .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
+            .gerarParcelas;
+  end;
+
+  ShowMessage('Venda efetuada com sucesso!!!');
+  formVendas.lblVenda.Caption := 'Venda Finalizada - Código da venda: '
+            +IntToStr(FEntityVenda.setCodigoVenda);
+  close;
 
 end;
 

@@ -2498,3 +2498,88 @@ Problematic key value is ("ID" = 2)
 03/01/20 20:11:35 - Caption: Venda de produtos
 03/01/20 20:11:35 - Erro:Exception
 03/01/20 20:11:35 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+04/01/20 13:28:31 - ===========================================
+04/01/20 13:28:31 - Form: formVendas
+04/01/20 13:28:31 - Caption: Venda de produtos
+04/01/20 13:28:31 - Erro:Exception
+04/01/20 13:28:31 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+04/01/20 13:28:32 - ===========================================
+04/01/20 13:28:32 - Form: formVendas
+04/01/20 13:28:32 - Caption: Venda de produtos
+04/01/20 13:28:32 - Erro:Exception
+04/01/20 13:28:32 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+04/01/20 13:28:38 - ===========================================
+04/01/20 13:28:38 - Form: formVendas
+04/01/20 13:28:38 - Caption: Venda de produtos
+04/01/20 13:28:38 - Erro:Exception
+04/01/20 13:28:38 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+04/01/20 13:29:15 - ===========================================
+04/01/20 13:29:15 - Form: FormVendaConfirmarPagamento
+04/01/20 13:29:15 - Caption: '
+04/01/20 13:29:15 - Erro:EDatabaseError
+04/01/20 13:29:15 - Erro:'CARTÃO DE CREDITO' is not a valid integer value for field 'FORMA_PAGAMENTO'
+04/01/20 13:39:14 - ===========================================
+04/01/20 13:39:14 - Form: formVendas
+04/01/20 13:39:14 - Caption: Venda de produtos
+04/01/20 13:39:14 - Erro:Exception
+04/01/20 13:39:14 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+04/01/20 13:41:37 - ===========================================
+04/01/20 13:41:37 - Form: FormVendaConfirmarPagamento
+04/01/20 13:41:37 - Caption: '
+04/01/20 13:41:37 - Erro:Exception
+04/01/20 13:41:37 - Erro:Infome o meio de pagamento do venda
+04/01/20 14:10:00 - ===========================================
+04/01/20 14:10:00 - Form: FormVendaConfirmarPagamento
+04/01/20 14:10:00 - Caption: '
+04/01/20 14:10:00 - Erro:Exception
+04/01/20 14:10:00 - Erro:Não é possível parcelas um venda sem um cliente definido.
+04/01/20 14:10:19 - ===========================================
+04/01/20 14:10:19 - Form: FormVendaConfirmarPagamento
+04/01/20 14:10:19 - Caption: '
+04/01/20 14:10:19 - Erro:Exception
+04/01/20 14:10:19 - Erro:Infome o meio de pagamento do venda
+04/01/20 14:10:26 - ===========================================
+04/01/20 14:10:26 - Form: FormVendaConfirmarPagamento
+04/01/20 14:10:26 - Caption: '
+04/01/20 14:10:26 - Erro:Exception
+04/01/20 14:10:26 - Erro:Infome o meio de pagamento do venda
+04/01/20 14:10:48 - ===========================================
+04/01/20 14:10:48 - Form: FormVendaConfirmarPagamento
+04/01/20 14:10:48 - Caption: '
+04/01/20 14:10:48 - Erro:EConvertError
+04/01/20 14:10:48 - Erro:'TDateTimePicker' is not a valid date
+04/01/20 14:30:28 - ===========================================
+04/01/20 14:30:28 - Form: FormVendaConfirmarPagamento
+04/01/20 14:30:28 - Caption: '
+04/01/20 14:30:28 - Erro:Exception
+04/01/20 14:30:28 - Erro:Infome o meio de pagamento do venda
+04/01/20 14:30:36 - ===========================================
+04/01/20 14:30:36 - Form: FormVendaConfirmarPagamento
+04/01/20 14:30:36 - Caption: '
+04/01/20 14:30:36 - Erro:Exception
+04/01/20 14:30:36 - Erro:Infome o meio de pagamento do venda
+04/01/20 14:30:42 - ===========================================
+04/01/20 14:30:42 - Form: FormVendaConfirmarPagamento
+04/01/20 14:30:42 - Caption: '
+04/01/20 14:30:42 - Erro:EConvertError
+04/01/20 14:30:42 - Erro:'À vista' is not a valid integer value
+04/01/20 14:32:59 - ===========================================
+04/01/20 14:32:59 - Form: FormVendaConfirmarPagamento
+04/01/20 14:32:59 - Caption: '
+04/01/20 14:32:59 - Erro:EConvertError
+04/01/20 14:32:59 - Erro:'À vista' is not a valid integer value
+04/01/20 14:58:10 - ===========================================
+04/01/20 14:58:10 - Form: FormVendaConfirmarPagamento
+04/01/20 14:58:10 - Caption: '
+04/01/20 14:58:10 - Erro:Exception
+04/01/20 14:58:10 - Erro:Infome o meio de pagamento do venda
+04/01/20 14:58:16 - ===========================================
+04/01/20 14:58:16 - Form: FormVendaConfirmarPagamento
+04/01/20 14:58:16 - Caption: '
+04/01/20 14:58:16 - Erro:EConvertError
+04/01/20 14:58:16 - Erro:'' is not a valid date
+04/01/20 14:59:54 - ===========================================
+04/01/20 14:59:54 - Form: FormVendaConfirmarPagamento
+04/01/20 14:59:54 - Caption: '
+04/01/20 14:59:54 - Erro:Exception
+04/01/20 14:59:54 - Erro:Infome o meio de pagamento do venda
