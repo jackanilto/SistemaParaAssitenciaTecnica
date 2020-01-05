@@ -294,6 +294,9 @@ begin
   if value = EmptyStr then
     raise Exception.create('Informe a data de vencimento da parcela');
 
+  if value = '  /  /    ' then
+    raise Exception.create('Informe a data de vencimento da parcela');
+
   FDATA_VENCIMENTO := value;
 
 end;
@@ -645,7 +648,6 @@ end;
 function TEntityVendasParcelas.gerarParcelaAvista: iParcelasVendas;
 var
   i: integer;
-  vencimento: TDate;
 begin
 
   result := self;
@@ -661,7 +663,7 @@ begin
     FieldByName('QUANTIDADE_PARCELAS').AsInteger := FQUANTIDADE_PARCELAS;
     FieldByName('PARCELA').AsInteger := 1;
     FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
-    FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
+    FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
     FieldByName('JUROS').AsFloat := 0;
     FieldByName('MULTA').AsFloat := 0;
     FieldByName('DESCONTO').AsCurrency := FDESCONTO;
@@ -671,8 +673,6 @@ begin
     FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
     FieldByName('PAGO').AsString := 'sim';
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
-
-    vencimento := IncMonth(vencimento, 1);
 
     FQuery.TQuery.Post;
 

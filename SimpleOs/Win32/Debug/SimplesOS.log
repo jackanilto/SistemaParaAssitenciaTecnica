@@ -2583,3 +2583,48 @@ Problematic key value is ("ID" = 2)
 04/01/20 14:59:54 - Caption: '
 04/01/20 14:59:54 - Erro:Exception
 04/01/20 14:59:54 - Erro:Infome o meio de pagamento do venda
+05/01/20 10:31:23 - ===========================================
+05/01/20 10:31:23 - Form: formLocalizarProdutoVenda
+05/01/20 10:31:23 - Caption: Localizar produtos - Venda
+05/01/20 10:31:23 - Erro:Exception
+05/01/20 10:31:23 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+05/01/20 10:31:36 - ===========================================
+05/01/20 10:31:36 - Form: FormVendaConfirmarPagamento
+05/01/20 10:31:36 - Caption: '
+05/01/20 10:31:36 - Erro:Exception
+05/01/20 10:31:36 - Erro:Infome o meio de pagamento do venda
+05/01/20 10:36:07 - ===========================================
+05/01/20 10:36:07 - Form: FormVendaConfirmarPagamento
+05/01/20 10:36:07 - Caption: '
+05/01/20 10:36:07 - Erro:Exception
+05/01/20 10:36:07 - Erro:Infome o meio de pagamento do venda
+05/01/20 10:38:59 - ===========================================
+05/01/20 10:38:59 - Form: formVendas
+05/01/20 10:38:59 - Caption: Venda de produtos
+05/01/20 10:38:59 - Erro:Exception
+05/01/20 10:38:59 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+05/01/20 10:44:54 - ===========================================
+05/01/20 10:44:54 - Form: FormVendaConfirmarPagamento
+05/01/20 10:44:54 - Caption: '
+05/01/20 10:44:54 - Erro:Exception
+05/01/20 10:44:54 - Erro:Infome o meio de pagamento do venda
+05/01/20 10:44:59 - ===========================================
+05/01/20 10:44:59 - Form: FormVendaConfirmarPagamento
+05/01/20 10:44:59 - Caption: '
+05/01/20 10:44:59 - Erro:EConvertError
+05/01/20 10:44:59 - Erro:'' is not a valid date
+05/01/20 10:45:09 - ===========================================
+05/01/20 10:45:09 - Form: FormVendaConfirmarPagamento
+05/01/20 10:45:09 - Caption: '
+05/01/20 10:45:09 - Erro:EDatabaseError
+05/01/20 10:45:09 - Erro:Dataset not in edit or insert mode
+05/01/20 10:47:07 - ===========================================
+05/01/20 10:47:07 - Form: FormVendaConfirmarPagamento
+05/01/20 10:47:07 - Caption: '
+05/01/20 10:47:07 - Erro:Exception
+05/01/20 10:47:07 - Erro:Infome o meio de pagamento do venda
+05/01/20 10:51:44 - ===========================================
+05/01/20 10:51:44 - Form: FormVendaConfirmarPagamento
+05/01/20 10:51:44 - Caption: '
+05/01/20 10:51:44 - Erro:Exception
+05/01/20 10:51:44 - Erro:ERRO! Infome o meio de pagamento do venda

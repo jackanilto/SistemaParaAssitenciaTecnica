@@ -73,7 +73,7 @@ type
     function getQUANTIDADE(value: integer): iItensVendas;
     function getTOTAL(value: string): iItensVendas;
 
-    function gravarItensDaVenda(value:TClientDataSet):iItensVendas;
+    function gravarItensDaVenda(value: TClientDataSet): iItensVendas;
 
     function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): Currency;
 
@@ -351,11 +351,42 @@ begin
 
 end;
 
-function TEntityItensVenda.gravarItensDaVenda(
-  value: TClientDataSet): iItensVendas;
+function TEntityItensVenda.gravarItensDaVenda(value: TClientDataSet)
+  : iItensVendas;
 begin
-   result := self;
-   {Inserir a códificação desta parte}
+  result := self;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+
+    FQuery.TQuery.Insert;
+
+    if FQuery.TQuery.State in [dsInsert] then
+      FQuery.TQuery.FieldByName('id').AsInteger :=
+        FQuery.codigoCadastro('SP_GEN_ITENS_VENDA_ID');
+
+    with FQuery.TQuery do
+    begin
+      FieldByName('ID_VENDA').AsInteger := FID_VENDA;
+      FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+      FieldByName('ID_PRODUTO').AsInteger := value.FieldByName('codigo_produto')
+        .AsInteger;
+      FieldByName('PRODUTO').AsString := value.FieldByName('Produto').AsString;
+      FieldByName('VALOR_UNITARIO').AsCurrency :=
+        value.FieldByName('Valor_unitario').AsCurrency;
+      FieldByName('QUANTIDADE').AsInteger := value.FieldByName('Quantidade')
+        .AsInteger;
+      FieldByName('TOTAL').AsCurrency := value.FieldByName('Total_do_produto')
+        .AsCurrency;
+    end;
+
+    FQuery.TQuery.Post;
+
+    value.Next;
+  end;
+
 end;
 
 function TEntityItensVenda.inserir: iItensVendas;

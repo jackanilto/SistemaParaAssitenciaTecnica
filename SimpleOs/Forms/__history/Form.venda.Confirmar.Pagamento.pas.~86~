@@ -299,17 +299,39 @@ begin
             .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text)
             .gravar;
 
+  if edtParcelado.Text = 'À vista' then
+  begin
+      FentityParcelas
+            .getID_CLIENTE(CodigoCliente)
+            .getID_VENDA(FEntityVenda.setCodigoVenda)
+            .getVALOR_VENDA(CurrToStr(TotalDaVenda))
+            .getQUANTIDADE_PARCELAS(parcelas)
+            .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
+            .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
+            .getDesconto(desconto_atual)
+            .getTOTAL(CurrToStr(totalDaVendaCalulado))
+            .gerarParcelaAvista;
+  end
+  else
+  begin
   FentityParcelas
             .getID_CLIENTE(CodigoCliente)
             .getID_VENDA(FEntityVenda.setCodigoVenda)
             .getVALOR_VENDA(CurrToStr(totalDaVendaCalulado))
             .getQUANTIDADE_PARCELAS(parcelas)
-            .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
+
+            .getVALOR_DA_PARCELA(CurrToStr(
+                  TFactory.new.calcularParcela.getvalor
+                 (totalDaVendaCalulado).getNumeroParcelas(parcelas)
+                 .valorDeCadaParcela))
+
             .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
             .gerarParcelas;
+  end;
 
   ShowMessage('Venda efetuada com sucesso!!!');
-  formVendas.lblVenda.Caption := 'Venda Finalizada';
+  formVendas.lblVenda.Caption := 'Venda Finalizada - Código da venda: '
+            +IntToStr(FEntityVenda.setCodigoVenda);
   close;
 
 end;

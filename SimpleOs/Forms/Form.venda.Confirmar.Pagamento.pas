@@ -56,6 +56,8 @@ type
     procedure calcularDesconto;
     procedure validarParcelas;
     procedure calcularTroco;
+    procedure parcelamentoAVista(desconto_atual: string; parcelas: Integer);
+    procedure parcelamentoNaoAvista(parcelas: Integer);
 
   var
     totalDaVendaCalulado: CurrencY;
@@ -215,6 +217,29 @@ begin
     valor_recebido - totalDaVendaCalulado);
 end;
 
+procedure TFormVendaConfirmarPagamento.parcelamentoAVista(desconto_atual
+  : string; parcelas: Integer);
+begin
+  FentityParcelas.getID_CLIENTE(CodigoCliente)
+    .getID_VENDA(FEntityVenda.setCodigoVenda)
+    .getVALOR_VENDA(CurrToStr(TotalDaVenda)).getQUANTIDADE_PARCELAS(parcelas)
+    .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
+    .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
+    .getDesconto(desconto_atual).getTOTAL(CurrToStr(totalDaVendaCalulado))
+    .gerarParcelaAvista;
+end;
+
+procedure TFormVendaConfirmarPagamento.parcelamentoNaoAvista(parcelas: Integer);
+begin
+  FentityParcelas.getID_CLIENTE(CodigoCliente)
+    .getID_VENDA(FEntityVenda.setCodigoVenda)
+    .getVALOR_VENDA(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS
+    (parcelas).getVALOR_DA_PARCELA
+    (CurrToStr(TFactory.new.calcularParcela.getvalor(totalDaVendaCalulado)
+    .getNumeroParcelas(parcelas).valorDeCadaParcela))
+    .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date)).gerarParcelas;
+end;
+
 procedure TFormVendaConfirmarPagamento.FormCreate(Sender: TObject);
 begin
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
@@ -287,51 +312,28 @@ begin
 
   end;
 
-  FEntityVenda
-            .getID_CLIENTE(CodigoCliente)
-            .getNOME_CLIENTE(NomeCliente)
-            .getDATA_VENDA(DateToStr(Date))
-            .getHORA_VENDA(TimeToStr(time))
-            .getSUBTOTAL(CurrToStr(TotalDaVenda))
-            .getDesconto(desconto_atual)
-            .getTOTAL(CurrToStr(totalDaVendaCalulado))
-            .getQUANTIDADE_PARCELAS(parcelas)
-            .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text)
-            .gravar;
+  FEntityVenda.getID_CLIENTE(CodigoCliente).getNOME_CLIENTE(NomeCliente)
+    .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
+    .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(desconto_atual)
+    .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS(parcelas)
+    .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text).gravar;
 
   if edtParcelado.Text = 'À vista' then
   begin
-      FentityParcelas
-            .getID_CLIENTE(CodigoCliente)
-            .getID_VENDA(FEntityVenda.setCodigoVenda)
-            .getVALOR_VENDA(CurrToStr(TotalDaVenda))
-            .getQUANTIDADE_PARCELAS(parcelas)
-            .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
-            .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
-            .getDesconto(desconto_atual)
-            .getTOTAL(CurrToStr(totalDaVendaCalulado))
-            .gerarParcelaAvista;
+    parcelamentoAVista(desconto_atual, parcelas);
   end
   else
   begin
-  FentityParcelas
-            .getID_CLIENTE(CodigoCliente)
-            .getID_VENDA(FEntityVenda.setCodigoVenda)
-            .getVALOR_VENDA(CurrToStr(totalDaVendaCalulado))
-            .getQUANTIDADE_PARCELAS(parcelas)
-
-            .getVALOR_DA_PARCELA(CurrToStr(
-                  TFactory.new.calcularParcela.getvalor
-                 (totalDaVendaCalulado).getNumeroParcelas(parcelas)
-                 .valorDeCadaParcela))
-
-            .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
-            .gerarParcelas;
+    parcelamentoNaoAvista(parcelas);
   end;
 
+  FEntityItensVenda.getID_VENDA(FEntityVenda.setCodigoVenda)
+    .getID_CLIENTE(CodigoCliente).gravarItensDaVenda
+    (formVendas.cds_tem_produtos);
+
   ShowMessage('Venda efetuada com sucesso!!!');
-  formVendas.lblVenda.Caption := 'Venda Finalizada - Código da venda: '
-            +IntToStr(FEntityVenda.setCodigoVenda);
+  formVendas.lblVenda.Caption := 'Venda Finalizada - Código da venda: ' +
+    IntToStr(FEntityVenda.setCodigoVenda);
   close;
 
 end;

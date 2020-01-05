@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Vcl.StdCtrls;
+  Vcl.StdCtrls, Datasnap.DBClient;
 
 type
 
@@ -73,6 +73,8 @@ type
     function getQUANTIDADE(value: integer): iItensVendas;
     function getTOTAL(value: string): iItensVendas;
 
+    function gravarItensDaVenda(value: TClientDataSet): iItensVendas;
+
     function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): Currency;
 
     function exportar: iItensVendas;
@@ -106,8 +108,6 @@ end;
 
 function TEntityItensVenda.calularTotalXquantidade(vlrProduto,
   qtdeProduto: TEdit): Currency;
-var
-  quantidade: integer;
 begin
 
   result := 0;
@@ -115,7 +115,7 @@ begin
   getValorUnitatio(vlrProduto);
   totalDeItens(qtdeProduto);
 
-  result := FtotalUnitario + FQuantidadeUnitario;
+  result := FtotalUnitario * FQuantidadeUnitario;
 
 end;
 
@@ -132,12 +132,11 @@ end;
 
 constructor TEntityItensVenda.create;
 begin
-  FTabela := 'PRODUTOS';
+  FTabela := 'ITENS_VENDA';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
-    (funcionarioLogado);
+  FGravarLog.getJanela('ID_VENDA').getCodigoFuncionario(funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
 end;
@@ -152,9 +151,8 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+      FGravarLog := TGravarLogSistema.new;
+      FGravarLog.getJanela('ID_VENDA').getCodigoFuncionario(funcionarioLogado);
 
       FQuery.TQuery.Delete;
     end;
@@ -174,9 +172,8 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
+    FGravarLog := TGravarLogSistema.new;
+    FGravarLog.getJanela('ID_VENDA').getCodigoFuncionario(funcionarioLogado);
 
     FQuery.TQuery.Edit;
 
@@ -280,7 +277,16 @@ begin
   result := self;
   if value = EmptyStr then
     raise Exception.create('Informe o valor total dos itens deste produtos');
-  FTOTAL := value;
+  try
+    FTOTAL := StrToCurr(value);
+  except
+    on e: Exception do
+    begin
+      raise Exception.create
+        ('Digite um valor válido para o campo Total dos itens.');
+    end;
+
+  end;
 
 end;
 
@@ -292,6 +298,21 @@ end;
 
 function TEntityItensVenda.getVALOR_UNITARIO(value: string): iItensVendas;
 begin
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create
+      ('Informe uma quantidade superior a zero(0) para a quantidade de itens');
+
+  try
+    FVALOR_UNITARIO := StrToCurr(value);
+  except
+    on e: Exception do
+    begin
+      raise Exception.create('Digite um valor válido para o Valor Unitário');
+    end;
+
+  end;
 
 end;
 
@@ -302,13 +323,21 @@ begin
 
   if FQuery.TQuery.State in [dsInsert] then
     FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+      FQuery.codigoCadastro('SP_GEN_ITENS_VENDA_ID');
 
-  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID_VENDA').AsInteger := FID_VENDA;
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('ID_PRODUTO').AsInteger := FID_PRODUTO;
+    FieldByName('PRODUTO').AsString := FPRODUTO;
+    FieldByName('VALOR_UNITARIO').AsCurrency := FVALOR_UNITARIO;
+    FieldByName('QUANTIDADE').AsInteger := FQUANTIDADE;
+    FieldByName('TOTAL').AsCurrency := FTOTAL;
+  end;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
-    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-    .gravarLog;
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('ID_VENDA').getCodigoFuncionario(funcionarioLogado);
 
   try
     FQuery.TQuery.Post;
@@ -318,6 +347,42 @@ begin
       raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
 
+  end;
+
+end;
+
+function TEntityItensVenda.gravarItensDaVenda(value: TClientDataSet)
+  : iItensVendas;
+begin
+  result := self;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+
+    if FQuery.TQuery.State in [dsInsert] then
+      FQuery.TQuery.FieldByName('id').AsInteger :=
+        FQuery.codigoCadastro('SP_GEN_ITENS_VENDA_ID');
+
+    with FQuery.TQuery do
+    begin
+      FieldByName('ID_VENDA').AsInteger := FID_VENDA;
+      FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+      FieldByName('ID_PRODUTO').AsInteger := value.FieldByName('codigo_produto')
+        .AsInteger;
+      FieldByName('PRODUTO').AsString := value.FieldByName('Produto').AsString;
+      FieldByName('VALOR_UNITARIO').AsCurrency :=
+        value.FieldByName('Valor_unitario').AsCurrency;
+      FieldByName('QUANTIDADE').AsInteger := value.FieldByName('Quantidade')
+        .AsInteger;
+      FieldByName('TOTAL').AsCurrency := value.FieldByName('Total_do_produto')
+        .AsCurrency;
+    end;
+
+    FQuery.TQuery.Post;
+
+    value.Next;
   end;
 
 end;
@@ -333,10 +398,17 @@ function TEntityItensVenda.listarGrid(value: TDataSource): iItensVendas;
 begin
 
   result := self;
-
-  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
-  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+  with FQuery.TQuery do
+  begin
+    FieldByName('id').DisplayLabel := 'Código';
+    FieldByName('ID_VENDA').DisplayLabel := 'Venda';
+    FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
+    FieldByName('ID_PRODUTO').DisplayLabel := 'Cód. Produto';
+    FieldByName('PRODUTO').DisplayLabel := 'Produto';
+    FieldByName('VALOR_UNITARIO').DisplayLabel := 'Valor unitário';
+    FieldByName('QUANTIDADE').DisplayLabel := 'Quantidade';
+    FieldByName('TOTAL').DisplayLabel := 'Total dos itens';
+  end;
 
   value.DataSet := FQuery.TQuery;
 

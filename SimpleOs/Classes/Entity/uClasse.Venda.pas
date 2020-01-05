@@ -365,7 +365,7 @@ begin
   begin
 
     if value = EmptyStr then
-      raise exception.create('Infome o meio de pagamento do venda');
+      raise exception.create('ERRO! Infome o meio de pagamento do venda');
 
     F_FORMA_PAGAMENTO := value;
 
