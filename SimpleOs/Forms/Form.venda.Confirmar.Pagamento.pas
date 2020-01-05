@@ -52,6 +52,8 @@ type
       Shift: TShiftState);
     procedure sbConfirmarVendaClick(Sender: TObject);
     procedure edtParceladoChange(Sender: TObject);
+    procedure sbCancelarVendaClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     procedure calcularDesconto;
     procedure validarParcelas;
@@ -129,6 +131,7 @@ begin
     edtConfirmarFormaPagamento.Enabled := true;
     edtConfirmarValorRecebido.Enabled := true;
     edtConfirmarTroco.Enabled := true;
+    sbConfirmarVenda.Enabled := true;
   end
   else
   begin
@@ -144,9 +147,11 @@ begin
       edtConfirmarFormaPagamento.Enabled := false;
       edtConfirmarValorRecebido.Enabled := false;
       edtConfirmarTroco.Enabled := false;
+      sbConfirmarVenda.Enabled := true;
     end
     else
     begin
+      sbConfirmarVenda.Enabled := false;
       raise Exception.Create
         ('Não é possível parcelas um venda sem um cliente definido.');
     end;
@@ -240,6 +245,12 @@ begin
     .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date)).gerarParcelas;
 end;
 
+procedure TFormVendaConfirmarPagamento.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  formVendas.limparDados;
+end;
+
 procedure TFormVendaConfirmarPagamento.FormCreate(Sender: TObject);
 begin
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
@@ -281,6 +292,12 @@ begin
     self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
   end;
 
+end;
+
+procedure TFormVendaConfirmarPagamento.sbCancelarVendaClick(Sender: TObject);
+begin
+  formVendas.limparDados;
+  close;
 end;
 
 procedure TFormVendaConfirmarPagamento.sbConfirmarVendaClick(Sender: TObject);
@@ -329,12 +346,18 @@ begin
 
   FEntityItensVenda.getID_VENDA(FEntityVenda.setCodigoVenda)
     .getID_CLIENTE(CodigoCliente).gravarItensDaVenda
+    (formVendas.cds_tem_produtos).decrementarEstoque
     (formVendas.cds_tem_produtos);
+
+  sbImprimir.Enabled := true;
+  sbImprimirRecibo.Enabled := true;
+  sbConfirmarVenda.Enabled := false;
+  sbCancelarVenda.Enabled := false;
 
   ShowMessage('Venda efetuada com sucesso!!!');
   formVendas.lblVenda.Caption := 'Venda Finalizada - Código da venda: ' +
     IntToStr(FEntityVenda.setCodigoVenda);
-  close;
+  // close;
 
 end;
 

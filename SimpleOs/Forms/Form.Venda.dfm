@@ -149,7 +149,7 @@ object formVendas: TformVendas
       64)
     object sbNovo: TSpeedButton
       Left = 25
-      Top = 13
+      Top = 9
       Width = 250
       Height = 35
       Hint = 'Inserir um novo registro'
@@ -228,11 +228,11 @@ object formVendas: TformVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
-      ExplicitTop = 24
+      OnClick = sbNovoClick
     end
     object sbCancelar: TSpeedButton
       Left = 281
-      Top = 13
+      Top = 9
       Width = 304
       Height = 35
       Hint = 'Cancela a opera'#231#227'o em andamento'
@@ -311,7 +311,7 @@ object formVendas: TformVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
-      ExplicitTop = 24
+      OnClick = sbCancelarClick
     end
     object Label2: TLabel
       Left = 713
@@ -397,9 +397,9 @@ object formVendas: TformVendas
         Font.Style = []
         ParentFont = False
       end
-      object SpeedButton1: TSpeedButton
+      object sbLocalizarCliente: TSpeedButton
         Left = 365
-        Top = 16
+        Top = 18
         Width = 143
         Height = 33
         Caption = 'Localizar cliente'
@@ -467,7 +467,7 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727}
         ParentFont = False
-        OnClick = SpeedButton1Click
+        OnClick = sbLocalizarClienteClick
       end
       object edtLocalizarCPF: TEdit
         Left = 16

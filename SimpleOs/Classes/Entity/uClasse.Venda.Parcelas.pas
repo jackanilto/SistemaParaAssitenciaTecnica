@@ -374,8 +374,6 @@ end;
 function TEntityVendasParcelas.getID_CLIENTE(value: integer): iParcelasVendas;
 begin
   result := self;
-  if value = 0 then
-    raise Exception.create('Informe um cliente para esta venda');
   FID_CLIENTE := value;
 end;
 

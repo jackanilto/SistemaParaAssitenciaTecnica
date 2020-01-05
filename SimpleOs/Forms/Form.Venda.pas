@@ -27,7 +27,7 @@ type
     edtLocalizarCPF: TEdit;
     Label3: TLabel;
     lblNomeDoCliente: TLabel;
-    SpeedButton1: TSpeedButton;
+    sbLocalizarCliente: TSpeedButton;
     Panel5: TPanel;
     edtLocalizarProduto: TEdit;
     SpeedButton2: TSpeedButton;
@@ -61,7 +61,7 @@ type
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure sbLocalizarClienteClick(Sender: TObject);
     procedure edtLocalizarCPFKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
@@ -75,10 +75,15 @@ type
     procedure SpeedButton4Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
+
+    procedure limparDados;
+    procedure sbCancelarClick(Sender: TObject);
+    procedure sbNovoClick(Sender: TObject);
+
   private
     { Private declarations }
     FLocalizarClienteVenda: iLocalizarClienteVenda;
-    FLocalizarPrutoVenda: iLocalizarProdutosVenda;
+    FLocalizarProdutoVenda: iLocalizarProdutosVenda;
     procedure calcularTotalPorQuantidade;
   public
     { Public declarations }
@@ -121,8 +126,14 @@ begin
     begin
       lblNomeDoCliente.Caption := 'Cliente não informado';
       edtLocalizarCPF.Text := '000.000.000-00';
+      edtLocalizarProduto.SetFocus;
       CodigoCliente := 0;
       NomeCliente := 'Cliente não informado';
+      lblVenda.Caption := 'Venda em andamento';
+
+      sbNovo.Enabled := false;
+      sbLocalizarCliente.Enabled := false;
+      edtLocalizarCPF.Enabled := false;
     end
     else
     begin
@@ -141,7 +152,19 @@ begin
         NomeCliente := FLocalizarClienteVenda.setNomeDoCliente;
         CPF_CNPJ_Cliente := FLocalizarClienteVenda.setCpf_CnpjDoCliente;
         edtLocalizarProduto.SetFocus;
+        lblVenda.Caption := 'Venda em andamento';
 
+        sbLocalizarCliente.Enabled := false;
+        sbNovo.Enabled := false;
+        sbLocalizarCliente.Enabled := false;
+        edtLocalizarCPF.Enabled := false;
+
+      end
+      else
+      begin
+        sbNovo.Enabled := true;
+        sbLocalizarCliente.Enabled := true;
+        edtLocalizarCPF.Enabled := true;
       end;
 
     end;
@@ -151,27 +174,34 @@ end;
 procedure TformVendas.edtLocalizarProdutoKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  if Key = 13 then
+  if lblVenda.Caption <> 'Nova venda' then
   begin
-    FLocalizarPrutoVenda.getCampo('CODIGO_BARRAS')
-      .getValor(edtLocalizarProduto.Text).sqlPesquisa;
 
-    SituacaoDoEstoque := FLocalizarPrutoVenda.setSituacaoDoEstoque;
-    CodigoDoProduto := FLocalizarPrutoVenda.setCodigoDoProduto;
-    NomeDoProduto := FLocalizarPrutoVenda.setNomeDoProduto;
-    CodigoDeBarras := FLocalizarPrutoVenda.setCodigoDeBarras;
-    QuantidadeDeProdutos := FLocalizarPrutoVenda.setQuantidade;
-    QuantidadeEmEstoque := FLocalizarPrutoVenda.setQuantidadeEmEstoque;
-    FLocalizarPrutoVenda.setFotoProduto(formVendas.Image1);
-    valorUnitario := FLocalizarPrutoVenda.setValorUnitarioProduto;
-    valorTotalDoProduto := FLocalizarPrutoVenda.setValorUnitarioProduto;
+    CodigoDoProduto := 0;
 
-    edtLocalizarProduto.Text := CodigoDeBarras;
-    edtQuantidade.Text := inttostr(QuantidadeDeProdutos);
-    edtValorUnitario.Text := CurrToStr(valorUnitario);
-    edtTotalDoProduto.Text := CurrToStr(valorTotalDoProduto);
-    lblProduto.Caption := NomeDoProduto;
+    if Key = 13 then
+    begin
+      FLocalizarProdutoVenda.getCampo('CODIGO_BARRAS')
+        .getValor(edtLocalizarProduto.Text).sqlPesquisa;
 
+      SituacaoDoEstoque := FLocalizarProdutoVenda.setSituacaoDoEstoque;
+      CodigoDoProduto := FLocalizarProdutoVenda.setCodigoDoProduto;
+      NomeDoProduto := FLocalizarProdutoVenda.setNomeDoProduto;
+      CodigoDeBarras := FLocalizarProdutoVenda.setCodigoDeBarras;
+      QuantidadeDeProdutos := FLocalizarProdutoVenda.setQuantidade;
+      QuantidadeEmEstoque := FLocalizarProdutoVenda.setQuantidadeEmEstoque;
+      FLocalizarProdutoVenda.setFotoProduto(formVendas.Image1);
+      valorUnitario := FLocalizarProdutoVenda.setValorUnitarioProduto;
+      valorTotalDoProduto := FLocalizarProdutoVenda.setValorUnitarioProduto;
+
+      edtLocalizarProduto.Text := CodigoDeBarras;
+      edtQuantidade.Text := inttostr(QuantidadeDeProdutos);
+      edtValorUnitario.Text := CurrToStr(valorUnitario);
+      edtTotalDoProduto.Text := CurrToStr(valorTotalDoProduto);
+      lblProduto.Caption := NomeDoProduto;
+      edtQuantidade.SetFocus;
+
+    end;
   end;
 end;
 
@@ -180,7 +210,7 @@ var
   total: Currency;
 begin
 
-  if StrToInt(edtQuantidade.Text) > QuantidadeDeProdutos then
+  if StrToInt(edtQuantidade.Text) > QuantidadeEmEstoque then
   begin
     edtQuantidade.SetFocus;
     raise Exception.Create
@@ -216,7 +246,7 @@ procedure TformVendas.FormCreate(Sender: TObject);
 begin
 
   FLocalizarClienteVenda := TEntityPesquisarCliente.new;
-  FLocalizarPrutoVenda := TEntityLocalizarProdutoVenda.new;
+  FLocalizarProdutoVenda := TEntityLocalizarProdutoVenda.new;
   FEntityVenda := TEntityVenda.new;
   FEntityItensVenda := TEntityItensVenda.new;
   FentityParcelas := TEntityVendasParcelas.new;
@@ -231,6 +261,46 @@ begin
   lblOperador.Caption := FEntityVenda.setNomeFuncionario;
 end;
 
+procedure TformVendas.limparDados;
+begin
+
+  CodigoCliente := 0;
+  NomeCliente := 'Cliente não informado';
+  CPF_CNPJ_Cliente := '';
+
+  CodigoDoProduto := 0;
+  NomeDoProduto := '';
+  CodigoDeBarras := '';
+  QuantidadeDeProdutos := 0;
+  QuantidadeEmEstoque := 0;
+  SituacaoDoEstoque := '';
+  valorUnitario := 0;
+  valorTotalDoProduto := 0;
+  TotalDeItens := 0;
+  TotalDaVenda := 0;
+
+  cds_tem_produtos.Open;
+  cds_tem_produtos.EmptyDataSet;
+  cds_tem_produtos.Close;
+
+  lblVenda.Caption := 'Nova venda';
+  lblNomeDoCliente.Caption := '';
+  lblProduto.Caption := '';
+  lblTotalItens.Caption := '0';
+  lblTotalDaVenda.Caption := 'R$ 0,00';
+
+  edtLocalizarCPF.Enabled := true;
+  edtLocalizarCPF.Clear;
+  edtLocalizarProduto.Clear;
+  edtValorUnitario.Clear;
+  edtQuantidade.Clear;
+  edtTotalDoProduto.Clear;
+
+  sbLocalizarCliente.Enabled := true;
+  sbNovo.Enabled := true;
+
+end;
+
 procedure TformVendas.Panel1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 const
@@ -243,12 +313,17 @@ begin
   end;
 end;
 
-procedure TformVendas.sbFecharClick(Sender: TObject);
+procedure TformVendas.sbCancelarClick(Sender: TObject);
 begin
-  close;
+  limparDados;
 end;
 
-procedure TformVendas.SpeedButton1Click(Sender: TObject);
+procedure TformVendas.sbFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TformVendas.sbLocalizarClienteClick(Sender: TObject);
 begin
   formLocalizarClientesVenda := TformLocalizarClientesVenda.Create(self);
   try
@@ -258,28 +333,56 @@ begin
 
     if CodigoCliente <> 0 then
     begin
+
       edtLocalizarCPF.Text := CPF_CNPJ_Cliente;
       lblNomeDoCliente.Caption := NomeCliente;
       edtLocalizarProduto.SetFocus;
+      lblVenda.Caption := 'Venda em andamento';
+
+      sbLocalizarCliente.Enabled := false;
+      sbNovo.Enabled := false;
+      sbLocalizarCliente.Enabled := false;
+      edtLocalizarCPF.Enabled := false;
+
+    end
+    else
+    begin
+
+      sbLocalizarCliente.Enabled := false;
+      sbNovo.Enabled := false;
+      sbLocalizarCliente.Enabled := false;
+      edtLocalizarCPF.Enabled := false;
+
     end;
 
   end;
 end;
 
+procedure TformVendas.sbNovoClick(Sender: TObject);
+begin
+  edtLocalizarCPF.Enabled := true;
+  sbLocalizarCliente.Enabled := true;
+  edtLocalizarCPF.SetFocus;
+end;
+
 procedure TformVendas.SpeedButton2Click(Sender: TObject);
 begin
-  formLocalizarProdutoVenda := TformLocalizarProdutoVenda.Create(self);
-  try
-    formLocalizarProdutoVenda.ShowModal;
-  finally
-    formLocalizarProdutoVenda.Free;
+  if lblVenda.Caption <> 'Nova venda' then
+  begin
+    formLocalizarProdutoVenda := TformLocalizarProdutoVenda.Create(self);
+    try
+      formLocalizarProdutoVenda.ShowModal;
+    finally
+      formLocalizarProdutoVenda.Free;
 
-    edtLocalizarProduto.Text := CodigoDeBarras;
-    edtQuantidade.Text := inttostr(QuantidadeDeProdutos);
-    edtValorUnitario.Text := CurrToStr(valorUnitario);
-    edtTotalDoProduto.Text := CurrToStr(valorTotalDoProduto);
-    lblProduto.Caption := NomeDoProduto;
+      edtLocalizarProduto.Text := CodigoDeBarras;
+      edtQuantidade.Text := inttostr(QuantidadeDeProdutos);
+      edtValorUnitario.Text := CurrToStr(valorUnitario);
+      edtTotalDoProduto.Text := CurrToStr(valorTotalDoProduto);
+      lblProduto.Caption := NomeDoProduto;
+      edtQuantidade.SetFocus;
 
+    end;
   end;
 end;
 
@@ -323,29 +426,38 @@ end;
 procedure TformVendas.SpeedButton4Click(Sender: TObject);
 begin
 
-  cds_tem_produtos.Delete;
+  if cds_tem_produtos.RecordCount >= 1 then
+  begin
 
-  lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
-    FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+    cds_tem_produtos.Delete;
 
-  lblTotalItens.Caption :=
-    inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
+    lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
+      FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+
+    lblTotalItens.Caption :=
+      inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
+  end;
 
 end;
 
 procedure TformVendas.SpeedButton5Click(Sender: TObject);
 begin
 
-  TotalDaVenda := FEntityVenda.somarItensDaVenda(cds_tem_produtos);
+  if cds_tem_produtos.RecordCount >= 1 then
+  begin
 
-  TotalDeItens := FEntityVenda.contarTotalItens(cds_tem_produtos);
+    TotalDaVenda := FEntityVenda.somarItensDaVenda(cds_tem_produtos);
 
-  FormVendaConfirmarPagamento := TFormVendaConfirmarPagamento.Create(self);
-  try
-    FormVendaConfirmarPagamento.ShowModal;
-  finally
-    FormVendaConfirmarPagamento.Free;
+    TotalDeItens := FEntityVenda.contarTotalItens(cds_tem_produtos);
+
+    FormVendaConfirmarPagamento := TFormVendaConfirmarPagamento.Create(self);
+    try
+      FormVendaConfirmarPagamento.ShowModal;
+    finally
+      FormVendaConfirmarPagamento.Free;
+    end;
   end;
+
 end;
 
 end.

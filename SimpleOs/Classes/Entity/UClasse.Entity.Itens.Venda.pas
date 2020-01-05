@@ -13,6 +13,7 @@ type
   private
 
     FQuery: iConexaoQuery;
+    FQueryProdutos: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
     FTabela: string;
     FCampo: string;
@@ -37,6 +38,7 @@ type
 
     procedure getValorUnitatio(vlrProduto: TEdit);
     procedure totalDeItens(qtdeProduto: TEdit);
+    procedure selecionarProdutoDecremento(value: integer);
 
   public
 
@@ -74,6 +76,7 @@ type
     function getTOTAL(value: string): iItensVendas;
 
     function gravarItensDaVenda(value: TClientDataSet): iItensVendas;
+    function decrementarEstoque(value: TClientDataSet): iItensVendas;
 
     function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): Currency;
 
@@ -135,9 +138,38 @@ begin
   FTabela := 'ITENS_VENDA';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
+  FQueryProdutos := TConexaoQuery.new.Query('PRODUTOS');
+
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('ID_VENDA').getCodigoFuncionario(funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TEntityItensVenda.decrementarEstoque(value: TClientDataSet)
+  : iItensVendas;
+begin
+
+  result := self;
+
+  value.First;
+
+  while not value.Eof do
+  begin
+
+   selecionarProdutoDecremento(value.FieldByName('codigo_produto').AsInteger);
+
+   FQueryProdutos.TQuery.Edit;
+
+   FQueryProdutos.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger :=
+        FQueryProdutos.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger -
+        value.FieldByName('Quantidade').AsInteger;
+
+   FQueryProdutos.TQuery.Post;
+
+
+    value.Next;
+  end;
 
 end;
 
@@ -491,6 +523,14 @@ end;
 function TEntityItensVenda.pesquisar: iItensVendas;
 begin
   result := self;
+end;
+
+procedure TEntityItensVenda.selecionarProdutoDecremento(value: integer);
+begin
+
+  FQueryProdutos.getCampo('ID').getValor(value.ToString)
+    .sqlPesquisaEstatica('PRODUTOS');
+
 end;
 
 function TEntityItensVenda.sqlPesquisa: iItensVendas;

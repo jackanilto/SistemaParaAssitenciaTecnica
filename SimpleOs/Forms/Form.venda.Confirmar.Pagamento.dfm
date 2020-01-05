@@ -13,6 +13,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -428,6 +429,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbCancelarVendaClick
     end
     object sbImprimir: TSpeedButton
       Left = 335
@@ -436,6 +438,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
       Height = 35
       Hint = 'Imprime a s parcelas da venda'
       Caption = 'Imprimir parcelas'
+      Enabled = False
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -517,6 +520,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
       Height = 35
       Hint = 'Exclui o registro selecionado'
       Caption = 'Imprimir recibo'
+      Enabled = False
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite

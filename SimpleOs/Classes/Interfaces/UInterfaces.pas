@@ -1312,6 +1312,7 @@ type
     function getTOTAL(value: string): iItensVendas;
 
     function gravarItensDaVenda(value: TclientDataSet): iItensVendas;
+    function decrementarEstoque(value: TclientDataSet): iItensVendas;
 
     function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): currency;
 
