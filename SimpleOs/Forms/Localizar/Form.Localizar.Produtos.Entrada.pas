@@ -9,6 +9,9 @@ uses
   Data.DB, Vcl.Grids, Vcl.DBGrids, FireDAC.Comp.Client, UDados.Conexao;
 
 type
+  TEnumPesquisar = (codigo, produto, codigo_garras);
+
+type
   TformLocalizarProdutosEntradas = class(TForm)
     Panel1: TPanel;
     sbFechar: TSpeedButton;
@@ -55,7 +58,7 @@ begin
   formEntradaDeProdutos.edtCodigoDoProduto.text :=
     DataSource1.DataSet.FieldByName('ID').AsInteger.ToString;
   formEntradaDeProdutos.edtProduto.text := DataSource1.DataSet.FieldByName
-    ('SERVICO_PRODUTO').AsString;
+    ('PRODUTO').AsString;
   Close;
 end;
 
@@ -63,23 +66,25 @@ procedure TformLocalizarProdutosEntradas.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
 
-  if cbPesquisar.text = 'Código' then
-    FCampo := 'ID'
-  else if cbPesquisar.text = 'Produto/Serviço' then
-    FCampo := 'SERVICO_PRODUTO'
-  else if cbPesquisar.text = 'Tipo de cadastro' then
-    FCampo := 'TIPO_CADASTROS'
-  else if cbPesquisar.text = 'Código de barras' then
-    FCampo := 'CODIGO_BARRAS';
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+    codigo:
+      begin
+        FCampo := 'ID';
+      end;
+    produto:
+      begin
+        FCampo := 'PRODUTO';
+      end;
+    codigo_garras:
+      begin
+        FCampo := 'CODIGO_BARRAS';
+      end;
+  end;
 
   FValor := UpperCase(edtPesquisar.text);
 
   selecionarRegistros;
 
-  { Código
-    Produto/Serviço
-    Tipo de cadastro
-    Código de barras }
 end;
 
 procedure TformLocalizarProdutosEntradas.FormClose(Sender: TObject;
@@ -127,8 +132,8 @@ begin
   FQuery.Active := true;
 
   FQuery.FieldByName('ID').DisplayLabel := 'Código';
-  FQuery.FieldByName('TIPO_CADASTROS').DisplayLabel := 'Tipo de cadastro';
-  FQuery.FieldByName('SERVICO_PRODUTO').DisplayLabel := 'Produto/Serviço';
+  // FQuery.FieldByName('TIPO_CADASTROS').DisplayLabel := 'Tipo de cadastro';
+  FQuery.FieldByName('PRODUTO').DisplayLabel := 'Produto/Serviço';
   FQuery.FieldByName('CODIGO_BARRAS').DisplayLabel := 'Cód. de barras';
   FQuery.FieldByName('DESCRICAO').DisplayLabel := 'Descrição';
   FQuery.FieldByName('VALOR_CUSTO').DisplayLabel := 'Valor de custo';
@@ -149,8 +154,8 @@ begin
   FQuery.FieldByName('FOTO').Visible := false;
   FQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
 
-  FQuery.FieldByName('SERVICO_PRODUTO').DisplayWidth := 30;
-  FQuery.FieldByName('TIPO_CADASTROS').DisplayWidth := 18;
+  FQuery.FieldByName('PRODUTO').DisplayWidth := 30;
+  // FQuery.FieldByName('TIPO_CADASTROS').DisplayWidth := 18;
   FQuery.FieldByName('CODIGO_BARRAS').DisplayWidth := 25;
   FQuery.FieldByName('DESCRICAO').DisplayWidth := 20;
   FQuery.FieldByName('GRUPO').DisplayWidth := 30;

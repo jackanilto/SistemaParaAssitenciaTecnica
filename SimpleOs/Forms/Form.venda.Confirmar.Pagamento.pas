@@ -6,7 +6,9 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  UFactory, Vcl.Mask, Vcl.ComCtrls;
+  UFactory, Vcl.Mask, Vcl.ComCtrls, frxClass, frxDBSet, Data.DB, UInterfaces,
+  UClasse.Imprimir.Recibo, UClasse.Entity.Dados.Empresa,
+  UClasse.Imprimir.Parcelas;
 
 type
   TFormVendaConfirmarPagamento = class(TForm)
@@ -36,6 +38,17 @@ type
     Label4: TLabel;
     edtDataVencimento: TDateTimePicker;
     Label5: TLabel;
+    frxDB_ImprimirRecibo: TfrxDBDataset;
+    frx_ImprimirRecibo: TfrxReport;
+    frx_ImprimirParcelas: TfrxReport;
+    frxDB_ImprimirParcelas: TfrxDBDataset;
+    s_ImprimirRecibo: TDataSource;
+    s_ImprimirParcelas: TDataSource;
+    s_DadosEmpresa: TDataSource;
+    frxDB_Empresa: TfrxDBDataset;
+    frxDB_ImprimirReciboItens: TfrxDBDataset;
+    s_ImprimirReciboItens: TDataSource;
+    s_jurosMulta: TDataSource;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -54,12 +67,18 @@ type
     procedure edtParceladoChange(Sender: TObject);
     procedure sbCancelarVendaClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure sbImprimirReciboClick(Sender: TObject);
   private
     procedure calcularDesconto;
     procedure validarParcelas;
     procedure calcularTroco;
-    procedure parcelamentoAVista(desconto_atual: string; parcelas: Integer);
-    procedure parcelamentoNaoAvista(parcelas: Integer);
+    procedure parcelamentoAVista(desconto_atual: string; Parcelas: Integer);
+    procedure parcelamentoNaoAvista(Parcelas: Integer);
+
+  var
+    FImprimirRecibo: iImprimirRecibo;
+    FVisualizarDadosEmpresa: iDadosEmpresa;
+    FImprimirParcelas: iImprimirParcelasVendas;
 
   var
     totalDaVendaCalulado: CurrencY;
@@ -223,25 +242,25 @@ begin
 end;
 
 procedure TFormVendaConfirmarPagamento.parcelamentoAVista(desconto_atual
-  : string; parcelas: Integer);
+  : string; Parcelas: Integer);
 begin
   FentityParcelas.getID_CLIENTE(CodigoCliente)
     .getID_VENDA(FEntityVenda.setCodigoVenda)
-    .getVALOR_VENDA(CurrToStr(TotalDaVenda)).getQUANTIDADE_PARCELAS(parcelas)
+    .getVALOR_VENDA(CurrToStr(TotalDaVenda)).getQUANTIDADE_PARCELAS(Parcelas)
     .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
     .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
     .getDesconto(desconto_atual).getTOTAL(CurrToStr(totalDaVendaCalulado))
     .gerarParcelaAvista;
 end;
 
-procedure TFormVendaConfirmarPagamento.parcelamentoNaoAvista(parcelas: Integer);
+procedure TFormVendaConfirmarPagamento.parcelamentoNaoAvista(Parcelas: Integer);
 begin
   FentityParcelas.getID_CLIENTE(CodigoCliente)
     .getID_VENDA(FEntityVenda.setCodigoVenda)
     .getVALOR_VENDA(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS
-    (parcelas).getVALOR_DA_PARCELA
+    (Parcelas).getVALOR_DA_PARCELA
     (CurrToStr(TFactory.new.calcularParcela.getvalor(totalDaVendaCalulado)
-    .getNumeroParcelas(parcelas).valorDeCadaParcela))
+    .getNumeroParcelas(Parcelas).valorDeCadaParcela))
     .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date)).gerarParcelas;
 end;
 
@@ -259,6 +278,10 @@ begin
 
   TFactory.new.ftTable.FD_Table('NUMERO_PARCELAS')
     .getCampoTabela('NUM_PARCELAS').popularComponenteComboBox(edtParcelado);
+
+  FImprimirRecibo := TImprimirRecibo.new;
+  FVisualizarDadosEmpresa := TEntityCadastroDadosEmpresa.new;
+  FImprimirParcelas := TImprimirParcelasVenda.new;
 
 end;
 
@@ -278,6 +301,8 @@ begin
     FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
 
   FEntityVenda.inserir;
+
+  FVisualizarDadosEmpresa.abrir.listarGrid(s_DadosEmpresa);
 
 end;
 
@@ -303,7 +328,7 @@ end;
 procedure TFormVendaConfirmarPagamento.sbConfirmarVendaClick(Sender: TObject);
 var
   desconto_atual: string;
-  parcelas: Integer;
+  Parcelas: Integer;
 begin
 
   desconto_atual := TFactory.new.validarDocumento.limparValorRS
@@ -312,12 +337,12 @@ begin
   try
     if edtParcelado.Text = 'À vista' then
     begin
-      parcelas := 1;
+      Parcelas := 1;
       FEntityVenda.tipoDeVenda('à vista');
     end
     else
     begin
-      parcelas := StrToInt(edtParcelado.Text);
+      Parcelas := StrToInt(edtParcelado.Text);
       FEntityVenda.tipoDeVenda('Parcelado');
     end;
   except
@@ -332,16 +357,16 @@ begin
   FEntityVenda.getID_CLIENTE(CodigoCliente).getNOME_CLIENTE(NomeCliente)
     .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
     .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(desconto_atual)
-    .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS(parcelas)
+    .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS(Parcelas)
     .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text).gravar;
 
   if edtParcelado.Text = 'À vista' then
   begin
-    parcelamentoAVista(desconto_atual, parcelas);
+    parcelamentoAVista(desconto_atual, Parcelas);
   end
   else
   begin
-    parcelamentoNaoAvista(parcelas);
+    parcelamentoNaoAvista(Parcelas);
   end;
 
   FEntityItensVenda.getID_VENDA(FEntityVenda.setCodigoVenda)
@@ -357,6 +382,14 @@ begin
   ShowMessage('Venda efetuada com sucesso!!!');
   formVendas.lblVenda.Caption := 'Venda Finalizada - Código da venda: ' +
     IntToStr(FEntityVenda.setCodigoVenda);
+
+  FImprimirRecibo.selecionarVenda(FEntityVenda.setCodigoVenda)
+    .retornarDataSet(s_ImprimirRecibo).selecionarItens
+    (FEntityVenda.setCodigoVenda).retornarDataSetItens(s_ImprimirReciboItens);
+
+  FImprimirParcelas.selecionarParcelas(FEntityVenda.setCodigoVenda)
+    .retornarDataSet(s_ImprimirParcelas).retonarJurosMultaAtraso(s_jurosMulta);
+
   // close;
 
 end;
@@ -364,6 +397,13 @@ end;
 procedure TFormVendaConfirmarPagamento.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TFormVendaConfirmarPagamento.sbImprimirReciboClick(Sender: TObject);
+begin
+  frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/comprovante_pagamento_venda.fr3');
+  frx_ImprimirRecibo.ShowReport();
 end;
 
 end.

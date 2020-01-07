@@ -1488,6 +1488,24 @@ type
 
   end;
 
+  iImprimirRecibo = interface
+    ['{509FF26E-6DFB-4777-94EA-692A31BFC7AB}']
+
+    function selecionarVenda(value: integer): iImprimirRecibo;
+    function selecionarItens(value: integer): iImprimirRecibo;
+    function retornarDataSet(value: TDataSource): iImprimirRecibo;
+    function retornarDataSetItens(value: TDataSource): iImprimirRecibo;
+
+  end;
+
+  iImprimirParcelasVendas = interface
+    ['{EBFFAFC1-AF2A-434D-9924-87827781070B}']
+    function selecionarParcelas(value: integer): iImprimirParcelasVendas;
+    function retornarDataSet(value: TDataSource): iImprimirParcelasVendas;
+    function retonarJurosMultaAtraso(value: TDataSource)
+      : iImprimirParcelasVendas;
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

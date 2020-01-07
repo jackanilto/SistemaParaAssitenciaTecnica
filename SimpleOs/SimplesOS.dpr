@@ -95,7 +95,9 @@ uses
   Form.venda.Confirmar.Pagamento in 'Forms\Form.venda.Confirmar.Pagamento.pas' {FormVendaConfirmarPagamento},
   UClasse.Entity.Numero.Parcelas in 'Classes\Entity\UClasse.Entity.Numero.Parcelas.pas',
   Form.Numero.Parcelas in 'Forms\Form.Numero.Parcelas.pas' {formNumeroParcelas},
-  UClasse.Calcular.Parcela in 'Classes\Entity\UClasse.Calcular.Parcela.pas';
+  UClasse.Calcular.Parcela in 'Classes\Entity\UClasse.Calcular.Parcela.pas',
+  UClasse.Imprimir.Recibo in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Recibo.pas',
+  UClasse.Imprimir.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Parcelas.pas';
 
 {$R *.res}
 

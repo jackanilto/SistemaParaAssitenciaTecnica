@@ -2758,3 +2758,48 @@ Problematic key value is ("ID" = 2)
 05/01/20 15:21:28 - Caption: Venda de produtos
 05/01/20 15:21:28 - Erro:Exception
 05/01/20 15:21:28 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+06/01/20 23:08:12 - ===========================================
+06/01/20 23:08:12 - Form: formVendas
+06/01/20 23:08:12 - Caption: Venda de produtos
+06/01/20 23:08:12 - Erro:Exception
+06/01/20 23:08:12 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+06/01/20 23:08:15 - ===========================================
+06/01/20 23:08:15 - Form: formVendas
+06/01/20 23:08:15 - Caption: Venda de produtos
+06/01/20 23:08:15 - Erro:Exception
+06/01/20 23:08:15 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+06/01/20 23:08:17 - ===========================================
+06/01/20 23:08:17 - Form: formVendas
+06/01/20 23:08:17 - Caption: Venda de produtos
+06/01/20 23:08:17 - Erro:Exception
+06/01/20 23:08:17 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+06/01/20 23:21:42 - ===========================================
+06/01/20 23:21:42 - Form: formLocalizarProdutosEntradas
+06/01/20 23:21:42 - Caption: Localizar produtos - Entradas
+06/01/20 23:21:42 - Erro:EDatabaseError
+06/01/20 23:21:42 - Erro:Field 'TIPO_CADASTROS' not found
+06/01/20 23:22:13 - ===========================================
+06/01/20 23:22:13 - Form: formLocalizarProdutosEntradas
+06/01/20 23:22:13 - Caption: Localizar produtos - Entradas
+06/01/20 23:22:13 - Erro:EDatabaseError
+06/01/20 23:22:13 - Erro:Field 'TIPO_CADASTROS' not found
+06/01/20 23:24:23 - ===========================================
+06/01/20 23:24:23 - Form: formLocalizarProdutosEntradas
+06/01/20 23:24:23 - Caption: Localizar produtos - Entradas
+06/01/20 23:24:23 - Erro:EDatabaseError
+06/01/20 23:24:23 - Erro:Field 'SERVICO_PRODUTO' not found
+06/01/20 23:25:07 - ===========================================
+06/01/20 23:25:07 - Form: formLocalizarProdutosEntradas
+06/01/20 23:25:07 - Caption: Localizar produtos - Entradas
+06/01/20 23:25:07 - Erro:EDatabaseError
+06/01/20 23:25:07 - Erro:Field 'SERVICO_PRODUTO' not found
+06/01/20 23:25:52 - ===========================================
+06/01/20 23:25:52 - Form: formLocalizarProdutosEntradas
+06/01/20 23:25:52 - Caption: Localizar produtos - Entradas
+06/01/20 23:25:52 - Erro:EDatabaseError
+06/01/20 23:25:52 - Erro:Field 'SERVICO_PRODUTO' not found
+06/01/20 23:25:58 - ===========================================
+06/01/20 23:25:58 - Form: DBGrid1
+06/01/20 23:25:58 - Caption: 
+06/01/20 23:25:58 - Erro:EDatabaseError
+06/01/20 23:25:58 - Erro:Field 'SERVICO_PRODUTO' not found
