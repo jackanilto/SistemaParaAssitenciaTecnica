@@ -1,7 +1,7 @@
 object formPrincipal: TformPrincipal
   Left = 0
   Top = 0
-  Caption = 'formPrincipal'
+  Caption = 'SimpleOS'
   ClientHeight = 524
   ClientWidth = 1061
   Color = clBtnFace
@@ -7247,7 +7247,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 323
   end
   object spvExtras: TSplitView
     Left = 150
@@ -7261,7 +7260,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 323
   end
   object spvSobre: TSplitView
     Left = 150
@@ -7275,7 +7273,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 323
   end
   object spvConfiguracoes: TSplitView
     Left = 150
@@ -7289,7 +7286,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 323
   end
   object ImageList1: TImageList
     Height = 24

@@ -512,6 +512,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbImprimirClick
     end
     object sbImprimirRecibo: TSpeedButton
       Left = 501
@@ -710,7 +711,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43836.948932916670000000
-    ReportOptions.LastChange = 43836.995322222220000000
+    ReportOptions.LastChange = 43837.869563761570000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -749,9 +750,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
       Frame.Typ = []
       MirrorMode = []
       VGuides.Strings = (
-        '343,93723'
-        '464,88219'
-        '570,70903')
+        '461,10266')
       object ReportTitle1: TfrxReportTitle
         FillType = ftBrush
         Frame.Typ = []
@@ -794,9 +793,9 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         end
         object Memo19: TfrxMemoView
           AllowVectorExport = True
-          Left = 166.299320000000000000
-          Top = 143.622140000000000000
-          Width = 128.504020000000000000
+          Left = 139.842610000000000000
+          Top = 147.401670000000000000
+          Width = 162.519790000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -811,7 +810,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         end
         object Memo20: TfrxMemoView
           AllowVectorExport = True
-          Left = 302.362400000000000000
+          Left = -170.078850000000000000
           Top = 143.622140000000000000
           Width = 162.519790000000000000
           Height = 18.897650000000000000
@@ -1090,7 +1089,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         end
         object Memo24: TfrxMemoView
           AllowVectorExport = True
-          Left = 442.205010000000000000
+          Left = 438.425480000000000000
           Top = 306.141930000000000000
           Width = 219.212740000000000000
           Height = 18.897650000000000000
@@ -1236,7 +1235,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
-            'Itens incluidos na venda')
+            'Itens inclusos na venda')
           ParentFont = False
         end
         object Shape7: TfrxShapeView
@@ -1250,7 +1249,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           AllowVectorExport = True
           Left = 11.338590000000000000
           Top = 524.575140000000000000
-          Width = 328.819110000000000000
+          Width = 298.582870000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1264,9 +1263,9 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         end
         object Memo33: TfrxMemoView
           AllowVectorExport = True
-          Left = 351.496290000000000000
+          Left = 321.260050000000000000
           Top = 525.575140000000000000
-          Width = 105.826840000000000000
+          Width = 117.165430000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1275,12 +1274,12 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Vlr Unit'#225'rio')
+            'Vlr Unit'#225'rio R$')
           ParentFont = False
         end
         object Memo34: TfrxMemoView
           AllowVectorExport = True
-          Left = 468.661720000000000000
+          Left = 449.764070000000000000
           Top = 524.354670000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
@@ -1296,7 +1295,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         end
         object Memo35: TfrxMemoView
           AllowVectorExport = True
-          Left = 574.488560000000000000
+          Left = 555.590910000000000000
           Top = 523.354670000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
@@ -1307,35 +1306,52 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Total')
+            'Total R$')
           ParentFont = False
         end
-        object Line7: TfrxLineView
+        object Line13: TfrxLineView
           AllowVectorExport = True
-          Left = 343.937230000000000000
+          Left = 317.480520000000000000
           Top = 514.016080000000000000
           Height = 30.236240000000000000
           Color = clBlack
           Frame.Typ = []
           Diagonal = True
         end
-        object Line8: TfrxLineView
+        object Line14: TfrxLineView
           AllowVectorExport = True
-          Left = 464.882190000000000000
+          Left = 443.984540000000000000
           Top = 514.016080000000000000
           Height = 30.236240000000000000
           Color = clBlack
           Frame.Typ = []
           Diagonal = True
         end
-        object Line9: TfrxLineView
+        object Line15: TfrxLineView
           AllowVectorExport = True
-          Left = 570.709030000000000000
+          Left = 552.811380000000000000
           Top = 514.016080000000000000
           Height = 30.236240000000000000
           Color = clBlack
           Frame.Typ = []
           Diagonal = True
+        end
+        object Memo40: TfrxMemoView
+          AllowVectorExport = True
+          Left = 306.141930000000000000
+          Top = 147.401670000000000000
+          Width = 181.417440000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDB_Empresa."CELULAR"]')
+          ParentFont = False
         end
       end
       object MasterData1: TfrxMasterData
@@ -1357,7 +1373,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           AllowVectorExport = True
           Left = 7.559060000000000000
           Top = 7.559060000000000000
-          Width = 325.039580000000000000
+          Width = 302.362400000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1371,9 +1387,9 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         end
         object Memo37: TfrxMemoView
           AllowVectorExport = True
-          Left = 349.496290000000000000
+          Left = 321.260050000000000000
           Top = 7.559060000000000000
-          Width = 109.606370000000000000
+          Width = 117.165430000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1387,7 +1403,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         end
         object Memo38: TfrxMemoView
           AllowVectorExport = True
-          Left = 470.882190000000000000
+          Left = 451.984540000000000000
           Top = 7.559060000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
@@ -1403,9 +1419,9 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         end
         object Memo39: TfrxMemoView
           AllowVectorExport = True
-          Left = 578.268090000000000000
-          Top = 10.338590000000000000
-          Width = 128.504020000000000000
+          Left = 555.590910000000000000
+          Top = 9.338590000000000000
+          Width = 147.401670000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1417,25 +1433,26 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
             '[frxDB_ImprimirReciboItens."TOTAL"]')
           ParentFont = False
         end
-        object Line10: TfrxLineView
+        object Line16: TfrxLineView
           AllowVectorExport = True
-          Left = 570.709030000000000000
+          Left = 317.480520000000000000
+          Top = 1.779530000000000000
           Height = 30.236240000000000000
           Color = clBlack
           Frame.Typ = []
           Diagonal = True
         end
-        object Line11: TfrxLineView
+        object Line17: TfrxLineView
           AllowVectorExport = True
-          Left = 464.882190000000000000
+          Left = 553.031850000000000000
           Height = 30.236240000000000000
           Color = clBlack
           Frame.Typ = []
           Diagonal = True
         end
-        object Line12: TfrxLineView
+        object Line18: TfrxLineView
           AllowVectorExport = True
-          Left = 343.937230000000000000
+          Left = 443.984540000000000000
           Height = 30.236240000000000000
           Color = clBlack
           Frame.Typ = []
@@ -1469,18 +1486,718 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 43836.899045937500000000
-    ReportOptions.LastChange = 43836.899045937500000000
+    ReportOptions.CreateDate = 43837.784506805600000000
+    ReportOptions.LastChange = 43837.858305324100000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
+      ''
       'begin'
       ''
       'end.')
     Left = 560
     Top = 288
-    Datasets = <>
+    Datasets = <
+      item
+        DataSet = frxDB_Empresa
+        DataSetName = 'frxDB_Empresa'
+      end
+      item
+        DataSet = frxDB_ImprimirParcelas
+        DataSetName = 'frxDB_ImprimirParcelas'
+      end
+      item
+        DataSet = frxDB_JurosMulta
+        DataSetName = 'frxDB_JurosMulta'
+      end>
     Variables = <>
     Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object PageFooter1: TfrxPageFooter
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 400.630180000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Left = 642.520100000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[Page#]')
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 321.260050000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDB_ImprimirParcelas
+        DataSetName = 'frxDB_ImprimirParcelas'
+        RowCount = 0
+        object Shape1: TfrxShapeView
+          AllowVectorExport = True
+          Width = 309.921460000000000000
+          Height = 302.362400000000000000
+          Frame.Typ = []
+        end
+        object Shape2: TfrxShapeView
+          AllowVectorExport = True
+          Left = 313.700990000000000000
+          Width = 404.409710000000000000
+          Height = 302.362400000000000000
+          Frame.Typ = []
+        end
+        object Shape3: TfrxShapeView
+          AllowVectorExport = True
+          Width = 309.921460000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 7.559060000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Venda:')
+        end
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Left = 60.472480000000000000
+          Top = 7.559060000000000000
+          Width = 226.771800000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."ID_VENDA"]')
+        end
+        object Shape4: TfrxShapeView
+          AllowVectorExport = True
+          Top = 30.236240000000000000
+          Width = 309.921460000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 37.795300000000000000
+          Width = 124.724490000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'N'#250'mero da parcela:')
+        end
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Left = 136.063080000000000000
+          Top = 37.795300000000000000
+          Width = 162.519790000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."ID_PARCELA"]')
+        end
+        object Shape5: TfrxShapeView
+          AllowVectorExport = True
+          Top = 60.472480000000000000
+          Width = 309.921460000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 68.031540000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'C'#243'digo do cliente:')
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 120.944960000000000000
+          Top = 68.031540000000000000
+          Width = 177.637910000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."ID_CLIENTE"]')
+        end
+        object Shape6: TfrxShapeView
+          AllowVectorExport = True
+          Top = 90.708720000000000000
+          Width = 309.921460000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 102.047310000000000000
+          Width = 124.724490000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Valor da parcela: R$')
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 134.063080000000000000
+          Top = 101.047310000000000000
+          Width = 162.519790000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."VALOR_DA_PARCELA"]')
+        end
+        object Shape7: TfrxShapeView
+          AllowVectorExport = True
+          Top = 120.944960000000000000
+          Width = 309.921460000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 129.504020000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Parcela:')
+        end
+        object Memo11: TfrxMemoView
+          AllowVectorExport = True
+          Left = 60.472480000000000000
+          Top = 129.504020000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."PARCELA"]')
+        end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 135.842610000000000000
+          Top = 129.504020000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'de')
+        end
+        object Memo13: TfrxMemoView
+          AllowVectorExport = True
+          Left = 158.740260000000000000
+          Top = 130.504020000000000000
+          Width = 139.842610000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."QUANTIDADE_PARCELAS"]')
+        end
+        object Shape8: TfrxShapeView
+          AllowVectorExport = True
+          Top = 151.181200000000000000
+          Width = 309.921460000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo14: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 158.740260000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Vencimetno:')
+        end
+        object Memo15: TfrxMemoView
+          AllowVectorExport = True
+          Left = 86.929190000000000000
+          Top = 158.740260000000000000
+          Width = 166.299320000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."DATA_VENCIMENTO"]')
+        end
+        object Shape9: TfrxShapeView
+          AllowVectorExport = True
+          Left = 5.779530000000000000
+          Top = 211.653680000000000000
+          Width = 177.637910000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+          Shape = skRoundRectangle
+        end
+        object Memo16: TfrxMemoView
+          AllowVectorExport = True
+          Left = 188.976500000000000000
+          Top = 215.433210000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'PGTO __/__/____')
+        end
+        object Memo17: TfrxMemoView
+          AllowVectorExport = True
+          Left = 15.118120000000000000
+          Top = 245.669450000000000000
+          Width = 154.960730000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Assinatura do recebedor')
+        end
+        object Memo18: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 276.464750000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Juros por atraso:')
+          ParentFont = False
+        end
+        object Memo19: TfrxMemoView
+          AllowVectorExport = True
+          Left = 92.488250000000000000
+          Top = 276.464750000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_JurosMulta."JUROS"]')
+          ParentFont = False
+        end
+        object Memo20: TfrxMemoView
+          AllowVectorExport = True
+          Left = 140.842610000000000000
+          Top = 276.464750000000000000
+          Width = 102.047310000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Multa por atraso: R$')
+          ParentFont = False
+        end
+        object Memo21: TfrxMemoView
+          AllowVectorExport = True
+          Left = 244.669450000000000000
+          Top = 276.464750000000000000
+          Width = 60.472480000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_JurosMulta."MULTA"]')
+          ParentFont = False
+        end
+        object Shape10: TfrxShapeView
+          AllowVectorExport = True
+          Left = 313.700990000000000000
+          Width = 404.409710000000000000
+          Height = 86.929190000000000000
+          Frame.Typ = []
+        end
+        object Memo22: TfrxMemoView
+          AllowVectorExport = True
+          Left = 313.700990000000000000
+          Top = 7.559060000000000000
+          Width = 404.409710000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -15
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDB_Empresa."NOME_FANTASIA"]')
+          ParentFont = False
+        end
+        object Memo23: TfrxMemoView
+          AllowVectorExport = True
+          Left = 313.700990000000000000
+          Top = 30.236240000000000000
+          Width = 404.409710000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDB_Empresa."CNPJ"]')
+          ParentFont = False
+        end
+        object Memo24: TfrxMemoView
+          AllowVectorExport = True
+          Left = 313.700990000000000000
+          Top = 52.913420000000000000
+          Width = 188.976500000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDB_Empresa."TELEFONE"]')
+          ParentFont = False
+        end
+        object Memo25: TfrxMemoView
+          AllowVectorExport = True
+          Left = 506.457020000000000000
+          Top = 52.913420000000000000
+          Width = 188.976500000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDB_Empresa."CELULAR"]')
+          ParentFont = False
+        end
+        object Shape11: TfrxShapeView
+          AllowVectorExport = True
+          Left = 313.700990000000000000
+          Top = 86.929190000000000000
+          Width = 404.409710000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo26: TfrxMemoView
+          AllowVectorExport = True
+          Left = 321.260050000000000000
+          Top = 94.488250000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Venda:')
+        end
+        object Memo27: TfrxMemoView
+          AllowVectorExport = True
+          Left = 366.614410000000000000
+          Top = 94.488250000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."ID_VENDA"]')
+        end
+        object Shape12: TfrxShapeView
+          AllowVectorExport = True
+          Left = 313.700990000000000000
+          Top = 117.165430000000000000
+          Width = 404.409710000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo28: TfrxMemoView
+          AllowVectorExport = True
+          Left = 483.779840000000000000
+          Top = 94.488250000000000000
+          Width = 124.724490000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'N'#250'mero da parcela:')
+        end
+        object Memo29: TfrxMemoView
+          AllowVectorExport = True
+          Left = 608.504330000000000000
+          Top = 94.488250000000000000
+          Width = 105.826840000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."ID_PARCELA"]')
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Left = 482.559370000000000000
+          Top = 86.929190000000000000
+          Height = 30.236240000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Shape13: TfrxShapeView
+          AllowVectorExport = True
+          Left = 314.039580000000000000
+          Top = 147.401670000000000000
+          Width = 404.409710000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+        end
+        object Memo30: TfrxMemoView
+          AllowVectorExport = True
+          Left = 321.260050000000000000
+          Top = 124.724490000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Cliente:')
+        end
+        object Memo31: TfrxMemoView
+          AllowVectorExport = True
+          Left = 370.393940000000000000
+          Top = 124.724490000000000000
+          Width = 343.937230000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."CLIENTE"]')
+          ParentFont = False
+        end
+        object Memo32: TfrxMemoView
+          AllowVectorExport = True
+          Left = 321.260050000000000000
+          Top = 154.960730000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Parcela: R$')
+          ParentFont = False
+        end
+        object Memo33: TfrxMemoView
+          AllowVectorExport = True
+          Left = 396.850650000000000000
+          Top = 155.960730000000000000
+          Width = 109.606370000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."QUANTIDADE_PARCELAS"]')
+          ParentFont = False
+        end
+        object Memo34: TfrxMemoView
+          AllowVectorExport = True
+          Left = 516.575140000000000000
+          Top = 155.960730000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Vencimetno:')
+        end
+        object Memo35: TfrxMemoView
+          AllowVectorExport = True
+          Left = 596.724800000000000000
+          Top = 155.960730000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirParcelas."DATA_VENCIMENTO"]')
+        end
+        object Line2: TfrxLineView
+          AllowVectorExport = True
+          Left = 510.236550000000000000
+          Top = 147.401670000000000000
+          Height = 30.236240000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Shape14: TfrxShapeView
+          AllowVectorExport = True
+          Left = 336.378170000000000000
+          Top = 192.756030000000000000
+          Width = 177.637910000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = []
+          Shape = skRoundRectangle
+        end
+        object Memo36: TfrxMemoView
+          AllowVectorExport = True
+          Left = 519.575140000000000000
+          Top = 196.535560000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'PGTO __/__/____')
+        end
+        object Memo37: TfrxMemoView
+          AllowVectorExport = True
+          Left = 345.716760000000000000
+          Top = 226.771800000000000000
+          Width = 154.960730000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Assinatura do recebedor')
+        end
+        object BarCode1: TfrxBarCodeView
+          AllowVectorExport = True
+          Left = 597.165740000000000000
+          Top = 223.212740000000000000
+          Width = 103.000000000000000000
+          Height = 52.913420000000000000
+          BarType = bcCodeEAN13
+          Expression = '<frxDB_ImprimirParcelas."ID_PARCELA">'
+          Frame.Typ = []
+          Rotation = 0
+          TestLine = False
+          Text = '12345678'
+          WideBarRatio = 2.000000000000000000
+          Zoom = 1.000000000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+        end
+        object Memo38: TfrxMemoView
+          AllowVectorExport = True
+          Left = 325.039580000000000000
+          Top = 278.244280000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Juros por atraso:')
+          ParentFont = False
+        end
+        object Memo39: TfrxMemoView
+          AllowVectorExport = True
+          Left = 413.748300000000000000
+          Top = 278.244280000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_JurosMulta."JUROS"]')
+          ParentFont = False
+        end
+        object Memo40: TfrxMemoView
+          AllowVectorExport = True
+          Left = 462.102660000000000000
+          Top = 278.244280000000000000
+          Width = 102.047310000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Multa por atraso: R$')
+          ParentFont = False
+        end
+        object Memo41: TfrxMemoView
+          AllowVectorExport = True
+          Left = 565.929500000000000000
+          Top = 278.244280000000000000
+          Width = 60.472480000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_JurosMulta."MULTA"]')
+          ParentFont = False
+        end
+        object Line3: TfrxLineView
+          AllowVectorExport = True
+          Left = 15.118120000000000000
+          Top = 312.039580000000000000
+          Width = 684.094930000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Frame.Width = 2.000000000000000000
+          Diagonal = True
+        end
+      end
+    end
   end
   object frxDB_ImprimirParcelas: TfrxDBDataset
     UserName = 'frxDB_ImprimirParcelas'
@@ -1515,15 +2232,23 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     CloseDataSource = False
     DataSource = s_ImprimirReciboItens
     BCDToCurrency = False
-    Left = 664
-    Top = 152
+    Left = 696
+    Top = 160
   end
   object s_ImprimirReciboItens: TDataSource
     Left = 504
     Top = 152
   end
   object s_jurosMulta: TDataSource
-    Left = 664
-    Top = 88
+    Left = 688
+    Top = 56
+  end
+  object frxDB_JurosMulta: TfrxDBDataset
+    UserName = 'frxDB_JurosMulta'
+    CloseDataSource = False
+    DataSource = s_jurosMulta
+    BCDToCurrency = False
+    Left = 688
+    Top = 104
   end
 end

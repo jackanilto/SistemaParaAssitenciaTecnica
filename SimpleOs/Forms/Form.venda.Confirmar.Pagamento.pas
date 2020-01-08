@@ -49,6 +49,7 @@ type
     frxDB_ImprimirReciboItens: TfrxDBDataset;
     s_ImprimirReciboItens: TDataSource;
     s_jurosMulta: TDataSource;
+    frxDB_JurosMulta: TfrxDBDataset;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -68,6 +69,7 @@ type
     procedure sbCancelarVendaClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure sbImprimirReciboClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     procedure calcularDesconto;
     procedure validarParcelas;
@@ -397,6 +399,13 @@ end;
 procedure TFormVendaConfirmarPagamento.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TFormVendaConfirmarPagamento.sbImprimirClick(Sender: TObject);
+begin
+  frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/carne_pagamento.fr3');
+  frx_ImprimirParcelas.ShowReport();
 end;
 
 procedure TFormVendaConfirmarPagamento.sbImprimirReciboClick(Sender: TObject);

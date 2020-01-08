@@ -77,7 +77,7 @@ begin
 
   FQueryParcelas.Active := false;
   FQueryParcelas.SQL.Clear;
-  FQueryParcelas.SQL.Add('select * from PARCELAS_VENDAS where id_venda =:i');
+  FQueryParcelas.SQL.Add('select * from VISUALIZAR_PARCELAS_VENDA where id_venda =:i');
   FQueryParcelas.ParamByName('i').AsInteger := value;
   FQueryParcelas.Active := true;
 

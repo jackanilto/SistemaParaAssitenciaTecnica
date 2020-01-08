@@ -15,12 +15,13 @@ Terceira parte do projeto - simpleOS
      #Criar o form para buscar o cliente --FEITO
 	 #Criar o form para buscar o produto --FEITO
 	 #Criar procedimento para imprimir o comprovante da venda --FEITO
-	 #Criar procedimento para imprimir as parcelas das vendas
+	 #Criar procedimento para imprimir as parcelas das vendas --FEITO
+	 #Criar as teclas de atalho para as vendas
 	 #Criar o form para finalizar a vendas --EM ANDAMENTO
 	 
 ###Inclusão de tela extra - Janela para configurar o número de parcelas --FEITO	 
 	 
-	 
+	 '
 	 
 	 ####METODOS ANONIMOS
 
