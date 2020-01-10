@@ -11,10 +11,13 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -711,7 +714,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43836.948932916670000000
-    ReportOptions.LastChange = 43837.869563761570000000
+    ReportOptions.LastChange = 43839.869845972220000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''

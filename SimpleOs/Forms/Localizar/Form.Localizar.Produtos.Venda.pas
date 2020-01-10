@@ -107,6 +107,9 @@ procedure TformLocalizarProdutoVenda.FormShow(Sender: TObject);
 begin
   FEntityLocalizarProdutoVenda.abrir.getCampo('ID').getValor('0')
     .sqlPesquisa.listarGrid(DataSource1);
+
+  edtPesquisar.SetFocus;
+
 end;
 
 procedure TformLocalizarProdutoVenda.sbFecharClick(Sender: TObject);

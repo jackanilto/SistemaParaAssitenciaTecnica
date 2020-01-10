@@ -165,8 +165,10 @@ object formLocalizarProdutoVenda: TformLocalizarProdutoVenda
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ItemIndex = 2
       ParentFont = False
       TabOrder = 0
+      Text = 'C'#243'digo de barras'
       Items.Strings = (
         'C'#243'digo do produto'
         'Produto'
@@ -175,7 +177,7 @@ object formLocalizarProdutoVenda: TformLocalizarProdutoVenda
     object edtPesquisar: TEdit
       Left = 428
       Top = 25
-      Width = 157
+      Width = 197
       Height = 25
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText

@@ -30,19 +30,19 @@ type
     sbLocalizarCliente: TSpeedButton;
     Panel5: TPanel;
     edtLocalizarProduto: TEdit;
-    SpeedButton2: TSpeedButton;
+    sbLocalizarProduto: TSpeedButton;
     lblProduto: TLabel;
     Image1: TImage;
     edtValorUnitario: TEdit;
     Label6: TLabel;
     edtQuantidade: TEdit;
     Label7: TLabel;
-    SpeedButton3: TSpeedButton;
+    sbAdicionarProduto: TSpeedButton;
     Panel6: TPanel;
     DBGrid1: TDBGrid;
     Panel7: TPanel;
-    SpeedButton4: TSpeedButton;
-    SpeedButton5: TSpeedButton;
+    sbExcluirItem: TSpeedButton;
+    sbFinalizarVenda: TSpeedButton;
     Label8: TLabel;
     lblTotalItens: TLabel;
     lblTotalDaVenda: TLabel;
@@ -65,20 +65,21 @@ type
     procedure edtLocalizarCPFKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
+    procedure sbLocalizarProdutoClick(Sender: TObject);
+    procedure sbAdicionarProdutoClick(Sender: TObject);
     procedure edtQuantidadeKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure edtQuantidadeExit(Sender: TObject);
     procedure edtLocalizarProdutoKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure SpeedButton4Click(Sender: TObject);
+    procedure sbExcluirItemClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure SpeedButton5Click(Sender: TObject);
+    procedure sbFinalizarVendaClick(Sender: TObject);
 
     procedure limparDados;
     procedure sbCancelarClick(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 
   private
     { Private declarations }
@@ -256,6 +257,47 @@ begin
 
 end;
 
+procedure TformVendas.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = 113 then // F2
+    if sbLocalizarCliente.Enabled = true then
+    begin
+      sbLocalizarCliente.Click;
+    end;
+
+  if Key = 114 then // F3
+    if sbLocalizarProduto.Enabled = true then
+    begin
+      sbLocalizarProduto.Click;
+    end;
+
+  if Key = 115 then // F4
+    if sbAdicionarProduto.Enabled = true then
+    begin
+      sbAdicionarProduto.Click;
+    end;
+
+  if Key = 116 then // F5
+    if sbFinalizarVenda.Enabled = true then
+    begin
+      sbFinalizarVenda.Click;
+    end;
+
+  if Key = 117 then // F6
+    if sbExcluirItem.Enabled = true then
+    begin
+      sbExcluirItem.Click;
+    end;
+
+  if Key = 118 then // F7
+    if sbCancelar.Enabled = true then
+    begin
+      sbCancelar.Click;
+    end;
+
+end;
+
 procedure TformVendas.FormShow(Sender: TObject);
 begin
   lblOperador.Caption := FEntityVenda.setNomeFuncionario;
@@ -315,7 +357,11 @@ end;
 
 procedure TformVendas.sbCancelarClick(Sender: TObject);
 begin
-  limparDados;
+  if application.MessageBox('Deseja realemente cancelar esta Venda?',
+    'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+  begin
+    limparDados;
+  end;
 end;
 
 procedure TformVendas.sbFecharClick(Sender: TObject);
@@ -348,10 +394,10 @@ begin
     else
     begin
 
-      sbLocalizarCliente.Enabled := false;
-      sbNovo.Enabled := false;
-      sbLocalizarCliente.Enabled := false;
-      edtLocalizarCPF.Enabled := false;
+      sbLocalizarCliente.Enabled := true;
+      sbNovo.Enabled := true;
+      sbLocalizarCliente.Enabled := true;
+      edtLocalizarCPF.Enabled := true;
 
     end;
 
@@ -365,7 +411,7 @@ begin
   edtLocalizarCPF.SetFocus;
 end;
 
-procedure TformVendas.SpeedButton2Click(Sender: TObject);
+procedure TformVendas.sbLocalizarProdutoClick(Sender: TObject);
 begin
   if lblVenda.Caption <> 'Nova venda' then
   begin
@@ -386,7 +432,7 @@ begin
   end;
 end;
 
-procedure TformVendas.SpeedButton3Click(Sender: TObject);
+procedure TformVendas.sbAdicionarProdutoClick(Sender: TObject);
 begin
   if CodigoDoProduto <> 0 then
   begin
@@ -423,7 +469,7 @@ begin
   end;
 end;
 
-procedure TformVendas.SpeedButton4Click(Sender: TObject);
+procedure TformVendas.sbExcluirItemClick(Sender: TObject);
 begin
 
   if cds_tem_produtos.RecordCount >= 1 then
@@ -440,7 +486,7 @@ begin
 
 end;
 
-procedure TformVendas.SpeedButton5Click(Sender: TObject);
+procedure TformVendas.sbFinalizarVendaClick(Sender: TObject);
 begin
 
   if cds_tem_produtos.RecordCount >= 1 then

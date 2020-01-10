@@ -70,6 +70,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure sbImprimirReciboClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     procedure calcularDesconto;
     procedure validarParcelas;
@@ -287,6 +289,29 @@ begin
 
 end;
 
+procedure TFormVendaConfirmarPagamento.FormKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  if Key = 113 then
+    if sbConfirmarVenda.Enabled = true then
+      sbConfirmarVenda.Click;
+
+  if Key = 27 then
+    if sbCancelarVenda.Enabled = true then
+      sbCancelarVenda.Click;
+
+end;
+
+procedure TFormVendaConfirmarPagamento.FormKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    Key := #0;
+    Perform(Wm_NextDlgCtl, 0, 0);
+  end;
+end;
+
 procedure TFormVendaConfirmarPagamento.FormShow(Sender: TObject);
 begin
 
@@ -323,8 +348,12 @@ end;
 
 procedure TFormVendaConfirmarPagamento.sbCancelarVendaClick(Sender: TObject);
 begin
-  formVendas.limparDados;
-  close;
+  if application.MessageBox('Deseja realemente cancelar esta Venda?',
+    'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+  begin
+    formVendas.limparDados;
+    close;
+  end;
 end;
 
 procedure TFormVendaConfirmarPagamento.sbConfirmarVendaClick(Sender: TObject);
@@ -360,7 +389,8 @@ begin
     .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
     .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(desconto_atual)
     .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS(Parcelas)
-    .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text).gravar;
+    .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text)
+    .getVENCIMENTO(DateToStr(edtDataVencimento.Date)).gravar;
 
   if edtParcelado.Text = 'À vista' then
   begin

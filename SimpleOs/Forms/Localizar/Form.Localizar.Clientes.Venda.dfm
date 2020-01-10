@@ -184,8 +184,10 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ItemIndex = 1
       ParentFont = False
       TabOrder = 0
+      Text = 'Nome'
       Items.Strings = (
         'C'#243'digo do cliente'
         'Nome'

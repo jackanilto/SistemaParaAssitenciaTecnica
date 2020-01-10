@@ -2803,3 +2803,33 @@ Problematic key value is ("ID" = 2)
 06/01/20 23:25:58 - Caption: 
 06/01/20 23:25:58 - Erro:EDatabaseError
 06/01/20 23:25:58 - Erro:Field 'SERVICO_PRODUTO' not found
+09/01/20 20:34:21 - ===========================================
+09/01/20 20:34:21 - Form: FormVendaConfirmarPagamento
+09/01/20 20:34:21 - Caption: '
+09/01/20 20:34:21 - Erro:Exception
+09/01/20 20:34:21 - Erro:ERRO! Infome o meio de pagamento do venda
+09/01/20 20:46:09 - ===========================================
+09/01/20 20:46:09 - Form: FormVendaConfirmarPagamento
+09/01/20 20:46:09 - Caption: '
+09/01/20 20:46:09 - Erro:Exception
+09/01/20 20:46:09 - Erro:ERRO! Infome o meio de pagamento do venda
+09/01/20 21:06:16 - ===========================================
+09/01/20 21:06:16 - Form: formVendas
+09/01/20 21:06:16 - Caption: Venda de produtos
+09/01/20 21:06:16 - Erro:Exception
+09/01/20 21:06:16 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+09/01/20 21:06:16 - ===========================================
+09/01/20 21:06:16 - Form: formVendas
+09/01/20 21:06:16 - Caption: Venda de produtos
+09/01/20 21:06:16 - Erro:Exception
+09/01/20 21:06:16 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+09/01/20 21:06:20 - ===========================================
+09/01/20 21:06:20 - Form: formVendas
+09/01/20 21:06:20 - Caption: Venda de produtos
+09/01/20 21:06:20 - Erro:Exception
+09/01/20 21:06:20 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+09/01/20 21:06:53 - ===========================================
+09/01/20 21:06:53 - Form: FormVendaConfirmarPagamento
+09/01/20 21:06:53 - Caption: '
+09/01/20 21:06:53 - Erro:Exception
+09/01/20 21:06:53 - Erro:ERRO! Infome o meio de pagamento do venda

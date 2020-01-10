@@ -11,9 +11,11 @@ object formVendas: TformVendas
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -235,7 +237,7 @@ object formVendas: TformVendas
       Top = 9
       Width = 304
       Height = 35
-      Hint = 'Cancela a opera'#231#227'o em andamento'
+      Hint = 'Cancela a opera'#231#227'o em andamento (F7)'
       Anchors = [akRight, akBottom]
       Caption = 'Cancelar venda em andamento'
       Flat = True
@@ -402,6 +404,7 @@ object formVendas: TformVendas
         Top = 18
         Width = 143
         Height = 33
+        Hint = 'Localizar cliente (F2)'
         Caption = 'Localizar cliente'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -467,6 +470,8 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727}
         ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
         OnClick = sbLocalizarClienteClick
       end
       object edtLocalizarCPF: TEdit
@@ -499,11 +504,12 @@ object formVendas: TformVendas
       Color = 2565927
       ParentBackground = False
       TabOrder = 1
-      object SpeedButton2: TSpeedButton
+      object sbLocalizarProduto: TSpeedButton
         Left = 281
         Top = 27
         Width = 86
         Height = 33
+        Hint = 'Localizar produto (F3)'
         Caption = 'Localizar'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -569,7 +575,9 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727}
         ParentFont = False
-        OnClick = SpeedButton2Click
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = sbLocalizarProdutoClick
       end
       object lblProduto: TLabel
         Left = 22
@@ -1468,11 +1476,12 @@ object formVendas: TformVendas
         Font.Style = []
         ParentFont = False
       end
-      object SpeedButton3: TSpeedButton
+      object sbAdicionarProduto: TSpeedButton
         Left = 189
         Top = 435
         Width = 169
         Height = 32
+        Hint = 'Adiconar Produto na lista de vendas (F4)'
         Caption = 'Adicionar item'
         Flat = True
         Font.Charset = DEFAULT_CHARSET
@@ -1580,7 +1589,9 @@ object formVendas: TformVendas
           2727272727272727272727272727272727272727272727272727272727272727
           2727272727272727272727272727272727272727272727272727}
         ParentFont = False
-        OnClick = SpeedButton3Click
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = sbAdicionarProdutoClick
       end
       object Label4: TLabel
         Left = 16
@@ -1746,11 +1757,12 @@ object formVendas: TformVendas
         DesignSize = (
           702
           87)
-        object SpeedButton4: TSpeedButton
+        object sbExcluirItem: TSpeedButton
           Left = 191
           Top = 49
           Width = 227
-          Height = 33
+          Height = 26
+          Hint = 'Excluir item da lista (F6)'
           Anchors = [akRight, akBottom]
           Caption = 'Excluir item selecionado'
           Flat = True
@@ -1859,13 +1871,16 @@ object formVendas: TformVendas
             C60C3BBF0F3AB012379D1634891A31721E2E58242A3A27272727272727272727
             2727272727272727272727272727272727272727272727272727}
           ParentFont = False
-          OnClick = SpeedButton4Click
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = sbExcluirItemClick
         end
-        object SpeedButton5: TSpeedButton
+        object sbFinalizarVenda: TSpeedButton
           Left = 424
-          Top = 49
+          Top = 45
           Width = 193
           Height = 32
+          Hint = 'Finalizar a venda (F5)'
           Anchors = [akRight, akBottom]
           Caption = 'Finalizar venda'
           Flat = True
@@ -1974,7 +1989,9 @@ object formVendas: TformVendas
             272727272727272727272727272727272727272727272E2E2EFCFCFCFFFFFFE9
             E9E9494949272727272727272727272727272727272727272727}
           ParentFont = False
-          OnClick = SpeedButton5Click
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = sbFinalizarVendaClick
         end
         object Label8: TLabel
           Left = 21

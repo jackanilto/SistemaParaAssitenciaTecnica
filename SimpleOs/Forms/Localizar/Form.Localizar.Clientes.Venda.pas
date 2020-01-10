@@ -118,6 +118,9 @@ procedure TformLocalizarClientesVenda.FormShow(Sender: TObject);
 begin
   FEntityLocalizarClienteVenda.abrir.getCampo('ID').getValor('0')
     .sqlPesquisa.listarGrid(DataSource1);
+
+  edtPesquisar.SetFocus;
+
 end;
 
 procedure TformLocalizarClientesVenda.Panel1MouseDown(Sender: TObject;
