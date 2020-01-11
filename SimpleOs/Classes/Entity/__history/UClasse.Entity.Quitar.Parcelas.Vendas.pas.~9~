@@ -259,6 +259,7 @@ begin
     FieldByName('PAGO').DisplayLabel := 'Pago';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
 
+
     FieldByName('CLIENTE').DisplayWidth := 35;
     FieldByName('OBSERVACAO').DisplayWidth := 40;
 

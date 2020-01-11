@@ -255,13 +255,8 @@ begin
     FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Data de pagamento';
     FieldByName('HORA_PAGAMENTO').DisplayLabel := 'Hora do pagamento';
     FieldByName('FUNCIONARIO_PGTO').DisplayLabel := 'Funcionário';
-    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
     FieldByName('PAGO').DisplayLabel := 'Pago';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
-
-    FieldByName('CLIENTE').DisplayWidth := 35;
-    FieldByName('OBSERVACAO').DisplayWidth := 40;
-
   end;
 
   value.DataSet := FQuery.TQuery;

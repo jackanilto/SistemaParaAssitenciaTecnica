@@ -294,6 +294,9 @@ begin
   if value = EmptyStr then
     raise Exception.create('Informe a data de vencimento da parcela');
 
+  if value = '  /  /    ' then
+    raise Exception.create('Informe a data de vencimento da parcela');
+
   FDATA_VENCIMENTO := value;
 
 end;
@@ -371,8 +374,6 @@ end;
 function TEntityVendasParcelas.getID_CLIENTE(value: integer): iParcelasVendas;
 begin
   result := self;
-  if value = 0 then
-    raise Exception.create('Informe um cliente para esta venda');
   FID_CLIENTE := value;
 end;
 
@@ -645,38 +646,31 @@ end;
 function TEntityVendasParcelas.gerarParcelaAvista: iParcelasVendas;
 var
   i: integer;
-  vencimento: TDate;
 begin
 
   result := self;
 
-  vencimento := StrToDate(FDATA_VENCIMENTO);
-
-  for i := 1 to FQUANTIDADE_PARCELAS do
+  FQuery.TQuery.Insert;
+  with FQuery.TQuery do
   begin
-    FQuery.TQuery.Insert;
-    with FQuery.TQuery do
-    begin
-      FieldByName('id').AsInteger := FQuery.codigoCadastro
-        ('SP_GEN_PARCELAS_VENDAS_ID');
-      FieldByName('ID_VENDA').AsInteger := FID_VENDA;
-      FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
-      FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
-      FieldByName('QUANTIDADE_PARCELAS').AsInteger := FQUANTIDADE_PARCELAS;
-      FieldByName('PARCELA').AsInteger := i;
-      FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
-      FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
-      FieldByName('JUROS').AsFloat := 0;
-      FieldByName('MULTA').AsFloat := 0;
-      FieldByName('DESCONTO').AsCurrency := FDESCONTO;
-      FieldByName('TOTAL').AsCurrency := FTOTAL;
-      FieldByName('HORA_PAGAMENTO').AsDateTime := StrToTime(FHORA_PAGAMENTO);
-      FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
-      FieldByName('PAGO').AsString := FPAGO;
-      FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
-
-      vencimento := IncMonth(vencimento, 1);
-    end;
+    FieldByName('id').AsInteger := FQuery.codigoCadastro
+      ('SP_GEN_PARCELAS_VENDAS_ID');
+    FieldByName('ID_VENDA').AsInteger := FID_VENDA;
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
+    FieldByName('QUANTIDADE_PARCELAS').AsInteger := FQUANTIDADE_PARCELAS;
+    FieldByName('PARCELA').AsInteger := 1;
+    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
+    FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
+    FieldByName('JUROS').AsFloat := 0;
+    FieldByName('MULTA').AsFloat := 0;
+    FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FieldByName('TOTAL').AsCurrency := FVALOR_DA_PARCELA;
+    FieldByName('DATA_PAGAMENTO').AsDateTime := Date;
+    FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+    FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
+    FieldByName('PAGO').AsString := 'sim';
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
     FQuery.TQuery.Post;
 

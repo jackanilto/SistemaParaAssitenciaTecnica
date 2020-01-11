@@ -2833,3 +2833,83 @@ Problematic key value is ("ID" = 2)
 09/01/20 21:06:53 - Caption: '
 09/01/20 21:06:53 - Erro:Exception
 09/01/20 21:06:53 - Erro:ERRO! Infome o meio de pagamento do venda
+11/01/20 17:27:57 - ===========================================
+11/01/20 17:27:57 - Form: formQuitarParcelasVendas
+11/01/20 17:27:57 - Caption: Ver parcelas das vendas realizadas
+11/01/20 17:27:57 - Erro:EDatabaseError
+11/01/20 17:27:57 - Erro:Field 'FORMA_PAGAMENTO' not found
+11/01/20 19:59:54 - ===========================================
+11/01/20 19:59:54 - Form: formCadastroDeClientes
+11/01/20 19:59:54 - Caption: Cadastro de clientes
+11/01/20 19:59:54 - Erro:Exception
+11/01/20 19:59:54 - Erro:Informe o tipo de cadastro realizado.
+11/01/20 20:00:16 - ===========================================
+11/01/20 20:00:16 - Form: formVendas
+11/01/20 20:00:16 - Caption: Venda de produtos
+11/01/20 20:00:16 - Erro:Exception
+11/01/20 20:00:16 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/01/20 20:00:18 - ===========================================
+11/01/20 20:00:18 - Form: formVendas
+11/01/20 20:00:18 - Caption: Venda de produtos
+11/01/20 20:00:18 - Erro:Exception
+11/01/20 20:00:18 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/01/20 20:00:21 - ===========================================
+11/01/20 20:00:21 - Form: formVendas
+11/01/20 20:00:21 - Caption: Venda de produtos
+11/01/20 20:00:21 - Erro:Exception
+11/01/20 20:00:21 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/01/20 20:00:22 - ===========================================
+11/01/20 20:00:22 - Form: formVendas
+11/01/20 20:00:22 - Caption: Venda de produtos
+11/01/20 20:00:22 - Erro:Exception
+11/01/20 20:00:22 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/01/20 20:00:29 - ===========================================
+11/01/20 20:00:29 - Form: formLocalizarProdutoVenda
+11/01/20 20:00:29 - Caption: Localizar produtos - Venda
+11/01/20 20:00:29 - Erro:Exception
+11/01/20 20:00:29 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/01/20 20:00:42 - ===========================================
+11/01/20 20:00:42 - Form: FormVendaConfirmarPagamento
+11/01/20 20:00:42 - Caption: '
+11/01/20 20:00:42 - Erro:Exception
+11/01/20 20:00:42 - Erro:ERRO! Infome o meio de pagamento do venda
+11/01/20 20:10:24 - ===========================================
+11/01/20 20:10:24 - Form: formQuitarParcelasVendas
+11/01/20 20:10:24 - Caption: Ver parcelas das vendas realizadas
+11/01/20 20:10:24 - Erro:Exception
+11/01/20 20:10:24 - Erro:Informe por qual campo deseja pequisar.
+11/01/20 20:10:28 - ===========================================
+11/01/20 20:10:28 - Form: formQuitarParcelasVendas
+11/01/20 20:10:28 - Caption: Ver parcelas das vendas realizadas
+11/01/20 20:10:28 - Erro:Exception
+11/01/20 20:10:28 - Erro:Informe por qual campo deseja pequisar.
+11/01/20 20:10:34 - ===========================================
+11/01/20 20:10:34 - Form: formQuitarParcelasVendas
+11/01/20 20:10:34 - Caption: Ver parcelas das vendas realizadas
+11/01/20 20:10:34 - Erro:Exception
+11/01/20 20:10:34 - Erro:Informe por qual campo deseja pequisar.
+11/01/20 20:12:10 - ===========================================
+11/01/20 20:12:10 - Form: formQuitarParcelasVendas
+11/01/20 20:12:10 - Caption: Ver parcelas das vendas realizadas
+11/01/20 20:12:10 - Erro:Exception
+11/01/20 20:12:10 - Erro:Informe por qual campo deseja pequisar.
+11/01/20 20:16:39 - ===========================================
+11/01/20 20:16:39 - Form: formQuitarParcelasVendas
+11/01/20 20:16:39 - Caption: Ver parcelas das vendas realizadas
+11/01/20 20:16:39 - Erro:Exception
+11/01/20 20:16:39 - Erro:Informe por qual campo deseja pequisar.
+11/01/20 20:17:08 - ===========================================
+11/01/20 20:17:08 - Form: formQuitarParcelasVendas
+11/01/20 20:17:08 - Caption: Ver parcelas das vendas realizadas
+11/01/20 20:17:08 - Erro:Exception
+11/01/20 20:17:08 - Erro:Informe por qual campo deseja pequisar.
+11/01/20 20:20:19 - ===========================================
+11/01/20 20:20:19 - Form: formQuitarParcelasVendas
+11/01/20 20:20:19 - Caption: Ver parcelas das vendas realizadas
+11/01/20 20:20:19 - Erro:Exception
+11/01/20 20:20:19 - Erro:Informe por qual campo deseja pequisar.
+11/01/20 20:22:42 - ===========================================
+11/01/20 20:22:42 - Form: formQuitarParcelasVendas
+11/01/20 20:22:42 - Caption: Ver parcelas das vendas realizadas
+11/01/20 20:22:42 - Erro:Exception
+11/01/20 20:22:42 - Erro:Informe por qual campo deseja pequisar.

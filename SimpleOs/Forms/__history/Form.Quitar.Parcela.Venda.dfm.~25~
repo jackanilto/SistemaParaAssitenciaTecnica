@@ -966,6 +966,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      Text = 'C'#243'digo da parcela'
       Items.Strings = (
         'C'#243'digo da parcela'
         'Venda'

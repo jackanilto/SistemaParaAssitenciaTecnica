@@ -116,20 +116,23 @@ begin
     Parcela:
       begin
         FCampo := 'ID_PARCELA';
+        showmessage('id');
       end;
     Venda:
       begin
         FCampo := 'ID_VENDA';
+        showmessage('venda');
       end;
     codigo_cliente:
       begin
         FCampo := 'ID_CLIENTE';
+        showmessage('cliente');
       end;
   end;
 
   if edtPesquisar.Text <> EmptyStr then
     FentityVisulizarParcelasVenda.getCampo(FCampo).getValor(edtPesquisar.Text)
-      .sqlPesquisa.listarGrid(DataSource1);
+      .sqlPesquisa { .listarGrid(DataSource1) };
 
 end;
 
@@ -140,7 +143,6 @@ end;
 
 procedure TformQuitarParcelasVendas.FormShow(Sender: TObject);
 begin
-
   FentityVisulizarParcelasVenda.abrir.listarGrid(DataSource1);
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox

@@ -36,6 +36,7 @@ type
     FHORA_PAGAMENTO: string;
     F_FUNCIONARIO_PGTO: integer;
     FPAGO: string;
+    FFormaPagamento:string;
     FOBSERVACAO: string;
 
     FDescontoEdit: Currency;
@@ -89,6 +90,7 @@ type
     function getHORA_PAGAMENTO(value: string): iParcelasVendas;
     function getFUNCIONARIO_PGTO(value: integer): iParcelasVendas;
     function getPAGO(value: string): iParcelasVendas;
+    function getFormaPagamento(value:string):iParcelasVendas;
     function getObservacao(value: string): iParcelasVendas;
 
     function getDesconto(value: TEdit): iParcelasVendas; overload;
@@ -349,6 +351,13 @@ begin
     end;
   end;
 
+end;
+
+function TEntityVendasParcelas.getFormaPagamento(
+  value: string): iParcelasVendas;
+begin
+   result := self;
+   FFormaPagamento := value;
 end;
 
 function TEntityVendasParcelas.getFUNCIONARIO_PGTO(value: integer)
@@ -669,6 +678,7 @@ begin
     FieldByName('DATA_PAGAMENTO').AsDateTime := Date;
     FieldByName('HORA_PAGAMENTO').AsDateTime := time;
     FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
+    FieldByName('FORMA_PAGAMENTO').AsString := FFormaPagamento;
     FieldByName('PAGO').AsString := 'sim';
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 

@@ -254,6 +254,7 @@ begin
     .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
     .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
     .getDesconto(desconto_atual).getTOTAL(CurrToStr(totalDaVendaCalulado))
+    .getFormaPagamento(edtConfirmarFormaPagamento.Text)
     .gerarParcelaAvista;
 end;
 

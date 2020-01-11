@@ -1369,6 +1369,7 @@ type
     function getDATA_PAGAMENTO(value: string): iParcelasVendas;
     function getHORA_PAGAMENTO(value: string): iParcelasVendas;
     function getFUNCIONARIO_PGTO(value: integer): iParcelasVendas;
+    function getFormaPagamento(value: string): iParcelasVendas;
     function getPAGO(value: string): iParcelasVendas;
     function getObservacao(value: string): iParcelasVendas;
 
@@ -1506,7 +1507,7 @@ type
       : iImprimirParcelasVendas;
   end;
 
-   iQuitarParcelasVenda = interface
+  iQuitarParcelasVenda = interface
     ['{5C28595F-A461-47C3-A232-2281DF846BE8}']
 
     function nomeTabela(value: string): iQuitarParcelasVenda;

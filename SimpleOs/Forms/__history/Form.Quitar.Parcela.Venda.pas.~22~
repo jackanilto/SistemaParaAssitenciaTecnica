@@ -10,7 +10,7 @@ uses
   UClasse.Entity.Quitar.Parcelas.Vendas, Vcl.DBCtrls, Vcl.Mask, UFactory;
 
 type
-  TEnumPesquisar = (Parcela, Venda, codigo_cliente);
+  TEnum = (Parcela, Venda, codigo_cliente);
 
 type
   TformQuitarParcelasVendas = class(TForm)
@@ -112,7 +112,7 @@ var
   FCampo: string;
 begin
 
-  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  case TEnum(cbPesquisar.ItemIndex) of
     Parcela:
       begin
         FCampo := 'ID_PARCELA';
@@ -129,7 +129,7 @@ begin
 
   if edtPesquisar.Text <> EmptyStr then
     FentityVisulizarParcelasVenda.getCampo(FCampo).getValor(edtPesquisar.Text)
-      .sqlPesquisa.listarGrid(DataSource1);
+      {.sqlPesquisa.listarGrid(DataSource1)};
 
 end;
 
@@ -140,14 +140,10 @@ end;
 
 procedure TformQuitarParcelasVendas.FormShow(Sender: TObject);
 begin
-
   FentityVisulizarParcelasVenda.abrir.listarGrid(DataSource1);
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
     (edtFormaDePagamento);
-
-  cbPesquisar.ItemIndex := 0;
-
 end;
 
 procedure TformQuitarParcelasVendas.Panel1MouseDown(Sender: TObject;

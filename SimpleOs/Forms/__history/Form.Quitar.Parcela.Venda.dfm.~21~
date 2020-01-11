@@ -3,35 +3,114 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
   Top = 0
   BorderStyle = bsNone
   Caption = 'Ver parcelas das vendas realizadas'
-  ClientHeight = 555
-  ClientWidth = 951
+  ClientHeight = 587
+  ClientWidth = 980
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 17
+  object Label1: TLabel
+    Left = 24
+    Top = 64
+    Width = 100
+    Height = 17
+    Caption = 'Total de parcelas'
+  end
+  object Label2: TLabel
+    Left = 130
+    Top = 64
+    Width = 115
+    Height = 17
+    Caption = 'Parcela selecionada'
+  end
+  object Label3: TLabel
+    Left = 264
+    Top = 64
+    Width = 96
+    Height = 17
+    Caption = 'Valor da parcela'
+  end
+  object Label6: TLabel
+    Left = 390
+    Top = 64
+    Width = 116
+    Height = 17
+    Caption = 'Data de vencimento'
+  end
+  object Label7: TLabel
+    Left = 517
+    Top = 64
+    Width = 31
+    Height = 17
+    Caption = 'Juros'
+  end
+  object Label8: TLabel
+    Left = 607
+    Top = 64
+    Width = 33
+    Height = 17
+    Caption = 'Multa'
+  end
+  object Label9: TLabel
+    Left = 706
+    Top = 60
+    Width = 55
+    Height = 17
+    Caption = 'Desconto'
+  end
+  object Label10: TLabel
+    Left = 812
+    Top = 60
+    Width = 78
+    Height = 17
+    Caption = 'Total a pagar'
+  end
+  object Label11: TLabel
+    Left = 24
+    Top = 123
+    Width = 117
+    Height = 17
+    Caption = 'Data de pagamento'
+  end
+  object Label12: TLabel
+    Left = 149
+    Top = 123
+    Width = 127
+    Height = 17
+    Caption = 'Forma de pagamento'
+  end
+  object Label13: TLabel
+    Left = 301
+    Top = 123
+    Width = 33
+    Height = 17
+    Caption = 'PAGO'
+  end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 951
+    Width = 980
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -454
-    ExplicitWidth = 917
+    OnMouseDown = Panel1MouseDown
+    ExplicitWidth = 951
     DesignSize = (
-      951
+      980
       41)
     object sbFechar: TSpeedButton
-      Left = 899
+      Left = 928
       Top = 2
       Width = 52
       Height = 33
@@ -101,12 +180,12 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ExplicitLeft = 871
     end
     object lblCaption: TLabel
-      Left = 229
+      Left = 258
       Top = 10
-      Width = 134
+      Width = 252
       Height = 19
       Anchors = [akTop, akRight, akBottom]
-      Caption = 'Formul'#225'rio padr'#227'o'
+      Caption = 'Ver parcelas das vendas realizadas'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -115,22 +194,22 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Style = []
       ParentColor = False
       ParentFont = False
-      ExplicitLeft = 201
+      ExplicitLeft = 229
     end
   end
   object Panel3: TPanel
     Left = 0
-    Top = 432
-    Width = 951
-    Height = 123
+    Top = 470
+    Width = 980
+    Height = 117
     Align = alBottom
     BevelOuter = bvNone
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
     DesignSize = (
-      951
-      123)
+      980
+      117)
     object sbNovo: TSpeedButton
       Left = 7
       Top = 24
@@ -525,8 +604,8 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ShowHint = True
     end
     object Label4: TLabel
-      Left = 625
-      Top = 19
+      Left = 654
+      Top = 13
       Width = 97
       Height = 15
       Anchors = [akRight, akBottom]
@@ -537,10 +616,12 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Name = 'Roboto'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 625
+      ExplicitTop = 19
     end
     object Label5: TLabel
-      Left = 760
-      Top = 19
+      Left = 789
+      Top = 13
       Width = 168
       Height = 15
       Anchors = [akRight, akBottom]
@@ -551,6 +632,8 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Name = 'Roboto'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 760
+      ExplicitTop = 19
     end
     object SpeedButton1: TSpeedButton
       Left = 0
@@ -871,8 +954,8 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ShowHint = True
     end
     object cbPesquisar: TComboBox
-      Left = 625
-      Top = 40
+      Left = 654
+      Top = 34
       Width = 129
       Height = 23
       Anchors = [akRight, akBottom]
@@ -883,10 +966,12 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      ExplicitLeft = 625
+      ExplicitTop = 40
     end
     object edtPesquisar: TEdit
-      Left = 760
-      Top = 40
+      Left = 789
+      Top = 34
       Width = 168
       Height = 23
       Anchors = [akRight, akBottom]
@@ -897,19 +982,128 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 760
+      ExplicitTop = 40
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 41
-    Width = 951
-    Height = 391
-    Align = alClient
+    Top = 222
+    Width = 980
+    Height = 248
+    Align = alBottom
+    DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    ReadOnly = True
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+  end
+  object edtTotalDeParcelas: TEdit
+    Left = 24
+    Top = 83
+    Width = 100
+    Height = 25
+    TabOrder = 3
+  end
+  object edtParcelaSelecionada: TEdit
+    Left = 130
+    Top = 83
+    Width = 115
+    Height = 25
+    TabOrder = 4
+  end
+  object edtValorDaParcela: TEdit
+    Left = 264
+    Top = 83
+    Width = 121
+    Height = 25
+    TabOrder = 5
+  end
+  object edtJuros: TEdit
+    Left = 516
+    Top = 83
+    Width = 84
+    Height = 25
+    TabOrder = 6
+  end
+  object edtMulta: TEdit
+    Left = 607
+    Top = 83
+    Width = 93
+    Height = 25
+    TabOrder = 7
+  end
+  object edtDesconto: TEdit
+    Left = 706
+    Top = 83
+    Width = 100
+    Height = 25
+    TabOrder = 8
+  end
+  object edtTotalAPagar: TEdit
+    Left = 812
+    Top = 83
+    Width = 121
+    Height = 25
+    TabOrder = 9
+  end
+  object edtPago: TEdit
+    Left = 301
+    Top = 142
+    Width = 121
+    Height = 25
+    TabOrder = 10
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Top = 191
+    Width = 220
+    Height = 25
+    DataSource = DataSource1
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
+    Flat = True
+    TabOrder = 11
+  end
+  object edtDataDeVencimento: TMaskEdit
+    Left = 390
+    Top = 83
+    Width = 120
+    Height = 25
+    EditMask = '00/00/0000'
+    MaxLength = 10
+    TabOrder = 12
+    Text = '  /  /    '
+  end
+  object edtFormaDePagamento: TComboBox
+    Left = 150
+    Top = 142
+    Width = 145
+    Height = 25
+    TabOrder = 13
+  end
+  object edtDataDePagamento: TMaskEdit
+    Left = 24
+    Top = 142
+    Width = 120
+    Height = 25
+    EditMask = '00/00/0000'
+    MaxLength = 10
+    TabOrder = 14
+    Text = '  /  /    '
+  end
+  object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
+    Left = 640
+    Top = 8
   end
 end
