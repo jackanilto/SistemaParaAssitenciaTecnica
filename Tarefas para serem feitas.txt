@@ -19,7 +19,8 @@ Terceira parte do projeto - simpleOS
 	 #Criar as teclas de atalho para as vendas --FEITO
 	 #Criar o form para finalizar a vendas --EM ANDAMENTO (procurar codigo para substituir o tab por enter) --FEITO
 	 
-#Criar janela para quitar as parcelas das vendas	 
+#Criar janela para quitar as parcelas das vendas
+     #Criar metodo para quitar a parcela selecionada	 
 	 
 	 
 ###Inclusão de tela extra - Janela para configurar o número de parcelas --FEITO	 

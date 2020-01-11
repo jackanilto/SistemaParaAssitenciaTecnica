@@ -1,0 +1,36 @@
+unit UClasse.Operacoes.Parcela.Venda;
+
+interface
+
+Type
+  TMyClass = class(TInterfacedObject, MyInterface)
+  private
+  public
+
+    constructor create;
+    destructor destroy; override;
+    class function new: MyInterface;
+
+  end;
+
+implementation
+
+{ TMyClass }
+
+constructor TMyClass.create;
+begin
+
+end;
+
+destructor TMyClass.destroy;
+begin
+
+  inherited;
+end;
+
+class function TMyClass.new: MyInterface;
+begin
+  result := self.create;
+end;
+
+end.

@@ -13,6 +13,8 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -26,8 +28,6 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitLeft = -454
-    ExplicitWidth = 917
     DesignSize = (
       951
       41)
@@ -914,7 +914,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     TitleFont.Style = []
   end
   object DataSource1: TDataSource
-    Left = 208
-    Top = 136
+    Left = 576
+    Top = 24
   end
 end

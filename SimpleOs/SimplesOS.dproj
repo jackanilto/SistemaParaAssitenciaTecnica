@@ -312,7 +312,7 @@
             <Form>formQuitarParcelasVendas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Classes\UClasse.Entity.Quitar.Parcelas.Vendas.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Quitar.Parcelas.Vendas.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

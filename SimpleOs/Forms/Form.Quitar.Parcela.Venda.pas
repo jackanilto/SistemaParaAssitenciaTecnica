@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
+  UClasse.Entity.Quitar.Parcelas.Vendas;
 
 type
   TformQuitarParcelasVendas = class(TForm)
@@ -32,8 +33,12 @@ type
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
+  var
+    FentityVisulizarParcelasVenda: iQuitarParcelasVenda;
   public
     { Public declarations }
   end;
@@ -44,6 +49,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformQuitarParcelasVendas.FormCreate(Sender: TObject);
+begin
+  FentityVisulizarParcelasVenda := TEntityQuitarParcelaVenda.new;
+end;
+
+procedure TformQuitarParcelasVendas.FormShow(Sender: TObject);
+begin
+  FentityVisulizarParcelasVenda.abrir.listarGrid(DataSource1);
+end;
 
 procedure TformQuitarParcelasVendas.Panel1MouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);

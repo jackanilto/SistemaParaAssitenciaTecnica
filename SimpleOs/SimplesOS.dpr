@@ -99,7 +99,7 @@ uses
   UClasse.Imprimir.Recibo in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Recibo.pas',
   UClasse.Imprimir.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Parcelas.pas',
   Form.Quitar.Parcela.Venda in 'Forms\Form.Quitar.Parcela.Venda.pas' {formQuitarParcelasVendas},
-  UClasse.Entity.Quitar.Parcelas.Vendas in 'Classes\UClasse.Entity.Quitar.Parcelas.Vendas.pas';
+  UClasse.Entity.Quitar.Parcelas.Vendas in 'Classes\Entity\UClasse.Entity.Quitar.Parcelas.Vendas.pas';
 
 {$R *.res}
 
