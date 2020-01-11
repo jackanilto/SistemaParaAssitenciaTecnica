@@ -1506,6 +1506,32 @@ type
       : iImprimirParcelasVendas;
   end;
 
+   iQuitarParcelasVenda = interface
+    ['{5C28595F-A461-47C3-A232-2281DF846BE8}']
+
+    function nomeTabela(value: string): iQuitarParcelasVenda;
+    function getCampo(value: string): iQuitarParcelasVenda;
+    function getValor(value: string): iQuitarParcelasVenda;
+    function getDataInicial(value: TDate): iQuitarParcelasVenda;
+    function getDataFinal(value: TDate): iQuitarParcelasVenda;
+    function open(value: string): iQuitarParcelasVenda;
+    function pesquisar: iQuitarParcelasVenda;
+    function ExecSql: iQuitarParcelasVenda;
+    function sqlPesquisa: iQuitarParcelasVenda;
+    function sqlPesquisaData: iQuitarParcelasVenda;
+    function sqlPesquisaEstatica: iQuitarParcelasVenda;
+
+    function abrir: iQuitarParcelasVenda;
+    function atualizar: iQuitarParcelasVenda;
+    function fecharQuery: iQuitarParcelasVenda;
+    function listarGrid(value: TDataSource): iQuitarParcelasVenda;
+    function ordenarGrid(column: TColumn): iQuitarParcelasVenda;
+
+    function exportar: iQuitarParcelasVenda;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

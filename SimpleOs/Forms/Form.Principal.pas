@@ -75,6 +75,7 @@ type
     acDadosEmpresa: TAction;
     acVenda: TAction;
     acNumeroDeParcelas: TAction;
+    acQuitarParcelas: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -107,6 +108,7 @@ type
     procedure acDadosEmpresaExecute(Sender: TObject);
     procedure acVendaExecute(Sender: TObject);
     procedure acNumeroDeParcelasExecute(Sender: TObject);
+    procedure acQuitarParcelasExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -133,7 +135,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Cadastro.Funcionarios, Form.Cadastro.Situacao.Ordem,
   Form.Saidas.Produtos, Form.Ordem.Servico, Form.Criar.Ordem.Servico,
   Form.Cadastro.Servicos, Form.Cadastro.Empresa, Form.Venda,
-  Form.Numero.Parcelas;
+  Form.Numero.Parcelas, Form.Quitar.Parcela.Venda;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -298,6 +300,12 @@ begin
   formCadastroProblemasFrequentes :=
     TformCadastroProblemasFrequentes.Create(self);
   TFactory.new.criarJanela.formShow(formCadastroProblemasFrequentes, '');
+end;
+
+procedure TformPrincipal.acQuitarParcelasExecute(Sender: TObject);
+begin
+  formQuitarParcelasVendas := TformQuitarParcelasVendas.Create(self);
+  TFactory.new.criarJanela.formShow(formQuitarParcelasVendas, '');
 end;
 
 procedure TformPrincipal.acRelatoriosExecute(Sender: TObject);

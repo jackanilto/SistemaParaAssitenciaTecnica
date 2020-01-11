@@ -30,6 +30,7 @@ object formExemploEmbeded: TformExemploEmbeded
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
+    ExplicitTop = 2
     DesignSize = (
       917
       41)

@@ -97,7 +97,9 @@ uses
   Form.Numero.Parcelas in 'Forms\Form.Numero.Parcelas.pas' {formNumeroParcelas},
   UClasse.Calcular.Parcela in 'Classes\Entity\UClasse.Calcular.Parcela.pas',
   UClasse.Imprimir.Recibo in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Recibo.pas',
-  UClasse.Imprimir.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Parcelas.pas';
+  UClasse.Imprimir.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Parcelas.pas',
+  Form.Quitar.Parcela.Venda in 'Forms\Form.Quitar.Parcela.Venda.pas' {formQuitarParcelasVendas},
+  UClasse.Entity.Quitar.Parcelas.Vendas in 'Classes\UClasse.Entity.Quitar.Parcelas.Vendas.pas';
 
 {$R *.res}
 

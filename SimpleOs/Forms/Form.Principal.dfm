@@ -7222,6 +7222,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acCadastrarServicos
+            end
+            item
+              Action = acQuitarParcelas
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -8018,6 +8021,10 @@ object formPrincipal: TformPrincipal
     object acNumeroDeParcelas: TAction
       Caption = 'N'#250'mero de parcelas'
       OnExecute = acNumeroDeParcelasExecute
+    end
+    object acQuitarParcelas: TAction
+      Caption = 'Quitar parcelas'
+      OnExecute = acQuitarParcelasExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu
