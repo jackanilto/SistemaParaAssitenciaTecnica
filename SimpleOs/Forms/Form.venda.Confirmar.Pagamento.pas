@@ -266,7 +266,9 @@ begin
     (Parcelas).getVALOR_DA_PARCELA
     (CurrToStr(TFactory.new.calcularParcela.getvalor(totalDaVendaCalulado)
     .getNumeroParcelas(Parcelas).valorDeCadaParcela))
-    .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date)).gerarParcelas;
+    .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
+    .getFormaPagamento('não')
+    .gerarParcelas;
 end;
 
 procedure TFormVendaConfirmarPagamento.FormClose(Sender: TObject;

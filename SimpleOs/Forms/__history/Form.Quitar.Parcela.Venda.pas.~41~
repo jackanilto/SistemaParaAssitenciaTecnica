@@ -18,19 +18,19 @@ type
     sbFechar: TSpeedButton;
     lblCaption: TLabel;
     Panel3: TPanel;
-    sbNovo: TSpeedButton;
+    sbQuitarParela: TSpeedButton;
+    sbEstornar: TSpeedButton;
+    sbAdicionarParcela: TSpeedButton;
     sbSalvar: TSpeedButton;
-    sbEditar: TSpeedButton;
     sbExcluir: TSpeedButton;
-    sbCancelar: TSpeedButton;
     Label4: TLabel;
     Label5: TLabel;
     cbPesquisar: TComboBox;
     edtPesquisar: TEdit;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
+    sbCancelar: TSpeedButton;
+    sbImprimirParcelas: TSpeedButton;
+    sbExportar: TSpeedButton;
+    sbImprimir: TSpeedButton;
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
     edtTotalDeParcelas: TEdit;
@@ -64,10 +64,14 @@ type
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure sbQuitarParelaClick(Sender: TObject);
   private
     { Private declarations }
   var
     FentityVisulizarParcelasVenda: iQuitarParcelasVenda;
+    procedure ativarBotoes;
+    procedure desativarBotoes;
   public
     { Public declarations }
   end;
@@ -106,6 +110,27 @@ begin
   end;
 end;
 
+procedure TformQuitarParcelasVendas.DBGrid1CellClick(Column: TColumn);
+begin
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+
+    ativarBotoes;
+
+    if DataSource1.DataSet.FieldByName('PAGO').AsString = 'não' then
+    begin
+      sbQuitarParela.Enabled := true;
+
+      edtTotalAPagar.Text := FentityVisulizarParcelasVenda.CalcularJuros;
+
+    end;
+  end
+  else
+  begin
+    desativarBotoes;
+  end;
+end;
+
 procedure TformQuitarParcelasVendas.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 var
@@ -116,23 +141,20 @@ begin
     Parcela:
       begin
         FCampo := 'ID_PARCELA';
-        showmessage('id');
       end;
     Venda:
       begin
         FCampo := 'ID_VENDA';
-        showmessage('venda');
       end;
     codigo_cliente:
       begin
         FCampo := 'ID_CLIENTE';
-        showmessage('cliente');
       end;
   end;
 
   if edtPesquisar.Text <> EmptyStr then
     FentityVisulizarParcelasVenda.getCampo(FCampo).getValor(edtPesquisar.Text)
-      .sqlPesquisa { .listarGrid(DataSource1) };
+      .sqlPesquisa.listarGrid(DataSource1);
 
 end;
 
@@ -143,10 +165,14 @@ end;
 
 procedure TformQuitarParcelasVendas.FormShow(Sender: TObject);
 begin
+
   FentityVisulizarParcelasVenda.abrir.listarGrid(DataSource1);
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
     (edtFormaDePagamento);
+
+  cbPesquisar.ItemIndex := 0;
+
 end;
 
 procedure TformQuitarParcelasVendas.Panel1MouseDown(Sender: TObject;
@@ -164,6 +190,39 @@ end;
 procedure TformQuitarParcelasVendas.sbFecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TformQuitarParcelasVendas.sbQuitarParelaClick(Sender: TObject);
+begin
+  if DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger <> 0 then
+  begin
+    FentityVisulizarParcelasVenda.getCodigoParcela
+      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+      .getDesconto(edtDesconto.Text).getJuros(edtJuros.Text)
+      .getDataPagamento(edtDataDePagamento.Text).getTOTAL(edtTotalAPagar.Text)
+      .getFormaPagamento(edtFormaDePagamento.Text).selecionarParcelaQuitar
+      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).quitarParcela;
+  end;
+end;
+
+procedure TformQuitarParcelasVendas.ativarBotoes;
+begin
+  sbAdicionarParcela.Enabled := true;
+  sbCancelar.Enabled := true;
+  sbExcluir.Enabled := true;
+  sbImprimirParcelas.Enabled := true;
+  sbExportar.Enabled := true;
+  sbImprimir.Enabled := true;
+end;
+
+procedure TformQuitarParcelasVendas.desativarBotoes;
+begin
+  sbAdicionarParcela.Enabled := false;
+  sbCancelar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbImprimirParcelas.Enabled := false;
+  sbExportar.Enabled := false;
+  sbImprimir.Enabled := false;
 end;
 
 end.

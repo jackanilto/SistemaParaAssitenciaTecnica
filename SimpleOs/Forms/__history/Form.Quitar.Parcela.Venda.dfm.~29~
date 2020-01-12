@@ -81,14 +81,14 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     Caption = 'Data de pagamento'
   end
   object Label12: TLabel
-    Left = 151
+    Left = 149
     Top = 123
     Width = 127
     Height = 17
     Caption = 'Forma de pagamento'
   end
   object Label13: TLabel
-    Left = 303
+    Left = 335
     Top = 123
     Width = 33
     Height = 17
@@ -105,7 +105,6 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 951
     DesignSize = (
       980
       41)
@@ -210,7 +209,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     DesignSize = (
       980
       117)
-    object sbNovo: TSpeedButton
+    object sbQuitarParela: TSpeedButton
       Left = 7
       Top = 24
       Width = 81
@@ -285,7 +284,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object sbSalvar: TSpeedButton
+    object sbEstornar: TSpeedButton
       Left = 104
       Top = 24
       Width = 111
@@ -366,7 +365,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object sbEditar: TSpeedButton
+    object sbAdicionarParcela: TSpeedButton
       Left = 221
       Top = 24
       Width = 164
@@ -441,8 +440,8 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object sbExcluir: TSpeedButton
-      Left = 383
+    object sbSalvar: TSpeedButton
+      Left = 390
       Top = 24
       Width = 97
       Height = 35
@@ -522,7 +521,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object sbCancelar: TSpeedButton
+    object sbExcluir: TSpeedButton
       Left = 470
       Top = 24
       Width = 114
@@ -635,7 +634,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ExplicitLeft = 760
       ExplicitTop = 19
     end
-    object SpeedButton1: TSpeedButton
+    object sbCancelar: TSpeedButton
       Left = 0
       Top = 80
       Width = 114
@@ -716,7 +715,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object SpeedButton2: TSpeedButton
+    object sbImprimirParcelas: TSpeedButton
       Left = 128
       Top = 80
       Width = 161
@@ -797,7 +796,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object SpeedButton3: TSpeedButton
+    object sbExportar: TSpeedButton
       Left = 295
       Top = 80
       Width = 161
@@ -872,7 +871,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object SpeedButton4: TSpeedButton
+    object sbImprimir: TSpeedButton
       Left = 440
       Top = 80
       Width = 161
@@ -966,8 +965,10 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 625
-      ExplicitTop = 40
+      Items.Strings = (
+        'C'#243'digo da parcela'
+        'Venda'
+        'C'#243'digo do cliente')
     end
     object edtPesquisar: TEdit
       Left = 789
@@ -982,8 +983,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 760
-      ExplicitTop = 40
+      OnKeyUp = edtPesquisarKeyUp
     end
   end
   object DBGrid1: TDBGrid
@@ -1007,78 +1007,63 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    OnCellClick = DBGrid1CellClick
   end
-  object Edit1: TEdit
+  object edtTotalDeParcelas: TEdit
     Left = 24
     Top = 83
     Width = 100
     Height = 25
     TabOrder = 3
-    Text = 'Edit1'
   end
-  object Edit2: TEdit
+  object edtParcelaSelecionada: TEdit
     Left = 130
     Top = 83
     Width = 115
     Height = 25
     TabOrder = 4
-    Text = 'Edit1'
   end
-  object Edit3: TEdit
+  object edtValorDaParcela: TEdit
     Left = 264
     Top = 83
     Width = 121
     Height = 25
     TabOrder = 5
-    Text = 'Edit1'
   end
-  object Edit5: TEdit
-    Left = 517
+  object edtJuros: TEdit
+    Left = 516
     Top = 83
     Width = 84
     Height = 25
     TabOrder = 6
-    Text = 'Edit1'
   end
-  object Edit6: TEdit
+  object edtMulta: TEdit
     Left = 607
     Top = 83
     Width = 93
     Height = 25
     TabOrder = 7
-    Text = 'Edit1'
   end
-  object Edit7: TEdit
+  object edtDesconto: TEdit
     Left = 706
     Top = 83
     Width = 100
     Height = 25
     TabOrder = 8
-    Text = 'Edit1'
   end
-  object Edit8: TEdit
+  object edtTotalAPagar: TEdit
     Left = 812
     Top = 83
     Width = 121
     Height = 25
     TabOrder = 9
-    Text = 'Edit1'
   end
-  object Edit9: TEdit
-    Left = 24
+  object edtPago: TEdit
+    Left = 335
     Top = 142
     Width = 121
     Height = 25
     TabOrder = 10
-    Text = 'Edit1'
-  end
-  object Edit11: TEdit
-    Left = 303
-    Top = 142
-    Width = 121
-    Height = 25
-    TabOrder = 11
-    Text = 'Edit1'
   end
   object DBNavigator1: TDBNavigator
     Left = 0
@@ -1088,27 +1073,37 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     DataSource = DataSource1
     VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
     Flat = True
-    TabOrder = 12
+    TabOrder = 11
   end
-  object MaskEdit1: TMaskEdit
+  object edtDataDeVencimento: TMaskEdit
     Left = 390
     Top = 83
     Width = 120
     Height = 25
     EditMask = '00/00/0000'
     MaxLength = 10
-    TabOrder = 13
+    TabOrder = 12
     Text = '  /  /    '
   end
-  object ComboBox1: TComboBox
-    Left = 151
+  object edtFormaDePagamento: TComboBox
+    Left = 150
     Top = 142
-    Width = 145
+    Width = 179
     Height = 25
+    TabOrder = 13
+  end
+  object edtDataDePagamento: TMaskEdit
+    Left = 24
+    Top = 142
+    Width = 120
+    Height = 25
+    EditMask = '00/00/0000'
+    MaxLength = 10
     TabOrder = 14
-    Text = 'ComboBox1'
+    Text = '  /  /    '
   end
   object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
     Left = 640
     Top = 8
   end

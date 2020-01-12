@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  FireDAC.Comp.Client;
+  UClasse.Calcular.Juros, UClasse.DiasMeses;
 
 type
 
@@ -15,6 +15,9 @@ type
     FQuery: iConexaoQuery;
     FQueryParcela: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
+    FCalularDiferencaDiasMes: TCalcularDiaMeses;
+    FCalcularJuros: iCalcularJuros;
+    FQueryConfigurarParcelas: iConexaoQuery;
     FTabela: string;
     FCampo: string;
     FValor: string;
@@ -27,6 +30,10 @@ type
     FJurosParcelas: Currency;
     FMultaParcela: Currency;
     FTotalDaParcela: Currency;
+    FFormaPagamento: String;
+
+    F_JurosAtraso: real;
+    F_MultaAtraso: Currency;
 
     FCodigo: integer;
     FNome: string;
@@ -57,7 +64,10 @@ type
     function getJuros(value: string): iQuitarParcelasVenda;
     function getDataPagamento(value: string): iQuitarParcelasVenda;
     function getTotal(value: string): iQuitarParcelasVenda;
+    function getFormaPagamento(value: string): iQuitarParcelasVenda;
     function quitarParcela: iQuitarParcelasVenda;
+
+    function calcularJuros: iQuitarParcelasVenda;
 
     function exportar: iQuitarParcelasVenda;
     procedure validarData(componet: tmaskEdit);
@@ -85,12 +95,75 @@ begin
   FQuery.TQuery.Refresh;
 end;
 
+function TEntityQuitarParcelaVenda.calcularJuros: iQuitarParcelasVenda;
+var
+  periodo: integer;
+  total: Currency;
+  valorParcela: Currency;
+  totalJuros: Currency;
+begin
+
+  result := '0';
+
+  valorParcela := FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency;
+
+  if date > FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime then
+  begin
+
+    periodo := FCalularDiferencaDiasMes.DifDiasMeses
+      (FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime, date);
+
+    if periodo >= 1 then
+    begin
+      total := valorParcela * (F_JurosAtraso / 100);
+      total := valorParcela + (total * periodo);
+      totalJuros := total - valorParcela;
+    end
+    else if periodo = 0 then
+    begin
+      total := valorParcela * (F_JurosAtraso / 100);
+      total := valorParcela + (total * 1);
+      totalJuros := total - valorParcela;
+    end;
+
+    FQuery.TQuery.FieldByName('JUROS').AsFloat := totalJuros;
+    FQuery.TQuery.FieldByName('MULTA').AsCurrency := F_MultaAtraso;
+    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+
+    result := currtostr(totalJuros + F_MultaAtraso + valorParcela);
+
+  end
+  else
+  begin
+
+    FQuery.TQuery.FieldByName('JUROS').AsFloat := 0;
+    FQuery.TQuery.FieldByName('MULTA').AsCurrency := 0;
+    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+
+    result := currtostr(valorParcela);
+
+  end;
+
+end;
+
 constructor TEntityQuitarParcelaVenda.create;
 begin
   FTabela := 'VISUALIZAR_PARCELAS_VENDA';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FQueryParcela := TConexaoQuery.new.Query('PARCELAS_VENDAS');
+
+  FQueryConfigurarParcelas := TConexaoQuery.new.Query('CONFIGURAR_PARCELA');
+
+  F_JurosAtraso := FQueryConfigurarParcelas.TQuery.FieldByName('JUROS').AsFloat;
+  F_MultaAtraso := FQueryConfigurarParcelas.TQuery.FieldByName('MULTA')
+    .AsCurrency;
+
+  FCalcularJuros := TCalcularJuros.new;
+
+  FCalularDiferencaDiasMes := TCalcularDiaMeses.create;
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Parcelas das vendas').getCodigoFuncionario
@@ -164,7 +237,7 @@ begin
   result := self;
 
   if value = '  /  /    ' then
-    FDataPagamento := Date
+    FDataPagamento := date
   else
   begin
     try
@@ -192,6 +265,18 @@ begin
     raise Exception.create('Informe um valor de desconto válido');
 
   end;
+
+end;
+
+function TEntityQuitarParcelaVenda.getFormaPagamento(value: string)
+  : iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create('Informe o meio de pagamento da parcela.');
+  FFormaPagamento := value;
 
 end;
 
@@ -255,8 +340,13 @@ begin
     FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Data de pagamento';
     FieldByName('HORA_PAGAMENTO').DisplayLabel := 'Hora do pagamento';
     FieldByName('FUNCIONARIO_PGTO').DisplayLabel := 'Funcionário';
+    FieldByName('FORMA_PAGAMENTO').DisplayLabel := 'Forma de pagamento';
     FieldByName('PAGO').DisplayLabel := 'Pago';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+    FieldByName('CLIENTE').DisplayWidth := 35;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
+
   end;
 
   value.DataSet := FQuery.TQuery;
@@ -307,13 +397,15 @@ begin
     FQueryParcela.TQuery.Edit;
 
     FQueryParcela.TQuery.FieldByName('JUROS').AsFloat := FJurosParcelas;
-    FQueryParcela.TQuery.FieldByName('MULTA').AsFloat := FMultaParcela;
-    FQueryParcela.TQuery.FieldByName('DESCONTO').AsFloat := FDescontoParcela;
-    FQueryParcela.TQuery.FieldByName('TOTAL').AsFloat := FTotalDaParcela;
-    FQueryParcela.TQuery.FieldByName('DATA_PAGAMENTO').AsFloat :=
+    FQueryParcela.TQuery.FieldByName('MULTA').AsCurrency := FMultaParcela;
+    FQueryParcela.TQuery.FieldByName('DESCONTO').AsCurrency := FDescontoParcela;
+    FQueryParcela.TQuery.FieldByName('TOTAL').AsCurrency := FTotalDaParcela;
+    FQueryParcela.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime :=
       FDataPagamento;
-    FQueryParcela.TQuery.FieldByName('HORA_PAGAMENTO').AsFloat := time;
-    FQueryParcela.TQuery.FieldByName('PAGO').AsFloat := 'sim';
+    FQueryParcela.TQuery.FieldByName('FORMA_PAGAMENTO').AsString :=
+      FFormaPagamento;
+    FQueryParcela.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+    FQueryParcela.TQuery.FieldByName('PAGO').AsString := 'sim';
 
     try
       FQueryParcela.TQuery.Post;

@@ -127,7 +127,7 @@
     Top = 41
     Width = 973
     Height = 469
-    ActivePage = tbOrdemServiço
+    ActivePage = tbParcelas
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

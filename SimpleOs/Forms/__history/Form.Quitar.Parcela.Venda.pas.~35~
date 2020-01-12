@@ -18,19 +18,19 @@ type
     sbFechar: TSpeedButton;
     lblCaption: TLabel;
     Panel3: TPanel;
-    sbNovo: TSpeedButton;
+    sbQuitarParela: TSpeedButton;
+    sbEstornar: TSpeedButton;
+    sbAdicionarParcela: TSpeedButton;
     sbSalvar: TSpeedButton;
-    sbEditar: TSpeedButton;
     sbExcluir: TSpeedButton;
-    sbCancelar: TSpeedButton;
     Label4: TLabel;
     Label5: TLabel;
     cbPesquisar: TComboBox;
     edtPesquisar: TEdit;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
+    sbCancelar: TSpeedButton;
+    sbImprimirParcelas: TSpeedButton;
+    sbExportar: TSpeedButton;
+    sbImprimir: TSpeedButton;
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
     edtTotalDeParcelas: TEdit;
@@ -64,6 +64,8 @@ type
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure sbQuitarParelaClick(Sender: TObject);
   private
     { Private declarations }
   var
@@ -106,6 +108,34 @@ begin
   end;
 end;
 
+procedure TformQuitarParcelasVendas.DBGrid1CellClick(Column: TColumn);
+begin
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+
+    sbAdicionarParcela.Enabled := true;
+    sbCancelar.Enabled := true;
+    sbExcluir.Enabled := true;
+    sbImprimirParcelas.Enabled := true;
+    sbExportar.Enabled := true;
+    sbImprimir.Enabled := true;
+
+    if DataSource1.DataSet.FieldByName('PAGO').AsString = 'não' then
+    begin
+      sbQuitarParela.Enabled := true;
+    end;
+  end
+  else
+  begin
+    sbAdicionarParcela.Enabled := false;
+    sbCancelar.Enabled := false;
+    sbExcluir.Enabled := false;
+    sbImprimirParcelas.Enabled := false;
+    sbExportar.Enabled := false;
+    sbImprimir.Enabled := false;
+  end;
+end;
+
 procedure TformQuitarParcelasVendas.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 var
@@ -140,6 +170,7 @@ end;
 
 procedure TformQuitarParcelasVendas.FormShow(Sender: TObject);
 begin
+
   FentityVisulizarParcelasVenda.abrir.listarGrid(DataSource1);
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
@@ -164,6 +195,14 @@ end;
 procedure TformQuitarParcelasVendas.sbFecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TformQuitarParcelasVendas.sbQuitarParelaClick(Sender: TObject);
+begin
+  if DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger <> 0 then
+  begin
+    FentityVisulizarParcelasVenda.
+  end;
 end;
 
 end.

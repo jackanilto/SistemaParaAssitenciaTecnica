@@ -242,6 +242,7 @@ begin
       FieldByName('PARCELA').AsInteger := i;
       FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
       FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
+      FieldByName('PAGO').AsString := FFormaPagamento;
       vencimento := IncMonth(vencimento, 1);
     end;
 

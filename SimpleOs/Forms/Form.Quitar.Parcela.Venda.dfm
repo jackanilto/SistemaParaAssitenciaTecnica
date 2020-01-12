@@ -105,7 +105,6 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 951
     DesignSize = (
       980
       41)
@@ -210,7 +209,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     DesignSize = (
       980
       117)
-    object sbNovo: TSpeedButton
+    object sbQuitarParela: TSpeedButton
       Left = 7
       Top = 24
       Width = 81
@@ -284,8 +283,9 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbQuitarParelaClick
     end
-    object sbSalvar: TSpeedButton
+    object sbEstornar: TSpeedButton
       Left = 104
       Top = 24
       Width = 111
@@ -366,7 +366,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object sbEditar: TSpeedButton
+    object sbAdicionarParcela: TSpeedButton
       Left = 221
       Top = 24
       Width = 164
@@ -441,8 +441,8 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object sbExcluir: TSpeedButton
-      Left = 383
+    object sbSalvar: TSpeedButton
+      Left = 390
       Top = 24
       Width = 97
       Height = 35
@@ -522,7 +522,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object sbCancelar: TSpeedButton
+    object sbExcluir: TSpeedButton
       Left = 470
       Top = 24
       Width = 114
@@ -635,7 +635,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ExplicitLeft = 760
       ExplicitTop = 19
     end
-    object SpeedButton1: TSpeedButton
+    object sbCancelar: TSpeedButton
       Left = 0
       Top = 80
       Width = 114
@@ -716,7 +716,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object SpeedButton2: TSpeedButton
+    object sbImprimirParcelas: TSpeedButton
       Left = 128
       Top = 80
       Width = 161
@@ -797,7 +797,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object SpeedButton3: TSpeedButton
+    object sbExportar: TSpeedButton
       Left = 295
       Top = 80
       Width = 161
@@ -872,7 +872,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentShowHint = False
       ShowHint = True
     end
-    object SpeedButton4: TSpeedButton
+    object sbImprimir: TSpeedButton
       Left = 440
       Top = 80
       Width = 161
@@ -970,8 +970,6 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
         'C'#243'digo da parcela'
         'Venda'
         'C'#243'digo do cliente')
-      ExplicitLeft = 625
-      ExplicitTop = 40
     end
     object edtPesquisar: TEdit
       Left = 789
@@ -987,8 +985,6 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentFont = False
       TabOrder = 1
       OnKeyUp = edtPesquisarKeyUp
-      ExplicitLeft = 760
-      ExplicitTop = 40
     end
   end
   object DBGrid1: TDBGrid
@@ -1012,6 +1008,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    OnCellClick = DBGrid1CellClick
   end
   object edtTotalDeParcelas: TEdit
     Left = 24

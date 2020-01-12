@@ -2913,3 +2913,38 @@ Problematic key value is ("ID" = 2)
 11/01/20 20:22:42 - Caption: Ver parcelas das vendas realizadas
 11/01/20 20:22:42 - Erro:Exception
 11/01/20 20:22:42 - Erro:Informe por qual campo deseja pequisar.
+12/01/20 11:34:57 - ===========================================
+12/01/20 11:34:57 - Form: formCriarConsultarOrdemServico
+12/01/20 11:34:57 - Caption: Criar / Consultar ordem de serviço
+12/01/20 11:34:57 - Erro:Exception
+12/01/20 11:34:57 - Erro:Informe o defeito do equipamento.
+12/01/20 11:35:03 - ===========================================
+12/01/20 11:35:03 - Form: formCriarConsultarOrdemServico
+12/01/20 11:35:03 - Caption: Criar / Consultar ordem de serviço
+12/01/20 11:35:03 - Erro:Exception
+12/01/20 11:35:03 - Erro:Informe o defeito do equipamento.
+12/01/20 11:36:14 - ===========================================
+12/01/20 11:36:14 - Form: formCriarConsultarOrdemServico
+12/01/20 11:36:14 - Caption: Criar / Consultar ordem de serviço
+12/01/20 11:36:14 - Erro:Exception
+12/01/20 11:36:14 - Erro:Esta parcela foi estornada e não poderá ser quitada
+12/01/20 11:36:17 - ===========================================
+12/01/20 11:36:17 - Form: formCriarConsultarOrdemServico
+12/01/20 11:36:17 - Caption: Criar / Consultar ordem de serviço
+12/01/20 11:36:17 - Erro:Exception
+12/01/20 11:36:17 - Erro:Esta parcela foi estornada e não poderá ser quitada
+12/01/20 11:36:20 - ===========================================
+12/01/20 11:36:20 - Form: formCriarConsultarOrdemServico
+12/01/20 11:36:20 - Caption: Criar / Consultar ordem de serviço
+12/01/20 11:36:20 - Erro:Exception
+12/01/20 11:36:20 - Erro:Esta parcela foi estornada e não poderá ser quitada
+12/01/20 11:36:22 - ===========================================
+12/01/20 11:36:22 - Form: formCriarConsultarOrdemServico
+12/01/20 11:36:22 - Caption: Criar / Consultar ordem de serviço
+12/01/20 11:36:22 - Erro:Exception
+12/01/20 11:36:22 - Erro:Esta parcela foi estornada e não poderá ser quitada
+12/01/20 11:36:24 - ===========================================
+12/01/20 11:36:24 - Form: formCriarConsultarOrdemServico
+12/01/20 11:36:24 - Caption: Criar / Consultar ordem de serviço
+12/01/20 11:36:24 - Erro:Exception
+12/01/20 11:36:24 - Erro:Esta parcela foi estornada e não poderá ser quitada

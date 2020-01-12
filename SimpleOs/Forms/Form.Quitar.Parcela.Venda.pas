@@ -18,19 +18,19 @@ type
     sbFechar: TSpeedButton;
     lblCaption: TLabel;
     Panel3: TPanel;
-    sbNovo: TSpeedButton;
+    sbQuitarParela: TSpeedButton;
+    sbEstornar: TSpeedButton;
+    sbAdicionarParcela: TSpeedButton;
     sbSalvar: TSpeedButton;
-    sbEditar: TSpeedButton;
     sbExcluir: TSpeedButton;
-    sbCancelar: TSpeedButton;
     Label4: TLabel;
     Label5: TLabel;
     cbPesquisar: TComboBox;
     edtPesquisar: TEdit;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
+    sbCancelar: TSpeedButton;
+    sbImprimirParcelas: TSpeedButton;
+    sbExportar: TSpeedButton;
+    sbImprimir: TSpeedButton;
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
     edtTotalDeParcelas: TEdit;
@@ -64,10 +64,14 @@ type
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure sbQuitarParelaClick(Sender: TObject);
   private
     { Private declarations }
   var
     FentityVisulizarParcelasVenda: iQuitarParcelasVenda;
+    procedure ativarBotoes;
+    procedure desativarBotoes;
   public
     { Public declarations }
   end;
@@ -103,6 +107,28 @@ begin
       edtDataDePagamento.Text :=
         DateToStr(FieldByName('DATA_PAGAMENTO').AsDateTime);
 
+  end;
+end;
+
+procedure TformQuitarParcelasVendas.DBGrid1CellClick(Column: TColumn);
+begin
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+
+    ativarBotoes;
+
+    if DataSource1.DataSet.FieldByName('PAGO').AsString = 'não' then
+    begin
+      sbQuitarParela.Enabled := true;
+
+      edtTotalAPagar.Text := FentityVisulizarParcelasVenda.CalcularJuros;
+      FentityVisulizarParcelasVenda.setJuros(edtJuros).setMulta(edtMulta);
+
+    end;
+  end
+  else
+  begin
+    desativarBotoes;
   end;
 end;
 
@@ -165,6 +191,39 @@ end;
 procedure TformQuitarParcelasVendas.sbFecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TformQuitarParcelasVendas.sbQuitarParelaClick(Sender: TObject);
+begin
+  if DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger <> 0 then
+  begin
+    FentityVisulizarParcelasVenda.getCodigoParcela
+      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+      .getDesconto(edtDesconto.Text).getJuros(edtJuros.Text)
+      .getDataPagamento(edtDataDePagamento.Text).getTOTAL(edtTotalAPagar.Text)
+      .getFormaPagamento(edtFormaDePagamento.Text).selecionarParcelaQuitar
+      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).quitarParcela;
+  end;
+end;
+
+procedure TformQuitarParcelasVendas.ativarBotoes;
+begin
+  sbAdicionarParcela.Enabled := true;
+  sbCancelar.Enabled := true;
+  sbExcluir.Enabled := true;
+  sbImprimirParcelas.Enabled := true;
+  sbExportar.Enabled := true;
+  sbImprimir.Enabled := true;
+end;
+
+procedure TformQuitarParcelasVendas.desativarBotoes;
+begin
+  sbAdicionarParcela.Enabled := false;
+  sbCancelar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbImprimirParcelas.Enabled := false;
+  sbExportar.Enabled := false;
+  sbImprimir.Enabled := false;
 end;
 
 end.

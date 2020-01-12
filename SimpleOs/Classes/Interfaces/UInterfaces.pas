@@ -1528,6 +1528,20 @@ type
     function listarGrid(value: TDataSource): iQuitarParcelasVenda;
     function ordenarGrid(column: TColumn): iQuitarParcelasVenda;
 
+    function selecionarParcelaQuitar(value: integer): iQuitarParcelasVenda;
+    function getCodigoParcela(value: integer): iQuitarParcelasVenda;
+    function getDesconto(value: string): iQuitarParcelasVenda;
+    function getJuros(value: string): iQuitarParcelasVenda;
+    function getDataPagamento(value: string): iQuitarParcelasVenda;
+    function getTOTAL(value: string): iQuitarParcelasVenda;
+    function getFormaPagamento(value: string): iQuitarParcelasVenda;
+    function quitarParcela: iQuitarParcelasVenda;
+
+    function CalcularJuros: string;
+
+    function setJuros(value: TEdit): iQuitarParcelasVenda;
+    function setMulta(value: TEdit): iQuitarParcelasVenda;
+
     function exportar: iQuitarParcelasVenda;
     procedure validarData(componet: tmaskEdit);
 
