@@ -66,6 +66,8 @@ type
       Shift: TShiftState);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure sbQuitarParelaClick(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
   var
@@ -124,12 +126,52 @@ begin
       edtTotalAPagar.Text := FentityVisulizarParcelasVenda.CalcularJuros;
       FentityVisulizarParcelasVenda.setJuros(edtJuros).setMulta(edtMulta);
 
+    end
+    else
+    begin
+      desativarBotoes;
     end;
   end
   else
   begin
     desativarBotoes;
   end;
+end;
+
+procedure TformQuitarParcelasVendas.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO').AsString = 'sim'
+  then
+  begin
+    DBGrid1.Canvas.Brush.Color := $00BD9111;
+    DBGrid1.Canvas.Font.Color := clwhite;
+  end
+
+  else if ((FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
+    .AsString = 'não') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
+    ('DATA_VENCIMENTO').AsDateTime >= date)) then
+  begin
+    DBGrid1.Canvas.Brush.Color := $0068BD05;
+    DBGrid1.Canvas.Font.Color := clwhite;
+  end
+
+  else if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
+    .AsString = 'estornado' then
+  begin
+    DBGrid1.Canvas.Brush.Color := $00C4C4C4;
+    DBGrid1.Canvas.Font.Color := clwhite
+  end
+
+  else if ((FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
+    .AsString = 'não') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
+    ('DATA_VENCIMENTO').AsDateTime < date)) then
+  begin
+    DBGrid1.Canvas.Brush.Color := $003444D1;
+    DBGrid1.Canvas.Font.Color := clwhite
+  end;
+
+  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 procedure TformQuitarParcelasVendas.edtPesquisarKeyUp(Sender: TObject;
@@ -202,7 +244,17 @@ begin
       .getDesconto(edtDesconto.Text).getJuros(edtJuros.Text)
       .getDataPagamento(edtDataDePagamento.Text).getTOTAL(edtTotalAPagar.Text)
       .getFormaPagamento(edtFormaDePagamento.Text).selecionarParcelaQuitar
-      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).quitarParcela;
+      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+      .quitarParcela.atualizar;
+
+    showmessage('Parcela quitada com sucesso');
+
+    if application.MessageBox('Deseja imprimir o comprovante de pagamento?',
+      'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+      { realizar o processo para impressão do comprovante de pagamento }
+    end;
+
   end;
 end;
 
@@ -218,6 +270,7 @@ end;
 
 procedure TformQuitarParcelasVendas.desativarBotoes;
 begin
+  sbQuitarParela.Enabled := false;
   sbAdicionarParcela.Enabled := false;
   sbCancelar.Enabled := false;
   sbExcluir.Enabled := false;

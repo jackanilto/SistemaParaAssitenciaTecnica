@@ -20,7 +20,15 @@ Terceira parte do projeto - simpleOS
 	 #Criar o form para finalizar a vendas --EM ANDAMENTO (procurar codigo para substituir o tab por enter) --FEITO
 	 
 #Criar janela para quitar as parcelas das vendas
-     #Criar metodo para quitar a parcela selecionada	 
+    #Criar metodo para quitar a parcela selecionada --FEITO
+	#Criar metodo para estornar um parcela quitada
+	#Criar metodo para adicionar um parcela
+	#Criar metodo para excluir uma parcela
+    #Criar metodo para cancelar uma operação em andamento
+    #Criar metodo para imprimir as parcela
+    #Criar metodo para imprimir a tabela da janela com os dados
+    #Criar metodo para exportar os dados da tabela para o Excel
+    #Precesso de ativação e desativação das janelas	
 	 
 	 
 ###Inclusão de tela extra - Janela para configurar o número de parcelas --FEITO	 

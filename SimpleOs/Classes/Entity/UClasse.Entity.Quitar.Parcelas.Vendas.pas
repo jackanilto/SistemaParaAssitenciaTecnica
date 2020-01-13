@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls;
+  UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls, FireDAC.Comp.Client;
 
 type
 
@@ -66,6 +66,7 @@ type
     function getTotal(value: string): iQuitarParcelasVenda;
     function getFormaPagamento(value: string): iQuitarParcelasVenda;
     function quitarParcela: iQuitarParcelasVenda;
+    function tableQuery: TFDQuery;
 
     function calcularJuros: string;
 
@@ -129,7 +130,7 @@ begin
       totalJuros := total - valorParcela;
     end;
 
-    FJurosParcelas := totalJuros;
+    FJurosParcelas := total;
     FMultaParcela := F_MultaAtraso;
 
     result := currtostr(totalJuros + F_MultaAtraso + valorParcela);
@@ -461,6 +462,11 @@ begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
     .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+function TEntityQuitarParcelaVenda.tableQuery: TFDQuery;
+begin
+  result := FQuery.TQuery;
 end;
 
 procedure TEntityQuitarParcelaVenda.validarData(componet: tmaskEdit);

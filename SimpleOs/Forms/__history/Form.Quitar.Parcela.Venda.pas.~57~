@@ -66,10 +66,14 @@ type
       Shift: TShiftState);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure sbQuitarParelaClick(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
   var
     FentityVisulizarParcelasVenda: iQuitarParcelasVenda;
+    procedure ativarBotoes;
+    procedure desativarBotoes;
   public
     { Public declarations }
   end;
@@ -113,27 +117,60 @@ begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
 
-    sbAdicionarParcela.Enabled := true;
-    sbCancelar.Enabled := true;
-    sbExcluir.Enabled := true;
-    sbImprimirParcelas.Enabled := true;
-    sbExportar.Enabled := true;
-    sbImprimir.Enabled := true;
+    ativarBotoes;
 
     if DataSource1.DataSet.FieldByName('PAGO').AsString = 'não' then
     begin
       sbQuitarParela.Enabled := true;
+
+      edtTotalAPagar.Text := FentityVisulizarParcelasVenda.CalcularJuros;
+      FentityVisulizarParcelasVenda.setJuros(edtJuros).setMulta(edtMulta);
+
+    end
+    else
+    begin
+      desativarBotoes;
     end;
   end
   else
   begin
-    sbAdicionarParcela.Enabled := false;
-    sbCancelar.Enabled := false;
-    sbExcluir.Enabled := false;
-    sbImprimirParcelas.Enabled := false;
-    sbExportar.Enabled := false;
-    sbImprimir.Enabled := false;
+    desativarBotoes;
   end;
+end;
+
+procedure TformQuitarParcelasVendas.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO').AsString = 'sim'
+  then
+  begin
+    DBGrid1.Canvas.Brush.Color := $00BD9111;
+    DBGrid1.Canvas.Font.Color := clwhite;
+  end
+
+  else if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
+    .AsString = 'não' then
+  begin
+    DBGrid1.Canvas.Brush.Color := $0068BD05;
+    DBGrid1.Canvas.Font.Color := clBlack;
+  end
+
+  else if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
+    .AsString = 'estornado' then
+  begin
+    DBGrid1.Canvas.Brush.Color := $00EB8C27;
+    DBGrid1.Canvas.Font.Color := clwhite
+  end
+
+  else if ((FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
+    .AsString = 'não') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
+    ('DATA_VENCIMENTO').AsDateTime < date)) then
+  begin
+    DBGrid1.Canvas.Brush.Color := $00EB8C27;
+    DBGrid1.Canvas.Font.Color := clwhite
+  end;
+
+  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 procedure TformQuitarParcelasVendas.edtPesquisarKeyUp(Sender: TObject;
@@ -201,12 +238,44 @@ procedure TformQuitarParcelasVendas.sbQuitarParelaClick(Sender: TObject);
 begin
   if DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger <> 0 then
   begin
-    FentityVisulizarParcelasVenda
-            .getCodigoParcela(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
-            .getDesconto(edtDesconto.Text)
-            .getJuros(edtJuros.Text)
+    FentityVisulizarParcelasVenda.getCodigoParcela
+      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+      .getDesconto(edtDesconto.Text).getJuros(edtJuros.Text)
+      .getDataPagamento(edtDataDePagamento.Text).getTOTAL(edtTotalAPagar.Text)
+      .getFormaPagamento(edtFormaDePagamento.Text).selecionarParcelaQuitar
+      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+      .quitarParcela.atualizar;
+
+    showmessage('Parcela quitada com sucesso');
+
+    if application.MessageBox('Deseja imprimir o comprovante de pagamento?',
+      'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+      { realizar o processo para impressão do comprovante de pagamento }
+    end;
 
   end;
+end;
+
+procedure TformQuitarParcelasVendas.ativarBotoes;
+begin
+  sbAdicionarParcela.Enabled := true;
+  sbCancelar.Enabled := true;
+  sbExcluir.Enabled := true;
+  sbImprimirParcelas.Enabled := true;
+  sbExportar.Enabled := true;
+  sbImprimir.Enabled := true;
+end;
+
+procedure TformQuitarParcelasVendas.desativarBotoes;
+begin
+  sbQuitarParela.Enabled := false;
+  sbAdicionarParcela.Enabled := false;
+  sbCancelar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbImprimirParcelas.Enabled := false;
+  sbExportar.Enabled := false;
+  sbImprimir.Enabled := false;
 end;
 
 end.

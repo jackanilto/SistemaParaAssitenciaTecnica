@@ -2948,3 +2948,38 @@ Problematic key value is ("ID" = 2)
 12/01/20 11:36:24 - Caption: Criar / Consultar ordem de serviço
 12/01/20 11:36:24 - Erro:Exception
 12/01/20 11:36:24 - Erro:Esta parcela foi estornada e não poderá ser quitada
+13/01/20 11:33:12 - ===========================================
+13/01/20 11:33:12 - Form: formCriarConsultarOrdemServico
+13/01/20 11:33:12 - Caption: Criar / Consultar ordem de serviço
+13/01/20 11:33:12 - Erro:Exception
+13/01/20 11:33:12 - Erro:Esta parcela foi estornada e não poderá ser quitada
+13/01/20 11:33:15 - ===========================================
+13/01/20 11:33:15 - Form: formCriarConsultarOrdemServico
+13/01/20 11:33:15 - Caption: Criar / Consultar ordem de serviço
+13/01/20 11:33:15 - Erro:Exception
+13/01/20 11:33:15 - Erro:Esta parcela foi estornada e não poderá ser quitada
+13/01/20 11:53:06 - ===========================================
+13/01/20 11:53:06 - Form: formQuitarParcelasVendas
+13/01/20 11:53:06 - Caption: Ver parcelas das vendas realizadas
+13/01/20 11:53:06 - Erro:Exception
+13/01/20 11:53:06 - Erro:Informe o meio de pagamento da parcela.
+13/01/20 12:24:18 - ===========================================
+13/01/20 12:24:18 - Form: formQuitarParcelasVendas
+13/01/20 12:24:18 - Caption: Ver parcelas das vendas realizadas
+13/01/20 12:24:18 - Erro:Exception
+13/01/20 12:24:18 - Erro:Informe o meio de pagamento da parcela.
+13/01/20 12:24:34 - ===========================================
+13/01/20 12:24:34 - Form: formQuitarParcelasVendas
+13/01/20 12:24:34 - Caption: Ver parcelas das vendas realizadas
+13/01/20 12:24:34 - Erro:Exception
+13/01/20 12:24:34 - Erro:Informe o meio de pagamento da parcela.
+13/01/20 12:27:20 - ===========================================
+13/01/20 12:27:20 - Form: formVendas
+13/01/20 12:27:20 - Caption: Venda de produtos
+13/01/20 12:27:20 - Erro:Exception
+13/01/20 12:27:20 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+13/01/20 12:27:22 - ===========================================
+13/01/20 12:27:22 - Form: formVendas
+13/01/20 12:27:22 - Caption: Venda de produtos
+13/01/20 12:27:22 - Erro:Exception
+13/01/20 12:27:22 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.

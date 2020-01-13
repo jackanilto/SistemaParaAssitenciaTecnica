@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  UClasse.Calcular.Juros, UClasse.DiasMeses;
+  UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls;
 
 type
 
@@ -69,6 +69,9 @@ type
 
     function calcularJuros: string;
 
+    function setJuros(value: TEdit): iQuitarParcelasVenda;
+    function setMulta(value: TEdit): iQuitarParcelasVenda;
+
     function exportar: iQuitarParcelasVenda;
     procedure validarData(componet: tmaskEdit);
 
@@ -105,7 +108,7 @@ begin
 
   result := '0';
 
-  valorParcela := FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency;
+  valorParcela := FQuery.TQuery.FieldByName('VALOR_DA_PARCELA').AsCurrency;
 
   if date > FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime then
   begin
@@ -126,10 +129,8 @@ begin
       totalJuros := total - valorParcela;
     end;
 
-    FQuery.TQuery.FieldByName('JUROS').AsFloat := totalJuros;
-    FQuery.TQuery.FieldByName('MULTA').AsCurrency := F_MultaAtraso;
-    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
-    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+    FJurosParcelas := total;
+    FMultaParcela := F_MultaAtraso;
 
     result := currtostr(totalJuros + F_MultaAtraso + valorParcela);
 
@@ -137,10 +138,8 @@ begin
   else
   begin
 
-    FQuery.TQuery.FieldByName('JUROS').AsFloat := 0;
-    FQuery.TQuery.FieldByName('MULTA').AsCurrency := 0;
-    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
-    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+    FJurosParcelas := 0;
+    FMultaParcela := 0;
 
     result := currtostr(valorParcela);
 
@@ -430,6 +429,18 @@ begin
   FQueryParcela.getCampo('ID').getValor(IntToStr(FCodigoParcela))
     .sqlPesquisaEstatica('PARCELAS_VENDAS');
 
+end;
+
+function TEntityQuitarParcelaVenda.setJuros(value: TEdit): iQuitarParcelasVenda;
+begin
+  result := self;
+  value.Text := currtostr(FJurosParcelas);
+end;
+
+function TEntityQuitarParcelaVenda.setMulta(value: TEdit): iQuitarParcelasVenda;
+begin
+  result := self;
+  value.Text := currtostr(FMultaParcela);
 end;
 
 function TEntityQuitarParcelaVenda.sqlPesquisa: iQuitarParcelasVenda;

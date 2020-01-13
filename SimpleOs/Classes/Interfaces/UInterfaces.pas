@@ -1536,6 +1536,7 @@ type
     function getTOTAL(value: string): iQuitarParcelasVenda;
     function getFormaPagamento(value: string): iQuitarParcelasVenda;
     function quitarParcela: iQuitarParcelasVenda;
+    function tableQuery: TFDQuery;
 
     function CalcularJuros: string;
 

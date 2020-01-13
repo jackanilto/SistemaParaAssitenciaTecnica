@@ -1369,6 +1369,7 @@ type
     function getDATA_PAGAMENTO(value: string): iParcelasVendas;
     function getHORA_PAGAMENTO(value: string): iParcelasVendas;
     function getFUNCIONARIO_PGTO(value: integer): iParcelasVendas;
+    function getFormaPagamento(value: string): iParcelasVendas;
     function getPAGO(value: string): iParcelasVendas;
     function getObservacao(value: string): iParcelasVendas;
 
@@ -1492,8 +1493,57 @@ type
     ['{509FF26E-6DFB-4777-94EA-692A31BFC7AB}']
 
     function selecionarVenda(value: integer): iImprimirRecibo;
-    function retornarDataSet(value: TDataSource)
-      : iImprimirRecibo;
+    function selecionarItens(value: integer): iImprimirRecibo;
+    function retornarDataSet(value: TDataSource): iImprimirRecibo;
+    function retornarDataSetItens(value: TDataSource): iImprimirRecibo;
+
+  end;
+
+  iImprimirParcelasVendas = interface
+    ['{EBFFAFC1-AF2A-434D-9924-87827781070B}']
+    function selecionarParcelas(value: integer): iImprimirParcelasVendas;
+    function retornarDataSet(value: TDataSource): iImprimirParcelasVendas;
+    function retonarJurosMultaAtraso(value: TDataSource)
+      : iImprimirParcelasVendas;
+  end;
+
+  iQuitarParcelasVenda = interface
+    ['{5C28595F-A461-47C3-A232-2281DF846BE8}']
+
+    function nomeTabela(value: string): iQuitarParcelasVenda;
+    function getCampo(value: string): iQuitarParcelasVenda;
+    function getValor(value: string): iQuitarParcelasVenda;
+    function getDataInicial(value: TDate): iQuitarParcelasVenda;
+    function getDataFinal(value: TDate): iQuitarParcelasVenda;
+    function open(value: string): iQuitarParcelasVenda;
+    function pesquisar: iQuitarParcelasVenda;
+    function ExecSql: iQuitarParcelasVenda;
+    function sqlPesquisa: iQuitarParcelasVenda;
+    function sqlPesquisaData: iQuitarParcelasVenda;
+    function sqlPesquisaEstatica: iQuitarParcelasVenda;
+
+    function abrir: iQuitarParcelasVenda;
+    function atualizar: iQuitarParcelasVenda;
+    function fecharQuery: iQuitarParcelasVenda;
+    function listarGrid(value: TDataSource): iQuitarParcelasVenda;
+    function ordenarGrid(column: TColumn): iQuitarParcelasVenda;
+
+    function selecionarParcelaQuitar(value: integer): iQuitarParcelasVenda;
+    function getCodigoParcela(value: integer): iQuitarParcelasVenda;
+    function getDesconto(value: string): iQuitarParcelasVenda;
+    function getJuros(value: string): iQuitarParcelasVenda;
+    function getDataPagamento(value: string): iQuitarParcelasVenda;
+    function getTOTAL(value: string): iQuitarParcelasVenda;
+    function getFormaPagamento(value: string): iQuitarParcelasVenda;
+    function quitarParcela: iQuitarParcelasVenda;
+
+    function CalcularJuros: string;
+
+    function setJuros(value: TEdit): iQuitarParcelasVenda;
+    function setMulta(value: TEdit): iQuitarParcelasVenda;
+
+    function exportar: iQuitarParcelasVenda;
+    procedure validarData(componet: tmaskEdit);
 
   end;
 

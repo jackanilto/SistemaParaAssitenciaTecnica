@@ -30,7 +30,6 @@ object formExemploEmbeded: TformExemploEmbeded
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitTop = 2
     DesignSize = (
       917
       41)
@@ -703,6 +702,7 @@ object formExemploEmbeded: TformExemploEmbeded
         Color = 12895428
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 365
         DesignSize = (
           917
           45)
