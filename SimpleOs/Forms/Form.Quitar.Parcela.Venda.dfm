@@ -192,6 +192,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       ParentColor = False
       ParentFont = False
       ExplicitLeft = 229
@@ -223,6 +224,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         F6060000424DF606000000000000360000002800000018000000180000000100
         180000000000C0060000C30E0000C30E00000000000000000000804604804604
@@ -299,6 +301,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         A2070000424DA207000000000000360000002800000019000000190000000100
         1800000000006C070000120B0000120B0000000000000000000099361A99361A
@@ -366,6 +369,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbEstornarClick
     end
     object sbAdicionarParcela: TSpeedButton
       Left = 221
@@ -380,6 +384,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         F6060000424DF606000000000000360000002800000018000000180000000100
         180000000000C0060000C30E0000C30E0000000000000000000099361A99361A
@@ -441,9 +446,10 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbAdicionarParcelaClick
     end
     object sbSalvar: TSpeedButton
-      Left = 390
+      Left = 391
       Top = 24
       Width = 97
       Height = 35
@@ -455,6 +461,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         A2070000424DA207000000000000360000002800000019000000190000000100
         1800000000006C070000120B0000120B0000000000000000000099361A99361A
@@ -522,6 +529,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbSalvarClick
     end
     object sbExcluir: TSpeedButton
       Left = 470
@@ -536,6 +544,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         A2070000424DA207000000000000360000002800000019000000190000000100
         1800000000006C070000120B0000120B0000000000000000000099361A99361A
@@ -616,6 +625,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -13
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       ParentFont = False
       ExplicitLeft = 625
       ExplicitTop = 19
@@ -632,6 +642,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -13
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       ParentFont = False
       ExplicitLeft = 760
       ExplicitTop = 19
@@ -649,6 +660,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         A2070000424DA207000000000000360000002800000019000000190000000100
         1800000000006C070000120B0000120B0000000000000000000099361A99361A
@@ -730,6 +742,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         A2070000424DA207000000000000360000002800000019000000190000000100
         1800000000006C070000120B0000120B0000000000000000000099361A99361A
@@ -811,6 +824,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         F6060000424DF606000000000000360000002800000018000000180000000100
         180000000000C0060000C30E0000C30E0000000000000000000099361A99361A
@@ -886,6 +900,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -16
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       Glyph.Data = {
         A2070000424DA207000000000000360000002800000019000000190000000100
         1800000000006C070000120B0000120B0000000000000000000099361A99361A
@@ -965,6 +980,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -13
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       ParentFont = False
       TabOrder = 0
       Items.Strings = (
@@ -983,6 +999,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       Font.Height = -13
       Font.Name = 'Roboto'
       Font.Style = []
+      Font.Quality = fqDraft
       ParentFont = False
       TabOrder = 1
       OnKeyUp = edtPesquisarKeyUp
@@ -1001,6 +1018,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     Font.Height = -12
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
+    Font.Quality = fqDraft
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
     ReadOnly = True
@@ -1010,6 +1028,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    TitleFont.Quality = fqDraft
     OnCellClick = DBGrid1CellClick
     OnDrawColumnCell = DBGrid1DrawColumnCell
   end

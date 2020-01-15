@@ -11,6 +11,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
   Font.Height = -13
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Font.Quality = fqDraft
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
@@ -39,8 +40,8 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     Caption = 'Valor da parcela'
   end
   object Label6: TLabel
-    Left = 390
-    Top = 64
+    Left = 391
+    Top = 60
     Width = 116
     Height = 17
     Caption = 'Data de vencimento'
@@ -993,12 +994,13 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     Width = 980
     Height = 248
     Align = alBottom
+    BorderStyle = bsNone
     DataSource = DataSource1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -12
     Font.Name = 'Segoe UI'
-    Font.Style = []
+    Font.Style = [fsBold]
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
     ReadOnly = True
@@ -1009,6 +1011,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
     OnCellClick = DBGrid1CellClick
+    OnDrawColumnCell = DBGrid1DrawColumnCell
   end
   object edtTotalDeParcelas: TEdit
     Left = 24

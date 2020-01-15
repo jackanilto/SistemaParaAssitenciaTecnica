@@ -68,12 +68,23 @@ type
     procedure sbQuitarParelaClick(Sender: TObject);
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure sbEstornarClick(Sender: TObject);
+    procedure sbAdicionarParcelaClick(Sender: TObject);
   private
     { Private declarations }
-  var
-    FentityVisulizarParcelasVenda: iQuitarParcelasVenda;
     procedure ativarBotoes;
     procedure desativarBotoes;
+
+  var
+    FentityVisulizarParcelasVenda: iQuitarParcelasVenda;
+    FCodigoVenda: Integer;
+    FCodigoCliente: Integer;
+    FQuantidadeParcelas: Integer;
+    FParcela: Integer;
+    FvalorVenda: Currency;
+    FValorDaParcela: Currency;
+    FDataVencimento: TDate;
+
   public
     { Public declarations }
   end;
@@ -148,8 +159,9 @@ begin
     DBGrid1.Canvas.Font.Color := clwhite;
   end
 
-  else if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
-    .AsString = 'não' then
+  else if ((FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
+    .AsString = 'não') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
+    ('DATA_VENCIMENTO').AsDateTime >= date)) then
   begin
     DBGrid1.Canvas.Brush.Color := $0068BD05;
     DBGrid1.Canvas.Font.Color := clwhite;
@@ -166,7 +178,7 @@ begin
     .AsString = 'não') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
     ('DATA_VENCIMENTO').AsDateTime < date)) then
   begin
-    DBGrid1.Canvas.Brush.Color := $00EB8C27;
+    DBGrid1.Canvas.Brush.Color := $003444D1;
     DBGrid1.Canvas.Font.Color := clwhite
   end;
 
@@ -226,6 +238,27 @@ begin
   begin
     ReleaseCapture;
     self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
+  end;
+end;
+
+procedure TformQuitarParcelasVendas.sbAdicionarParcelaClick(Sender: TObject);
+begin
+
+  FCodigoVenda := DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger;
+  FCodigoCliente := DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger;
+  FQuantidadeParcelas := DataSource1.DataSet.FieldByName('QUANTIDADE_PARCELAS')
+    .AsInteger + 1;
+  FParcela := DataSource1.DataSet.FieldByName('PARCELA').AsInteger + 1;
+  FvalorVenda := DataSource1.DataSet.FieldByName('VALOR_VENDA').AsCurrency;
+
+end;
+
+procedure TformQuitarParcelasVendas.sbEstornarClick(Sender: TObject);
+begin
+  if DataSource1.DataSet.FieldByName('PAGO').AsString = 'sim' then
+  begin
+    FentityVisulizarParcelasVenda.estornarParcela
+      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
   end;
 end;
 

@@ -1536,9 +1536,21 @@ type
     function getTOTAL(value: string): iQuitarParcelasVenda;
     function getFormaPagamento(value: string): iQuitarParcelasVenda;
     function quitarParcela: iQuitarParcelasVenda;
+    function estornarParcela(value: integer): iQuitarParcelasVenda;
+
+    function prepararAdicionarParcela: iQuitarParcelasVenda;
+    function getID_VENDA(value: integer): iQuitarParcelasVenda;
+    function getID_CLIENTE(value: integer): iQuitarParcelasVenda;
+    function getVALOR_VENDA(value: string): iQuitarParcelasVenda;
+    function getQUANTIDADE_PARCELAS(value: integer): iQuitarParcelasVenda;
+    function getPARCELA(value: integer): iQuitarParcelasVenda;
+    function getVALOR_DA_PARCELA(value: string): iQuitarParcelasVenda;
+    function getDATA_VENCIMENTO(value: string): iQuitarParcelasVenda;
+
     function tableQuery: TFDQuery;
 
     function CalcularJuros: string;
+    function retornarTotalDeParcelas(value: integer): integer;
 
     function setJuros(value: TEdit): iQuitarParcelasVenda;
     function setMulta(value: TEdit): iQuitarParcelasVenda;

@@ -32,6 +32,14 @@ type
     FTotalDaParcela: Currency;
     FFormaPagamento: String;
 
+    FID_VENDA: integer;
+    FID_CLIENTE: integer;
+    FVALOR_VENDA: Currency;
+    FQUANTIDADE_PARCELAS: integer;
+    FPARCELA: integer;
+    FVALOR_DA_PARCELA: Currency;
+    FDATA_VENCIMENTO: TDate;
+
     F_JurosAtraso: real;
     F_MultaAtraso: Currency;
 
@@ -66,9 +74,23 @@ type
     function getTotal(value: string): iQuitarParcelasVenda;
     function getFormaPagamento(value: string): iQuitarParcelasVenda;
     function quitarParcela: iQuitarParcelasVenda;
+    function estornarParcela(value: integer): iQuitarParcelasVenda;
+
+    function prepararAdicionarParcela: iQuitarParcelasVenda;
+    function getID_VENDA(value: integer): iQuitarParcelasVenda;
+    function getID_CLIENTE(value: integer): iQuitarParcelasVenda;
+    function getVALOR_VENDA(value: string): iQuitarParcelasVenda;
+    function getQUANTIDADE_PARCELAS(value: integer): iQuitarParcelasVenda;
+    function getPARCELA(value: integer): iQuitarParcelasVenda;
+    function getVALOR_DA_PARCELA(value: string): iQuitarParcelasVenda;
+    function getDATA_VENCIMENTO(value: string): iQuitarParcelasVenda;
+
+    function excluirParcela(value:integer):iQuitarParcelasVenda;
+
     function tableQuery: TFDQuery;
 
     function calcularJuros: string;
+    function retornarTotalDeParcelas(value: integer): integer;
 
     function setJuros(value: TEdit): iQuitarParcelasVenda;
     function setMulta(value: TEdit): iQuitarParcelasVenda;
@@ -178,6 +200,44 @@ begin
   inherited;
 end;
 
+function TEntityQuitarParcelaVenda.estornarParcela(value: integer)
+  : iQuitarParcelasVenda;
+begin
+  result := self;
+
+  if application.MessageBox('Deseja realmente estornar esta parcela?',
+    'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+  begin
+    FQueryParcela.getCampo('ID').getValor(value.ToString)
+      .sqlPesquisaEstatica('PARCELAS_VENDAS');
+
+    if FQueryParcela.TQuery.RecordCount >= 1 then
+    begin
+
+      FQueryParcela.TQuery.Edit;
+
+      FQueryParcela.TQuery.FieldByName('JUROS').AsCurrency := 0;
+      FQueryParcela.TQuery.FieldByName('MULTA').AsCurrency := 0;
+      FQueryParcela.TQuery.FieldByName('DESCONTO').AsCurrency := 0;
+      FQueryParcela.TQuery.FieldByName('TOTAL').AsCurrency := 0;
+      FQueryParcela.TQuery.FieldByName('DATA_PAGAMENTO').Clear;
+      FQueryParcela.TQuery.FieldByName('HORA_PAGAMENTO').Clear;
+      FQueryParcela.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := '';
+      FQueryParcela.TQuery.FieldByName('PAGO').AsString := 'não';
+
+      FQueryParcela.TQuery.Post;
+
+    end;
+  end;
+
+end;
+
+function TEntityQuitarParcelaVenda.excluirParcela(
+  value: integer): iQuitarParcelasVenda;
+begin
+   {Criar o metodo para exlcuir uma parcela}
+end;
+
 function TEntityQuitarParcelaVenda.ExecSql: iQuitarParcelasVenda;
 begin
   result := self;
@@ -253,6 +313,29 @@ begin
 
 end;
 
+function TEntityQuitarParcelaVenda.getDATA_VENCIMENTO(value: string)
+  : iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create
+      ('ERRO! Informe um data para o vencimento da parcela.');
+
+  try
+    FDATA_VENCIMENTO := StrToDate(value);
+  except
+    on e: Exception do
+    begin
+      raise Exception.create
+        ('ERRO! Digite uma data válido para o vencimento da parela.');
+    end;
+
+  end;
+
+end;
+
 function TEntityQuitarParcelaVenda.getDesconto(value: string)
   : iQuitarParcelasVenda;
 begin
@@ -280,6 +363,34 @@ begin
 
 end;
 
+function TEntityQuitarParcelaVenda.getID_CLIENTE(value: integer)
+  : iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  if value = 0 then
+    raise Exception.create
+      ('ERRO! Informe o código do cliente que esta inserindo a parela');
+
+  FID_CLIENTE := value;
+
+end;
+
+function TEntityQuitarParcelaVenda.getID_VENDA(value: integer)
+  : iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  if value = 0 then
+    raise Exception.create
+      ('ERRO! Informe o código da venda que esta inserindo a parela');
+
+  FID_VENDA := value;
+
+end;
+
 function TEntityQuitarParcelaVenda.getJuros(value: string)
   : iQuitarParcelasVenda;
 begin
@@ -291,6 +402,33 @@ begin
   except
     raise Exception.create('Informe um valor válido para o campo juros');
   end;
+
+end;
+
+function TEntityQuitarParcelaVenda.getPARCELA(value: integer)
+  : iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  if value = 0 then
+    raise Exception.create('ERRO! Informe a parcela que esta inserindo.');
+
+  FPARCELA := value;
+
+end;
+
+function TEntityQuitarParcelaVenda.getQUANTIDADE_PARCELAS(value: integer)
+  : iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  if value = 0 then
+    raise Exception.create
+      ('Informe a quantidade de parelas que esta inserindo');
+
+  FQUANTIDADE_PARCELAS := value;
 
 end;
 
@@ -314,6 +452,50 @@ function TEntityQuitarParcelaVenda.getValor(value: string)
 begin
   result := self;
   FValor := UpperCase(value);
+end;
+
+function TEntityQuitarParcelaVenda.getVALOR_DA_PARCELA(value: string)
+  : iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create
+      ('ERRO. Informe o valor da parcela que esa inseriendo.');
+
+  try
+    FVALOR_DA_PARCELA := StrToCurr(value);
+  except
+    on e: Exception do
+    begin
+      raise Exception.create('Informe um valor válido para o valor da parcela');
+    end;
+
+  end;
+
+end;
+
+function TEntityQuitarParcelaVenda.getVALOR_VENDA(value: string)
+  : iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create
+      ('ERRO. Informe o valor da parcela que esa inseriendo.');
+
+  try
+    FVALOR_VENDA := StrToCurr(value);
+  except
+    on e: Exception do
+    begin
+      raise Exception.create('Informe um valor válido para o valor da venda');
+    end;
+
+  end;
+
 end;
 
 function TEntityQuitarParcelaVenda.listarGrid(value: TDataSource)
@@ -386,6 +568,33 @@ begin
   result := self;
 end;
 
+function TEntityQuitarParcelaVenda.prepararAdicionarParcela
+  : iQuitarParcelasVenda;
+begin
+  result := self;
+
+  FQueryParcela.TQuery.Insert;
+
+  FQueryParcela.TQuery.FieldByName('ID').AsInteger :=
+    FQueryParcela.codigoCadastro('SP_GEN_PARCELAS_VENDAS_ID');
+
+  with FQueryParcela.TQuery do
+  begin
+    FieldByName('ID_VENDA').AsInteger := FID_VENDA;
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
+    FieldByName('QUANTIDADE_PARCELAS').AsInteger := FQUANTIDADE_PARCELAS;
+    FieldByName('PARCELA').AsInteger := FPARCELA;
+    FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
+    FieldByName('DATA_VENCIMENTO').AsDateTime := FDATA_VENCIMENTO;
+    FieldByName('PAGO').AsString := 'não';
+  end;
+
+  FQueryParcela.TQuery.Post;
+  ShowMessage('Parcela adicionada com sucesso.');
+
+end;
+
 function TEntityQuitarParcelaVenda.quitarParcela: iQuitarParcelasVenda;
 begin
 
@@ -417,6 +626,32 @@ begin
       end;
 
     end;
+  end;
+
+end;
+
+function TEntityQuitarParcelaVenda.retornarTotalDeParcelas
+  (value: integer): integer;
+var
+  F_Query: TFDQuery;
+begin
+
+  result := 0;
+
+  F_Query := TFDQuery.create(nil);
+  F_Query.Connection := DataModule1.Conexao;
+
+  try
+    F_Query.Active := false;
+    F_Query.SQL.Clear;
+    F_Query.SQL.Add
+      ('select * from VISUALIZAR_PARCELAS_VENDA where ID_VENDA =:v');
+    F_Query.ParamByName('v').AsInteger := value;
+    F_Query.Active := true;
+
+    result := F_Query.RecordCount;
+  finally
+    FreeAndNil(F_Query);
   end;
 
 end;

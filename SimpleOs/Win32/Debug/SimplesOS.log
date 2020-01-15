@@ -2983,3 +2983,18 @@ Problematic key value is ("ID" = 2)
 13/01/20 12:27:22 - Caption: Venda de produtos
 13/01/20 12:27:22 - Erro:Exception
 13/01/20 12:27:22 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+15/01/20 11:09:44 - ===========================================
+15/01/20 11:09:44 - Form: formQuitarParcelasVendas
+15/01/20 11:09:44 - Caption: Ver parcelas das vendas realizadas
+15/01/20 11:09:44 - Erro:Exception
+15/01/20 11:09:44 - Erro:Informe o meio de pagamento da parcela.
+15/01/20 12:24:36 - ===========================================
+15/01/20 12:24:36 - Form: formQuitarParcelasVendas
+15/01/20 12:24:36 - Caption: Ver parcelas das vendas realizadas
+15/01/20 12:24:36 - Erro:EDatabaseError
+15/01/20 12:24:36 - Erro:Parameter 'ID_VENDA' not found
+15/01/20 12:24:39 - ===========================================
+15/01/20 12:24:39 - Form: formQuitarParcelasVendas
+15/01/20 12:24:39 - Caption: Ver parcelas das vendas realizadas
+15/01/20 12:24:39 - Erro:EDatabaseError
+15/01/20 12:24:39 - Erro:Parameter 'ID_VENDA' not found
