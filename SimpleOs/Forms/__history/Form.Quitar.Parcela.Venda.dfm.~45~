@@ -446,9 +446,10 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbAdicionarParcelaClick
     end
     object sbSalvar: TSpeedButton
-      Left = 390
+      Left = 391
       Top = 24
       Width = 97
       Height = 35
@@ -528,6 +529,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbSalvarClick
     end
     object sbExcluir: TSpeedButton
       Left = 470
@@ -610,6 +612,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbExcluirClick
     end
     object Label4: TLabel
       Left = 654

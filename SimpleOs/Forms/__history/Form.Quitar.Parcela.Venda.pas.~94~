@@ -7,7 +7,8 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
-  UClasse.Entity.Quitar.Parcelas.Vendas, Vcl.DBCtrls, Vcl.Mask, UFactory;
+  UClasse.Entity.Quitar.Parcelas.Vendas, Vcl.DBCtrls, Vcl.Mask, UFactory,
+  frxClass, frxDBSet, UClasse.Imprimir.Parcelas, Vcl.ComCtrls;
 
 type
   TEnumPesquisar = (Parcela, Venda, codigo_cliente);
@@ -46,7 +47,6 @@ type
     Label8: TLabel;
     edtDesconto: TEdit;
     Label9: TLabel;
-    edtTotalAPagar: TEdit;
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
@@ -55,7 +55,20 @@ type
     DBNavigator1: TDBNavigator;
     edtDataDeVencimento: TMaskEdit;
     edtFormaDePagamento: TComboBox;
-    edtDataDePagamento: TMaskEdit;
+    s_DadosEmpresa: TDataSource;
+    frxDB_Empresa: TfrxDBDataset;
+    s_ImprimirRecibo: TDataSource;
+    s_ImprimirParcelas: TDataSource;
+    frx_ImprimirParcelas: TfrxReport;
+    frx_ImprimirRecibo: TfrxReport;
+    s_ImprimirReciboItens: TDataSource;
+    s_jurosMulta: TDataSource;
+    frxDB_JurosMulta: TfrxDBDataset;
+    frxDB_ImprimirReciboItens: TfrxDBDataset;
+    frxDB_ImprimirRecibo: TfrxDBDataset;
+    frxDB_ImprimirParcelas: TfrxDBDataset;
+    edtTotalAPagar: TEdit;
+    edtDataDePagamento: TDateTimePicker;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -70,13 +83,24 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure sbEstornarClick(Sender: TObject);
     procedure sbAdicionarParcelaClick(Sender: TObject);
+    procedure sbSalvarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbImprimirParcelasClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+    procedure edtDescontoExit(Sender: TObject);
+    procedure edtDescontoKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     procedure ativarBotoes;
     procedure desativarBotoes;
+    procedure calcularDesconto;
 
   var
     FentityVisulizarParcelasVenda: iQuitarParcelasVenda;
+    FVisualizarDadosEmpresa: iDadosEmpresa;
+    FImprimirParcelas: iImprimirParcelasVendas;
     FCodigoVenda: Integer;
     FCodigoCliente: Integer;
     FQuantidadeParcelas: Integer;
@@ -93,6 +117,9 @@ var
   formQuitarParcelasVendas: TformQuitarParcelasVendas;
 
 implementation
+
+uses
+  UClasse.Entity.Dados.Empresa;
 
 {$R *.dfm}
 
@@ -118,7 +145,7 @@ begin
     if DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime <>
       StrToDate('30/12/1899') then
       edtDataDePagamento.Text :=
-        DateToStr(FieldByName('DATA_PAGAMENTO').AsDateTime);
+        FieldByName('DATA_PAGAMENTO').AsDateTime;
 
   end;
 end;
@@ -185,6 +212,18 @@ begin
   DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
+procedure TformQuitarParcelasVendas.edtDescontoExit(Sender: TObject);
+begin
+  calcularDesconto;
+end;
+
+procedure TformQuitarParcelasVendas.edtDescontoKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+ if key = 13 then
+   calcularDesconto;
+end;
+
 procedure TformQuitarParcelasVendas.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 var
@@ -215,6 +254,13 @@ end;
 procedure TformQuitarParcelasVendas.FormCreate(Sender: TObject);
 begin
   FentityVisulizarParcelasVenda := TEntityQuitarParcelaVenda.new;
+
+  // FImprimirRecibo := TImprimirRecibo.new;
+  FVisualizarDadosEmpresa := TEntityCadastroDadosEmpresa.new;
+  FImprimirParcelas := TImprimirParcelasVenda.new;
+
+  ReportMemoryLeaksOnShutdown := true;
+
 end;
 
 procedure TformQuitarParcelasVendas.FormShow(Sender: TObject);
@@ -226,6 +272,8 @@ begin
     (edtFormaDePagamento);
 
   cbPesquisar.ItemIndex := 0;
+
+  edtDataDePagamento.Date := date;
 
 end;
 
@@ -242,14 +290,41 @@ begin
 end;
 
 procedure TformQuitarParcelasVendas.sbAdicionarParcelaClick(Sender: TObject);
+var
+  totalDeParcelas: Integer;
 begin
 
-FCodigoVenda := DataSource1.DataSet.FieldByName('').AsInteger;
-FCodigoCliente := DataSource1.DataSet.FieldByName('').AsInteger;
-FQuantidadeParcelas := DataSource1.DataSet.FieldByName('').AsInteger;
-FParcela := DataSource1.DataSet.FieldByName('').AsInteger;
-FvalorVenda := DataSource1.DataSet.FieldByName('').AsCurrency;
-FValorDaParcela := DataSource1.DataSet.FieldByName('').AsCurrency;
+  totalDeParcelas := FentityVisulizarParcelasVenda.retornarTotalDeParcelas
+    (DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger) + 1;
+
+  FCodigoVenda := DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger;
+  FCodigoCliente := DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger;
+  FQuantidadeParcelas := totalDeParcelas;
+  FParcela := totalDeParcelas;
+  FvalorVenda := DataSource1.DataSet.FieldByName('VALOR_VENDA').AsCurrency;
+
+  lblCaption.Caption := lblCaption.Caption + ' - Inserindo parcela';
+
+end;
+
+procedure TformQuitarParcelasVendas.sbCancelarClick(Sender: TObject);
+begin
+
+  FCodigoVenda := 0;
+  FCodigoCliente := 0;
+  FQuantidadeParcelas := 0;
+  FParcela := 0;
+  FvalorVenda := 0;
+  FValorDaParcela := 0;
+  // FDataVencimento: TDate;
+
+  desativarBotoes;
+  sbSalvar.Enabled := false;
+  sbEstornar.Enabled := false;
+
+  lblCaption.Caption := 'Ver parcelas das vendas realizadas';
+
+  edtPesquisar.SetFocus;
 
 end;
 
@@ -262,9 +337,38 @@ begin
   end;
 end;
 
+procedure TformQuitarParcelasVendas.sbExcluirClick(Sender: TObject);
+begin
+  FentityVisulizarParcelasVenda.excluirParcela
+    (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
+end;
+
+procedure TformQuitarParcelasVendas.sbExportarClick(Sender: TObject);
+begin
+  FentityVisulizarParcelasVenda.exportar;
+end;
+
 procedure TformQuitarParcelasVendas.sbFecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TformQuitarParcelasVendas.sbImprimirParcelasClick(Sender: TObject);
+begin
+  // FImprimirRecibo.selecionarVenda(FEntityVenda.setCodigoVenda)
+  // .retornarDataSet(s_ImprimirRecibo).selecionarItens
+  // (FEntityVenda.setCodigoVenda).retornarDataSetItens(s_ImprimirReciboItens);
+
+  FImprimirParcelas.selecionarParcelas
+    (DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger)
+    .retornarDataSet(s_ImprimirParcelas).retonarJurosMultaAtraso(s_jurosMulta);
+
+  FVisualizarDadosEmpresa.abrir.listarGrid(s_DadosEmpresa);
+
+  frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/carne_pagamento.fr3');
+  frx_ImprimirParcelas.ShowReport();
+
 end;
 
 procedure TformQuitarParcelasVendas.sbQuitarParelaClick(Sender: TObject);
@@ -290,6 +394,23 @@ begin
   end;
 end;
 
+procedure TformQuitarParcelasVendas.sbSalvarClick(Sender: TObject);
+begin
+
+  FDataVencimento := StrToDate(edtDataDeVencimento.Text);
+  FValorDaParcela := StrToCurr(edtValorDaParcela.Text);
+
+  FentityVisulizarParcelasVenda.getID_VENDA(FCodigoVenda)
+    .getID_CLIENTE(FCodigoCliente).getQUANTIDADE_PARCELAS(FQuantidadeParcelas)
+    .getPARCELA(FParcela).getVALOR_VENDA(CurrToStr(FvalorVenda))
+    .getVALOR_DA_PARCELA(edtValorDaParcela.Text)
+    .getDATA_VENCIMENTO(edtDataDeVencimento.Text)
+    .prepararAdicionarParcela.atualizar;
+
+  lblCaption.Caption := 'Ver parcelas das vendas realizadas';
+
+end;
+
 procedure TformQuitarParcelasVendas.ativarBotoes;
 begin
   sbAdicionarParcela.Enabled := true;
@@ -309,6 +430,11 @@ begin
   sbImprimirParcelas.Enabled := false;
   sbExportar.Enabled := false;
   sbImprimir.Enabled := false;
+end;
+
+procedure TformQuitarParcelasVendas.calcularDesconto;
+begin
+  edttotalAPagar.Text := CurrToStr((StrToCurr(edtValorDaParcela.Text) + StrToCurr(edtMulta.Text) + StrToCurr(edtJuros.Text)) - StrToCurr(edtDesconto.Text));
 end;
 
 end.

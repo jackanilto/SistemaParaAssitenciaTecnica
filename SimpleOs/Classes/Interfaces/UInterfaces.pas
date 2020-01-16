@@ -1547,6 +1547,8 @@ type
     function getVALOR_DA_PARCELA(value: string): iQuitarParcelasVenda;
     function getDATA_VENCIMENTO(value: string): iQuitarParcelasVenda;
 
+    function excluirParcela(value: integer): iQuitarParcelasVenda;
+
     function tableQuery: TFDQuery;
 
     function CalcularJuros: string;

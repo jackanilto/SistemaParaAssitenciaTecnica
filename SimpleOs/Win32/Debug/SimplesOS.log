@@ -2998,3 +2998,8 @@ Problematic key value is ("ID" = 2)
 15/01/20 12:24:39 - Caption: Ver parcelas das vendas realizadas
 15/01/20 12:24:39 - Erro:EDatabaseError
 15/01/20 12:24:39 - Erro:Parameter 'ID_VENDA' not found
+16/01/20 11:36:03 - ===========================================
+16/01/20 11:36:03 - Form: formQuitarParcelasVendas
+16/01/20 11:36:03 - Caption: Ver parcelas das vendas realizadas
+16/01/20 11:36:03 - Erro:EDatabaseError
+16/01/20 11:36:03 - Erro:Dataset not in edit or insert mode

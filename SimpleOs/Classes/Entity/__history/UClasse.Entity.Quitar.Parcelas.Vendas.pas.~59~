@@ -85,6 +85,8 @@ type
     function getVALOR_DA_PARCELA(value: string): iQuitarParcelasVenda;
     function getDATA_VENCIMENTO(value: string): iQuitarParcelasVenda;
 
+    function excluirParcela(value: integer): iQuitarParcelasVenda;
+
     function tableQuery: TFDQuery;
 
     function calcularJuros: string;
@@ -226,6 +228,40 @@ begin
       FQueryParcela.TQuery.Post;
 
     end;
+  end;
+
+end;
+
+function TEntityQuitarParcelaVenda.excluirParcela(value: integer)
+  : iQuitarParcelasVenda;
+var
+  F_Query: TFDQuery;
+begin
+
+  result := self;
+
+  F_Query := TFDQuery.create(nil);
+  F_Query.Connection := DataModule1.Conexao;
+
+  try
+    F_Query.Active := false;
+    F_Query.SQL.Clear;
+    F_Query.SQL.Add('select * from PARCELAS_VENDAS where ID =:i');
+    F_Query.ParamByName('i').AsInteger := value;
+    F_Query.Active := true;
+
+    if F_Query.RecordCount >= 1 then
+    begin
+      if application.MessageBox('Deseja realmente excluir esta parcela?',
+        'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+      begin
+        F_Query.Delete;
+//        F_Query.Post;
+      end;
+    end;
+
+  finally
+    FreeAndNil(F_Query);
   end;
 
 end;
@@ -633,15 +669,18 @@ begin
   F_Query := TFDQuery.create(nil);
   F_Query.Connection := DataModule1.Conexao;
 
-  F_Query.Active := false;
-  F_Query.SQL.Clear;
-  F_Query.SQL.Add('select * from VISUALIZAR_PARCELAS_VENDA where ID_VENDA =:v');
-  F_Query.ParamByName('ID_VENDA').AsInteger := value;
-  F_Query.Active := true;
+  try
+    F_Query.Active := false;
+    F_Query.SQL.Clear;
+    F_Query.SQL.Add
+      ('select * from VISUALIZAR_PARCELAS_VENDA where ID_VENDA =:v');
+    F_Query.ParamByName('v').AsInteger := value;
+    F_Query.Active := true;
 
-  result := F_Query.RecordCount;
-
-  FreeAndNil(F_Query);
+    result := F_Query.RecordCount;
+  finally
+    FreeAndNil(F_Query);
+  end;
 
 end;
 

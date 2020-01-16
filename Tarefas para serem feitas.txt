@@ -23,11 +23,11 @@ Terceira parte do projeto - simpleOS
     #Criar metodo para quitar a parcela selecionada --FEITO
 	#Criar metodo para estornar um parcela quitada --FEITO
 	#Criar metodo para adicionar um parcela --FEITO
-	#Criar metodo para excluir uma parcela
-    #Criar metodo para cancelar uma operação em andamento
-    #Criar metodo para imprimir as parcela
+	#Criar metodo para excluir uma parcela --FEITO 16-01-20
+    #Criar metodo para cancelar uma operação em andamento --FEITO 16-01-20
+    #Criar metodo para imprimir as parcela --FEITO 16-01-20
     #Criar metodo para imprimir a tabela da janela com os dados
-    #Criar metodo para exportar os dados da tabela para o Excel
+    #Criar metodo para exportar os dados da tabela para o Excel --FEITO
     #Processo de ativação e desativação dos botões das janelas
     #Criar metodo para calular o valor do desconto	
 	 

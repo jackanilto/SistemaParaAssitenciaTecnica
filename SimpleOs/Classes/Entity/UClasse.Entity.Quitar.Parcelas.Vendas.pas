@@ -5,7 +5,8 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls, FireDAC.Comp.Client;
+  UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls, FireDAC.Comp.Client,
+  System.Win.ComObj;
 
 type
 
@@ -85,7 +86,7 @@ type
     function getVALOR_DA_PARCELA(value: string): iQuitarParcelasVenda;
     function getDATA_VENCIMENTO(value: string): iQuitarParcelasVenda;
 
-    function excluirParcela(value:integer):iQuitarParcelasVenda;
+    function excluirParcela(value: integer): iQuitarParcelasVenda;
 
     function tableQuery: TFDQuery;
 
@@ -232,10 +233,38 @@ begin
 
 end;
 
-function TEntityQuitarParcelaVenda.excluirParcela(
-  value: integer): iQuitarParcelasVenda;
+function TEntityQuitarParcelaVenda.excluirParcela(value: integer)
+  : iQuitarParcelasVenda;
+var
+  F_Query: TFDQuery;
 begin
-   {Criar o metodo para exlcuir uma parcela}
+
+  result := self;
+
+  F_Query := TFDQuery.create(nil);
+  F_Query.Connection := DataModule1.Conexao;
+
+  try
+    F_Query.Active := false;
+    F_Query.SQL.Clear;
+    F_Query.SQL.Add('select * from PARCELAS_VENDAS where ID =:i');
+    F_Query.ParamByName('i').AsInteger := value;
+    F_Query.Active := true;
+
+    if F_Query.RecordCount >= 1 then
+    begin
+      if application.MessageBox('Deseja realmente excluir esta parcela?',
+        'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+      begin
+        F_Query.Delete;
+//        F_Query.Post;
+      end;
+    end;
+
+  finally
+    FreeAndNil(F_Query);
+  end;
+
 end;
 
 function TEntityQuitarParcelaVenda.ExecSql: iQuitarParcelasVenda;
@@ -245,10 +274,71 @@ begin
 end;
 
 function TEntityQuitarParcelaVenda.exportar: iQuitarParcelasVenda;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
-end;
 
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Parcelas das vendas realizadas';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Parcela';
+  pasta.cells[1, 2] := 'Venda';
+  pasta.cells[1, 3] := 'Cód. Cliente';
+  pasta.cells[1, 4] := 'Nome do cliente';
+  pasta.cells[1, 5] := 'Valor da venda';
+  pasta.cells[1, 6] := 'QTDE. Parcelas';
+  pasta.cells[1, 7] := 'Parcela';
+  pasta.cells[1, 8] := 'Valor da parcela';
+  pasta.cells[1, 9] := 'Vencimento';
+  pasta.cells[1, 10] := 'Juros';
+  pasta.cells[1, 11] := 'Multa';
+  pasta.cells[1, 12] := 'Desconto';
+  pasta.cells[1, 13] := 'Total';
+  pasta.cells[1, 14] := 'Data de pagamento';
+  pasta.cells[1, 15] := 'Hora de pagamento';
+  pasta.cells[1, 16] := 'Funcionário';
+  pasta.cells[1, 17] := 'Forma de pagamento';
+  pasta.cells[1, 18] := 'PGTO';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_VENDA').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('CLIENTE').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('QUANTIDADE_PARCELAS').AsInteger;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('PARCELA').AsInteger;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_DA_PARCELA').AsCurrency;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('JUROS').AsCurrency;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('MULTA').AsCurrency;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('TOTAL').AsCurrency;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime;
+      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('FUNCIONARIO_PGTO').AsInteger;
+      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString;
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('PAGO').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
+end;
 function TEntityQuitarParcelaVenda.fecharQuery: iQuitarParcelasVenda;
 begin
   FQuery.TQuery.close;
@@ -588,6 +678,7 @@ begin
     FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
     FieldByName('DATA_VENCIMENTO').AsDateTime := FDATA_VENCIMENTO;
     FieldByName('PAGO').AsString := 'não';
+    FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
   end;
 
   FQueryParcela.TQuery.Post;
