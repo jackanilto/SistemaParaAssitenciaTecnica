@@ -26,10 +26,11 @@ Terceira parte do projeto - simpleOS
 	#Criar metodo para excluir uma parcela --FEITO 16-01-20
     #Criar metodo para cancelar uma operação em andamento --FEITO 16-01-20
     #Criar metodo para imprimir as parcela --FEITO 16-01-20
-    #Criar metodo para imprimir a tabela da janela com os dados
+    #Criar metodo para imprimir a tabela da janela com os dados --CANCELADO
     #Criar metodo para exportar os dados da tabela para o Excel --FEITO
     #Processo de ativação e desativação dos botões das janelas
-    #Criar metodo para calular o valor do desconto	
+	#Processo para imprimir o comprovante de pagamento --FEITO
+    #Criar metodo para calular o valor do desconto --FEITO	
 	 
 	 
 ###Inclusão de tela extra - Janela para configurar o número de parcelas --FEITO	 

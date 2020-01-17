@@ -3003,3 +3003,43 @@ Problematic key value is ("ID" = 2)
 16/01/20 11:36:03 - Caption: Ver parcelas das vendas realizadas
 16/01/20 11:36:03 - Erro:EDatabaseError
 16/01/20 11:36:03 - Erro:Dataset not in edit or insert mode
+17/01/20 11:10:52 - ===========================================
+17/01/20 11:10:52 - Form: formQuitarParcelasVendas
+17/01/20 11:10:52 - Caption: Ver parcelas das vendas realizadas
+17/01/20 11:10:52 - Erro:Exception
+17/01/20 11:10:52 - Erro:Informe o meio de pagamento da parcela.
+17/01/20 11:14:53 - ===========================================
+17/01/20 11:14:53 - Form: formQuitarParcelasVendas
+17/01/20 11:14:53 - Caption: Ver parcelas das vendas realizadas
+17/01/20 11:14:53 - Erro:Exception
+17/01/20 11:14:53 - Erro:Informe o meio de pagamento da parcela.
+17/01/20 11:27:29 - ===========================================
+17/01/20 11:27:29 - Form: formQuitarParcelasVendas
+17/01/20 11:27:29 - Caption: Ver parcelas das vendas realizadas
+17/01/20 11:27:29 - Erro:Exception
+17/01/20 11:27:29 - Erro:Informe o meio de pagamento da parcela.
+17/01/20 11:42:35 - ===========================================
+17/01/20 11:42:35 - Form: formQuitarParcelasVendas
+17/01/20 11:42:35 - Caption: Ver parcelas das vendas realizadas
+17/01/20 11:42:35 - Erro:Exception
+17/01/20 11:42:35 - Erro:Informe o meio de pagamento da parcela.
+17/01/20 11:44:09 - ===========================================
+17/01/20 11:44:09 - Form: formQuitarParcelasVendas
+17/01/20 11:44:09 - Caption: Ver parcelas das vendas realizadas
+17/01/20 11:44:09 - Erro:Exception
+17/01/20 11:44:09 - Erro:Informe o meio de pagamento da parcela.
+17/01/20 11:55:19 - ===========================================
+17/01/20 11:55:19 - Form: formQuitarParcelasVendas
+17/01/20 11:55:19 - Caption: Ver parcelas das vendas realizadas
+17/01/20 11:55:19 - Erro:Exception
+17/01/20 11:55:19 - Erro:Informe o meio de pagamento da parcela.
+17/01/20 11:57:29 - ===========================================
+17/01/20 11:57:29 - Form: formQuitarParcelasVendas
+17/01/20 11:57:29 - Caption: Ver parcelas das vendas realizadas
+17/01/20 11:57:29 - Erro:Exception
+17/01/20 11:57:29 - Erro:Informe o meio de pagamento da parcela.
+17/01/20 12:00:30 - ===========================================
+17/01/20 12:00:30 - Form: formQuitarParcelasVendas
+17/01/20 12:00:30 - Caption: Ver parcelas das vendas realizadas
+17/01/20 12:00:30 - Erro:Exception
+17/01/20 12:00:30 - Erro:Informe o meio de pagamento da parcela.

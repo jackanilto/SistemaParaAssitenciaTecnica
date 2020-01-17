@@ -448,7 +448,7 @@ begin
   result := self;
 
   if value = EmptyStr then
-    raise Exception.create('Informe o meio de pagamento da parcela.');
+    raise Exception.create('ERRO! Informe o meio de pagamento da parcela.');
   FFormaPagamento := value;
 
 end;
