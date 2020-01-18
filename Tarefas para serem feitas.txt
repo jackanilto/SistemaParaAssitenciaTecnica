@@ -14,10 +14,10 @@ Terceira parte do projeto - simpleOS
 #Criar o#Criar classe para form base para a janela de vendas:
      #Criar o form para buscar o cliente --FEITO
 	 #Criar o form para buscar o produto --FEITO
-	 #Criar procedimento para imprimir o comprovante da venda --FEITO
+	 #Criar procedimento para imp rimir o comprovante da venda --FEITO
 	 #Criar procedimento para imprimir as parcelas das vendas --FEITO
 	 #Criar as teclas de atalho para as vendas --FEITO
-	 #Criar o form para finalizar a vendas --EM ANDAMENTO (procurar codigo para substituir o tab por enter) --FEITO
+	 #Criar o form para finalizar a vendas --FEITO
 	 
 #Criar janela para quitar as parcelas das vendas
     #Criar metodo para quitar a parcela selecionada --FEITO
@@ -28,7 +28,7 @@ Terceira parte do projeto - simpleOS
     #Criar metodo para imprimir as parcela --FEITO 16-01-20
     #Criar metodo para imprimir a tabela da janela com os dados --CANCELADO
     #Criar metodo para exportar os dados da tabela para o Excel --FEITO
-    #Processo de ativação e desativação dos botões das janelas
+    #Processo de ativação e desativação dos botões das janelas --FEITO
 	#Processo para imprimir o comprovante de pagamento --FEITO
     #Criar metodo para calular o valor do desconto --FEITO	
 	 

@@ -6,7 +6,7 @@ uses
   Vcl.Buttons;
 
 Type
-  TMyClass = class
+  TClasseBotoesQuitarParcelas = class
   private
     btQuitar: TSpeedButton;
     btEstornar: TSpeedButton;
@@ -27,6 +27,14 @@ Type
     procedure BotaoImpimirParcela(value: TSpeedButton);
     procedure BotaoExportar(value: TSpeedButton);
 
+    procedure btQuitarParcela;
+    procedure btEstornarParcela;
+    procedure btAdicionarParcela;
+    procedure btSalvarParcela;
+    procedure btExcluirParcela;
+    procedure btCancelarParcela;
+    procedure botoesAbrirForm;
+
     constructor create;
     destructor destroy; override;
 
@@ -34,54 +42,138 @@ Type
 
 implementation
 
-{ TMyClass }
+{ TClasseBotoesQuitarParcelas }
 
-procedure TMyClass.BotalCancelar(value: TSpeedButton);
+procedure TClasseBotoesQuitarParcelas.BotalCancelar(value: TSpeedButton);
+begin
+   btCancelar := value;
+end;
+
+procedure TClasseBotoesQuitarParcelas.BotaoAdicionarParcela(value: TSpeedButton);
+begin
+ btAdicionar := value;
+end;
+
+procedure TClasseBotoesQuitarParcelas.BotaoEstornar(value: TSpeedButton);
+begin
+ btEstornar := value;
+end;
+
+procedure TClasseBotoesQuitarParcelas.BotaoExcluirParcela(value: TSpeedButton);
+begin
+ btExcluir := value;
+end;
+
+procedure TClasseBotoesQuitarParcelas.BotaoExportar(value: TSpeedButton);
+begin
+ btExportar := value;
+end;
+
+procedure TClasseBotoesQuitarParcelas.BotaoImpimirParcela(value: TSpeedButton);
+begin
+   btImprimirParcela := value;
+end;
+
+procedure TClasseBotoesQuitarParcelas.BotaoQuitar(value: TSpeedButton);
+begin
+  btQuitar := value;
+end;
+
+procedure TClasseBotoesQuitarParcelas.BotaoSalvarPacela(value: TSpeedButton);
+begin
+  btSalvar := value;
+end;
+
+procedure TClasseBotoesQuitarParcelas.botoesAbrirForm;
+begin
+   btQuitar.Enabled := false;
+   btAdicionar.Enabled := false;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := false;
+   btCancelar.Enabled := false;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TClasseBotoesQuitarParcelas.btAdicionarParcela;
+begin
+   btQuitar.Enabled := false;
+   btAdicionar.Enabled := false;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := true;
+   btExcluir.Enabled := false;
+   btCancelar.Enabled := true;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TClasseBotoesQuitarParcelas.btCancelarParcela;
+begin
+   btQuitar.Enabled := false;
+   btAdicionar.Enabled := false;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := false;
+   btCancelar.Enabled := false;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TClasseBotoesQuitarParcelas.btEstornarParcela;
+begin
+   btQuitar.Enabled := true;
+   btAdicionar.Enabled := true;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := true;
+   btCancelar.Enabled := true;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TClasseBotoesQuitarParcelas.btExcluirParcela;
+begin
+   btQuitar.Enabled := false;
+   btAdicionar.Enabled := true;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := false;
+   btCancelar.Enabled := false;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TClasseBotoesQuitarParcelas.btQuitarParcela;
+begin
+   btQuitar.Enabled := false;
+   btAdicionar.Enabled := true;
+   btEstornar.Enabled := true;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := true;
+   btCancelar.Enabled := false;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TClasseBotoesQuitarParcelas.btSalvarParcela;
+begin
+   btQuitar.Enabled := true;
+   btAdicionar.Enabled := false;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := false;
+   btCancelar.Enabled := false;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+constructor TClasseBotoesQuitarParcelas.create;
 begin
 
 end;
 
-procedure TMyClass.BotaoAdicionarParcela(value: TSpeedButton);
-begin
-
-end;
-
-procedure TMyClass.BotaoEstornar(value: TSpeedButton);
-begin
-
-end;
-
-procedure TMyClass.BotaoExcluirParcela(value: TSpeedButton);
-begin
-
-end;
-
-procedure TMyClass.BotaoExportar(value: TSpeedButton);
-begin
-
-end;
-
-procedure TMyClass.BotaoImpimirParcela(value: TSpeedButton);
-begin
-
-end;
-
-procedure TMyClass.BotaoQuitar(value: TSpeedButton);
-begin
-
-end;
-
-procedure TMyClass.BotaoSalvarPacela(value: TSpeedButton);
-begin
-
-end;
-
-constructor TMyClass.create;
-begin
-
-end;
-
-destructor TMyClass.destroy;
+destructor TClasseBotoesQuitarParcelas.destroy;
 begin
 
   inherited;

@@ -14,6 +14,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
   Font.Quality = fqDraft
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -532,7 +533,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
       OnClick = sbSalvarClick
     end
     object sbExcluir: TSpeedButton
-      Left = 470
+      Left = 494
       Top = 24
       Width = 114
       Height = 35

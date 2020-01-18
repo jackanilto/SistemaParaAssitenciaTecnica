@@ -9,7 +9,7 @@ uses
   Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
   UClasse.Entity.Quitar.Parcelas.Vendas, Vcl.DBCtrls, Vcl.Mask, UFactory,
   frxClass, frxDBSet, UClasse.Imprimir.Parcelas, Vcl.ComCtrls,
-  UClasse.Imprimir.Recibo;
+  UClasse.Imprimir.Recibo, UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas;
 
 type
   TEnumPesquisar = (Parcela, Venda, codigo_cliente);
@@ -95,6 +95,7 @@ type
     procedure edtDescontoKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure cbPesquisarChange(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     procedure ativarBotoes;
@@ -107,6 +108,7 @@ type
     FVisualizarDadosEmpresa: iDadosEmpresa;
     FImprimirParcelas: iImprimirParcelasVendas;
     FImprimirRecibo: iImprimirRecibo;
+    FAtivarDesativarBotoes: TClasseBotoesQuitarParcelas;
     FCodigoVenda: Integer;
     FCodigoCliente: Integer;
     FQuantidadeParcelas: Integer;
@@ -173,6 +175,16 @@ begin
     else
     begin
       desativarBotoes;
+
+      if DataSource1.DataSet.FieldByName('PAGO').AsString = 'sim' then
+      begin
+        sbEstornar.Enabled := true;
+        sbAdicionarParcela.Enabled := true;
+        sbExcluir.Enabled := true;
+        sbCancelar.Enabled := true;
+      end;
+
+
     end;
   end
   else
@@ -256,6 +268,12 @@ begin
 
 end;
 
+procedure TformQuitarParcelasVendas.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+     FreeAndNil(FAtivarDesativarBotoes);
+end;
+
 procedure TformQuitarParcelasVendas.FormCreate(Sender: TObject);
 begin
   FentityVisulizarParcelasVenda := TEntityQuitarParcelaVenda.new;
@@ -265,6 +283,8 @@ begin
   FImprimirParcelas := TImprimirParcelasVenda.new;
   FVisualizarDadosEmpresa.abrir.listarGrid(s_DadosEmpresa);
 
+  FAtivarDesativarBotoes := TClasseBotoesQuitarParcelas.create;
+
   ReportMemoryLeaksOnShutdown := true;
 
 end;
@@ -272,7 +292,8 @@ end;
 procedure TformQuitarParcelasVendas.FormShow(Sender: TObject);
 begin
 
-  FentityVisulizarParcelasVenda.abrir.listarGrid(DataSource1);
+  FentityVisulizarParcelasVenda.abrir.getCampo('ID_PARCELA').getValor('0').sqlPesquisa.listarGrid(DataSource1);
+
   TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
     (edtFormaDePagamento);
@@ -280,6 +301,23 @@ begin
   cbPesquisar.ItemIndex := 0;
 
   edtDataDePagamento.date := date;
+
+  with FAtivarDesativarBotoes do
+  begin
+    BotaoQuitar(sbQuitarParela);
+    BotaoEstornar(sbEstornar);
+    BotaoAdicionarParcela(sbAdicionarParcela);
+    BotaoSalvarPacela(sbSalvar);
+    BotaoExcluirParcela(sbExcluir);
+    BotalCancelar(sbCancelar);
+    BotaoImpimirParcela(sbImprimirParcelas);
+    BotaoExportar(sbExportar);
+
+    botoesAbrirForm;
+
+  end;
+
+
 
 end;
 
@@ -311,6 +349,8 @@ begin
 
   lblCaption.Caption := lblCaption.Caption + ' - Inserindo parcela';
 
+  FAtivarDesativarBotoes.btAdicionarParcela;
+
 end;
 
 procedure TformQuitarParcelasVendas.sbCancelarClick(Sender: TObject);
@@ -332,6 +372,8 @@ begin
 
   edtPesquisar.SetFocus;
 
+  FAtivarDesativarBotoes.btCancelarParcela;
+
 end;
 
 procedure TformQuitarParcelasVendas.sbEstornarClick(Sender: TObject);
@@ -340,6 +382,9 @@ begin
   begin
     FentityVisulizarParcelasVenda.estornarParcela
       (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
+
+      FAtivarDesativarBotoes.btEstornarParcela;
+
   end;
 end;
 
@@ -347,6 +392,9 @@ procedure TformQuitarParcelasVendas.sbExcluirClick(Sender: TObject);
 begin
   FentityVisulizarParcelasVenda.excluirParcela
     (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
+
+    FAtivarDesativarBotoes.btExcluirParcela;
+
 end;
 
 procedure TformQuitarParcelasVendas.sbExportarClick(Sender: TObject);
@@ -386,6 +434,8 @@ begin
 
     showmessage('Parcela quitada com sucesso');
 
+    FAtivarDesativarBotoes.btQuitarParcela;
+
     if application.MessageBox('Deseja imprimir o comprovante de pagamento?',
       'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
@@ -411,6 +461,8 @@ begin
     .prepararAdicionarParcela.atualizar;
 
   lblCaption.Caption := 'Ver parcelas das vendas realizadas';
+
+  FAtivarDesativarBotoes.btSalvarParcela;
 
 end;
 
@@ -444,7 +496,7 @@ end;
 
 procedure TformQuitarParcelasVendas.cbPesquisarChange(Sender: TObject);
 begin
- edtPesquisar.SetFocus;
+  edtPesquisar.SetFocus;
 end;
 
 procedure TformQuitarParcelasVendas.imprimirReciboPagamento;
