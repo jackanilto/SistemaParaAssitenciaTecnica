@@ -10,7 +10,7 @@ uses
   Vcl.CategoryButtons, System.ImageList, Vcl.ImgList, Vcl.StdCtrls,
   Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus, UFactory,
   Form.Cadastro.Forma.Pagamento, Form.Cadastro.Clientes, Form.Entradas.Produtos,
-  UClasse.Entity.Criar.Ordem.Servico;
+  UClasse.Entity.Criar.Ordem.Servico, Form.Visualizar.Vendas;
 
 type
   TformPrincipal = class(TForm)
@@ -76,6 +76,7 @@ type
     acVenda: TAction;
     acNumeroDeParcelas: TAction;
     acQuitarParcelas: TAction;
+    acVisualizarVendas: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -109,6 +110,7 @@ type
     procedure acVendaExecute(Sender: TObject);
     procedure acNumeroDeParcelasExecute(Sender: TObject);
     procedure acQuitarParcelasExecute(Sender: TObject);
+    procedure acVisualizarVendasExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -353,6 +355,12 @@ procedure TformPrincipal.acVendaExecute(Sender: TObject);
 begin
   formVendas := TformVendas.Create(self);
   TFactory.new.criarJanela.formShow(formVendas, '');
+end;
+
+procedure TformPrincipal.acVisualizarVendasExecute(Sender: TObject);
+begin
+  formVisualizarVendas := TformVisualizarVendas.Create(self);
+  TFactory.new.criarJanela.formShow(formVisualizarVendas, '');
 end;
 
 procedure TformPrincipal.Button1Click(Sender: TObject);

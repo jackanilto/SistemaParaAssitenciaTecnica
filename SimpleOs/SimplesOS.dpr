@@ -100,7 +100,9 @@ uses
   UClasse.Imprimir.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Parcelas.pas',
   Form.Quitar.Parcela.Venda in 'Forms\Form.Quitar.Parcela.Venda.pas' {formQuitarParcelasVendas},
   UClasse.Entity.Quitar.Parcelas.Vendas in 'Classes\Entity\UClasse.Entity.Quitar.Parcelas.Vendas.pas',
-  UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas.pas';
+  UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas.pas',
+  Form.Visualizar.Vendas in 'Forms\Form.Visualizar.Vendas.pas' {formVisualizarVendas},
+  UClasse.Visualizar.Vendas in 'Classes\Entity\UClasse.Visualizar.Vendas.pas';
 
 {$R *.res}
 

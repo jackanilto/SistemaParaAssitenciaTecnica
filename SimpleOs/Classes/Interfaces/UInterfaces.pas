@@ -1562,6 +1562,33 @@ type
 
   end;
 
+  iVisualizarVenda = interface
+    ['{CB3E53B7-428F-4694-BECE-BEBB8FA5A8C5}']
+
+    function nomeTabela(value: string): iVisualizarVenda;
+    function getCampo(value: string): iVisualizarVenda;
+    function getValor(value: string): iVisualizarVenda;
+    function getDataInicial(value: TDate): iVisualizarVenda;
+    function getDataFinal(value: TDate): iVisualizarVenda;
+    function open(value: string): iVisualizarVenda;
+    function pesquisar: iVisualizarVenda;
+    function ExecSql: iVisualizarVenda;
+    function sqlPesquisa: iVisualizarVenda;
+    function sqlPesquisaData: iVisualizarVenda;
+    function sqlPesquisaEstatica: iVisualizarVenda;
+
+    function abrir: iVisualizarVenda;
+    function atualizar: iVisualizarVenda;
+    function fecharQuery: iVisualizarVenda;
+    function listarGrid(value: TDataSource): iVisualizarVenda;
+    function listarGridItens(value:string):iVisualizarVenda;
+    function estornarVenda(value:integer):iVisualizarVenda;
+    function ordenarGrid(column: TColumn): iVisualizarVenda;
+
+    function exportar:iVisualizarVenda;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

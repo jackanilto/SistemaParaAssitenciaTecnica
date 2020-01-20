@@ -702,7 +702,6 @@ object formExemploEmbeded: TformExemploEmbeded
         Color = 12895428
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 365
         DesignSize = (
           917
           45)
