@@ -1581,11 +1581,16 @@ type
     function atualizar: iVisualizarVenda;
     function fecharQuery: iVisualizarVenda;
     function listarGrid(value: TDataSource): iVisualizarVenda;
-    function listarGridItens(value:string):iVisualizarVenda;
-    function estornarVenda(value:integer):iVisualizarVenda;
+    function listarGridItens(value: TDataSource): iVisualizarVenda;
+    function EstornarVenda(value: integer): iVisualizarVenda;
+    function selecionarItens(value: integer): iVisualizarVenda;
     function ordenarGrid(column: TColumn): iVisualizarVenda;
 
-    function exportar:iVisualizarVenda;
+    function deletarVenda: iVisualizarVenda;
+    function atualizarItens:iVisualizarVenda;
+
+    function exportar: iVisualizarVenda;
+    function exportarItens:iVisualizarVenda;
 
   end;
 

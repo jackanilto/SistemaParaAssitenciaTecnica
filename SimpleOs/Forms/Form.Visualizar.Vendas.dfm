@@ -5,7 +5,7 @@ object formVisualizarVendas: TformVisualizarVendas
   BorderWidth = 1
   Caption = 'Visualizar vendas'
   ClientHeight = 558
-  ClientWidth = 1108
+  ClientWidth = 1133
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object formVisualizarVendas: TformVisualizarVendas
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1108
+    Width = 1133
     Height = 41
     Align = alTop
     BevelOuter = bvNone
@@ -32,10 +32,10 @@ object formVisualizarVendas: TformVisualizarVendas
     ExplicitLeft = -454
     ExplicitWidth = 917
     DesignSize = (
-      1108
+      1133
       41)
     object sbFechar: TSpeedButton
-      Left = 1056
+      Left = 1081
       Top = 0
       Width = 52
       Height = 33
@@ -105,12 +105,12 @@ object formVisualizarVendas: TformVisualizarVendas
       ExplicitLeft = 940
     end
     object lblCaption: TLabel
-      Left = 386
+      Left = 411
       Top = 10
-      Width = 134
+      Width = 126
       Height = 19
       Anchors = [akTop, akRight, akBottom]
-      Caption = 'Formul'#225'rio padr'#227'o'
+      Caption = 'Visualizar vendas'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -119,13 +119,12 @@ object formVisualizarVendas: TformVisualizarVendas
       Font.Style = []
       ParentColor = False
       ParentFont = False
-      ExplicitLeft = 201
     end
   end
   object Panel3: TPanel
     Left = 0
     Top = 483
-    Width = 1108
+    Width = 1133
     Height = 75
     Align = alBottom
     BevelOuter = bvNone
@@ -136,7 +135,7 @@ object formVisualizarVendas: TformVisualizarVendas
     ExplicitTop = 491
     ExplicitWidth = 992
     DesignSize = (
-      1108
+      1133
       75)
     object sbImprimirLista: TSpeedButton
       Left = 17
@@ -220,7 +219,7 @@ object formVisualizarVendas: TformVisualizarVendas
       ShowHint = True
     end
     object Label4: TLabel
-      Left = 774
+      Left = 799
       Top = 11
       Width = 97
       Height = 15
@@ -235,7 +234,7 @@ object formVisualizarVendas: TformVisualizarVendas
       ExplicitLeft = 572
     end
     object Label5: TLabel
-      Left = 909
+      Left = 934
       Top = 11
       Width = 168
       Height = 15
@@ -323,6 +322,7 @@ object formVisualizarVendas: TformVisualizarVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbExportarListaClick
     end
     object sbEstornarVenda: TSpeedButton
       Left = 287
@@ -404,6 +404,7 @@ object formVisualizarVendas: TformVisualizarVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbEstornarVendaClick
     end
     object Label1: TLabel
       Left = 560
@@ -493,7 +494,7 @@ object formVisualizarVendas: TformVisualizarVendas
       ShowHint = True
     end
     object cbPesquisar: TComboBox
-      Left = 774
+      Left = 799
       Top = 32
       Width = 129
       Height = 23
@@ -508,7 +509,7 @@ object formVisualizarVendas: TformVisualizarVendas
       ExplicitLeft = 583
     end
     object edtPesquisar: TEdit
-      Left = 909
+      Left = 934
       Top = 32
       Width = 168
       Height = 23
@@ -558,7 +559,7 @@ object formVisualizarVendas: TformVisualizarVendas
   object GroupBox1: TGroupBox
     Left = 0
     Top = 41
-    Width = 1108
+    Width = 1133
     Height = 232
     Align = alTop
     Caption = 'Vendas'
@@ -570,27 +571,37 @@ object formVisualizarVendas: TformVisualizarVendas
     ParentFont = False
     TabOrder = 2
     ExplicitTop = 39
+    ExplicitWidth = 1108
     object DBGrid1: TDBGrid
       Left = 2
       Top = 19
-      Width = 1104
+      Width = 1129
       Height = 211
       Align = alClient
       BorderStyle = bsNone
       DataSource = DataSource_Vendas
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ParentFont = False
       PopupMenu = PopupMenu1
+      ReadOnly = True
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -13
       TitleFont.Name = 'Segoe UI'
-      TitleFont.Style = []
+      TitleFont.Style = [fsBold]
+      OnCellClick = DBGrid1CellClick
     end
   end
   object GroupBox2: TGroupBox
     Left = 0
     Top = 279
-    Width = 1108
+    Width = 1133
     Height = 204
     Align = alBottom
     Caption = 'Itens contidos na venda'
@@ -601,20 +612,30 @@ object formVisualizarVendas: TformVisualizarVendas
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    ExplicitWidth = 1108
     object DBGrid2: TDBGrid
       Left = 2
       Top = 19
-      Width = 1104
+      Width = 1129
       Height = 183
       Align = alClient
       BorderStyle = bsNone
       DataSource = DataSource_Itens
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ParentFont = False
+      PopupMenu = PopupMenu2
+      ReadOnly = True
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -13
       TitleFont.Name = 'Segoe UI'
-      TitleFont.Style = []
+      TitleFont.Style = [fsBold]
     end
   end
   object DataSource_Vendas: TDataSource
@@ -630,6 +651,7 @@ object formVisualizarVendas: TformVisualizarVendas
     Top = 113
     object Excluirestavenda1: TMenuItem
       Caption = 'Excluir esta venda'
+      OnClick = Excluirestavenda1Click
     end
     object Estornarestavenda1: TMenuItem
       Caption = 'Estornar esta venda'
@@ -639,6 +661,21 @@ object formVisualizarVendas: TformVisualizarVendas
     end
     object Imprimircomprovantedavenda1: TMenuItem
       Caption = 'Imprimir comprovante da venda'
+    end
+    object Estornar1: TMenuItem
+      Caption = 'Estornar esta venda'
+      OnClick = Estornar1Click
+    end
+    object Exportalistadasvendas1: TMenuItem
+      Caption = 'Exporta lista das vendas'
+    end
+  end
+  object PopupMenu2: TPopupMenu
+    Left = 272
+    Top = 359
+    object Exportaritens1: TMenuItem
+      Caption = 'Exportar itens'
+      OnClick = Exportaritens1Click
     end
   end
 end

@@ -3063,3 +3063,46 @@ Problematic key value is ("ID" = 2)
 18/01/20 15:09:02 - Caption: Ver parcelas das vendas realizadas
 18/01/20 15:09:02 - Erro:Exception
 18/01/20 15:09:02 - Erro:ERRO! Informe o meio de pagamento da parcela.
+20/01/20 13:46:42 - ===========================================
+20/01/20 13:46:42 - Form: 
+20/01/20 13:46:47 - ===========================================
+20/01/20 13:46:47 - Form: formPrincipal
+20/01/20 13:46:47 - Caption: SimpleOS
+20/01/20 13:46:47 - Erro:EAccessViolation
+20/01/20 13:46:47 - Erro:Access violation at address 00720071 in module 'SimplesOS.exe'. Write of address 00730000
+20/01/20 13:47:52 - ===========================================
+20/01/20 13:47:52 - Form: 
+20/01/20 13:47:53 - ===========================================
+20/01/20 13:47:53 - Form: formPrincipal
+20/01/20 13:47:53 - Caption: SimpleOS
+20/01/20 13:47:53 - Erro:EAccessViolation
+20/01/20 13:47:53 - Erro:Access violation at address 00720071 in module 'SimplesOS.exe'. Write of address 00730000
+20/01/20 14:06:19 - ===========================================
+20/01/20 14:06:19 - Form: formQuitarParcelasVendas
+20/01/20 14:06:19 - Caption: Ver parcelas das vendas realizadas
+20/01/20 14:06:19 - Erro:Exception
+20/01/20 14:06:19 - Erro:ERRO! Informe o meio de pagamento da parcela.
+20/01/20 14:57:38 - ===========================================
+20/01/20 14:57:38 - ===========================================
+20/01/20 14:57:38 - Form: formPrincipal
+20/01/20 14:57:38 - Caption: SimpleOS
+20/01/20 14:57:38 - Erro:EAccessViolation
+20/01/20 14:57:38 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C5E6F68
+20/01/20 14:58:42 - ===========================================
+20/01/20 14:58:42 - ===========================================
+20/01/20 14:58:42 - Form: formPrincipal
+20/01/20 14:58:42 - Caption: SimpleOS
+20/01/20 14:58:42 - Erro:EAccessViolation
+20/01/20 14:58:42 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C3D6F68
+20/01/20 14:59:25 - ===========================================
+20/01/20 14:59:25 - ===========================================
+20/01/20 14:59:25 - Form: formPrincipal
+20/01/20 14:59:25 - Caption: SimpleOS
+20/01/20 14:59:25 - Erro:EAccessViolation
+20/01/20 14:59:25 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C316F68
+20/01/20 15:00:15 - ===========================================
+20/01/20 15:00:15 - ===========================================
+20/01/20 15:00:15 - Form: formPrincipal
+20/01/20 15:00:15 - Caption: SimpleOS
+20/01/20 15:00:15 - Erro:EAccessViolation
+20/01/20 15:00:15 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 07C96F68
