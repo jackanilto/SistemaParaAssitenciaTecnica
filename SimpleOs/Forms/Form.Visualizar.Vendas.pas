@@ -7,7 +7,11 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, Vcl.Menus, UInterfaces,
-  UClasse.Visualizar.Vendas;
+  UClasse.Visualizar.Vendas, frxClass, frxDBSet, UClasse.Entity.Dados.Empresa,
+  UClasse.Imprimir.Recibo;
+
+type
+  TEnumPesquisar = (venda, codigo_cliente, nome_cliente);
 
 type
   TformVisualizarVendas = class(TForm)
@@ -41,6 +45,25 @@ type
     Exportalistadasvendas1: TMenuItem;
     PopupMenu2: TPopupMenu;
     Exportaritens1: TMenuItem;
+    s_DadosEmpresa: TDataSource;
+    frxDB_Empresa: TfrxDBDataset;
+    frx_ImprimirParcelas: TfrxReport;
+    frxDB_ImprimirParcelas: TfrxDBDataset;
+    frxDB_ImprimirReciboItens: TfrxDBDataset;
+    s_jurosMulta: TDataSource;
+    frxDB_JurosMulta: TfrxDBDataset;
+    s_ImprimirReciboItens: TDataSource;
+    s_ImprimirParcelas: TDataSource;
+    DataSource1: TDataSource;
+    s_ImprimirRecibo: TDataSource;
+    frxReport1: TfrxReport;
+    frx_ImprimirRecibo: TfrxReport;
+    DataSource2: TDataSource;
+    frxDBDataset1: TfrxDBDataset;
+    frxDB_ImprimirRecibo: TfrxDBDataset;
+    frxDBDataset2: TfrxDBDataset;
+    frxDB_ListaVendas: TfrxDBDataset;
+    frx_ListaVendas: TfrxReport;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -52,9 +75,17 @@ type
     procedure Estornar1Click(Sender: TObject);
     procedure sbExportarListaClick(Sender: TObject);
     procedure Exportaritens1Click(Sender: TObject);
+    procedure Imprimirparcelasdestavenda1Click(Sender: TObject);
+    procedure Imprimircomprovantedavenda1Click(Sender: TObject);
+    procedure sbImprimirListaClick(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     FEntityVisualizaVenda: iVisualizarVenda;
+    FVisualizarDadosEmpresa: iDadosEmpresa;
+    FImprimirParcelas: iImprimirParcelasVendas;
+    FImprimirRecibo: iImprimirRecibo;
   public
     { Public declarations }
   end;
@@ -63,6 +94,9 @@ var
   formVisualizarVendas: TformVisualizarVendas;
 
 implementation
+
+uses
+  UClasse.Imprimir.Parcelas;
 
 {$R *.dfm}
 
@@ -75,6 +109,38 @@ begin
       .listarGridItens(DataSource_Itens);
 
   end;
+end;
+
+procedure TformVisualizarVendas.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+  FCampo: string;
+begin
+
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+    venda:
+      begin
+        FCampo := 'ID';
+      end;
+    codigo_cliente:
+      begin
+        FCampo := 'ID_CLIENTE';
+      end;
+    nome_cliente:
+      begin
+        FCampo := 'NOME_CLIENTE';
+      end;
+
+  end;
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntityVisualizaVenda
+                         .getCampo(FCampo)
+                         .getValor(edtPesquisar.Text)
+                         .sqlPesquisa.listarGrid(DataSource_Itens)
+                         .selecionarItens(DataSource_Vendas.DataSet.FieldByName('ID').AsInteger)
+                         .listarGridItens(DataSource_Itens);
+
 end;
 
 procedure TformVisualizarVendas.Estornar1Click(Sender: TObject);
@@ -92,21 +158,59 @@ end;
 
 procedure TformVisualizarVendas.Exportaritens1Click(Sender: TObject);
 begin
- if DataSource_Itens.DataSet.RecordCount >= 1 then
- begin
-   FEntityVisualizaVenda.exportarItens
- end;
+  if DataSource_Itens.DataSet.RecordCount >= 1 then
+  begin
+    FEntityVisualizaVenda.exportarItens
+  end;
 end;
 
 procedure TformVisualizarVendas.FormCreate(Sender: TObject);
 begin
   FEntityVisualizaVenda := TEntityVisuzaliarVendas.new;
+  FImprimirRecibo := TImprimirRecibo.new;
 end;
 
 procedure TformVisualizarVendas.FormShow(Sender: TObject);
 begin
   FEntityVisualizaVenda.abrir.listarGrid(DataSource_Vendas);
   FEntityVisualizaVenda.selecionarItens(0).listarGridItens(DataSource_Itens);
+
+  FVisualizarDadosEmpresa := TEntityCadastroDadosEmpresa.new;
+  FImprimirParcelas := TImprimirParcelasVenda.new;
+  FVisualizarDadosEmpresa.abrir.listarGrid(s_DadosEmpresa);
+
+end;
+
+procedure TformVisualizarVendas.Imprimircomprovantedavenda1Click
+  (Sender: TObject);
+begin
+  FImprimirRecibo.selecionarVenda(DataSource_Vendas.DataSet.FieldByName('ID')
+    .AsInteger).retornarDataSet(s_ImprimirRecibo)
+    .selecionarItens(DataSource_Vendas.DataSet.FieldByName('ID').AsInteger)
+    .retornarDataSetItens(s_ImprimirReciboItens);
+
+  frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/comprovante_pagamento_venda.fr3');
+  frx_ImprimirRecibo.ShowReport();
+
+end;
+
+procedure TformVisualizarVendas.Imprimirparcelasdestavenda1Click
+  (Sender: TObject);
+begin
+  if DataSource_Vendas.DataSet.RecordCount >= 1 then
+  begin
+
+    FImprimirParcelas.selecionarParcelas
+      (DataSource_Vendas.DataSet.FieldByName('ID').AsInteger)
+      .retornarDataSet(s_ImprimirParcelas).retonarJurosMultaAtraso
+      (s_jurosMulta);
+
+    frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
+      'relatórios/carne_pagamento.fr3');
+    frx_ImprimirParcelas.ShowReport();
+
+  end;
 end;
 
 procedure TformVisualizarVendas.Panel1MouseDown(Sender: TObject;
@@ -138,6 +242,15 @@ end;
 procedure TformVisualizarVendas.sbFecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TformVisualizarVendas.sbImprimirListaClick(Sender: TObject);
+begin
+
+  frx_ListaVendas.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/lista_de_vendas.fr3');
+  frx_ListaVendas.ShowReport();
+
 end;
 
 end.

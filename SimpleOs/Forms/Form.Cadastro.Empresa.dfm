@@ -1,7 +1,6 @@
 inherited formCadastroEmpresa: TformCadastroEmpresa
   Caption = 'Dados da empresa'
   ClientHeight = 585
-  ExplicitTop = -31
   ExplicitHeight = 585
   PixelsPerInch = 96
   TextHeight = 13
@@ -35,7 +34,6 @@ inherited formCadastroEmpresa: TformCadastroEmpresa
       Font.Height = -13
       Font.Name = 'Segoe UI'
       ParentFont = False
-      ExplicitTop = 5
       ExplicitHeight = 429
       object Label1: TLabel
         Left = 14

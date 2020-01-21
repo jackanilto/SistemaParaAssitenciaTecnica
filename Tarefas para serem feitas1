@@ -2,10 +2,11 @@
 	#Criação da tela --FEITO
 	#Permitir excluir as vendas --FEITO
 	#Permitir estornar a vendas --FEITO
-	#Permitir imprimir as parcelas
-	#Permitir imprimir o comprovante da vendas
-	#Permitir imprimir a lista de vendas selecionada
+	#Permitir imprimir as parcelas --FEITO
+	#Permitir imprimir o comprovante da vendas --FEITO
+	#Permitir imprimir a lista de vendas selecionada --FEITO
 	#permitir exportar as lista de vendas selecionada --FEITO
+	#Criar a códificação para ativar e desativar os botões
 	
 	
 	
