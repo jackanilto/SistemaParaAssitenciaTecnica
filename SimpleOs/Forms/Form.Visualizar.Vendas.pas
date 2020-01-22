@@ -38,10 +38,8 @@ type
     DataSource_Itens: TDataSource;
     PopupMenu1: TPopupMenu;
     Excluirestavenda1: TMenuItem;
-    Estornarestavenda1: TMenuItem;
     Imprimirparcelasdestavenda1: TMenuItem;
     Imprimircomprovantedavenda1: TMenuItem;
-    Estornar1: TMenuItem;
     Exportalistadasvendas1: TMenuItem;
     PopupMenu2: TPopupMenu;
     Exportaritens1: TMenuItem;
@@ -80,12 +78,14 @@ type
     procedure sbImprimirListaClick(Sender: TObject);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
     FEntityVisualizaVenda: iVisualizarVenda;
     FVisualizarDadosEmpresa: iDadosEmpresa;
     FImprimirParcelas: iImprimirParcelasVendas;
     FImprimirRecibo: iImprimirRecibo;
+    procedure EstornarVenda;
   public
     { Public declarations }
   end;
@@ -145,7 +145,7 @@ end;
 
 procedure TformVisualizarVendas.Estornar1Click(Sender: TObject);
 begin
-  sbEstornarVenda.Click;
+  EstornarVenda;
 end;
 
 procedure TformVisualizarVendas.Excluirestavenda1Click(Sender: TObject);
@@ -172,7 +172,7 @@ end;
 
 procedure TformVisualizarVendas.FormShow(Sender: TObject);
 begin
-  FEntityVisualizaVenda.abrir.listarGrid(DataSource_Vendas);
+  FEntityVisualizaVenda.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid(DataSource_Vendas);
   FEntityVisualizaVenda.selecionarItens(0).listarGridItens(DataSource_Itens);
 
   FVisualizarDadosEmpresa := TEntityCadastroDadosEmpresa.new;
@@ -227,16 +227,16 @@ end;
 
 procedure TformVisualizarVendas.sbEstornarVendaClick(Sender: TObject);
 begin
-  if DataSource_Vendas.DataSet.RecordCount >= 1 then
-  begin
-    FEntityVisualizaVenda.EstornarVenda
-      (DataSource_Vendas.DataSet.FieldByName('ID').AsInteger);
-  end;
+  EstornarVenda;
 end;
 
 procedure TformVisualizarVendas.sbExportarListaClick(Sender: TObject);
 begin
+if DataSource_Vendas.DataSet.RecordCount >= 1 then
+begin
+  DataSource_Vendas.DataSet.First;
   FEntityVisualizaVenda.exportar;
+end;
 end;
 
 procedure TformVisualizarVendas.sbFecharClick(Sender: TObject);
@@ -246,11 +246,38 @@ end;
 
 procedure TformVisualizarVendas.sbImprimirListaClick(Sender: TObject);
 begin
-
+if DataSource_Vendas.DataSet.RecordCount >= 1 then
+begin
   frx_ListaVendas.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/lista_de_vendas.fr3');
   frx_ListaVendas.ShowReport();
+end;
 
+end;
+
+procedure TformVisualizarVendas.SpeedButton3Click(Sender: TObject);
+begin
+  FEntityVisualizaVenda
+                     .getCampo('DATA_VENDA')
+                     .getDataInicial(StrToDate(edtData1.Text))
+                     .getDataFinal(StrToDate(edtData2.Text))
+                     .sqlPesquisaData
+                     .listarGrid(DataSource_Vendas)
+                     .selecionarItens(DataSource_Vendas.DataSet.FieldByName('ID').AsInteger)
+                     .listarGridItens(DataSource_Itens);
+end;
+
+procedure TformVisualizarVendas.EstornarVenda;
+begin
+  if DataSource_Vendas.DataSet.RecordCount >= 1 then
+  begin
+    if DataSource_Vendas.DataSet.FieldByName('STATUS').AsString <> 'Estornada' then
+    begin
+      FEntityVisualizaVenda.EstornarVenda(DataSource_Vendas.DataSet.FieldByName('ID').AsInteger);
+    end
+    else
+      raise Exception.Create('ERRO! Esta venda já foi estornada');
+  end;
 end;
 
 end.

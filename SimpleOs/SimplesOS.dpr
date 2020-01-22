@@ -102,7 +102,8 @@ uses
   UClasse.Entity.Quitar.Parcelas.Vendas in 'Classes\Entity\UClasse.Entity.Quitar.Parcelas.Vendas.pas',
   UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas.pas',
   Form.Visualizar.Vendas in 'Forms\Form.Visualizar.Vendas.pas' {formVisualizarVendas},
-  UClasse.Visualizar.Vendas in 'Classes\Entity\UClasse.Visualizar.Vendas.pas';
+  UClasse.Visualizar.Vendas in 'Classes\Entity\UClasse.Visualizar.Vendas.pas',
+  Form.Modelo.Relatorio in 'Forms\Exemplos\Form.Modelo.Relatorio.pas' {formModeloRelatorio};
 
 {$R *.res}
 

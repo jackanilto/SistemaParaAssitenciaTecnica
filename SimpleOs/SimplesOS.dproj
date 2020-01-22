@@ -319,6 +319,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Visualizar.Vendas.pas"/>
+        <DCCReference Include="Forms\Exemplos\Form.Modelo.Relatorio.pas">
+            <Form>formModeloRelatorio</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -3106,3 +3106,48 @@ Problematic key value is ("ID" = 2)
 20/01/20 15:00:15 - Caption: SimpleOS
 20/01/20 15:00:15 - Erro:EAccessViolation
 20/01/20 15:00:15 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 07C96F68
+22/01/20 10:51:04 - ===========================================
+22/01/20 10:51:04 - Form: formVisualizarVendas
+22/01/20 10:51:04 - Caption: Visualizar vendas
+22/01/20 10:51:04 - Erro:EConvertError
+22/01/20 10:51:04 - Erro:'05/30/2525' is not a valid date
+22/01/20 11:09:36 - ===========================================
+22/01/20 11:09:36 - Form: formVisualizarVendas
+22/01/20 11:09:36 - Caption: Visualizar vendas
+22/01/20 11:09:36 - Erro:Exception
+22/01/20 11:09:36 - Erro:Esta venda já foi estornada
+22/01/20 11:09:41 - ===========================================
+22/01/20 11:09:41 - ===========================================
+22/01/20 11:09:41 - Form: formPrincipal
+22/01/20 11:09:41 - Caption: SimpleOS
+22/01/20 11:09:41 - Erro:EAccessViolation
+22/01/20 11:09:41 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C436F68
+22/01/20 11:09:56 - ===========================================
+22/01/20 11:09:56 - ===========================================
+22/01/20 11:09:56 - Form: formPrincipal
+22/01/20 11:09:56 - Caption: SimpleOS
+22/01/20 11:09:56 - Erro:EAccessViolation
+22/01/20 11:09:56 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C436F68
+22/01/20 11:11:04 - ===========================================
+22/01/20 11:11:04 - ===========================================
+22/01/20 11:11:04 - Form: formPrincipal
+22/01/20 11:11:04 - Caption: SimpleOS
+22/01/20 11:11:04 - Erro:EAccessViolation
+22/01/20 11:11:04 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C497E08
+22/01/20 11:13:02 - ===========================================
+22/01/20 11:13:02 - ===========================================
+22/01/20 11:13:02 - Form: formPrincipal
+22/01/20 11:13:02 - Caption: SimpleOS
+22/01/20 11:13:02 - Erro:EAccessViolation
+22/01/20 11:13:02 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C556F68
+22/01/20 11:13:24 - ===========================================
+22/01/20 11:13:24 - Form: formVisualizarVendas
+22/01/20 11:13:24 - Caption: Visualizar vendas
+22/01/20 11:13:24 - Erro:Exception
+22/01/20 11:13:24 - Erro:ERRO! Esta venda já foi estornada
+22/01/20 11:13:28 - ===========================================
+22/01/20 11:13:28 - ===========================================
+22/01/20 11:13:28 - Form: formPrincipal
+22/01/20 11:13:28 - Caption: SimpleOS
+22/01/20 11:13:28 - Erro:EAccessViolation
+22/01/20 11:13:28 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C556F68

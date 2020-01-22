@@ -10,7 +10,8 @@ uses
   Vcl.CategoryButtons, System.ImageList, Vcl.ImgList, Vcl.StdCtrls,
   Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus, UFactory,
   Form.Cadastro.Forma.Pagamento, Form.Cadastro.Clientes, Form.Entradas.Produtos,
-  UClasse.Entity.Criar.Ordem.Servico, Form.Visualizar.Vendas;
+  UClasse.Entity.Criar.Ordem.Servico, Form.Visualizar.Vendas,
+  Form.Modelo.Relatorio;
 
 type
   TformPrincipal = class(TForm)
@@ -77,6 +78,7 @@ type
     acNumeroDeParcelas: TAction;
     acQuitarParcelas: TAction;
     acVisualizarVendas: TAction;
+    Button2: TButton;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -111,6 +113,7 @@ type
     procedure acNumeroDeParcelasExecute(Sender: TObject);
     procedure acQuitarParcelasExecute(Sender: TObject);
     procedure acVisualizarVendasExecute(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -376,6 +379,12 @@ begin
     formExemploEmbeded.Free;
   end;
 
+end;
+
+procedure TformPrincipal.Button2Click(Sender: TObject);
+begin
+  formModeloRelatorio := TformModeloRelatorio.Create(self);
+  TFactory.new.criarJanela.formShow(formModeloRelatorio, '');
 end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);

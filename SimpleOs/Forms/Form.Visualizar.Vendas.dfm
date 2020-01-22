@@ -488,6 +488,7 @@ object formVisualizarVendas: TformVisualizarVendas
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = SpeedButton3Click
     end
     object cbPesquisar: TComboBox
       Left = 799
@@ -569,6 +570,7 @@ object formVisualizarVendas: TformVisualizarVendas
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    ExplicitLeft = 2
     object DBGrid1: TDBGrid
       Left = 2
       Top = 19
@@ -649,9 +651,6 @@ object formVisualizarVendas: TformVisualizarVendas
       Caption = 'Excluir esta venda'
       OnClick = Excluirestavenda1Click
     end
-    object Estornarestavenda1: TMenuItem
-      Caption = 'Estornar esta venda'
-    end
     object Imprimirparcelasdestavenda1: TMenuItem
       Caption = 'Imprimir parcelas desta venda'
       OnClick = Imprimirparcelasdestavenda1Click
@@ -659,10 +658,6 @@ object formVisualizarVendas: TformVisualizarVendas
     object Imprimircomprovantedavenda1: TMenuItem
       Caption = 'Imprimir comprovante da venda'
       OnClick = Imprimircomprovantedavenda1Click
-    end
-    object Estornar1: TMenuItem
-      Caption = 'Estornar esta venda'
-      OnClick = Estornar1Click
     end
     object Exportalistadasvendas1: TMenuItem
       Caption = 'Exporta lista das vendas'
