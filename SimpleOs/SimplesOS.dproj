@@ -323,6 +323,12 @@
             <Form>formModeloRelatorio</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Clientes.pas">
+            <Form>formRelatorioClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Modelo.Relatorio.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Clientes.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

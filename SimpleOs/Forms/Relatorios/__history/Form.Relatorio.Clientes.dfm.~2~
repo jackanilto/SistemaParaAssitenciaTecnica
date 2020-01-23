@@ -1,0 +1,10 @@
+inherited formRelatorioClientes: TformRelatorioClientes
+  Caption = 'Relat'#243'rio de clientes'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

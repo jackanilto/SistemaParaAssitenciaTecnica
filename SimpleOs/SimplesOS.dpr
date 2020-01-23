@@ -103,7 +103,10 @@ uses
   UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas in 'Classes\Entity\ImprimirParcela_Recibo\UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas.pas',
   Form.Visualizar.Vendas in 'Forms\Form.Visualizar.Vendas.pas' {formVisualizarVendas},
   UClasse.Visualizar.Vendas in 'Classes\Entity\UClasse.Visualizar.Vendas.pas',
-  Form.Modelo.Relatorio in 'Forms\Exemplos\Form.Modelo.Relatorio.pas' {formModeloRelatorio};
+  Form.Modelo.Relatorio in 'Forms\Exemplos\Form.Modelo.Relatorio.pas' {formModeloRelatorio},
+  Form.Relatorio.Clientes in 'Forms\Relatorios\Form.Relatorio.Clientes.pas' {formRelatorioClientes},
+  UClasse.Entity.Modelo.Relatorio in 'Classes\Entity\UClasse.Entity.Modelo.Relatorio.pas',
+  UClasse.Relatorio.Clientes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Clientes.pas';
 
 {$R *.res}
 
@@ -112,5 +115,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TformRelatorioClientes, formRelatorioClientes);
   Application.Run;
 end.
