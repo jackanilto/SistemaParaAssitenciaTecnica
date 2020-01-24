@@ -106,7 +106,8 @@ uses
   Form.Modelo.Relatorio in 'Forms\Exemplos\Form.Modelo.Relatorio.pas' {formModeloRelatorio},
   Form.Relatorio.Clientes in 'Forms\Relatorios\Form.Relatorio.Clientes.pas' {formRelatorioClientes},
   UClasse.Entity.Modelo.Relatorio in 'Classes\Entity\UClasse.Entity.Modelo.Relatorio.pas',
-  UClasse.Relatorio.Clientes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Clientes.pas';
+  UClasse.Relatorio.Clientes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Clientes.pas',
+  Form.Relatorio.Historico.OS in 'Forms\Relatorios\Form.Relatorio.Historico.OS.pas' {formRelatorioHistoricoOS};
 
 {$R *.res}
 
@@ -115,6 +116,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TformRelatorioClientes, formRelatorioClientes);
   Application.Run;
 end.

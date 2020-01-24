@@ -18,6 +18,8 @@ type
     edtData2: TMaskEdit;
     Label1: TLabel;
     sbPesquisar: TSpeedButton;
+    frxDB_RelatorioClientes: TfrxDBDataset;
+    frx_RelatorioClientes: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
@@ -88,7 +90,8 @@ end;
 procedure TformRelatorioClientes.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityRelatorioClientes.abrir.listarGrid(DataSource1);
+  FEntityRelatorioClientes.abrir.getCampo('ID').getValor('0')
+    .sqlPesquisa.listarGrid(DataSource1);
 end;
 
 procedure TformRelatorioClientes.sbExportarClick(Sender: TObject);
@@ -100,7 +103,9 @@ end;
 procedure TformRelatorioClientes.sbImprimirClick(Sender: TObject);
 begin
   inherited;
-  { Implementar o relatório de clientes }
+  frx_RelatorioClientes.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_clientes_lista.fr3');
+  frx_RelatorioClientes.ShowReport();
 end;
 
 procedure TformRelatorioClientes.sbPesquisarClick(Sender: TObject);

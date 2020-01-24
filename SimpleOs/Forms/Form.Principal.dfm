@@ -7188,7 +7188,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 150
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7275,8 +7274,8 @@ object formPrincipal: TformPrincipal
               Action = acRelatorioClientes
             end
             item
-              Caption = 'Clientes'
-              OnClick = acClientesExecute
+              Action = acHistoricoOSCliente
+              Caption = 'Historico de OS'
             end>
           TextColor = 13402157
         end>
@@ -8084,6 +8083,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioClientes: TAction
       Caption = 'Relat'#243'rio clientes'
       OnExecute = acRelatorioClientesExecute
+    end
+    object acHistoricoOSCliente: TAction
+      Caption = 'Hist'#243'rico de OS cliente'
+      OnExecute = acHistoricoOSClienteExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu
