@@ -1648,6 +1648,36 @@ type
 
   end;
 
+  iHistoricoOSClientes = interface
+    ['{436B046C-8744-4C4F-9656-EF346D5A8326}']
+
+    function nomeTabela(value: string): iHistoricoOSClientes;
+    function getCampo(value: string): iHistoricoOSClientes;
+    function getValor(value: string): iHistoricoOSClientes;
+    function getDataInicial(value: TDate): iHistoricoOSClientes;
+    function getDataFinal(value: TDate): iHistoricoOSClientes;
+    function open(value: string): iHistoricoOSClientes;
+    function pesquisar: iHistoricoOSClientes;
+    function ExecSql: iHistoricoOSClientes;
+    function sqlPesquisa: iHistoricoOSClientes;
+    function sqlPesquisaData: iHistoricoOSClientes;
+    function sqlPesquisaEstatica: iHistoricoOSClientes;
+
+    function abrir: iHistoricoOSClientes;
+    function atualizar: iHistoricoOSClientes;
+    function cancelar: iHistoricoOSClientes;
+    function fecharQuery: iHistoricoOSClientes;
+    function listarGrid(value: TDataSource): iHistoricoOSClientes;
+    function ordenarGrid(column: TColumn): iHistoricoOSClientes;
+    function selecionarServicosOS(value: integer): iHistoricoOSClientes;
+    function listarGridServicos(value: TDataSource): iHistoricoOSClientes;
+    function ordenarListaServicos(column: TColumn): iHistoricoOSClientes;
+
+    function exportar: iHistoricoOSClientes;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

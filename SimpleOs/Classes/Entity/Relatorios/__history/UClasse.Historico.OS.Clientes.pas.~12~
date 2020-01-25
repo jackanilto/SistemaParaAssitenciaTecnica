@@ -1,0 +1,287 @@
+unit UClasse.Historico.OS.Clientes;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TEntityHistoricoOSClientes = class(TInterfacedObject, iHistoricoOSClientes)
+  private
+
+    FQuery: iConexaoQuery;
+    FQueryServicos: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+  public
+
+    function nomeTabela(value: string): iHistoricoOSClientes;
+    function getCampo(value: string): iHistoricoOSClientes;
+    function getValor(value: string): iHistoricoOSClientes;
+    function getDataInicial(value: TDate): iHistoricoOSClientes;
+    function getDataFinal(value: TDate): iHistoricoOSClientes;
+    function open(value: string): iHistoricoOSClientes;
+    function pesquisar: iHistoricoOSClientes;
+    function ExecSql: iHistoricoOSClientes;
+    function sqlPesquisa: iHistoricoOSClientes;
+    function sqlPesquisaData: iHistoricoOSClientes;
+    function sqlPesquisaEstatica: iHistoricoOSClientes;
+
+    function abrir: iHistoricoOSClientes;
+    function atualizar: iHistoricoOSClientes;
+    function cancelar: iHistoricoOSClientes;
+    function fecharQuery: iHistoricoOSClientes;
+    function listarGrid(value: TDataSource): iHistoricoOSClientes;
+    function ordenarGrid(column: TColumn): iHistoricoOSClientes;
+
+    function selecionarServicosOS(value: integer): iHistoricoOSClientes;
+    function listarGridItens(value: TDataSource): iHistoricoOSClientes;
+    function ordenarListaItens(column: TColumn): iHistoricoOSClientes;
+
+    function exportar: iHistoricoOSClientes;
+    procedure validarData(componet: tmaskEdit);
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iHistoricoOSClientes;
+  end;
+
+implementation
+
+{ TEntityHistoricoOSClientes }
+
+function TEntityHistoricoOSClientes.abrir: iHistoricoOSClientes;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TEntityHistoricoOSClientes.atualizar: iHistoricoOSClientes;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TEntityHistoricoOSClientes.cancelar: iHistoricoOSClientes;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+constructor TEntityHistoricoOSClientes.create;
+begin
+  FTabela := 'VISUALIZAR_ORDENS';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FQueryServicos := TConexaoQuery.new.Query('SERVICOS_ORDEM');
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Histórico de OS do cliente').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+destructor TEntityHistoricoOSClientes.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntityHistoricoOSClientes.ExecSql: iHistoricoOSClientes;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntityHistoricoOSClientes.exportar: iHistoricoOSClientes;
+begin
+  result := self;
+end;
+
+function TEntityHistoricoOSClientes.fecharQuery: iHistoricoOSClientes;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntityHistoricoOSClientes.getCampo(value: string)
+  : iHistoricoOSClientes;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntityHistoricoOSClientes.getDataFinal(value: TDate)
+  : iHistoricoOSClientes;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TEntityHistoricoOSClientes.getDataInicial(value: TDate)
+  : iHistoricoOSClientes;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TEntityHistoricoOSClientes.getValor(value: string)
+  : iHistoricoOSClientes;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TEntityHistoricoOSClientes.listarGrid(value: TDataSource)
+  : iHistoricoOSClientes;
+begin
+
+  result := self;
+
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID_ORDEM').DisplayLabel := 'Código da OS';
+    FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
+    FieldByName('NOME_CLIENTE').DisplayLabel := 'Cliente';
+    FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
+    FieldByName('DEFEITO_RELATADO').DisplayLabel := 'Defeito relatado';
+    FieldByName('MARCAS').DisplayLabel := 'Marcas';
+    FieldByName('MODELO').DisplayLabel := 'Modelo';
+    FieldByName('NUMERO_SERIE').DisplayLabel := 'Número de serie';
+    FieldByName('DATA_FABRICACAO').DisplayLabel := 'Data de fabricação';
+    FieldByName('LAUDO_DO_TECNICO').DisplayLabel := 'Laudo técnico';
+    FieldByName('SOLUCAO_DO_PROBLEMA').DisplayLabel := 'Solução do problema';
+    FieldByName('VALOR_DA_ORDEM').DisplayLabel := 'Valor da OS';
+    FieldByName('DESCONTO').DisplayLabel := 'Desconto';
+    FieldByName('ACRESCIMO').DisplayLabel := 'Acrescimo';
+    FieldByName('TOTAL_ORCAMENTO').DisplayLabel := 'Total do orçamento';
+    FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Funcionário';
+    FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Nome do funcionário';
+    FieldByName('RETORNO').DisplayLabel := 'Retorno';
+    FieldByName('DATA_RETORNO').DisplayLabel := 'Data de retorno';
+    FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'Situação da OS';
+    FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
+    FieldByName('VALOR_DA_PARCELA').DisplayLabel := 'Valor da parcela';
+    FieldByName('PGTO').DisplayLabel := 'PGTO';
+    FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
+    FieldByName('DATA_ENTRADA').DisplayLabel := 'Entrada';
+    FieldByName('DATA_FINALIZACAO').DisplayLabel := 'Saída';
+    FieldByName('HORA_SAIDA').DisplayLabel := 'Horário de saída';
+    FieldByName('DATA_BASE_VENCIMENTO').DisplayLabel := 'Vencimento base';
+    FieldByName('ID_TECNICO_RESPONSAVEL').DisplayLabel := 'Cód. Técnico';
+    FieldByName('TECNICO_RESPONSAVEL').DisplayLabel := 'Técnico';
+    FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+    FieldByName('STATUS').DisplayLabel := 'Status';
+
+    FieldByName('NOME_CLIENTE').DisplayWidth := 40;
+    FieldByName('EQUIPAMENTO').DisplayWidth := 40;
+    FieldByName('DEFEITO_RELATADO').DisplayWidth := 40;
+    FieldByName('LAUDO_DO_TECNICO').DisplayWidth := 40;
+    FieldByName('SOLUCAO_DO_PROBLEMA').DisplayWidth := 40;
+    FieldByName('NOME_FUNCIONARIO').DisplayWidth := 30;
+    FieldByName('RETORNO').DisplayWidth := 30;
+    FieldByName('TECNICO_RESPONSAVEL').DisplayWidth := 40;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
+
+  end;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+function TEntityHistoricoOSClientes.listarGridItens(value: TDataSource)
+  : iHistoricoOSClientes;
+begin
+  result := self;
+end;
+
+class function TEntityHistoricoOSClientes.new: iHistoricoOSClientes;
+begin
+  result := self.create;
+end;
+
+function TEntityHistoricoOSClientes.nomeTabela(value: string)
+  : iHistoricoOSClientes;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntityHistoricoOSClientes.open(value: string): iHistoricoOSClientes;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntityHistoricoOSClientes.ordenarGrid(column: TColumn)
+  : iHistoricoOSClientes;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntityHistoricoOSClientes.ordenarListaItens(column: TColumn)
+  : iHistoricoOSClientes;
+begin
+  result := self;
+end;
+
+function TEntityHistoricoOSClientes.pesquisar: iHistoricoOSClientes;
+begin
+  result := self;
+end;
+
+function TEntityHistoricoOSClientes.selecionarServicosOS(value: integer)
+  : iHistoricoOSClientes;
+begin
+  result := self;
+end;
+
+function TEntityHistoricoOSClientes.sqlPesquisa: iHistoricoOSClientes;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityHistoricoOSClientes.sqlPesquisaData: iHistoricoOSClientes;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntityHistoricoOSClientes.sqlPesquisaEstatica: iHistoricoOSClientes;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TEntityHistoricoOSClientes.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.
