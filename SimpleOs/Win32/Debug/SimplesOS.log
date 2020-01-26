@@ -3151,3 +3151,31 @@ Problematic key value is ("ID" = 2)
 22/01/20 11:13:28 - Caption: SimpleOS
 22/01/20 11:13:28 - Erro:EAccessViolation
 22/01/20 11:13:28 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C556F68
+26/01/20 10:46:15 - ===========================================
+26/01/20 10:46:15 - Form: formRelatorioHistoricoOS_1
+26/01/20 10:46:15 - Caption: Histórico de OS do cliente
+26/01/20 10:46:15 - Erro:Exception
+26/01/20 10:46:15 - Erro:Digite uma data válida.
+26/01/20 10:46:19 - ===========================================
+26/01/20 10:46:19 - Form: formRelatorioHistoricoOS_1
+26/01/20 10:46:19 - Caption: Histórico de OS do cliente
+26/01/20 10:46:19 - Erro:Exception
+26/01/20 10:46:19 - Erro:Digite uma data válida.
+26/01/20 11:28:35 - ===========================================
+26/01/20 11:28:35 - ===========================================
+26/01/20 11:28:35 - Form: formPrincipal
+26/01/20 11:28:35 - Caption: SimpleOS
+26/01/20 11:28:35 - Erro:EAccessViolation
+26/01/20 11:28:35 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C4C7478
+26/01/20 11:30:08 - ===========================================
+26/01/20 11:30:09 - ===========================================
+26/01/20 11:30:09 - Form: formPrincipal
+26/01/20 11:30:09 - Caption: SimpleOS
+26/01/20 11:30:09 - Erro:EAccessViolation
+26/01/20 11:30:09 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C6D7478
+26/01/20 11:30:38 - ===========================================
+26/01/20 11:30:38 - ===========================================
+26/01/20 11:30:38 - Form: formPrincipal
+26/01/20 11:30:38 - Caption: SimpleOS
+26/01/20 11:30:38 - Erro:EAccessViolation
+26/01/20 11:30:38 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C437478

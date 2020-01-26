@@ -1674,6 +1674,7 @@ type
     function ordenarListaServicos(column: TColumn): iHistoricoOSClientes;
 
     function exportar: iHistoricoOSClientes;
+    function exportarListaServicos:iHistoricoOSClientes;
     procedure validarData(componet: tmaskEdit);
 
   end;

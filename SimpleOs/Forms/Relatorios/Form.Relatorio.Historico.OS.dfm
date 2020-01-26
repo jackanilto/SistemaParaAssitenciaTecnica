@@ -3,24 +3,26 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
   ClientHeight = 586
   ClientWidth = 1076
   OnCreate = FormCreate
-  ExplicitTop = -32
   ExplicitWidth = 1076
   ExplicitHeight = 586
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 1076
+    ExplicitWidth = 1076
     inherited sbFechar: TSpeedButton
       Left = 1024
+      ExplicitLeft = 1024
     end
     inherited lblCaption: TLabel
       Left = 354
+      ExplicitLeft = 354
     end
   end
   inherited Panel3: TPanel
     Top = 522
     Width = 1076
-    ExplicitLeft = 8
+    ExplicitLeft = -64
     ExplicitTop = 526
     ExplicitWidth = 1076
     inherited sbImprimir: TSpeedButton
@@ -31,6 +33,7 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
     end
     inherited sbExportar: TSpeedButton
       Left = 127
+      OnClick = sbExportarClick
       ExplicitLeft = 127
     end
     inherited Label4: TLabel
@@ -67,7 +70,7 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
       Anchors = [akRight, akBottom]
     end
     object Label2: TLabel [6]
-      Left = 594
+      Left = 586
       Top = 5
       Width = 107
       Height = 15
@@ -94,6 +97,85 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
       Font.Style = []
       ParentFont = False
     end
+    object sbPesquisarData: TSpeedButton [8]
+      Left = 532
+      Top = 18
+      Width = 35
+      Height = 33
+      Flat = True
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C0060000C30E0000C30E0000000000000000000099361A99361A
+        99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
+        1A99361A99361A99361A99361A99361A99361AA34A31DDBDB4F9F2F1E4CAC3A9
+        563E99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A
+        99361A99361A99361A99361A99361A99361A99361A99361AA34A31E9D3CDFFFF
+        FFFFFFFFFFFFFFE4CAC399361A99361A99361A99361A99361A99361A99361A99
+        361A99361A99361A99361A99361A99361A99361A99361A99361A99361AA0442A
+        EAD6D0FFFFFFFEFEFEFEFEFEFFFFFFF9F2F199361A99361A99361A99361A9936
+        1A99361AA0442AB97562D1A497DEBEB5E2C6BEDCBAB0CB9889B165509C3C2199
+        361AA34A31EAD6D0FEFEFEFFFFFFFFFFFFFEFEFEFFFFFFDDBDB499361A99361A
+        99361A99361AA0442ACB9889F5EBE8FEFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFCF9F9EBD8D3BF8270E8D2CCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE8D2CCA3
+        4A3199361A99361A99361AAB5942ECD9D4FEFEFEFEFEFEFFFFFFFEFEFEFEFEFE
+        FFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFEFEFEFEFEFFFFFFFEFE
+        FEEAD6D0A34A3199361A99361A99361AAD5D47F7F0EEFFFFFFFFFFFFFFFFFFF9
+        F4F2E2C7BFCFA093CA9688D3A89CE9D3CDFDFAFAFFFFFFFEFEFEFFFFFFFFFFFF
+        FEFEFEFFFFFFEAD6D0A0442A99361A99361A99361AA34A31F0E1DDFFFFFFFFFF
+        FFFDFCFBD8B2A7A7523A9A381C99361A99361A99361A9B3B1FAF624CE5CDC6FF
+        FFFFFFFFFFFFFFFFFFFFFFE8D2CCA34A3199361A99361A99361A99361AD5ADA2
+        FEFEFEFEFEFEFDFCFBC790809A381C99361A99361A99361A99361A99361A9936
+        1A99361A9C3C21DAB6ACFEFEFEFEFEFEFEFEFEBF817099361A99361A99361A99
+        361AA9563EFAF6F4FFFFFFFEFEFED1A49799361A99361A99361A99361A99361A
+        99361A99361A99361A99361A99361A9C3C21E5CDC6FFFFFFFEFEFEEBD8D39C3C
+        2199361A99361A99361AC99586FFFFFFFFFFFFF2E6E2A2472E99361A99361A99
+        361A99361A99361A99361A99361A99361A99361A99361A99361AAF624CFDFAFA
+        FFFFFFFDFAFAB1655099361A99361A99361AE4C9C2FFFFFFFEFEFED2A89C9936
+        1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
+        361A9B3B1FE9D3CDFEFEFEFFFFFFCB988999361A99361A99361AF5EBE8FFFFFF
+        FFFFFFBA776499361A99361A99361A99361A99361A99361A99361A99361A9936
+        1A99361A99361A99361A99361AD3A89CFEFEFEFFFFFFDCBAB099361A99361A99
+        361AFAF6F4FFFFFFFFFFFFB2675299361A99361A99361A99361A99361A99361A
+        99361A99361A99361A99361A99361A99361A99361AC99687FFFFFFFFFFFFE2C6
+        BE99361A99361A99361AF6EEECFFFFFFFEFEFEB7705C99361A99361A99361A99
+        361A99361A99361A99361A99361A99361A99361A99361A99361A99361ACFA093
+        FEFEFEFEFEFEDEBEB599361A99361A99361AE9D3CDFFFFFFFFFFFFCB998B9936
+        1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
+        361A9A381CE2C7BFFEFEFEFFFFFFD1A49799361A99361A99361AD1A497FFFFFF
+        FFFFFFECD9D49D3E2399361A99361A99361A99361A99361A99361A99361A9936
+        1A99361A99361A99361AA7523AF9F4F2FFFFFFFEFDFDB9756299361A99361A99
+        361AB16550FDFAFAFEFEFEFDFCFCC0837299361A99361A99361A99361A99361A
+        99361A99361A99361A99361A99361A9A381CD8B2A7FEFEFEFEFEFEF4EAE7A044
+        2A99361A99361A99361A9A381CE2C6BEFEFEFEFEFEFEF9F2F1B3685399361A99
+        361A99361A99361A99361A99361A99361A99361A99361AC68F80FDFCFBFEFEFE
+        FEFEFECA978999361A99361A99361A99361A99361AAC5C45F8F1EFFFFFFFFFFF
+        FFF9F2F1C083729D3E2399361A99361A99361A99361A99361AA2472ED1A497FD
+        FCFBFFFFFFFFFFFFECD9D4A0442A99361A99361A99361A99361A99361A99361A
+        BC7B69FDFCFCFFFFFFFEFEFEFDFCFCECD9D4CB998BB7705CB26752BA7764D2A8
+        9CF2E6E2FEFEFEFEFEFEFFFFFFF7F0EEAB594299361A99361A99361A99361A99
+        361A99361A99361A99361ABC7B69F7F0EEFFFFFFFEFEFEFFFFFFFFFFFFFEFEFE
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E1DDAD5D4799361A99361A9936
+        1A99361A99361A99361A99361A99361A99361A99361AAC5C45E2C6BEFDFAFAFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAF6F4D5ADA2A34A3199361A
+        99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
+        1A9A381CB16550D1A599E9D3CDF6EEECFAF6F4F4EAE7E4C9C2C99586A9563E99
+        361A99361A99361A99361A99361A99361A99361A99361A99361A}
+      OnClick = sbPesquisarDataClick
+    end
+    object Bevel2: TBevel [9]
+      Left = 573
+      Top = 4
+      Width = 1
+      Height = 65
+      Anchors = [akRight, akBottom]
+    end
+    object Bevel3: TBevel [10]
+      Left = 239
+      Top = 4
+      Width = 1
+      Height = 65
+      Anchors = [akRight, akBottom]
+    end
     inherited cbPesquisar: TComboBox
       Left = 746
       Top = 26
@@ -111,8 +193,8 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
       ExplicitLeft = 881
       ExplicitTop = 26
     end
-    object ComboBox1: TComboBox
-      Left = 594
+    object cbPesquisarSituacao: TComboBox
+      Left = 586
       Top = 26
       Width = 139
       Height = 23
@@ -124,8 +206,9 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
       Font.Style = []
       ParentFont = False
       TabOrder = 2
+      OnChange = cbPesquisarSituacaoChange
     end
-    object ComboBox2: TComboBox
+    object cbPesquisarData: TComboBox
       Left = 246
       Top = 26
       Width = 129
@@ -138,8 +221,11 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+      Items.Strings = (
+        'Entrada'
+        'Sa'#237'da')
     end
-    object MaskEdit1: TMaskEdit
+    object edtData1: TMaskEdit
       Left = 381
       Top = 26
       Width = 72
@@ -155,7 +241,7 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
       TabOrder = 4
       Text = '  /  /    '
     end
-    object MaskEdit2: TMaskEdit
+    object edtData2: TMaskEdit
       Left = 456
       Top = 25
       Width = 72
@@ -180,6 +266,7 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
     Font.Name = 'Segoe UI'
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
+    PopupMenu = PopupMenu1
     ReadOnly = True
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
@@ -194,7 +281,6 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
     Align = alBottom
     Caption = 'Servi'#231'os inclu'#237'dos na OS'
     TabOrder = 3
-    ExplicitWidth = 1019
     object DBGrid2: TDBGrid
       Left = 2
       Top = 15
@@ -209,6 +295,7 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
+      PopupMenu = PopupMenu2
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -225,5 +312,27 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
   object DataSource2: TDataSource
     Left = 264
     Top = 232
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 416
+    Top = 160
+    object Exportar1: TMenuItem
+      Caption = 'Exportar'
+      OnClick = Exportar1Click
+    end
+    object Imprimir1: TMenuItem
+      Caption = 'Imprimir'
+    end
+  end
+  object PopupMenu2: TPopupMenu
+    Left = 408
+    Top = 399
+    object Exportar2: TMenuItem
+      Caption = 'Exportar'
+      OnClick = Exportar2Click
+    end
+    object Imprimir2: TMenuItem
+      Caption = 'Imprimir'
+    end
   end
 end
