@@ -37,7 +37,7 @@ type
     Imprimir1: TMenuItem;
     PopupMenu2: TPopupMenu;
     Exportar2: TMenuItem;
-    Imprimir2: TMenuItem;
+    frxDB_ServicosOS: TfrxDBDataset;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
@@ -48,6 +48,8 @@ type
     procedure sbExportarClick(Sender: TObject);
     procedure Exportar1Click(Sender: TObject);
     procedure Exportar2Click(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure Imprimir1Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -152,14 +154,30 @@ end;
 procedure TformRelatorioHistoricoOS.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityHistorico.abrir.listarGrid(DataSource1);
+  FEntityHistorico.abrir.getCampo('ID_ORDEM').getValor('0').sqlPesquisa.listarGrid(DataSource1);
   FEntityHistorico.selecionarServicosOS(0).listarGridServicos(DataSource2);
+end;
+
+procedure TformRelatorioHistoricoOS.Imprimir1Click(Sender: TObject);
+begin
+  inherited;
+    frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/historico_os.fr3');
+  frxReport1.ShowReport();
 end;
 
 procedure TformRelatorioHistoricoOS.sbExportarClick(Sender: TObject);
 begin
   inherited;
  FEntityHistorico.exportar;
+end;
+
+procedure TformRelatorioHistoricoOS.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/historico_os.fr3');
+  frxReport1.ShowReport();
 end;
 
 procedure TformRelatorioHistoricoOS.sbPesquisarDataClick(Sender: TObject);
