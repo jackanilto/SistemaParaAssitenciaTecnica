@@ -3179,3 +3179,90 @@ Problematic key value is ("ID" = 2)
 26/01/20 11:30:38 - Caption: SimpleOS
 26/01/20 11:30:38 - Erro:EAccessViolation
 26/01/20 11:30:38 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C437478
+28/01/20 20:04:45 - ===========================================
+28/01/20 20:04:45 - Form: formRelatorioContasAReceberOS
+28/01/20 20:04:45 - Caption: Relatório de contas a receber - OS
+28/01/20 20:04:45 - Erro:EIBNativeException
+28/01/20 20:04:45 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 44
+PGTO
+28/01/20 20:04:51 - ===========================================
+28/01/20 20:04:51 - Form: formRelatorioContasAReceberOS
+28/01/20 20:04:51 - Caption: Relatório de contas a receber - OS
+28/01/20 20:04:51 - Erro:EAccessViolation
+28/01/20 20:04:51 - Erro:Access violation at address 00B3F3E6 in module 'SimplesOS.exe'. Read of address 00000000
+28/01/20 20:09:28 - ===========================================
+28/01/20 20:09:28 - Form: formRelatorioContasAReceberOS
+28/01/20 20:09:28 - Caption: Relatório de contas a receber - OS
+28/01/20 20:09:28 - Erro:EIBNativeException
+28/01/20 20:09:28 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 51
+ã
+28/01/20 20:09:30 - ===========================================
+28/01/20 20:09:30 - Form: formRelatorioContasAReceberOS
+28/01/20 20:09:30 - Caption: Relatório de contas a receber - OS
+28/01/20 20:09:30 - Erro:EAccessViolation
+28/01/20 20:09:30 - Erro:Access violation at address 00B3F34A in module 'SimplesOS.exe'. Read of address 00000000
+28/01/20 20:09:44 - ===========================================
+28/01/20 20:09:44 - Form: formRelatorioContasAReceberOS
+28/01/20 20:09:44 - Caption: Relatório de contas a receber - OS
+28/01/20 20:09:44 - Erro:EIBNativeException
+28/01/20 20:09:44 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 49
+:=
+28/01/20 20:09:46 - ===========================================
+28/01/20 20:09:46 - Form: formRelatorioContasAReceberOS
+28/01/20 20:09:46 - Caption: Relatório de contas a receber - OS
+28/01/20 20:09:46 - Erro:EAccessViolation
+28/01/20 20:09:46 - Erro:Access violation at address 00B3F34A in module 'SimplesOS.exe'. Read of address 00000000
+28/01/20 20:25:18 - ===========================================
+28/01/20 20:25:18 - Form: formRelatorioContasAReceberOS
+28/01/20 20:25:18 - Caption: Relatório de contas a receber - OS
+28/01/20 20:25:18 - Erro:EIBNativeException
+28/01/20 20:25:18 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 53
+ã
+28/01/20 20:39:21 - ===========================================
+28/01/20 20:39:21 - Form: formRelatorioContasAReceberOS
+28/01/20 20:39:21 - Caption: Relatório de contas a receber - OS
+28/01/20 20:39:21 - Erro:EIBNativeException
+28/01/20 20:39:21 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 44
+like
+28/01/20 20:39:42 - ===========================================
+28/01/20 20:39:42 - Form: formRelatorioContasAReceberOS
+28/01/20 20:39:42 - Caption: Relatório de contas a receber - OS
+28/01/20 20:39:42 - Erro:EIBNativeException
+28/01/20 20:39:42 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 54
+=
+28/01/20 20:39:56 - ===========================================
+28/01/20 20:39:56 - Form: formRelatorioContasAReceberOS
+28/01/20 20:39:56 - Caption: Relatório de contas a receber - OS
+28/01/20 20:39:56 - Erro:EIBNativeException
+28/01/20 20:39:56 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 54
+=
+28/01/20 20:40:09 - ===========================================
+28/01/20 20:40:09 - Form: formRelatorioContasAReceberOS
+28/01/20 20:40:09 - Caption: Relatório de contas a receber - OS
+28/01/20 20:40:09 - Erro:EIBNativeException
+28/01/20 20:40:09 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 54
+=
+28/01/20 20:40:22 - ===========================================
+28/01/20 20:40:22 - Form: formRelatorioContasAReceberOS
+28/01/20 20:40:22 - Caption: Relatório de contas a receber - OS
+28/01/20 20:40:22 - Erro:EIBNativeException
+28/01/20 20:40:22 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 55
+ã

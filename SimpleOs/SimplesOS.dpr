@@ -108,7 +108,9 @@ uses
   UClasse.Entity.Modelo.Relatorio in 'Classes\Entity\UClasse.Entity.Modelo.Relatorio.pas',
   UClasse.Relatorio.Clientes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Clientes.pas',
   Form.Relatorio.Historico.OS in 'Forms\Relatorios\Form.Relatorio.Historico.OS.pas' {formRelatorioHistoricoOS},
-  UClasse.Historico.OS.Clientes in 'Classes\Entity\Relatorios\UClasse.Historico.OS.Clientes.pas';
+  UClasse.Historico.OS.Clientes in 'Classes\Entity\Relatorios\UClasse.Historico.OS.Clientes.pas',
+  Form.Relatorio.Contas.A.Receber.OS in 'Forms\Relatorios\Form.Relatorio.Contas.A.Receber.OS.pas' {formRelatorioContasAReceberOS},
+  UClasse.Relatorio.Contas.A.Receber in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Receber.pas';
 
 {$R *.res}
 
@@ -117,6 +119,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TformRelatorioHistoricoOS, formRelatorioHistoricoOS);
   Application.Run;
 end.

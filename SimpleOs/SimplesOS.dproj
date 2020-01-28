@@ -334,6 +334,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Historico.OS.Clientes.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Contas.A.Receber.OS.pas">
+            <Form>formRelatorioContasAReceberOS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Receber.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

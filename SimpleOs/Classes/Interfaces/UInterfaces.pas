@@ -1674,7 +1674,36 @@ type
     function ordenarListaServicos(column: TColumn): iHistoricoOSClientes;
 
     function exportar: iHistoricoOSClientes;
-    function exportarListaServicos:iHistoricoOSClientes;
+    function exportarListaServicos: iHistoricoOSClientes;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
+  iRelatorioContasAReceber = interface
+    ['{97696D2D-A3F5-45E6-93FF-AE871DE3DCAC}']
+
+    function nomeTabela(value: string): iRelatorioContasAReceber;
+    function getCampo(value: string): iRelatorioContasAReceber;
+    function getValor(value: string): iRelatorioContasAReceber; overload;
+    function getValor: iRelatorioContasAReceber; overload;
+    function getDataInicial(value: TDate): iRelatorioContasAReceber;
+    function getDataFinal(value: TDate): iRelatorioContasAReceber;
+    function open(value: string): iRelatorioContasAReceber;
+    function pesquisar: iRelatorioContasAReceber;
+    function ExecSql: iRelatorioContasAReceber;
+    function sqlPesquisa: iRelatorioContasAReceber;
+    function sqlPesquisaData: iRelatorioContasAReceber;
+    function sqlPesquisaEstatica: iRelatorioContasAReceber;
+    function SelectSql(value: string): iRelatorioContasAReceber;
+
+    function abrir: iRelatorioContasAReceber;
+    function atualizar: iRelatorioContasAReceber;
+    function cancelar: iRelatorioContasAReceber;
+    function fecharQuery: iRelatorioContasAReceber;
+    function listarGrid(value: TDataSource): iRelatorioContasAReceber;
+    function ordenarGrid(column: TColumn): iRelatorioContasAReceber;
+
+    function exportar: iRelatorioContasAReceber;
     procedure validarData(componet: tmaskEdit);
 
   end;

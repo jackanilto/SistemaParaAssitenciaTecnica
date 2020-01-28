@@ -7276,6 +7276,9 @@ object formPrincipal: TformPrincipal
             item
               Action = acHistoricoOSCliente
               Caption = 'Historico de OS'
+            end
+            item
+              Action = acRelatorioContasAReceber
             end>
           TextColor = 13402157
         end>
@@ -8087,6 +8090,10 @@ object formPrincipal: TformPrincipal
     object acHistoricoOSCliente: TAction
       Caption = 'Hist'#243'rico de OS cliente'
       OnExecute = acHistoricoOSClienteExecute
+    end
+    object acRelatorioContasAReceber: TAction
+      Caption = 'Contas a receber'
+      OnExecute = acRelatorioContasAReceberExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

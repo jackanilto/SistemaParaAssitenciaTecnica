@@ -7179,11 +7179,12 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 150
+    Left = 323
     Top = 57
-    Width = 173
+    Width = 0
     Height = 467
     Color = 13401438
+    Opened = False
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
@@ -7242,16 +7243,57 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
-    Width = 0
+    Width = 173
     Height = 467
-    Color = clLime
+    Color = 13401438
     CompactWidth = 0
-    Opened = False
-    OpenedWidth = 100
+    OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 5
+    object CategoryButtons5: TCategoryButtons
+      Left = -6
+      Top = -13
+      Width = 173
+      Height = 462
+      Align = alCustom
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      BorderStyle = bsNone
+      ButtonFlow = cbfVertical
+      ButtonHeight = 25
+      ButtonWidth = 120
+      ButtonOptions = [boFullSize, boShowCaptions, boCaptionOnlyBorder]
+      Categories = <
+        item
+          Color = clNone
+          Collapsed = False
+          Items = <
+            item
+              Action = acRelatorioClientes
+            end
+            item
+              Action = acHistoricoOSCliente
+              Caption = 'Historico de OS'
+            end
+            item
+              Action = acRelatorioContasAReceber
+            end>
+          TextColor = 13402157
+        end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 16382457
+      Font.Height = -15
+      Font.Name = 'Roboto'
+      Font.Orientation = 50
+      Font.Style = []
+      HotButtonColor = 13401438
+      Images = ImageList1
+      RegularButtonColor = clNone
+      SelectedButtonColor = clNone
+      TabOrder = 0
+    end
   end
   object spvExtras: TSplitView
     Left = 323
@@ -8040,6 +8082,18 @@ object formPrincipal: TformPrincipal
     object acVisualizarVendas: TAction
       Caption = 'Visualizar Vendas'
       OnExecute = acVisualizarVendasExecute
+    end
+    object acRelatorioClientes: TAction
+      Caption = 'Relat'#243'rio clientes'
+      OnExecute = acRelatorioClientesExecute
+    end
+    object acHistoricoOSCliente: TAction
+      Caption = 'Hist'#243'rico de OS cliente'
+      OnExecute = acHistoricoOSClienteExecute
+    end
+    object acRelatorioContasAReceber: TAction
+      Caption = 'Contas a receber'
+      OnExecute = acRelatorioContasAReceberExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

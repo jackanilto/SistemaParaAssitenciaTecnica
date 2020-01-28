@@ -64,26 +64,26 @@ type
   iEntityModeloRelatorio = interface
     ['{188C8512-8BE4-4998-A213-70F3B7ED6CB0}']
 
-    function nomeTabela(value: string): iEntity;
-    function getCampo(value: string): iEntity;
-    function getValor(value: string): iEntity;
-    function getDataInicial(value: TDate): iEntity;
-    function getDataFinal(value: TDate): iEntity;
-    function open(value: string): iEntity;
-    function pesquisar: iEntity;
-    function ExecSql: iEntity;
-    function sqlPesquisa: iEntity;
-    function sqlPesquisaData: iEntity;
-    function sqlPesquisaEstatica: iEntity;
+    function nomeTabela(value: string): iEntityModeloRelatorio;
+    function getCampo(value: string): iEntityModeloRelatorio;
+    function getValor(value: string): iEntityModeloRelatorio;
+    function getDataInicial(value: TDate): iEntityModeloRelatorio;
+    function getDataFinal(value: TDate): iEntityModeloRelatorio;
+    function open(value: string): iEntityModeloRelatorio;
+    function pesquisar: iEntityModeloRelatorio;
+    function ExecSql: iEntityModeloRelatorio;
+    function sqlPesquisa: iEntityModeloRelatorio;
+    function sqlPesquisaData: iEntityModeloRelatorio;
+    function sqlPesquisaEstatica: iEntityModeloRelatorio;
 
-    function abrir: iEntity;
-    function atualizar: iEntity;
-    function cancelar: iEntity;
-    function fecharQuery: iEntity;
-    function listarGrid(value: TDataSource): iEntity;
-    function ordenarGrid(column: TColumn): iEntity;
+    function abrir: iEntityModeloRelatorio;
+    function atualizar: iEntityModeloRelatorio;
+    function cancelar: iEntityModeloRelatorio;
+    function fecharQuery: iEntityModeloRelatorio;
+    function listarGrid(value: TDataSource): iEntityModeloRelatorio;
+    function ordenarGrid(column: TColumn): iEntityModeloRelatorio;
 
-    function exportar: iEntity;
+    function exportar: iEntityModeloRelatorio;
     procedure validarData(componet: tmaskEdit);
 
   end;
@@ -1618,6 +1618,95 @@ type
 
     function exportar: iVisualizarVenda;
     function exportarItens: iVisualizarVenda;
+
+  end;
+
+  iRelatorioClientes = interface
+    ['{A677F144-88A5-4789-982E-01717DC43983}']
+
+    function nomeTabela(value: string): iRelatorioClientes;
+    function getCampo(value: string): iRelatorioClientes;
+    function getValor(value: string): iRelatorioClientes;
+    function getDataInicial(value: TDate): iRelatorioClientes;
+    function getDataFinal(value: TDate): iRelatorioClientes;
+    function open(value: string): iRelatorioClientes;
+    function pesquisar: iRelatorioClientes;
+    function ExecSql: iRelatorioClientes;
+    function sqlPesquisa: iRelatorioClientes;
+    function sqlPesquisaData: iRelatorioClientes;
+    function sqlPesquisaEstatica: iRelatorioClientes;
+
+    function abrir: iRelatorioClientes;
+    function atualizar: iRelatorioClientes;
+    function cancelar: iRelatorioClientes;
+    function fecharQuery: iRelatorioClientes;
+    function listarGrid(value: TDataSource): iRelatorioClientes;
+    function ordenarGrid(column: TColumn): iRelatorioClientes;
+
+    function exportar: iRelatorioClientes;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
+  iHistoricoOSClientes = interface
+    ['{436B046C-8744-4C4F-9656-EF346D5A8326}']
+
+    function nomeTabela(value: string): iHistoricoOSClientes;
+    function getCampo(value: string): iHistoricoOSClientes;
+    function getValor(value: string): iHistoricoOSClientes;
+    function getDataInicial(value: TDate): iHistoricoOSClientes;
+    function getDataFinal(value: TDate): iHistoricoOSClientes;
+    function open(value: string): iHistoricoOSClientes;
+    function pesquisar: iHistoricoOSClientes;
+    function ExecSql: iHistoricoOSClientes;
+    function sqlPesquisa: iHistoricoOSClientes;
+    function sqlPesquisaData: iHistoricoOSClientes;
+    function sqlPesquisaEstatica: iHistoricoOSClientes;
+
+    function abrir: iHistoricoOSClientes;
+    function atualizar: iHistoricoOSClientes;
+    function cancelar: iHistoricoOSClientes;
+    function fecharQuery: iHistoricoOSClientes;
+    function listarGrid(value: TDataSource): iHistoricoOSClientes;
+    function ordenarGrid(column: TColumn): iHistoricoOSClientes;
+    function selecionarServicosOS(value: integer): iHistoricoOSClientes;
+    function listarGridServicos(value: TDataSource): iHistoricoOSClientes;
+    function ordenarListaServicos(column: TColumn): iHistoricoOSClientes;
+
+    function exportar: iHistoricoOSClientes;
+    function exportarListaServicos: iHistoricoOSClientes;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
+  iRelatorioContasAReceger = interface
+    ['{97696D2D-A3F5-45E6-93FF-AE871DE3DCAC}']
+
+    function nomeTabela(value: string): iRelatorioContasAReceger;
+    function getCampo(value: string): iRelatorioContasAReceger;
+    function getValor(value: string): iRelatorioContasAReceger;
+    function getDataInicial(value: TDate): iRelatorioContasAReceger;
+    function getDataFinal(value: TDate): iRelatorioContasAReceger;
+    function open(value: string): iRelatorioContasAReceger;
+    function pesquisar: iRelatorioContasAReceger;
+    function ExecSql: iRelatorioContasAReceger;
+    function sqlPesquisa: iRelatorioContasAReceger;
+    function sqlPesquisaData: iRelatorioContasAReceger;
+    function sqlPesquisaEstatica: iRelatorioContasAReceger;
+
+    function abrir: iRelatorioContasAReceger;
+    function atualizar: iRelatorioContasAReceger;
+    function cancelar: iRelatorioContasAReceger;
+    function fecharQuery: iRelatorioContasAReceger;
+    function listarGrid(value: TDataSource): iRelatorioContasAReceger;
+    function ordenarGrid(column: TColumn): iRelatorioContasAReceger;
+    function selecionarServicosOS(value: integer): iRelatorioContasAReceger;
+    function listarGridServicos(value: TDataSource): iRelatorioContasAReceger;
+    function ordenarListaServicos(column: TColumn): iRelatorioContasAReceger;
+
+    function exportar: iRelatorioContasAReceger;
+    function exportarListaServicos: iRelatorioContasAReceger;
+    procedure validarData(componet: tmaskEdit);
 
   end;
 
