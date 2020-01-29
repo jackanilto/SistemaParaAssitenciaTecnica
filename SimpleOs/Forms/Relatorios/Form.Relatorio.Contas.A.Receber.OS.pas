@@ -38,9 +38,6 @@ begin
   inherited;
     FContasAReceberOS
       .abrir
-      .getCampo('PGTO')
-      .getValor
-      .sqlPesquisaEstatica
       .listarGrid(DataSource1);
 end;
 

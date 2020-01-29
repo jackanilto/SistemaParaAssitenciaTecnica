@@ -27,8 +27,7 @@ type
 
     function nomeTabela(value: string): iRelatorioContasAReceber;
     function getCampo(value: string): iRelatorioContasAReceber;
-    function getValor(value: string): iRelatorioContasAReceber; overload;
-    function getValor: iRelatorioContasAReceber; overload;
+    function getValor(value: string): iRelatorioContasAReceber;
     function getDataInicial(value: TDate): iRelatorioContasAReceber;
     function getDataFinal(value: TDate): iRelatorioContasAReceber;
     function open(value: string): iRelatorioContasAReceber;
@@ -80,11 +79,12 @@ end;
 
 constructor TEntityRelatorioContasAReceber.create;
 begin
-  FTabela := 'VISUALIZAR_PARCELAS_OS';
+
+  FTabela := 'VISUALIZAR_PARCELAS_OS_ARECEBER';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Relatório contas a receber').getCodigoFuncionario
+  FGravarLog.getJanela('Relatório contas a receber OS').getCodigoFuncionario
     (funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
@@ -135,12 +135,6 @@ begin
   // FQuery.getDataInicial(value);
 end;
 
-function TEntityRelatorioContasAReceber.getValor: iRelatorioContasAReceber;
-begin
-  result := self;
-  FValor := 'Não';
-end;
-
 function TEntityRelatorioContasAReceber.getValor(value: string)
   : iRelatorioContasAReceber;
 begin
@@ -175,6 +169,10 @@ begin
     FieldByName('ID_FUNCIONARIO').Visible := false;
     FieldByName('NOME_FUNCIONARIO').Visible := false;
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+    FieldByName('CLIENTE').DisplayWidth := 50;
+    FieldByName('OBSERVACAO').DisplayWidth := 50;
+
   end;
 
   value.DataSet := FQuery.TQuery;

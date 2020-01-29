@@ -144,7 +144,7 @@ begin
     FieldByName('PARCELA').AsInteger := FPARCELA;
     FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
     FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
-    FieldByName('PGTO').AsString := FPGTO;
+    FieldByName('PGTO').AsString := 'Nao';
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
   end;
 
@@ -322,7 +322,7 @@ begin
 
     try
       FQuery.TQuery.Edit;
-      FQuery.TQuery.FieldByName('PGTO').AsString := 'Não';
+      FQuery.TQuery.FieldByName('PGTO').AsString := 'Nao';
       FQuery.TQuery.FieldByName('DATA_PAGAMENTO').Clear;
       FQuery.TQuery.FieldByName('HORA_PAGAMENTO').Clear;
       FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := '';
@@ -375,7 +375,7 @@ begin
       FieldByName('PARCELA').AsInteger := parcelaAtual;
       FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
       FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
-      FieldByName('PGTO').AsString := 'Não';
+      FieldByName('PGTO').AsString := 'Nao';
     end;
 
     try

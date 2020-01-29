@@ -1684,8 +1684,7 @@ type
 
     function nomeTabela(value: string): iRelatorioContasAReceber;
     function getCampo(value: string): iRelatorioContasAReceber;
-    function getValor(value: string): iRelatorioContasAReceber; overload;
-    function getValor: iRelatorioContasAReceber; overload;
+    function getValor(value: string): iRelatorioContasAReceber;
     function getDataInicial(value: TDate): iRelatorioContasAReceber;
     function getDataFinal(value: TDate): iRelatorioContasAReceber;
     function open(value: string): iRelatorioContasAReceber;

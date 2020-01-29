@@ -3266,3 +3266,48 @@ Token unknown - line 1, column 54
 SQL error code = -104
 Token unknown - line 1, column 55
 ã
+29/01/20 20:34:22 - ===========================================
+29/01/20 20:34:22 - Form: formRelatorioContasAReceberOS
+29/01/20 20:34:22 - Caption: Relatório de contas a receber - OS
+29/01/20 20:34:22 - Erro:EFDException
+29/01/20 20:34:22 - Erro:[FireDAC][Phys][FB]-310. Cannot execute command returning result sets. Hint: use Open method for SELECT-like commands
+29/01/20 20:34:33 - ===========================================
+29/01/20 20:34:33 - Form: formRelatorioContasAReceberOS
+29/01/20 20:34:33 - Caption: Relatório de contas a receber - OS
+29/01/20 20:34:33 - Erro:EAccessViolation
+29/01/20 20:34:33 - Erro:Access violation at address 00B3F9D8 in module 'SimplesOS.exe'. Read of address 00000000
+29/01/20 20:34:56 - ===========================================
+29/01/20 20:34:56 - Form: formRelatorioContasAReceberOS
+29/01/20 20:34:56 - Caption: Relatório de contas a receber - OS
+29/01/20 20:34:56 - Erro:EDatabaseError
+29/01/20 20:34:56 - Erro:Cannot perform this operation on an open dataset
+29/01/20 20:35:05 - ===========================================
+29/01/20 20:35:05 - Form: formRelatorioContasAReceberOS
+29/01/20 20:35:05 - Caption: Relatório de contas a receber - OS
+29/01/20 20:35:05 - Erro:EAccessViolation
+29/01/20 20:35:05 - Erro:Access violation at address 00B3F9D4 in module 'SimplesOS.exe'. Read of address 00000000
+29/01/20 20:35:25 - ===========================================
+29/01/20 20:35:25 - Form: formRelatorioContasAReceberOS
+29/01/20 20:35:25 - Caption: Relatório de contas a receber - OS
+29/01/20 20:35:25 - Erro:EDatabaseError
+29/01/20 20:35:25 - Erro:Cannot perform this operation on an open dataset
+29/01/20 20:35:27 - ===========================================
+29/01/20 20:35:27 - Form: formRelatorioContasAReceberOS
+29/01/20 20:35:27 - Caption: Relatório de contas a receber - OS
+29/01/20 20:35:27 - Erro:EAccessViolation
+29/01/20 20:35:27 - Erro:Access violation at address 00B3F9D4 in module 'SimplesOS.exe'. Read of address 00000000
+29/01/20 20:36:09 - ===========================================
+29/01/20 20:36:09 - Form: formRelatorioContasAReceberOS
+29/01/20 20:36:09 - Caption: Relatório de contas a receber - OS
+29/01/20 20:36:09 - Erro:EDatabaseError
+29/01/20 20:36:09 - Erro:Cannot perform this operation on an open dataset
+29/01/20 20:36:12 - ===========================================
+29/01/20 20:36:12 - Form: formRelatorioContasAReceberOS
+29/01/20 20:36:12 - Caption: Relatório de contas a receber - OS
+29/01/20 20:36:12 - Erro:EAccessViolation
+29/01/20 20:36:12 - Erro:Access violation at address 00B3F9D4 in module 'SimplesOS.exe'. Read of address 00000000
+29/01/20 20:41:02 - ===========================================
+29/01/20 20:41:02 - Form: formRelatorioContasAReceberOS
+29/01/20 20:41:02 - Caption: Relatório de contas a receber - OS
+29/01/20 20:41:02 - Erro:EDatabaseError
+29/01/20 20:41:02 - Erro:Field 'ID_PARCELA' not found

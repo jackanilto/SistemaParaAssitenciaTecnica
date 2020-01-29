@@ -267,7 +267,7 @@ begin
     (CurrToStr(TFactory.new.calcularParcela.getvalor(totalDaVendaCalulado)
     .getNumeroParcelas(Parcelas).valorDeCadaParcela))
     .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
-    .getFormaPagamento('não')
+    .getFormaPagamento('nao')
     .gerarParcelas;
 end;
 

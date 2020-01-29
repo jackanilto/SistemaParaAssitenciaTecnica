@@ -677,7 +677,7 @@ begin
     FieldByName('PARCELA').AsInteger := FPARCELA;
     FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
     FieldByName('DATA_VENCIMENTO').AsDateTime := FDATA_VENCIMENTO;
-    FieldByName('PAGO').AsString := 'não';
+    FieldByName('PAGO').AsString := 'nao';
     FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
   end;
 
