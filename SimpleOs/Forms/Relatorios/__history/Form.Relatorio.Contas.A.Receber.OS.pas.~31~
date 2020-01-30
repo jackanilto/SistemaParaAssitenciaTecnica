@@ -1,0 +1,96 @@
+unit Form.Relatorio.Contas.A.Receber.OS;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UClasse.Relatorio.Contas.A.Receber, UInterfaces, Vcl.Mask;
+
+type
+  TEnumPesquisar = (parcela, OS, cod_cliente, nome_cliente);
+
+type
+  TformRelatorioContasAReceberOS = class(TformModeloRelatorio)
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    MaskEdit1: TMaskEdit;
+    MaskEdit2: TMaskEdit;
+    Label1: TLabel;
+    sbPesquisarDatas: TSpeedButton;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure cbPesquisarChange(Sender: TObject);
+  private
+    { Private declarations }
+  var
+    FContasAReceberOS: iRelatorioContasAReceber;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioContasAReceberOS: TformRelatorioContasAReceberOS;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioContasAReceberOS.cbPesquisarChange(Sender: TObject);
+begin
+  inherited;
+  edtPesquisar.SetFocus;
+end;
+
+procedure TformRelatorioContasAReceberOS.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+  var
+  FCampo:String;
+begin
+  inherited;
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+    parcela:
+      begin
+        FCampo:='ID_PARCELA';
+      end;
+    OS:
+      begin
+        FCampo:='ID_ORDEM';
+      end;
+    cod_cliente:
+      begin
+        FCampo:='ID_CLIENTE';
+      end;
+    nome_cliente:
+      begin
+       FCampo:='CLIENTE';
+      end;
+
+  end;
+
+  if edtPesquisar.Text <> EmptyStr then
+    FContasAReceberOS
+      .getCampo(FCampo)
+      .getValor(edtPesquisar.Text)
+      .sqlPesquisa
+      .listarGrid(DataSource1);
+
+end;
+
+procedure TformRelatorioContasAReceberOS.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FContasAReceberOS := TEntityRelatorioContasAReceber.new;
+end;
+
+procedure TformRelatorioContasAReceberOS.FormShow(Sender: TObject);
+begin
+  inherited;
+  FContasAReceberOS.abrir.listarGrid(DataSource1);
+end;
+
+end.
