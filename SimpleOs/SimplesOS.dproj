@@ -344,6 +344,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Contas.Receber.Venda.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Parcelas.Pagas.OS.pas">
+            <Form>formRelatorioParcelasPagasOS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Parcelas.Pagas.OS.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

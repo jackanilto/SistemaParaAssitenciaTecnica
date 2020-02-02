@@ -1,0 +1,11 @@
+inherited formRelatorioParcelasPagasOS: TformRelatorioParcelasPagasOS
+  Caption = 'Parcelas recebidas das OS'
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

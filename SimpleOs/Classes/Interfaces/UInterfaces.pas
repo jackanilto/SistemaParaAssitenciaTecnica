@@ -1734,6 +1734,33 @@ type
 
   end;
 
+  iRelatorioParcelasPagasOS = interface
+    ['{16F8F476-13E9-4BDB-BDB8-A600B0937C02}']
+
+    function nomeTabela(value: string): iRelatorioParcelasPagasOS;
+    function getCampo(value: string): iRelatorioParcelasPagasOS;
+    function getValor(value: string): iRelatorioParcelasPagasOS;
+    function getDataInicial(value: TDate): iRelatorioParcelasPagasOS;
+    function getDataFinal(value: TDate): iRelatorioParcelasPagasOS;
+    function open(value: string): iRelatorioParcelasPagasOS;
+    function pesquisar: iRelatorioParcelasPagasOS;
+    function ExecSql: iRelatorioParcelasPagasOS;
+    function sqlPesquisa: iRelatorioParcelasPagasOS;
+    function sqlPesquisaData: iRelatorioParcelasPagasOS;
+    function sqlPesquisaEstatica: iRelatorioParcelasPagasOS;
+
+    function abrir: iRelatorioParcelasPagasOS;
+    function atualizar: iRelatorioParcelasPagasOS;
+    function cancelar: iRelatorioParcelasPagasOS;
+    function fecharQuery: iRelatorioParcelasPagasOS;
+    function listarGrid(value: TDataSource): iRelatorioParcelasPagasOS;
+    function ordenarGrid(column: TColumn): iRelatorioParcelasPagasOS;
+
+    function exportar: iRelatorioParcelasPagasOS;
+    function validarData(componet: tmaskEdit):iRelatorioParcelasPagasOS;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

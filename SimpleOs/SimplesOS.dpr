@@ -112,7 +112,9 @@ uses
   Form.Relatorio.Contas.A.Receber.OS in 'Forms\Relatorios\Form.Relatorio.Contas.A.Receber.OS.pas' {formRelatorioContasAReceberOS},
   UClasse.Relatorio.Contas.A.Receber in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Receber.pas',
   Form.Relatorio.Contas.A.Receber.Venda in 'Forms\Relatorios\Form.Relatorio.Contas.A.Receber.Venda.pas' {formRelatorioContasAReceberVenda},
-  UClasse.Relatorio.Contas.Receber.Venda in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.Receber.Venda.pas';
+  UClasse.Relatorio.Contas.Receber.Venda in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.Receber.Venda.pas',
+  Form.Relatorio.Parcelas.Pagas.OS in 'Forms\Relatorios\Form.Relatorio.Parcelas.Pagas.OS.pas' {formRelatorioParcelasPagasOS},
+  UClasse.Relatorio.Parcelas.Pagas.OS in 'Classes\Entity\Relatorios\UClasse.Relatorio.Parcelas.Pagas.OS.pas';
 
 {$R *.res}
 

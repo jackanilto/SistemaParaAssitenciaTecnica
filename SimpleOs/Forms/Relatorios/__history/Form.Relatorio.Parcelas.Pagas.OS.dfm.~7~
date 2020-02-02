@@ -1,0 +1,31 @@
+inherited formRelatorioParcelasPagasOS: TformRelatorioParcelasPagasOS
+  Caption = 'Parcelas recebidas das OS'
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel3: TPanel
+    inherited cbPesquisar: TComboBox
+      Items.Strings = (
+        'Parcela'
+        'OS'
+        'C'#243'd. Cliente'
+        'Cliente')
+    end
+    inherited edtPesquisar: TEdit
+      OnKeyUp = edtPesquisarKeyUp
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    ParentFont = False
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end
