@@ -108,7 +108,6 @@ var
   pasta: variant;
   linha: integer;
 begin
-  {CONTINUAR NESTE PROCEDIMENTO}
   FQuery.TQuery.Filtered := false;
 
   linha := 2;
@@ -119,59 +118,28 @@ begin
   pasta.visible := true;
 
   pasta.cells[1, 1] := 'Parcela';
-  pasta.cells[1, 2] := 'Tipo de cadastro';
-  pasta.cells[1, 3] := 'Nome';
-  pasta.cells[1, 4] := 'Data nascimento';
-  pasta.cells[1, 5] := 'Data de cadastro';
-  pasta.cells[1, 6] := 'CPF ou CNPJ';
-  pasta.cells[1, 7] := 'Documento';
-  pasta.cells[1, 8] := 'Endereço';
-  pasta.cells[1, 9] := 'Bairro';
-  pasta.cells[1, 10] := 'Número';
-  pasta.cells[1, 11] := 'Complemento';
-  pasta.cells[1, 12] := 'CEP';
-  pasta.cells[1, 13] := 'Cidade';
-  pasta.cells[1, 14] := 'Estado';
-  pasta.cells[1, 15] := 'Telefone';
-  pasta.cells[1, 16] := 'Celular';
-  pasta.cells[1, 17] := 'E-Mail';
-  pasta.cells[1, 18] := 'Funcionário';
-  pasta.cells[1, 19] := 'Situação do cliente';
-  pasta.cells[1, 20] := 'Observação';
+  pasta.cells[1, 2] := 'Cód. OS';
+  pasta.cells[1, 3] := 'Cód. Cliente';
+  pasta.cells[1, 4] := 'Cliente';
+  pasta.cells[1, 5] := 'Total de parcela';
+  pasta.cells[1, 6] := 'Parcela';
+  pasta.cells[1, 7] := 'Valor da parcela';
+  pasta.cells[1, 8] := 'Vencimento';
+  pasta.cells[1, 9] := 'PGTO';
 
   try
     while not FQuery.TQuery.Eof do
     begin
 
-      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
-      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName
-        ('TIPO_CADASTRO').AsString;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('NOME').AsString;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DATA_NASCIMENTO')
-        .AsDateTime;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA_CADASTRO')
-        .AsDateTime;
-      pasta.cells[linha, 6] := '"' + FQuery.TQuery.FieldByName('CPF_CNPJ')
-        .AsString + '"';
-      pasta.cells[linha, 7] := '"' + FQuery.TQuery.FieldByName('DOCUMENTO')
-        .AsString + '"';
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('ENDERECO').AsString;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('BAIRRO').AsString;
-      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('NUMERO').AsInteger;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName
-        ('COMPLEMENTO').AsString;
-      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('CEP').AsString;
-      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('CIDADE').AsString;
-      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('ESTADO').AsString;
-      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('TELEFONE').AsString;
-      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('CELULAR').AsString;
-      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('EMAIL').AsString;
-      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName
-        ('FUNCIONARIO_CADASTRO').AsInteger;
-      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName
-        ('SITUACAO_CLIENTE').AsString;
-      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('OBSERVACAO')
-        .AsString;
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('CLIENTE').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('TOTAL_PARCELAS').AsInteger;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('PARCELA').AsInteger;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('PGTO').AsString;
 
       linha := linha + 1;
 

@@ -28,6 +28,8 @@ type
     procedure sbPesquisarDatasClick(Sender: TObject);
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
   var
@@ -112,7 +114,26 @@ end;
 procedure TformRelatorioContasAReceberOS.FormShow(Sender: TObject);
 begin
   inherited;
-  FContasAReceberOS.abrir.listarGrid(DataSource1);
+  FContasAReceberOS
+      .abrir.getCampo('ID_PARCELA')
+      .getValor('0')
+      .sqlPesquisa
+      .listarGrid(DataSource1);
+end;
+
+procedure TformRelatorioContasAReceberOS.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount >= 1 then
+     FContasAReceberOS.exportar;
+end;
+
+procedure TformRelatorioContasAReceberOS.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+    frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+      'relatórios/contas_receber_os.fr3');
+    frxReport1.ShowReport();
 end;
 
 procedure TformRelatorioContasAReceberOS.sbPesquisarDatasClick(Sender: TObject);
