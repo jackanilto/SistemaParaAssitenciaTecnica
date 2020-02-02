@@ -50,6 +50,7 @@ type
     procedure Exportar2Click(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
     procedure Imprimir1Click(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
   private
     { Private declarations }
   var
@@ -88,6 +89,12 @@ begin
       (DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger)
       .listarGridServicos(DataSource2);
   end;
+end;
+
+procedure TformRelatorioHistoricoOS.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FEntityHistorico.ordenarGrid(Column);
 end;
 
 procedure TformRelatorioHistoricoOS.edtPesquisarKeyUp(Sender: TObject;

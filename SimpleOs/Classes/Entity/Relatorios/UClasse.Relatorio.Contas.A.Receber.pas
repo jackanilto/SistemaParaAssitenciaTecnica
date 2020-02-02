@@ -114,7 +114,7 @@ begin
   pasta := CreateOleObject('Excel.application');
   pasta.workBooks.Add(1);
 
-  pasta.Caption := 'Relatório de Contas a Receber';
+  pasta.Caption := 'Relatório de Contas a Receber OS';
   pasta.visible := true;
 
   pasta.cells[1, 1] := 'Parcela';

@@ -1707,6 +1707,33 @@ type
 
   end;
 
+  iRelatorioContasAReceberVendas = interface
+  ['{D300D30D-CE55-40F8-82ED-06461DD244CB}']
+
+    function nomeTabela(value: string): iRelatorioContasAReceberVendas;
+    function getCampo(value: string): iRelatorioContasAReceberVendas;
+    function getValor(value: string): iRelatorioContasAReceberVendas;
+    function getDataInicial(value: TDate): iRelatorioContasAReceberVendas;
+    function getDataFinal(value: TDate): iRelatorioContasAReceberVendas;
+    function open(value: string): iRelatorioContasAReceberVendas;
+    function pesquisar: iRelatorioContasAReceberVendas;
+    function ExecSql: iRelatorioContasAReceberVendas;
+    function sqlPesquisa: iRelatorioContasAReceberVendas;
+    function sqlPesquisaData: iRelatorioContasAReceberVendas;
+    function sqlPesquisaEstatica: iRelatorioContasAReceberVendas;
+
+    function abrir: iRelatorioContasAReceberVendas;
+    function atualizar: iRelatorioContasAReceberVendas;
+    function cancelar: iRelatorioContasAReceberVendas;
+    function fecharQuery: iRelatorioContasAReceberVendas;
+    function listarGrid(value: TDataSource): iRelatorioContasAReceberVendas;
+    function ordenarGrid(column: TColumn): iRelatorioContasAReceberVendas;
+
+    function exportar: iRelatorioContasAReceberVendas;
+    function validarData(componet: tmaskEdit):iRelatorioContasAReceberVendas;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

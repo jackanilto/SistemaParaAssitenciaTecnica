@@ -30,6 +30,7 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure sbExportarClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
   private
     { Private declarations }
   var
@@ -68,6 +69,12 @@ begin
   end;
 
   DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TformRelatorioContasAReceberOS.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FContasAReceberOS.ordenarGrid(Column);
 end;
 
 procedure TformRelatorioContasAReceberOS.edtPesquisarKeyUp(Sender: TObject;

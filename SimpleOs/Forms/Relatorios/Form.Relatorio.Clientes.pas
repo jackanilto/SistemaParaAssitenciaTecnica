@@ -28,6 +28,7 @@ type
     procedure sbPesquisarClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
   private
     { Private declarations }
   var
@@ -47,6 +48,12 @@ procedure TformRelatorioClientes.cbPesquisarChange(Sender: TObject);
 begin
   inherited;
   edtPesquisar.SetFocus;
+end;
+
+procedure TformRelatorioClientes.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FEntityRelatorioClientes.ordenarGrid(Column);
 end;
 
 procedure TformRelatorioClientes.edtPesquisarKeyUp(Sender: TObject;

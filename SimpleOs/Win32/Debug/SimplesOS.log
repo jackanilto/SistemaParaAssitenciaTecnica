@@ -3311,3 +3311,23 @@ Token unknown - line 1, column 55
 29/01/20 20:41:02 - Caption: Relatório de contas a receber - OS
 29/01/20 20:41:02 - Erro:EDatabaseError
 29/01/20 20:41:02 - Erro:Field 'ID_PARCELA' not found
+02/02/20 11:57:00 - ===========================================
+02/02/20 11:57:00 - Form: formRelatorioContasAReceberVenda
+02/02/20 11:57:00 - Caption: Relatório de contas a receber - Venda
+02/02/20 11:57:00 - Erro:Exception
+02/02/20 11:57:00 - Erro:Digite uma data válida.
+02/02/20 11:57:09 - ===========================================
+02/02/20 11:57:09 - Form: formRelatorioContasAReceberVenda
+02/02/20 11:57:09 - Caption: Relatório de contas a receber - Venda
+02/02/20 11:57:09 - Erro:Exception
+02/02/20 11:57:09 - Erro:Digite uma data válida.
+02/02/20 11:59:07 - ===========================================
+02/02/20 11:59:07 - Form: formRelatorioContasAReceberVenda
+02/02/20 11:59:07 - Caption: Relatório de contas a receber - Venda
+02/02/20 11:59:07 - Erro:Exception
+02/02/20 11:59:07 - Erro:Informe por qual campo deseja pequisar.
+02/02/20 12:00:16 - ===========================================
+02/02/20 12:00:16 - Form: formRelatorioContasAReceberVenda
+02/02/20 12:00:16 - Caption: Relatório de contas a receber - Venda
+02/02/20 12:00:16 - Erro:Exception
+02/02/20 12:00:16 - Erro:Digite uma data válida.

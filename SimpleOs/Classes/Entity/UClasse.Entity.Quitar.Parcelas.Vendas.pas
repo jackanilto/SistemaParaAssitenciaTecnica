@@ -224,7 +224,7 @@ begin
       FQueryParcela.TQuery.FieldByName('DATA_PAGAMENTO').Clear;
       FQueryParcela.TQuery.FieldByName('HORA_PAGAMENTO').Clear;
       FQueryParcela.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := '';
-      FQueryParcela.TQuery.FieldByName('PAGO').AsString := 'não';
+      FQueryParcela.TQuery.FieldByName('PAGO').AsString := 'Nao';
 
       FQueryParcela.TQuery.Post;
 
@@ -677,7 +677,7 @@ begin
     FieldByName('PARCELA').AsInteger := FPARCELA;
     FieldByName('VALOR_DA_PARCELA').AsCurrency := FVALOR_DA_PARCELA;
     FieldByName('DATA_VENCIMENTO').AsDateTime := FDATA_VENCIMENTO;
-    FieldByName('PAGO').AsString := 'nao';
+    FieldByName('PAGO').AsString := 'Nao';
     FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
   end;
 

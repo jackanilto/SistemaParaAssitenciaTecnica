@@ -155,6 +155,7 @@ inherited formRelatorioContasAReceberOS: TformRelatorioContasAReceberOS
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
     OnDrawColumnCell = DBGrid1DrawColumnCell
+    OnTitleClick = DBGrid1TitleClick
   end
   inherited frxDBDataset1: TfrxDBDataset
     DataSource = DataSource1

@@ -3,7 +3,6 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
   ClientHeight = 586
   ClientWidth = 1076
   OnCreate = FormCreate
-  ExplicitTop = -32
   ExplicitWidth = 1076
   ExplicitHeight = 586
   PixelsPerInch = 96
@@ -273,6 +272,7 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
     OnCellClick = DBGrid1CellClick
+    OnTitleClick = DBGrid1TitleClick
   end
   object GroupBox1: TGroupBox [3]
     Left = 0

@@ -110,7 +110,9 @@ uses
   Form.Relatorio.Historico.OS in 'Forms\Relatorios\Form.Relatorio.Historico.OS.pas' {formRelatorioHistoricoOS},
   UClasse.Historico.OS.Clientes in 'Classes\Entity\Relatorios\UClasse.Historico.OS.Clientes.pas',
   Form.Relatorio.Contas.A.Receber.OS in 'Forms\Relatorios\Form.Relatorio.Contas.A.Receber.OS.pas' {formRelatorioContasAReceberOS},
-  UClasse.Relatorio.Contas.A.Receber in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Receber.pas';
+  UClasse.Relatorio.Contas.A.Receber in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Receber.pas',
+  Form.Relatorio.Contas.A.Receber.Venda in 'Forms\Relatorios\Form.Relatorio.Contas.A.Receber.Venda.pas' {formRelatorioContasAReceberVenda},
+  UClasse.Relatorio.Contas.Receber.Venda in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.Receber.Venda.pas';
 
 {$R *.res}
 
