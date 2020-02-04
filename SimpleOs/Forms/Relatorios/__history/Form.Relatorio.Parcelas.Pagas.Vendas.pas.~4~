@@ -1,0 +1,35 @@
+unit Form.Relatorio.Parcelas.Pagas.Vendas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.Parcelas.Pagas.Vendas;
+
+type
+  TformRelatorioParcelasPagasVendas = class(TformModeloRelatorio)
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+    var
+      FParcelasPagasVendas:iRelatorioParcelasPagasVendas;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioParcelasPagasVendas: TformRelatorioParcelasPagasVendas;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioParcelasPagasVendas.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FParcelasPagasVendas := TRelatorioParcelasPagasVendas.new;
+end;
+
+end.

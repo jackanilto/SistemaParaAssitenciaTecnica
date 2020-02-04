@@ -680,7 +680,7 @@ begin
     FieldByName('HORA_PAGAMENTO').AsDateTime := time;
     FieldByName('FUNCIONARIO_PGTO').AsInteger := funcionarioLogado;
     FieldByName('FORMA_PAGAMENTO').AsString := FFormaPagamento;
-    FieldByName('PAGO').AsString := 'sim';
+    FieldByName('PAGO').AsString := 'Sim';
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
     FQuery.TQuery.Post;

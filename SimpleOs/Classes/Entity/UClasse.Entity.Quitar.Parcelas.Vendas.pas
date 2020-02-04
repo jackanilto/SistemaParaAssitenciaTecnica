@@ -705,7 +705,7 @@ begin
     FQueryParcela.TQuery.FieldByName('FORMA_PAGAMENTO').AsString :=
       FFormaPagamento;
     FQueryParcela.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
-    FQueryParcela.TQuery.FieldByName('PAGO').AsString := 'sim';
+    FQueryParcela.TQuery.FieldByName('PAGO').AsString := 'Sim';
 
     try
       FQueryParcela.TQuery.Post;

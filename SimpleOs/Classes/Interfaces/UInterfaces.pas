@@ -1761,6 +1761,33 @@ type
 
   end;
 
+  iRelatorioParcelasPagasVendas = interface
+    ['{E9B244F2-1181-4534-BAC0-DEF5F6369C8B}']
+
+    function nomeTabela(value: string): iRelatorioParcelasPagasVendas;
+    function getCampo(value: string): iRelatorioParcelasPagasVendas;
+    function getValor(value: string): iRelatorioParcelasPagasVendas;
+    function getDataInicial(value: TDate): iRelatorioParcelasPagasVendas;
+    function getDataFinal(value: TDate): iRelatorioParcelasPagasVendas;
+    function open(value: string): iRelatorioParcelasPagasVendas;
+    function pesquisar: iRelatorioParcelasPagasVendas;
+    function ExecSql: iRelatorioParcelasPagasVendas;
+    function sqlPesquisa: iRelatorioParcelasPagasVendas;
+    function sqlPesquisaData: iRelatorioParcelasPagasVendas;
+    function sqlPesquisaEstatica: iRelatorioParcelasPagasVendas;
+
+    function abrir: iRelatorioParcelasPagasVendas;
+    function atualizar: iRelatorioParcelasPagasVendas;
+    function cancelar: iRelatorioParcelasPagasVendas;
+    function fecharQuery: iRelatorioParcelasPagasVendas;
+    function listarGrid(value: TDataSource): iRelatorioParcelasPagasVendas;
+    function ordenarGrid(column: TColumn): iRelatorioParcelasPagasVendas;
+
+    function exportar: iRelatorioParcelasPagasVendas;
+    function validarData(componet: tmaskEdit):iRelatorioParcelasPagasVendas;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
