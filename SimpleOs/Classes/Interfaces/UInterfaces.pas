@@ -1788,6 +1788,33 @@ type
 
   end;
 
+  iRelatorioOSEstornadas = interface
+    ['{22FF9BDB-3BF3-4251-AA24-8A0D439B4AA4}']
+
+    function nomeTabela(value: string): iRelatorioOSEstornadas;
+    function getCampo(value: string): iRelatorioOSEstornadas;
+    function getValor(value: string): iRelatorioOSEstornadas;
+    function getDataInicial(value: TDate): iRelatorioOSEstornadas;
+    function getDataFinal(value: TDate): iRelatorioOSEstornadas;
+    function open(value: string): iRelatorioOSEstornadas;
+    function pesquisar: iRelatorioOSEstornadas;
+    function ExecSql: iRelatorioOSEstornadas;
+    function sqlPesquisa: iRelatorioOSEstornadas;
+    function sqlPesquisaData: iRelatorioOSEstornadas;
+    function sqlPesquisaEstatica: iRelatorioOSEstornadas;
+
+    function abrir: iRelatorioOSEstornadas;
+    function atualizar: iRelatorioOSEstornadas;
+    function cancelar: iRelatorioOSEstornadas;
+    function fecharQuery: iRelatorioOSEstornadas;
+    function listarGrid(value: TDataSource): iRelatorioOSEstornadas;
+    function ordenarGrid(column: TColumn): iRelatorioOSEstornadas;
+
+    function exportar: iRelatorioOSEstornadas;
+    function validarData(componet: tmaskEdit):iRelatorioOSEstornadas;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

@@ -116,7 +116,9 @@ uses
   Form.Relatorio.Parcelas.Pagas.OS in 'Forms\Relatorios\Form.Relatorio.Parcelas.Pagas.OS.pas' {formRelatorioParcelasPagasOS},
   UClasse.Relatorio.Parcelas.Pagas.OS in 'Classes\Entity\Relatorios\UClasse.Relatorio.Parcelas.Pagas.OS.pas',
   Form.Relatorio.Parcelas.Pagas.Vendas in 'Forms\Relatorios\Form.Relatorio.Parcelas.Pagas.Vendas.pas' {formRelatorioParcelasPagasVendas},
-  UClasse.Relatorio.Parcelas.Pagas.Vendas in 'Classes\Entity\Relatorios\UClasse.Relatorio.Parcelas.Pagas.Vendas.pas';
+  UClasse.Relatorio.Parcelas.Pagas.Vendas in 'Classes\Entity\Relatorios\UClasse.Relatorio.Parcelas.Pagas.Vendas.pas',
+  Form.Relatorio.OS.Estornadas in 'Forms\Relatorios\Form.Relatorio.OS.Estornadas.pas' {formOSEstornadas},
+  UClasse.Relatorio.OS.Estornadas in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Estornadas.pas';
 
 {$R *.res}
 

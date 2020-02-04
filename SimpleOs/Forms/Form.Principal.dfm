@@ -7094,7 +7094,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 323
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7189,7 +7188,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 323
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7290,6 +7288,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioParcelasPagasVendas
+            end
+            item
+              Action = acRelatorioOSEstornadas
             end>
           TextColor = 13402157
         end>
@@ -7318,7 +7319,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 323
   end
   object spvSobre: TSplitView
     Left = 353
@@ -7332,7 +7332,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 323
   end
   object spvConfiguracoes: TSplitView
     Left = 353
@@ -7346,7 +7345,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 323
   end
   object Button2: TButton
     Left = 824
@@ -8120,6 +8118,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioParcelasPagasVendas: TAction
       Caption = 'Parcelas pagas Vendas'
       OnExecute = acRelatorioParcelasPagasVendasExecute
+    end
+    object acRelatorioOSEstornadas: TAction
+      Caption = 'OS Estornadas'
+      OnExecute = acRelatorioOSEstornadasExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu
