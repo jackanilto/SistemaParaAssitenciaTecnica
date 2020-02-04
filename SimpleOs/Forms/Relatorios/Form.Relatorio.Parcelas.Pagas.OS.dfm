@@ -5,9 +5,9 @@ inherited formRelatorioParcelasPagasOS: TformRelatorioParcelasPagasOS
   TextHeight = 13
   inherited Panel3: TPanel
     inherited sbImprimir: TSpeedButton
-      Left = -1
+      Left = 6
       OnClick = sbImprimirClick
-      ExplicitLeft = -1
+      ExplicitLeft = 6
     end
     inherited sbExportar: TSpeedButton
       Left = 142

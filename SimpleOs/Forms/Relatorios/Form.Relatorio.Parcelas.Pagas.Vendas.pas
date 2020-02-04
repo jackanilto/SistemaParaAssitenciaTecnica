@@ -30,6 +30,8 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbPesquisarDatasClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     var
@@ -95,7 +97,26 @@ end;
 procedure TformRelatorioParcelasPagasVendas.FormShow(Sender: TObject);
 begin
   inherited;
-  FParcelasPagasVendas.abrir.listarGrid(DataSource1)
+  FParcelasPagasVendas
+            .abrir
+            .getCampo('ID_PARCELA')
+            .getValor('0')
+            .sqlPesquisa
+            .listarGrid(DataSource1)
+end;
+
+procedure TformRelatorioParcelasPagasVendas.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FParcelasPagasVendas.exportar;
+end;
+
+procedure TformRelatorioParcelasPagasVendas.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_parcelas_pagas_vendas.fr3');
+  frxReport1.ShowReport();
 end;
 
 procedure TformRelatorioParcelasPagasVendas.sbPesquisarDatasClick(

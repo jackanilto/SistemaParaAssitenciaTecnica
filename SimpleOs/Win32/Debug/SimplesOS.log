@@ -3331,3 +3331,8 @@ Token unknown - line 1, column 55
 02/02/20 12:00:16 - Caption: Relatório de contas a receber - Venda
 02/02/20 12:00:16 - Erro:Exception
 02/02/20 12:00:16 - Erro:Digite uma data válida.
+04/02/20 20:04:43 - ===========================================
+04/02/20 20:04:43 - Form: formRelatorioParcelasPagasVendas
+04/02/20 20:04:43 - Caption: Parcelas recebidas vendas
+04/02/20 20:04:43 - Erro:EDBEditError
+04/02/20 20:04:43 - Erro:Invalid input value.  Use escape key to abandon changes

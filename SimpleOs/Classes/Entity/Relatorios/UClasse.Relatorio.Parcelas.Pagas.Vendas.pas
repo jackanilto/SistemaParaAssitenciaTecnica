@@ -150,7 +150,17 @@ begin
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('PARCELA').AsInteger;
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_DA_PARCELA').AsCurrency;
       pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime;
-      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('PAGO').AsString;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('JUROS').AsCurrency;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('MULTA').AsCurrency;
+      pasta.cells[linha, 12]:= FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('TOTAL').AsCurrency;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime;
+      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('FUNCIONARIO_PGTO').AsInteger;
+      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString;
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('PAGO').AsString;
+      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
+
 
       linha := linha + 1;
 
