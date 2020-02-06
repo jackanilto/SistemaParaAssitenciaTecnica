@@ -3336,3 +3336,23 @@ Token unknown - line 1, column 55
 04/02/20 20:04:43 - Caption: Parcelas recebidas vendas
 04/02/20 20:04:43 - Erro:EDBEditError
 04/02/20 20:04:43 - Erro:Invalid input value.  Use escape key to abandon changes
+06/02/20 12:04:36 - ===========================================
+06/02/20 12:04:36 - Form: formCriarConsultarOrdemServico
+06/02/20 12:04:36 - Caption: Criar / Consultar ordem de serviço
+06/02/20 12:04:36 - Erro:EDatabaseError
+06/02/20 12:04:36 - Erro:Dataset not in edit or insert mode
+06/02/20 12:06:44 - ===========================================
+06/02/20 12:06:44 - Form: formCriarConsultarOrdemServico
+06/02/20 12:06:44 - Caption: Criar / Consultar ordem de serviço
+06/02/20 12:06:44 - Erro:EDatabaseError
+06/02/20 12:06:44 - Erro:'Teste' is not a valid integer value for field 'MOTIVO'
+06/02/20 12:09:01 - ===========================================
+06/02/20 12:09:01 - Form: formCriarConsultarOrdemServico
+06/02/20 12:09:01 - Caption: Criar / Consultar ordem de serviço
+06/02/20 12:09:01 - Erro:EDatabaseError
+06/02/20 12:09:01 - Erro:'Teste' is not a valid integer value for field 'MOTIVO'
+06/02/20 12:10:22 - ===========================================
+06/02/20 12:10:22 - Form: formCriarConsultarOrdemServico
+06/02/20 12:10:22 - Caption: Criar / Consultar ordem de serviço
+06/02/20 12:10:22 - Erro:EDatabaseError
+06/02/20 12:10:22 - Erro:'Teste' is not a valid integer value for field 'MOTIVO'

@@ -134,8 +134,6 @@ begin
   pasta.cells[1, 18] := 'Pago';
   pasta.cells[1, 19] := 'Observação';
 
-  {CONTINUAR DESTA PARTE}
-
 
   try
     while not FQuery.TQuery.Eof do

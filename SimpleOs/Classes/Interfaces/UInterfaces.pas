@@ -1116,7 +1116,7 @@ type
     function getID(value:integer):iEstornarOS;
     function getID_ORDEM(value:integer):iEstornarOS;
     function getID_CLIENTE(value:integer):iEstornarOS;
-    function getVALOR_OS(value:string):iEstornarOS;
+    function getVALOR_OS(value:Currency):iEstornarOS;
     function getDATA(value:string):iEstornarOS;
     function getHORA(value:string):iEstornarOS;
     function getMOTIVO(value:string):iEstornarOS;

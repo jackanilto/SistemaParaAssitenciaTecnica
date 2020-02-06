@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -77,7 +78,7 @@ end;
 
 constructor TRelatorioOSEstornadas.create;
 begin
-  FTabela := 'ORDEM_SERVICO';
+  FTabela := 'VISULIZAR_OS_ESTORNO';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
@@ -100,8 +101,56 @@ begin
 end;
 
 function TRelatorioOSEstornadas.exportar: iRelatorioOSEstornadas;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório OS Estornadas';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Estorno';
+  pasta.cells[1, 2] := 'OS';
+  pasta.cells[1, 3] := 'Cód. Cliente';
+  pasta.cells[1, 4] := 'Nome do cliente';
+  pasta.cells[1, 5] := 'Valor';
+  pasta.cells[1, 6] := 'Data';
+  pasta.cells[1, 7] := 'Hora';
+  pasta.cells[1, 8] := 'Motivo';
+  pasta.cells[1, 9] := 'HORA';
+  pasta.cells[1, 10] := 'Nome do funcionário';
+  pasta.cells[1, 11] := 'Observação';
+
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_ESTORNO').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('NOME_CLIENTE').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('DATA').AsDateTime;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('HORA').AsDateTime;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('MOTIVO').AsString;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioOSEstornadas.fecharQuery: iRelatorioOSEstornadas;
@@ -142,37 +191,23 @@ begin
 
   with FQuery.TQuery do
   begin
-    FieldByName('ID').DisplayLabel := 'OS';
+    FieldByName('ID_ESTORNO').DisplayLabel := 'Estorno';
+    FieldByName('ID_ORDEM').DisplayLabel := 'OS';
     FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
-    FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
-    FieldByName('DEFEITO_RELATADO').Visible := false;
-    FieldByName('MARCA').Visible := false;
-    FieldByName('MODELO').visible := false;
-    FieldByName('NUMERO_SERIE').Visible := false;
-    FieldByName('DATA_FABRICACAO').Visible := false;
-    FieldByName('LAUDO_DO_TECNICO').Visible := false;
-    FieldByName('SOLUCAO_DO_PROBLEMA').Visible := false;
-    FieldByName('VALOR_DA_ORDEM').DisplayLabel := 'Valor da ordem';
-    FieldByName('DESCONTO').DisplayLabel := 'Desconto';
-    FieldByName('ACRESCIMO').DisplayLabel  := 'Acréscimo';
-    FieldByName('TOTAL_ORCAMENTO').DisplayLabel := 'Total do orçamento';
-    FieldByName('ID_FUNCIONARIO').Visible := false;
-    FieldByName('NOME_FUNCIONARIO').Visible := false;
-    FieldByName('RETORNO').DisplayLabel := 'Retorno';
-    FieldByName('DATA_RETORNO').DisplayLabel := 'Data de retorno';
-    FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'Situação da ordem';
-    FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
-    FieldByName('VALOR_DA_PARCELA').DisplayLabel := 'Valor da parcela';
-    FieldByName('PGTO').DisplayLabel := 'PGTO';
-    FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
-    FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
-    FieldByName('DATA_FINALIZACAO').DisplayLabel := 'Data de saída';
-    FieldByName('HORA_SAIDA').Visible := false;
-    FieldByName('DATA_BASE_VENCIMENTO').Visible := false;
-    FieldByName('ID_TECNICO_RESPONSAVEL').DisplayLabel := 'Cód. Técnico';
-    FieldByName('TECNICO_RESPONSAVEL').DisplayLabel := 'Técnico responsável';
+    FieldByName('NOME_CLIENTE').DisplayLabel := 'Nome cliente';
+    FieldByName('VALOR').DisplayLabel := 'Valor';
+    FieldByName('DATA').DisplayLabel := 'Data';
+    FieldByName('HORA').DisplayLabel := 'Data';
+    FieldByName('MOTIVO').DisplayLabel := 'Motivo';
+    FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';
+    FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Nome do funcionário';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
-    FieldByName('STATUS').Visible := false;
+
+    FieldByName('NOME_CLIENTE').DisplayWidth := 40;
+    FieldByName('MOTIVO').DisplayWidth := 40;
+    FieldByName('NOME_FUNCIONARIO').DisplayWidth := 40;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
+
   end;
 
   value.DataSet := FQuery.TQuery;

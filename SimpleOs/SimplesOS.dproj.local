@@ -53,8 +53,8 @@
     <Transaction>2019/10/10 11:41:45.000.534,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/10 11:42:26.000.712,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Configurar.Parcelas.pas</Transaction>
     <Transaction>2019/10/11 16:21:28.000.143,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2019/10/11 16:21:55.000.654,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Atividade.Funcionario.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/11 16:21:55.000.654,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Atividade.Funcionario.dfm=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.dfm</Transaction>
+    <Transaction>2019/10/11 16:21:55.000.654,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Cadastro.Atividade.Funcionario.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/11 16:32:32.000.936,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/11 16:33:04.000.565,C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Atividade.Funcionario.pas=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2019/10/11 17:03:08.000.481,=C:\Users\Nelson\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
@@ -324,12 +324,12 @@
     <Transaction>2020/02/04 20:19:53.000.372,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Relatorios\Form.Relatorio.Parcelas.Estornadas.OS.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Relatorios\Form.Relatorio.OS.Estornadas.pas</Transaction>
     <Transaction>2020/02/04 20:27:45.000.825,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
     <Transaction>2020/02/04 20:28:11.000.651,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Relatorios\UClasse.Relatorio.OS.Estornadas.pas</Transaction>
-    <Transaction>2020/02/05 20:04:13.875,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\ModelSupport_SimplesOS\default.txaPackage</Transaction>
-    <Transaction>2020/02/05 20:04:22.825,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\ModelSupport_SimplesOS\default.txvpck</Transaction>
-    <Transaction>2020/02/05 20:04:26.167,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\ModelSupport_SimplesOS\UInterfaces\default.txvpck</Transaction>
-    <Transaction>2020/02/05 20:04:26.355,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\ModelSupport_SimplesOS\SimplesOS\default.txvpck</Transaction>
-    <Transaction>2020/02/05 20:08:49.466,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
-    <Transaction>2020/02/05 20:09:13.348,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Estornar.OS.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
+    <Transaction>2020/02/05 20:04:13.000.875,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\ModelSupport_SimplesOS\default.txaPackage</Transaction>
+    <Transaction>2020/02/05 20:04:22.000.825,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\ModelSupport_SimplesOS\default.txvpck</Transaction>
+    <Transaction>2020/02/05 20:04:26.000.355,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\ModelSupport_SimplesOS\SimplesOS\default.txvpck</Transaction>
+    <Transaction>2020/02/05 20:04:26.000.167,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\ModelSupport_SimplesOS\UInterfaces\default.txvpck</Transaction>
+    <Transaction>2020/02/05 20:08:49.000.466,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
+    <Transaction>2020/02/05 20:09:13.000.348,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\UClasse.Entity.Estornar.OS.pas=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Classes"/>

@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Vcl.StdCtrls, UClasse.Entity.Criar.Ordem.Parcelas;
+  Vcl.StdCtrls, UClasse.Entity.Criar.Ordem.Parcelas, UClasse.Entity.Estornar.OS;
 
 type
 
@@ -15,6 +15,7 @@ type
     FQuery: iConexaoQuery;
     FQueryParcelas: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
+    FEstornarOS:iEstornarOS;
     FTabela: string;
     FCampo: string;
     FValor: string;
@@ -296,6 +297,8 @@ begin
   FQuery := TConexaoQuery.new.Query(FTabela);
   FQueryParcelas := TConexaoQuery.new.Query('PARCELAS_ORDEM');
 
+  FEstornarOS := TEntityEstornarOS.new;
+
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Ordem de serviço').getCodigoFuncionario
     (funcionarioLogado);
@@ -400,6 +403,16 @@ begin
         FQuery.TQuery.Post;
 
         estornarParcelas(FQuery.TQuery.FieldByName('ID').AsInteger);
+
+        FEstornarOS
+                  .getID_ORDEM(FQuery.TQuery.FieldByName('ID').AsInteger)
+                  .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+                  .getVALOR_OS(FQuery.TQuery.FieldByName('VALOR_DA_ORDEM').AsCurrency)
+                  .getDATA(datetostr(date))
+                  .getHORA(TimeToStr(time))
+                  .getMOTIVO('')
+                  .inserir
+                  .gravar;
 
       end;
     end

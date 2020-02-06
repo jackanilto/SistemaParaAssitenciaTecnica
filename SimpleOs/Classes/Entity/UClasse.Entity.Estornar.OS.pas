@@ -8,7 +8,7 @@ uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
 
 type
 
-  TEntityEstornarVenda = class(TInterfacedObject, iEstornarOS)
+  TEntityEstornarOS = class(TInterfacedObject, iEstornarOS)
   private
 
     FQuery: iConexaoQuery;
@@ -60,7 +60,7 @@ type
     function getID(value: integer): iEstornarOS;
     function getID_ORDEM(value: integer): iEstornarOS;
     function getID_CLIENTE(value: integer): iEstornarOS;
-    function getVALOR_OS(value: string): iEstornarOS;
+    function getVALOR_OS(value: Currency): iEstornarOS;
     function getDATA(value: string): iEstornarOS;
     function getHORA(value: string): iEstornarOS;
     function getMOTIVO(value: string): iEstornarOS;
@@ -81,9 +81,9 @@ type
 
 implementation
 
-{ TEntityEstornarVenda }
+{ TEntityEstornarOS }
 
-function TEntityEstornarVenda.abrir: iEstornarOS;
+function TEntityEstornarOS.abrir: iEstornarOS;
 begin
 
   result := self;
@@ -91,24 +91,24 @@ begin
 
 end;
 
-function TEntityEstornarVenda.atualizar: iEstornarOS;
+function TEntityEstornarOS.atualizar: iEstornarOS;
 begin
   result := self;
   FQuery.TQuery.Refresh;
 end;
 
-function TEntityEstornarVenda.cancelar: iEstornarOS;
+function TEntityEstornarOS.cancelar: iEstornarOS;
 begin
   FQuery.TQuery.Cancel;
   // FQuery.TQuery.close;
 end;
 
-function TEntityEstornarVenda.codigoCadastro(sp: string): integer;
+function TEntityEstornarOS.codigoCadastro(sp: string): integer;
 begin
   result := FQuery.codigoCadastro('');
 end;
 
-constructor TEntityEstornarVenda.create;
+constructor TEntityEstornarOS.create;
 begin
   FTabela := 'ESTORNO_ORDEM';
   FQuery := TConexaoQuery.new.Query(FTabela);
@@ -119,41 +119,41 @@ begin
 
 end;
 
-destructor TEntityEstornarVenda.destroy;
+destructor TEntityEstornarOS.destroy;
 begin
 
   inherited;
 end;
 
-function TEntityEstornarVenda.ExecSql: iEstornarOS;
+function TEntityEstornarOS.ExecSql: iEstornarOS;
 begin
   result := self;
   FQuery.ExecSql(FTabela);
 end;
 
-function TEntityEstornarVenda.exportar: iEstornarOS;
+function TEntityEstornarOS.exportar: iEstornarOS;
 begin
   result := self;
 end;
 
-function TEntityEstornarVenda.fecharQuery: iEstornarOS;
+function TEntityEstornarOS.fecharQuery: iEstornarOS;
 begin
   FQuery.TQuery.close;
 end;
 
-function TEntityEstornarVenda.getCampo(value: string): iEstornarOS;
+function TEntityEstornarOS.getCampo(value: string): iEstornarOS;
 begin
   result := self;
   FCampo := value;
 end;
 
-function TEntityEstornarVenda.getCodigo(value: integer): iEstornarOS;
+function TEntityEstornarOS.getCodigo(value: integer): iEstornarOS;
 begin
   result := self;
   FCodigo := value;
 end;
 
-function TEntityEstornarVenda.getDATA(value: string): iEstornarOS;
+function TEntityEstornarOS.getDATA(value: string): iEstornarOS;
 begin
   result := self;
 
@@ -172,27 +172,27 @@ begin
 
 end;
 
-function TEntityEstornarVenda.getDataFinal(value: TDate): iEstornarOS;
+function TEntityEstornarOS.getDataFinal(value: TDate): iEstornarOS;
 begin
   result := self;
   FDataFinal := value;
   // FQuery.getDataFinal(value);
 end;
 
-function TEntityEstornarVenda.getDataInicial(value: TDate): iEstornarOS;
+function TEntityEstornarOS.getDataInicial(value: TDate): iEstornarOS;
 begin
   result := self;
   FDataInicial := value;
   // FQuery.getDataInicial(value);
 end;
 
-function TEntityEstornarVenda.getFUNCIONARIO(value: integer): iEstornarOS;
+function TEntityEstornarOS.getFUNCIONARIO(value: integer): iEstornarOS;
 begin
   result := self;
   FFUNCIONARIO := funcionarioLogado;
 end;
 
-function TEntityEstornarVenda.getHORA(value: string): iEstornarOS;
+function TEntityEstornarOS.getHORA(value: string): iEstornarOS;
 begin
 
   result := self;
@@ -212,13 +212,13 @@ begin
 
 end;
 
-function TEntityEstornarVenda.getID(value: integer): iEstornarOS;
+function TEntityEstornarOS.getID(value: integer): iEstornarOS;
 begin
   result := self;
   FID := value;
 end;
 
-function TEntityEstornarVenda.getID_CLIENTE(value: integer): iEstornarOS;
+function TEntityEstornarOS.getID_CLIENTE(value: integer): iEstornarOS;
 begin
 
   result := self;
@@ -230,7 +230,7 @@ begin
 
 end;
 
-function TEntityEstornarVenda.getID_ORDEM(value: integer): iEstornarOS;
+function TEntityEstornarOS.getID_ORDEM(value: integer): iEstornarOS;
 begin
 
   result := self;
@@ -242,7 +242,7 @@ begin
 
 end;
 
-function TEntityEstornarVenda.getMOTIVO(value: string): iEstornarOS;
+function TEntityEstornarOS.getMOTIVO(value: string): iEstornarOS;
 var
   motivo: string;
 begin
@@ -255,7 +255,8 @@ begin
 
     if motivo = EmptyStr then
     begin
-     MessageDlg('Você precisa informa um motivo para este estorno', mtWarning, [mbOK], 0, mbOK);
+      MessageDlg('Você precisa informa um motivo para este estorno', mtWarning,
+        [mbOK], 0, mbOK);
     end;
   end;
 
@@ -263,21 +264,21 @@ begin
 
 end;
 
-function TEntityEstornarVenda.getNome(value: string): iEstornarOS;
+function TEntityEstornarOS.getNome(value: string): iEstornarOS;
 begin
   result := self;
   FNome := value;
 end;
 
-function TEntityEstornarVenda.getNOME_FUNCIONARIO(value: string): iEstornarOS;
+function TEntityEstornarOS.getNOME_FUNCIONARIO(value: string): iEstornarOS;
 begin
 
- result := self;
- FNOME_FUNCIONARIO := NomeFuncionarioLogado;
+  result := self;
+  FNOME_FUNCIONARIO := NomeFuncionarioLogado;
 
 end;
 
-function TEntityEstornarVenda.getOBSERVACAO(value: string): iEstornarOS;
+function TEntityEstornarOS.getOBSERVACAO(value: string): iEstornarOS;
 begin
 
   result := self;
@@ -285,18 +286,20 @@ begin
 
 end;
 
-function TEntityEstornarVenda.getValor(value: string): iEstornarOS;
+function TEntityEstornarOS.getValor(value: string): iEstornarOS;
 begin
   result := self;
   FValor := UpperCase(value);
+
 end;
 
-function TEntityEstornarVenda.getVALOR_OS(value: string): iEstornarOS;
+function TEntityEstornarOS.getVALOR_OS(value: Currency): iEstornarOS;
 begin
-
+  result := self;
+  FVALOR_OS := value;
 end;
 
-function TEntityEstornarVenda.Gravar: iEstornarOS;
+function TEntityEstornarOS.Gravar: iEstornarOS;
 begin
 
   result := self;
@@ -307,6 +310,15 @@ begin
 
   with FQuery.TQuery do
   begin
+    FieldByName('ID_ORDEM').AsInteger := FID_ORDEM;
+    FieldByName('ID_CLIENTE').AsInteger := FID_CLIENTE;
+    FieldByName('VALOR').AsFloat := FVALOR_OS;
+    FieldByName('DATA').AsDateTime := FDATA;
+    FieldByName('HORA').AsDateTime := FHORA;
+    FieldByName('MOTIVO').AsString := FMOTIVO;
+    FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+    FieldByName('NOME_FUNCIONARIO').AsString := NomeFuncionarioLogado;
 
   end;
 
@@ -315,6 +327,7 @@ begin
 
   try
     FQuery.TQuery.Post;
+    showmessage('Operação realizada com sucesso!');
   except
     on e: Exception do
     begin
@@ -325,14 +338,14 @@ begin
 
 end;
 
-function TEntityEstornarVenda.inserir: iEstornarOS;
+function TEntityEstornarOS.inserir: iEstornarOS;
 begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
 end;
 
-function TEntityEstornarVenda.listarGrid(value: TDataSource): iEstornarOS;
+function TEntityEstornarOS.listarGrid(value: TDataSource): iEstornarOS;
 begin
 
   result := self;
@@ -360,23 +373,23 @@ begin
 
 end;
 
-class function TEntityEstornarVenda.new: iEstornarOS;
+class function TEntityEstornarOS.new: iEstornarOS;
 begin
   result := self.create;
 end;
 
-function TEntityEstornarVenda.nomeTabela(value: string): iEstornarOS;
+function TEntityEstornarOS.nomeTabela(value: string): iEstornarOS;
 begin
   result := self;
   FTabela := value;
 end;
 
-function TEntityEstornarVenda.open(value: string): iEstornarOS;
+function TEntityEstornarOS.open(value: string): iEstornarOS;
 begin
   FQuery.Query(FTabela);
 end;
 
-function TEntityEstornarVenda.ordenarGrid(column: TColumn): iEstornarOS;
+function TEntityEstornarOS.ordenarGrid(column: TColumn): iEstornarOS;
 begin
 
   if FQuery.TQuery.IndexFieldNames = column.FieldName then
@@ -386,32 +399,32 @@ begin
 
 end;
 
-function TEntityEstornarVenda.pesquisar: iEstornarOS;
+function TEntityEstornarOS.pesquisar: iEstornarOS;
 begin
   result := self;
 end;
 
-function TEntityEstornarVenda.sqlPesquisa: iEstornarOS;
+function TEntityEstornarOS.sqlPesquisa: iEstornarOS;
 begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
 end;
 
-function TEntityEstornarVenda.sqlPesquisaData: iEstornarOS;
+function TEntityEstornarOS.sqlPesquisaData: iEstornarOS;
 begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
     .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
 end;
 
-function TEntityEstornarVenda.sqlPesquisaEstatica: iEstornarOS;
+function TEntityEstornarOS.sqlPesquisaEstatica: iEstornarOS;
 begin
   result := self;
   FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
     .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
 end;
 
-function TEntityEstornarVenda.validarData(componet: tmaskEdit): iEstornarOS;
+function TEntityEstornarOS.validarData(componet: tmaskEdit): iEstornarOS;
 var
   d: TDate;
 begin
