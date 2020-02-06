@@ -142,38 +142,37 @@ begin
 
   with FQuery.TQuery do
   begin
-    {CONTINUAR DESTA PARTE}
-    FieldByName('ID').DisplayLabel = 'OS';
+    FieldByName('ID').DisplayLabel := 'OS';
     FieldByName('ID_CLIENTE').DisplayLabel := 'Cód. Cliente';
-    FieldByName('EQUIPAMENTO
-    FieldByName('DEFEITO_RELATADO
-    FieldByName('MARCA
-    FieldByName('MODELO
-    FieldByName('NUMERO_SERIE
-    FieldByName('DATA_FABRICACAO
-    FieldByName('LAUDO_DO_TECNICO
-    FieldByName('SOLUCAO_DO_PROBLEMA
-    FieldByName('VALOR_DA_ORDEM
-    FieldByName('DESCONTO
-    FieldByName('ACRESCIMO
-    FieldByName('TOTAL_ORCAMENTO
-    FieldByName('ID_FUNCIONARIO
-    FieldByName('NOME_FUNCIONARIO
-    FieldByName('RETORNO
-    FieldByName('DATA_RETORNO
-    FieldByName('SITUACAO_DA_ORDEM
-    FieldByName('TOTAL_PARCELAS
-    FieldByName('VALOR_DA_PARCELA
-    FieldByName('PGTO
-    FieldByName('PRIORIDADE
-    FieldByName('DATA_ENTRADA
-    FieldByName('DATA_FINALIZACAO
-    FieldByName('HORA_SAIDA
-    FieldByName('DATA_BASE_VENCIMENTO
-    FieldByName('ID_TECNICO_RESPONSAVEL
-    FieldByName('TECNICO_RESPONSAVEL
-    FieldByName('OBSERVACAO
-    FieldByName('STATUS
+    FieldByName('EQUIPAMENTO').DisplayLabel := 'Equipamento';
+    FieldByName('DEFEITO_RELATADO').Visible := false;
+    FieldByName('MARCA').Visible := false;
+    FieldByName('MODELO').visible := false;
+    FieldByName('NUMERO_SERIE').Visible := false;
+    FieldByName('DATA_FABRICACAO').Visible := false;
+    FieldByName('LAUDO_DO_TECNICO').Visible := false;
+    FieldByName('SOLUCAO_DO_PROBLEMA').Visible := false;
+    FieldByName('VALOR_DA_ORDEM').DisplayLabel := 'Valor da ordem';
+    FieldByName('DESCONTO').DisplayLabel := 'Desconto';
+    FieldByName('ACRESCIMO').DisplayLabel  := 'Acréscimo';
+    FieldByName('TOTAL_ORCAMENTO').DisplayLabel := 'Total do orçamento';
+    FieldByName('ID_FUNCIONARIO').Visible := false;
+    FieldByName('NOME_FUNCIONARIO').Visible := false;
+    FieldByName('RETORNO').DisplayLabel := 'Retorno';
+    FieldByName('DATA_RETORNO').DisplayLabel := 'Data de retorno';
+    FieldByName('SITUACAO_DA_ORDEM').DisplayLabel := 'Situação da ordem';
+    FieldByName('TOTAL_PARCELAS').DisplayLabel := 'Total de parcelas';
+    FieldByName('VALOR_DA_PARCELA').DisplayLabel := 'Valor da parcela';
+    FieldByName('PGTO').DisplayLabel := 'PGTO';
+    FieldByName('PRIORIDADE').DisplayLabel := 'Prioridade';
+    FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
+    FieldByName('DATA_FINALIZACAO').DisplayLabel := 'Data de saída';
+    FieldByName('HORA_SAIDA').Visible := false;
+    FieldByName('DATA_BASE_VENCIMENTO').Visible := false;
+    FieldByName('ID_TECNICO_RESPONSAVEL').DisplayLabel := 'Cód. Técnico';
+    FieldByName('TECNICO_RESPONSAVEL').DisplayLabel := 'Técnico responsável';
+    FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+    FieldByName('STATUS').Visible := false;
   end;
 
   value.DataSet := FQuery.TQuery;

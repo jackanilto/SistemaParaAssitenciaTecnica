@@ -1089,6 +1089,51 @@ type
 
   end;
 
+  iEstornarOS = interface
+    ['{C4953B95-878E-4020-A2D1-5C811361D295}']
+
+    function nomeTabela(value: string): iEstornarOS;
+    function getCampo(value: string): iEstornarOS;
+    function getValor(value: string): iEstornarOS;
+    function getDataInicial(value: TDate): iEstornarOS;
+    function getDataFinal(value: TDate): iEstornarOS;
+    function open(value: string): iEstornarOS;
+    function pesquisar: iEstornarOS;
+    function ExecSql: iEstornarOS;
+    function sqlPesquisa: iEstornarOS;
+    function sqlPesquisaData: iEstornarOS;
+    function sqlPesquisaEstatica: iEstornarOS;
+
+    function abrir: iEstornarOS;
+    function inserir: iEstornarOS;
+    function gravar: iEstornarOS;
+    function atualizar: iEstornarOS;
+    function fecharQuery: iEstornarOS;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iEstornarOS;
+    function ordenarGrid(column: TColumn): iEstornarOS;
+
+    function getID(value:integer):iEstornarOS;
+    function getID_ORDEM(value:integer):iEstornarOS;
+    function getID_CLIENTE(value:integer):iEstornarOS;
+    function getVALOR_OS(value:string):iEstornarOS;
+    function getDATA(value:string):iEstornarOS;
+    function getHORA(value:string):iEstornarOS;
+    function getMOTIVO(value:string):iEstornarOS;
+    function getFUNCIONARIO(value:integer):iEstornarOS;
+    function getNOME_FUNCIONARIO(value:string):iEstornarOS;
+    function getOBSERVACAO(value:string):iEstornarOS;
+
+
+
+    function exportar: iEstornarOS;
+    function validarData(componet: tmaskEdit):iEstornarOS;
+
+    function getCodigo(value: integer): iEstornarOS;
+    function getNome(value: string): iEstornarOS;
+
+  end;
+
   iVisualizarOrdens = interface
     ['{9CADDFBD-CBF2-4294-8310-928571A77E6F}']
 
