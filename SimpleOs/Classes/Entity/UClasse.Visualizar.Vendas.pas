@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  System.Win.ComObj;
+  System.Win.ComObj, UClasse.Estornar.Venda;
 
 type
 
@@ -15,6 +15,7 @@ type
     FQuery: iConexaoQuery;
     FQueryItens: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
+    FEstornarVenda:iEstonarVenda;
     FTabela: string;
     FCampo: string;
     FValor: string;
@@ -89,6 +90,8 @@ begin
 
   FQueryItens := TConexaoQuery.new.Query('ITENS_VENDA');
 
+  FEstornarVenda := TEntityVendasEstornadas.new;
+
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Visualizar venda de produtos')
     .getCodigoFuncionario(funcionarioLogado);
@@ -154,6 +157,20 @@ begin
 
         end;
       end;
+
+
+      FEstornarVenda
+                    .getID_VENDA(FQuery.TQuery.FieldByName('ID').AsInteger)
+                    .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+                    .getVALOR_VENDA(FQuery.TQuery.FieldByName('TOTAL').AsCurrency)
+                    .getDATA(DateToStr(date))
+                    .getHORA(TimeToStr(time))
+                    .getMOTIVO('')
+                    .getFUNCIONARIO(0)
+                    .getNOME_FUNCIONARIO('')
+                    .getOBSERVACAO('')
+                    .inserir
+                    .gravar;
 
       showmessage('Venda estornada com sucesso!!!');
 

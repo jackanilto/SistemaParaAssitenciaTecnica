@@ -25,7 +25,8 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbPesquisarDatasClick(Sender: TObject);
-    procedure sbExportarClick(Sender: TObject);  private
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);  private
     { Private declarations }
     var
       FRelatorioEstornos:iRelatorioOSEstornadas;
@@ -87,6 +88,14 @@ procedure TformOSEstornadas.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FRelatorioEstornos.exportar;
+end;
+
+procedure TformOSEstornadas.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_os_estornadas.fr3');
+  frxReport1.ShowReport();
 end;
 
 procedure TformOSEstornadas.sbPesquisarDatasClick(Sender: TObject);

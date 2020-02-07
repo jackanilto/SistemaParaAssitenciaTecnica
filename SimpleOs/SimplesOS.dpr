@@ -119,7 +119,8 @@ uses
   UClasse.Relatorio.Parcelas.Pagas.Vendas in 'Classes\Entity\Relatorios\UClasse.Relatorio.Parcelas.Pagas.Vendas.pas',
   Form.Relatorio.OS.Estornadas in 'Forms\Relatorios\Form.Relatorio.OS.Estornadas.pas' {formOSEstornadas},
   UClasse.Relatorio.OS.Estornadas in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Estornadas.pas',
-  UClasse.Entity.Estornar.OS in 'Classes\Entity\UClasse.Entity.Estornar.OS.pas';
+  UClasse.Entity.Estornar.OS in 'Classes\Entity\UClasse.Entity.Estornar.OS.pas',
+  UClasse.Estornar.Venda in 'Classes\Entity\UClasse.Estornar.Venda.pas';
 
 {$R *.res}
 

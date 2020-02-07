@@ -360,6 +360,7 @@
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Estornadas.pas"/>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Estornar.OS.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Estornar.Venda.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

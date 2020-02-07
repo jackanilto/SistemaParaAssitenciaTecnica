@@ -3356,3 +3356,23 @@ Token unknown - line 1, column 55
 06/02/20 12:10:22 - Caption: Criar / Consultar ordem de serviço
 06/02/20 12:10:22 - Erro:EDatabaseError
 06/02/20 12:10:22 - Erro:'Teste' is not a valid integer value for field 'MOTIVO'
+07/02/20 11:52:02 - ===========================================
+07/02/20 11:52:02 - Form: formVisualizarVendas
+07/02/20 11:52:02 - Caption: Visualizar vendas
+07/02/20 11:52:02 - Erro:Exception
+07/02/20 11:52:02 - Erro:Houve um erro ao tentar estornar esta venda. Field '' not found
+07/02/20 11:54:17 - ===========================================
+07/02/20 11:54:17 - Form: formVisualizarVendas
+07/02/20 11:54:17 - Caption: Visualizar vendas
+07/02/20 11:54:17 - Erro:Exception
+07/02/20 11:54:17 - Erro:Houve um erro ao tentar estornar esta venda. Access violation at address 00ACB111 in module 'SimplesOS.exe'. Read of address 00000000
+07/02/20 11:59:34 - ===========================================
+07/02/20 11:59:34 - Form: formVisualizarVendas
+07/02/20 11:59:34 - Caption: Visualizar vendas
+07/02/20 11:59:34 - Erro:Exception
+07/02/20 11:59:34 - Erro:Houve um erro ao tentar estornar esta venda. Dataset not in edit or insert mode
+07/02/20 12:00:44 - ===========================================
+07/02/20 12:00:44 - Form: formVisualizarVendas
+07/02/20 12:00:44 - Caption: Visualizar vendas
+07/02/20 12:00:44 - Erro:Exception
+07/02/20 12:00:44 - Erro:Houve um erro ao tentar estornar esta venda. 'Cliente sem noção' is not a valid integer value for field 'MOTIVO'

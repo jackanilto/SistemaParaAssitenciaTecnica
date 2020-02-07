@@ -1134,6 +1134,49 @@ type
 
   end;
 
+  iEstonarVenda = interface
+    ['{864B5D1E-31B5-4F3B-8D05-679A40C95087}']
+
+    function nomeTabela(value: string): iEstonarVenda;
+    function getCampo(value: string): iEstonarVenda;
+    function getValor(value: string): iEstonarVenda;
+    function getDataInicial(value: TDate): iEstonarVenda;
+    function getDataFinal(value: TDate): iEstonarVenda;
+    function open(value: string): iEstonarVenda;
+    function pesquisar: iEstonarVenda;
+    function ExecSql: iEstonarVenda;
+    function sqlPesquisa: iEstonarVenda;
+    function sqlPesquisaData: iEstonarVenda;
+    function sqlPesquisaEstatica: iEstonarVenda;
+
+    function abrir: iEstonarVenda;
+    function inserir: iEstonarVenda;
+    function gravar: iEstonarVenda;
+    function atualizar: iEstonarVenda;
+    function fecharQuery: iEstonarVenda;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iEstonarVenda;
+    function ordenarGrid(column: TColumn): iEstonarVenda;
+
+    function getID(value:integer):iEstonarVenda;
+    function getID_VENDA(value:integer):iEstonarVenda;
+    function getID_CLIENTE(value:integer):iEstonarVenda;
+    function getVALOR_VENDA(value:Currency):iEstonarVenda;
+    function getDATA(value:string):iEstonarVenda;
+    function getHORA(value:string):iEstonarVenda;
+    function getMOTIVO(value:string):iEstonarVenda;
+    function getFUNCIONARIO(value:integer):iEstonarVenda;
+    function getNOME_FUNCIONARIO(value:string):iEstonarVenda;
+    function getOBSERVACAO(value:string):iEstonarVenda;
+
+    function exportar: iEstonarVenda;
+    function validarData(componet: tmaskEdit):iEstonarVenda;
+
+    function getCodigo(value: integer): iEstonarVenda;
+    function getNome(value: string): iEstonarVenda;
+
+  end;
+
   iVisualizarOrdens = interface
     ['{9CADDFBD-CBF2-4294-8310-928571A77E6F}']
 
