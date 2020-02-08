@@ -27,7 +27,6 @@ object formModeloRelatorio: TformModeloRelatorio
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 917
     DesignSize = (
       1019
       41)
@@ -128,8 +127,6 @@ object formModeloRelatorio: TformModeloRelatorio
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 112
-    ExplicitTop = 504
     DesignSize = (
       1019
       64)
@@ -330,6 +327,7 @@ object formModeloRelatorio: TformModeloRelatorio
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnChange = cbPesquisarChange
     end
     object edtPesquisar: TEdit
       Left = 820

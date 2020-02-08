@@ -27,6 +27,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,6 +40,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformModeloRelatorio.cbPesquisarChange(Sender: TObject);
+begin
+  edtPesquisar.SetFocus;
+end;
 
 procedure TformModeloRelatorio.FormShow(Sender: TObject);
 begin

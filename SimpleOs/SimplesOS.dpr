@@ -120,7 +120,9 @@ uses
   Form.Relatorio.OS.Estornadas in 'Forms\Relatorios\Form.Relatorio.OS.Estornadas.pas' {formOSEstornadas},
   UClasse.Relatorio.OS.Estornadas in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Estornadas.pas',
   UClasse.Entity.Estornar.OS in 'Classes\Entity\UClasse.Entity.Estornar.OS.pas',
-  UClasse.Estornar.Venda in 'Classes\Entity\UClasse.Estornar.Venda.pas';
+  UClasse.Estornar.Venda in 'Classes\Entity\UClasse.Estornar.Venda.pas',
+  Form.Relatorio.Vendas.Estornadas in 'Forms\Relatorios\Form.Relatorio.Vendas.Estornadas.pas' {formRelatorioVendasEstornadas},
+  UClasse.Relatorio.Vendas.Estornadas in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Estornadas.pas';
 
 {$R *.res}
 

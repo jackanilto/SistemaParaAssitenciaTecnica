@@ -11,7 +11,8 @@ uses
   Vcl.Imaging.pngimage, System.Actions, Vcl.ActnList, Vcl.Menus, UFactory,
   Form.Cadastro.Forma.Pagamento, Form.Cadastro.Clientes, Form.Entradas.Produtos,
   UClasse.Entity.Criar.Ordem.Servico, Form.Visualizar.Vendas,
-  Form.Modelo.Relatorio, Form.Relatorio.OS.Estornadas;
+  Form.Modelo.Relatorio, Form.Relatorio.OS.Estornadas,
+  Form.Relatorio.Vendas.Estornadas;
 
 type
   TformPrincipal = class(TForm)
@@ -87,6 +88,7 @@ type
     acRelatorioParcelasPagasOS: TAction;
     acRelatorioParcelasPagasVendas: TAction;
     acRelatorioOSEstornadas: TAction;
+    acRelaorioVendasEstornadas: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -129,6 +131,7 @@ type
     procedure acRelatorioParcelasPagasOSExecute(Sender: TObject);
     procedure acRelatorioParcelasPagasVendasExecute(Sender: TObject);
     procedure acRelatorioOSEstornadasExecute(Sender: TObject);
+    procedure acRelaorioVendasEstornadasExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -353,6 +356,12 @@ procedure TformPrincipal.acQuitarParcelasExecute(Sender: TObject);
 begin
   formQuitarParcelasVendas := TformQuitarParcelasVendas.Create(self);
   TFactory.new.criarJanela.formShow(formQuitarParcelasVendas, '');
+end;
+
+procedure TformPrincipal.acRelaorioVendasEstornadasExecute(Sender: TObject);
+begin
+  formRelatorioVendasEstornadas := tformRelatorioVendasEstornadas.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioVendasEstornadas, '');
 end;
 
 procedure TformPrincipal.acRelatorioClientesExecute(Sender: TObject);

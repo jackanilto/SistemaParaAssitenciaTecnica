@@ -122,7 +122,7 @@ begin
   pasta.cells[1, 6] := 'Data';
   pasta.cells[1, 7] := 'Hora';
   pasta.cells[1, 8] := 'Motivo';
-  pasta.cells[1, 9] := 'HORA';
+  pasta.cells[1, 9] := 'Cód. Funcionário';
   pasta.cells[1, 10] := 'Nome do funcionário';
   pasta.cells[1, 11] := 'Observação';
 

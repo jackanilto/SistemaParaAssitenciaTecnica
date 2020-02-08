@@ -361,6 +361,11 @@
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Estornadas.pas"/>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Estornar.OS.pas"/>
         <DCCReference Include="Classes\Entity\UClasse.Estornar.Venda.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Vendas.Estornadas.pas">
+            <Form>formRelatorioVendasEstornadas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Estornadas.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

@@ -7291,6 +7291,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioOSEstornadas
+            end
+            item
+              Action = acRelaorioVendasEstornadas
             end>
           TextColor = 13402157
         end>
@@ -8122,6 +8125,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioOSEstornadas: TAction
       Caption = 'OS Estornadas'
       OnExecute = acRelatorioOSEstornadasExecute
+    end
+    object acRelaorioVendasEstornadas: TAction
+      Caption = 'Vendas Estornadas'
+      OnExecute = acRelaorioVendasEstornadasExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

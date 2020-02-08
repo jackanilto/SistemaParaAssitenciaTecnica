@@ -3376,3 +3376,20 @@ Token unknown - line 1, column 55
 07/02/20 12:00:44 - Caption: Visualizar vendas
 07/02/20 12:00:44 - Erro:Exception
 07/02/20 12:00:44 - Erro:Houve um erro ao tentar estornar esta venda. 'Cliente sem noção' is not a valid integer value for field 'MOTIVO'
+08/02/20 14:58:40 - ===========================================
+08/02/20 14:58:40 - Form: formVisualizarVendas
+08/02/20 14:58:40 - Caption: Visualizar vendas
+08/02/20 14:58:40 - Erro:Exception
+08/02/20 14:58:40 - Erro:Houve um erro ao tentar estornar esta venda. Erro ao tentar gravar os dados. [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_ESTORNO_VENDA_2" on table "ESTORNO_VENDA"
+Foreign key reference target does not exist
+Problematic key value is ("ID_CLIENTE" = 0)
+08/02/20 15:24:50 - ===========================================
+08/02/20 15:24:50 - Form: formRelatorioVendasEstornadas
+08/02/20 15:24:50 - Caption: Vendas Estornadas
+08/02/20 15:24:50 - Erro:Exception
+08/02/20 15:24:50 - Erro:Digite uma data válida.
+08/02/20 15:25:00 - ===========================================
+08/02/20 15:25:00 - Form: formRelatorioVendasEstornadas
+08/02/20 15:25:00 - Caption: Vendas Estornadas
+08/02/20 15:25:00 - Erro:Exception
+08/02/20 15:25:00 - Erro:Digite uma data válida.

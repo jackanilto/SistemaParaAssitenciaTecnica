@@ -1,0 +1,46 @@
+unit Form.Relatorio.Vendas.Estornadas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.Vendas.Estornadas;
+
+type
+  TEnumPesquisar = (venda, cod_cliente, cliente);
+
+type
+  TformRelatorioVendasEstornadas = class(TformModeloRelatorio)
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  var
+    FRelatorioVendasEstornadas: iRelatorioVendasEstornadas;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioVendasEstornadas: TformRelatorioVendasEstornadas;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioVendasEstornadas.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FRelatorioVendasEstornadas := TRelatorioVendasEstornadas.new;
+end;
+
+procedure TformRelatorioVendasEstornadas.FormShow(Sender: TObject);
+begin
+  inherited;
+  FRelatorioVendasEstornadas.abrir.listarGrid(DataSource1);
+end;
+
+end.
