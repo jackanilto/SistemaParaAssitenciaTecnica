@@ -62,6 +62,7 @@ begin
   end;
 
   DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+
 end;
 
 procedure TformRelatorioContasAReceberVenda.DBGrid1TitleClick(Column: TColumn);

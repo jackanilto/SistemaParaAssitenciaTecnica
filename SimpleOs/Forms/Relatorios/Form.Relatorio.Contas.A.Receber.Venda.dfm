@@ -4,7 +4,6 @@ inherited formRelatorioContasAReceberVenda: TformRelatorioContasAReceberVenda
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
-    ExplicitTop = 494
     inherited sbImprimir: TSpeedButton
       OnClick = sbImprimirClick
     end

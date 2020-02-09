@@ -3393,3 +3393,8 @@ Problematic key value is ("ID_CLIENTE" = 0)
 08/02/20 15:25:00 - Caption: Vendas Estornadas
 08/02/20 15:25:00 - Erro:Exception
 08/02/20 15:25:00 - Erro:Digite uma data válida.
+09/02/20 11:47:11 - ===========================================
+09/02/20 11:47:11 - Form: formRelatorioContasAPagar
+09/02/20 11:47:11 - Caption: Relatório de contas a pagar
+09/02/20 11:47:11 - Erro:EConvertError
+09/02/20 11:47:11 - Erro:'TESTE' is not a valid integer value

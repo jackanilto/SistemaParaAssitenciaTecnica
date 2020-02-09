@@ -1930,6 +1930,37 @@ type
 
   end;
 
+  iRelatorioContasAPagar = interface
+    ['{FDF62F55-9C62-4FB7-8B91-2043AC166F66}']
+
+    function nomeTabela(value: string): iRelatorioContasAPagar;
+    function getCampo(value: string): iRelatorioContasAPagar;
+    function getValor(value: string): iRelatorioContasAPagar;
+    function getDataInicial(value: TDate): iRelatorioContasAPagar;
+    function getDataFinal(value: TDate): iRelatorioContasAPagar;
+    function open(value: string): iRelatorioContasAPagar;
+    function pesquisar: iRelatorioContasAPagar;
+    function ExecSql: iRelatorioContasAPagar;
+    function sqlPesquisa: iRelatorioContasAPagar;
+    function sqlPesquisaData: iRelatorioContasAPagar;
+    function sqlPesquisaEstatica: iRelatorioContasAPagar;
+
+    function abrir: iRelatorioContasAPagar;
+    function atualizar: iRelatorioContasAPagar;
+    function cancelar: iRelatorioContasAPagar;
+    function fecharQuery: iRelatorioContasAPagar;
+    function listarGrid(value: TDataSource): iRelatorioContasAPagar;
+    function ordenarGrid(column: TColumn): iRelatorioContasAPagar;
+
+    function selecionarContasPagas:iRelatorioContasAPagar;
+    function selecionarContasAVencer:iRelatorioContasAPagar;
+    function selecionarContasAtrasadas:iRelatorioContasAPagar;
+
+    function exportar: iRelatorioContasAPagar;
+    function validarData(componet: tmaskEdit):iRelatorioContasAPagar;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

@@ -366,6 +366,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Estornadas.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Contas.A.Pagar.pas">
+            <Form>formRelatorioContasAPagar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Pagar.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>
