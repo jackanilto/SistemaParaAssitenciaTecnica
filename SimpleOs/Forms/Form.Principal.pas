@@ -12,7 +12,7 @@ uses
   Form.Cadastro.Forma.Pagamento, Form.Cadastro.Clientes, Form.Entradas.Produtos,
   UClasse.Entity.Criar.Ordem.Servico, Form.Visualizar.Vendas,
   Form.Modelo.Relatorio, Form.Relatorio.OS.Estornadas,
-  Form.Relatorio.Vendas.Estornadas;
+  Form.Relatorio.Vendas.Estornadas, Form.Relatorio.OS.Por.Tecnico;
 
 type
   TformPrincipal = class(TForm)
@@ -90,6 +90,8 @@ type
     acRelatorioOSEstornadas: TAction;
     acRelaorioVendasEstornadas: TAction;
     acRelatorioContasAPagar: TAction;
+    acRelatorioReparosPorPeriodo: TAction;
+    acRelatorioReparoPorTecnico: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -134,6 +136,8 @@ type
     procedure acRelatorioOSEstornadasExecute(Sender: TObject);
     procedure acRelaorioVendasEstornadasExecute(Sender: TObject);
     procedure acRelatorioContasAPagarExecute(Sender: TObject);
+    procedure acRelatorioReparosPorPeriodoExecute(Sender: TObject);
+    procedure acRelatorioReparoPorTecnicoExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -163,7 +167,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Numero.Parcelas, Form.Quitar.Parcela.Venda, Form.Relatorio.Clientes,
   Form.Relatorio.Historico.OS, Form.Relatorio.Contas.A.Receber.OS,
   Form.Relatorio.Contas.A.Receber.Venda, Form.Relatorio.Parcelas.Pagas.OS,
-  Form.Relatorio.Parcelas.Pagas.Vendas, Form.Relatorio.Contas.A.Pagar;
+  Form.Relatorio.Parcelas.Pagas.Vendas, Form.Relatorio.Contas.A.Pagar,
+  Form.Relatorio.Reparos.Periodos;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -345,6 +350,18 @@ procedure TformPrincipal.acRelatorioParcelasPagasVendasExecute(Sender: TObject);
 begin
   formRelatorioParcelasPagasVendas := TformRelatorioParcelasPagasVendas.Create(self);
   TFactory.new.criarJanela.formShow(formRelatorioParcelasPagasVendas, '');
+end;
+
+procedure TformPrincipal.acRelatorioReparoPorTecnicoExecute(Sender: TObject);
+begin
+  formRelatorioOSPorTecnico := TformRelatorioOSPorTecnico.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioOSPorTecnico, '');
+end;
+
+procedure TformPrincipal.acRelatorioReparosPorPeriodoExecute(Sender: TObject);
+begin
+  formRelatorioReparosPorPeriodo := TformRelatorioReparosPorPeriodo.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioReparosPorPeriodo, '');
 end;
 
 procedure TformPrincipal.acProblemasFrequentesExecute(Sender: TObject);

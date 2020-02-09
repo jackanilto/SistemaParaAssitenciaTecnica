@@ -371,6 +371,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Pagar.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Reparos.Periodos.pas">
+            <Form>formRelatorioReparosPorPeriodo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Reparos.Por.Periodo.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.OS.Por.Tecnico.pas">
+            <Form>formRelatorioOSPorTecnico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

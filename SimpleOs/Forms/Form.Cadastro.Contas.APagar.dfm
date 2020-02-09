@@ -569,7 +569,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43751.486695115700000000
-    ReportOptions.LastChange = 43751.570220196800000000
+    ReportOptions.LastChange = 43870.642495023140000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -912,6 +912,8 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           Top = 3.779530000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
@@ -976,6 +978,8 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
           Top = 3.779530000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12

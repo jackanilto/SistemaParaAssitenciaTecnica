@@ -124,7 +124,10 @@ uses
   Form.Relatorio.Vendas.Estornadas in 'Forms\Relatorios\Form.Relatorio.Vendas.Estornadas.pas' {formRelatorioVendasEstornadas},
   UClasse.Relatorio.Vendas.Estornadas in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Estornadas.pas',
   Form.Relatorio.Contas.A.Pagar in 'Forms\Relatorios\Form.Relatorio.Contas.A.Pagar.pas' {formRelatorioContasAPagar},
-  UClasse.Relatorio.Contas.A.Pagar in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Pagar.pas';
+  UClasse.Relatorio.Contas.A.Pagar in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Pagar.pas',
+  Form.Relatorio.Reparos.Periodos in 'Forms\Relatorios\Form.Relatorio.Reparos.Periodos.pas' {formRelatorioReparosPorPeriodo},
+  UClasse.Relatorio.Reparos.Por.Periodo in 'Classes\Entity\Relatorios\UClasse.Relatorio.Reparos.Por.Periodo.pas',
+  Form.Relatorio.OS.Por.Tecnico in 'Forms\Relatorios\Form.Relatorio.OS.Por.Tecnico.pas' {formRelatorioOSPorTecnico};
 
 {$R *.res}
 
@@ -133,5 +136,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TformRelatorioOSPorTecnico, formRelatorioOSPorTecnico);
   Application.Run;
 end.

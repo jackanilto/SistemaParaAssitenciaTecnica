@@ -7262,7 +7262,7 @@ object formPrincipal: TformPrincipal
       BevelOuter = bvNone
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
-      ButtonHeight = 25
+      ButtonHeight = 23
       ButtonWidth = 120
       ButtonOptions = [boFullSize, boShowCaptions, boCaptionOnlyBorder]
       Categories = <
@@ -7297,6 +7297,12 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioContasAPagar
+            end
+            item
+              Action = acRelatorioReparosPorPeriodo
+            end
+            item
+              Action = acRelatorioReparoPorTecnico
             end>
           TextColor = 13402157
         end>
@@ -8136,6 +8142,14 @@ object formPrincipal: TformPrincipal
     object acRelatorioContasAPagar: TAction
       Caption = 'Relat'#243'rio contas a pagar'
       OnExecute = acRelatorioContasAPagarExecute
+    end
+    object acRelatorioReparosPorPeriodo: TAction
+      Caption = 'Reparos por per'#237'odo'
+      OnExecute = acRelatorioReparosPorPeriodoExecute
+    end
+    object acRelatorioReparoPorTecnico: TAction
+      Caption = 'Reparo por t'#233'cnico'
+      OnExecute = acRelatorioReparoPorTecnicoExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

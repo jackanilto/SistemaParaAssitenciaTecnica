@@ -39,6 +39,7 @@ type
     procedure sbPesquisarDatasClick(Sender: TObject);
     procedure cbPesquisarStatusChange(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
 
     private
     { Private declarations }
@@ -146,13 +147,26 @@ end;
 procedure TformRelatorioContasAPagar.FormShow(Sender: TObject);
 begin
   inherited;
-  FRelatorioContasAPagar.abrir.listarGrid(DataSource1);
+  FRelatorioContasAPagar
+                        .abrir
+                        .getCampo('ID')
+                        .getValor('0')
+                        .sqlPesquisa
+                        .listarGrid(DataSource1);
 end;
 
 procedure TformRelatorioContasAPagar.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FRelatorioContasAPagar.exportar;
+end;
+
+procedure TformRelatorioContasAPagar.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_contas_a_pagar.fr3');
+  frxReport1.ShowReport();
 end;
 
 procedure TformRelatorioContasAPagar.sbPesquisarDatasClick(Sender: TObject);

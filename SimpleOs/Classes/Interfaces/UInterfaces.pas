@@ -1961,6 +1961,33 @@ type
 
   end;
 
+  iRelatorioReparosPorPeriodo = interface
+    ['{3ABA49B3-AD28-48BA-B417-E2A75C03B0D2}']
+
+    function nomeTabela(value: string): iRelatorioReparosPorPeriodo;
+    function getCampo(value: string): iRelatorioReparosPorPeriodo;
+    function getValor(value: string): iRelatorioReparosPorPeriodo;
+    function getDataInicial(value: TDate): iRelatorioReparosPorPeriodo;
+    function getDataFinal(value: TDate): iRelatorioReparosPorPeriodo;
+    function open(value: string): iRelatorioReparosPorPeriodo;
+    function pesquisar: iRelatorioReparosPorPeriodo;
+    function ExecSql: iRelatorioReparosPorPeriodo;
+    function sqlPesquisa: iRelatorioReparosPorPeriodo;
+    function sqlPesquisaData: iRelatorioReparosPorPeriodo;
+    function sqlPesquisaEstatica: iRelatorioReparosPorPeriodo;
+
+    function abrir: iRelatorioReparosPorPeriodo;
+    function atualizar: iRelatorioReparosPorPeriodo;
+    function cancelar: iRelatorioReparosPorPeriodo;
+    function fecharQuery: iRelatorioReparosPorPeriodo;
+    function listarGrid(value: TDataSource): iRelatorioReparosPorPeriodo;
+    function ordenarGrid(column: TColumn): iRelatorioReparosPorPeriodo;
+
+    function exportar: iRelatorioReparosPorPeriodo;
+    function validarData(componet: tmaskEdit):iRelatorioReparosPorPeriodo;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

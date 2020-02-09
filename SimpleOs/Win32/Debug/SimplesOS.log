@@ -3398,3 +3398,23 @@ Problematic key value is ("ID_CLIENTE" = 0)
 09/02/20 11:47:11 - Caption: Relatório de contas a pagar
 09/02/20 11:47:11 - Erro:EConvertError
 09/02/20 11:47:11 - Erro:'TESTE' is not a valid integer value
+09/02/20 15:03:57 - ===========================================
+09/02/20 15:03:57 - Form: formRelatorioReparosPorPeriodo
+09/02/20 15:03:57 - Caption: Relatório de reparos realizados por período
+09/02/20 15:03:57 - Erro:EConvertError
+09/02/20 15:03:57 - Erro:'JONATHA' is not a valid integer value
+09/02/20 15:11:41 - ===========================================
+09/02/20 15:11:41 - Form: formRelatorioReparosPorPeriodo
+09/02/20 15:11:41 - Caption: Relatório de reparos realizados por período
+09/02/20 15:11:41 - Erro:EDatabaseError
+09/02/20 15:11:41 - Erro:Field 'CPF_CNPJ' not found
+09/02/20 15:12:06 - ===========================================
+09/02/20 15:12:06 - Form: formRelatorioReparosPorPeriodo
+09/02/20 15:12:06 - Caption: Relatório de reparos realizados por período
+09/02/20 15:12:06 - Erro:EDatabaseError
+09/02/20 15:12:06 - Erro:Field 'TOTAL_ORCAMENTO' not found
+09/02/20 15:23:03 - ===========================================
+09/02/20 15:23:03 - Form: formRelatorioReparosPorPeriodo
+09/02/20 15:23:03 - Caption: Relatório de reparos realizados por período
+09/02/20 15:23:03 - Erro:EConvertError
+09/02/20 15:23:03 - Erro:'30/12/1899' is not a valid time
