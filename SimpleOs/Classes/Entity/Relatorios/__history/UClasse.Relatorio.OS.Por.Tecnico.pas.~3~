@@ -1,0 +1,301 @@
+unit UClasse.Relatorio.OS.Por.Tecnico;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TRelatorioOSPorTecnico = class(TInterfacedObject, iRelatorioOSPorTecnico)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FNome: string;
+
+  public
+
+    function nomeTabela(value: string): iRelatorioOSPorTecnico;
+    function getCampo(value: string): iRelatorioOSPorTecnico;
+    function getValor(value: string): iRelatorioOSPorTecnico;
+    function getDataInicial(value: TDate): iRelatorioOSPorTecnico;
+    function getDataFinal(value: TDate): iRelatorioOSPorTecnico;
+    function open(value: string): iRelatorioOSPorTecnico;
+    function pesquisar: iRelatorioOSPorTecnico;
+    function ExecSql: iRelatorioOSPorTecnico;
+    function sqlPesquisa: iRelatorioOSPorTecnico;
+    function sqlPesquisaData: iRelatorioOSPorTecnico;
+    function sqlPesquisaEstatica: iRelatorioOSPorTecnico;
+
+    function abrir: iRelatorioOSPorTecnico;
+    function atualizar: iRelatorioOSPorTecnico;
+    function cancelar: iRelatorioOSPorTecnico;
+    function fecharQuery: iRelatorioOSPorTecnico;
+    function listarGrid(value: TDataSource): iRelatorioOSPorTecnico;
+    function ordenarGrid(column: TColumn): iRelatorioOSPorTecnico;
+
+    function exportar: iRelatorioOSPorTecnico;
+    function validarData(componet: tmaskEdit):iRelatorioOSPorTecnico;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iRelatorioOSPorTecnico;
+  end;
+
+implementation
+
+{ TRelatorioOSPorTecnico }
+
+function TRelatorioOSPorTecnico.abrir: iRelatorioOSPorTecnico;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TRelatorioOSPorTecnico.atualizar: iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TRelatorioOSPorTecnico.cancelar: iRelatorioOSPorTecnico;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+function TRelatorioOSPorTecnico.codigoCadastro(sp: string): integer;
+begin
+  result := FQuery.codigoCadastro('');
+end;
+
+constructor TRelatorioOSPorTecnico.create;
+begin
+  FTabela := 'PRODUTOS';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TRelatorioOSPorTecnico.deletar: iRelatorioOSPorTecnico;
+begin
+  result := self;
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .gravarLog;
+
+      FQuery.TQuery.Delete;
+    end;
+  end;
+
+end;
+
+destructor TRelatorioOSPorTecnico.destroy;
+begin
+
+  inherited;
+end;
+
+function TRelatorioOSPorTecnico.editar: iRelatorioOSPorTecnico;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .gravarLog;
+
+    FQuery.TQuery.Edit;
+
+  end;
+end;
+
+function TRelatorioOSPorTecnico.ExecSql: iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TRelatorioOSPorTecnico.exportar: iRelatorioOSPorTecnico;
+begin
+  result := self;
+end;
+
+function TRelatorioOSPorTecnico.fecharQuery: iRelatorioOSPorTecnico;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TRelatorioOSPorTecnico.getCampo(value: string): iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TRelatorioOSPorTecnico.getCodigo(value: integer): iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FCodigo := value;
+end;
+
+function TRelatorioOSPorTecnico.getDataFinal(value: TDate): iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TRelatorioOSPorTecnico.getDataInicial(value: TDate): iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TRelatorioOSPorTecnico.getNome(value: string): iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FNome := value;
+end;
+
+function TRelatorioOSPorTecnico.getValor(value: string): iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TRelatorioOSPorTecnico.Gravar: iRelatorioOSPorTecnico;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+
+  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+    .gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: exception do
+    begin
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
+function TRelatorioOSPorTecnico.inserir: iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FQuery.TQuery.EmptyDataSet;
+  FQuery.TQuery.Append;
+end;
+
+function TRelatorioOSPorTecnico.listarGrid(value: TDataSource): iRelatorioOSPorTecnico;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
+  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TRelatorioOSPorTecnico.new: iRelatorioOSPorTecnico;
+begin
+  result := self.create;
+end;
+
+function TRelatorioOSPorTecnico.nomeTabela(value: string): iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TRelatorioOSPorTecnico.open(value: string): iRelatorioOSPorTecnico;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TRelatorioOSPorTecnico.ordenarGrid(column: TColumn): iRelatorioOSPorTecnico;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TRelatorioOSPorTecnico.pesquisar: iRelatorioOSPorTecnico;
+begin
+  result := self;
+end;
+
+function TRelatorioOSPorTecnico.sqlPesquisa: iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TRelatorioOSPorTecnico.sqlPesquisaData: iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TRelatorioOSPorTecnico.sqlPesquisaEstatica: iRelatorioOSPorTecnico;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TRelatorioOSPorTecnico.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.

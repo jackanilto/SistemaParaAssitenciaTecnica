@@ -127,7 +127,8 @@ uses
   UClasse.Relatorio.Contas.A.Pagar in 'Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Pagar.pas',
   Form.Relatorio.Reparos.Periodos in 'Forms\Relatorios\Form.Relatorio.Reparos.Periodos.pas' {formRelatorioReparosPorPeriodo},
   UClasse.Relatorio.Reparos.Por.Periodo in 'Classes\Entity\Relatorios\UClasse.Relatorio.Reparos.Por.Periodo.pas',
-  Form.Relatorio.OS.Por.Tecnico in 'Forms\Relatorios\Form.Relatorio.OS.Por.Tecnico.pas' {formRelatorioOSPorTecnico};
+  Form.Relatorio.OS.Por.Tecnico in 'Forms\Relatorios\Form.Relatorio.OS.Por.Tecnico.pas' {formRelatorioOSPorTecnico},
+  UClasse.Relatorio.OS.Por.Tecnico in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Por.Tecnico.pas';
 
 {$R *.res}
 

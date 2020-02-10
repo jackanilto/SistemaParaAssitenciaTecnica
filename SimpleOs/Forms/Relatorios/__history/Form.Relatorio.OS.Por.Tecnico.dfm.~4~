@@ -1,0 +1,50 @@
+inherited formRelatorioOSPorTecnico: TformRelatorioOSPorTecnico
+  Caption = 'Reparos por t'#233'cnico'
+  ClientHeight = 570
+  ClientWidth = 1091
+  OnCreate = FormCreate
+  ExplicitWidth = 1091
+  ExplicitHeight = 570
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 1091
+    inherited sbFechar: TSpeedButton
+      Left = 1039
+    end
+    inherited lblCaption: TLabel
+      Left = 369
+    end
+  end
+  inherited Panel3: TPanel
+    Top = 506
+    Width = 1091
+    inherited Label4: TLabel
+      Left = 757
+    end
+    inherited Label5: TLabel
+      Left = 892
+    end
+    inherited cbPesquisar: TComboBox
+      Left = 757
+    end
+    inherited edtPesquisar: TEdit
+      Left = 892
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    Width = 1091
+    Height = 465
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    ParentFont = False
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

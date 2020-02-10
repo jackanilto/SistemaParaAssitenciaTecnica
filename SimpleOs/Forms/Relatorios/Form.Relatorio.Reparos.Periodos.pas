@@ -19,6 +19,7 @@ type
     edtData2: TMaskEdit;
     cbPesquisarDatas: TComboBox;
     Bevel1: TBevel;
+    Bevel2: TBevel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbPesquisarDatasClick(Sender: TObject);

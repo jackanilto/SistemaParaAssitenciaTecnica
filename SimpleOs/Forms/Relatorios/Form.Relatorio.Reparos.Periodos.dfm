@@ -4,7 +4,6 @@ inherited formRelatorioReparosPorPeriodo: TformRelatorioReparosPorPeriodo
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
-    ExplicitTop = 494
     inherited sbImprimir: TSpeedButton
       OnClick = sbImprimirClick
     end
@@ -99,6 +98,12 @@ inherited formRelatorioReparosPorPeriodo: TformRelatorioReparosPorPeriodo
     end
     object Bevel1: TBevel [6]
       Left = 301
+      Top = 8
+      Width = 1
+      Height = 50
+    end
+    object Bevel2: TBevel [7]
+      Left = 661
       Top = 8
       Width = 1
       Height = 50
