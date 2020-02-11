@@ -7303,6 +7303,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioReparoPorTecnico
+            end
+            item
+              Action = acRelatorioOSPorStatus
             end>
           TextColor = 13402157
         end>
@@ -8150,6 +8153,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioReparoPorTecnico: TAction
       Caption = 'Reparo por t'#233'cnico'
       OnExecute = acRelatorioReparoPorTecnicoExecute
+    end
+    object acRelatorioOSPorStatus: TAction
+      Caption = 'OS por Status'
+      OnExecute = acRelatorioOSPorStatusExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

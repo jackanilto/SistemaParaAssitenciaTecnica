@@ -381,6 +381,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Por.Tecnico.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.OS.Por.Status.pas">
+            <Form>formRelatorioOSPorStatus</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

@@ -128,7 +128,8 @@ uses
   Form.Relatorio.Reparos.Periodos in 'Forms\Relatorios\Form.Relatorio.Reparos.Periodos.pas' {formRelatorioReparosPorPeriodo},
   UClasse.Relatorio.Reparos.Por.Periodo in 'Classes\Entity\Relatorios\UClasse.Relatorio.Reparos.Por.Periodo.pas',
   Form.Relatorio.OS.Por.Tecnico in 'Forms\Relatorios\Form.Relatorio.OS.Por.Tecnico.pas' {formRelatorioOSPorTecnico},
-  UClasse.Relatorio.OS.Por.Tecnico in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Por.Tecnico.pas';
+  UClasse.Relatorio.OS.Por.Tecnico in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Por.Tecnico.pas',
+  Form.Relatorio.OS.Por.Status in 'Forms\Relatorios\Form.Relatorio.OS.Por.Status.pas' {formRelatorioOSPorStatus};
 
 {$R *.res}
 
@@ -137,6 +138,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TformRelatorioOSPorTecnico, formRelatorioOSPorTecnico);
   Application.Run;
 end.
