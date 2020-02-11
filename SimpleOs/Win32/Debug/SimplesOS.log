@@ -3418,3 +3418,8 @@ Problematic key value is ("ID_CLIENTE" = 0)
 09/02/20 15:23:03 - Caption: Relatório de reparos realizados por período
 09/02/20 15:23:03 - Erro:EConvertError
 09/02/20 15:23:03 - Erro:'30/12/1899' is not a valid time
+11/02/20 13:17:28 - ===========================================
+11/02/20 13:17:28 - Form: formRelatorioOSPorTecnico_1
+11/02/20 13:17:28 - Caption: Reparos por técnico
+11/02/20 13:17:28 - Erro:EConvertError
+11/02/20 13:17:28 - Erro:'' is not a valid integer value

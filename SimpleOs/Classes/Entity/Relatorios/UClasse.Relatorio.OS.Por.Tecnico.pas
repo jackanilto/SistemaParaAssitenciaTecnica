@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -100,8 +101,55 @@ begin
 end;
 
 function TRelatorioOSPorTecnico.exportar: iRelatorioOSPorTecnico;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+  FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório OS por Técnico';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'OS';
+  pasta.cells[1, 2] := 'Cód. Técnico';
+  pasta.cells[1, 3] := 'Técnico';
+  pasta.cells[1, 4] := 'Equipamento';
+  pasta.cells[1, 5] := 'Valor da OS';
+  pasta.cells[1, 6] := 'Situação da ordem';
+  pasta.cells[1, 7] := 'PGTO';
+  pasta.cells[1, 8] := 'Entrada';
+  pasta.cells[1, 9] := 'Saída';
+  pasta.cells[1, 10] := 'Status';
+
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('TECNICO_RESPONSAVEL').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('EQUIPAMENTO').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('TOTAL_ORCAMENTO').AsCurrency;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('SITUACAO_DA_ORDEM').AsString;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('PGTO').AsString;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('DATA_ENTRADA').AsDateTime;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_FINALIZACAO').AsDateTime;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('STATUS').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioOSPorTecnico.fecharQuery: iRelatorioOSPorTecnico;

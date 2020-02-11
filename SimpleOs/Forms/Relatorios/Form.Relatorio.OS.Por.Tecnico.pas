@@ -8,6 +8,10 @@ uses
   frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.OS.Por.Tecnico, Vcl.Mask;
 
+
+type
+  TEnumPesquisarData = (entrada, saida);
+
 type
   TEnumPesquisar = (codigo, tecnico);
 
@@ -24,7 +28,10 @@ type
     procedure FormShow(Sender: TObject);
 
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);  private
+      Shift: TShiftState);
+    procedure sbPesquisarDatasClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);  private
     { Private declarations }
     var
       FRelatorioOSTecnico:iRelatorioOSPorTecnico;
@@ -46,18 +53,23 @@ procedure TformRelatorioOSPorTecnico.edtPesquisarKeyUp(Sender: TObject;
 begin
   inherited;
 
-  {Continuar desta parte}
-
   case TEnumPesquisar(cbPesquisar.ItemIndex) of
   codigo:
   begin
-    Fcampo := '';
+    Fcampo := 'ID_TECNICO_RESPONSAVEL';
   end;
   tecnico:
   begin
-    Fcampo := '';
+    Fcampo := 'TECNICO_RESPONSAVEL';
   end;
   end;
+
+  if edtPesquisar.Text <> EmptyStr then
+    FRelatorioOSTecnico
+                      .getCampo(FCampo)
+                      .getValor(edtPesquisar.Text)
+                      .sqlPesquisa
+                      .listarGrid(DataSource1);
 
 end;
 
@@ -71,6 +83,50 @@ procedure TformRelatorioOSPorTecnico.FormShow(Sender: TObject);
 begin
   inherited;
   FRelatorioOSTecnico.abrir.listarGrid(DataSource1);
+end;
+
+procedure TformRelatorioOSPorTecnico.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FRelatorioOSTecnico.exportar;
+end;
+
+procedure TformRelatorioOSPorTecnico.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_os_por_tecnico.fr3');
+  frxReport1.ShowReport();
+end;
+
+procedure TformRelatorioOSPorTecnico.sbPesquisarDatasClick(Sender: TObject);
+var
+Fcampo : String;
+begin
+  inherited;
+
+  case TEnumPesquisarData(cbPesquisarDatas.ItemIndex) of
+  entrada:
+  begin
+    FCampo := 'DATA_ENTRADA';
+  end;
+  saida:
+  begin
+    FCampo := 'DATA_FINALIZACAO';
+  end;
+  end;
+
+  FRelatorioOSTecnico
+                    .validarData(edtData1)
+                    .validarData(edtData2);
+
+  FRelatorioOSTecnico
+                    .getCampo(FCampo)
+                    .getDataInicial(StrToDate(edtData1.Text))
+                    .getDataFinal(StrToDate(edtData2.Text))
+                    .sqlPesquisaData
+                    .listarGrid(DataSource1);
+
 end;
 
 end.
