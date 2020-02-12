@@ -1,0 +1,41 @@
+﻿unit Form.Relatorio.OS.Por.Status;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.OS.Situacao;
+
+type
+  TformRelatorioOSPorStatus = class(TformModeloRelatorio)
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    FRelatorioStatus:iRelatorioOSPorSituacao;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioOSPorStatus: TformRelatorioOSPorStatus;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioOSPorStatus.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FRelatorioStatus := TRelatorioOSSituacao.new;
+end;
+
+procedure TformRelatorioOSPorStatus.FormShow(Sender: TObject);
+begin
+  inherited;
+  FRelatorioStatus.abrir.listarGrid(DataSource1);
+end;
+
+end.

@@ -105,7 +105,7 @@ uses
   UClasse.Visualizar.Vendas in 'Classes\Entity\UClasse.Visualizar.Vendas.pas',
   Form.Modelo.Relatorio in 'Forms\Exemplos\Form.Modelo.Relatorio.pas' {formModeloRelatorio},
   Form.Relatorio.Clientes in 'Forms\Relatorios\Form.Relatorio.Clientes.pas' {formRelatorioClientes},
-  UClasse.Entity.Modelo.Relatorio in 'Classes\Entity\UClasse.Entity.Modelo.Relatorio.pas',
+  UClasse.Entity.Modelo.Relatorio in 'Classes\Entity\Exemplos\UClasse.Entity.Modelo.Relatorio.pas',
   UClasse.Relatorio.Clientes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Clientes.pas',
   Form.Relatorio.Historico.OS in 'Forms\Relatorios\Form.Relatorio.Historico.OS.pas' {formRelatorioHistoricoOS},
   UClasse.Historico.OS.Clientes in 'Classes\Entity\Relatorios\UClasse.Historico.OS.Clientes.pas',
@@ -129,7 +129,8 @@ uses
   UClasse.Relatorio.Reparos.Por.Periodo in 'Classes\Entity\Relatorios\UClasse.Relatorio.Reparos.Por.Periodo.pas',
   Form.Relatorio.OS.Por.Tecnico in 'Forms\Relatorios\Form.Relatorio.OS.Por.Tecnico.pas' {formRelatorioOSPorTecnico},
   UClasse.Relatorio.OS.Por.Tecnico in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Por.Tecnico.pas',
-  Form.Relatorio.OS.Por.Status in 'Forms\Relatorios\Form.Relatorio.OS.Por.Status.pas' {formRelatorioOSPorStatus};
+  Form.Relatorio.OS.Por.Status in 'Forms\Relatorios\Form.Relatorio.OS.Por.Status.pas' {formRelatorioOSPorStatus},
+  UClasse.Relatorio.OS.Situacao in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Situacao.pas';
 
 {$R *.res}
 

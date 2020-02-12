@@ -5317,6 +5317,8 @@ object formPrincipal: TformPrincipal
     Color = 8408635
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = -3
     DesignSize = (
       1061
       57)
@@ -8155,7 +8157,7 @@ object formPrincipal: TformPrincipal
       OnExecute = acRelatorioReparoPorTecnicoExecute
     end
     object acRelatorioOSPorStatus: TAction
-      Caption = 'OS por Status'
+      Caption = 'OS por Situa'#231#227'o'
       OnExecute = acRelatorioOSPorStatusExecute
     end
   end

@@ -327,7 +327,7 @@
             <Form>formRelatorioClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Classes\Entity\UClasse.Entity.Modelo.Relatorio.pas"/>
+        <DCCReference Include="Classes\Entity\Exemplos\UClasse.Entity.Modelo.Relatorio.pas"/>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Clientes.pas"/>
         <DCCReference Include="Forms\Relatorios\Form.Relatorio.Historico.OS.pas">
             <Form>formRelatorioHistoricoOS</Form>
@@ -385,6 +385,7 @@
             <Form>formRelatorioOSPorStatus</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Situacao.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>
