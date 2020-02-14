@@ -1113,21 +1113,19 @@ type
     function listarGrid(value: TDataSource): iEstornarOS;
     function ordenarGrid(column: TColumn): iEstornarOS;
 
-    function getID(value:integer):iEstornarOS;
-    function getID_ORDEM(value:integer):iEstornarOS;
-    function getID_CLIENTE(value:integer):iEstornarOS;
-    function getVALOR_OS(value:Currency):iEstornarOS;
-    function getDATA(value:string):iEstornarOS;
-    function getHORA(value:string):iEstornarOS;
-    function getMOTIVO(value:string):iEstornarOS;
-    function getFUNCIONARIO(value:integer):iEstornarOS;
-    function getNOME_FUNCIONARIO(value:string):iEstornarOS;
-    function getOBSERVACAO(value:string):iEstornarOS;
-
-
+    function getID(value: integer): iEstornarOS;
+    function getID_ORDEM(value: integer): iEstornarOS;
+    function getID_CLIENTE(value: integer): iEstornarOS;
+    function getVALOR_OS(value: currency): iEstornarOS;
+    function getDATA(value: string): iEstornarOS;
+    function getHORA(value: string): iEstornarOS;
+    function getMotivo(value: string): iEstornarOS;
+    function getFuncionario(value: integer): iEstornarOS;
+    function getNOME_FUNCIONARIO(value: string): iEstornarOS;
+    function getObservacao(value: string): iEstornarOS;
 
     function exportar: iEstornarOS;
-    function validarData(componet: tmaskEdit):iEstornarOS;
+    function validarData(componet: tmaskEdit): iEstornarOS;
 
     function getCodigo(value: integer): iEstornarOS;
     function getNome(value: string): iEstornarOS;
@@ -1158,19 +1156,19 @@ type
     function listarGrid(value: TDataSource): iEstonarVenda;
     function ordenarGrid(column: TColumn): iEstonarVenda;
 
-    function getID(value:integer):iEstonarVenda;
-    function getID_VENDA(value:integer):iEstonarVenda;
-    function getID_CLIENTE(value:integer):iEstonarVenda;
-    function getVALOR_VENDA(value:Currency):iEstonarVenda;
-    function getDATA(value:string):iEstonarVenda;
-    function getHORA(value:string):iEstonarVenda;
-    function getMOTIVO(value:string):iEstonarVenda;
-    function getFUNCIONARIO(value:integer):iEstonarVenda;
-    function getNOME_FUNCIONARIO(value:string):iEstonarVenda;
-    function getOBSERVACAO(value:string):iEstonarVenda;
+    function getID(value: integer): iEstonarVenda;
+    function getID_VENDA(value: integer): iEstonarVenda;
+    function getID_CLIENTE(value: integer): iEstonarVenda;
+    function getVALOR_VENDA(value: currency): iEstonarVenda;
+    function getDATA(value: string): iEstonarVenda;
+    function getHORA(value: string): iEstonarVenda;
+    function getMotivo(value: string): iEstonarVenda;
+    function getFuncionario(value: integer): iEstonarVenda;
+    function getNOME_FUNCIONARIO(value: string): iEstonarVenda;
+    function getObservacao(value: string): iEstonarVenda;
 
     function exportar: iEstonarVenda;
-    function validarData(componet: tmaskEdit):iEstonarVenda;
+    function validarData(componet: tmaskEdit): iEstonarVenda;
 
     function getCodigo(value: integer): iEstonarVenda;
     function getNome(value: string): iEstonarVenda;
@@ -1796,7 +1794,7 @@ type
   end;
 
   iRelatorioContasAReceberVendas = interface
-  ['{D300D30D-CE55-40F8-82ED-06461DD244CB}']
+    ['{D300D30D-CE55-40F8-82ED-06461DD244CB}']
 
     function nomeTabela(value: string): iRelatorioContasAReceberVendas;
     function getCampo(value: string): iRelatorioContasAReceberVendas;
@@ -1818,7 +1816,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioContasAReceberVendas;
 
     function exportar: iRelatorioContasAReceberVendas;
-    function validarData(componet: tmaskEdit):iRelatorioContasAReceberVendas;
+    function validarData(componet: tmaskEdit): iRelatorioContasAReceberVendas;
 
   end;
 
@@ -1845,7 +1843,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioParcelasPagasOS;
 
     function exportar: iRelatorioParcelasPagasOS;
-    function validarData(componet: tmaskEdit):iRelatorioParcelasPagasOS;
+    function validarData(componet: tmaskEdit): iRelatorioParcelasPagasOS;
 
   end;
 
@@ -1872,7 +1870,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioParcelasPagasVendas;
 
     function exportar: iRelatorioParcelasPagasVendas;
-    function validarData(componet: tmaskEdit):iRelatorioParcelasPagasVendas;
+    function validarData(componet: tmaskEdit): iRelatorioParcelasPagasVendas;
 
   end;
 
@@ -1899,7 +1897,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioOSEstornadas;
 
     function exportar: iRelatorioOSEstornadas;
-    function validarData(componet: tmaskEdit):iRelatorioOSEstornadas;
+    function validarData(componet: tmaskEdit): iRelatorioOSEstornadas;
 
   end;
 
@@ -1926,7 +1924,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioVendasEstornadas;
 
     function exportar: iRelatorioVendasEstornadas;
-    function validarData(componet: tmaskEdit):iRelatorioVendasEstornadas;
+    function validarData(componet: tmaskEdit): iRelatorioVendasEstornadas;
 
   end;
 
@@ -1952,12 +1950,12 @@ type
     function listarGrid(value: TDataSource): iRelatorioContasAPagar;
     function ordenarGrid(column: TColumn): iRelatorioContasAPagar;
 
-    function selecionarContasPagas:iRelatorioContasAPagar;
-    function selecionarContasAVencer:iRelatorioContasAPagar;
-    function selecionarContasAtrasadas:iRelatorioContasAPagar;
+    function selecionarContasPagas: iRelatorioContasAPagar;
+    function selecionarContasAVencer: iRelatorioContasAPagar;
+    function selecionarContasAtrasadas: iRelatorioContasAPagar;
 
     function exportar: iRelatorioContasAPagar;
-    function validarData(componet: tmaskEdit):iRelatorioContasAPagar;
+    function validarData(componet: tmaskEdit): iRelatorioContasAPagar;
 
   end;
 
@@ -1984,7 +1982,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioReparosPorPeriodo;
 
     function exportar: iRelatorioReparosPorPeriodo;
-    function validarData(componet: tmaskEdit):iRelatorioReparosPorPeriodo;
+    function validarData(componet: tmaskEdit): iRelatorioReparosPorPeriodo;
 
   end;
 
@@ -2011,7 +2009,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioOSPorTecnico;
 
     function exportar: iRelatorioOSPorTecnico;
-    function validarData(componet: tmaskEdit):iRelatorioOSPorTecnico;
+    function validarData(componet: tmaskEdit): iRelatorioOSPorTecnico;
 
   end;
 
@@ -2037,8 +2035,11 @@ type
     function listarGrid(value: TDataSource): iRelatorioOSPorSituacao;
     function ordenarGrid(column: TColumn): iRelatorioOSPorSituacao;
 
+    function getSituacao(value: string): iRelatorioOSPorSituacao;
+    function selecionarOSPorSituacaoECampo: iRelatorioOSPorSituacao;
+
     function exportar: iRelatorioOSPorSituacao;
-    function validarData(componet: tmaskEdit):iRelatorioOSPorSituacao;
+    function validarData(componet: tmaskEdit): iRelatorioOSPorSituacao;
 
   end;
 
