@@ -130,7 +130,9 @@ uses
   Form.Relatorio.OS.Por.Tecnico in 'Forms\Relatorios\Form.Relatorio.OS.Por.Tecnico.pas' {formRelatorioOSPorTecnico},
   UClasse.Relatorio.OS.Por.Tecnico in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Por.Tecnico.pas',
   Form.Relatorio.OS.Por.Status in 'Forms\Relatorios\Form.Relatorio.OS.Por.Status.pas' {formRelatorioOSPorStatus},
-  UClasse.Relatorio.OS.Situacao in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Situacao.pas';
+  UClasse.Relatorio.OS.Situacao in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Situacao.pas',
+  Form.Relatorio.OS in 'Forms\Relatorios\Form.Relatorio.OS.pas' {formRelatorioOrdemDeServico},
+  UClasse.Relatorio.OS in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.pas';
 
 {$R *.res}
 

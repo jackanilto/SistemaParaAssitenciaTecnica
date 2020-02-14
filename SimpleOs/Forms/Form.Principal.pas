@@ -13,7 +13,7 @@ uses
   UClasse.Entity.Criar.Ordem.Servico, Form.Visualizar.Vendas,
   Form.Modelo.Relatorio, Form.Relatorio.OS.Estornadas,
   Form.Relatorio.Vendas.Estornadas, Form.Relatorio.OS.Por.Tecnico,
-  Form.Relatorio.OS.Por.Status;
+  Form.Relatorio.OS.Por.Status, Form.Relatorio.OS;
 
 type
   TformPrincipal = class(TForm)
@@ -94,6 +94,7 @@ type
     acRelatorioReparosPorPeriodo: TAction;
     acRelatorioReparoPorTecnico: TAction;
     acRelatorioOSPorStatus: TAction;
+    acRelatorioOS: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -141,6 +142,7 @@ type
     procedure acRelatorioReparosPorPeriodoExecute(Sender: TObject);
     procedure acRelatorioReparoPorTecnicoExecute(Sender: TObject);
     procedure acRelatorioOSPorStatusExecute(Sender: TObject);
+    procedure acRelatorioOSExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -341,6 +343,12 @@ procedure TformPrincipal.acRelatorioOSEstornadasExecute(Sender: TObject);
 begin
   formOSEstornadas := TformOSEstornadas.Create(self);
   TFactory.new.criarJanela.formShow(formOSEstornadas, '');
+end;
+
+procedure TformPrincipal.acRelatorioOSExecute(Sender: TObject);
+begin
+  formRelatorioOrdemDeServico := TformRelatorioOrdemDeServico.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioOrdemDeServico, '');
 end;
 
 procedure TformPrincipal.acRelatorioOSPorStatusExecute(Sender: TObject);

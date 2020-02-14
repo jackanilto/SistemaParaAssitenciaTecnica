@@ -5317,8 +5317,6 @@ object formPrincipal: TformPrincipal
     Color = 8408635
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = -3
     DesignSize = (
       1061
       57)
@@ -7308,6 +7306,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioOSPorStatus
+            end
+            item
+              Action = acRelatorioOS
             end>
           TextColor = 13402157
         end>
@@ -8159,6 +8160,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioOSPorStatus: TAction
       Caption = 'OS por Situa'#231#227'o'
       OnExecute = acRelatorioOSPorStatusExecute
+    end
+    object acRelatorioOS: TAction
+      Caption = 'Relat'#243'rio OS'
+      OnExecute = acRelatorioOSExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu
