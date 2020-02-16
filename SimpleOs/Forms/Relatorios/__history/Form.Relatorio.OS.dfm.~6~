@@ -1,0 +1,34 @@
+inherited formRelatorioOrdemDeServico: TformRelatorioOrdemDeServico
+  Caption = 'Relat'#243'rio Ordem de Servi'#231'o'
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited DBGrid1: TDBGrid
+    Top = 39
+    Height = 210
+    Align = alCustom
+  end
+  object GroupBox1: TGroupBox [3]
+    Left = 0
+    Top = 255
+    Width = 449
+    Height = 227
+    Anchors = [akRight, akBottom]
+    Caption = 'GroupBox1'
+    TabOrder = 3
+  end
+  object GroupBox2: TGroupBox [4]
+    Left = 496
+    Top = 255
+    Width = 515
+    Height = 227
+    Anchors = [akRight, akBottom]
+    Caption = 'GroupBox1'
+    TabOrder = 4
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

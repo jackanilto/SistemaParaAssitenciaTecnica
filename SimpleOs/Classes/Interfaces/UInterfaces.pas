@@ -2068,9 +2068,43 @@ type
     function getSituacao(value: string): iRelatorioOS;
     function selecionarOSPorSituacaoECampo: iRelatorioOS;
 
+    function listarGridServicos(value: TDataSource): iRelatorioOS;
+    function listarGridOcorrencia(value: TDataSource): iRelatorioOS;
+
     function exportar: iRelatorioOS;
     function validarData(componet: tmaskEdit): iRelatorioOS;
 
+  end;
+
+  iRelatoriOSServicosRealiados = interface
+    ['{240AB3F8-4704-4DBF-B371-98C7DA44251B}']
+
+    function nomeTabela(value: string): iRelatoriOSServicosRealiados;
+    function getCampo(value: string): iRelatoriOSServicosRealiados;
+    function getValor(value: string): iRelatoriOSServicosRealiados;
+    function getDataInicial(value: TDate): iRelatoriOSServicosRealiados;
+    function getDataFinal(value: TDate): iRelatoriOSServicosRealiados;
+    function open(value: string): iRelatoriOSServicosRealiados;
+    function pesquisar: iRelatoriOSServicosRealiados;
+    function ExecSql: iRelatoriOSServicosRealiados;
+    function sqlPesquisa: iRelatoriOSServicosRealiados;
+    function sqlPesquisaData: iRelatoriOSServicosRealiados;
+    function sqlPesquisaEstatica: iRelatoriOSServicosRealiados;
+
+    function abrir: iRelatoriOSServicosRealiados;
+    function atualizar: iRelatoriOSServicosRealiados;
+    function cancelar: iRelatoriOSServicosRealiados;
+    function fecharQuery: iRelatoriOSServicosRealiados;
+    function listarGrid(value: TDataSource): iRelatoriOSServicosRealiados;
+    function ordenarGrid(column: TColumn): iRelatoriOSServicosRealiados;
+
+    function exportar: iRelatoriOSServicosRealiados;
+    function validarData(componet: tmaskEdit): iRelatoriOSServicosRealiados;
+
+  end;
+
+  iRelatorioOSOcorrencias = interface
+    ['{000F9F39-29E0-437B-9330-7E643CE63C60}']
   end;
 
   iNivelAcessoFuncionario = interface

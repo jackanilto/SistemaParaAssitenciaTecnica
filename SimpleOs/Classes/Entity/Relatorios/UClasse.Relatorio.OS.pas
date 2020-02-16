@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  UClasse.Relatorio.OS.Servicos;
 
 type
 
@@ -13,6 +14,7 @@ type
 
     FQuery: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
+    FRelatorioServicosRealizados:iRelatoriOSServicosRealiados;
     FTabela: string;
     FCampo: string;
     FValor: string;
@@ -42,6 +44,9 @@ type
     function fecharQuery: iRelatorioOS;
     function listarGrid(value: TDataSource): iRelatorioOS;
     function ordenarGrid(column: TColumn): iRelatorioOS;
+
+    function listarGridServicos(value:TDataSource):iRelatorioOS;
+    function listarGridOcorrencia(value:TDataSource):iRelatorioOS;
 
     function getSituacao(value: string): iRelatorioOS;
     function selecionarOSPorSituacaoECampo: iRelatorioOS;
@@ -82,6 +87,8 @@ constructor TRelatorioOS.create;
 begin
   FTabela := 'VISUALIZAR_ORDENS';
   FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FRelatorioServicosRealizados := TRelatorioOSServicos.new;
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Relatório OS').getCodigoFuncionario
@@ -182,9 +189,39 @@ begin
     FieldByName('TECNICO_RESPONSAVEL').DisplayLabel := 'Técnico';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
     FieldByName('STATUS').DisplayLabel := 'Status';
+
+
+    FieldByName('NOME_CLIENTE').DisplayWidth := 30;
+    FieldByName('EQUIPAMENTO').DisplayWidth := 30;
+    FieldByName('DEFEITO_RELATADO').DisplayWidth := 30;
+    FieldByName('MARCAS').DisplayWidth := 30;
+    FieldByName('MODELO').DisplayWidth := 30;
+    FieldByName('LAUDO_DO_TECNICO').DisplayWidth := 40;
+    FieldByName('SOLUCAO_DO_PROBLEMA').DisplayWidth := 40;
+    FieldByName('RETORNO').DisplayWidth := 30;
+    FieldByName('TECNICO_RESPONSAVEL').DisplayWidth := 40;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
+
   end;
 
   value.DataSet := FQuery.TQuery;
+
+end;
+
+function TRelatorioOS.listarGridOcorrencia(value: TDataSource): iRelatorioOS;
+begin
+  result := self;
+end;
+
+function TRelatorioOS.listarGridServicos(value: TDataSource): iRelatorioOS;
+begin
+  result := self;
+
+  FRelatorioServicosRealizados
+                              .getCampo('ID_ORDEM')
+                              .getValor(FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger.ToString)
+                              .sqlPesquisa
+                              .listarGrid(value);
 
 end;
 
