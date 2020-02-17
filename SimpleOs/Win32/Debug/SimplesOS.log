@@ -3556,3 +3556,36 @@ between
 16/02/20 15:46:17 - Caption: Relatório Ordem de Serviço
 16/02/20 15:46:17 - Erro:Exception
 16/02/20 15:46:17 - Erro:Digite uma data válida.
+17/02/20 18:56:29 - ===========================================
+17/02/20 18:56:29 - Form: formRelatorioOSInadimplentes
+17/02/20 18:56:29 - Caption: Relatório das OS dos clientes inadimplentes
+17/02/20 18:56:29 - Erro:EDatabaseError
+17/02/20 18:56:29 - Erro:Field 'id' not found
+17/02/20 19:51:16 - ===========================================
+17/02/20 19:51:16 - Form: formRelatorioOSInadimplentes
+17/02/20 19:51:16 - Caption: Relatório das OS dos clientes inadimplentes
+17/02/20 19:51:16 - Erro:EDatabaseError
+17/02/20 19:51:16 - Erro:Field 'id' not found
+17/02/20 19:59:19 - ===========================================
+17/02/20 19:59:19 - Form: formRelatorioOSInadimplentes
+17/02/20 19:59:19 - Caption: Relatório das OS dos clientes inadimplentes
+17/02/20 19:59:19 - Erro:EIBNativeException
+17/02/20 19:59:19 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 80
+like
+17/02/20 20:16:07 - ===========================================
+17/02/20 20:16:07 - Form: formRelatorioOSInadimplentes
+17/02/20 20:16:07 - Caption: Relatório das OS dos clientes inadimplentes
+17/02/20 20:16:07 - Erro:Exception
+17/02/20 20:16:07 - Erro:Digite uma data válida.
+17/02/20 20:16:09 - ===========================================
+17/02/20 20:16:09 - Form: formRelatorioOSInadimplentes
+17/02/20 20:16:09 - Caption: Relatório das OS dos clientes inadimplentes
+17/02/20 20:16:09 - Erro:Exception
+17/02/20 20:16:09 - Erro:Digite uma data válida.
+17/02/20 20:16:12 - ===========================================
+17/02/20 20:16:12 - Form: formRelatorioOSInadimplentes
+17/02/20 20:16:12 - Caption: Relatório das OS dos clientes inadimplentes
+17/02/20 20:16:12 - Erro:EDBEditError
+17/02/20 20:16:12 - Erro:Invalid input value.  Use escape key to abandon changes

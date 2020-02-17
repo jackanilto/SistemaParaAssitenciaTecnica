@@ -135,7 +135,9 @@ uses
   UClasse.Relatorio.OS in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.pas',
   UClasse.Relatorio.OS.Servicos in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Servicos.pas',
   Form.Relatorio.Fornecedores in 'Forms\Relatorios\Form.Relatorio.Fornecedores.pas' {formRelatorioFornecedores},
-  UClasse.Relatorio.Fornecedores in 'Classes\Entity\Relatorios\UClasse.Relatorio.Fornecedores.pas';
+  UClasse.Relatorio.Fornecedores in 'Classes\Entity\Relatorios\UClasse.Relatorio.Fornecedores.pas',
+  Form.Relatorio.OS.Inadimplentes in 'Forms\Relatorios\Form.Relatorio.OS.Inadimplentes.pas' {formRelatorioOSInadimplentes},
+  UClasse.Relatorio.OS.Inadimplentes in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Inadimplentes.pas';
 
 {$R *.res}
 

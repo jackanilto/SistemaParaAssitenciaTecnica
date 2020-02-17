@@ -2135,6 +2135,36 @@ type
 
   end;
 
+  iRelatorioOSInadimpelentes = interface
+    ['{075ECF30-3150-4B39-BC0A-B062F3197F33}']
+
+    function nomeTabela(value: string): iRelatorioOSInadimpelentes;
+    function getCampo(value: string): iRelatorioOSInadimpelentes;
+    function getValor(value: string): iRelatorioOSInadimpelentes;
+    function getDataInicial(value: TDate): iRelatorioOSInadimpelentes;
+    function getDataFinal(value: TDate): iRelatorioOSInadimpelentes;
+    function open(value: string): iRelatorioOSInadimpelentes;
+    function pesquisar: iRelatorioOSInadimpelentes;
+    function ExecSql: iRelatorioOSInadimpelentes;
+    function sqlPesquisa: iRelatorioOSInadimpelentes;
+    function sqlPesquisaData: iRelatorioOSInadimpelentes;
+    function sqlPesquisaEstatica: iRelatorioOSInadimpelentes;
+
+    function abrir: iRelatorioOSInadimpelentes;
+    function atualizar: iRelatorioOSInadimpelentes;
+    function cancelar: iRelatorioOSInadimpelentes;
+    function fecharQuery: iRelatorioOSInadimpelentes;
+    function listarGrid(value: TDataSource): iRelatorioOSInadimpelentes;
+    function ordenarGrid(column: TColumn): iRelatorioOSInadimpelentes;
+
+    function retornarPesquisaInadimplentes(value:string):iRelatorioOSInadimpelentes; overload;
+    function retornarPesquisaInadimplentes(data1, data2:string):iRelatorioOSInadimpelentes; overload;
+
+    function exportar: iRelatorioOSInadimpelentes;
+    function validarData(componet: tmaskEdit): iRelatorioOSInadimpelentes;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

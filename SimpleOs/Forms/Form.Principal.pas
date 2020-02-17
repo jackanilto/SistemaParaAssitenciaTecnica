@@ -96,6 +96,7 @@ type
     acRelatorioOSPorStatus: TAction;
     acRelatorioOS: TAction;
     acRelatorioFornecedores: TAction;
+    acRelatorioClientesOSInadimplentes: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -145,6 +146,7 @@ type
     procedure acRelatorioOSPorStatusExecute(Sender: TObject);
     procedure acRelatorioOSExecute(Sender: TObject);
     procedure acRelatorioFornecedoresExecute(Sender: TObject);
+    procedure acRelatorioClientesOSInadimplentesExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -175,7 +177,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Historico.OS, Form.Relatorio.Contas.A.Receber.OS,
   Form.Relatorio.Contas.A.Receber.Venda, Form.Relatorio.Parcelas.Pagas.OS,
   Form.Relatorio.Parcelas.Pagas.Vendas, Form.Relatorio.Contas.A.Pagar,
-  Form.Relatorio.Reparos.Periodos, Form.Relatorio.Fornecedores;
+  Form.Relatorio.Reparos.Periodos, Form.Relatorio.Fornecedores,
+  Form.Relatorio.OS.Inadimplentes;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -406,6 +409,13 @@ procedure TformPrincipal.acRelatorioClientesExecute(Sender: TObject);
 begin
   formRelatorioClientes := TformRelatorioClientes.Create(self);
   TFactory.new.criarJanela.formShow(formRelatorioClientes, '');
+end;
+
+procedure TformPrincipal.acRelatorioClientesOSInadimplentesExecute(
+  Sender: TObject);
+begin
+  formRelatorioOSInadimplentes := TformRelatorioOSInadimplentes.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioOSInadimplentes, '');
 end;
 
 procedure TformPrincipal.acRelatorioContasAPagarExecute(Sender: TObject);
