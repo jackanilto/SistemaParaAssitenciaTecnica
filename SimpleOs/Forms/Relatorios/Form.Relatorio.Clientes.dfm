@@ -92,7 +92,6 @@ inherited formRelatorioClientes: TformRelatorioClientes
     inherited cbPesquisar: TComboBox
       ItemIndex = 1
       Text = 'Nome'
-      OnChange = cbPesquisarChange
       Items.Strings = (
         'C'#243'digo do cliente'
         'Nome'

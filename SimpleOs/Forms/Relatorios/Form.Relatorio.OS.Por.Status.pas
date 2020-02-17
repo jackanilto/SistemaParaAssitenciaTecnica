@@ -31,6 +31,7 @@ type
     procedure sbPesquisarDatasClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
   private
     { Private declarations }
     FRelatorioSituacao:iRelatorioOSPorSituacao;
@@ -53,6 +54,12 @@ begin
                   .getValor(cbPesquisarSituacao.Text)
                   .sqlPesquisa
                   .listarGrid(DataSource1);
+end;
+
+procedure TformRelatorioOSPorStatus.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FRelatorioSituacao.ordenarGrid(Column);
 end;
 
 procedure TformRelatorioOSPorStatus.FormCreate(Sender: TObject);

@@ -133,7 +133,9 @@ uses
   UClasse.Relatorio.OS.Situacao in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Situacao.pas',
   Form.Relatorio.OS in 'Forms\Relatorios\Form.Relatorio.OS.pas' {formRelatorioOrdemDeServico},
   UClasse.Relatorio.OS in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.pas',
-  UClasse.Relatorio.OS.Servicos in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Servicos.pas';
+  UClasse.Relatorio.OS.Servicos in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Servicos.pas',
+  Form.Relatorio.Fornecedores in 'Forms\Relatorios\Form.Relatorio.Fornecedores.pas' {formRelatorioFornecedores},
+  UClasse.Relatorio.Fornecedores in 'Classes\Entity\Relatorios\UClasse.Relatorio.Fornecedores.pas';
 
 {$R *.res}
 

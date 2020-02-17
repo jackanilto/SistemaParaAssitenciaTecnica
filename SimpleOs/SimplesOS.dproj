@@ -392,6 +392,11 @@
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.pas"/>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Servicos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Fornecedores.pas">
+            <Form>formRelatorioFornecedores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Fornecedores.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

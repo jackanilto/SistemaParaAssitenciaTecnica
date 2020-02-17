@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -101,8 +102,41 @@ begin
 end;
 
 function TRelatorioOSServicos.exportar: iRelatoriOSServicosRealiados;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório OS - Serviços';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'OS';
+  pasta.cells[1, 2] := 'Cód. Serviço';
+  pasta.cells[1, 3] := 'Serviço realizado';
+  pasta.cells[1, 4] := 'Valor';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_SERVICO').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('SERVICO').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioOSServicos.fecharQuery: iRelatoriOSServicosRealiados;

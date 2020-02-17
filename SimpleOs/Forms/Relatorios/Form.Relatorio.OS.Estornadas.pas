@@ -26,7 +26,8 @@ type
       Shift: TShiftState);
     procedure sbPesquisarDatasClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
-    procedure sbImprimirClick(Sender: TObject);  private
+    procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);  private
     { Private declarations }
     var
       FRelatorioEstornos:iRelatorioOSEstornadas;
@@ -40,6 +41,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformOSEstornadas.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FRelatorioEstornos.ordenarGrid(Column);
+end;
 
 procedure TformOSEstornadas.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);

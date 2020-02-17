@@ -36,12 +36,24 @@ type
     Bevel2: TBevel;
     cbPesquisarData: TComboBox;
     Label2: TLabel;
+    popM_RelatorioOS: TPopupMenu;
+    Exportar2: TMenuItem;
+    Imprimir3: TMenuItem;
+    frxDBD_ServicosRealizados: TfrxDBDataset;
+    frx_ServicosRealizados: TfrxReport;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure sbPesquisarDatasClick(Sender: TObject);  private
+    procedure sbPesquisarDatasClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+    procedure Exportar2Click(Sender: TObject);
+    procedure Exportar1Click(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure Imprimir3Click(Sender: TObject);
+    procedure Imprimir1Click(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);  private
     { Private declarations }
     var
       FRelatorioOS:iRelatorioOS;
@@ -63,6 +75,12 @@ begin
   begin
     FRelatorioOS.listarGridServicos(s_ServicosRealizados);
   end;
+end;
+
+procedure TformRelatorioOrdemDeServico.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FRelatorioOS.ordenarGrid(Column);
 end;
 
 procedure TformRelatorioOrdemDeServico.edtPesquisarKeyUp(Sender: TObject;
@@ -96,6 +114,18 @@ begin
 
 end;
 
+procedure TformRelatorioOrdemDeServico.Exportar1Click(Sender: TObject);
+begin
+  inherited;
+  FRelatorioOS.exportarServicos;
+end;
+
+procedure TformRelatorioOrdemDeServico.Exportar2Click(Sender: TObject);
+begin
+  inherited;
+  FRelatorioOS.exportar;
+end;
+
 procedure TformRelatorioOrdemDeServico.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -107,7 +137,40 @@ begin
   inherited;
    FRelatorioOS
               .abrir
+              .getCampo('ID_ORDEM')
+              .getValor('0')
+              .sqlPesquisa
               .listarGrid(DataSource1);
+end;
+
+procedure TformRelatorioOrdemDeServico.Imprimir1Click(Sender: TObject);
+begin
+  inherited;
+  frx_ServicosRealizados.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_os_servicos.fr3');
+  frx_ServicosRealizados.ShowReport();
+end;
+
+procedure TformRelatorioOrdemDeServico.Imprimir3Click(Sender: TObject);
+begin
+  inherited;
+   frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_os.fr3');
+   frxReport1.ShowReport()
+end;
+
+procedure TformRelatorioOrdemDeServico.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FRelatorioOS.exportar;
+end;
+
+procedure TformRelatorioOrdemDeServico.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_os.fr3');
+  frxReport1.ShowReport();
 end;
 
 procedure TformRelatorioOrdemDeServico.sbPesquisarDatasClick(Sender: TObject);

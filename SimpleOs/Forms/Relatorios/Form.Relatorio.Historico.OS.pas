@@ -51,6 +51,7 @@ type
     procedure sbImprimirClick(Sender: TObject);
     procedure Imprimir1Click(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
+    procedure DBGrid2TitleClick(Column: TColumn);
   private
     { Private declarations }
   var
@@ -95,6 +96,12 @@ procedure TformRelatorioHistoricoOS.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
   FEntityHistorico.ordenarGrid(Column);
+end;
+
+procedure TformRelatorioHistoricoOS.DBGrid2TitleClick(Column: TColumn);
+begin
+  inherited;
+   FEntityHistorico.ordenarGrid(Column);
 end;
 
 procedure TformRelatorioHistoricoOS.edtPesquisarKeyUp(Sender: TObject;

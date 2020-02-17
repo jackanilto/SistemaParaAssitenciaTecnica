@@ -185,6 +185,7 @@ inherited formRelatorioParcelasPagasOS: TformRelatorioParcelasPagasOS
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    OnTitleClick = DBGrid1TitleClick
   end
   inherited frxDBDataset1: TfrxDBDataset
     DataSource = DataSource1

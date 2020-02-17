@@ -3541,3 +3541,18 @@ between
 15/02/20 15:08:06 - Caption: Relatório Ordem de Serviço
 15/02/20 15:08:06 - Erro:EDatabaseError
 15/02/20 15:08:06 - Erro:Field 'ID_ORDEM ' not found
+16/02/20 14:17:50 - ===========================================
+16/02/20 14:17:50 - Form: formRelatorioOrdemDeServico
+16/02/20 14:17:50 - Caption: Relatório Ordem de Serviço
+16/02/20 14:17:50 - Erro:EConvertError
+16/02/20 14:17:50 - Erro:'BRUNA OLIVEIRA SOUZA' is not a valid integer value
+16/02/20 14:24:07 - ===========================================
+16/02/20 14:24:07 - Form: formRelatorioOrdemDeServico
+16/02/20 14:24:07 - Caption: Relatório Ordem de Serviço
+16/02/20 14:24:07 - Erro:EConvertError
+16/02/20 14:24:07 - Erro:'30/12/1899' is not a valid time
+16/02/20 15:46:17 - ===========================================
+16/02/20 15:46:17 - Form: formRelatorioOrdemDeServico
+16/02/20 15:46:17 - Caption: Relatório Ordem de Serviço
+16/02/20 15:46:17 - Erro:Exception
+16/02/20 15:46:17 - Erro:Digite uma data válida.

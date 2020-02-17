@@ -40,6 +40,7 @@ type
     procedure cbPesquisarStatusChange(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
 
     private
     { Private declarations }
@@ -109,6 +110,12 @@ begin
 
   DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 
+end;
+
+procedure TformRelatorioContasAPagar.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FRelatorioContasAPagar.ordenarGrid(Column);
 end;
 
 procedure TformRelatorioContasAPagar.edtPesquisarKeyUp(Sender: TObject;

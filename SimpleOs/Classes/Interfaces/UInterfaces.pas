@@ -2067,6 +2067,7 @@ type
 
     function getSituacao(value: string): iRelatorioOS;
     function selecionarOSPorSituacaoECampo: iRelatorioOS;
+    function exportarServicos:iRelatorioOS;
 
     function listarGridServicos(value: TDataSource): iRelatorioOS;
     function listarGridOcorrencia(value: TDataSource): iRelatorioOS;
@@ -2105,6 +2106,33 @@ type
 
   iRelatorioOSOcorrencias = interface
     ['{000F9F39-29E0-437B-9330-7E643CE63C60}']
+  end;
+
+  iRelatorioFornecedores = interface
+    ['{0058CC2E-BF3D-4E9A-9920-80E80B477465}']
+
+    function nomeTabela(value: string): iRelatorioFornecedores;
+    function getCampo(value: string): iRelatorioFornecedores;
+    function getValor(value: string): iRelatorioFornecedores;
+    function getDataInicial(value: TDate): iRelatorioFornecedores;
+    function getDataFinal(value: TDate): iRelatorioFornecedores;
+    function open(value: string): iRelatorioFornecedores;
+    function pesquisar: iRelatorioFornecedores;
+    function ExecSql: iRelatorioFornecedores;
+    function sqlPesquisa: iRelatorioFornecedores;
+    function sqlPesquisaData: iRelatorioFornecedores;
+    function sqlPesquisaEstatica: iRelatorioFornecedores;
+
+    function abrir: iRelatorioFornecedores;
+    function atualizar: iRelatorioFornecedores;
+    function cancelar: iRelatorioFornecedores;
+    function fecharQuery: iRelatorioFornecedores;
+    function listarGrid(value: TDataSource): iRelatorioFornecedores;
+    function ordenarGrid(column: TColumn): iRelatorioFornecedores;
+
+    function exportar: iRelatorioFornecedores;
+    function validarData(componet: tmaskEdit): iRelatorioFornecedores;
+
   end;
 
   iNivelAcessoFuncionario = interface

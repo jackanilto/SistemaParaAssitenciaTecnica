@@ -3,7 +3,6 @@ inherited formRelatorioOSPorTecnico: TformRelatorioOSPorTecnico
   ClientHeight = 570
   ClientWidth = 1091
   OnCreate = FormCreate
-  ExplicitTop = -16
   ExplicitWidth = 1091
   ExplicitHeight = 570
   PixelsPerInch = 96
@@ -209,6 +208,7 @@ inherited formRelatorioOSPorTecnico: TformRelatorioOSPorTecnico
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    OnTitleClick = DBGrid1TitleClick
   end
   inherited frxDBDataset1: TfrxDBDataset
     DataSource = DataSource1

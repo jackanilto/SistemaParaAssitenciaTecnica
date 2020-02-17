@@ -24,7 +24,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure sbPesquisarDatasClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
-    procedure sbImprimirClick(Sender: TObject);  private
+    procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);  private
     { Private declarations }
     var
       FRelatorioReparos:iRelatorioReparosPorPeriodo;
@@ -38,6 +39,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformRelatorioReparosPorPeriodo.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FRelatorioReparos.ordenarGrid(Column);
+end;
 
 procedure TformRelatorioReparosPorPeriodo.FormCreate(Sender: TObject);
 begin

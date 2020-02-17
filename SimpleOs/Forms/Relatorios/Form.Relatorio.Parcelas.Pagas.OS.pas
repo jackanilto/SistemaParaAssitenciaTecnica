@@ -31,7 +31,8 @@ type
       Shift: TShiftState);
     procedure sbPesquisarDatasClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
-    procedure sbImprimirClick(Sender: TObject);  private
+    procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);  private
     { Private declarations }
     var
       FParcelasPagas:iRelatorioParcelasPagasOS;
@@ -46,6 +47,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformRelatorioParcelasPagasOS.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FParcelasPagas.ordenarGrid(Column);
+end;
 
 procedure TformRelatorioParcelasPagasOS.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);

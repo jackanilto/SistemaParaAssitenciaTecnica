@@ -303,6 +303,7 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
       TitleFont.Height = -13
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = [fsBold]
+      OnTitleClick = DBGrid2TitleClick
     end
   end
   inherited frxDBDataset1: TfrxDBDataset
