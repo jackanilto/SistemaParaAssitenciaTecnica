@@ -13,7 +13,7 @@ uses
   UClasse.Entity.Criar.Ordem.Servico, Form.Visualizar.Vendas,
   Form.Modelo.Relatorio, Form.Relatorio.OS.Estornadas,
   Form.Relatorio.Vendas.Estornadas, Form.Relatorio.OS.Por.Tecnico,
-  Form.Relatorio.OS.Por.Status, Form.Relatorio.OS;
+  Form.Relatorio.OS.Por.Status, Form.Relatorio.OS, Form.Relatorio.Produtos;
 
 type
   TformPrincipal = class(TForm)
@@ -97,6 +97,7 @@ type
     acRelatorioOS: TAction;
     acRelatorioFornecedores: TAction;
     acRelatorioClientesOSInadimplentes: TAction;
+    acRelatorioDeProdutos: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -147,6 +148,7 @@ type
     procedure acRelatorioOSExecute(Sender: TObject);
     procedure acRelatorioFornecedoresExecute(Sender: TObject);
     procedure acRelatorioClientesOSInadimplentesExecute(Sender: TObject);
+    procedure acRelatorioDeProdutosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -435,6 +437,12 @@ procedure TformPrincipal.acRelatorioContasAReceberVendasExecute(
 begin
   formRelatorioContasAReceberVenda := TformRelatorioContasAReceberVenda.Create(self);
   TFactory.new.criarJanela.formShow(formRelatorioContasAReceberVenda, '');
+end;
+
+procedure TformPrincipal.acRelatorioDeProdutosExecute(Sender: TObject);
+begin
+  formRelatorioDeProdutos := TformRelatorioDeProdutos.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioDeProdutos, '');
 end;
 
 procedure TformPrincipal.acRelatorioFornecedoresExecute(Sender: TObject);

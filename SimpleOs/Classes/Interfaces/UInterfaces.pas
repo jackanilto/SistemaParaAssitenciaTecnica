@@ -2165,6 +2165,33 @@ type
 
   end;
 
+  iRelatorioDeProdutos = interface
+    ['{1C3DCF97-03AC-472B-945B-590B0561C6D7}']
+
+    function nomeTabela(value: string): iRelatorioDeProdutos;
+    function getCampo(value: string): iRelatorioDeProdutos;
+    function getValor(value: string): iRelatorioDeProdutos;
+    function getDataInicial(value: TDate): iRelatorioDeProdutos;
+    function getDataFinal(value: TDate): iRelatorioDeProdutos;
+    function open(value: string): iRelatorioDeProdutos;
+    function pesquisar: iRelatorioDeProdutos;
+    function ExecSql: iRelatorioDeProdutos;
+    function sqlPesquisa: iRelatorioDeProdutos;
+    function sqlPesquisaData: iRelatorioDeProdutos;
+    function sqlPesquisaEstatica: iRelatorioDeProdutos;
+
+    function abrir: iRelatorioDeProdutos;
+    function atualizar: iRelatorioDeProdutos;
+    function cancelar: iRelatorioDeProdutos;
+    function fecharQuery: iRelatorioDeProdutos;
+    function listarGrid(value: TDataSource): iRelatorioDeProdutos;
+    function ordenarGrid(column: TColumn): iRelatorioDeProdutos;
+
+    function exportar: iRelatorioDeProdutos;
+    function validarData(componet: tmaskEdit): iRelatorioDeProdutos;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
