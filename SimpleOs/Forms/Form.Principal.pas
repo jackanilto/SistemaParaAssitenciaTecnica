@@ -13,7 +13,8 @@ uses
   UClasse.Entity.Criar.Ordem.Servico, Form.Visualizar.Vendas,
   Form.Modelo.Relatorio, Form.Relatorio.OS.Estornadas,
   Form.Relatorio.Vendas.Estornadas, Form.Relatorio.OS.Por.Tecnico,
-  Form.Relatorio.OS.Por.Status, Form.Relatorio.OS, Form.Relatorio.Produtos;
+  Form.Relatorio.OS.Por.Status, Form.Relatorio.OS, Form.Relatorio.Produtos,
+  Form.Relatorio.Situacao.Estoque;
 
 type
   TformPrincipal = class(TForm)
@@ -98,6 +99,7 @@ type
     acRelatorioFornecedores: TAction;
     acRelatorioClientesOSInadimplentes: TAction;
     acRelatorioDeProdutos: TAction;
+    acRelatorioSituacaoEstoque: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -149,6 +151,7 @@ type
     procedure acRelatorioFornecedoresExecute(Sender: TObject);
     procedure acRelatorioClientesOSInadimplentesExecute(Sender: TObject);
     procedure acRelatorioDeProdutosExecute(Sender: TObject);
+    procedure acRelatorioSituacaoEstoqueExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -461,6 +464,12 @@ begin
     spvRelatorio.Opened := true;
     F_SplitView := spvRelatorio;
   end;
+end;
+
+procedure TformPrincipal.acRelatorioSituacaoEstoqueExecute(Sender: TObject);
+begin
+  formRelatorioSituacaoDoEstoque := TformRelatorioSituacaoDoEstoque.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioSituacaoDoEstoque, '');
 end;
 
 procedure TformPrincipal.acSaidaProdutosExecute(Sender: TObject);

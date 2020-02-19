@@ -1,0 +1,10 @@
+inherited formRelatorioSituacaoDoEstoque: TformRelatorioSituacaoDoEstoque
+  Caption = 'Situa'#231#227'o do estoque'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

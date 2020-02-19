@@ -407,6 +407,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Produtos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Situacao.Estoque.pas">
+            <Form>formRelatorioSituacaoDoEstoque</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Situacao.Estoque.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

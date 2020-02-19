@@ -19,6 +19,7 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     var
@@ -82,6 +83,9 @@ begin
   inherited;
   FRelatorioProdutos
                     .abrir
+                    .getCampo('ID')
+                    .getValor('0')
+                    .sqlPesquisa
                     .listarGrid(DataSource1);
 end;
 
@@ -89,6 +93,14 @@ procedure TformRelatorioDeProdutos.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FRelatorioProdutos.exportar;
+end;
+
+procedure TformRelatorioDeProdutos.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_produtos_lista.fr3');
+  frxReport1.ShowReport();
 end;
 
 end.

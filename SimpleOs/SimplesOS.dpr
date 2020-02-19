@@ -139,7 +139,9 @@ uses
   Form.Relatorio.OS.Inadimplentes in 'Forms\Relatorios\Form.Relatorio.OS.Inadimplentes.pas' {formRelatorioOSInadimplentes},
   UClasse.Relatorio.OS.Inadimplentes in 'Classes\Entity\Relatorios\UClasse.Relatorio.OS.Inadimplentes.pas',
   Form.Relatorio.Produtos in 'Forms\Relatorios\Form.Relatorio.Produtos.pas' {formRelatorioDeProdutos},
-  UClasse.Relatorio.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Produtos.pas';
+  UClasse.Relatorio.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Produtos.pas',
+  Form.Relatorio.Situacao.Estoque in 'Forms\Relatorios\Form.Relatorio.Situacao.Estoque.pas' {formRelatorioSituacaoDoEstoque},
+  UClasse.Relatorio.Situacao.Estoque in 'Classes\Entity\Relatorios\UClasse.Relatorio.Situacao.Estoque.pas';
 
 {$R *.res}
 

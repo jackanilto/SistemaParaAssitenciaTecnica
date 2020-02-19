@@ -2192,6 +2192,38 @@ type
 
   end;
 
+  iRelatorioSituacaoEstoque = interface
+    ['{E2092ACC-CBCB-4E53-9D41-03DE090D071E}']
+
+    function nomeTabela(value: string): iRelatorioSituacaoEstoque;
+    function getCampo(value: string): iRelatorioSituacaoEstoque;
+    function getValor(value: string): iRelatorioSituacaoEstoque;
+    function getDataInicial(value: TDate): iRelatorioSituacaoEstoque;
+    function getDataFinal(value: TDate): iRelatorioSituacaoEstoque;
+    function open(value: string): iRelatorioSituacaoEstoque;
+    function pesquisar: iRelatorioSituacaoEstoque;
+    function ExecSql: iRelatorioSituacaoEstoque;
+    function sqlPesquisa: iRelatorioSituacaoEstoque;
+    function sqlPesquisaData: iRelatorioSituacaoEstoque;
+    function sqlPesquisaEstatica: iRelatorioSituacaoEstoque;
+
+    function abrir: iRelatorioSituacaoEstoque;
+    function atualizar: iRelatorioSituacaoEstoque;
+    function cancelar: iRelatorioSituacaoEstoque;
+    function fecharQuery: iRelatorioSituacaoEstoque;
+    function listarGrid(value: TDataSource): iRelatorioSituacaoEstoque;
+    function ordenarGrid(column: TColumn): iRelatorioSituacaoEstoque;
+
+    function selecionarEStoqueAtencao:iRelatorioSituacaoEstoque;
+    function selecionarEStoqueBaixo:iRelatorioSituacaoEstoque;
+    function selecionarEStoqueNorma:iRelatorioSituacaoEstoque;
+    function selecionarEStoqueTodos:iRelatorioSituacaoEstoque;
+
+    function exportar: iRelatorioSituacaoEstoque;
+    function validarData(componet: tmaskEdit): iRelatorioSituacaoEstoque;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
