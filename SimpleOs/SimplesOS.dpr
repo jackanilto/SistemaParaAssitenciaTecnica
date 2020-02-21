@@ -141,7 +141,8 @@ uses
   Form.Relatorio.Produtos in 'Forms\Relatorios\Form.Relatorio.Produtos.pas' {formRelatorioDeProdutos},
   UClasse.Relatorio.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Produtos.pas',
   Form.Relatorio.Situacao.Estoque in 'Forms\Relatorios\Form.Relatorio.Situacao.Estoque.pas' {formRelatorioSituacaoDoEstoque},
-  UClasse.Relatorio.Situacao.Estoque in 'Classes\Entity\Relatorios\UClasse.Relatorio.Situacao.Estoque.pas';
+  UClasse.Relatorio.Situacao.Estoque in 'Classes\Entity\Relatorios\UClasse.Relatorio.Situacao.Estoque.pas',
+  Form.Relatorio.Produtos.Mais.Vendidos in 'Forms\Relatorios\Form.Relatorio.Produtos.Mais.Vendidos.pas' {formRelatorioProdutosMaisVendidos};
 
 {$R *.res}
 

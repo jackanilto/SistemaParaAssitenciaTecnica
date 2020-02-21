@@ -1,15 +1,8 @@
-#Criar janela para visualizar as vendas
-	#Criação da tela --FEITO
-	#Permitir excluir as vendas --FEITO
-	#Permitir estornar a vendas --FEITO
-	#Permitir imprimir as parcelas --FEITO
-	#Permitir imprimir o comprovante da vendas --FEITO
-	#Permitir imprimir a lista de vendas selecionada --FEITO
-	#permitir exportar as lista de vendas selecionada --FEITO
-	#Criar a códificação para ativar e desativar os botões --FEITO
-	
-	
-	
-
-
-	
+ #Relatório de produto --FEITO
+ #Relatório de produtos por situação no estoque --FEITO
+ #Relatório de produtos mas vendidos
+ #Relatório de venda
+ #Relatório de inadimplentes (Venda)
+ #Relatório de Vendas Inadimplentes (Parcelas)
+ #Relatório de serviços mais realizados
+ 

@@ -1,0 +1,24 @@
+inherited formRelatorioProdutosMaisVendidos: TformRelatorioProdutosMaisVendidos
+  Caption = 'Produtos mais vendidos'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel3: TPanel
+    inherited Label4: TLabel
+      Visible = False
+    end
+    inherited Label5: TLabel
+      Visible = False
+    end
+    inherited cbPesquisar: TComboBox
+      Visible = False
+    end
+    inherited edtPesquisar: TEdit
+      Visible = False
+    end
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

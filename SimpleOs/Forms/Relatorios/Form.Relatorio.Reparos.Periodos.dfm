@@ -182,7 +182,8 @@ inherited formRelatorioReparosPorPeriodo: TformRelatorioReparosPorPeriodo
     DataSource = DataSource1
   end
   inherited frxReport1: TfrxReport
-    ReportOptions.LastChange = 43870.655859884260000000
+    ReportOptions.CreateDate = 43852.479963819500000000
+    ReportOptions.LastChange = 43870.655859884300000000
     ScriptText.Strings = (
       ''
       'begin'

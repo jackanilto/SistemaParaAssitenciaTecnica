@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -105,8 +106,44 @@ begin
 end;
 
 function TRelatorioSituacaoEstoque.exportar: iRelatorioSituacaoEstoque;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+  FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Situação Estoque';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Produto';
+  pasta.cells[1, 3] := 'Código de barras';
+  pasta.cells[1, 4] := 'QTDE. Mínima';
+  pasta.cells[1, 5] := 'QTDE. Atual';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('PRODUTO').AsString;
+      pasta.cells[linha, 3] := '"'+FQuery.TQuery.FieldByName('CODIGO_BARRAS').AsString+'"';
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA').AsInteger;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioSituacaoEstoque.fecharQuery: iRelatorioSituacaoEstoque;
@@ -210,22 +247,62 @@ end;
 
 function TRelatorioSituacaoEstoque.selecionarEStoqueAtencao: iRelatorioSituacaoEstoque;
 begin
+
    result := self;
+
+   with FQuery do
+   begin
+     TQuery.Active := false;
+     TQuery.SQL.Clear;
+     TQuery.SQL.Add('select * from PRODUTOS where QUANTIDADE_ATUAL <= QUANTIDADE_MINIMA');
+     TQuery.Active := true;
+   end;
+
 end;
 
 function TRelatorioSituacaoEstoque.selecionarEStoqueBaixo: iRelatorioSituacaoEstoque;
 begin
-     result := self;
+
+  result := self;
+
+   with FQuery do
+   begin
+     TQuery.Active := false;
+     TQuery.SQL.Clear;
+     TQuery.SQL.Add('select * from PRODUTOS where QUANTIDADE_ATUAL < QUANTIDADE_MINIMA');
+     TQuery.Active := true;
+   end;
+
 end;
 
 function TRelatorioSituacaoEstoque.selecionarEStoqueNorma: iRelatorioSituacaoEstoque;
 begin
-     result := self;
+
+  result := self;
+
+  with FQuery do
+   begin
+     TQuery.Active := false;
+     TQuery.SQL.Clear;
+     TQuery.SQL.Add('select * from PRODUTOS where QUANTIDADE_ATUAL > QUANTIDADE_MINIMA');
+     TQuery.Active := true;
+   end;
+
+
 end;
 
 function TRelatorioSituacaoEstoque.selecionarEStoqueTodos: iRelatorioSituacaoEstoque;
 begin
-     result := self;
+
+  result := self;
+  with FQuery do
+   begin
+     TQuery.Active := false;
+     TQuery.SQL.Clear;
+     TQuery.SQL.Add('select * from PRODUTOS');
+     TQuery.Active := true;
+   end;
+
 end;
 
 function TRelatorioSituacaoEstoque.sqlPesquisa: iRelatorioSituacaoEstoque;

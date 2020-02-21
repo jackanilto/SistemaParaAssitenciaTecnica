@@ -1,0 +1,10 @@
+inherited formRelatorioProdutosMaisVendidos: TformRelatorioProdutosMaisVendidos
+  Caption = 'Produtos mais vendidos'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end
