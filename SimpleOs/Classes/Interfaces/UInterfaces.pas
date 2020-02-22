@@ -2224,6 +2224,65 @@ type
 
   end;
 
+  iRealatorioProdutosMaisVendidos = interface
+    ['{9C7E1813-0430-4D24-B010-27E1B767FE3C}']
+
+    function nomeTabela(value: string): iRealatorioProdutosMaisVendidos;
+    function getCampo(value: string): iRealatorioProdutosMaisVendidos;
+    function getValor(value: string): iRealatorioProdutosMaisVendidos;
+    function getDataInicial(value: TDate): iRealatorioProdutosMaisVendidos;
+    function getDataFinal(value: TDate): iRealatorioProdutosMaisVendidos;
+    function open(value: string): iRealatorioProdutosMaisVendidos;
+    function pesquisar: iRealatorioProdutosMaisVendidos;
+    function ExecSql: iRealatorioProdutosMaisVendidos;
+    function sqlPesquisa: iRealatorioProdutosMaisVendidos;
+    function sqlPesquisaData: iRealatorioProdutosMaisVendidos;
+    function sqlPesquisaEstatica: iRealatorioProdutosMaisVendidos;
+
+    function abrir: iRealatorioProdutosMaisVendidos;
+    function atualizar: iRealatorioProdutosMaisVendidos;
+    function cancelar: iRealatorioProdutosMaisVendidos;
+    function fecharQuery: iRealatorioProdutosMaisVendidos;
+    function listarGrid(value: TDataSource): iRealatorioProdutosMaisVendidos;
+    function ordenarGrid(column: TColumn): iRealatorioProdutosMaisVendidos;
+
+    function produtosMaisVendidos:iRealatorioProdutosMaisVendidos;
+    function produtosMenosVendidos:iRealatorioProdutosMaisVendidos;
+
+    function exportar: iRealatorioProdutosMaisVendidos;
+    function validarData(componet: tmaskEdit): iRealatorioProdutosMaisVendidos;
+
+  end;
+
+  iRelatorioVendas = interface
+    ['{1DF1BE36-1138-4F2B-8244-74EAC6DDE96B}']
+
+    function nomeTabela(value: string): iRelatorioVendas;
+    function getCampo(value: string): iRelatorioVendas;
+    function getValor(value: string): iRelatorioVendas;
+    function getDataInicial(value: TDate): iRelatorioVendas;
+    function getDataFinal(value: TDate): iRelatorioVendas;
+    function open(value: string): iRelatorioVendas;
+    function pesquisar: iRelatorioVendas;
+    function ExecSql: iRelatorioVendas;
+    function sqlPesquisa: iRelatorioVendas;
+    function sqlPesquisaData: iRelatorioVendas;
+    function sqlPesquisaEstatica: iRelatorioVendas;
+
+    function abrir: iRelatorioVendas;
+    function atualizar: iRelatorioVendas;
+    function cancelar: iRelatorioVendas;
+    function fecharQuery: iRelatorioVendas;
+    function listarGrid(value: TDataSource): iRelatorioVendas;
+    function ordenarGrid(column: TColumn): iRelatorioVendas;
+
+    function listarItens(value:TDataSource):iRelatorioVendas;
+
+    function exportar: iRelatorioVendas;
+    function validarData(componet: tmaskEdit): iRelatorioVendas;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

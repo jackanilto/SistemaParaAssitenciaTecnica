@@ -416,6 +416,12 @@
             <Form>formRelatorioProdutosMaisVendidos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Produtos.Mais.Vendidos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Vendas.pas">
+            <Form>formRelatorioVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

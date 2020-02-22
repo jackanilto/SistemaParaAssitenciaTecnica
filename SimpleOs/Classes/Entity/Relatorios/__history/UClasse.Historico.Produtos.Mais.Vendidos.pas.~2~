@@ -1,0 +1,304 @@
+unit UClasse.Historico.Produtos.Mais.Vendidos;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TRelatorioMaisVendidos = class(TInterfacedObject, iRealatorioProdutosMaisVendidos)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FNome: string;
+
+  public
+
+    function nomeTabela(value: string): iRealatorioProdutosMaisVendidos;
+    function getCampo(value: string): iRealatorioProdutosMaisVendidos;
+    function getValor(value: string): iRealatorioProdutosMaisVendidos;
+    function getDataInicial(value: TDate): iRealatorioProdutosMaisVendidos;
+    function getDataFinal(value: TDate): iRealatorioProdutosMaisVendidos;
+    function open(value: string): iRealatorioProdutosMaisVendidos;
+    function pesquisar: iRealatorioProdutosMaisVendidos;
+    function ExecSql: iRealatorioProdutosMaisVendidos;
+    function sqlPesquisa: iRealatorioProdutosMaisVendidos;
+    function sqlPesquisaData: iRealatorioProdutosMaisVendidos;
+    function sqlPesquisaEstatica: iRealatorioProdutosMaisVendidos;
+
+    function abrir: iRealatorioProdutosMaisVendidos;
+    function atualizar: iRealatorioProdutosMaisVendidos;
+    function cancelar: iRealatorioProdutosMaisVendidos;
+    function fecharQuery: iRealatorioProdutosMaisVendidos;
+    function listarGrid(value: TDataSource): iRealatorioProdutosMaisVendidos;
+    function ordenarGrid(column: TColumn): iRealatorioProdutosMaisVendidos;
+
+    function produtosMaisVendidos:iRealatorioProdutosMaisVendidos;
+    function produtosMenosVendidos:iRealatorioProdutosMaisVendidos;
+
+    function exportar: iRealatorioProdutosMaisVendidos;
+    function validarData(componet: tmaskEdit): iRealatorioProdutosMaisVendidos;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iRealatorioProdutosMaisVendidos;
+  end;
+
+implementation
+
+{ TRelatorioMaisVendidos }
+
+function TRelatorioMaisVendidos.abrir: iRealatorioProdutosMaisVendidos;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TRelatorioMaisVendidos.atualizar: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TRelatorioMaisVendidos.cancelar: iRealatorioProdutosMaisVendidos;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+function TRelatorioMaisVendidos.codigoCadastro(sp: string): integer;
+begin
+  result := FQuery.codigoCadastro('');
+end;
+
+constructor TRelatorioMaisVendidos.create;
+begin
+  FTabela := 'PRODUTOS';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TRelatorioMaisVendidos.deletar: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .gravarLog;
+
+      FQuery.TQuery.Delete;
+    end;
+  end;
+
+end;
+
+destructor TRelatorioMaisVendidos.destroy;
+begin
+
+  inherited;
+end;
+
+function TRelatorioMaisVendidos.editar: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .gravarLog;
+
+    FQuery.TQuery.Edit;
+
+  end;
+end;
+
+function TRelatorioMaisVendidos.ExecSql: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TRelatorioMaisVendidos.exportar: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+end;
+
+function TRelatorioMaisVendidos.fecharQuery: iRealatorioProdutosMaisVendidos;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TRelatorioMaisVendidos.getCampo(value: string): iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TRelatorioMaisVendidos.getCodigo(value: integer): iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FCodigo := value;
+end;
+
+function TRelatorioMaisVendidos.getDataFinal(value: TDate): iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TRelatorioMaisVendidos.getDataInicial(value: TDate): iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TRelatorioMaisVendidos.getNome(value: string): iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FNome := value;
+end;
+
+function TRelatorioMaisVendidos.getValor(value: string): iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TRelatorioMaisVendidos.Gravar: iRealatorioProdutosMaisVendidos;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+
+  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+    .gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: exception do
+    begin
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
+function TRelatorioMaisVendidos.inserir: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FQuery.TQuery.EmptyDataSet;
+  FQuery.TQuery.Append;
+end;
+
+function TRelatorioMaisVendidos.listarGrid(value: TDataSource): iRealatorioProdutosMaisVendidos;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
+  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TRelatorioMaisVendidos.new: iRealatorioProdutosMaisVendidos;
+begin
+  result := self.create;
+end;
+
+function TRelatorioMaisVendidos.nomeTabela(value: string): iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TRelatorioMaisVendidos.open(value: string): iRealatorioProdutosMaisVendidos;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TRelatorioMaisVendidos.ordenarGrid(column: TColumn): iRealatorioProdutosMaisVendidos;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TRelatorioMaisVendidos.pesquisar: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+end;
+
+function TRelatorioMaisVendidos.sqlPesquisa: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TRelatorioMaisVendidos.sqlPesquisaData: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TRelatorioMaisVendidos.sqlPesquisaEstatica: iRealatorioProdutosMaisVendidos;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TRelatorioMaisVendidos.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.
