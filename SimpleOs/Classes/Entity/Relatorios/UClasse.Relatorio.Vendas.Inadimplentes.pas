@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -103,8 +104,55 @@ begin
 end;
 
 function TRelatorioVendasInadimplentes.exportar: iRelatorioVendaInadimplentes;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+  FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Vendas - Clientes com parcelas inadimplentes';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Parcela';
+  pasta.cells[1, 2] := 'Venda';
+  pasta.cells[1, 3] := 'Cód. Cliente';
+  pasta.cells[1, 4] := 'Nome do cliente';
+  pasta.cells[1, 5] := 'Valor da venda';
+  pasta.cells[1, 6] := 'Quantidade de parcelas';
+  pasta.cells[1, 7] := 'Parcela';
+  pasta.cells[1, 8] := 'Valor da parcela';
+  pasta.cells[1, 9] := 'Vencimento';
+  pasta.cells[1, 10] := 'Pago';
+
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_VENDA').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('CLIENTE').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('QUANTIDADE_PARCELAS').AsInteger;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('PARCELA').AsInteger;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_DA_PARCELA').AsCurrency;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('PAGO').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioVendasInadimplentes.fecharQuery: iRelatorioVendaInadimplentes;
@@ -154,16 +202,19 @@ begin
     FieldByName('PARCELA').DisplayLabel := 'Parcela';
     FieldByName('VALOR_DA_PARCELA').DisplayLabel := 'Valor da parcela';
     FieldByName('DATA_VENCIMENTO').DisplayLabel := 'Data de vencimento';
-    FieldByName('JUROS').DisplayLabel := 'Juros';
-    FieldByName('MULTA').DisplayLabel := 'Multa';
-    FieldByName('DESCONTO').DisplayLabel := 'Desconto';
-    FieldByName('TOTAL').DisplayLabel := 'Total';
+    FieldByName('JUROS').Visible := false;
+    FieldByName('MULTA').Visible := false;
+    FieldByName('DESCONTO').Visible := false;
+    FieldByName('TOTAL').Visible := false;
     FieldByName('DATA_PAGAMENTO').Visible := false;
     FieldByName('HORA_PAGAMENTO').Visible := false;
     FieldByName('FUNCIONARIO_PGTO').Visible := false;
     FieldByName('FORMA_PAGAMENTO').Visible := false;
-    FieldByName('PAGO').Visible := false;
+    FieldByName('PAGO').DisplayLabel := 'Pago';
     FieldByName('OBSERVACAO').Visible := false;
+
+    FieldByName('CLIENTE').DisplayWidth := 40;
+
   end;
 
   value.DataSet := FQuery.TQuery;
@@ -203,12 +254,47 @@ end;
 
 function TRelatorioVendasInadimplentes.selecionarVendaData: iRelatorioVendaInadimplentes;
 begin
+
   result := self;
+
+  with FQuery do
+  begin
+
+    TQuery.Active := false;
+    TQuery.SQL.Clear;
+    TQuery.SQL.Add('select * from VISUALIZAR_PARCELAS_VENDA where DATA_VENCIMENTO <:d '+
+                  'and pago =:p and DATA_VENCIMENTO between :d1 and :d2');
+    TQuery.ParamByName('d').AsDate := date;
+    TQuery.ParamByName('p').AsString := 'Nao';
+    TQuery.ParamByName('d1').AsDate := FDataInicial;
+    TQuery.ParamByName('d2').AsDate := FDataFinal;
+    TQuery.Active := true;
+
+  end;
+
 end;
 
 function TRelatorioVendasInadimplentes.selecionarVendas: iRelatorioVendaInadimplentes;
 begin
+
   result := self;
+
+  with FQuery do
+  begin
+
+    TQuery.Active := false;
+    TQuery.SQL.Clear;
+    TQuery.SQL.Add
+      ('select * from VISUALIZAR_PARCELAS_VENDA where DATA_VENCIMENTO <:d and pago =:p and '
+      +FCampo+' like :valor');
+    TQuery.ParamByName('d').AsDateTime := date;
+    TQuery.ParamByName('p').AsString := 'Nao';
+    TQuery.ParamByName('valor').AsString := UpperCase(FValor+'%');
+    TQuery.Active := true;
+
+  end;
+
+
 end;
 
 function TRelatorioVendasInadimplentes.sqlPesquisa: iRelatorioVendaInadimplentes;
