@@ -1,6 +1,5 @@
 inherited formRelatorioProdutosMaisVendidos: TformRelatorioProdutosMaisVendidos
   Caption = 'Produtos mais vendidos'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel

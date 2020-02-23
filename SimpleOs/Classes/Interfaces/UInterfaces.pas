@@ -2315,6 +2315,36 @@ type
 
   end;
 
+  iRelatorioServicosMaisRealizados = interface
+    ['{007F6180-56B8-4054-B9B8-09C953456CA9}']
+
+    function nomeTabela(value: string): iRelatorioServicosMaisRealizados;
+    function getCampo(value: string): iRelatorioServicosMaisRealizados;
+    function getValor(value: string): iRelatorioServicosMaisRealizados;
+    function getDataInicial(value: TDate): iRelatorioServicosMaisRealizados;
+    function getDataFinal(value: TDate): iRelatorioServicosMaisRealizados;
+    function open(value: string): iRelatorioServicosMaisRealizados;
+    function pesquisar: iRelatorioServicosMaisRealizados;
+    function ExecSql: iRelatorioServicosMaisRealizados;
+    function sqlPesquisa: iRelatorioServicosMaisRealizados;
+    function sqlPesquisaData: iRelatorioServicosMaisRealizados;
+    function sqlPesquisaEstatica: iRelatorioServicosMaisRealizados;
+
+    function abrir: iRelatorioServicosMaisRealizados;
+    function atualizar: iRelatorioServicosMaisRealizados;
+    function cancelar: iRelatorioServicosMaisRealizados;
+    function fecharQuery: iRelatorioServicosMaisRealizados;
+    function listarGrid(value: TDataSource): iRelatorioServicosMaisRealizados;
+    function ordenarGrid(column: TColumn): iRelatorioServicosMaisRealizados;
+
+    function servicosMaisRealizados:iRelatorioServicosMaisRealizados;
+    function servicosMenosRealizados:iRelatorioServicosMaisRealizados;
+
+    function exportar: iRelatorioServicosMaisRealizados;
+    function validarData(componet: tmaskEdit): iRelatorioServicosMaisRealizados;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

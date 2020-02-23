@@ -139,6 +139,7 @@ begin
   finally
   end;
 end;
+
 function TRelatorioProdutosMaisVendidos.fecharQuery:iRealatorioProdutosMaisVendidos ;
 begin
   FQuery.TQuery.close;

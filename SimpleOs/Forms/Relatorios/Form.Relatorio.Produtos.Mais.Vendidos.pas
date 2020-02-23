@@ -44,6 +44,7 @@ begin
   inherited;
   FRelatorioProdutos
                     .abrir
+                    .produtosMaisVendidos
                     .listarGrid(DataSource1);
 end;
 

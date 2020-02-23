@@ -147,7 +147,9 @@ uses
   Form.Relatorio.Vendas in 'Forms\Relatorios\Form.Relatorio.Vendas.pas' {formRelatorioVendas},
   UClasse.Relatorio.Vendas in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.pas',
   Form.Relatorio.Parcelas.Venda.Inadimplentes in 'Forms\Relatorios\Form.Relatorio.Parcelas.Venda.Inadimplentes.pas' {formRelatorioVendasInadimplentes},
-  UClasse.Relatorio.Vendas.Inadimplentes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Inadimplentes.pas';
+  UClasse.Relatorio.Vendas.Inadimplentes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Inadimplentes.pas',
+  Form.Relatorio.Servico.Mais.Realizados in 'Forms\Relatorios\Form.Relatorio.Servico.Mais.Realizados.pas' {formRelatorioServicosMaisRealizados},
+  UClasse.Relatorio.Servicos.Mais.Realizados in 'Classes\Entity\Relatorios\UClasse.Relatorio.Servicos.Mais.Realizados.pas';
 
 {$R *.res}
 
@@ -156,6 +158,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TformRelatorioVendasInadimplentes, formRelatorioVendasInadimplentes);
   Application.Run;
 end.
