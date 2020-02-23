@@ -3599,3 +3599,32 @@ like
 22/02/20 11:18:07 - Caption: Produtos mais vendidos
 22/02/20 11:18:07 - Erro:EDatabaseError
 22/02/20 11:18:07 - Erro:Field 'PRODUTO' not found
+22/02/20 15:05:04 - ===========================================
+22/02/20 15:05:04 - ===========================================
+22/02/20 15:05:04 - Form: formPrincipal
+22/02/20 15:05:04 - Caption: SimpleOS
+22/02/20 15:05:04 - Erro:EAccessViolation
+22/02/20 15:05:04 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C977478
+22/02/20 15:06:12 - ===========================================
+22/02/20 15:06:12 - ===========================================
+22/02/20 15:06:12 - Form: formPrincipal
+22/02/20 15:06:12 - Caption: SimpleOS
+22/02/20 15:06:12 - Erro:EAccessViolation
+22/02/20 15:06:12 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C947478
+22/02/20 15:06:59 - ===========================================
+22/02/20 15:06:59 - Form: formRelatorioVendas
+22/02/20 15:06:59 - Caption: Relatorio de vendas
+22/02/20 15:06:59 - Erro:EDatabaseError
+22/02/20 15:06:59 - Erro:Field 'OBSERVACAO' not found
+22/02/20 15:14:02 - ===========================================
+22/02/20 15:14:05 - ===========================================
+22/02/20 15:14:05 - Form: formPrincipal
+22/02/20 15:14:05 - Caption: SimpleOS
+22/02/20 15:14:05 - Erro:EAccessViolation
+22/02/20 15:14:05 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 0C617478
+22/02/20 15:15:12 - ===========================================
+22/02/20 15:15:12 - ===========================================
+22/02/20 15:15:12 - Form: formPrincipal
+22/02/20 15:15:12 - Caption: SimpleOS
+22/02/20 15:15:12 - Erro:EAccessViolation
+22/02/20 15:15:12 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 07FC7478

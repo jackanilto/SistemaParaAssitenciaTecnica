@@ -101,6 +101,8 @@ type
     acRelatorioDeProdutos: TAction;
     acRelatorioSituacaoEstoque: TAction;
     acRelatorioProdutosMaisVendidos: TAction;
+    acRelatorioVendas: TAction;
+    acRelatorioVendaInadimplentes: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -154,6 +156,8 @@ type
     procedure acRelatorioDeProdutosExecute(Sender: TObject);
     procedure acRelatorioSituacaoEstoqueExecute(Sender: TObject);
     procedure acRelatorioProdutosMaisVendidosExecute(Sender: TObject);
+    procedure acRelatorioVendasExecute(Sender: TObject);
+    procedure acRelatorioVendaInadimplentesExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -185,7 +189,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Contas.A.Receber.Venda, Form.Relatorio.Parcelas.Pagas.OS,
   Form.Relatorio.Parcelas.Pagas.Vendas, Form.Relatorio.Contas.A.Pagar,
   Form.Relatorio.Reparos.Periodos, Form.Relatorio.Fornecedores,
-  Form.Relatorio.OS.Inadimplentes, Form.Relatorio.Produtos.Mais.Vendidos;
+  Form.Relatorio.OS.Inadimplentes, Form.Relatorio.Produtos.Mais.Vendidos,
+  Form.Relatorio.Vendas, Form.Relatorio.Parcelas.Venda.Inadimplentes;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -479,6 +484,18 @@ procedure TformPrincipal.acRelatorioSituacaoEstoqueExecute(Sender: TObject);
 begin
   formRelatorioSituacaoDoEstoque := TformRelatorioSituacaoDoEstoque.Create(self);
   TFactory.new.criarJanela.formShow(formRelatorioSituacaoDoEstoque, '');
+end;
+
+procedure TformPrincipal.acRelatorioVendaInadimplentesExecute(Sender: TObject);
+begin
+  formRelatorioVendasInadimplentes := TformRelatorioVendasInadimplentes.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioVendasInadimplentes, '');
+end;
+
+procedure TformPrincipal.acRelatorioVendasExecute(Sender: TObject);
+begin
+  formRelatorioVendas := TformRelatorioVendas.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioVendas, '');
 end;
 
 procedure TformPrincipal.acSaidaProdutosExecute(Sender: TObject);

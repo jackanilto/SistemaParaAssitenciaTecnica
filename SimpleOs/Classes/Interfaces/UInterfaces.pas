@@ -2276,10 +2276,42 @@ type
     function listarGrid(value: TDataSource): iRelatorioVendas;
     function ordenarGrid(column: TColumn): iRelatorioVendas;
 
+    function selecionarItensVenda(value:integer):iRelatorioVendas;
     function listarItens(value:TDataSource):iRelatorioVendas;
+    function exportarItens:iRelatorioVendas;
 
     function exportar: iRelatorioVendas;
     function validarData(componet: tmaskEdit): iRelatorioVendas;
+
+  end;
+
+  iRelatorioVendaInadimplentes = interface
+    ['{F517DC9B-C860-4148-9DBD-BE1A215B17DB}']
+
+    function nomeTabela(value: string): iRelatorioVendaInadimplentes;
+    function getCampo(value: string): iRelatorioVendaInadimplentes;
+    function getValor(value: string): iRelatorioVendaInadimplentes;
+    function getDataInicial(value: TDate): iRelatorioVendaInadimplentes;
+    function getDataFinal(value: TDate): iRelatorioVendaInadimplentes;
+    function open(value: string): iRelatorioVendaInadimplentes;
+    function pesquisar: iRelatorioVendaInadimplentes;
+    function ExecSql: iRelatorioVendaInadimplentes;
+    function sqlPesquisa: iRelatorioVendaInadimplentes;
+    function sqlPesquisaData: iRelatorioVendaInadimplentes;
+    function sqlPesquisaEstatica: iRelatorioVendaInadimplentes;
+
+    function abrir: iRelatorioVendaInadimplentes;
+    function atualizar: iRelatorioVendaInadimplentes;
+    function cancelar: iRelatorioVendaInadimplentes;
+    function fecharQuery: iRelatorioVendaInadimplentes;
+    function listarGrid(value: TDataSource): iRelatorioVendaInadimplentes;
+    function ordenarGrid(column: TColumn): iRelatorioVendaInadimplentes;
+
+    function selecionarVendas:iRelatorioVendaInadimplentes;
+    function selecionarVendaData:iRelatorioVendaInadimplentes;
+
+    function exportar: iRelatorioVendaInadimplentes;
+    function validarData(componet: tmaskEdit): iRelatorioVendaInadimplentes;
 
   end;
 

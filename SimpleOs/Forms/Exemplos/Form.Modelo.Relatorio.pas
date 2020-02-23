@@ -28,6 +28,7 @@ type
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure cbPesquisarChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,6 +45,11 @@ implementation
 procedure TformModeloRelatorio.cbPesquisarChange(Sender: TObject);
 begin
   edtPesquisar.SetFocus;
+end;
+
+procedure TformModeloRelatorio.FormCreate(Sender: TObject);
+begin
+  ReportMemoryLeaksOnShutdown := True;
 end;
 
 procedure TformModeloRelatorio.FormShow(Sender: TObject);

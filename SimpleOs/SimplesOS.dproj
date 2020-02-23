@@ -422,6 +422,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Parcelas.Venda.Inadimplentes.pas">
+            <Form>formRelatorioVendasInadimplentes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Inadimplentes.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

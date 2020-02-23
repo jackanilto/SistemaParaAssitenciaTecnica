@@ -7253,11 +7253,13 @@ object formPrincipal: TformPrincipal
     Placement = svpLeft
     TabOrder = 5
     object CategoryButtons5: TCategoryButtons
-      Left = 0
-      Top = -13
-      Width = 191
-      Height = 462
+      Left = -6
+      Top = -16
+      Width = 203
+      Height = 467
+      Margins.Top = 1
       Align = alCustom
+      Anchors = [akLeft, akTop, akBottom]
       BevelInner = bvNone
       BevelOuter = bvNone
       BorderStyle = bsNone
@@ -7324,6 +7326,12 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioProdutosMaisVendidos
+            end
+            item
+              Action = acRelatorioVendas
+            end
+            item
+              Action = acRelatorioVendaInadimplentes
             end>
           TextColor = 13402157
         end>
@@ -8199,6 +8207,14 @@ object formPrincipal: TformPrincipal
     object acRelatorioProdutosMaisVendidos: TAction
       Caption = 'Produtos mais vendidos'
       OnExecute = acRelatorioProdutosMaisVendidosExecute
+    end
+    object acRelatorioVendas: TAction
+      Caption = 'Relatorio vendas'
+      OnExecute = acRelatorioVendasExecute
+    end
+    object acRelatorioVendaInadimplentes: TAction
+      Caption = 'Vendas Inadimplentes'
+      OnExecute = acRelatorioVendaInadimplentesExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu
