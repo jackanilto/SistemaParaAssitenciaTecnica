@@ -5317,6 +5317,8 @@ object formPrincipal: TformPrincipal
     Color = 8408635
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = 416
+    ExplicitTop = 99
     DesignSize = (
       1061
       57)
@@ -7335,6 +7337,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioServicosMaisRealizados
+            end
+            item
+              Action = acRelatorioSaidaDeProdutos
             end>
           TextColor = 13402157
         end>
@@ -8222,6 +8227,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioServicosMaisRealizados: TAction
       Caption = 'Servi'#231'os mais realizados'
       OnExecute = acRelatorioServicosMaisRealizadosExecute
+    end
+    object acRelatorioSaidaDeProdutos: TAction
+      Caption = 'Sa'#237'da de produtos'
+      OnExecute = acRelatorioSaidaDeProdutosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

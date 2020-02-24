@@ -133,6 +133,9 @@ begin
   inherited;
   FRelatorioVenda
                 .abrir
+                .getCampo('ID')
+                .getValor('-1')
+                .sqlPesquisa
                 .listarGrid(DataSource1)
                 .selecionarItensVenda(0)
                 .listarItens(DataSource2);

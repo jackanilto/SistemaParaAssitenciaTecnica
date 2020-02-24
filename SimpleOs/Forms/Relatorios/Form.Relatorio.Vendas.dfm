@@ -1,6 +1,5 @@
 inherited formRelatorioVendas: TformRelatorioVendas
   Caption = 'Relatorio de vendas'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
