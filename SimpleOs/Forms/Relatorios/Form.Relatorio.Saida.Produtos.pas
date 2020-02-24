@@ -23,6 +23,10 @@ type
     procedure FormShow(Sender: TObject);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure sbPesquisarDataClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     var
@@ -37,6 +41,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformRelatorioSaidaDeProdutos.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FRelatorioSaida.ordenarGrid(Column);
+end;
 
 procedure TformRelatorioSaidaDeProdutos.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
@@ -78,9 +88,45 @@ end;
 procedure TformRelatorioSaidaDeProdutos.FormShow(Sender: TObject);
 begin
   inherited;
+
   FRelatorioSaida
                 .abrir
+                .getCampo('ID')
+                .getValor('0')
+                .sqlPesquisa
                 .listarGrid(DataSource1);
+
+end;
+
+procedure TformRelatorioSaidaDeProdutos.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FRelatorioSaida.exportar;
+end;
+
+procedure TformRelatorioSaidaDeProdutos.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_saida_produtos_lista.fr3');
+  frxReport1.ShowReport();
+end;
+
+procedure TformRelatorioSaidaDeProdutos.sbPesquisarDataClick(Sender: TObject);
+begin
+  inherited;
+
+  FRelatorioSaida
+                .validarData(edtData1)
+                .validarData(edtData2);
+
+  FRelatorioSaida
+                .getCampo('DATA')
+                .getDataInicial(StrToDate(edtData1.Text))
+                .getDataFinal(StrToDate(edtData2.Text))
+                .sqlPesquisaData
+                .listarGrid(DataSource1);
+
 end;
 
 end.

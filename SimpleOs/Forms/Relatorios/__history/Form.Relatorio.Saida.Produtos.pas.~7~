@@ -1,0 +1,86 @@
+unit Form.Relatorio.Saida.Produtos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.Saida.Produtos, Vcl.Mask;
+
+type
+  TEnumPesqusiar = (Cod_saida, cod_produto, produto);
+
+type
+  TformRelatorioSaidaDeProdutos = class(TformModeloRelatorio)
+    Label1: TLabel;
+    sbPesquisarData: TSpeedButton;
+    edtData1: TMaskEdit;
+    edtData2: TMaskEdit;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    { Private declarations }
+    var
+      FRelatorioSaida:iRelatorioSaidaDeProdutos;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioSaidaDeProdutos: TformRelatorioSaidaDeProdutos;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioSaidaDeProdutos.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+  var
+    FCampo:string;
+begin
+  inherited;
+
+  case TEnumPesqusiar(cbPesquisar.ItemIndex) of
+  Cod_saida:
+  begin
+    FCampo := 'ID';
+  end;
+  cod_produto:
+  begin
+    FCampo := 'ID_PRODUTO';
+  end;
+  produto:
+  begin
+    FCampo := 'PRODUTOS';
+  end;
+  end;
+
+  if edtPesquisar.Text <> EmptyStr then
+    FRelatorioSaida
+                  .getCampo(FCampo)
+                  .getValor(edtPesquisar.Text)
+                  .sqlPesquisa
+                  .listarGrid(DataSource1);
+
+end;
+
+procedure TformRelatorioSaidaDeProdutos.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FRelatorioSaida := TRelatorioSaidaProdutos.new;
+end;
+
+procedure TformRelatorioSaidaDeProdutos.FormShow(Sender: TObject);
+begin
+  inherited;
+  FRelatorioSaida
+                .abrir
+                .listarGrid(DataSource1);
+end;
+
+end.

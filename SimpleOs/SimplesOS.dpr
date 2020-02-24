@@ -151,7 +151,9 @@ uses
   Form.Relatorio.Servico.Mais.Realizados in 'Forms\Relatorios\Form.Relatorio.Servico.Mais.Realizados.pas' {formRelatorioServicosMaisRealizados},
   UClasse.Relatorio.Servicos.Mais.Realizados in 'Classes\Entity\Relatorios\UClasse.Relatorio.Servicos.Mais.Realizados.pas',
   Form.Relatorio.Saida.Produtos in 'Forms\Relatorios\Form.Relatorio.Saida.Produtos.pas' {formRelatorioSaidaDeProdutos},
-  UClasse.Relatorio.Saida.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Saida.Produtos.pas';
+  UClasse.Relatorio.Saida.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Saida.Produtos.pas',
+  Form.Relatorio.Entrada.Produtos in 'Forms\Relatorios\Form.Relatorio.Entrada.Produtos.pas' {formRelatorioEntradasDeProdutos},
+  UClasse.Relatorio.Entrada.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Entrada.Produtos.pas';
 
 {$R *.res}
 
@@ -160,6 +162,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TformRelatorioSaidaDeProdutos, formRelatorioSaidaDeProdutos);
   Application.Run;
 end.

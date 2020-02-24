@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -100,8 +101,57 @@ begin
 end;
 
 function TRelatorioSaidaProdutos.exportar: iRelatorioSaidaDeProdutos;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+  FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Saída de Produtos';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Cód. Produto';
+  pasta.cells[1, 3] := 'Produto';
+  pasta.cells[1, 4] := 'Valor';
+  pasta.cells[1, 5] := 'Quantidade';
+  pasta.cells[1, 6] := 'Total';
+  pasta.cells[1, 7] := 'Data';
+  pasta.cells[1, 8] := 'Horário';
+  pasta.cells[1, 9] := 'Motivo';
+  pasta.cells[1, 10] := 'Funcionário';
+  pasta.cells[1, 11] := 'Observação';
+
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_PRODUTO').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('PRODUTOS').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('QUANTIDADE').AsInteger;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('TOTAL').AsCurrency;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('DATA').AsDateTime;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('HORA').AsDateTime;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('MOTIVO').AsString;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioSaidaProdutos.fecharQuery: iRelatorioSaidaDeProdutos;

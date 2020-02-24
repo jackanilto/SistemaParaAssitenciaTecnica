@@ -3628,3 +3628,23 @@ like
 22/02/20 15:15:12 - Caption: SimpleOS
 22/02/20 15:15:12 - Erro:EAccessViolation
 22/02/20 15:15:12 - Erro:Access violation at address 00407413 in module 'SimplesOS.exe'. Read of address 07FC7478
+24/02/20 14:04:53 - ===========================================
+24/02/20 14:04:53 - Form: formRelatorioSaidaDeProdutos_1
+24/02/20 14:04:53 - Caption: Relatório - Saída de produtos
+24/02/20 14:04:53 - Erro:EDatabaseError
+24/02/20 14:04:53 - Erro:Cannot access field 'Total' as type DateTime
+24/02/20 15:28:05 - ===========================================
+24/02/20 15:28:05 - Form: formRelatorioEntradasDeProdutos
+24/02/20 15:28:05 - Caption: Relatório - Entrada de produtos
+24/02/20 15:28:05 - Erro:EDatabaseError
+24/02/20 15:28:05 - Erro:Field 'PRODUTOS' not found
+24/02/20 15:43:41 - ===========================================
+24/02/20 15:43:41 - Form: formRelatorioEntradasDeProdutos
+24/02/20 15:43:41 - Caption: Relatório - Entrada de produtos
+24/02/20 15:43:41 - Erro:EDatabaseError
+24/02/20 15:43:41 - Erro:Field 'VALOR' not found
+24/02/20 15:44:39 - ===========================================
+24/02/20 15:44:39 - Form: formRelatorioEntradasDeProdutos
+24/02/20 15:44:39 - Caption: Relatório - Entrada de produtos
+24/02/20 15:44:39 - Erro:EDatabaseError
+24/02/20 15:44:39 - Erro:Field 'TOTAL' not found

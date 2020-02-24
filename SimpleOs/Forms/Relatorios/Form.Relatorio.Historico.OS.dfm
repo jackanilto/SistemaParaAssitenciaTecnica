@@ -2,7 +2,6 @@ inherited formRelatorioHistoricoOS: TformRelatorioHistoricoOS
   Caption = 'Hist'#243'rico de OS do cliente'
   ClientHeight = 586
   ClientWidth = 1076
-  OnCreate = FormCreate
   ExplicitWidth = 1076
   ExplicitHeight = 586
   PixelsPerInch = 96
