@@ -153,7 +153,9 @@ uses
   Form.Relatorio.Saida.Produtos in 'Forms\Relatorios\Form.Relatorio.Saida.Produtos.pas' {formRelatorioSaidaDeProdutos},
   UClasse.Relatorio.Saida.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Saida.Produtos.pas',
   Form.Relatorio.Entrada.Produtos in 'Forms\Relatorios\Form.Relatorio.Entrada.Produtos.pas' {formRelatorioEntradasDeProdutos},
-  UClasse.Relatorio.Entrada.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Entrada.Produtos.pas';
+  UClasse.Relatorio.Entrada.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Entrada.Produtos.pas',
+  Form.Relatorio.Vendas.Por.Funcionario in 'Forms\Relatorios\Form.Relatorio.Vendas.Por.Funcionario.pas' {formRelatorioVendasPorFuncionario},
+  UClasse.Relatorio.Vendas.Por.Funcionarios in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Por.Funcionarios.pas';
 
 {$R *.res}
 

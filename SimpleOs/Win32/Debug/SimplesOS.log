@@ -3648,3 +3648,17 @@ like
 24/02/20 15:44:39 - Caption: Relatório - Entrada de produtos
 24/02/20 15:44:39 - Erro:EDatabaseError
 24/02/20 15:44:39 - Erro:Field 'TOTAL' not found
+24/02/20 20:48:47 - ===========================================
+24/02/20 20:48:47 - Form: formRelatorioVendasPorFuncionario
+24/02/20 20:48:47 - Caption: Vendas por funcionário
+24/02/20 20:48:47 - Erro:EIBNativeException
+24/02/20 20:48:47 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+VISUALIZAR_VENDA_FUNCINARIO01
+At line 1, column 15
+24/02/20 20:48:52 - ===========================================
+24/02/20 20:48:52 - Form: formRelatorioVendasPorFuncionario
+24/02/20 20:48:52 - Caption: Vendas por funcionário
+24/02/20 20:48:52 - Erro:EAccessViolation
+24/02/20 20:48:52 - Erro:Access violation at address 00B86996 in module 'SimplesOS.exe'. Read of address 00000000
