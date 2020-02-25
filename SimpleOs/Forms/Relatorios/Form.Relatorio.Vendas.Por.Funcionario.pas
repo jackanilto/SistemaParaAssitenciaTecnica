@@ -19,6 +19,10 @@ type
     procedure FormShow(Sender: TObject);
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     var
@@ -73,6 +77,32 @@ begin
   FRelatorioVendas
                   .abrir
                   .listarGrid(DataSource1);
+end;
+
+procedure TformRelatorioVendasPorFuncionario.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FRelatorioVendas.exportar;
+end;
+
+procedure TformRelatorioVendasPorFuncionario.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_vendas_por_funcionario.fr3');
+  frxReport1.ShowReport();
+end;
+
+procedure TformRelatorioVendasPorFuncionario.SpeedButton1Click(Sender: TObject);
+begin
+  inherited;
+  FRelatorioVendas.maiorNumeroDeVendas.listarGrid(DataSource1);
+end;
+
+procedure TformRelatorioVendasPorFuncionario.SpeedButton2Click(Sender: TObject);
+begin
+  inherited;
+  FRelatorioVendas.menorNumeroDeVendas.listarGrid(DataSource1);
 end;
 
 end.

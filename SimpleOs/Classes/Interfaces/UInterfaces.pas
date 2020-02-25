@@ -2421,8 +2421,38 @@ type
     function listarGrid(value: TDataSource): iRelatorioVendasPorFucnionario;
     function ordenarGrid(column: TColumn): iRelatorioVendasPorFucnionario;
 
+    function maiorNumeroDeVendas:iRelatorioVendasPorFucnionario;
+    function menorNumeroDeVendas:iRelatorioVendasPorFucnionario;
+
     function exportar: iRelatorioVendasPorFucnionario;
     function validarData(componet: tmaskEdit): iRelatorioVendasPorFucnionario;
+
+  end;
+
+  iRelatorioTransportadores = interface
+    ['{FC59240A-5FB1-4BB3-8781-BBAD28E382D1}']
+
+    function nomeTabela(value: string): iRelatorioTransportadores;
+    function getCampo(value: string): iRelatorioTransportadores;
+    function getValor(value: string): iRelatorioTransportadores;
+    function getDataInicial(value: TDate): iRelatorioTransportadores;
+    function getDataFinal(value: TDate): iRelatorioTransportadores;
+    function open(value: string): iRelatorioTransportadores;
+    function pesquisar: iRelatorioTransportadores;
+    function ExecSql: iRelatorioTransportadores;
+    function sqlPesquisa: iRelatorioTransportadores;
+    function sqlPesquisaData: iRelatorioTransportadores;
+    function sqlPesquisaEstatica: iRelatorioTransportadores;
+
+    function abrir: iRelatorioTransportadores;
+    function atualizar: iRelatorioTransportadores;
+    function cancelar: iRelatorioTransportadores;
+    function fecharQuery: iRelatorioTransportadores;
+    function listarGrid(value: TDataSource): iRelatorioTransportadores;
+    function ordenarGrid(column: TColumn): iRelatorioTransportadores;
+
+    function exportar: iRelatorioTransportadores;
+    function validarData(componet: tmaskEdit): iRelatorioTransportadores;
 
   end;
 

@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -42,6 +43,9 @@ type
     function fecharQuery: iRelatorioVendasPorFucnionario;
     function listarGrid(value: TDataSource): iRelatorioVendasPorFucnionario;
     function ordenarGrid(column: TColumn): iRelatorioVendasPorFucnionario;
+
+    function maiorNumeroDeVendas:iRelatorioVendasPorFucnionario;
+    function menorNumeroDeVendas:iRelatorioVendasPorFucnionario;
 
     function exportar: iRelatorioVendasPorFucnionario;
     function validarData(componet: tmaskEdit): iRelatorioVendasPorFucnionario;
@@ -100,8 +104,40 @@ begin
 end;
 
 function TRelatorioVendasPorFuncionarios.exportar: iRelatorioVendasPorFucnionario;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+  FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório Vendas por Funcionários';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Cód. Funcionário';
+  pasta.cells[1, 2] := 'Nome do funcionário';
+  pasta.cells[1, 3] := 'Quantidade';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('QTDE').AsInteger;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioVendasPorFuncionarios.fecharQuery: iRelatorioVendasPorFucnionario;
@@ -148,6 +184,18 @@ begin
 
   value.DataSet := FQuery.TQuery;
 
+end;
+
+function TRelatorioVendasPorFuncionarios.maiorNumeroDeVendas: iRelatorioVendasPorFucnionario;
+begin
+  result := self;
+  FQuery.ExecSql('select * from VISUALIZAR_VENDA_FUNCINARIO1 order by QTDE desc')
+end;
+
+function TRelatorioVendasPorFuncionarios.menorNumeroDeVendas: iRelatorioVendasPorFucnionario;
+begin
+  result := self;
+  FQuery.ExecSql('select * from VISUALIZAR_VENDA_FUNCINARIO1 order by QTDE asc')
 end;
 
 class function TRelatorioVendasPorFuncionarios.new: iRelatorioVendasPorFucnionario;

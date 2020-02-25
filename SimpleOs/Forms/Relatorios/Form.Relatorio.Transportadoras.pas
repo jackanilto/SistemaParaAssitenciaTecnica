@@ -1,0 +1,44 @@
+unit Form.Relatorio.Transportadoras;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.Transportadoras;
+
+type
+  TformRelatorioTransportadora = class(TformModeloRelatorio)
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    var
+      FRelatorioTransportadora : iRelatorioTransportadores;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioTransportadora: TformRelatorioTransportadora;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioTransportadora.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FRelatorioTransportadora := TRelatorioTransportadoras.new;
+end;
+
+procedure TformRelatorioTransportadora.FormShow(Sender: TObject);
+begin
+  inherited;
+  FRelatorioTransportadora
+                          .abrir
+                          .listarGrid(DataSource1);
+end;
+
+end.

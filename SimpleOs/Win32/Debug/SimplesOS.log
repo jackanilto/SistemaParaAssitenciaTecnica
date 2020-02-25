@@ -3662,3 +3662,13 @@ At line 1, column 15
 24/02/20 20:48:52 - Caption: Vendas por funcionário
 24/02/20 20:48:52 - Erro:EAccessViolation
 24/02/20 20:48:52 - Erro:Access violation at address 00B86996 in module 'SimplesOS.exe'. Read of address 00000000
+25/02/20 12:05:34 - ===========================================
+25/02/20 12:05:34 - Form: formRelatorioTransportadora
+25/02/20 12:05:34 - Caption: Relatório Transportadoras
+25/02/20 12:05:34 - Erro:EDatabaseError
+25/02/20 12:05:34 - Erro:Field 'ID' not found
+25/02/20 12:05:41 - ===========================================
+25/02/20 12:05:41 - Form: formRelatorioTransportadora
+25/02/20 12:05:41 - Caption: Relatório Transportadoras
+25/02/20 12:05:41 - Erro:EDatabaseError
+25/02/20 12:05:41 - Erro:Field 'ID' not found

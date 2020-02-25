@@ -7344,6 +7344,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioVendasPorFuncionarios
+            end
+            item
+              Action = acRelatorioTransportadoras
             end>
           TextColor = 13402157
         end>
@@ -8243,6 +8246,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioVendasPorFuncionarios: TAction
       Caption = 'Vendas por funcion'#225'rio'
       OnExecute = acRelatorioVendasPorFuncionariosExecute
+    end
+    object acRelatorioTransportadoras: TAction
+      Caption = 'Relat'#243'rio transportadoras'
+      OnExecute = acRelatorioTransportadorasExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

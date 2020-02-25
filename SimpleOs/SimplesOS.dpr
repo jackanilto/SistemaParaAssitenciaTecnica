@@ -155,7 +155,9 @@ uses
   Form.Relatorio.Entrada.Produtos in 'Forms\Relatorios\Form.Relatorio.Entrada.Produtos.pas' {formRelatorioEntradasDeProdutos},
   UClasse.Relatorio.Entrada.Produtos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Entrada.Produtos.pas',
   Form.Relatorio.Vendas.Por.Funcionario in 'Forms\Relatorios\Form.Relatorio.Vendas.Por.Funcionario.pas' {formRelatorioVendasPorFuncionario},
-  UClasse.Relatorio.Vendas.Por.Funcionarios in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Por.Funcionarios.pas';
+  UClasse.Relatorio.Vendas.Por.Funcionarios in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Por.Funcionarios.pas',
+  Form.Relatorio.Transportadoras in 'Forms\Relatorios\Form.Relatorio.Transportadoras.pas' {formRelatorioTransportadora},
+  UClasse.Relatorio.Transportadoras in 'Classes\Entity\Relatorios\UClasse.Relatorio.Transportadoras.pas';
 
 {$R *.res}
 

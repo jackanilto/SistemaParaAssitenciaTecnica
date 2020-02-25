@@ -14,7 +14,7 @@ uses
   Form.Modelo.Relatorio, Form.Relatorio.OS.Estornadas,
   Form.Relatorio.Vendas.Estornadas, Form.Relatorio.OS.Por.Tecnico,
   Form.Relatorio.OS.Por.Status, Form.Relatorio.OS, Form.Relatorio.Produtos,
-  Form.Relatorio.Situacao.Estoque;
+  Form.Relatorio.Situacao.Estoque, Form.Relatorio.Transportadoras;
 
 type
   TformPrincipal = class(TForm)
@@ -107,6 +107,7 @@ type
     acRelatorioSaidaDeProdutos: TAction;
     acRelatorioEntradasDeProdutos: TAction;
     acRelatorioVendasPorFuncionarios: TAction;
+    acRelatorioTransportadoras: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -166,6 +167,7 @@ type
     procedure acRelatorioSaidaDeProdutosExecute(Sender: TObject);
     procedure acRelatorioEntradasDeProdutosExecute(Sender: TObject);
     procedure acRelatorioVendasPorFuncionariosExecute(Sender: TObject);
+    procedure acRelatorioTransportadorasExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -513,6 +515,12 @@ procedure TformPrincipal.acRelatorioSituacaoEstoqueExecute(Sender: TObject);
 begin
   formRelatorioSituacaoDoEstoque := TformRelatorioSituacaoDoEstoque.Create(self);
   TFactory.new.criarJanela.formShow(formRelatorioSituacaoDoEstoque, '');
+end;
+
+procedure TformPrincipal.acRelatorioTransportadorasExecute(Sender: TObject);
+begin
+  formRelatorioTransportadora := tformRelatorioTransportadora.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioTransportadora, '');
 end;
 
 procedure TformPrincipal.acRelatorioVendaInadimplentesExecute(Sender: TObject);
