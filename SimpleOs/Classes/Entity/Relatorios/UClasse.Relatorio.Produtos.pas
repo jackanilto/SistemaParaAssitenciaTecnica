@@ -167,6 +167,7 @@ begin
   finally
   end;
 end;
+
 function TRelatorioProdutos.fecharQuery: iRelatorioDeProdutos;
 begin
   FQuery.TQuery.close;

@@ -157,7 +157,10 @@ uses
   Form.Relatorio.Vendas.Por.Funcionario in 'Forms\Relatorios\Form.Relatorio.Vendas.Por.Funcionario.pas' {formRelatorioVendasPorFuncionario},
   UClasse.Relatorio.Vendas.Por.Funcionarios in 'Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Por.Funcionarios.pas',
   Form.Relatorio.Transportadoras in 'Forms\Relatorios\Form.Relatorio.Transportadoras.pas' {formRelatorioTransportadora},
-  UClasse.Relatorio.Transportadoras in 'Classes\Entity\Relatorios\UClasse.Relatorio.Transportadoras.pas';
+  UClasse.Relatorio.Transportadoras in 'Classes\Entity\Relatorios\UClasse.Relatorio.Transportadoras.pas',
+  UClasse.Entity.Caixa in 'Classes\Entity\Caixa\UClasse.Entity.Caixa.pas',
+  UClasse.Query.Caixa in 'Classes\Entity\Caixa\UClasse.Query.Caixa.pas',
+  Form.Abertura.Caixa in 'Forms\Caixa\Form.Abertura.Caixa.pas' {formIniciarCaixa};
 
 {$R *.res}
 

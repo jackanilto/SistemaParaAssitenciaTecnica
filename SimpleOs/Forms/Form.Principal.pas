@@ -14,7 +14,8 @@ uses
   Form.Modelo.Relatorio, Form.Relatorio.OS.Estornadas,
   Form.Relatorio.Vendas.Estornadas, Form.Relatorio.OS.Por.Tecnico,
   Form.Relatorio.OS.Por.Status, Form.Relatorio.OS, Form.Relatorio.Produtos,
-  Form.Relatorio.Situacao.Estoque, Form.Relatorio.Transportadoras;
+  Form.Relatorio.Situacao.Estoque, Form.Relatorio.Transportadoras,
+  Form.Abertura.Caixa, UClasse.Entity.Caixa;
 
 type
   TformPrincipal = class(TForm)
@@ -108,6 +109,8 @@ type
     acRelatorioEntradasDeProdutos: TAction;
     acRelatorioVendasPorFuncionarios: TAction;
     acRelatorioTransportadoras: TAction;
+    acCaixa: TAction;
+    spCaixa: TSplitView;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -168,6 +171,9 @@ type
     procedure acRelatorioEntradasDeProdutosExecute(Sender: TObject);
     procedure acRelatorioVendasPorFuncionariosExecute(Sender: TObject);
     procedure acRelatorioTransportadorasExecute(Sender: TObject);
+    procedure acCaixaExecute(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   var
@@ -181,6 +187,7 @@ var
   formPrincipal: TformPrincipal;
   codigoDaOS: integer;
   codigoDocliente: integer;
+  FProcessoCaixa:TEntityCaixa;
 
 implementation
 
@@ -269,6 +276,18 @@ procedure TformPrincipal.acCadastroTransportadoraExecute(Sender: TObject);
 begin
   formCadastroTransportadora := TformCadastroTransportadora.Create(self);
   TFactory.new.criarJanela.formShow(formCadastroTransportadora, '');
+end;
+
+procedure TformPrincipal.acCaixaExecute(Sender: TObject);
+begin
+  if spCaixa.Opened = true then
+    spCaixa.Opened := false
+  else
+  begin
+    closeSplit;
+    spCaixa.Opened := true;
+    F_SplitView := spCaixa;
+  end;
 end;
 
 procedure TformPrincipal.acClientesExecute(Sender: TObject);
@@ -604,6 +623,11 @@ begin
   TFactory.new.criarJanela.formShow(formModeloRelatorio, '');
 end;
 
+procedure TformPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FreeAndNil(FProcessoCaixa);
+end;
+
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
 
@@ -614,7 +638,32 @@ begin
   imgLogo.Left := (formPrincipal.Width - Image2.Width) div 2;
   imgLogo.Top := (formPrincipal.Height - Image2.Height) div 2;
 
+  FProcessoCaixa := TEntityCaixa.create;
+
   ReportMemoryLeaksOnShutdown := true;
+
+end;
+
+procedure TformPrincipal.FormShow(Sender: TObject);
+begin
+
+  if FProcessoCaixa.verificarSituacaoCaixa = 'nao foi iniciado' then
+  begin
+    formIniciarCaixa := TformIniciarCaixa.Create(self);
+    TFactory.new.criarJanela.formShow(formIniciarCaixa, '');
+  end
+  else if FProcessoCaixa.verificarSituacaoCaixa = 'encerrar caixa anterior' then
+  begin
+    formIniciarCaixa := TformIniciarCaixa.Create(self);
+    TFactory.new.criarJanela.formShow(formIniciarCaixa, '');
+  end
+  else if FProcessoCaixa.verificarSituacaoCaixa = 'iniciar novo caixa' then
+  begin
+    formIniciarCaixa := TformIniciarCaixa.Create(self);
+    TFactory.new.criarJanela.formShow(formIniciarCaixa, '');
+  end
+
+
 
 end;
 

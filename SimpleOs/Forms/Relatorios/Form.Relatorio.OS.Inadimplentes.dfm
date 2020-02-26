@@ -1,10 +1,8 @@
 inherited formRelatorioOSInadimplentes: TformRelatorioOSInadimplentes
   Caption = 'Relat'#243'rio das OS dos clientes inadimplentes'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
-    ExplicitTop = 480
     inherited sbImprimir: TSpeedButton
       OnClick = sbImprimirClick
     end
