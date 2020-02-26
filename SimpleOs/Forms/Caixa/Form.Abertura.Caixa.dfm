@@ -13,6 +13,7 @@ object formIniciarCaixa: TformIniciarCaixa
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -115,5 +116,37 @@ object formIniciarCaixa: TformIniciarCaixa
       ParentColor = False
       ParentFont = False
     end
+  end
+  object Edit1: TEdit
+    Left = 24
+    Top = 72
+    Width = 121
+    Height = 21
+    TabOrder = 1
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 176
+    Top = 72
+    Width = 121
+    Height = 21
+    TabOrder = 2
+    Text = 'Edit1'
+  end
+  object Edit3: TEdit
+    Left = 320
+    Top = 72
+    Width = 121
+    Height = 21
+    TabOrder = 3
+    Text = 'Edit1'
+  end
+  object Edit4: TEdit
+    Left = 456
+    Top = 72
+    Width = 121
+    Height = 21
+    TabOrder = 4
+    Text = 'Edit1'
   end
 end

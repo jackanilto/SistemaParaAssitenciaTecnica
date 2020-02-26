@@ -11,9 +11,14 @@ type
     Panel1: TPanel;
     sbFechar: TSpeedButton;
     lblCaption: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,6 +33,14 @@ implementation
 uses Form.Principal;
 
 {$R *.dfm}
+
+procedure TformIniciarCaixa.FormShow(Sender: TObject);
+begin
+  FProcessoCaixa.calcularEstornosOS(Edit1);
+  FProcessoCaixa.calcularParcelasOS(Edit2);
+  FProcessoCaixa.calcularEstornoVendas(Edit3);
+  FProcessoCaixa.calcularParcelasVendas(Edit4);
+end;
 
 procedure TformIniciarCaixa.Panel1MouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);

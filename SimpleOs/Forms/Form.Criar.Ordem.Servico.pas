@@ -925,6 +925,7 @@ begin
         .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
     end;
   end
+
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
 

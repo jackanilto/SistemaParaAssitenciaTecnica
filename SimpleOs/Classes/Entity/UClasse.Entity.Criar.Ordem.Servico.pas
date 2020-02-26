@@ -437,6 +437,7 @@ begin
 
       FQueryParcelas.TQuery.Edit;
       FQueryParcelas.TQuery.FieldByName('PGTO').AsString := 'Estornada';
+      FQueryParcelas.TQuery.FieldByName('DATA_ESTORNO').AsDateTime := date;
       FQueryParcelas.TQuery.Post;
 
       FQueryParcelas.TQuery.Next;

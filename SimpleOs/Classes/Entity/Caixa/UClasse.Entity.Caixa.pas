@@ -3,7 +3,8 @@ unit UClasse.Entity.Caixa;
 interface
 
 uses
-  FireDAC.Comp.Client, UDados.Conexao, System.SysUtils, Vcl.StdCtrls;
+  FireDAC.Comp.Client, UDados.Conexao, System.SysUtils, Vcl.StdCtrls,
+  Vcl.Dialogs;
 
 type
   TEntityCaixa = class
@@ -19,10 +20,15 @@ type
   public
 
     function verificarSituacaoCaixa: string;
+
     function calcularParcelasOS(value: TEdit): Currency;
+    function calcularEstornosOS(value: TEdit): Currency;
+
     function calcularParcelasVendas(value: TEdit): Currency;
+    function calcularEstornoVendas(value: TEdit): Currency;
+
     function calcularRetiradas(value: TEdit): Currency;
-    function calcularEstornos(value: TEdit): Currency;
+
     function ultimoValorDoCaixa(value: TEdit): Currency;
 
     constructor create;
@@ -34,7 +40,7 @@ implementation
 
 { TEntityCaixa }
 
-function TEntityCaixa.calcularEstornos(value: TEdit): Currency;
+function TEntityCaixa.calcularEstornosOS(value: TEdit): Currency;
 var
   TQuery: TFDQuery;
   total: Currency;
@@ -47,8 +53,9 @@ begin
 
   TQuery.Active := false;
   TQuery.SQL.Clear;
-  TQuery.SQL.Add('select * from PARCELAS_ORDEM where PGTO =p and ');
+  TQuery.SQL.Add('select * from PARCELAS_ORDEM where PGTO =:p and DATA_ESTORNO =:d');
   TQuery.ParamByName('p').AsString := 'Estornada';
+  TQuery.ParamByName('d').AsDate := FUltimaData;
   TQuery.Active := true;
 
   TQuery.First;
@@ -56,21 +63,121 @@ begin
 
   while not TQuery.Eof do
   begin
-    total := total + FQuery.FieldByName('VALOR_TOTAL').AsCurrency;
+    total := total + TQuery.FieldByName('VALOR_TOTAL').AsCurrency;
     TQuery.Next;
   end;
 
   value.Text := formatFloat('R$ ###,##0.00', total);
 
+  showmessage(CurrToStr(total)+' OS estornadas');
+
+  FreeAndNil(TQuery);
+
+end;
+
+function TEntityCaixa.calcularEstornoVendas(value: TEdit): Currency;
+var
+  TQuery: TFDQuery;
+  total: Currency;
+begin
+
+  result := 0;
+
+  TQuery := TFDQuery.create(nil);
+  TQuery.Connection := DataModule1.Conexao;
+
+  TQuery.Active := false;
+  TQuery.SQL.Clear;
+  TQuery.SQL.Add('select * from parcelas_vendas where PAGO =:p and DATA_ESTORNO =:d');
+  TQuery.ParamByName('p').AsString := 'Estornada';
+  TQuery.ParamByName('d').AsDate := FUltimaData;
+  TQuery.Active := true;
+
+  TQuery.First;
+  total := 0;
+
+  while not TQuery.Eof do
+  begin
+    total := total + TQuery.FieldByName('TOTAL').AsCurrency;
+    TQuery.Next;
+  end;
+
+  value.Text := formatFloat('R$ ###,##0.00', total);
+
+  showmessage(CurrToStr(total)+' Vendas estornadas');
+
+  FreeAndNil(TQuery);
+
 end;
 
 function TEntityCaixa.calcularParcelasOS(value: TEdit): Currency;
+var
+  TQuery:TFDQuery;
+  total:Currency;
 begin
+
+  result := 0;
+
+  TQuery := TFDQuery.create(nil);
+  TQuery.Connection := DataModule1.Conexao;
+
+  TQuery.Active := false;
+  TQuery.SQL.Clear;
+  TQuery.SQL.Add('select * from PARCELAS_ORDEM where PGTO =:p and DATA_PAGAMENTO =:d');
+  TQuery.ParamByName('p').AsString := 'Sim';
+  TQuery.ParamByName('d').AsDate := FUltimaData;
+  TQuery.Active := true;
+
+  TQuery.First;
+  total := 0;
+
+  while not TQuery.Eof do
+  begin
+    total := total + TQuery.FieldByName('VALOR_TOTAL').AsCurrency;
+    TQuery.Next;
+  end;
+
+  value.Text := formatFloat('R$ ###,##0.00', total);
+
+  showmessage(CurrToStr(total)+' Parcelas OS Recebidas');
+
+  FreeAndNil(TQuery);
 
 end;
 
 function TEntityCaixa.calcularParcelasVendas(value: TEdit): Currency;
+var
+  TQuery: TFDQuery;
+  total: Currency;
+  {CRIAR O PROCESSO PARA OBTER O VALOR DO ÚLTIMO CAIXA}
 begin
+
+  result := 0;
+
+  TQuery := TFDQuery.create(nil);
+  TQuery.Connection := DataModule1.Conexao;
+
+  TQuery.Active := false;
+  TQuery.SQL.Clear;
+  TQuery.SQL.Add('select * from parcelas_vendas where PAGO =:p and DATA_PAGAMENTO =:d');
+  TQuery.ParamByName('p').AsString := 'Sim';
+  TQuery.ParamByName('d').AsDate := FUltimaData;
+  TQuery.Active := true;
+
+  TQuery.First;
+  total := 0;
+
+  while not TQuery.Eof do
+  begin
+    total := total + TQuery.FieldByName('TOTAL').AsCurrency;
+    TQuery.Next;
+  end;
+
+  value.Text := formatFloat('R$ ###,##0.00', total);
+
+  showmessage(CurrToStr(total)+' Parcelas Vendas recebidas');
+
+  FreeAndNil(TQuery);
 
 end;
 
@@ -110,6 +217,7 @@ begin
   if FQuery.RecordCount = 0 then
   begin
     result := 'nao foi iniciado';
+    FUltimaData := Date;
   end
   else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime = date) and
     (FQuery.FieldByName('STATUS').AsString = 'aberto')) then

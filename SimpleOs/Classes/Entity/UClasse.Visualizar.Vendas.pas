@@ -151,6 +151,7 @@ begin
 
           F_QueryParcelas.TQuery.Edit;
           F_QueryParcelas.TQuery.FieldByName('PAGO').AsString := 'Estornada';
+          F_QueryParcelas.TQuery.FieldByName('DATA_ESTORNO').AsDateTime := date;
           F_QueryParcelas.TQuery.Post;
 
           F_QueryParcelas.TQuery.Next;

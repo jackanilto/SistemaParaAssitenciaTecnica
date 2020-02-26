@@ -3677,3 +3677,23 @@ At line 1, column 15
 25/02/20 13:55:33 - Caption: Relatório Transportadoras
 25/02/20 13:55:33 - Erro:EConvertError
 25/02/20 13:55:33 - Erro:'' is not a valid integer value
+26/02/20 19:41:10 - ===========================================
+26/02/20 19:41:10 - Form: formCriarConsultarOrdemServico
+26/02/20 19:41:10 - Caption: Criar / Consultar ordem de serviço
+26/02/20 19:41:10 - Erro:Exception
+26/02/20 19:41:10 - Erro:Informe o defeito do equipamento.
+26/02/20 19:47:53 - ===========================================
+26/02/20 19:47:53 - Form: formIniciarCaixa
+26/02/20 19:47:53 - Caption: Iniciar caixa
+26/02/20 19:47:53 - Erro:EDatabaseError
+26/02/20 19:47:53 - Erro:Parameter 'p' not found
+26/02/20 19:48:18 - ===========================================
+26/02/20 19:48:18 - Form: formIniciarCaixa
+26/02/20 19:48:18 - Caption: Iniciar caixa
+26/02/20 19:48:18 - Erro:EDatabaseError
+26/02/20 19:48:18 - Erro:Field 'VALOR_TOTAL' not found
+26/02/20 20:07:02 - ===========================================
+26/02/20 20:07:02 - Form: formVisualizarVendas
+26/02/20 20:07:02 - Caption: Visualizar vendas
+26/02/20 20:07:02 - Erro:EDatabaseError
+26/02/20 20:07:02 - Erro:Field 'DATA_ESTORNO' not found

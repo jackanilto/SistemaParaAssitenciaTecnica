@@ -164,7 +164,7 @@ begin
 
     ativarBotoes;
 
-    if DataSource1.DataSet.FieldByName('PAGO').AsString = 'não' then
+    if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Nao' then
     begin
       sbQuitarParela.Enabled := true;
 
@@ -176,7 +176,7 @@ begin
     begin
       desativarBotoes;
 
-      if DataSource1.DataSet.FieldByName('PAGO').AsString = 'sim' then
+      if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Sim' then
       begin
         sbEstornar.Enabled := true;
         sbAdicionarParcela.Enabled := true;
@@ -196,7 +196,7 @@ end;
 procedure TformQuitarParcelasVendas.DBGrid1DrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
 begin
-  if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO').AsString = 'sim'
+  if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO').AsString = 'Sim'
   then
   begin
     DBGrid1.Canvas.Brush.Color := $00BD9111;
@@ -204,7 +204,7 @@ begin
   end
 
   else if ((FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
-    .AsString = 'não') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
+    .AsString = 'Nao') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
     ('DATA_VENCIMENTO').AsDateTime >= date)) then
   begin
     DBGrid1.Canvas.Brush.Color := $0068BD05;
@@ -212,14 +212,14 @@ begin
   end
 
   else if FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
-    .AsString = 'estornado' then
+    .AsString = 'Estornada' then
   begin
     DBGrid1.Canvas.Brush.Color := $00C4C4C4;
     DBGrid1.Canvas.Font.Color := clwhite
   end
 
   else if ((FentityVisulizarParcelasVenda.tableQuery.FieldByName('PAGO')
-    .AsString = 'não') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
+    .AsString = 'Nao') and (FentityVisulizarParcelasVenda.tableQuery.FieldByName
     ('DATA_VENCIMENTO').AsDateTime < date)) then
   begin
     DBGrid1.Canvas.Brush.Color := $003444D1;
@@ -378,7 +378,7 @@ end;
 
 procedure TformQuitarParcelasVendas.sbEstornarClick(Sender: TObject);
 begin
-  if DataSource1.DataSet.FieldByName('PAGO').AsString = 'sim' then
+  if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Sim' then
   begin
     FentityVisulizarParcelasVenda.estornarParcela
       (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;

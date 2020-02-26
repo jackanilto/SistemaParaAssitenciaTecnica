@@ -696,6 +696,10 @@ begin
     FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Funcionário';
     FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Furcionário';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+    FieldByName('DATA_ESTORNO').Visible := false;
+
+    FieldByName('NOME_FUNCIONARIO').DisplayWidth := 40;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
 
     FieldByName('ID_CLIENTE').visible := false;
 
