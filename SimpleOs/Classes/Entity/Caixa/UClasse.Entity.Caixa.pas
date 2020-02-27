@@ -4,7 +4,7 @@ interface
 
 uses
   FireDAC.Comp.Client, UDados.Conexao, System.SysUtils, Vcl.StdCtrls,
-  Vcl.Dialogs;
+  Vcl.Dialogs, Data.DB, Vcl.Forms, Vcl.Controls, Winapi.Windows;
 
 type
   TEntityCaixa = class
@@ -12,33 +12,42 @@ type
   private
 
     FQuery: TFDQuery;
+    FQueryEncerramento: TFDQuery;
+    FQueryAbertura: TFDQuery;
+    spCodigoCadastro:TFDStoredProc;
 
   var
     FUltimaData: TDate;
     FOperacaoASerFeita: string;
     FValorUltimoCaixa: Currency;
 
-    FTotalParcelasOS:Currency;
-    FTotalParcelasVendas:Currency;
-    FTotalParcelasOSEstornadas:Currency;
-    FTotalParcelasVendasEstornadas:Currency;
-    FTotalRetiradas:Currency;
+    FTotalParcelasOS: Currency;
+    FTotalParcelasVendas: Currency;
+    FTotalParcelasOSEstornadas: Currency;
+    FTotalParcelasVendasEstornadas: Currency;
+    FTotalRetiradas: Currency;
 
   public
 
     function verificarSituacaoCaixa: string;
 
-    function calcularParcelasOS(value: TEdit): Currency;
-    function calcularEstornosOS(value: TEdit): Currency;
+    procedure inicarCaixa(value: TDataSource);
+    procedure fecharCaixa(value: TDataSource);
+    procedure gravarInicioDoCaixa(value:Currency);
+    function gerarCodigo:integer;
+    function retornarNomeFuncionario:string;
 
-    function calcularParcelasVendas(value: TEdit): Currency;
-    function calcularEstornoVendas(value: TEdit): Currency;
+    function calcularParcelasOS: Currency;
+    function calcularEstornosOS: Currency;
 
-    function calcularRetiradas(value: TEdit): Currency;
+    function calcularParcelasVendas: Currency;
+    function calcularEstornoVendas: Currency;
 
-    function ultimoValorDoCaixa(value: TEdit): Currency;
+    function calcularRetiradas: Currency;
 
-    function valorCaixaFEchado: Currency;
+    function ultimoValorDoCaixa: Currency;
+
+    function valorCaixaFechado: Currency;
     function valorCaixaEmAberto: Currency;
 
     function calcularValorCaixa: Currency;
@@ -52,7 +61,7 @@ implementation
 
 { TEntityCaixa }
 
-function TEntityCaixa.calcularEstornosOS(value: TEdit): Currency;
+function TEntityCaixa.calcularEstornosOS: Currency;
 var
   TQuery: TFDQuery;
   total: Currency;
@@ -80,8 +89,6 @@ begin
     TQuery.Next;
   end;
 
-  value.Text := formatFloat('R$ ###,##0.00', total);
-
   FTotalParcelasOSEstornadas := total;
 
   showmessage(CurrToStr(total) + ' OS estornadas');
@@ -90,7 +97,7 @@ begin
 
 end;
 
-function TEntityCaixa.calcularEstornoVendas(value: TEdit): Currency;
+function TEntityCaixa.calcularEstornoVendas: Currency;
 var
   TQuery: TFDQuery;
   total: Currency;
@@ -118,8 +125,6 @@ begin
     TQuery.Next;
   end;
 
-  value.Text := formatFloat('R$ ###,##0.00', total);
-
   FTotalParcelasVendasEstornadas := total;
 
   showmessage(CurrToStr(total) + ' Vendas estornadas');
@@ -128,7 +133,7 @@ begin
 
 end;
 
-function TEntityCaixa.calcularParcelasOS(value: TEdit): Currency;
+function TEntityCaixa.calcularParcelasOS: Currency;
 var
   TQuery: TFDQuery;
   total: Currency;
@@ -156,8 +161,6 @@ begin
     TQuery.Next;
   end;
 
-  value.Text := formatFloat('R$ ###,##0.00', total);
-
   FTotalParcelasOS := total;
 
   showmessage(CurrToStr(total) + ' Parcelas OS Recebidas');
@@ -166,7 +169,7 @@ begin
 
 end;
 
-function TEntityCaixa.calcularParcelasVendas(value: TEdit): Currency;
+function TEntityCaixa.calcularParcelasVendas: Currency;
 var
   TQuery: TFDQuery;
   total: Currency;
@@ -194,8 +197,6 @@ begin
     TQuery.Next;
   end;
 
-  value.Text := formatFloat('R$ ###,##0.00', total);
-
   FTotalParcelasVendas := total;
 
   showmessage(CurrToStr(total) + ' Parcelas Vendas recebidas');
@@ -204,7 +205,7 @@ begin
 
 end;
 
-function TEntityCaixa.calcularRetiradas(value: TEdit): Currency;
+function TEntityCaixa.calcularRetiradas: Currency;
 var
   TQuery: TFDQuery;
   total: Currency;
@@ -230,8 +231,6 @@ begin
     TQuery.Next;
   end;
 
-  value.Text := formatFloat('R$ ###,##0.00', total);
-
   FTotalRetiradas := total;
 
   showmessage(CurrToStr(total) + ' OS estornadas');
@@ -241,18 +240,18 @@ end;
 
 function TEntityCaixa.calcularValorCaixa: Currency;
 var
-  totalVendasOS:currency;
-  totalEmCaixa:Currency;
+  totalVendasOS: Currency;
+  totalEmCaixa: Currency;
 begin
 
   result := 0;
 
   totalVendasOS := (FTotalParcelasOS + FTotalParcelasVendas) -
-            (FTotalParcelasOSEstornadas + FTotalParcelasVendasEstornadas);
+    (FTotalParcelasOSEstornadas + FTotalParcelasVendasEstornadas);
 
   totalEmCaixa := (totalVendasOS + FValorUltimoCaixa) - FTotalRetiradas;
 
-  Result := totalEmCaixa;
+  result := totalEmCaixa;
 
 end;
 
@@ -272,14 +271,130 @@ destructor TEntityCaixa.destroy;
 begin
 
   FreeAndNil(FQuery);
+  FreeAndNil(FQueryEncerramento);
+  FreeAndNil(FQueryAbertura);
 
   inherited;
 end;
 
-function TEntityCaixa.ultimoValorDoCaixa(value: TEdit): Currency;
+procedure TEntityCaixa.fecharCaixa(value: TDataSource);
+begin
+
+  FQueryEncerramento := TFDQuery.create(nil);
+  FQueryEncerramento.Connection := DataModule1.Conexao;
+
+  FQueryEncerramento.Active := false;
+  FQueryEncerramento.SQL.Clear;
+  FQueryEncerramento.SQL.Add
+    ('select * from CAIXA_ABER_FECH where DATA_ABERTURA =:d');
+  FQueryEncerramento.ParamByName('d').AsDateTime := FUltimaData;
+  FQueryEncerramento.Active := true;
+
+
+  // if application.MessageBox('Deseja Encerrar o ul','Pergunta do sistema!', MB_YESNO+MB_ICONWARNING) = mryes then
+
+  try
+    FQueryEncerramento.Edit;
+
+    FQueryEncerramento.FieldByName('DATA_ENCERRAMENTO').AsDateTime := Date;
+    FQueryEncerramento.FieldByName('HORA_ENCERRAMENTO').AsDateTime := Time;
+    FQueryEncerramento.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger :=  funcionarioLogado;
+    FQueryEncerramento.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString := NomeFuncionarioLogado;
+    FQueryEncerramento.FieldByName('VALOR_ENCERRAMENTO').AsCurrency := calcularValorCaixa;
+    FQueryEncerramento.FieldByName('STATUS').AsString := 'fechado';
+
+    FQueryEncerramento.Post;
+    showmessage('O caixa anterior foi encerrado automaticamente.');
+
+    value.DataSet := FQueryEncerramento;
+
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Não foi possível Encerrar o último caixa em aberto ' +
+        e.Message, mtError, [mbOk], 0, mbOk);
+   end;
+
+  end;
+
+end;
+
+function TEntityCaixa.gerarCodigo: integer;
+begin
+
+  spCodigoCadastro := TFDStoredProc.create(nil);
+  spCodigoCadastro.Connection := DataModule1.Conexao;
+  spCodigoCadastro.StoredProcName := 'SP_GEN_CAIXA_ABER_FECH_ID';
+  spCodigoCadastro.Connection.Connected := true;
+  spCodigoCadastro.Connection.DriverName := 'FB';
+
+  spCodigoCadastro.StoredProcName := 'SP_GEN_CAIXA_ABER_FECH_ID';
+  spCodigoCadastro.Prepare;
+
+  if spCodigoCadastro.Prepared then
+  begin
+    spCodigoCadastro.Prepare;
+    spCodigoCadastro.ExecProc;
+    result := spCodigoCadastro.ParamByName('id').AsInteger;
+  end;
+
+  spCodigoCadastro.Free;
+
+end;
+
+procedure TEntityCaixa.gravarInicioDoCaixa(value:Currency);
+begin
+
+  FQueryAbertura.FieldByName('ID').AsInteger := gerarCodigo;
+  FQueryAbertura.FieldByName('DATA_ABERTURA').AsDateTime := Date;
+  FQueryAbertura.FieldByName('HORA_ABERTURA').AsDateTime := Time;
+  FQueryAbertura.FieldByName('FUNCIONARIO_ABERTURA').AsInteger := funcionarioLogado;
+  FQueryAbertura.FieldByName('NOME_FUNCIONARIO_ABERTURA').AsString := NomeFuncionarioLogado;
+  FQueryAbertura.FieldByName('VALOR_ANTERIRO').AsCurrency := calcularValorCaixa;
+  FQueryAbertura.FieldByName('VALOR_INFORMADO').AsCurrency := value;
+  FQueryAbertura.FieldByName('STATUS').AsString := 'aberto';
+
+  try
+
+    FQueryAbertura.Post;
+
+    ShowMessage('O caixa foi iniciado com sucesso!!!');
+
+  except on e:exception do
+  begin
+    MessageDlg
+    ('ERRO. Não foi possível Inciar um novo caixa. Você pode tentar realizar esta operação manualmente ' +
+     e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+end;
+
+procedure TEntityCaixa.inicarCaixa(value: TDataSource);
+begin
+
+  FQueryAbertura := TFDQuery.Create(nil);
+  FQueryAbertura.Connection := DataModule1.Conexao;
+
+  FQueryAbertura.Active := False;
+  FQueryAbertura.SQL.Clear;
+  FQueryAbertura.SQL.Add('select * from CAIXA_ABER_FECH');
+  FQueryAbertura.Active := True;
+
+  value.DataSet := FQueryAbertura;
+
+  FQueryAbertura.Insert;
+
+end;
+
+function TEntityCaixa.retornarNomeFuncionario: string;
+begin
+  result := NomeFuncionarioLogado;
+end;
+
+function TEntityCaixa.ultimoValorDoCaixa: Currency;
 begin
   result := FValorUltimoCaixa;
-  value.Text := formatFloat('R$ ###,##0.00', FValorUltimoCaixa);
 end;
 
 function TEntityCaixa.valorCaixaEmAberto: Currency;
@@ -296,7 +411,7 @@ begin
 
 end;
 
-function TEntityCaixa.valorCaixaFEchado: Currency;
+function TEntityCaixa.valorCaixaFechado: Currency;
 begin
 
   if FQuery.FieldByName('VALOR_ENCERRAMENTO').AsCurrency <> 0 then

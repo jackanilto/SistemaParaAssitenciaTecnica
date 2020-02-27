@@ -27,7 +27,6 @@ object formIniciarCaixa: TformIniciarCaixa
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 669
     DesignSize = (
       809
       41)
@@ -102,7 +101,7 @@ object formIniciarCaixa: TformIniciarCaixa
       ExplicitLeft = 871
     end
     object lblCaption: TLabel
-      Left = 375
+      Left = 271
       Top = 10
       Width = 126
       Height = 19
@@ -116,7 +115,6 @@ object formIniciarCaixa: TformIniciarCaixa
       Font.Style = []
       ParentColor = False
       ParentFont = False
-      ExplicitLeft = 235
     end
   end
   object GroupBox1: TGroupBox
@@ -133,6 +131,84 @@ object formIniciarCaixa: TformIniciarCaixa
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    ExplicitLeft = 8
+    ExplicitTop = 191
+    object Label5: TLabel
+      Left = 24
+      Top = 41
+      Width = 100
+      Height = 17
+      Caption = 'Data de abertura'
+    end
+    object Label6: TLabel
+      Left = 137
+      Top = 41
+      Width = 118
+      Height = 17
+      Caption = 'Hor'#225'rio de abertura'
+    end
+    object Label7: TLabel
+      Left = 271
+      Top = 41
+      Width = 80
+      Height = 17
+      Caption = 'Valor anterior'
+    end
+    object Label8: TLabel
+      Left = 410
+      Top = 41
+      Width = 95
+      Height = 17
+      Caption = 'Valor informado'
+    end
+    object Label9: TLabel
+      Left = 549
+      Top = 41
+      Width = 67
+      Height = 17
+      Caption = 'Funcion'#225'rio'
+    end
+    object edtDataAbertura: TMaskEdit
+      Left = 24
+      Top = 64
+      Width = 100
+      Height = 25
+      EditMask = '00/00/0000'
+      MaxLength = 10
+      TabOrder = 0
+      Text = '  /  /    '
+    end
+    object edtHorarioAbertura: TMaskEdit
+      Left = 137
+      Top = 64
+      Width = 118
+      Height = 25
+      EditMask = '00:00:00'
+      MaxLength = 8
+      TabOrder = 1
+      Text = '  :  :  '
+    end
+    object edtValorAnterior: TEdit
+      Left = 271
+      Top = 64
+      Width = 133
+      Height = 25
+      TabOrder = 2
+    end
+    object edtValorInformado: TEdit
+      Left = 410
+      Top = 64
+      Width = 133
+      Height = 25
+      TabOrder = 3
+    end
+    object edtFuncionario: TEdit
+      Left = 549
+      Top = 64
+      Width = 236
+      Height = 25
+      TabOrder = 4
+    end
   end
   object GroupBox2: TGroupBox
     Left = 0
@@ -148,9 +224,69 @@ object formIniciarCaixa: TformIniciarCaixa
     Font.Style = []
     ParentFont = False
     TabOrder = 2
-    ExplicitLeft = -38
-    ExplicitTop = 91
-    ExplicitWidth = 805
+    ExplicitLeft = 24
+    object Label1: TLabel
+      Left = 24
+      Top = 49
+      Width = 112
+      Height = 17
+      Caption = 'Data encerramento'
+    end
+    object Label2: TLabel
+      Left = 321
+      Top = 49
+      Width = 134
+      Height = 17
+      Caption = 'Valor de encerramento'
+    end
+    object Label3: TLabel
+      Left = 150
+      Top = 49
+      Width = 150
+      Height = 17
+      Caption = 'Horario do encerramento'
+    end
+    object Label4: TLabel
+      Left = 473
+      Top = 49
+      Width = 67
+      Height = 17
+      Caption = 'Funcionario'
+    end
+    object edtValorDeEncerramento: TEdit
+      Left = 322
+      Top = 72
+      Width = 133
+      Height = 25
+      TabOrder = 0
+    end
+    object edtdataEncerramento: TMaskEdit
+      Left = 24
+      Top = 72
+      Width = 120
+      Height = 25
+      EditMask = '00/00/0000'
+      MaxLength = 10
+      TabOrder = 1
+      Text = '  /  /    '
+    end
+    object edtHorarioEncerramento: TMaskEdit
+      Left = 150
+      Top = 72
+      Width = 164
+      Height = 25
+      EditMask = '00:00:00'
+      MaxLength = 8
+      TabOrder = 2
+      Text = '  :  :  '
+    end
+    object edtFuncionarioEncerramento: TEdit
+      Left = 474
+      Top = 72
+      Width = 133
+      Height = 25
+      TabOrder = 3
+    end
   end
   object Panel2: TPanel
     Left = 0
@@ -239,6 +375,7 @@ object formIniciarCaixa: TformIniciarCaixa
         D7EDDBD6AC5C4599361A99361A99361A99361A99361A99361A99361A99361A99
         361A99361A0F}
       ParentFont = False
+      OnClick = sbIniciarCaixaClick
     end
     object SpeedButton1: TSpeedButton
       Left = 351
@@ -317,5 +454,14 @@ object formIniciarCaixa: TformIniciarCaixa
         361A99361A00}
       ParentFont = False
     end
+  end
+  object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
+    Left = 688
+    Top = 81
+  end
+  object DataSource2: TDataSource
+    Left = 688
+    Top = 145
   end
 end

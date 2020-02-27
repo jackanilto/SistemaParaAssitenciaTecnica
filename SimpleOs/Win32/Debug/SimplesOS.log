@@ -3697,3 +3697,18 @@ At line 1, column 15
 26/02/20 20:07:02 - Caption: Visualizar vendas
 26/02/20 20:07:02 - Erro:EDatabaseError
 26/02/20 20:07:02 - Erro:Field 'DATA_ESTORNO' not found
+27/02/20 20:44:46 - ===========================================
+27/02/20 20:44:46 - Form: formIniciarCaixa
+27/02/20 20:44:46 - Caption: Iniciar caixa
+27/02/20 20:44:46 - Erro:EDatabaseError
+27/02/20 20:44:46 - Erro:Dataset not in edit or insert mode
+27/02/20 20:44:55 - ===========================================
+27/02/20 20:44:55 - Form: formIniciarCaixa
+27/02/20 20:44:55 - Caption: Iniciar caixa
+27/02/20 20:44:55 - Erro:EDatabaseError
+27/02/20 20:44:55 - Erro:Dataset not in edit or insert mode
+27/02/20 20:45:49 - ===========================================
+27/02/20 20:45:49 - Form: formIniciarCaixa
+27/02/20 20:45:49 - Caption: Iniciar caixa
+27/02/20 20:45:49 - Erro:EDatabaseError
+27/02/20 20:45:49 - Erro:Dataset not in edit or insert mode
