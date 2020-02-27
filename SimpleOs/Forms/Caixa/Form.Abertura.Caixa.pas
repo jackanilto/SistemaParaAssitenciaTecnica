@@ -11,10 +11,11 @@ type
     Panel1: TPanel;
     sbFechar: TSpeedButton;
     lblCaption: TLabel;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
-    Edit4: TEdit;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    Panel2: TPanel;
+    sbIniciarCaixa: TSpeedButton;
+    SpeedButton1: TSpeedButton;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -36,10 +37,10 @@ uses Form.Principal;
 
 procedure TformIniciarCaixa.FormShow(Sender: TObject);
 begin
-  FProcessoCaixa.calcularEstornosOS(Edit1);
-  FProcessoCaixa.calcularParcelasOS(Edit2);
-  FProcessoCaixa.calcularEstornoVendas(Edit3);
-  FProcessoCaixa.calcularParcelasVendas(Edit4);
+//  FProcessoCaixa.calcularEstornosOS(Edit1);
+//  FProcessoCaixa.calcularParcelasOS(Edit2);
+//  FProcessoCaixa.calcularEstornoVendas(Edit3);
+//  FProcessoCaixa.calcularParcelasVendas(Edit4);
 end;
 
 procedure TformIniciarCaixa.Panel1MouseDown(Sender: TObject;

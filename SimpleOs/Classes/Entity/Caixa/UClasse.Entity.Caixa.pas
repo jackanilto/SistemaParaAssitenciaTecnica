@@ -16,6 +16,13 @@ type
   var
     FUltimaData: TDate;
     FOperacaoASerFeita: string;
+    FValorUltimoCaixa: Currency;
+
+    FTotalParcelasOS:Currency;
+    FTotalParcelasVendas:Currency;
+    FTotalParcelasOSEstornadas:Currency;
+    FTotalParcelasVendasEstornadas:Currency;
+    FTotalRetiradas:Currency;
 
   public
 
@@ -30,6 +37,11 @@ type
     function calcularRetiradas(value: TEdit): Currency;
 
     function ultimoValorDoCaixa(value: TEdit): Currency;
+
+    function valorCaixaFEchado: Currency;
+    function valorCaixaEmAberto: Currency;
+
+    function calcularValorCaixa: Currency;
 
     constructor create;
     destructor destroy; override;
@@ -53,7 +65,8 @@ begin
 
   TQuery.Active := false;
   TQuery.SQL.Clear;
-  TQuery.SQL.Add('select * from PARCELAS_ORDEM where PGTO =:p and DATA_ESTORNO =:d');
+  TQuery.SQL.Add
+    ('select * from PARCELAS_ORDEM where PGTO =:p and DATA_ESTORNO =:d');
   TQuery.ParamByName('p').AsString := 'Estornada';
   TQuery.ParamByName('d').AsDate := FUltimaData;
   TQuery.Active := true;
@@ -69,7 +82,9 @@ begin
 
   value.Text := formatFloat('R$ ###,##0.00', total);
 
-  showmessage(CurrToStr(total)+' OS estornadas');
+  FTotalParcelasOSEstornadas := total;
+
+  showmessage(CurrToStr(total) + ' OS estornadas');
 
   FreeAndNil(TQuery);
 
@@ -88,7 +103,8 @@ begin
 
   TQuery.Active := false;
   TQuery.SQL.Clear;
-  TQuery.SQL.Add('select * from parcelas_vendas where PAGO =:p and DATA_ESTORNO =:d');
+  TQuery.SQL.Add
+    ('select * from parcelas_vendas where PAGO =:p and DATA_ESTORNO =:d');
   TQuery.ParamByName('p').AsString := 'Estornada';
   TQuery.ParamByName('d').AsDate := FUltimaData;
   TQuery.Active := true;
@@ -104,7 +120,9 @@ begin
 
   value.Text := formatFloat('R$ ###,##0.00', total);
 
-  showmessage(CurrToStr(total)+' Vendas estornadas');
+  FTotalParcelasVendasEstornadas := total;
+
+  showmessage(CurrToStr(total) + ' Vendas estornadas');
 
   FreeAndNil(TQuery);
 
@@ -112,8 +130,8 @@ end;
 
 function TEntityCaixa.calcularParcelasOS(value: TEdit): Currency;
 var
-  TQuery:TFDQuery;
-  total:Currency;
+  TQuery: TFDQuery;
+  total: Currency;
 begin
 
   result := 0;
@@ -123,7 +141,8 @@ begin
 
   TQuery.Active := false;
   TQuery.SQL.Clear;
-  TQuery.SQL.Add('select * from PARCELAS_ORDEM where PGTO =:p and DATA_PAGAMENTO =:d');
+  TQuery.SQL.Add
+    ('select * from PARCELAS_ORDEM where PGTO =:p and DATA_PAGAMENTO =:d');
   TQuery.ParamByName('p').AsString := 'Sim';
   TQuery.ParamByName('d').AsDate := FUltimaData;
   TQuery.Active := true;
@@ -139,7 +158,9 @@ begin
 
   value.Text := formatFloat('R$ ###,##0.00', total);
 
-  showmessage(CurrToStr(total)+' Parcelas OS Recebidas');
+  FTotalParcelasOS := total;
+
+  showmessage(CurrToStr(total) + ' Parcelas OS Recebidas');
 
   FreeAndNil(TQuery);
 
@@ -149,7 +170,6 @@ function TEntityCaixa.calcularParcelasVendas(value: TEdit): Currency;
 var
   TQuery: TFDQuery;
   total: Currency;
-  {CRIAR O PROCESSO PARA OBTER O VALOR DO ÚLTIMO CAIXA}
 begin
 
   result := 0;
@@ -159,7 +179,8 @@ begin
 
   TQuery.Active := false;
   TQuery.SQL.Clear;
-  TQuery.SQL.Add('select * from parcelas_vendas where PAGO =:p and DATA_PAGAMENTO =:d');
+  TQuery.SQL.Add
+    ('select * from parcelas_vendas where PAGO =:p and DATA_PAGAMENTO =:d');
   TQuery.ParamByName('p').AsString := 'Sim';
   TQuery.ParamByName('d').AsDate := FUltimaData;
   TQuery.Active := true;
@@ -175,14 +196,63 @@ begin
 
   value.Text := formatFloat('R$ ###,##0.00', total);
 
-  showmessage(CurrToStr(total)+' Parcelas Vendas recebidas');
+  FTotalParcelasVendas := total;
+
+  showmessage(CurrToStr(total) + ' Parcelas Vendas recebidas');
 
   FreeAndNil(TQuery);
 
 end;
 
 function TEntityCaixa.calcularRetiradas(value: TEdit): Currency;
+var
+  TQuery: TFDQuery;
+  total: Currency;
 begin
+
+  result := 0;
+
+  TQuery := TFDQuery.create(nil);
+  TQuery.Connection := DataModule1.Conexao;
+
+  TQuery.Active := false;
+  TQuery.SQL.Clear;
+  TQuery.SQL.Add('select * from RETIRADAS where DATA =:d');
+  TQuery.ParamByName('d').AsDate := FUltimaData;
+  TQuery.Active := true;
+
+  TQuery.First;
+  total := 0;
+
+  while not TQuery.Eof do
+  begin
+    total := total + TQuery.FieldByName('VALOR').AsCurrency;
+    TQuery.Next;
+  end;
+
+  value.Text := formatFloat('R$ ###,##0.00', total);
+
+  FTotalRetiradas := total;
+
+  showmessage(CurrToStr(total) + ' OS estornadas');
+
+  FreeAndNil(TQuery);
+end;
+
+function TEntityCaixa.calcularValorCaixa: Currency;
+var
+  totalVendasOS:currency;
+  totalEmCaixa:Currency;
+begin
+
+  result := 0;
+
+  totalVendasOS := (FTotalParcelasOS + FTotalParcelasVendas) -
+            (FTotalParcelasOSEstornadas + FTotalParcelasVendasEstornadas);
+
+  totalEmCaixa := (totalVendasOS + FValorUltimoCaixa) - FTotalRetiradas;
+
+  Result := totalEmCaixa;
 
 end;
 
@@ -201,13 +271,42 @@ end;
 destructor TEntityCaixa.destroy;
 begin
 
-  freeandnil(FQuery);
+  FreeAndNil(FQuery);
 
   inherited;
 end;
 
 function TEntityCaixa.ultimoValorDoCaixa(value: TEdit): Currency;
 begin
+  result := FValorUltimoCaixa;
+  value.Text := formatFloat('R$ ###,##0.00', FValorUltimoCaixa);
+end;
+
+function TEntityCaixa.valorCaixaEmAberto: Currency;
+begin
+
+  if FQuery.FieldByName('VALOR_INFORMADO').AsCurrency <> 0 then
+  begin
+    result := FQuery.FieldByName('VALOR_INFORMADO').AsCurrency;
+  end
+  else
+  begin
+    result := 0;
+  end;
+
+end;
+
+function TEntityCaixa.valorCaixaFEchado: Currency;
+begin
+
+  if FQuery.FieldByName('VALOR_ENCERRAMENTO').AsCurrency <> 0 then
+  begin
+    result := FQuery.FieldByName('VALOR_ENCERRAMENTO').AsCurrency;
+  end
+  else
+  begin
+    result := 0;
+  end;
 
 end;
 
@@ -215,33 +314,37 @@ function TEntityCaixa.verificarSituacaoCaixa: string;
 begin
 
   if FQuery.RecordCount = 0 then
-  begin
+  begin // se for a primeira vez que o caixa esta iniciando
     result := 'nao foi iniciado';
     FUltimaData := Date;
   end
-  else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime = date) and
+  else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime = Date) and
     (FQuery.FieldByName('STATUS').AsString = 'aberto')) then
-  begin
+  begin // Se o caixa esta em atividade. Foi iniciado no memos dia
     result := 'aberto';
     FUltimaData := FQuery.FieldByName('DATA_ABERTURA').AsDateTime;
+    FValorUltimoCaixa := FQuery.FieldByName('VALOR_INFORMADO').AsCurrency;
   end
-  else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime <> date) and
+  else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime <> Date) and
     (FQuery.FieldByName('STATUS').AsString = 'aberto')) then
-  begin
+  begin // Caso o caixa esteja aberto, mas não foi encerrado no dia anterior
     result := 'encerrar caixa anterior';
     FUltimaData := FQuery.FieldByName('DATA_ABERTURA').AsDateTime;
+    FValorUltimoCaixa := FQuery.FieldByName('VALOR_INFORMADO').AsCurrency;
   end
-  else if ((FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime = date) and
+  else if ((FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime = Date) and
     (FQuery.FieldByName('STATUS').AsString = 'fechado')) then
-  begin
+  begin // O caixa foi encerrado no dia atual
     result := 'fechado';
     FUltimaData := FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime;
+    FValorUltimoCaixa := FQuery.FieldByName('VALOR_ENCERRAMENTO').AsCurrency;
   end
-  else if ((FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime <> date) and
+  else if ((FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime <> Date) and
     (FQuery.FieldByName('STATUS').AsString = 'fechado')) then
-  begin
+  begin // O caixa foi encerrado no dia anterior e esta pronto para ser inciado novamente
     result := 'iniciar novo caixa';
     FUltimaData := FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime;
+    FValorUltimoCaixa := FQuery.FieldByName('VALOR_ENCERRAMENTO').AsCurrency;
   end
 
 end;
