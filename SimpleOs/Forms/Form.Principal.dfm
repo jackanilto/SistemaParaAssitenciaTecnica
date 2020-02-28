@@ -7087,7 +7087,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvCadastros: TSplitView
-    Left = 323
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7099,6 +7099,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
+    ExplicitLeft = 323
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7184,7 +7185,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 323
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7193,6 +7194,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
+    ExplicitLeft = 323
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7248,7 +7250,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 323
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7258,6 +7260,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 323
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7369,7 +7372,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvExtras: TSplitView
-    Left = 323
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7380,9 +7383,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 323
   end
   object spvSobre: TSplitView
-    Left = 323
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7393,9 +7397,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 323
   end
   object spvConfiguracoes: TSplitView
-    Left = 323
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7406,6 +7411,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 323
   end
   object Button2: TButton
     Left = 824
@@ -7419,19 +7425,53 @@ object formPrincipal: TformPrincipal
   object spCaixa: TSplitView
     Left = 150
     Top = 57
-    Width = 173
+    Width = 187
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
-    OpenedWidth = 173
+    OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 10
+    object CategoryButtons6: TCategoryButtons
+      Left = -28
+      Top = 3
+      Width = 217
+      Height = 270
+      Margins.Bottom = 0
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      BorderStyle = bsNone
+      ButtonFlow = cbfVertical
+      ButtonWidth = 140
+      ButtonOptions = [boFullSize, boGradientFill, boShowCaptions, boVerticalCategoryCaptions]
+      Categories = <
+        item
+          Color = 13401438
+          Collapsed = False
+          Items = <
+            item
+              Action = acEncerramentoDoCaixa
+            end
+            item
+            end>
+        end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -15
+      Font.Name = 'Roboto'
+      Font.Orientation = 50
+      Font.Style = []
+      HotButtonColor = 13401438
+      RegularButtonColor = clNone
+      SelectedButtonColor = clNone
+      TabOrder = 0
+    end
   end
   object ImageList1: TImageList
     Height = 24
     Width = 24
-    Left = 360
+    Left = 400
     Top = 16
     Bitmap = {
       494C010108001800040018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
@@ -8569,6 +8609,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioTransportadoras: TAction
       Caption = 'Relat'#243'rio transportadoras'
       OnExecute = acRelatorioTransportadorasExecute
+    end
+    object acEncerramentoDoCaixa: TAction
+      Caption = 'Encerramento do caixa'
+      OnExecute = acEncerramentoDoCaixaExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

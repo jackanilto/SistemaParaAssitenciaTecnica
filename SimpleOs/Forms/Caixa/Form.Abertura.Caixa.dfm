@@ -27,6 +27,7 @@ object formIniciarCaixa: TformIniciarCaixa
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
+    ExplicitTop = -6
     DesignSize = (
       809
       41)
@@ -457,6 +458,7 @@ object formIniciarCaixa: TformIniciarCaixa
         F2F8F1EFF2E6E2E2C6BEC68E7FA8543C99361A99361A99361A99361A99361A99
         361A99361A00}
       ParentFont = False
+      OnClick = SpeedButton1Click
     end
   end
   object DataSource1: TDataSource

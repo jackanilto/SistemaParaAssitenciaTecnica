@@ -14,8 +14,8 @@ type
     FQuery: TFDQuery;
     FQueryEncerramento: TFDQuery;
     FQueryAbertura: TFDQuery;
-    FQueryUltimoCaixa:TFDQuery;
-    spCodigoCadastro:TFDStoredProc;
+    FQueryUltimoCaixa: TFDQuery;
+    spCodigoCadastro: TFDStoredProc;
 
   var
     FUltimaData: TDate;
@@ -34,9 +34,9 @@ type
 
     procedure inicarCaixa(value: TDataSource);
     procedure fecharCaixa(value: TDataSource);
-    procedure gravarInicioDoCaixa(value:Currency);
-    function gerarCodigo:integer;
-    function retornarNomeFuncionario:string;
+    procedure gravarInicioDoCaixa(value: Currency);
+    function gerarCodigo: integer;
+    function retornarNomeFuncionario: string;
 
     function calcularParcelasOS: Currency;
     function calcularEstornosOS: Currency;
@@ -53,7 +53,8 @@ type
 
     function calcularValorCaixa: Currency;
 
-    function obertUltimoValorDoCaixaFechado(value:TDataSource):Currency;
+    function obertUltimoValorDoCaixaFechado(value: TDataSource): Currency;
+    procedure encerrarCaixaManualmente(value:Currency);
 
     constructor create;
     destructor destroy; override;
@@ -272,6 +273,43 @@ begin
   inherited;
 end;
 
+procedure TEntityCaixa.encerrarCaixaManualmente(value:Currency);
+begin
+
+  FQueryEncerramento := TFDQuery.create(nil);
+  FQueryEncerramento.Connection := DataModule1.Conexao;
+
+  FQueryEncerramento.Active := false;
+  FQueryEncerramento.SQL.Clear;
+  FQueryEncerramento.SQL.Add
+    ('select * from CAIXA_ABER_FECH where DATA_ABERTURA =:d');
+  FQueryEncerramento.ParamByName('d').AsDateTime := date;
+  FQueryEncerramento.Active := true;
+
+  try
+    FQueryEncerramento.Edit;
+
+    FQueryEncerramento.FieldByName('DATA_ENCERRAMENTO').AsDateTime := Date;
+    FQueryEncerramento.FieldByName('HORA_ENCERRAMENTO').AsDateTime := Time;
+    FQueryEncerramento.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger := funcionarioLogado;
+    FQueryEncerramento.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString := NomeFuncionarioLogado;
+    FQueryEncerramento.FieldByName('VALOR_ENCERRAMENTO').AsCurrency := value;
+    FQueryEncerramento.FieldByName('STATUS').AsString := 'fechado';
+
+    FQueryEncerramento.Post;
+    showmessage('O caixa anterior foi encerrado automaticamente.');
+
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Não foi possível Encerrar o último caixa em aberto ' +
+        e.Message, mtError, [mbOk], 0, mbOk);
+    end;
+
+  end;
+
+end;
+
 procedure TEntityCaixa.fecharCaixa(value: TDataSource);
 begin
 
@@ -285,17 +323,17 @@ begin
   FQueryEncerramento.ParamByName('d').AsDateTime := FUltimaData;
   FQueryEncerramento.Active := true;
 
-
-  // if application.MessageBox('Deseja Encerrar o ul','Pergunta do sistema!', MB_YESNO+MB_ICONWARNING) = mryes then
-
   try
     FQueryEncerramento.Edit;
 
     FQueryEncerramento.FieldByName('DATA_ENCERRAMENTO').AsDateTime := Date;
     FQueryEncerramento.FieldByName('HORA_ENCERRAMENTO').AsDateTime := Time;
-    FQueryEncerramento.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger :=  funcionarioLogado;
-    FQueryEncerramento.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString := NomeFuncionarioLogado;
-    FQueryEncerramento.FieldByName('VALOR_ENCERRAMENTO').AsCurrency := calcularValorCaixa;
+    FQueryEncerramento.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger :=
+      funcionarioLogado;
+    FQueryEncerramento.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString :=
+      NomeFuncionarioLogado;
+    FQueryEncerramento.FieldByName('VALOR_ENCERRAMENTO').AsCurrency :=
+      calcularValorCaixa;
     FQueryEncerramento.FieldByName('STATUS').AsString := 'fechado';
 
     FQueryEncerramento.Post;
@@ -308,7 +346,7 @@ begin
     begin
       MessageDlg('ERRO. Não foi possível Encerrar o último caixa em aberto ' +
         e.Message, mtError, [mbOk], 0, mbOk);
-   end;
+    end;
 
   end;
 
@@ -335,14 +373,16 @@ begin
 
 end;
 
-procedure TEntityCaixa.gravarInicioDoCaixa(value:Currency);
+procedure TEntityCaixa.gravarInicioDoCaixa(value: Currency);
 begin
 
   FQueryAbertura.FieldByName('ID').AsInteger := gerarCodigo;
   FQueryAbertura.FieldByName('DATA_ABERTURA').AsDateTime := Date;
   FQueryAbertura.FieldByName('HORA_ABERTURA').AsDateTime := Time;
-  FQueryAbertura.FieldByName('FUNCIONARIO_ABERTURA').AsInteger := funcionarioLogado;
-  FQueryAbertura.FieldByName('NOME_FUNCIONARIO_ABERTURA').AsString := NomeFuncionarioLogado;
+  FQueryAbertura.FieldByName('FUNCIONARIO_ABERTURA').AsInteger :=
+    funcionarioLogado;
+  FQueryAbertura.FieldByName('NOME_FUNCIONARIO_ABERTURA').AsString :=
+    NomeFuncionarioLogado;
   FQueryAbertura.FieldByName('VALOR_ANTERIRO').AsCurrency := calcularValorCaixa;
   FQueryAbertura.FieldByName('VALOR_INFORMADO').AsCurrency := value;
   FQueryAbertura.FieldByName('STATUS').AsString := 'aberto';
@@ -351,14 +391,15 @@ begin
 
     FQueryAbertura.Post;
 
-    ShowMessage('O caixa foi iniciado com sucesso!!!');
+    showmessage('O caixa foi iniciado com sucesso!!!');
 
-  except on e:exception do
-  begin
-    MessageDlg
-    ('ERRO. Não foi possível Inciar um novo caixa. Você pode tentar realizar esta operação manualmente ' +
-     e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+  except
+    on e: exception do
+    begin
+      MessageDlg
+        ('ERRO. Não foi possível Inciar um novo caixa. Você pode tentar realizar esta operação manualmente '
+        + e.Message, mtError, [mbOk], 0, mbOk);
+    end;
 
   end;
 end;
@@ -366,13 +407,13 @@ end;
 procedure TEntityCaixa.inicarCaixa(value: TDataSource);
 begin
 
-  FQueryAbertura := TFDQuery.Create(nil);
+  FQueryAbertura := TFDQuery.create(nil);
   FQueryAbertura.Connection := DataModule1.Conexao;
 
-  FQueryAbertura.Active := False;
+  FQueryAbertura.Active := false;
   FQueryAbertura.SQL.Clear;
   FQueryAbertura.SQL.Add('select * from CAIXA_ABER_FECH');
-  FQueryAbertura.Active := True;
+  FQueryAbertura.Active := true;
 
   value.DataSet := FQueryAbertura;
 
@@ -380,10 +421,11 @@ begin
 
 end;
 
-function TEntityCaixa.obertUltimoValorDoCaixaFechado(value:TDataSource): Currency;
+function TEntityCaixa.obertUltimoValorDoCaixaFechado(value: TDataSource)
+  : Currency;
 begin
 
-  FQueryUltimoCaixa := TFDQuery.Create(nil);
+  FQueryUltimoCaixa := TFDQuery.create(nil);
   FQueryUltimoCaixa.Connection := DataModule1.Conexao;
 
   FQueryUltimoCaixa.Active := false;
@@ -393,7 +435,7 @@ begin
 
   result := FQueryUltimoCaixa.FieldByName('VALOR_ENCERRAMENTO').AsCurrency;
 
-  value.dataset := FQueryUltimoCaixa;
+  value.DataSet := FQueryUltimoCaixa;
 
 end;
 

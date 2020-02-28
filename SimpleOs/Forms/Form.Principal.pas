@@ -111,6 +111,8 @@ type
     acRelatorioTransportadoras: TAction;
     acCaixa: TAction;
     spCaixa: TSplitView;
+    acEncerramentoDoCaixa: TAction;
+    CategoryButtons6: TCategoryButtons;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -174,6 +176,7 @@ type
     procedure acCaixaExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure acEncerramentoDoCaixaExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -209,7 +212,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.OS.Inadimplentes, Form.Relatorio.Produtos.Mais.Vendidos,
   Form.Relatorio.Vendas, Form.Relatorio.Parcelas.Venda.Inadimplentes,
   Form.Relatorio.Servico.Mais.Realizados, Form.Relatorio.Saida.Produtos,
-  Form.Relatorio.Entrada.Produtos, Form.Relatorio.Vendas.Por.Funcionario;
+  Form.Relatorio.Entrada.Produtos, Form.Relatorio.Vendas.Por.Funcionario,
+  Form.Encerramento.Caixa;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -331,6 +335,15 @@ procedure TformPrincipal.acDadosEmpresaExecute(Sender: TObject);
 begin
   formCadastroEmpresa := TformCadastroEmpresa.Create(self);
   TFactory.new.criarJanela.formShow(formCadastroEmpresa, '');
+end;
+
+procedure TformPrincipal.acEncerramentoDoCaixaExecute(Sender: TObject);
+begin
+  if FProcessoCaixa.verificarSituacaoCaixa = 'aberto' then
+    begin
+      formEncerramentoCaixa := TformEncerramentoCaixa.Create(self);
+      TFactory.new.criarJanela.formShow(formEncerramentoCaixa, '');
+    end;
 end;
 
 procedure TformPrincipal.acEntradasProdutosExecute(Sender: TObject);

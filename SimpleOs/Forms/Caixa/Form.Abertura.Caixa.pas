@@ -43,6 +43,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure sbIniciarCaixaClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     procedure CalcularValoresDosCaixas;
     procedure caixaNaoIniciado;
@@ -144,6 +145,11 @@ end;
 procedure TformIniciarCaixa.sbIniciarCaixaClick(Sender: TObject);
 begin
   FProcessoCaixa.gravarInicioDoCaixa(StrToCurr(edtValorInformado.Text));
+  formIniciarCaixa.Close;
+end;
+
+procedure TformIniciarCaixa.SpeedButton1Click(Sender: TObject);
+begin
   formIniciarCaixa.Close;
 end;
 

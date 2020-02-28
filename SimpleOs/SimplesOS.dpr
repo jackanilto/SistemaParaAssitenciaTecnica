@@ -160,7 +160,8 @@ uses
   UClasse.Relatorio.Transportadoras in 'Classes\Entity\Relatorios\UClasse.Relatorio.Transportadoras.pas',
   UClasse.Entity.Caixa in 'Classes\Entity\Caixa\UClasse.Entity.Caixa.pas',
   UClasse.Query.Caixa in 'Classes\Entity\Caixa\UClasse.Query.Caixa.pas',
-  Form.Abertura.Caixa in 'Forms\Caixa\Form.Abertura.Caixa.pas' {formIniciarCaixa};
+  Form.Abertura.Caixa in 'Forms\Caixa\Form.Abertura.Caixa.pas' {formIniciarCaixa},
+  Form.Encerramento.Caixa in 'Forms\Caixa\Form.Encerramento.Caixa.pas' {formEncerramentoCaixa};
 
 {$R *.res}
 
