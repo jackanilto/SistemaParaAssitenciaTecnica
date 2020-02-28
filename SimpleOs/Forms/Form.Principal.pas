@@ -661,9 +661,7 @@ begin
   begin
     formIniciarCaixa := TformIniciarCaixa.Create(self);
     TFactory.new.criarJanela.formShow(formIniciarCaixa, '');
-  end
-
-
+  end;
 
 end;
 

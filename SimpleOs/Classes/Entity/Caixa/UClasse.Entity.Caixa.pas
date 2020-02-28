@@ -14,6 +14,7 @@ type
     FQuery: TFDQuery;
     FQueryEncerramento: TFDQuery;
     FQueryAbertura: TFDQuery;
+    FQueryUltimoCaixa:TFDQuery;
     spCodigoCadastro:TFDStoredProc;
 
   var
@@ -51,6 +52,8 @@ type
     function valorCaixaEmAberto: Currency;
 
     function calcularValorCaixa: Currency;
+
+    function obertUltimoValorDoCaixaFechado(value:TDataSource):Currency;
 
     constructor create;
     destructor destroy; override;
@@ -91,8 +94,6 @@ begin
 
   FTotalParcelasOSEstornadas := total;
 
-  showmessage(CurrToStr(total) + ' OS estornadas');
-
   FreeAndNil(TQuery);
 
 end;
@@ -126,8 +127,6 @@ begin
   end;
 
   FTotalParcelasVendasEstornadas := total;
-
-  showmessage(CurrToStr(total) + ' Vendas estornadas');
 
   FreeAndNil(TQuery);
 
@@ -163,8 +162,6 @@ begin
 
   FTotalParcelasOS := total;
 
-  showmessage(CurrToStr(total) + ' Parcelas OS Recebidas');
-
   FreeAndNil(TQuery);
 
 end;
@@ -199,8 +196,6 @@ begin
 
   FTotalParcelasVendas := total;
 
-  showmessage(CurrToStr(total) + ' Parcelas Vendas recebidas');
-
   FreeAndNil(TQuery);
 
 end;
@@ -232,8 +227,6 @@ begin
   end;
 
   FTotalRetiradas := total;
-
-  showmessage(CurrToStr(total) + ' OS estornadas');
 
   FreeAndNil(TQuery);
 end;
@@ -273,6 +266,8 @@ begin
   FreeAndNil(FQuery);
   FreeAndNil(FQueryEncerramento);
   FreeAndNil(FQueryAbertura);
+  FreeAndNil(FQueryUltimoCaixa);
+  spCodigoCadastro.Free;
 
   inherited;
 end;
@@ -338,8 +333,6 @@ begin
     result := spCodigoCadastro.ParamByName('id').AsInteger;
   end;
 
-  spCodigoCadastro.Free;
-
 end;
 
 procedure TEntityCaixa.gravarInicioDoCaixa(value:Currency);
@@ -384,6 +377,23 @@ begin
   value.DataSet := FQueryAbertura;
 
   FQueryAbertura.Insert;
+
+end;
+
+function TEntityCaixa.obertUltimoValorDoCaixaFechado(value:TDataSource): Currency;
+begin
+
+  FQueryUltimoCaixa := TFDQuery.Create(nil);
+  FQueryUltimoCaixa.Connection := DataModule1.Conexao;
+
+  FQueryUltimoCaixa.Active := false;
+  FQueryUltimoCaixa.SQL.Clear;
+  FQueryUltimoCaixa.SQL.Add('select * from CAIXA_ABER_FECH order by id desc');
+  FQueryUltimoCaixa.Active := true;
+
+  result := FQueryUltimoCaixa.FieldByName('VALOR_ENCERRAMENTO').AsCurrency;
+
+  value.dataset := FQueryUltimoCaixa;
 
 end;
 

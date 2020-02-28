@@ -95,13 +95,31 @@ begin
   end
   else if FProcessoCaixa.verificarSituacaoCaixa = 'encerrar caixa anterior' then
   begin
+
     FProcessoCaixa.fecharCaixa(DataSource1);
     FProcessoCaixa.inicarCaixa(DataSource2);
+
+    edtDataAbertura.Text := DateToStr(Date);
+    edtHorarioAbertura.Text := TimeToStr(Time);
+    edtValorAnterior.Text := FormatFloat('R$ #,##0.00', DataSource1.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
+    edtValorInformado.Text := CurrToStr(DataSource1.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
+    edtFuncionario.Text := FProcessoCaixa.retornarNomeFuncionario;
   end
   else if FProcessoCaixa.verificarSituacaoCaixa = 'iniciar novo caixa' then
   begin
-    FProcessoCaixa.fecharCaixa(DataSource1);
+  //    FProcessoCaixa.fecharCaixa(DataSource1);
+
+    FProcessoCaixa.obertUltimoValorDoCaixaFechado(DataSource1);
     FProcessoCaixa.inicarCaixa(DataSource2);
+
+    edtDataAbertura.Text := DateToStr(Date);
+    edtHorarioAbertura.Text := TimeToStr(Time);
+    edtValorAnterior.Text := FormatFloat('R$ #,##0.00', DataSource1.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
+    edtValorInformado.Text := CurrToStr(DataSource1.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
+    edtFuncionario.Text := FProcessoCaixa.retornarNomeFuncionario;
+
+
+
   end
 
 
@@ -126,6 +144,7 @@ end;
 procedure TformIniciarCaixa.sbIniciarCaixaClick(Sender: TObject);
 begin
   FProcessoCaixa.gravarInicioDoCaixa(StrToCurr(edtValorInformado.Text));
+  formIniciarCaixa.Close;
 end;
 
 procedure TformIniciarCaixa.CalcularValoresDosCaixas;

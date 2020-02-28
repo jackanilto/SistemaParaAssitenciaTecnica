@@ -131,8 +131,6 @@ object formIniciarCaixa: TformIniciarCaixa
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 191
     object Label5: TLabel
       Left = 24
       Top = 41
@@ -175,6 +173,7 @@ object formIniciarCaixa: TformIniciarCaixa
       Height = 25
       EditMask = '00/00/0000'
       MaxLength = 10
+      ReadOnly = True
       TabOrder = 0
       Text = '  /  /    '
     end
@@ -185,6 +184,7 @@ object formIniciarCaixa: TformIniciarCaixa
       Height = 25
       EditMask = '00:00:00'
       MaxLength = 8
+      ReadOnly = True
       TabOrder = 1
       Text = '  :  :  '
     end
@@ -193,6 +193,7 @@ object formIniciarCaixa: TformIniciarCaixa
       Top = 64
       Width = 133
       Height = 25
+      ReadOnly = True
       TabOrder = 2
     end
     object edtValorInformado: TEdit
@@ -207,6 +208,7 @@ object formIniciarCaixa: TformIniciarCaixa
       Top = 64
       Width = 236
       Height = 25
+      ReadOnly = True
       TabOrder = 4
     end
   end
@@ -224,7 +226,6 @@ object formIniciarCaixa: TformIniciarCaixa
     Font.Style = []
     ParentFont = False
     TabOrder = 2
-    ExplicitLeft = 24
     object Label1: TLabel
       Left = 24
       Top = 49
@@ -267,6 +268,7 @@ object formIniciarCaixa: TformIniciarCaixa
       Height = 25
       EditMask = '00/00/0000'
       MaxLength = 10
+      ReadOnly = True
       TabOrder = 1
       Text = '  /  /    '
     end
@@ -277,6 +279,7 @@ object formIniciarCaixa: TformIniciarCaixa
       Height = 25
       EditMask = '00:00:00'
       MaxLength = 8
+      ReadOnly = True
       TabOrder = 2
       Text = '  :  :  '
     end
@@ -285,6 +288,7 @@ object formIniciarCaixa: TformIniciarCaixa
       Top = 72
       Width = 133
       Height = 25
+      ReadOnly = True
       TabOrder = 3
     end
   end
