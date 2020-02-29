@@ -3757,3 +3757,28 @@ At line 1, column 15
 28/02/20 10:54:42 - Caption: Iniciar caixa
 28/02/20 10:54:42 - Erro:EAccessViolation
 28/02/20 10:54:42 - Erro:Access violation at address 006E6836 in module 'SimplesOS.exe'. Read of address 00000040
+29/02/20 15:05:04 - ===========================================
+29/02/20 15:05:04 - Form: FormVendaConfirmarPagamento
+29/02/20 15:05:04 - Caption: '
+29/02/20 15:05:04 - Erro:Exception
+29/02/20 15:05:04 - Erro:ERRO! Infome o meio de pagamento do venda
+29/02/20 18:33:49 - ===========================================
+29/02/20 18:33:49 - Form: formQuitarParcelasVendas
+29/02/20 18:33:49 - Caption: Ver parcelas das vendas realizadas
+29/02/20 18:33:49 - Erro:Exception
+29/02/20 18:33:49 - Erro:ERRO! Informe o meio de pagamento da parcela.
+29/02/20 18:42:17 - ===========================================
+29/02/20 18:42:17 - Form: formCriarConsultarOrdemServico
+29/02/20 18:42:17 - Caption: Criar / Consultar ordem de serviço
+29/02/20 18:42:17 - Erro:Exception
+29/02/20 18:42:17 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+29/02/20 18:48:09 - ===========================================
+29/02/20 18:48:09 - Form: formCriarConsultarOrdemServico
+29/02/20 18:48:09 - Caption: Criar / Consultar ordem de serviço
+29/02/20 18:48:09 - Erro:Exception
+29/02/20 18:48:09 - Erro:Informe a forma de pagamento.
+29/02/20 18:48:56 - ===========================================
+29/02/20 18:48:56 - Form: formCriarConsultarOrdemServico
+29/02/20 18:48:56 - Caption: Criar / Consultar ordem de serviço
+29/02/20 18:48:56 - Erro:Exception
+29/02/20 18:48:56 - Erro:Esta parcela já esta quitada.

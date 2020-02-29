@@ -15,29 +15,40 @@ type
     Panel2: TPanel;
     sbIniciarCaixa: TSpeedButton;
     SpeedButton1: TSpeedButton;
-    Edit1: TEdit;
+    edtParcelasRecebidasOS: TEdit;
     Label1: TLabel;
-    Edit2: TEdit;
+    edtParcelasRecebidasVendas: TEdit;
     Label2: TLabel;
-    Edit3: TEdit;
+    edtValorDeAbertura: TEdit;
     Label3: TLabel;
-    Edit4: TEdit;
+    edtParcelasEstornadasOS: TEdit;
     Label4: TLabel;
-    Edit5: TEdit;
+    edtParcelasEstornadasVendas: TEdit;
     Label5: TLabel;
-    Edit6: TEdit;
+    edtRetiradas: TEdit;
     Label6: TLabel;
-    Edit7: TEdit;
+    edtTotalDoCaixa: TEdit;
     Label7: TLabel;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure sbIniciarCaixaClick(Sender: TObject);
   private
     { Private declarations }
     var
+      FParcelasOS:Currency;
+      FParcelasVendas:Currency;
+      FEstornosOS:Currency;
+      FEstornosVendas:Currency;
+      FRetiradas:Currency;
+      FTotalDeAbertura:Currency;
+      FTotalCaixa:Currency;
+    var
       FCaixa:TEntityCaixa;
+    procedure calcularValorCaixaEncerramento;
   public
     { Public declarations }
   end;
@@ -61,6 +72,38 @@ begin
   ReportMemoryLeaksOnShutdown := true;
 end;
 
+procedure TformEncerramentoCaixa.FormShow(Sender: TObject);
+begin
+
+  FCaixa.infomarUltimaData(date);
+  calcularValorCaixaEncerramento;
+
+end;
+
+procedure TformEncerramentoCaixa.calcularValorCaixaEncerramento;
+var
+  FTotal: Currency;
+begin
+  FParcelasOS := FCaixa.calcularParcelasOS;
+  FParcelasVendas := FCaixa.calcularParcelasVendas;
+  FEstornosOS := FCaixa.calcularEstornosOS;
+  FEstornosVendas := FCaixa.calcularEstornoVendas;
+  FRetiradas := FCaixa.calcularRetiradas;
+  FTotalDeAbertura := FCaixa.valorCaixaEmAberto;
+  edtParcelasRecebidasOS.Text := FormatFloat('R$ #,##0.00', FParcelasOS);
+  edtParcelasRecebidasVendas.Text := FormatFloat('R$ #,##0.00', FParcelasVendas);
+  edtParcelasEstornadasOS.Text := FormatFloat('R$ #,##0.00', FEstornosOS);
+  edtParcelasEstornadasVendas.Text := FormatFloat('R$ #,##0.00', FEstornosVendas);
+  edtRetiradas.Text := FormatFloat('R$ #,##0.00', FRetiradas);
+  edtValorDeAbertura.Text := FormatFloat('R$ #,##0.00', FTotalDeAbertura);
+  FTotal := (FParcelasOS + FParcelasVendas) - (FEstornosOS + FEstornosVendas);
+  FTotal := (FTotal + FTotalDeAbertura) - FRetiradas;
+  edtTotalDoCaixa.Text := FormatFloat('R$ #,##0.00', FTotal);
+
+  FTotalCaixa := FTotal;
+
+end;
+
 procedure TformEncerramentoCaixa.Panel1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 const
@@ -76,6 +119,11 @@ end;
 procedure TformEncerramentoCaixa.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformEncerramentoCaixa.sbIniciarCaixaClick(Sender: TObject);
+begin
+  FCaixa.encerrarCaixaManualmente(FTotalCaixa);
 end;
 
 end.

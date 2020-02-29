@@ -55,6 +55,7 @@ type
 
     function obertUltimoValorDoCaixaFechado(value: TDataSource): Currency;
     procedure encerrarCaixaManualmente(value:Currency);
+    procedure infomarUltimaData(value:TDate);
 
     constructor create;
     destructor destroy; override;
@@ -95,6 +96,8 @@ begin
 
   FTotalParcelasOSEstornadas := total;
 
+  result := total;
+
   FreeAndNil(TQuery);
 
 end;
@@ -128,6 +131,8 @@ begin
   end;
 
   FTotalParcelasVendasEstornadas := total;
+
+  Result := total;
 
   FreeAndNil(TQuery);
 
@@ -163,6 +168,8 @@ begin
 
   FTotalParcelasOS := total;
 
+  result := Total;
+
   FreeAndNil(TQuery);
 
 end;
@@ -195,7 +202,7 @@ begin
     TQuery.Next;
   end;
 
-  FTotalParcelasVendas := total;
+  result := total;
 
   FreeAndNil(TQuery);
 
@@ -286,6 +293,10 @@ begin
   FQueryEncerramento.ParamByName('d').AsDateTime := date;
   FQueryEncerramento.Active := true;
 
+  if application.MessageBox('Deseja realmente encerrar o caixa atual?' +
+  'Você não poderá inicar Quitar OS, ralizar vendas e retirada de valores.',
+   'Perguna do sistema', MB_YESNO+MB_ICONQUESTION)=mrYes then
+  begin
   try
     FQueryEncerramento.Edit;
 
@@ -297,7 +308,7 @@ begin
     FQueryEncerramento.FieldByName('STATUS').AsString := 'fechado';
 
     FQueryEncerramento.Post;
-    showmessage('O caixa anterior foi encerrado automaticamente.');
+    showmessage('O caixa foi encerrado com sucesso!!!.');
 
   except
     on e: exception do
@@ -306,6 +317,7 @@ begin
         e.Message, mtError, [mbOk], 0, mbOk);
     end;
 
+  end;
   end;
 
 end;
@@ -391,6 +403,8 @@ begin
 
     FQueryAbertura.Post;
 
+    FQueryEncerramento.Refresh;
+
     showmessage('O caixa foi iniciado com sucesso!!!');
 
   except
@@ -402,6 +416,13 @@ begin
     end;
 
   end;
+end;
+
+procedure TEntityCaixa.infomarUltimaData(value: TDate);
+begin
+
+    FUltimaData := value;
+
 end;
 
 procedure TEntityCaixa.inicarCaixa(value: TDataSource);
