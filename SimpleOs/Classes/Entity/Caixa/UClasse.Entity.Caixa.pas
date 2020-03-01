@@ -15,6 +15,7 @@ type
     FQueryEncerramento: TFDQuery;
     FQueryAbertura: TFDQuery;
     FQueryUltimoCaixa: TFDQuery;
+    FQueryReaberturaCaixa: TFDQuery;
     spCodigoCadastro: TFDStoredProc;
 
   var
@@ -56,6 +57,8 @@ type
     function obertUltimoValorDoCaixaFechado(value: TDataSource): Currency;
     procedure encerrarCaixaManualmente(value: Currency);
     procedure infomarUltimaData(value: TDate);
+
+    procedure reabrirCaixa;
 
     constructor create;
     destructor destroy; override;
@@ -459,6 +462,11 @@ begin
 
   value.DataSet := FQueryUltimoCaixa;
 
+end;
+
+procedure TEntityCaixa.reabrirCaixa;
+begin
+////
 end;
 
 function TEntityCaixa.retornarNomeFuncionario: string;

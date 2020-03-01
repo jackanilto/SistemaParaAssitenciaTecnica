@@ -7448,6 +7448,7 @@ object formPrincipal: TformPrincipal
               Action = acEncerramentoDoCaixa
             end
             item
+              Action = acReaberturaDoCaixa
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -8607,6 +8608,10 @@ object formPrincipal: TformPrincipal
     object acEncerramentoDoCaixa: TAction
       Caption = 'Encerramento do caixa'
       OnExecute = acEncerramentoDoCaixaExecute
+    end
+    object acReaberturaDoCaixa: TAction
+      Caption = 'Reabertura do caixa'
+      OnExecute = acReaberturaDoCaixaExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

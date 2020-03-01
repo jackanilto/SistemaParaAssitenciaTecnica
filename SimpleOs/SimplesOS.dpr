@@ -161,7 +161,8 @@ uses
   UClasse.Entity.Caixa in 'Classes\Entity\Caixa\UClasse.Entity.Caixa.pas',
   UClasse.Query.Caixa in 'Classes\Entity\Caixa\UClasse.Query.Caixa.pas',
   Form.Abertura.Caixa in 'Forms\Caixa\Form.Abertura.Caixa.pas' {formIniciarCaixa},
-  Form.Encerramento.Caixa in 'Forms\Caixa\Form.Encerramento.Caixa.pas' {formEncerramentoCaixa};
+  Form.Encerramento.Caixa in 'Forms\Caixa\Form.Encerramento.Caixa.pas' {formEncerramentoCaixa},
+  Form.Reabertura.Caixa in 'Forms\Caixa\Form.Reabertura.Caixa.pas' {formReaberturaDeCaixa};
 
 {$R *.res}
 

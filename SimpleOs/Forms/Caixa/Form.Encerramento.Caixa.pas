@@ -125,6 +125,7 @@ end;
 procedure TformEncerramentoCaixa.sbIniciarCaixaClick(Sender: TObject);
 begin
   FCaixa.encerrarCaixaManualmente(FTotalCaixa);
+  close;
 end;
 
 procedure TformEncerramentoCaixa.SpeedButton1Click(Sender: TObject);

@@ -1,0 +1,30 @@
+unit Form.Reabertura.Caixa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TformReaberturaDeCaixa = class(TForm)
+    Panel1: TPanel;
+    sbFechar: TSpeedButton;
+    lblCaption: TLabel;
+    Panel2: TPanel;
+    sbIniciarCaixa: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  formReaberturaDeCaixa: TformReaberturaDeCaixa;
+
+implementation
+
+{$R *.dfm}
+
+end.
