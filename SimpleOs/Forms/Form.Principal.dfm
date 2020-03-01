@@ -7099,7 +7099,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 323
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7194,7 +7193,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 323
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7260,7 +7258,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 323
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7383,7 +7380,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 323
   end
   object spvSobre: TSplitView
     Left = 337
@@ -7397,7 +7393,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 323
   end
   object spvConfiguracoes: TSplitView
     Left = 337
@@ -7411,7 +7406,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 323
   end
   object Button2: TButton
     Left = 824

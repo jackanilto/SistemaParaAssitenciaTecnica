@@ -338,12 +338,21 @@ begin
 end;
 
 procedure TformPrincipal.acEncerramentoDoCaixaExecute(Sender: TObject);
+  var
+    FCaixaTemporario:TEntityCaixa;
 begin
-  if FProcessoCaixa.verificarSituacaoCaixa = 'aberto' then
+
+  FCaixaTemporario := TEntityCaixa.create;
+
+  try
+  if FCaixaTemporario.verificarSituacaoCaixa = 'aberto' then
     begin
       formEncerramentoCaixa := TformEncerramentoCaixa.Create(self);
       TFactory.new.criarJanela.formShow(formEncerramentoCaixa, '');
     end;
+  finally
+    FCaixaTemporario.Free;
+  end;
 end;
 
 procedure TformPrincipal.acEntradasProdutosExecute(Sender: TObject);

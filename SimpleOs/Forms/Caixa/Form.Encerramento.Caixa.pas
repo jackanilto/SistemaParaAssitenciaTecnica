@@ -36,6 +36,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure sbIniciarCaixaClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
     var
@@ -124,6 +125,11 @@ end;
 procedure TformEncerramentoCaixa.sbIniciarCaixaClick(Sender: TObject);
 begin
   FCaixa.encerrarCaixaManualmente(FTotalCaixa);
+end;
+
+procedure TformEncerramentoCaixa.SpeedButton1Click(Sender: TObject);
+begin
+  Close;
 end;
 
 end.

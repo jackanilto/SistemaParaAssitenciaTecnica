@@ -338,6 +338,7 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
         F2F8F1EFF2E6E2E2C6BEC68E7FA8543C99361A99361A99361A99361A99361A99
         361A99361A00}
       ParentFont = False
+      OnClick = SpeedButton1Click
     end
   end
   object edtParcelasRecebidasOS: TEdit

@@ -17,7 +17,8 @@
   
 #Retirada de valores
 #Abertura de caixa --FEITO
-#Fechamento de caixa
+#Fechamento de caixa --FEITO
+#Reabertura de caixa
 #login do funcionário
 
 ##Rever o funcionamento da janela Quitar Parcela Venda.(Cores da grid e o campo juros)

@@ -54,8 +54,8 @@ type
     function calcularValorCaixa: Currency;
 
     function obertUltimoValorDoCaixaFechado(value: TDataSource): Currency;
-    procedure encerrarCaixaManualmente(value:Currency);
-    procedure infomarUltimaData(value:TDate);
+    procedure encerrarCaixaManualmente(value: Currency);
+    procedure infomarUltimaData(value: TDate);
 
     constructor create;
     destructor destroy; override;
@@ -132,7 +132,7 @@ begin
 
   FTotalParcelasVendasEstornadas := total;
 
-  Result := total;
+  result := total;
 
   FreeAndNil(TQuery);
 
@@ -168,7 +168,7 @@ begin
 
   FTotalParcelasOS := total;
 
-  result := Total;
+  result := total;
 
   FreeAndNil(TQuery);
 
@@ -280,7 +280,7 @@ begin
   inherited;
 end;
 
-procedure TEntityCaixa.encerrarCaixaManualmente(value:Currency);
+procedure TEntityCaixa.encerrarCaixaManualmente(value: Currency);
 begin
 
   FQueryEncerramento := TFDQuery.create(nil);
@@ -294,30 +294,31 @@ begin
   FQueryEncerramento.Active := true;
 
   if application.MessageBox('Deseja realmente encerrar o caixa atual?' +
-  'Você não poderá inicar Quitar OS, ralizar vendas e retirada de valores.',
-   'Perguna do sistema', MB_YESNO+MB_ICONQUESTION)=mrYes then
+    'Você não poderá inicar Quitar OS, ralizar vendas e retirada de valores.',
+    'Perguna do sistema', MB_YESNO + MB_ICONQUESTION) = mrYes then
   begin
-  try
-    FQueryEncerramento.Edit;
+    try
+      FQueryEncerramento.Edit;
 
-    FQueryEncerramento.FieldByName('DATA_ENCERRAMENTO').AsDateTime := Date;
-    FQueryEncerramento.FieldByName('HORA_ENCERRAMENTO').AsDateTime := Time;
-    FQueryEncerramento.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger := funcionarioLogado;
-    FQueryEncerramento.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString := NomeFuncionarioLogado;
-    FQueryEncerramento.FieldByName('VALOR_ENCERRAMENTO').AsCurrency := value;
-    FQueryEncerramento.FieldByName('STATUS').AsString := 'fechado';
+      FQueryEncerramento.FieldByName('DATA_ENCERRAMENTO').AsDateTime := date;
+      FQueryEncerramento.FieldByName('HORA_ENCERRAMENTO').AsDateTime := Time;
+      FQueryEncerramento.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger :=funcionarioLogado;
+      FQueryEncerramento.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString
+        := NomeFuncionarioLogado;
+      FQueryEncerramento.FieldByName('VALOR_ENCERRAMENTO').AsCurrency := value;
+      FQueryEncerramento.FieldByName('STATUS').AsString := 'fechado';
 
-    FQueryEncerramento.Post;
-    showmessage('O caixa foi encerrado com sucesso!!!.');
+      FQueryEncerramento.Post;
+      showmessage('O caixa foi encerrado com sucesso!!!.');
 
-  except
-    on e: exception do
-    begin
-      MessageDlg('ERRO. Não foi possível Encerrar o último caixa em aberto ' +
-        e.Message, mtError, [mbOk], 0, mbOk);
+    except
+      on e: exception do
+      begin
+        MessageDlg('ERRO. Não foi possível Encerrar o último caixa em aberto ' +
+          e.Message, mtError, [mbOk], 0, mbOk);
+      end;
+
     end;
-
-  end;
   end;
 
 end;
@@ -338,7 +339,7 @@ begin
   try
     FQueryEncerramento.Edit;
 
-    FQueryEncerramento.FieldByName('DATA_ENCERRAMENTO').AsDateTime := Date;
+    FQueryEncerramento.FieldByName('DATA_ENCERRAMENTO').AsDateTime := date;
     FQueryEncerramento.FieldByName('HORA_ENCERRAMENTO').AsDateTime := Time;
     FQueryEncerramento.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger :=
       funcionarioLogado;
@@ -389,7 +390,7 @@ procedure TEntityCaixa.gravarInicioDoCaixa(value: Currency);
 begin
 
   FQueryAbertura.FieldByName('ID').AsInteger := gerarCodigo;
-  FQueryAbertura.FieldByName('DATA_ABERTURA').AsDateTime := Date;
+  FQueryAbertura.FieldByName('DATA_ABERTURA').AsDateTime := date;
   FQueryAbertura.FieldByName('HORA_ABERTURA').AsDateTime := Time;
   FQueryAbertura.FieldByName('FUNCIONARIO_ABERTURA').AsInteger :=
     funcionarioLogado;
@@ -403,7 +404,7 @@ begin
 
     FQueryAbertura.Post;
 
-    FQueryEncerramento.Refresh;
+//    FQueryEncerramento.Refresh;
 
     showmessage('O caixa foi iniciado com sucesso!!!');
 
@@ -421,7 +422,7 @@ end;
 procedure TEntityCaixa.infomarUltimaData(value: TDate);
 begin
 
-    FUltimaData := value;
+  FUltimaData := value;
 
 end;
 
@@ -504,30 +505,30 @@ begin
   if FQuery.RecordCount = 0 then
   begin // se for a primeira vez que o caixa esta iniciando
     result := 'nao foi iniciado';
-    FUltimaData := Date;
+    FUltimaData := date;
   end
-  else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime = Date) and
+  else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime = date) and
     (FQuery.FieldByName('STATUS').AsString = 'aberto')) then
   begin // Se o caixa esta em atividade. Foi iniciado no memos dia
     result := 'aberto';
     FUltimaData := FQuery.FieldByName('DATA_ABERTURA').AsDateTime;
     FValorUltimoCaixa := FQuery.FieldByName('VALOR_INFORMADO').AsCurrency;
   end
-  else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime <> Date) and
+  else if ((FQuery.FieldByName('DATA_ABERTURA').AsDateTime <> date) and
     (FQuery.FieldByName('STATUS').AsString = 'aberto')) then
   begin // Caso o caixa esteja aberto, mas não foi encerrado no dia anterior
     result := 'encerrar caixa anterior';
     FUltimaData := FQuery.FieldByName('DATA_ABERTURA').AsDateTime;
     FValorUltimoCaixa := FQuery.FieldByName('VALOR_INFORMADO').AsCurrency;
   end
-  else if ((FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime = Date) and
+  else if ((FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime = date) and
     (FQuery.FieldByName('STATUS').AsString = 'fechado')) then
   begin // O caixa foi encerrado no dia atual
     result := 'fechado';
     FUltimaData := FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime;
     FValorUltimoCaixa := FQuery.FieldByName('VALOR_ENCERRAMENTO').AsCurrency;
   end
-  else if ((FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime <> Date) and
+  else if ((FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime <> date) and
     (FQuery.FieldByName('STATUS').AsString = 'fechado')) then
   begin // O caixa foi encerrado no dia anterior e esta pronto para ser inciado novamente
     result := 'iniciar novo caixa';
