@@ -145,6 +145,7 @@ end;
 procedure TformIniciarCaixa.sbIniciarCaixaClick(Sender: TObject);
 begin
   FProcessoCaixa.gravarInicioDoCaixa(StrToCurr(edtValorInformado.Text));
+  FSituacaoDoCaixa := 'aberto';
   formIniciarCaixa.Close;
 end;
 

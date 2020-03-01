@@ -18,7 +18,8 @@
 #Retirada de valores
 #Abertura de caixa --FEITO
 #Fechamento de caixa --FEITO
-#Reabertura de caixa
+#Reabertura de caixa --FEITO
 #login do funcionário
 
 ##Rever o funcionamento da janela Quitar Parcela Venda.(Cores da grid e o campo juros)
+##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias

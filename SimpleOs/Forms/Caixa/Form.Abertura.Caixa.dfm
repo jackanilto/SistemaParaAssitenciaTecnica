@@ -27,7 +27,6 @@ object formIniciarCaixa: TformIniciarCaixa
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitTop = -6
     DesignSize = (
       809
       41)

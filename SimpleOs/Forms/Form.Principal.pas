@@ -114,6 +114,7 @@ type
     acEncerramentoDoCaixa: TAction;
     CategoryButtons6: TCategoryButtons;
     acReaberturaDoCaixa: TAction;
+    Label7: TLabel;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -193,6 +194,7 @@ var
   codigoDaOS: integer;
   codigoDocliente: integer;
   FProcessoCaixa: TEntityCaixa;
+  FSituacaoDoCaixa: String;
 
 implementation
 
@@ -702,17 +704,30 @@ begin
   begin
     formIniciarCaixa := TformIniciarCaixa.Create(self);
     TFactory.new.criarJanela.FormShow(formIniciarCaixa, '');
+    FSituacaoDoCaixa := 'fechado';
   end
   else if FProcessoCaixa.verificarSituacaoCaixa = 'encerrar caixa anterior' then
   begin
     formIniciarCaixa := TformIniciarCaixa.Create(self);
     TFactory.new.criarJanela.FormShow(formIniciarCaixa, '');
+    FSituacaoDoCaixa := 'fechado';
   end
   else if FProcessoCaixa.verificarSituacaoCaixa = 'iniciar novo caixa' then
   begin
     formIniciarCaixa := TformIniciarCaixa.Create(self);
     TFactory.new.criarJanela.FormShow(formIniciarCaixa, '');
+    FSituacaoDoCaixa := 'fechado';
+  end
+  else if FProcessoCaixa.verificarSituacaoCaixa = 'fechado' then
+  begin
+    FSituacaoDoCaixa := 'fechado';
+  end
+  else if FProcessoCaixa.verificarSituacaoCaixa = 'aberto' then
+  begin
+    FSituacaoDoCaixa := 'aberto';
   end;
+
+  Label7.Caption := FSituacaoDoCaixa;
 
 end;
 

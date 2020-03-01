@@ -41,8 +41,6 @@ object formReaberturaDeCaixa: TformReaberturaDeCaixa
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -13
-    ExplicitWidth = 708
     DesignSize = (
       700
       41)
@@ -144,9 +142,6 @@ object formReaberturaDeCaixa: TformReaberturaDeCaixa
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -13
-    ExplicitTop = 251
-    ExplicitWidth = 708
     DesignSize = (
       700
       72)
@@ -227,6 +222,7 @@ object formReaberturaDeCaixa: TformReaberturaDeCaixa
         D7EDDBD6AC5C4599361A99361A99361A99361A99361A99361A99361A99361A99
         361A99361A0F}
       ParentFont = False
+      OnClick = sbIniciarCaixaClick
       ExplicitLeft = 200
     end
     object SpeedButton1: TSpeedButton
@@ -321,6 +317,7 @@ object formReaberturaDeCaixa: TformReaberturaDeCaixa
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
+    ReadOnly = True
     TabOrder = 2
   end
 end

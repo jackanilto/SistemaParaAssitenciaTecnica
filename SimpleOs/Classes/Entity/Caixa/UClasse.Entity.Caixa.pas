@@ -58,7 +58,7 @@ type
     procedure encerrarCaixaManualmente(value: Currency);
     procedure infomarUltimaData(value: TDate);
 
-    procedure reabrirCaixa;
+    procedure reabrirCaixa(value:Currency);
 
     constructor create;
     destructor destroy; override;
@@ -296,7 +296,7 @@ begin
   FQueryEncerramento.ParamByName('d').AsDateTime := date;
   FQueryEncerramento.Active := true;
 
-  if application.MessageBox('Deseja realmente encerrar o caixa atual?' +
+  if application.MessageBox('Deseja realmente encerrar o caixa atual? ' +
     'Você não poderá inicar Quitar OS, ralizar vendas e retirada de valores.',
     'Perguna do sistema', MB_YESNO + MB_ICONQUESTION) = mrYes then
   begin
@@ -464,9 +464,45 @@ begin
 
 end;
 
-procedure TEntityCaixa.reabrirCaixa;
+procedure TEntityCaixa.reabrirCaixa(value:Currency);
 begin
-////
+
+  FQueryAbertura := TFDQuery.Create(nil);
+  FQueryAbertura.Connection := DataModule1.Conexao;
+
+  FQueryAbertura.Active := false;
+  FQueryAbertura.SQL.Clear;
+  FQueryAbertura.SQL.Add   ('select * from CAIXA_ABER_FECH where DATA_ABERTURA =:d');
+  FQueryAbertura.ParamByName('d').AsDateTime := date;
+  FQueryAbertura.Active := true;
+
+  if application.MessageBox('Deseja realmente Reabrir o caixa atual?',
+    'Perguna do sistema', MB_YESNO + MB_ICONQUESTION) = mrYes then
+  begin
+    try
+      FQueryAbertura.Edit;
+
+      FQueryAbertura.FieldByName('DATA_ENCERRAMENTO').AsDateTime := date;
+      FQueryAbertura.FieldByName('HORA_ENCERRAMENTO').AsDateTime := Time;
+      FQueryAbertura.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger :=funcionarioLogado;
+      FQueryAbertura.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString
+        := NomeFuncionarioLogado;
+      FQueryAbertura.FieldByName('VALOR_ENCERRAMENTO').AsCurrency := value;
+      FQueryAbertura.FieldByName('STATUS').AsString := 'aberto';
+
+      FQueryAbertura.Post;
+      showmessage('O caixa foi Reaberto com sucesso!!!.');
+
+    except
+      on e: exception do
+      begin
+        MessageDlg('ERRO. Não foi possível Reabrir o caixa ' +
+          e.Message, mtError, [mbOk], 0, mbOk);
+      end;
+
+    end;
+  end;
+
 end;
 
 function TEntityCaixa.retornarNomeFuncionario: string;

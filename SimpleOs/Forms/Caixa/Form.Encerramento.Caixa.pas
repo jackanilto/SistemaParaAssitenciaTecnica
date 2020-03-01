@@ -61,6 +61,8 @@ implementation
 
 {$R *.dfm}
 
+uses Form.Principal;
+
 procedure TformEncerramentoCaixa.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -125,6 +127,8 @@ end;
 procedure TformEncerramentoCaixa.sbIniciarCaixaClick(Sender: TObject);
 begin
   FCaixa.encerrarCaixaManualmente(FTotalCaixa);
+  FSituacaoDoCaixa := 'fechado';
+  formPrincipal.Label7.Caption := FSituacaoDoCaixa;
   close;
 end;
 

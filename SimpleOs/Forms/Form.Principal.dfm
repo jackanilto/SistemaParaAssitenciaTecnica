@@ -5309,6 +5309,13 @@ object formPrincipal: TformPrincipal
       7F0E9760944C0000000049454E44AE426082}
     Stretch = True
   end
+  object Label7: TLabel
+    Left = 368
+    Top = 205
+    Width = 31
+    Height = 13
+    Caption = 'Label7'
+  end
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -6209,8 +6216,8 @@ object formPrincipal: TformPrincipal
     end
   end
   object Panel2: TPanel
-    Left = 295
-    Top = 60
+    Left = 305
+    Top = 63
     Width = 869
     Height = 136
     Align = alCustom

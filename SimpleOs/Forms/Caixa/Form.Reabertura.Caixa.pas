@@ -3,7 +3,8 @@ unit Form.Reabertura.Caixa;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   UClasse.Entity.Caixa;
 
@@ -22,18 +23,20 @@ type
     procedure sbFecharClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure sbIniciarCaixaClick(Sender: TObject);
   private
     { Private declarations }
     procedure calcularValorReabertura;
-    var
-      FCaixa:TEntityCaixa;
-      FParcelasOS:Currency;
-      FParcelasVendas:Currency;
-      FEstornosOS:Currency;
-      FEstornosVendas:Currency;
-      FRetiradas:Currency;
-      FTotalDeAbertura:Currency;
-      FTotalCaixa:Currency;
+
+  var
+    FCaixa: TEntityCaixa;
+    FParcelasOS: Currency;
+    FParcelasVendas: Currency;
+    FEstornosOS: Currency;
+    FEstornosVendas: Currency;
+    FRetiradas: Currency;
+    FTotalDeAbertura: Currency;
+    FTotalCaixa: Currency;
   public
     { Public declarations }
   end;
@@ -45,9 +48,11 @@ implementation
 
 {$R *.dfm}
 
+uses Form.Principal;
+
 procedure TformReaberturaDeCaixa.calcularValorReabertura;
 var
-  FTotal:Currency;
+  FTotal: Currency;
 begin
 
   FParcelasOS := FCaixa.calcularParcelasOS;
@@ -58,7 +63,6 @@ begin
   FTotalDeAbertura := FCaixa.valorCaixaEmAberto;
   FTotal := (FParcelasOS + FParcelasVendas) - (FEstornosOS + FEstornosVendas);
   FTotal := (FTotal + FTotalDeAbertura) - FRetiradas;
-
 
   FTotalCaixa := FTotal;
 
@@ -85,6 +89,14 @@ end;
 
 procedure TformReaberturaDeCaixa.sbFecharClick(Sender: TObject);
 begin
+  close;
+end;
+
+procedure TformReaberturaDeCaixa.sbIniciarCaixaClick(Sender: TObject);
+begin
+  FCaixa.reabrirCaixa(FTotalCaixa);
+  FSituacaoDoCaixa := 'aberto';
+  formPrincipal.Label7.Caption := FSituacaoDoCaixa;
   close;
 end;
 
