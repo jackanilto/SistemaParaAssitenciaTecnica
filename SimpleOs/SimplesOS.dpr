@@ -162,7 +162,9 @@ uses
   UClasse.Query.Caixa in 'Classes\Entity\Caixa\UClasse.Query.Caixa.pas',
   Form.Abertura.Caixa in 'Forms\Caixa\Form.Abertura.Caixa.pas' {formIniciarCaixa},
   Form.Encerramento.Caixa in 'Forms\Caixa\Form.Encerramento.Caixa.pas' {formEncerramentoCaixa},
-  Form.Reabertura.Caixa in 'Forms\Caixa\Form.Reabertura.Caixa.pas' {formReaberturaDeCaixa};
+  Form.Reabertura.Caixa in 'Forms\Caixa\Form.Reabertura.Caixa.pas' {formReaberturaDeCaixa},
+  Form.Retirada.De.Valores in 'Forms\Form.Retirada.De.Valores.pas' {formRetiradaDeValores},
+  UClasse.Entity.Retirada.Valores in 'Classes\Entity\UClasse.Entity.Retirada.Valores.pas';
 
 {$R *.res}
 
@@ -171,5 +173,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TformRetiradaDeValores, formRetiradaDeValores);
   Application.Run;
 end.

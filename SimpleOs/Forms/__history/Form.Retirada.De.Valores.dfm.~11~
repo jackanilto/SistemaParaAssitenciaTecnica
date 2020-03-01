@@ -1,0 +1,105 @@
+inherited formRetiradaDeValores: TformRetiradaDeValores
+  Caption = 'Retirada de valores'
+  ClientHeight = 570
+  ClientWidth = 957
+  ExplicitTop = -7
+  ExplicitWidth = 957
+  ExplicitHeight = 570
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 957
+    inherited sbFechar: TSpeedButton
+      Left = 905
+    end
+    inherited lblCaption: TLabel
+      Left = 235
+      Width = 137
+      Caption = 'Retirada de valores'
+      ExplicitLeft = 195
+      ExplicitWidth = 137
+    end
+  end
+  inherited Panel2: TPanel
+    Width = 957
+  end
+  inherited Panel3: TPanel
+    Top = 495
+    Width = 957
+    inherited sbNovo: TSpeedButton
+      Width = 146
+      Caption = 'Nova retirada'
+      ExplicitWidth = 146
+    end
+    inherited sbSalvar: TSpeedButton
+      Left = 159
+      ExplicitLeft = 159
+    end
+    inherited sbEditar: TSpeedButton
+      Left = 932
+      Top = 6
+      Visible = False
+      ExplicitLeft = 932
+      ExplicitTop = 6
+    end
+    inherited sbExcluir: TSpeedButton
+      Left = 254
+      ExplicitLeft = 254
+    end
+    inherited sbCancelar: TSpeedButton
+      Left = 360
+      ExplicitLeft = 360
+    end
+    inherited Label4: TLabel
+      Left = 623
+    end
+    inherited Label5: TLabel
+      Left = 758
+    end
+    inherited cbPesquisar: TComboBox
+      Left = 623
+    end
+    inherited edtPesquisar: TEdit
+      Left = 758
+    end
+  end
+  inherited CardPanel1: TCardPanel
+    Width = 957
+    Height = 414
+    ActiveCard = cardPanelCadatro
+    inherited cardPanelCadatro: TCard
+      Width = 957
+      Height = 414
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      ParentFont = False
+    end
+    inherited cardPanelConsulta: TCard
+      Width = 957
+      Height = 414
+      inherited Panel4: TPanel
+        Top = 369
+        Width = 957
+        inherited sbImprimir: TSpeedButton
+          Left = 682
+        end
+        inherited sbExportar: TSpeedButton
+          Left = 793
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Width = 957
+        Height = 369
+        DataSource = DataSource1
+      end
+    end
+  end
+  inherited PopupMenu1: TPopupMenu
+    Left = 672
+    Top = 225
+  end
+  object DataSource1: TDataSource
+    Left = 672
+    Top = 169
+  end
+end

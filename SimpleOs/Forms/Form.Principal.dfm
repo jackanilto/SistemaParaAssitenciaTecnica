@@ -7456,6 +7456,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acReaberturaDoCaixa
+            end
+            item
+              Action = acRetiradaDeValores
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -8619,6 +8622,10 @@ object formPrincipal: TformPrincipal
     object acReaberturaDoCaixa: TAction
       Caption = 'Reabertura do caixa'
       OnExecute = acReaberturaDoCaixaExecute
+    end
+    object acRetiradaDeValores: TAction
+      Caption = 'Retirada de valores'
+      OnExecute = acRetiradaDeValoresExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

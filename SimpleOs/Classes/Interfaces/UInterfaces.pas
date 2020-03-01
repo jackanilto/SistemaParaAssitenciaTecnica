@@ -2475,6 +2475,49 @@ type
     function calcularParcela: iCalcularParcelas;
   end;
 
+  iRetiradaDeValores = interface
+    ['{2BF31435-86AA-4D17-9964-6138A05234C4}']
+
+    function nomeTabela(value: string): iRetiradaDeValores;
+    function getCampo(value: string): iRetiradaDeValores;
+    function getValor(value: string): iRetiradaDeValores;
+    function getDataInicial(value: TDate): iRetiradaDeValores;
+    function getDataFinal(value: TDate): iRetiradaDeValores;
+    function open(value: string): iRetiradaDeValores;
+    function pesquisar: iRetiradaDeValores;
+    function ExecSql: iRetiradaDeValores;
+    function sqlPesquisa: iRetiradaDeValores;
+    function sqlPesquisaData: iRetiradaDeValores;
+    function sqlPesquisaEstatica: iRetiradaDeValores;
+
+    function abrir: iRetiradaDeValores;
+    function inserir: iRetiradaDeValores;
+    function gravar: iRetiradaDeValores;
+    function deletar: iRetiradaDeValores;
+    function atualizar: iRetiradaDeValores;
+    function editar: iRetiradaDeValores;
+    function cancelar: iRetiradaDeValores;
+    function fecharQuery: iRetiradaDeValores;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iRetiradaDeValores;
+    function ordenarGrid(column: TColumn): iRetiradaDeValores;
+
+    function getID_MOTIVO(value:string): iRetiradaDeValores;
+    function getMOTIVO(value:String): iRetiradaDeValores;
+    function getVALOR_RETIRADA(value:string): iRetiradaDeValores;
+    function getDATA(value:string): iRetiradaDeValores;
+    function getHORA(Value:string): iRetiradaDeValores;
+    function getFUNCIONARIO(value:integer): iRetiradaDeValores;
+    function getOBSERVACAO (value:string): iRetiradaDeValores;
+
+    function exportar: iRetiradaDeValores;
+    function validarData(componet: tmaskEdit):iRetiradaDeValores;
+
+    function getCodigo(value: integer): iRetiradaDeValores;
+    function getNome(value: string): iRetiradaDeValores;
+
+  end;
+
   iFactoryEntity = interface
     ['{3DFCA13B-EC0F-4597-B527-D42F90034001}']
     function entityTable: iFDTable;

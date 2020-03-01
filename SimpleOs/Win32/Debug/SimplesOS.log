@@ -3782,3 +3782,33 @@ At line 1, column 15
 29/02/20 18:48:56 - Caption: Criar / Consultar ordem de serviço
 29/02/20 18:48:56 - Erro:Exception
 29/02/20 18:48:56 - Erro:Esta parcela já esta quitada.
+01/03/20 16:01:17 - ===========================================
+01/03/20 16:01:17 - Form: formRetiradaDeValores_1
+01/03/20 16:01:17 - Caption: Retirada de valores
+01/03/20 16:01:17 - Erro:EDatabaseError
+01/03/20 16:01:17 - Erro:Field 'TIPO_SAIDA' not found
+01/03/20 16:04:38 - ===========================================
+01/03/20 16:04:38 - Form: formRetiradaDeValores_1
+01/03/20 16:04:38 - Caption: Retirada de valores
+01/03/20 16:04:38 - Erro:EConvertError
+01/03/20 16:04:38 - Erro:'' is not a valid integer value
+01/03/20 16:04:42 - ===========================================
+01/03/20 16:04:42 - Form: formRetiradaDeValores_1
+01/03/20 16:04:42 - Caption: Retirada de valores
+01/03/20 16:04:42 - Erro:EConvertError
+01/03/20 16:04:42 - Erro:'' is not a valid integer value
+01/03/20 16:04:47 - ===========================================
+01/03/20 16:04:47 - Form: formRetiradaDeValores_1
+01/03/20 16:04:47 - Caption: Retirada de valores
+01/03/20 16:04:47 - Erro:EConvertError
+01/03/20 16:04:47 - Erro:'' is not a valid floating point value
+01/03/20 16:04:59 - ===========================================
+01/03/20 16:04:59 - Form: formRetiradaDeValores_1
+01/03/20 16:04:59 - Caption: Retirada de valores
+01/03/20 16:04:59 - Erro:EConvertError
+01/03/20 16:04:59 - Erro:'' is not a valid floating point value
+01/03/20 16:05:01 - ===========================================
+01/03/20 16:05:01 - Form: formRetiradaDeValores_1
+01/03/20 16:05:01 - Caption: Retirada de valores
+01/03/20 16:05:01 - Erro:EConvertError
+01/03/20 16:05:01 - Erro:'' is not a valid floating point value

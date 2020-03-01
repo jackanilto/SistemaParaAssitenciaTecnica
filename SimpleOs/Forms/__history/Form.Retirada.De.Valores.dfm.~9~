@@ -1,0 +1,73 @@
+inherited formRetiradaDeValores: TformRetiradaDeValores
+  Caption = 'Retirada de valores'
+  ClientHeight = 570
+  ClientWidth = 957
+  ExplicitTop = -7
+  ExplicitWidth = 957
+  ExplicitHeight = 570
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 957
+    inherited sbFechar: TSpeedButton
+      Left = 905
+    end
+    inherited lblCaption: TLabel
+      Left = 235
+      Width = 137
+      Caption = 'Retirada de valores'
+      ExplicitLeft = 195
+      ExplicitWidth = 137
+    end
+  end
+  inherited Panel2: TPanel
+    Width = 957
+  end
+  inherited Panel3: TPanel
+    Top = 495
+    Width = 957
+    inherited Label4: TLabel
+      Left = 623
+    end
+    inherited Label5: TLabel
+      Left = 758
+    end
+    inherited cbPesquisar: TComboBox
+      Left = 623
+    end
+    inherited edtPesquisar: TEdit
+      Left = 758
+    end
+  end
+  inherited CardPanel1: TCardPanel
+    Width = 957
+    Height = 414
+    inherited cardPanelCadatro: TCard
+      Width = 957
+      Height = 414
+    end
+    inherited cardPanelConsulta: TCard
+      Width = 957
+      Height = 414
+      inherited Panel4: TPanel
+        Top = 369
+        Width = 957
+        inherited sbImprimir: TSpeedButton
+          Left = 682
+        end
+        inherited sbExportar: TSpeedButton
+          Left = 793
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Width = 957
+        Height = 369
+        DataSource = DataSource1
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    Left = 552
+    Top = 209
+  end
+end
