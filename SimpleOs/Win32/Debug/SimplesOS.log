@@ -3812,3 +3812,8 @@ At line 1, column 15
 01/03/20 16:05:01 - Caption: Retirada de valores
 01/03/20 16:05:01 - Erro:EConvertError
 01/03/20 16:05:01 - Erro:'' is not a valid floating point value
+02/03/20 15:03:45 - ===========================================
+02/03/20 15:03:45 - Form: formRetiradaDeValores_1
+02/03/20 15:03:45 - Caption: Retirada de valores
+02/03/20 15:03:45 - Erro:EDatabaseError
+02/03/20 15:03:45 - Erro:Field 'TIPO_SAIDA' not found

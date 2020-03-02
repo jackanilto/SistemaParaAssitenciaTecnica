@@ -239,6 +239,8 @@ begin
 
   FTotalRetiradas := total;
 
+  result :=  total;
+
   FreeAndNil(TQuery);
 end;
 

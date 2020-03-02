@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -126,7 +127,7 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('TIPO_SAIDA')
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('MOTIVO')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
         .gravarLog;
 
@@ -163,8 +164,51 @@ begin
 end;
 
 function TEntityRetiradaValores.exportar: iRetiradaDeValores;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório de Clientes';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Cód. Motivo';
+  pasta.cells[1, 3] := 'Motivo';
+  pasta.cells[1, 4] := 'Valor';
+  pasta.cells[1, 5] := 'Data';
+  pasta.cells[1, 6] := 'Hora';
+  pasta.cells[1, 7] := 'Funcionário';
+  pasta.cells[1, 8] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_MOTIVO').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('MOTIVO').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA').AsDateTime;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('HORA').AsDateTime;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TEntityRetiradaValores.fecharQuery: iRetiradaDeValores;
@@ -256,14 +300,13 @@ begin
 
 end;
 
-function TEntityRetiradaValores.getID_MOTIVO(value:string)
-  : iRetiradaDeValores;
+function TEntityRetiradaValores.getID_MOTIVO(value: string): iRetiradaDeValores;
 begin
 
   result := self;
 
   if value = EmptyStr then
-  raise Exception.Create('ERRO! Infome o motivo da retirada');
+    raise Exception.create('ERRO! Infome o motivo da retirada');
 
   FID_MOTIVO := StrToInt(value);
 
@@ -272,10 +315,10 @@ end;
 function TEntityRetiradaValores.getMOTIVO(value: String): iRetiradaDeValores;
 begin
 
-  Result := self;
+  result := self;
 
   if value = EmptyStr then
-    raise Exception.Create('ERRO! Informe o motivo da retirada.');
+    raise Exception.create('ERRO! Informe o motivo da retirada.');
 
   FMOTIVO := value;
 
@@ -310,10 +353,17 @@ begin
   result := self;
 
   if value = EmptyStr then
-     raise Exception.Create('ERRO! Infome um valor válido no campo Valor.');
+    raise Exception.create('ERRO! Infome um valor válido no campo Valor.');
 
- {Função para remover caracteres especiais}
-  FVALOR_RETIRADA := value;
+  try
+    FVALOR_RETIRADA := StrToCurr(value);
+  except
+    on e: Exception do
+    begin
+     raise Exception.Create('ERRO! Insira um valor válido para campo Valor.');
+    end;
+
+  end;
 
 end;
 
@@ -329,13 +379,13 @@ begin
   with FQuery.TQuery do
   begin
 
-   FieldByName('ID_MOTIVO').AsInteger := FID_MOTIVO;
-   FieldByName('MOTIVO').AsString := FMOTIVO;
-   FieldByName('VALOR').AsCurrency := FVALOR_RETIRADA;
-   FieldByName('DATA').AsDateTime := FDATA;
-   FieldByName('HORA').AsDateTime := FHORA;
-   FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
-   FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+    FieldByName('ID_MOTIVO').AsInteger := FID_MOTIVO;
+    FieldByName('MOTIVO').AsString := FMOTIVO;
+    FieldByName('VALOR').AsCurrency := FVALOR_RETIRADA;
+    FieldByName('DATA').AsDateTime := FDATA;
+    FieldByName('HORA').AsDateTime := FHORA;
+    FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
   end;
 
