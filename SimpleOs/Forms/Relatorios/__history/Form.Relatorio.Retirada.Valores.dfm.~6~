@@ -1,0 +1,56 @@
+inherited formRelatorioRetiradaDeValores: TformRelatorioRetiradaDeValores
+  Caption = 'Relat'#243'rio Retirada de Valores'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel3: TPanel
+    object MaskEdit1: TMaskEdit
+      Left = 357
+      Top = 29
+      Width = 81
+      Height = 23
+      Anchors = [akRight, akBottom]
+      EditMask = '00/00/0000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      MaxLength = 10
+      ParentFont = False
+      TabOrder = 2
+      Text = '  /  /    '
+    end
+    object MaskEdit2: TMaskEdit
+      Left = 444
+      Top = 29
+      Width = 81
+      Height = 23
+      Anchors = [akRight, akBottom]
+      EditMask = '00/00/0000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      MaxLength = 10
+      ParentFont = False
+      TabOrder = 3
+      Text = '  /  /    '
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    ReadOnly = True
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

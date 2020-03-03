@@ -2518,6 +2518,33 @@ type
 
   end;
 
+  iRelatorioRetiradaDeValores = interface
+    ['{300E6874-500D-41DC-B315-27983A4C5731}']
+
+    function nomeTabela(value: string): iRelatorioRetiradaDeValores;
+    function getCampo(value: string): iRelatorioRetiradaDeValores;
+    function getValor(value: string): iRelatorioRetiradaDeValores;
+    function getDataInicial(value: TDate): iRelatorioRetiradaDeValores;
+    function getDataFinal(value: TDate): iRelatorioRetiradaDeValores;
+    function open(value: string): iRelatorioRetiradaDeValores;
+    function pesquisar: iRelatorioRetiradaDeValores;
+    function ExecSql: iRelatorioRetiradaDeValores;
+    function sqlPesquisa: iRelatorioRetiradaDeValores;
+    function sqlPesquisaData: iRelatorioRetiradaDeValores;
+    function sqlPesquisaEstatica: iRelatorioRetiradaDeValores;
+
+    function abrir: iRelatorioRetiradaDeValores;
+    function atualizar: iRelatorioRetiradaDeValores;
+    function cancelar: iRelatorioRetiradaDeValores;
+    function fecharQuery: iRelatorioRetiradaDeValores;
+    function listarGrid(value: TDataSource): iRelatorioRetiradaDeValores;
+    function ordenarGrid(column: TColumn): iRelatorioRetiradaDeValores;
+
+    function exportar: iRelatorioRetiradaDeValores;
+    function validarData(componet: tmaskEdit):iRelatorioRetiradaDeValores;
+
+  end;
+
   iFactoryEntity = interface
     ['{3DFCA13B-EC0F-4597-B527-D42F90034001}']
     function entityTable: iFDTable;

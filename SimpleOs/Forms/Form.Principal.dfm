@@ -7094,7 +7094,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvCadastros: TSplitView
-    Left = 337
+    Left = 353
     Top = 57
     Width = 0
     Height = 467
@@ -7106,6 +7106,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
+    ExplicitLeft = 337
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7191,7 +7192,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 337
+    Left = 353
     Top = 57
     Width = 0
     Height = 467
@@ -7200,6 +7201,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
+    ExplicitLeft = 337
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7255,20 +7257,19 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 337
+    Left = 150
     Top = 57
-    Width = 0
+    Width = 203
     Height = 467
     Color = 13401438
     CompactWidth = 0
-    Opened = False
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
-      Width = 0
+      Width = 203
       Height = 467
       Margins.Top = 1
       Align = alClient
@@ -7359,6 +7360,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioTransportadoras
+            end
+            item
+              Action = acRelatorioRetiradaDeValores
             end>
           TextColor = 13402157
         end>
@@ -7373,10 +7377,12 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 0
+      ExplicitLeft = -6
+      ExplicitTop = -29
     end
   end
   object spvExtras: TSplitView
-    Left = 337
+    Left = 353
     Top = 57
     Width = 0
     Height = 467
@@ -7387,9 +7393,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 337
   end
   object spvSobre: TSplitView
-    Left = 337
+    Left = 353
     Top = 57
     Width = 0
     Height = 467
@@ -7400,9 +7407,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 337
   end
   object spvConfiguracoes: TSplitView
-    Left = 337
+    Left = 353
     Top = 57
     Width = 0
     Height = 467
@@ -7413,6 +7421,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 337
   end
   object Button2: TButton
     Left = 824
@@ -7424,16 +7433,18 @@ object formPrincipal: TformPrincipal
     OnClick = Button2Click
   end
   object spCaixa: TSplitView
-    Left = 150
+    Left = 353
     Top = 57
-    Width = 187
+    Width = 0
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
+    Opened = False
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 10
+    ExplicitLeft = 150
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -8626,6 +8637,10 @@ object formPrincipal: TformPrincipal
     object acRetiradaDeValores: TAction
       Caption = 'Retirada de valores'
       OnExecute = acRetiradaDeValoresExecute
+    end
+    object acRelatorioRetiradaDeValores: TAction
+      Caption = 'Retirada de valores'
+      OnExecute = acRelatorioRetiradaDeValoresExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

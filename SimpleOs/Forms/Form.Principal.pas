@@ -116,6 +116,7 @@ type
     acReaberturaDoCaixa: TAction;
     Label7: TLabel;
     acRetiradaDeValores: TAction;
+    acRelatorioRetiradaDeValores: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -182,6 +183,7 @@ type
     procedure acEncerramentoDoCaixaExecute(Sender: TObject);
     procedure acReaberturaDoCaixaExecute(Sender: TObject);
     procedure acRetiradaDeValoresExecute(Sender: TObject);
+    procedure acRelatorioRetiradaDeValoresExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -219,7 +221,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Vendas, Form.Relatorio.Parcelas.Venda.Inadimplentes,
   Form.Relatorio.Servico.Mais.Realizados, Form.Relatorio.Saida.Produtos,
   Form.Relatorio.Entrada.Produtos, Form.Relatorio.Vendas.Por.Funcionario,
-  Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores;
+  Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
+  Form.Relatorio.Retirada.Valores;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -465,6 +468,12 @@ begin
   formRelatorioReparosPorPeriodo :=
     TformRelatorioReparosPorPeriodo.Create(self);
   TFactory.new.criarJanela.FormShow(formRelatorioReparosPorPeriodo, '');
+end;
+
+procedure TformPrincipal.acRelatorioRetiradaDeValoresExecute(Sender: TObject);
+begin
+  formRelatorioRetiradaDeValores := TformRelatorioRetiradaDeValores.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioRetiradaDeValores, '');
 end;
 
 procedure TformPrincipal.acRelatorioSaidaDeProdutosExecute(Sender: TObject);
