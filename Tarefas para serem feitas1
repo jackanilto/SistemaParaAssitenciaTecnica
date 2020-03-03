@@ -21,10 +21,12 @@
 #Reabertura de caixa --FEITO
 #login do funcionário --FEITO
 #Relatório de comissões por técnico
+#Configurações de Acesso ao bancode dados
 #Sistema de backup
 #Log de eventos
 #Personalizar acesso dos usuários as sistema conforme vontade do adminstrador
 
 
+##Implemetar comissões por porcentagem
 ##Rever o funcionamento da janela Quitar Parcela Venda.(Cores da grid e o campo juros)
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias
