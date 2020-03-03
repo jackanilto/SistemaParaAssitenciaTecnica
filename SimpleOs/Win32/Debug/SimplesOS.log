@@ -3817,3 +3817,73 @@ At line 1, column 15
 02/03/20 15:03:45 - Caption: Retirada de valores
 02/03/20 15:03:45 - Erro:EDatabaseError
 02/03/20 15:03:45 - Erro:Field 'TIPO_SAIDA' not found
+03/03/20 11:51:26 - ===========================================
+03/03/20 11:51:26 - Form: Form1
+03/03/20 11:51:26 - Caption: Login no Sistema
+03/03/20 11:51:26 - Erro:EAccessViolation
+03/03/20 11:51:26 - Erro:Access violation at address 00B9E37C in module 'SimplesOS.exe'. Read of address 00000000
+03/03/20 11:51:40 - ===========================================
+03/03/20 11:51:40 - Form: Form1
+03/03/20 11:51:40 - Caption: Login no Sistema
+03/03/20 11:51:40 - Erro:EAccessViolation
+03/03/20 11:51:40 - Erro:Access violation at address 00B9E37C in module 'SimplesOS.exe'. Read of address 00000000
+03/03/20 11:52:42 - ===========================================
+03/03/20 11:52:42 - Form: Form1
+03/03/20 11:52:42 - Caption: Login no Sistema
+03/03/20 11:52:42 - Erro:EAccessViolation
+03/03/20 11:52:42 - Erro:Access violation at address 00B9E37C in module 'SimplesOS.exe'. Read of address 00000000
+03/03/20 11:53:31 - ===========================================
+03/03/20 11:53:31 - Form: Form1
+03/03/20 11:53:31 - Caption: Login no Sistema
+03/03/20 11:53:31 - Erro:EAccessViolation
+03/03/20 11:53:31 - Erro:Access violation at address 00B9E37C in module 'SimplesOS.exe'. Read of address 00000000
+03/03/20 11:54:27 - ===========================================
+03/03/20 11:54:27 - Form: Form1
+03/03/20 11:54:27 - Caption: Login no Sistema
+03/03/20 11:54:27 - Erro:EAccessViolation
+03/03/20 11:54:27 - Erro:Access violation at address 00B9E37C in module 'SimplesOS.exe'. Read of address 00000000
+03/03/20 12:17:43 - ===========================================
+03/03/20 12:17:43 - Form: formLogin
+03/03/20 12:17:43 - Caption: Login no Sistema
+03/03/20 12:17:43 - Erro:EAccessViolation
+03/03/20 12:17:43 - Erro:Access violation at address 00B9E217 in module 'SimplesOS.exe'. Read of address 00000068
+03/03/20 12:17:58 - ===========================================
+03/03/20 12:17:58 - Form: formLogin
+03/03/20 12:17:58 - Caption: Login no Sistema
+03/03/20 12:17:58 - Erro:EAccessViolation
+03/03/20 12:17:58 - Erro:Access violation at address 00B9E217 in module 'SimplesOS.exe'. Read of address 00000068
+03/03/20 12:18:51 - ===========================================
+03/03/20 12:18:51 - Form: formLogin
+03/03/20 12:18:51 - Caption: Login no Sistema
+03/03/20 12:18:51 - Erro:EAccessViolation
+03/03/20 12:18:51 - Erro:Access violation at address 00B9E217 in module 'SimplesOS.exe'. Read of address 00000068
+03/03/20 12:37:59 - ===========================================
+03/03/20 12:37:59 - Form: formPrincipal
+03/03/20 12:37:59 - Caption: SimpleOS
+03/03/20 12:37:59 - Erro:EAccessViolation
+03/03/20 12:37:59 - Erro:Access violation at address 00AEF05B in module 'SimplesOS.exe'. Read of address 00000004
+03/03/20 12:38:24 - ===========================================
+03/03/20 12:38:24 - Form: formPrincipal
+03/03/20 12:38:24 - Caption: SimpleOS
+03/03/20 12:38:24 - Erro:EAccessViolation
+03/03/20 12:38:24 - Erro:Access violation at address 00AEF05B in module 'SimplesOS.exe'. Read of address 00000004
+03/03/20 12:38:49 - ===========================================
+03/03/20 12:38:49 - Form: formPrincipal
+03/03/20 12:38:49 - Caption: SimpleOS
+03/03/20 12:38:49 - Erro:EAccessViolation
+03/03/20 12:38:49 - Erro:Access violation at address 00AEF05B in module 'SimplesOS.exe'. Read of address 00000004
+03/03/20 12:43:34 - ===========================================
+03/03/20 12:43:34 - Form: formPrincipal
+03/03/20 12:43:34 - Caption: SimpleOS
+03/03/20 12:43:34 - Erro:EAccessViolation
+03/03/20 12:43:34 - Erro:Access violation at address 00AEF05B in module 'SimplesOS.exe'. Read of address 00000004
+03/03/20 13:07:52 - ===========================================
+03/03/20 13:07:52 - Form: formPrincipal
+03/03/20 13:07:52 - Caption: SimpleOS
+03/03/20 13:07:52 - Erro:EAccessViolation
+03/03/20 13:07:52 - Erro:Access violation at address 00AEF05B in module 'SimplesOS.exe'. Read of address 00000004
+03/03/20 13:10:51 - ===========================================
+03/03/20 13:10:51 - Form: formOrdemServico
+03/03/20 13:10:51 - Caption: Ordem de serviços
+03/03/20 13:10:51 - Erro:EConvertError
+03/03/20 13:10:51 - Erro:'03/20/2020' is not a valid date

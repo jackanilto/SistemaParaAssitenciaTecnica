@@ -3,6 +3,8 @@ inherited formRelatorioRetiradaDeValores: TformRelatorioRetiradaDeValores
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
+    ExplicitLeft = 8
+    ExplicitTop = 494
     inherited sbImprimir: TSpeedButton
       Left = 30
       OnClick = sbImprimirClick

@@ -1,0 +1,72 @@
+unit Form.Login;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
+  UFactory, UInterfaces, UClasse.Login;
+
+type
+  TformLogin = class(TForm)
+    lblCaption: TLabel;
+    SpeedButton1: TSpeedButton;
+    edtUsuario: TEdit;
+    edtSenha: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    sbEntrar: TSpeedButton;
+    sbConfiguracoes: TSpeedButton;
+    sbSair: TSpeedButton;
+    procedure sbSairClick(Sender: TObject);
+    procedure sbEntrarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure edtUsuarioEnter(Sender: TObject);
+  private
+    { Private declarations }
+    var
+      FLogin:iLogin;
+  public
+    { Public declarations }
+  end;
+
+var
+  formLogin: TformLogin;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformLogin.edtUsuarioEnter(Sender: TObject);
+begin
+  edtSenha.SetFocus;
+end;
+
+procedure TformLogin.FormCreate(Sender: TObject);
+begin
+  FLogin := TRealizarLogin.new;
+end;
+
+procedure TformLogin.sbEntrarClick(Sender: TObject);
+begin
+  FLogin
+        .verificarUsuario(edtUsuario)
+        .verificarSenha(edtSenha);
+
+  if FLogin.realizarLogin = true then
+  begin
+    formLogin.Close;
+  end
+  else
+  begin
+    MessageDlg('Usuário ou Senha inválidos, tente novamente', mtError, [mbOk], 0, mbOk);
+  end;
+
+end;
+
+procedure TformLogin.sbSairClick(Sender: TObject);
+begin
+  application.Terminate;
+end;
+
+end.

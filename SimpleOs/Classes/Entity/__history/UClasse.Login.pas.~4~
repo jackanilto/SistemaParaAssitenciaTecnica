@@ -1,0 +1,72 @@
+unit UClasse.Login;
+
+interface
+
+uses
+  UInterfaces, UDados.Conexao, Vcl.StdCtrls, System.SysUtils, Vcl.Dialogs;
+
+Type
+  TRealizarLogin = class(TInterfacedObject, iLogin)
+  private
+   FUser:string;
+   FPasswod:string;
+  public
+
+    function verificarUsuario(value: TEdit): iLogin;
+    function verificarSenha(value: TEdit): iLogin;
+
+    function realizarLogin: boolean;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iLogin;
+
+  end;
+
+implementation
+
+{ TRealizarLogin }
+
+constructor TRealizarLogin.create;
+begin
+
+end;
+
+destructor TRealizarLogin.destroy;
+begin
+
+  inherited;
+end;
+
+class function TRealizarLogin.new: iLogin;
+begin
+  result := self.create;
+end;
+
+function TRealizarLogin.realizarLogin: boolean;
+begin
+
+end;
+
+function TRealizarLogin.verificarSenha(value: TEdit): iLogin;
+begin
+
+  result := self;
+
+  if value.Text = emptystr then
+  begin
+      MessageDlg('ERRO. Infome um senha', mtError, [mbOk], 0, mbOk);
+      value.SetFocus;
+  end;
+
+
+
+
+end;
+
+function TRealizarLogin.verificarUsuario(value: TEdit): iLogin;
+begin
+
+end;
+
+end.

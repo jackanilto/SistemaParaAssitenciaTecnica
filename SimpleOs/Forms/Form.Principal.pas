@@ -15,7 +15,7 @@ uses
   Form.Relatorio.Vendas.Estornadas, Form.Relatorio.OS.Por.Tecnico,
   Form.Relatorio.OS.Por.Status, Form.Relatorio.OS, Form.Relatorio.Produtos,
   Form.Relatorio.Situacao.Estoque, Form.Relatorio.Transportadoras,
-  Form.Abertura.Caixa, UClasse.Entity.Caixa;
+  Form.Abertura.Caixa, UClasse.Entity.Caixa, Form.Login;
 
 type
   TformPrincipal = class(TForm)
@@ -199,6 +199,7 @@ var
   codigoDocliente: integer;
   FProcessoCaixa: TEntityCaixa;
   FSituacaoDoCaixa: String;
+  started:string;
 
 implementation
 
@@ -716,6 +717,22 @@ end;
 
 procedure TformPrincipal.FormShow(Sender: TObject);
 begin
+
+  formLogin := TformLogin.Create(self);
+  try
+    formLogin.ShowModal;
+  finally
+    formLogin.Free;
+
+    if started = 'no' then
+    begin
+
+      FreeAndNil(FProcessoCaixa);
+      application.Terminate;
+
+    end;
+
+  end;
 
   if FProcessoCaixa.verificarSituacaoCaixa = 'nao foi iniciado' then
   begin

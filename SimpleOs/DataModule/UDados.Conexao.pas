@@ -41,8 +41,6 @@ procedure TDataModule1.conexaoBeforeConnect(Sender: TObject);
 begin
   FDPhysFBDriverLink1.VendorLib := ExtractFilePath(application.exename) +
     'fbclient.dll';
-  funcionarioLogado := 1;
-  NomeFuncionarioLogado := 'Adminstrador';
 end;
 
 end.

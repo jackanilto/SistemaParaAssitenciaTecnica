@@ -166,7 +166,9 @@ uses
   Form.Retirada.De.Valores in 'Forms\Form.Retirada.De.Valores.pas' {formRetiradaDeValores},
   UClasse.Entity.Retirada.Valores in 'Classes\Entity\UClasse.Entity.Retirada.Valores.pas',
   Form.Relatorio.Retirada.Valores in 'Forms\Relatorios\Form.Relatorio.Retirada.Valores.pas' {formRelatorioRetiradaDeValores},
-  UClasse.Relatorio.Retirada.Valores in 'Classes\Entity\Relatorios\UClasse.Relatorio.Retirada.Valores.pas';
+  UClasse.Relatorio.Retirada.Valores in 'Classes\Entity\Relatorios\UClasse.Relatorio.Retirada.Valores.pas',
+  Form.Login in 'Forms\Form.Login.pas' {formLogin},
+  UClasse.Login in 'Classes\Entity\UClasse.Login.pas';
 
 {$R *.res}
 
