@@ -3887,3 +3887,13 @@ At line 1, column 15
 03/03/20 13:10:51 - Caption: Ordem de serviços
 03/03/20 13:10:51 - Erro:EConvertError
 03/03/20 13:10:51 - Erro:'03/20/2020' is not a valid date
+04/03/20 10:10:45 - ===========================================
+04/03/20 10:10:45 - Form: formCadastroDeFuncionarios
+04/03/20 10:10:45 - Caption: Cadastro de funcionários
+04/03/20 10:10:45 - Erro:Exception
+04/03/20 10:10:45 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+04/03/20 10:16:36 - ===========================================
+04/03/20 10:16:36 - Form: formComissoesFuncionarios
+04/03/20 10:16:36 - Caption: Cadastro Comissões dos Funcionários
+04/03/20 10:16:36 - Erro:Exception
+04/03/20 10:16:36 - Erro:Este funcionário já possui uma taxa de comissão cadastrada. Tente editar ou exluir para incluir uma nova comissão.

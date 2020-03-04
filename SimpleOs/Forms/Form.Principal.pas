@@ -15,7 +15,8 @@ uses
   Form.Relatorio.Vendas.Estornadas, Form.Relatorio.OS.Por.Tecnico,
   Form.Relatorio.OS.Por.Status, Form.Relatorio.OS, Form.Relatorio.Produtos,
   Form.Relatorio.Situacao.Estoque, Form.Relatorio.Transportadoras,
-  Form.Abertura.Caixa, UClasse.Entity.Caixa, Form.Login;
+  Form.Abertura.Caixa, UClasse.Entity.Caixa, Form.Login, UDados.Conexao,
+  Form.Comissoes.Funcionario, Form.Relatorio.Comissoes;
 
 type
   TformPrincipal = class(TForm)
@@ -25,7 +26,7 @@ type
     CategoryButtons1: TCategoryButtons;
     ImageList1: TImageList;
     Label1: TLabel;
-    Label2: TLabel;
+    lblFuncionario: TLabel;
     Image1: TImage;
     CategoryButtons2: TCategoryButtons;
     actionPrincipal: TActionList;
@@ -117,6 +118,7 @@ type
     Label7: TLabel;
     acRetiradaDeValores: TAction;
     acRelatorioRetiradaDeValores: TAction;
+    acRelatorioComissoesTecnicos: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -184,6 +186,7 @@ type
     procedure acReaberturaDoCaixaExecute(Sender: TObject);
     procedure acRetiradaDeValoresExecute(Sender: TObject);
     procedure acRelatorioRetiradaDeValoresExecute(Sender: TObject);
+    procedure acRelatorioComissoesTecnicosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -308,6 +311,12 @@ procedure TformPrincipal.acClientesExecute(Sender: TObject);
 begin
   formCadastroDeClientes := TformCadastroDeClientes.Create(self);
   TFactory.new.criarJanela.FormShow(formCadastroDeClientes, '');
+end;
+
+procedure TformPrincipal.acRelatorioComissoesTecnicosExecute(Sender: TObject);
+begin
+ formComissoesTecnicos := TformComissoesTecnicos.Create(self);
+  TFactory.new.criarJanela.formShow(formComissoesTecnicos, '');
 end;
 
 procedure TformPrincipal.acConfiguracoesExecute(Sender: TObject);
@@ -731,6 +740,8 @@ begin
       application.Terminate;
 
     end;
+
+    lblFuncionario.Caption := NomeFuncionarioLogado;
 
   end;
 

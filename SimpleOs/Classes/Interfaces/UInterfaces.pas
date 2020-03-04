@@ -2549,9 +2549,36 @@ type
 
     function realizarLogin:boolean;
 
-
   end;
 
+  iRelatorioComissoesTecnico = interface
+    ['{C8A10395-4C27-4FAA-8168-CA2E6AF68DD5}']
+
+    function nomeTabela(value: string): iRelatorioComissoesTecnico;
+    function getCampo(value: string): iRelatorioComissoesTecnico;
+    function getValor(value: string): iRelatorioComissoesTecnico;
+    function getDataInicial(value: TDate): iRelatorioComissoesTecnico;
+    function getDataFinal(value: TDate): iRelatorioComissoesTecnico;
+    function open(value: string): iRelatorioComissoesTecnico;
+    function pesquisar: iRelatorioComissoesTecnico;
+    function ExecSql: iRelatorioComissoesTecnico;
+    function sqlPesquisa: iRelatorioComissoesTecnico;
+    function sqlPesquisaData: iRelatorioComissoesTecnico;
+    function sqlPesquisaEstatica: iRelatorioComissoesTecnico;
+
+    function abrir: iRelatorioComissoesTecnico;
+    function atualizar: iRelatorioComissoesTecnico;
+    function cancelar: iRelatorioComissoesTecnico;
+    function fecharQuery: iRelatorioComissoesTecnico;
+    function listarGrid(value: TDataSource): iRelatorioComissoesTecnico;
+    function ordenarGrid(column: TColumn): iRelatorioComissoesTecnico;
+
+    function calucularComissoes(value:TDataSource):iRelatorioComissoesTecnico;
+
+    function exportar: iRelatorioComissoesTecnico;
+    function validarData(componet: tmaskEdit):iRelatorioComissoesTecnico;
+
+  end;
 
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']

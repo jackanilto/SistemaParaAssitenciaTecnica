@@ -67,9 +67,11 @@ inherited formComissoesFuncionarios: TformComissoesFuncionarios
   end
   inherited CardPanel1: TCardPanel
     Height = 212
+    ActiveCard = cardPanelCadatro
     ExplicitHeight = 212
     inherited cardPanelCadatro: TCard
       Height = 212
+      ExplicitTop = 6
       ExplicitHeight = 212
       object Label1: TLabel
         Left = 14
@@ -113,9 +115,9 @@ inherited formComissoesFuncionarios: TformComissoesFuncionarios
       object Label6: TLabel
         Left = 295
         Top = 8
-        Width = 135
+        Width = 157
         Height = 17
-        Caption = 'Valor da comiss'#227'o (R$)'
+        Caption = 'Percentual da comiss'#227'o(%)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13

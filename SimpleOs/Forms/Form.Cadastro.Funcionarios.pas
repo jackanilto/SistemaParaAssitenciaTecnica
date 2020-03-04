@@ -407,7 +407,7 @@ end;
 procedure TformCadastroDeFuncionarios.SpeedButton3Click(Sender: TObject);
 begin
   inherited;
-  if sbNovo.Enabled = false then
+  if DataSource1.DataSet.RecordCount >= 1 then
   begin
     formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
     tfactory.new.criarJanela.FormShow(formComissoesFuncionarios, '');
@@ -417,7 +417,7 @@ end;
 procedure TformCadastroDeFuncionarios.SpeedButton4Click(Sender: TObject);
 begin
   inherited;
-  if sbNovo.Enabled = false then
+  if DataSource1.DataSet.RecordCount >= 1 then
   begin
     showmessage('Implementar este recurso no final do projeto.');
   end;

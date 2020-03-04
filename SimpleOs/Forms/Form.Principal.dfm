@@ -5310,8 +5310,8 @@ object formPrincipal: TformPrincipal
     Stretch = True
   end
   object Label7: TLabel
-    Left = 368
-    Top = 205
+    Left = 308
+    Top = 221
     Width = 31
     Height = 13
     Caption = 'Label7'
@@ -5852,8 +5852,8 @@ object formPrincipal: TformPrincipal
       OnClick = sbMenuClick
     end
     object Label1: TLabel
-      Left = 760
-      Top = 18
+      Left = 716
+      Top = 14
       Width = 47
       Height = 33
       Anchors = [akTop, akRight]
@@ -5865,9 +5865,9 @@ object formPrincipal: TformPrincipal
       Font.Style = []
       ParentFont = False
     end
-    object Label2: TLabel
-      Left = 833
-      Top = 18
+    object lblFuncionario: TLabel
+      Left = 779
+      Top = 12
       Width = 71
       Height = 33
       Anchors = [akTop, akRight]
@@ -7094,7 +7094,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvCadastros: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7106,7 +7106,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 353
+    ExplicitLeft = 150
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7192,7 +7192,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7201,7 +7201,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 353
+    ExplicitLeft = 150
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7257,7 +7257,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7267,6 +7267,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 150
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7378,13 +7379,10 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 0
-      ExplicitLeft = -3
-      ExplicitTop = -21
-      ExplicitWidth = 203
     end
   end
   object spvExtras: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7395,10 +7393,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 353
+    ExplicitLeft = 150
   end
   object spvSobre: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7409,10 +7407,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 353
+    ExplicitLeft = 150
   end
   object spvConfiguracoes: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7423,7 +7421,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 353
+    ExplicitLeft = 150
   end
   object Button2: TButton
     Left = 824
@@ -7437,16 +7435,14 @@ object formPrincipal: TformPrincipal
   object spCaixa: TSplitView
     Left = 150
     Top = 57
-    Width = 0
+    Width = 187
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
-    Opened = False
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 10
-    ExplicitLeft = 353
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -7472,6 +7468,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRetiradaDeValores
+            end
+            item
+              Action = acRelatorioComissoesTecnicos
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -8643,6 +8642,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioRetiradaDeValores: TAction
       Caption = 'Retirada de valores'
       OnExecute = acRelatorioRetiradaDeValoresExecute
+    end
+    object acRelatorioComissoesTecnicos: TAction
+      Caption = 'Comissoes dos t'#233'cnicos'
+      OnExecute = acRelatorioComissoesTecnicosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

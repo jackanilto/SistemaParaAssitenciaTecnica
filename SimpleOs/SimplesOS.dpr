@@ -168,7 +168,9 @@ uses
   Form.Relatorio.Retirada.Valores in 'Forms\Relatorios\Form.Relatorio.Retirada.Valores.pas' {formRelatorioRetiradaDeValores},
   UClasse.Relatorio.Retirada.Valores in 'Classes\Entity\Relatorios\UClasse.Relatorio.Retirada.Valores.pas',
   Form.Login in 'Forms\Form.Login.pas' {formLogin},
-  UClasse.Login in 'Classes\Entity\UClasse.Login.pas';
+  UClasse.Login in 'Classes\Entity\UClasse.Login.pas',
+  UClasse.Relatorio.Comissoes.Tecnico in 'Classes\Entity\Relatorios\UClasse.Relatorio.Comissoes.Tecnico.pas',
+  Form.Relatorio.Comissoes in 'Forms\Relatorios\Form.Relatorio.Comissoes.pas' {formComissoesTecnicos};
 
 {$R *.res}
 
