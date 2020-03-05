@@ -20,10 +20,10 @@ inherited formRelatorioVendasPorFuncionario: TformRelatorioVendasPorFuncionario
     Width = 1065
     ExplicitWidth = 1065
     inherited sbImprimir: TSpeedButton
-      Left = 15
+      Left = 22
       Width = 90
       OnClick = sbImprimirClick
-      ExplicitLeft = 15
+      ExplicitLeft = 22
       ExplicitWidth = 90
     end
     inherited sbExportar: TSpeedButton

@@ -24,6 +24,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure sbPesquisarDataClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
   private
     { Private declarations }
     var
@@ -50,6 +51,9 @@ begin
   inherited;
   FRelatorio
             .abrir
+            .getCampo('ID_FUNCIONARIO')
+            .getValor('0')
+            .sqlPesquisa
             .listarGrid(DataSource1);
 end;
 
@@ -57,6 +61,14 @@ procedure TformComissoesTecnicos.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FRelatorio.exportar;
+end;
+
+procedure TformComissoesTecnicos.sbImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frxReport1.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_comissoes.fr3');
+  frxReport1.ShowReport();
 end;
 
 procedure TformComissoesTecnicos.sbPesquisarDataClick(Sender: TObject);
