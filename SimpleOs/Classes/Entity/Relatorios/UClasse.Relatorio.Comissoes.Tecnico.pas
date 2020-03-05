@@ -5,14 +5,13 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Datasnap.DBClient;
+  Datasnap.DBClient, System.Win.ComObj;
 
 type
 
   TRelatorioComissoes = class(TInterfacedObject, iRelatorioComissoesTecnico)
   private
 
-    function calcularValor(value: integer): currency;
     function obterPercentualComissao(value:integer):real;
 
   var
@@ -53,8 +52,7 @@ type
     function listarGrid(value: TDataSource): iRelatorioComissoesTecnico;
     function ordenarGrid(column: TColumn): iRelatorioComissoesTecnico;
 
-
-    function calucularComissoes(value: TClientDataSet): iRelatorioComissoesTecnico;
+    function obterValorComissao:Currency;
 
     function exportar: iRelatorioComissoesTecnico;
     function validarData(componet: tmaskEdit): iRelatorioComissoesTecnico;
@@ -82,85 +80,6 @@ begin
   FQuery.TQuery.Refresh;
 end;
 
-function TRelatorioComissoes.calcularValor(value: integer): currency;
-var
-  total: currency;
-  valorComissao:Currency;
-begin
-
-  result := 0;
-
-  total := 0;
-
-   FQueryContabilizar.TQuery.Active := false;
-   FQueryContabilizar.TQuery.SQL.Clear;
-   FQueryContabilizar.TQuery.SQL.Add
-                    ('select * from VISUALIZAR_ORDENS_TECNICOS where ID_TECNICO_RESPONSAVEL =:i'+
-                    ' and '+FCampo+' between :d1 and :d2');
-  FQueryContabilizar.TQuery.ParamByName('i').AsInteger := value;
-  FQueryContabilizar.TQuery.ParamByName('d1').AsDate := FDataInicial;
-  FQueryContabilizar.TQuery.ParamByName('d2').AsDate := FDataFinal;
-  FQueryContabilizar.TQuery.Active := true;
-
-  if FQueryContabilizar.TQuery.RecordCount >= 1 then
-  begin
-
-    FQueryContabilizar.TQuery.First;
-
-    while not FQueryContabilizar.TQuery.Eof do
-    begin
-      total := total + FQueryContabilizar.TQuery.FieldByName('TOTAL_ORCAMENTO').AsCurrency;
-      FQueryContabilizar.TQuery.Next;
-    end;
-
-
-    FQuantidadeOS := FQueryContabilizar.TQuery.RecordCount;
-
-    valorComissao := total * (FPercentualTecnico / 100);
-
-    result := valorComissao + total;
-
-  end;
-
-end;
-
-function TRelatorioComissoes.calucularComissoes(value: TClientDataSet)
-  : iRelatorioComissoesTecnico;
-begin
-
-  result := self;
-
-  FQuery.TQuery.First;
-
-  while not FQuery.TQuery.Eof do
-  begin
-
-    value.Open;
-    value.Insert;
-
-    value.FieldByName('id_tecnico').AsInteger := FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger;
-
-    value.FieldByName('nome_tecnico').AsString :=
-          FQuery.TQuery.FieldByName('TECNICO_RESPONSAVEL').AsString;
-
-    value.FieldByName('Total_comissao').AsCurrency :=
-          calcularValor(FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger);
-
-    value.FieldByName('Quantidade').AsInteger := FQuantidadeOS;
-
-    value.FieldByName('percentual_por_os').AsFloat :=
-          obterPercentualComissao(FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger);
-
-
-    value.Post;
-
-    FQuery.TQuery.Next;
-
-
-  end;
-
-end;
-
 function TRelatorioComissoes.cancelar: iRelatorioComissoesTecnico;
 begin
   FQuery.TQuery.Cancel;
@@ -170,10 +89,8 @@ end;
 constructor TRelatorioComissoes.create;
 begin
 
-  FTabela := 'VISUALIZAR_ORDENS_TECNICOS';
+  FTabela := 'VISUALIZAR_COMISSOES_TEC';
   FQuery := TConexaoQuery.new.Query(FTabela);
-
-  FQueryContabilizar := TConexaoQuery.new.Query(FTabela);
 
   FQueryPercentualComissao := TConexaoQuery.new.Query('COMISSOES_FUNCIONARIOS');
 
@@ -197,8 +114,56 @@ begin
 end;
 
 function TRelatorioComissoes.exportar: iRelatorioComissoesTecnico;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório de Comissões Técnicos';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Cód. Técnico';
+  pasta.cells[1, 2] := 'Técnico';
+  pasta.cells[1, 3] := 'Aplicar comissão';
+  pasta.cells[1, 4] := 'Percettual (%)';
+  pasta.cells[1, 5] := 'OS';
+  pasta.cells[1, 6] := 'Valor';
+  pasta.cells[1, 7] := 'Entrada';
+  pasta.cells[1, 8] := 'Saída';
+  pasta.cells[1, 9] := 'Situação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('APLICAR_COMISSAO').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('PERCENTUAL').AsFloat;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('OS').AsInteger;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('ENTRADA').AsDateTime;
+
+      if FQuery.TQuery.FieldByName('SAIDA').AsDateTime <> StrToTime('00:00:00') then
+         pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('SAIDA').AsDateTime;
+
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('SITUACAO').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioComissoes.fecharQuery: iRelatorioComissoesTecnico;
@@ -242,9 +207,23 @@ begin
 
   result := self;
 
-  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
-  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+  with FQuery.TQuery do
+  begin
+
+    FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Tecnico';
+    FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Nome do técnico';
+    FieldByName('APLICAR_COMISSAO').DisplayLabel := 'Aplicar comissão';
+    FieldByName('PERCENTUAL').DisplayLabel := 'Percentual';
+    FieldByName('OS').DisplayLabel := 'OS';
+    FieldByName('VALOR').DisplayLabel := 'Valor';
+    FieldByName('ENTRADA').DisplayLabel := 'Entrada';
+    FieldByName('SAIDA').DisplayLabel := 'Saída';
+    FieldByName('SITUACAO').DisplayLabel := 'Situação';
+    FieldByName('PGTO').Visible := false;
+
+    FieldByName('NOME_FUNCIONARIO').DisplayWidth := 40;
+
+  end;
 
   value.DataSet := FQuery.TQuery;
 
@@ -291,6 +270,11 @@ begin
 
   end;
 
+end;
+
+function TRelatorioComissoes.obterValorComissao: Currency;
+begin
+  result := 0;
 end;
 
 function TRelatorioComissoes.open(value: string): iRelatorioComissoesTecnico;

@@ -3,6 +3,11 @@ inherited formComissoesTecnicos: TformComissoesTecnicos
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
+    inherited sbExportar: TSpeedButton
+      Left = 159
+      OnClick = sbExportarClick
+      ExplicitLeft = 159
+    end
     inherited Label4: TLabel
       Left = 813
       Top = -24
@@ -106,6 +111,7 @@ inherited formComissoesTecnicos: TformComissoesTecnicos
         99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
         1A9A381CB16550D1A599E9D3CDF6EEECFAF6F4F4EAE7E4C9C2C99586A9563E99
         361A99361A99361A99361A99361A99361A99361A99361A99361A}
+      OnClick = sbPesquisarDataClick
     end
     inherited cbPesquisar: TComboBox
       Left = 813
@@ -170,42 +176,19 @@ inherited formComissoesTecnicos: TformComissoesTecnicos
         'Data de saida')
     end
   end
-  inherited DataSource1: TDataSource
-    DataSet = ClientDataSet1
+  inherited DBGrid1: TDBGrid
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    ReadOnly = True
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
   end
   inherited frxReport1: TfrxReport
     Datasets = <>
     Variables = <>
     Style = <>
-  end
-  object ClientDataSet1: TClientDataSet
-    PersistDataPacket.Data = {
-      A60000009619E0BD010000001800000005000000000003000000A6000A69645F
-      7465636E69636F04000100000000000C6E6F6D655F7465636E69636F01004900
-      000001000557494454480200020064000A5175616E7469646164650400010000
-      0000001170657263656E7475616C5F706F725F6F7308000400000000000E546F
-      74616C5F636F6D697373616F0800040000000100075355425459504502004900
-      06004D6F6E6579000000}
-    Active = True
-    Aggregates = <>
-    Params = <>
-    Left = 432
-    Top = 144
-    object ClientDataSet1id_tecnico: TIntegerField
-      FieldName = 'id_tecnico'
-    end
-    object ClientDataSet1nome_tecnico: TStringField
-      FieldName = 'nome_tecnico'
-      Size = 100
-    end
-    object ClientDataSet1Quantidade: TIntegerField
-      FieldName = 'Quantidade'
-    end
-    object ClientDataSet1percentual_por_os: TFloatField
-      FieldName = 'percentual_por_os'
-    end
-    object ClientDataSet1Total_comissao: TCurrencyField
-      FieldName = 'Total_comissao'
-    end
   end
 end

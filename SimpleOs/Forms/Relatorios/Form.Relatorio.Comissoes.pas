@@ -10,6 +10,9 @@ uses
   Datasnap.DBClient;
 
 type
+  TEnumPesquisarData = (entrada, saida);
+
+type
   TformComissoesTecnicos = class(TformModeloRelatorio)
     edtData1: TMaskEdit;
     edtData2: TMaskEdit;
@@ -17,14 +20,10 @@ type
     cbPesquisarData: TComboBox;
     Label2: TLabel;
     sbPesquisarData: TSpeedButton;
-    ClientDataSet1: TClientDataSet;
-    ClientDataSet1id_tecnico: TIntegerField;
-    ClientDataSet1nome_tecnico: TStringField;
-    ClientDataSet1Quantidade: TIntegerField;
-    ClientDataSet1percentual_por_os: TFloatField;
-    ClientDataSet1Total_comissao: TCurrencyField;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure sbPesquisarDataClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
   private
     { Private declarations }
     var
@@ -51,11 +50,44 @@ begin
   inherited;
   FRelatorio
             .abrir
-            .getCampo('DATA_ENTRADA')
-            .getDataInicial(StrToDate('01/01/2020'))
-            .getDataFinal(StrToDate('29/02/2020'))
+            .listarGrid(DataSource1);
+end;
+
+procedure TformComissoesTecnicos.sbExportarClick(Sender: TObject);
+begin
+  inherited;
+  FRelatorio.exportar;
+end;
+
+procedure TformComissoesTecnicos.sbPesquisarDataClick(Sender: TObject);
+var
+  FCampo:String;
+begin
+  inherited;
+
+  FRelatorio
+            .validarData(edtData1)
+            .validarData(edtData2);
+
+  case TEnumPesquisarData(cbPesquisarData.ItemIndex) of
+  entrada:
+  begin
+    FCampo := 'ENTRADA';
+  end;
+  saida:
+  begin
+    FCampo := 'SAIDA';
+  end;
+  end;
+
+  FRelatorio
+            .getCampo(FCampo)
+            .getDataInicial(StrToDate(edtData1.Text))
+            .getDataFinal(StrToDate(edtData2.Text))
             .sqlPesquisaData
-            .calucularComissoes(ClientDataSet1);
+            .listarGrid(DataSource1);
+
+
 end;
 
 end.
