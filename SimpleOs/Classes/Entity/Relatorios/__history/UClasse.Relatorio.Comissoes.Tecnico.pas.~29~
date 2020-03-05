@@ -84,6 +84,7 @@ end;
 function TRelatorioComissoes.calcularValor(value: integer): currency;
 var
   total: currency;
+  valorComissao:Currency;
 begin
 
   result := 0;
@@ -111,8 +112,14 @@ begin
       FQueryContabilizar.TQuery.Next;
     end;
 
-  end;
 
+    FQuantidadeOS := FQueryContabilizar.TQuery.RecordCount;
+
+    valorComissao := total * (FPercentualTecnico / 100);
+
+    result := valorComissao + total;
+
+  end;
 
 end;
 
@@ -129,6 +136,17 @@ begin
 
     value.DataSet.Open;
     value.DataSet.Insert;
+
+    value.DataSet.FieldByName('id_tecnico').AsInteger := FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger;
+    value.DataSet.FieldByName('nome_tecnico').AsString := FQuery.TQuery.FieldByName('TECNICO_RESPONSAVEL').AsString;
+    value.DataSet.FieldByName('Total_comissao').AsCurrency := calcularValor(FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger);
+    value.DataSet.FieldByName('Quantidade').AsInteger := FQuantidadeOS;
+    value.DataSet.FieldByName('percentual_por_os').AsFloat := obterPercentualComissao(FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger);
+
+
+    value.DataSet.Post;
+
+    {CONTINUAR APARTIR DESTE PONTO}
 
 
 

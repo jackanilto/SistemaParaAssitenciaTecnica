@@ -54,8 +54,7 @@ begin
             .getCampo('DATA_ENTRADA')
             .getDataInicial(StrToDate('01/01/2020'))
             .getDataFinal(StrToDate('29/02/2020'))
-            .sqlPesquisaData
-            .calucularComissoes(ClientDataSet1);
+            .sqlPesquisaData;
 end;
 
 end.

@@ -3897,3 +3897,28 @@ At line 1, column 15
 04/03/20 10:16:36 - Caption: Cadastro Comissões dos Funcionários
 04/03/20 10:16:36 - Erro:Exception
 04/03/20 10:16:36 - Erro:Este funcionário já possui uma taxa de comissão cadastrada. Tente editar ou exluir para incluir uma nova comissão.
+04/03/20 19:49:16 - ===========================================
+04/03/20 19:49:16 - Form: formComissoesTecnicos
+04/03/20 19:49:16 - Caption: Comissões dos técnicos
+04/03/20 19:49:16 - Erro:EConvertError
+04/03/20 19:49:16 - Erro:'2902/2020' is not a valid date
+04/03/20 19:50:30 - ===========================================
+04/03/20 19:50:30 - Form: formComissoesTecnicos
+04/03/20 19:50:30 - Caption: Comissões dos técnicos
+04/03/20 19:50:30 - Erro:EAccessViolation
+04/03/20 19:50:30 - Erro:Access violation at address 006E4E1E in module 'SimplesOS.exe'. Read of address 00000000
+04/03/20 19:52:58 - ===========================================
+04/03/20 19:52:58 - Form: formComissoesTecnicos
+04/03/20 19:52:58 - Caption: Comissões dos técnicos
+04/03/20 19:52:58 - Erro:EDatabaseError
+04/03/20 19:52:58 - Erro:Parameter 'd2' not found
+04/03/20 19:53:36 - ===========================================
+04/03/20 19:53:36 - Form: formComissoesTecnicos
+04/03/20 19:53:36 - Caption: Comissões dos técnicos
+04/03/20 19:53:36 - Erro:EDatabaseError
+04/03/20 19:53:36 - Erro:Parameter 'i' not found
+04/03/20 19:55:15 - ===========================================
+04/03/20 19:55:15 - Form: formComissoesTecnicos
+04/03/20 19:55:15 - Caption: Comissões dos técnicos
+04/03/20 19:55:15 - Erro:EDatabaseError
+04/03/20 19:55:15 - Erro:Parameter 'i' not found

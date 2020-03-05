@@ -2573,7 +2573,7 @@ type
     function listarGrid(value: TDataSource): iRelatorioComissoesTecnico;
     function ordenarGrid(column: TColumn): iRelatorioComissoesTecnico;
 
-    function calucularComissoes(value:TDataSource):iRelatorioComissoesTecnico;
+    function calucularComissoes(value:TClientDataSet):iRelatorioComissoesTecnico;
 
     function exportar: iRelatorioComissoesTecnico;
     function validarData(componet: tmaskEdit):iRelatorioComissoesTecnico;

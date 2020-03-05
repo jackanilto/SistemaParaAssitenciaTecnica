@@ -170,9 +170,6 @@ inherited formComissoesTecnicos: TformComissoesTecnicos
         'Data de saida')
     end
   end
-  inherited DataSource1: TDataSource
-    DataSet = ClientDataSet1
-  end
   inherited frxReport1: TfrxReport
     Datasets = <>
     Variables = <>

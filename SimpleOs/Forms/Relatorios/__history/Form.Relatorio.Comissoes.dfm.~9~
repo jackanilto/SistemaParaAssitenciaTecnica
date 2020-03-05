@@ -3,6 +3,8 @@ inherited formComissoesTecnicos: TformComissoesTecnicos
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
+    ExplicitLeft = 136
+    ExplicitTop = 424
     inherited Label4: TLabel
       Left = 813
       Top = -24
@@ -170,23 +172,12 @@ inherited formComissoesTecnicos: TformComissoesTecnicos
         'Data de saida')
     end
   end
-  inherited DataSource1: TDataSource
-    DataSet = ClientDataSet1
-  end
   inherited frxReport1: TfrxReport
     Datasets = <>
     Variables = <>
     Style = <>
   end
   object ClientDataSet1: TClientDataSet
-    PersistDataPacket.Data = {
-      A60000009619E0BD010000001800000005000000000003000000A6000A69645F
-      7465636E69636F04000100000000000C6E6F6D655F7465636E69636F01004900
-      000001000557494454480200020064000A5175616E7469646164650400010000
-      0000001170657263656E7475616C5F706F725F6F7308000400000000000E546F
-      74616C5F636F6D697373616F0800040000000100075355425459504502004900
-      06004D6F6E6579000000}
-    Active = True
     Aggregates = <>
     Params = <>
     Left = 432

@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  Datasnap.DBClient;
 
 type
 
@@ -53,7 +54,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioComissoesTecnico;
 
 
-    function calucularComissoes(value: TDataSource): iRelatorioComissoesTecnico;
+    function calucularComissoes(value: TClientDataSet): iRelatorioComissoesTecnico;
 
     function exportar: iRelatorioComissoesTecnico;
     function validarData(componet: tmaskEdit): iRelatorioComissoesTecnico;
@@ -84,19 +85,46 @@ end;
 function TRelatorioComissoes.calcularValor(value: integer): currency;
 var
   total: currency;
+  valorComissao:Currency;
 begin
 
   result := 0;
 
   total := 0;
 
-  // FQuery.TQuery.Active := false;
-  // FQuery.TQuery.SQL.Clear;
-  // FQuery.TQuery.SQL.Add('select * from VISUALIZAR_ORDENS_TECNICOS where ');
+   FQueryContabilizar.TQuery.Active := false;
+   FQueryContabilizar.TQuery.SQL.Clear;
+   FQueryContabilizar.TQuery.SQL.Add
+                    ('select * from VISUALIZAR_ORDENS_TECNICOS where ID_TECNICO_RESPONSAVEL =:i '+
+                    ' and '+FCampo+' between :d1 and :d2');
+  FQueryContabilizar.TQuery.ParamByName('i').AsInteger := value;
+  FQueryContabilizar.TQuery.ParamByName('d1').AsDate := FDataInicial;
+  FQueryContabilizar.TQuery.ParamByName('d2').AsDate := FDataFinal;
+  FQueryContabilizar.TQuery.Active := true;
+
+  if FQueryContabilizar.TQuery.RecordCount >= 1 then
+  begin
+
+    FQueryContabilizar.TQuery.First;
+
+    while not FQueryContabilizar.TQuery.Eof do
+    begin
+      total := total + FQueryContabilizar.TQuery.FieldByName('TOTAL_ORCAMENTO').AsCurrency;
+      FQueryContabilizar.TQuery.Next;
+    end;
+
+
+    FQuantidadeOS := FQueryContabilizar.TQuery.RecordCount;
+
+    valorComissao := total * (FPercentualTecnico / 100);
+
+    result := valorComissao + total;
+
+  end;
 
 end;
 
-function TRelatorioComissoes.calucularComissoes(value: TDataSource)
+function TRelatorioComissoes.calucularComissoes(value: TClientDataSet)
   : iRelatorioComissoesTecnico;
 begin
 
@@ -107,9 +135,17 @@ begin
   while not FQuery.TQuery.Eof do
   begin
 
-    value.DataSet.Open;
-    value.DataSet.Insert;
+    value.Open;
+    value.Insert;
 
+    value.FieldByName('id_tecnico').AsInteger := FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger;
+    value.FieldByName('nome_tecnico').AsString := FQuery.TQuery.FieldByName('TECNICO_RESPONSAVEL').AsString;
+    value.FieldByName('Total_comissao').AsCurrency := calcularValor(FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger);
+    value.FieldByName('Quantidade').AsInteger := FQuantidadeOS;
+    value.FieldByName('percentual_por_os').AsFloat := obterPercentualComissao(FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger);
+
+
+    value.Post;
 
 
   end;
@@ -129,6 +165,8 @@ begin
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FQueryContabilizar := TConexaoQuery.new.Query(FTabela);
+
+  FQueryPercentualComissao := TConexaoQuery.new.Query('COMISSOES_FUNCIONARIOS');
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Relatório de comissões').getCodigoFuncionario
@@ -217,7 +255,32 @@ end;
 
 function TRelatorioComissoes.obterPercentualComissao(value: integer): real;
 begin
+
   result := 0;
+
+  with FQueryPercentualComissao do
+  begin
+
+    TQuery.Active := false;
+    TQuery.SQL.Clear;
+    TQuery.SQL.Add('select * from COMISSOES_FUNCIONARIOS where ID_FUNCIONARIO =i and APLICAR_COMISSAO =:a');
+    TQuery.ParamByName('i').AsInteger := value;
+    TQuery.ParamByName('a').AsString := 'Sim';
+    TQuery.Active := false;
+
+
+    if TQuery.RecordCount >= 1 then
+    begin
+
+      FPercentualTecnico := TQuery.FieldByName('VALOR_POR_ATENDIMENTO').AsFloat;
+
+      result := TQuery.FieldByName('VALOR_POR_ATENDIMENTO').AsFloat;
+
+    end;
+
+
+  end;
+
 end;
 
 function TRelatorioComissoes.open(value: string): iRelatorioComissoesTecnico;

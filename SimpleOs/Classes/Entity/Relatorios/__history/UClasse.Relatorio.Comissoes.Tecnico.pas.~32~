@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  Datasnap.DBClient;
 
 type
 
@@ -53,7 +54,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioComissoesTecnico;
 
 
-    function calucularComissoes(value: TDataSource): iRelatorioComissoesTecnico;
+    function calucularComissoes(value: TClientDataSet): iRelatorioComissoesTecnico;
 
     function exportar: iRelatorioComissoesTecnico;
     function validarData(componet: tmaskEdit): iRelatorioComissoesTecnico;
@@ -113,6 +114,8 @@ begin
     end;
 
 
+    FQuantidadeOS := FQueryContabilizar.TQuery.RecordCount;
+
     valorComissao := total * (FPercentualTecnico / 100);
 
     result := valorComissao + total;
@@ -121,7 +124,7 @@ begin
 
 end;
 
-function TRelatorioComissoes.calucularComissoes(value: TDataSource)
+function TRelatorioComissoes.calucularComissoes(value: TClientDataSet)
   : iRelatorioComissoesTecnico;
 begin
 
@@ -132,9 +135,17 @@ begin
   while not FQuery.TQuery.Eof do
   begin
 
-    value.DataSet.Open;
-    value.DataSet.Insert;
+    value.Open;
+    value.Insert;
 
+    value.FieldByName('id_tecnico').AsInteger := FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger;
+    value.FieldByName('nome_tecnico').AsString := FQuery.TQuery.FieldByName('TECNICO_RESPONSAVEL').AsString;
+    value.FieldByName('Total_comissao').AsCurrency := calcularValor(FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger);
+    value.FieldByName('Quantidade').AsInteger := FQuantidadeOS;
+    value.FieldByName('percentual_por_os').AsFloat := obterPercentualComissao(FQuery.TQuery.FieldByName('ID_TECNICO_RESPONSAVEL').AsInteger);
+
+
+    value.Post;
 
 
   end;

@@ -55,7 +55,7 @@ begin
             .getDataInicial(StrToDate('01/01/2020'))
             .getDataFinal(StrToDate('29/02/2020'))
             .sqlPesquisaData
-            .calucularComissoes(ClientDataSet1);
+            .calucularComissoes(DataSource1);
 end;
 
 end.

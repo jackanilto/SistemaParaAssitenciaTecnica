@@ -84,15 +84,40 @@ end;
 function TRelatorioComissoes.calcularValor(value: integer): currency;
 var
   total: currency;
+  valorComissao:Currency;
 begin
 
   result := 0;
 
   total := 0;
 
-  // FQuery.TQuery.Active := false;
-  // FQuery.TQuery.SQL.Clear;
-  // FQuery.TQuery.SQL.Add('select * from VISUALIZAR_ORDENS_TECNICOS where ');
+   FQueryContabilizar.TQuery.Active := false;
+   FQueryContabilizar.TQuery.SQL.Clear;
+   FQueryContabilizar.TQuery.SQL.Add
+                    ('select * from VISUALIZAR_ORDENS_TECNICOS where ID_TECNICO_RESPONSAVEL =:i '+
+                    ' and '+FCampo+' between :d1 and d2');
+  FQueryContabilizar.TQuery.ParamByName('i').AsInteger := value;
+  FQueryContabilizar.TQuery.ParamByName('d1').AsDate := FDataInicial;
+  FQueryContabilizar.TQuery.ParamByName('d2').AsDate := FDataFinal;
+  FQueryContabilizar.TQuery.Active := true;
+
+  if FQueryContabilizar.TQuery.RecordCount >= 1 then
+  begin
+
+    FQueryContabilizar.TQuery.First;
+
+    while not FQueryContabilizar.TQuery.Eof do
+    begin
+      total := total + FQueryContabilizar.TQuery.FieldByName('TOTAL_ORCAMENTO').AsCurrency;
+      FQueryContabilizar.TQuery.Next;
+    end;
+
+
+    valorComissao := total * (FPercentualTecnico / 100);
+
+    result := valorComissao + total;
+
+  end;
 
 end;
 
@@ -109,6 +134,8 @@ begin
 
     value.DataSet.Open;
     value.DataSet.Insert;
+
+    {CONTINUAR APARTIR DESTE PONTO}
 
 
 
@@ -219,6 +246,7 @@ end;
 
 function TRelatorioComissoes.obterPercentualComissao(value: integer): real;
 begin
+
   result := 0;
 
   with FQueryPercentualComissao do
@@ -230,6 +258,16 @@ begin
     TQuery.ParamByName('i').AsInteger := value;
     TQuery.ParamByName('a').AsString := 'Sim';
     TQuery.Active := false;
+
+
+    if TQuery.RecordCount >= 1 then
+    begin
+
+      FPercentualTecnico := TQuery.FieldByName('VALOR_POR_ATENDIMENTO').AsFloat;
+
+      result := TQuery.FieldByName('VALOR_POR_ATENDIMENTO').AsFloat;
+
+    end;
 
 
   end;
