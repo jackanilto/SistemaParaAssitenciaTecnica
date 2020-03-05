@@ -517,6 +517,7 @@ object formLogin: TformLogin
       1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
       361A99361A99361A99361A99361A99361A99361A99361A99361A}
     ParentFont = False
+    OnClick = sbConfiguracoesClick
   end
   object sbSair: TSpeedButton
     Left = 351

@@ -170,7 +170,10 @@ uses
   Form.Login in 'Forms\Form.Login.pas' {formLogin},
   UClasse.Login in 'Classes\Entity\UClasse.Login.pas',
   UClasse.Relatorio.Comissoes.Tecnico in 'Classes\Entity\Relatorios\UClasse.Relatorio.Comissoes.Tecnico.pas',
-  Form.Relatorio.Comissoes in 'Forms\Relatorios\Form.Relatorio.Comissoes.pas' {formComissoesTecnicos};
+  Form.Relatorio.Comissoes in 'Forms\Relatorios\Form.Relatorio.Comissoes.pas' {formComissoesTecnicos},
+  Form.Configurar.Conexcao.Banco in 'Forms\Form.Configurar.Conexcao.Banco.pas' {formConfigurarConexaoBanco},
+  UClasse.Config.Conexao in 'Classes\Entity\Config\UClasse.Config.Conexao.pas',
+  UClasse.Config.Acesso.Banco in 'Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas';
 
 {$R *.res}
 

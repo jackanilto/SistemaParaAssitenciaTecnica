@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
-  UFactory, UInterfaces, UClasse.Login;
+  UFactory, UInterfaces, UClasse.Login, Form.Configurar.Conexcao.Banco;
 
 type
   TformLogin = class(TForm)
@@ -26,6 +26,7 @@ type
       Shift: TShiftState);
     procedure edtSenhaKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure AppMessage(var Msg: TMSG; var HAndled: Boolean);
+    procedure sbConfiguracoesClick(Sender: TObject);
   private
     { Private declarations }
   var
@@ -73,6 +74,18 @@ begin
   FLogin := TRealizarLogin.new;
   Application.OnMessage := AppMessage;
 end;
+
+procedure TformLogin.sbConfiguracoesClick(Sender: TObject);
+begin
+
+  formConfigurarConexaoBanco := TformConfigurarConexaoBanco.Create(self);
+  try
+    formConfigurarConexaoBanco.ShowModal;
+  finally
+    formConfigurarConexaoBanco.Free;
+  end;
+
+  end;
 
 procedure TformLogin.sbEntrarClick(Sender: TObject);
 begin

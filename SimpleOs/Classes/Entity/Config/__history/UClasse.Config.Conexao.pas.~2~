@@ -1,0 +1,30 @@
+unit UClasse.Config.Conexao;
+
+interface
+
+Type
+  TClasseConexaoConfig = class
+  private
+  public
+
+    constructor create;
+    destructor destroy; override;
+
+  end;
+
+implementation
+
+{ TClasseConexaoConfig }
+
+constructor TClasseConexaoConfig.create;
+begin
+
+end;
+
+destructor TClasseConexaoConfig.destroy;
+begin
+
+  inherited;
+end;
+
+end.

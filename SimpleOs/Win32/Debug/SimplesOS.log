@@ -3922,3 +3922,8 @@ At line 1, column 15
 04/03/20 19:55:15 - Caption: Comissões dos técnicos
 04/03/20 19:55:15 - Erro:EDatabaseError
 04/03/20 19:55:15 - Erro:Parameter 'i' not found
+05/03/20 20:30:31 - ===========================================
+05/03/20 20:30:31 - Form: formPrincipal
+05/03/20 20:30:31 - Caption: SimpleOS
+05/03/20 20:30:31 - Erro:EAccessViolation
+05/03/20 20:30:31 - Erro:Access violation at address 00AEF05F in module 'SimplesOS.exe'. Read of address 00000004
