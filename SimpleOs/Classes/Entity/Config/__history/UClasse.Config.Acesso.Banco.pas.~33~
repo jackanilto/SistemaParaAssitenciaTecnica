@@ -1,0 +1,74 @@
+unit UClasse.Config.Acesso.Banco;
+
+interface
+
+uses
+  UClasse.Config.Conexao, Data.DB, Vcl.Dialogs;
+
+Type
+  TConfigConexaoBanco = class(TClasseConexaoConfig)
+  private
+
+    FQueryConf: TClasseConexaoConfig;
+    Fipmachine: string;
+    Fhostname: string;
+    FlocalBD: string;
+    procedure Sethostname(const Value: string);
+    procedure SetlocalBD(const Value: string);
+
+  public
+
+  procedure retornarDados(value:TDataSource);
+  procedure inserirDados(host, local:string);
+
+  property hostname:string read Fhostname write Sethostname;
+  property localBD:string read FlocalBD write SetlocalBD;
+
+    constructor create;
+    destructor destroy; override;
+
+  end;
+
+implementation
+
+{ TConfigConexaoBanco }
+
+constructor TConfigConexaoBanco.create;
+begin
+
+  FQueryConf := TClasseConexaoConfig.create;
+  FQueryConf.Query('config_conexao');
+
+  hostname :=  FQueryConf.retornarQuery.FieldByName('host').AsString;
+  localBD := FQueryConf.retornarQuery.FieldByName('local_bd').AsString;
+
+end;
+
+destructor TConfigConexaoBanco.destroy;
+begin
+  FQueryConf.Free;
+  inherited;
+end;
+
+procedure TConfigConexaoBanco.inserirDados(host, local: string);
+begin
+    FQueryConf.retornarQuery.Insert;
+    FQueryConf.retornarQuery.FieldByName('id').AsInteger := 1;
+end;
+
+procedure TConfigConexaoBanco.retornarDados(value: TDataSource);
+begin
+    value.DataSet := FQueryConf.retornarQuery;
+end;
+
+procedure TConfigConexaoBanco.Sethostname(const Value: string);
+begin
+  Fhostname := Value;
+end;
+
+procedure TConfigConexaoBanco.SetlocalBD(const Value: string);
+begin
+  FlocalBD := Value;
+end;
+
+end.

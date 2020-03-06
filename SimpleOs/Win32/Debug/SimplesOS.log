@@ -3927,3 +3927,293 @@ At line 1, column 15
 05/03/20 20:30:31 - Caption: SimpleOS
 05/03/20 20:30:31 - Erro:EAccessViolation
 05/03/20 20:30:31 - Erro:Access violation at address 00AEF05F in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:01:35 - ===========================================
+06/03/20 11:01:35 - Form: formConfigurarConexaoBanco
+06/03/20 11:01:35 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:01:35 - Erro:EAccessViolation
+06/03/20 11:01:35 - Erro:Access violation at address 00BBEB1B in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:01:37 - ===========================================
+06/03/20 11:01:37 - Form: formConfigurarConexaoBanco
+06/03/20 11:01:37 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:01:37 - Erro:EAccessViolation
+06/03/20 11:01:37 - Erro:Access violation at address 00BBEE60 in module 'SimplesOS.exe'. Read of address 00000010
+06/03/20 11:01:42 - ===========================================
+06/03/20 11:01:42 - Form: formPrincipal
+06/03/20 11:01:42 - Caption: SimpleOS
+06/03/20 11:01:42 - Erro:EAccessViolation
+06/03/20 11:01:42 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:02:41 - ===========================================
+06/03/20 11:02:41 - Form: formConfigurarConexaoBanco
+06/03/20 11:02:41 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:02:41 - Erro:EAccessViolation
+06/03/20 11:02:41 - Erro:Access violation at address 00BBEB1B in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:02:42 - ===========================================
+06/03/20 11:02:42 - Form: formConfigurarConexaoBanco
+06/03/20 11:02:42 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:02:42 - Erro:EAccessViolation
+06/03/20 11:02:42 - Erro:Access violation at address 00BBEE60 in module 'SimplesOS.exe'. Read of address 00000010
+06/03/20 11:02:45 - ===========================================
+06/03/20 11:02:45 - Form: formPrincipal
+06/03/20 11:02:45 - Caption: SimpleOS
+06/03/20 11:02:45 - Erro:EAccessViolation
+06/03/20 11:02:45 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:03:43 - ===========================================
+06/03/20 11:03:43 - Form: formConfigurarConexaoBanco
+06/03/20 11:03:43 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:03:43 - Erro:EAccessViolation
+06/03/20 11:03:43 - Erro:Access violation at address 00BBEB1B in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:08:21 - ===========================================
+06/03/20 11:08:21 - Form: formConfigurarConexaoBanco
+06/03/20 11:08:21 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:08:21 - Erro:EAccessViolation
+06/03/20 11:08:21 - Erro:Access violation at address 00BBEB4B in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:08:23 - ===========================================
+06/03/20 11:08:23 - Form: formConfigurarConexaoBanco
+06/03/20 11:08:23 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:08:23 - Erro:EAccessViolation
+06/03/20 11:08:23 - Erro:Access violation at address 00BBEE90 in module 'SimplesOS.exe'. Read of address 00000010
+06/03/20 11:08:27 - ===========================================
+06/03/20 11:08:27 - Form: formPrincipal
+06/03/20 11:08:27 - Caption: SimpleOS
+06/03/20 11:08:27 - Erro:EAccessViolation
+06/03/20 11:08:27 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:12:05 - ===========================================
+06/03/20 11:12:05 - Form: formConfigurarConexaoBanco
+06/03/20 11:12:05 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:12:05 - Erro:EAccessViolation
+06/03/20 11:12:05 - Erro:Access violation at address 006E0345 in module 'SimplesOS.exe'. Read of address 00000041
+06/03/20 11:12:10 - ===========================================
+06/03/20 11:12:10 - Form: formConfigurarConexaoBanco
+06/03/20 11:12:10 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:12:10 - Erro:EInvalidPointer
+06/03/20 11:12:10 - Erro:Invalid pointer operation
+06/03/20 11:12:14 - ===========================================
+06/03/20 11:12:14 - Form: formPrincipal
+06/03/20 11:12:14 - Caption: SimpleOS
+06/03/20 11:12:14 - Erro:EAccessViolation
+06/03/20 11:12:14 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:15:41 - ===========================================
+06/03/20 11:15:41 - Form: formConfigurarConexaoBanco
+06/03/20 11:15:41 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:15:41 - Erro:EAccessViolation
+06/03/20 11:15:41 - Erro:Access violation at address 00BBEDC3 in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:15:43 - ===========================================
+06/03/20 11:15:43 - Form: formConfigurarConexaoBanco
+06/03/20 11:15:43 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:15:43 - Erro:EAccessViolation
+06/03/20 11:15:43 - Erro:Access violation at address 00BBEE60 in module 'SimplesOS.exe'. Read of address 00000010
+06/03/20 11:15:49 - ===========================================
+06/03/20 11:15:49 - Form: formPrincipal
+06/03/20 11:15:49 - Caption: SimpleOS
+06/03/20 11:15:49 - Erro:EAccessViolation
+06/03/20 11:15:49 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:17:10 - ===========================================
+06/03/20 11:17:10 - Form: formConfigurarConexaoBanco
+06/03/20 11:17:10 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:17:10 - Erro:EAccessViolation
+06/03/20 11:17:10 - Erro:Access violation at address 00BBED0F in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:17:13 - ===========================================
+06/03/20 11:17:13 - Form: formConfigurarConexaoBanco
+06/03/20 11:17:13 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:17:13 - Erro:EAccessViolation
+06/03/20 11:17:13 - Erro:Access violation at address 00BBEDAC in module 'SimplesOS.exe'. Read of address 00000010
+06/03/20 11:17:19 - ===========================================
+06/03/20 11:17:19 - Form: formPrincipal
+06/03/20 11:17:19 - Caption: SimpleOS
+06/03/20 11:17:19 - Erro:EAccessViolation
+06/03/20 11:17:19 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:17:57 - ===========================================
+06/03/20 11:17:57 - Form: formConfigurarConexaoBanco
+06/03/20 11:17:57 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:17:57 - Erro:EAccessViolation
+06/03/20 11:17:57 - Erro:Access violation at address 00BBED0F in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:18:04 - ===========================================
+06/03/20 11:18:04 - Form: formPrincipal
+06/03/20 11:18:04 - Caption: SimpleOS
+06/03/20 11:18:04 - Erro:EAccessViolation
+06/03/20 11:18:04 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:18:46 - ===========================================
+06/03/20 11:18:46 - Form: formPrincipal
+06/03/20 11:18:46 - Caption: SimpleOS
+06/03/20 11:18:46 - Erro:EAccessViolation
+06/03/20 11:18:46 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:19:01 - ===========================================
+06/03/20 11:19:01 - Form: formConfigurarConexaoBanco
+06/03/20 11:19:01 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:19:01 - Erro:EAccessViolation
+06/03/20 11:19:01 - Erro:Access violation at address 006E0345 in module 'SimplesOS.exe'. Read of address 00000041
+06/03/20 11:19:04 - ===========================================
+06/03/20 11:19:04 - Form: formPrincipal
+06/03/20 11:19:04 - Caption: SimpleOS
+06/03/20 11:19:04 - Erro:EAccessViolation
+06/03/20 11:19:04 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:19:26 - ===========================================
+06/03/20 11:19:26 - Form: formConfigurarConexaoBanco
+06/03/20 11:19:26 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:19:26 - Erro:EAccessViolation
+06/03/20 11:19:26 - Erro:Access violation at address 006E0345 in module 'SimplesOS.exe'. Read of address 00000041
+06/03/20 11:19:33 - ===========================================
+06/03/20 11:19:33 - Form: formPrincipal
+06/03/20 11:19:33 - Caption: SimpleOS
+06/03/20 11:19:33 - Erro:EAccessViolation
+06/03/20 11:19:33 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:20:25 - ===========================================
+06/03/20 11:20:25 - Form: formPrincipal
+06/03/20 11:20:25 - Caption: SimpleOS
+06/03/20 11:20:25 - Erro:EAccessViolation
+06/03/20 11:20:25 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:21:31 - ===========================================
+06/03/20 11:21:31 - Form: formConfigurarConexaoBanco
+06/03/20 11:21:31 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:21:31 - Erro:EAccessViolation
+06/03/20 11:21:31 - Erro:Access violation at address 00BBEB1B in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:21:36 - ===========================================
+06/03/20 11:21:36 - Form: formPrincipal
+06/03/20 11:21:36 - Caption: SimpleOS
+06/03/20 11:21:36 - Erro:EAccessViolation
+06/03/20 11:21:36 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:22:08 - ===========================================
+06/03/20 11:22:08 - Form: formConfigurarConexaoBanco
+06/03/20 11:22:08 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:22:08 - Erro:EAccessViolation
+06/03/20 11:22:08 - Erro:Access violation at address 00BBEB1B in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:22:14 - ===========================================
+06/03/20 11:22:14 - Form: formPrincipal
+06/03/20 11:22:14 - Caption: SimpleOS
+06/03/20 11:22:14 - Erro:EAccessViolation
+06/03/20 11:22:14 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:22:44 - ===========================================
+06/03/20 11:22:44 - Form: formConfigurarConexaoBanco
+06/03/20 11:22:44 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:22:44 - Erro:EAccessViolation
+06/03/20 11:22:44 - Erro:Access violation at address 00BBEB1B in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:22:45 - ===========================================
+06/03/20 11:22:45 - Form: formConfigurarConexaoBanco
+06/03/20 11:22:45 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:22:45 - Erro:EAccessViolation
+06/03/20 11:22:45 - Erro:Access violation at address 00BBEE50 in module 'SimplesOS.exe'. Read of address 00000010
+06/03/20 11:22:49 - ===========================================
+06/03/20 11:22:49 - Form: formPrincipal
+06/03/20 11:22:49 - Caption: SimpleOS
+06/03/20 11:22:49 - Erro:EAccessViolation
+06/03/20 11:22:49 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:23:18 - ===========================================
+06/03/20 11:23:18 - Form: formConfigurarConexaoBanco
+06/03/20 11:23:18 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:23:18 - Erro:EAccessViolation
+06/03/20 11:23:18 - Erro:Access violation at address 00BBEB1B in module 'SimplesOS.exe'. Read of address 00000000
+06/03/20 11:23:30 - ===========================================
+06/03/20 11:23:30 - Form: formPrincipal
+06/03/20 11:23:30 - Caption: SimpleOS
+06/03/20 11:23:30 - Erro:EAccessViolation
+06/03/20 11:23:30 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:28:45 - ===========================================
+06/03/20 11:28:45 - Form: formPrincipal
+06/03/20 11:28:45 - Caption: SimpleOS
+06/03/20 11:28:45 - Erro:EAccessViolation
+06/03/20 11:28:45 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:29:01 - ===========================================
+06/03/20 11:29:01 - Form: formConfigurarConexaoBanco
+06/03/20 11:29:01 - Caption: Configurar informações de acesso ao banco de dados
+06/03/20 11:29:01 - Erro:EAccessViolation
+06/03/20 11:29:01 - Erro:Access violation at address 006E0345 in module 'SimplesOS.exe'. Read of address 00000041
+06/03/20 11:29:08 - ===========================================
+06/03/20 11:29:08 - Form: formPrincipal
+06/03/20 11:29:08 - Caption: SimpleOS
+06/03/20 11:29:08 - Erro:EAccessViolation
+06/03/20 11:29:08 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:30:19 - ===========================================
+06/03/20 11:30:19 - Form: formPrincipal
+06/03/20 11:30:19 - Caption: SimpleOS
+06/03/20 11:30:19 - Erro:EAccessViolation
+06/03/20 11:30:19 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:31:52 - ===========================================
+06/03/20 11:31:52 - Form: formPrincipal
+06/03/20 11:31:52 - Caption: SimpleOS
+06/03/20 11:31:52 - Erro:EAccessViolation
+06/03/20 11:31:52 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:32:38 - ===========================================
+06/03/20 11:32:38 - Form: formPrincipal
+06/03/20 11:32:38 - Caption: SimpleOS
+06/03/20 11:32:38 - Erro:EAccessViolation
+06/03/20 11:32:38 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:34:42 - ===========================================
+06/03/20 11:34:42 - Form: formPrincipal
+06/03/20 11:34:42 - Caption: SimpleOS
+06/03/20 11:34:42 - Erro:EAccessViolation
+06/03/20 11:34:42 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:36:53 - ===========================================
+06/03/20 11:36:53 - Form: formPrincipal
+06/03/20 11:36:53 - Caption: SimpleOS
+06/03/20 11:36:53 - Erro:EAccessViolation
+06/03/20 11:36:53 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:39:13 - ===========================================
+06/03/20 11:39:13 - Form: formPrincipal
+06/03/20 11:39:13 - Caption: SimpleOS
+06/03/20 11:39:13 - Erro:EAccessViolation
+06/03/20 11:39:13 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:45:05 - ===========================================
+06/03/20 11:45:05 - Form: formPrincipal
+06/03/20 11:45:05 - Caption: SimpleOS
+06/03/20 11:45:05 - Erro:EAccessViolation
+06/03/20 11:45:05 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:51:11 - ===========================================
+06/03/20 11:51:11 - Form: formPrincipal
+06/03/20 11:51:11 - Caption: SimpleOS
+06/03/20 11:51:11 - Erro:EAccessViolation
+06/03/20 11:51:11 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:52:24 - ===========================================
+06/03/20 11:52:24 - Form: formPrincipal
+06/03/20 11:52:24 - Caption: SimpleOS
+06/03/20 11:52:24 - Erro:EAccessViolation
+06/03/20 11:52:24 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:53:46 - ===========================================
+06/03/20 11:53:46 - Form: formPrincipal
+06/03/20 11:53:46 - Caption: SimpleOS
+06/03/20 11:53:46 - Erro:EAccessViolation
+06/03/20 11:53:46 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:55:23 - ===========================================
+06/03/20 11:55:23 - Form: formPrincipal
+06/03/20 11:55:23 - Caption: SimpleOS
+06/03/20 11:55:23 - Erro:EAccessViolation
+06/03/20 11:55:23 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 11:56:00 - ===========================================
+06/03/20 11:56:00 - Form: formPrincipal
+06/03/20 11:56:00 - Caption: SimpleOS
+06/03/20 11:56:00 - Erro:EAccessViolation
+06/03/20 11:56:00 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 12:02:05 - ===========================================
+06/03/20 12:02:05 - Form: formPrincipal
+06/03/20 12:02:05 - Caption: SimpleOS
+06/03/20 12:02:05 - Erro:EAccessViolation
+06/03/20 12:02:05 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 12:02:27 - ===========================================
+06/03/20 12:02:27 - Form: formPrincipal
+06/03/20 12:02:27 - Caption: SimpleOS
+06/03/20 12:02:27 - Erro:EAccessViolation
+06/03/20 12:02:27 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 12:09:36 - ===========================================
+06/03/20 12:09:36 - Form: formPrincipal
+06/03/20 12:09:36 - Caption: SimpleOS
+06/03/20 12:09:36 - Erro:EAccessViolation
+06/03/20 12:09:36 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 12:15:15 - ===========================================
+06/03/20 12:15:15 - Form: formPrincipal
+06/03/20 12:15:15 - Caption: SimpleOS
+06/03/20 12:15:15 - Erro:EIBNativeException
+06/03/20 12:15:15 - Erro:[FireDAC][Phys][FB]file  is not a valid database
+06/03/20 12:15:20 - ===========================================
+06/03/20 12:15:20 - Form: formPrincipal
+06/03/20 12:15:20 - Caption: SimpleOS
+06/03/20 12:15:20 - Erro:EAccessViolation
+06/03/20 12:15:20 - Erro:Access violation at address 00AEF8F7 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 12:17:13 - ===========================================
+06/03/20 12:17:13 - Form: formPrincipal
+06/03/20 12:17:13 - Caption: SimpleOS
+06/03/20 12:17:13 - Erro:EIBNativeException
+06/03/20 12:17:13 - Erro:[FireDAC][Phys][FB]file  is not a valid database
+06/03/20 12:17:17 - ===========================================
+06/03/20 12:17:17 - Form: formPrincipal
+06/03/20 12:17:17 - Caption: SimpleOS
+06/03/20 12:17:17 - Erro:EAccessViolation
+06/03/20 12:17:17 - Erro:Access violation at address 00BBD403 in module 'SimplesOS.exe'. Read of address 00000004

@@ -13,6 +13,8 @@ object formConfigurarConexaoBanco: TformConfigurarConexaoBanco
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
@@ -40,8 +42,6 @@ object formConfigurarConexaoBanco: TformConfigurarConexaoBanco
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -430
-    ExplicitWidth = 1019
     DesignSize = (
       741
       41)
@@ -213,6 +213,7 @@ object formConfigurarConexaoBanco: TformConfigurarConexaoBanco
         9772936229804604804604804604804604804604804604804604}
       Layout = blGlyphRight
       ParentFont = False
+      OnClick = sbConfirmarClick
     end
     object sbRestaurar: TSpeedButton
       Left = 263
@@ -285,6 +286,7 @@ object formConfigurarConexaoBanco: TformConfigurarConexaoBanco
         6027804604804604804604804604804604804604804604804604}
       Layout = blGlyphRight
       ParentFont = False
+      OnClick = sbRestaurarClick
     end
     object sbCancelar: TSpeedButton
       Left = 406
@@ -374,21 +376,12 @@ object formConfigurarConexaoBanco: TformConfigurarConexaoBanco
     TabOrder = 2
     Text = 'localhost'
   end
-  object CheckBox1: TCheckBox
-    Left = 336
-    Top = 107
-    Width = 273
-    Height = 17
-    Caption = 'Vou usar o sistema somente nesta m'#225'quina'
-    TabOrder = 3
-    OnClick = CheckBox1Click
-  end
   object edtLocalDoBanco: TEdit
     Left = 48
     Top = 200
     Width = 521
     Height = 25
-    TabOrder = 4
+    TabOrder = 3
   end
   object Button1: TButton
     Left = 575
@@ -396,6 +389,11 @@ object formConfigurarConexaoBanco: TformConfigurarConexaoBanco
     Width = 75
     Height = 25
     Caption = 'Localizar ...'
-    TabOrder = 5
+    TabOrder = 4
+  end
+  object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
+    Left = 576
+    Top = 136
   end
 end

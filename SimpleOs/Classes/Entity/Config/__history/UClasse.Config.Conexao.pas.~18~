@@ -19,7 +19,7 @@ Type
 
   public
 
-    function Query(value:string):TFDQuery;
+    function Query(value: string): TFDQuery;
 
     constructor create;
     destructor destroy; override;
@@ -33,10 +33,27 @@ implementation
 constructor TClasseConexaoConfig.create;
 begin
 
+  FDPhysSQLiteDriveLink := TFDPhysSQLiteDriverLink.create(nil);
+
+  FDConnection := TFDConnection.create(nil);
+  FDConnection.Connected := false;
+  FDConnection.DriverName := 'SQLite';
+  FDConnection.Params.Add('Database=' + ExtractFilePath(Application.ExeName) +
+    '\Config\config.db');
+  FDConnection.Params.Add('LockingMode=Normal');
+  FDConnection.Connected := true;
+
+  FQuery := TFDQuery.create(nil);
+  FQuery.Connection := FDConnection;
+
 end;
 
 destructor TClasseConexaoConfig.destroy;
 begin
+
+  FreeAndNil(FDConnection);
+  FreeAndNil(FDPhysSQLiteDriveLink);
+  FreeAndNil(FQuery);
 
   inherited;
 end;
@@ -44,6 +61,10 @@ end;
 function TClasseConexaoConfig.Query(value: string): TFDQuery;
 begin
 
+  FQuery.Active := false;
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add('select * from '+value);
+  FQuery.Active := true;
 
   result := FQuery;
 

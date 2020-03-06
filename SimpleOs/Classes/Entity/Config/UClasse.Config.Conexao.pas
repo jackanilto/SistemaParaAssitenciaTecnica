@@ -19,7 +19,8 @@ Type
 
   public
 
-    function Query(value:string):TFDQuery;
+    procedure Query(value: string);
+    function retornarQuery:TFDQuery;
 
     constructor create;
     destructor destroy; override;
@@ -43,7 +44,7 @@ begin
   FDConnection.Params.Add('LockingMode=Normal');
   FDConnection.Connected := true;
 
-  FQuery := TFDQuery.Create(nil);
+  FQuery := TFDQuery.create(nil);
   FQuery.Connection := FDConnection;
 
 end;
@@ -51,10 +52,14 @@ end;
 destructor TClasseConexaoConfig.destroy;
 begin
 
+  FreeAndNil(FDConnection);
+  FreeAndNil(FDPhysSQLiteDriveLink);
+  FreeAndNil(FQuery);
+
   inherited;
 end;
 
-function TClasseConexaoConfig.Query(value: string): TFDQuery;
+procedure TClasseConexaoConfig.Query(value: string);
 begin
 
   FQuery.Active := false;
@@ -62,8 +67,11 @@ begin
   FQuery.SQL.Add('select * from '+value);
   FQuery.Active := true;
 
-  result := FQuery;
+end;
 
+function TClasseConexaoConfig.retornarQuery: TFDQuery;
+begin
+  result := FQuery;
 end;
 
 end.

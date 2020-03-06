@@ -128,10 +128,12 @@ end;
 function TConexaoQuery.Query(value: string): iConexaoQuery;
 begin
   result := self;
+
   F_Query.Active := false;
   F_Query.SQL.Clear;
   F_Query.Open('select * from ' + value);
   F_Query.Active := true;
+
 end;
 
 function TConexaoQuery.TQuery: TFDQuery;
