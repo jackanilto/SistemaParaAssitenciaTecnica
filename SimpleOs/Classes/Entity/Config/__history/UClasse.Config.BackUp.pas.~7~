@@ -1,0 +1,43 @@
+unit UClasse.Config.BackUp;
+
+interface
+
+uses
+  UClasse.Config.Conexao, System.SysUtils, Data.DB;
+
+Type
+  TClasseConfigBackUp = class
+  private
+    FQuery: TClasseConexaoConfig;
+  public
+
+  procedure retornarDados(value:TDataSource);
+
+    constructor create;
+    destructor destroy; override;
+
+  end;
+
+implementation
+
+{ TClasseConfigBackUp }
+
+constructor TClasseConfigBackUp.create;
+begin
+  FQuery.retornarDados('config_backup');
+end;
+
+destructor TClasseConfigBackUp.destroy;
+begin
+
+  FreeAndNil(FQuery);
+
+  inherited;
+end;
+
+procedure TClasseConfigBackUp.retornarDados(value: TDataSource);
+begin
+   value.DataSet := FQuery.
+end;
+
+end.

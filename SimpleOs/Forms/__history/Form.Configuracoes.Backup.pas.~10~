@@ -1,0 +1,64 @@
+unit Form.Configuracoes.Backup;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, UClasse.Config.BackUp;
+
+type
+  TformConfiguracoesBackUp = class(TForm)
+    Panel1: TPanel;
+    sbFechar: TSpeedButton;
+    lblCaption: TLabel;
+    Panel2: TPanel;
+    sbNovo: TSpeedButton;
+    sbSalvar: TSpeedButton;
+    sbEditar: TSpeedButton;
+    sbExcluir: TSpeedButton;
+    sbCancelar: TSpeedButton;
+    DBGrid1: TDBGrid;
+    MaskEdit1: TMaskEdit;
+    Label1: TLabel;
+    procedure FormShow(Sender: TObject);
+    procedure sbFecharClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+    var
+      FConfigBackup: TClasseConfigBackUp;
+  public
+    { Public declarations }
+  end;
+
+var
+  formConfiguracoesBackUp: TformConfiguracoesBackUp;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformConfiguracoesBackUp.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FreeAndNil(FConfigBackup);
+end;
+
+procedure TformConfiguracoesBackUp.FormCreate(Sender: TObject);
+begin
+  FConfigBackup := TClasseConfigBackUp.create;
+end;
+
+procedure TformConfiguracoesBackUp.FormShow(Sender: TObject);
+begin
+  lblCaption.Caption := formConfiguracoesBackUp.Caption;
+end;
+
+procedure TformConfiguracoesBackUp.sbFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

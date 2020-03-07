@@ -119,6 +119,8 @@ type
     acRetiradaDeValores: TAction;
     acRelatorioRetiradaDeValores: TAction;
     acRelatorioComissoesTecnicos: TAction;
+    CategoryButtons7: TCategoryButtons;
+    acConfigurarBackUp: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -187,6 +189,7 @@ type
     procedure acRetiradaDeValoresExecute(Sender: TObject);
     procedure acRelatorioRetiradaDeValoresExecute(Sender: TObject);
     procedure acRelatorioComissoesTecnicosExecute(Sender: TObject);
+    procedure acConfigurarBackUpExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -226,7 +229,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Servico.Mais.Realizados, Form.Relatorio.Saida.Produtos,
   Form.Relatorio.Entrada.Produtos, Form.Relatorio.Vendas.Por.Funcionario,
   Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
-  Form.Relatorio.Retirada.Valores;
+  Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -329,6 +332,12 @@ begin
     spvConfiguracoes.Opened := true;
     F_SplitView := spvConfiguracoes;
   end;
+end;
+
+procedure TformPrincipal.acConfigurarBackUpExecute(Sender: TObject);
+begin
+  formConfiguracoesBackUp := TformConfiguracoesBackUp.Create(self);
+  TFactory.new.criarJanela.formShow(formConfiguracoesBackUp, '');
 end;
 
 procedure TformPrincipal.acConfigurarParcelaExecute(Sender: TObject);

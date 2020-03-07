@@ -4217,3 +4217,34 @@ At line 1, column 15
 06/03/20 12:17:17 - Caption: SimpleOS
 06/03/20 12:17:17 - Erro:EAccessViolation
 06/03/20 12:17:17 - Erro:Access violation at address 00BBD403 in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 19:49:38 - ===========================================
+06/03/20 19:49:38 - Form: formPrincipal
+06/03/20 19:49:38 - Caption: SimpleOS
+06/03/20 19:49:38 - Erro:EIBNativeException
+06/03/20 19:49:38 - Erro:[FireDAC][Phys][FB]Unable to complete network request to host "30,50".
+Failed to locate host machine.
+06/03/20 19:49:41 - ===========================================
+06/03/20 19:49:41 - Form: formPrincipal
+06/03/20 19:49:41 - Caption: SimpleOS
+06/03/20 19:49:41 - Erro:EAccessViolation
+06/03/20 19:49:41 - Erro:Access violation at address 00BBD5BF in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 20:04:43 - ===========================================
+06/03/20 20:04:43 - Form: formPrincipal
+06/03/20 20:04:43 - Caption: SimpleOS
+06/03/20 20:04:43 - Erro:EAccessViolation
+06/03/20 20:04:43 - Erro:Access violation at address 00BBD5BF in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 20:27:55 - ===========================================
+06/03/20 20:27:55 - Form: formPrincipal
+06/03/20 20:27:55 - Caption: SimpleOS
+06/03/20 20:27:55 - Erro:EAccessViolation
+06/03/20 20:27:55 - Erro:Access violation at address 00BBD5BF in module 'SimplesOS.exe'. Read of address 00000004
+06/03/20 20:30:23 - ===========================================
+06/03/20 20:30:23 - Form: formConfiguracoesBackUp
+06/03/20 20:30:23 - Caption: Configurações de BackUp do sistema
+06/03/20 20:30:23 - Erro:EAccessViolation
+06/03/20 20:30:23 - Erro:Access violation at address 0095A246 in module 'SimplesOS.exe'. Read of address 0000000C
+06/03/20 20:45:29 - ===========================================
+06/03/20 20:45:29 - Form: formConfiguracoesBackUp
+06/03/20 20:45:29 - Caption: Configurações de BackUp do sistema
+06/03/20 20:45:29 - Erro:EDatabaseError
+06/03/20 20:45:29 - Erro:Field '' not found

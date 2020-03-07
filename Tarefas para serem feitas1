@@ -21,10 +21,16 @@
 #Reabertura de caixa --FEITO
 #login do funcionário --FEITO
 #Relatório de comissões por técnico --FEITO
-#Configurações de Acesso ao banco de dados
+
+#Configurações de Acesso ao banco de dados --FEITO
 	#Janela de configurações --FEITO
-	#Processo para aplicar o sistema de configurações
+	#Processo para aplicar o sistema de configurações --FEITO
+	
 #Sistema de backup
+	#Janela de configurações do backup
+	#Janela para realizar o backup manualmente
+	#BackUP automatico
+	
 #Log de eventos
 #Personalizar acesso dos usuários as sistema conforme vontade do adminstrador
 

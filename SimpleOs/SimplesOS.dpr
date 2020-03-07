@@ -173,7 +173,9 @@ uses
   Form.Relatorio.Comissoes in 'Forms\Relatorios\Form.Relatorio.Comissoes.pas' {formComissoesTecnicos},
   Form.Configurar.Conexcao.Banco in 'Forms\Form.Configurar.Conexcao.Banco.pas' {formConfigurarConexaoBanco},
   UClasse.Config.Conexao in 'Classes\Entity\Config\UClasse.Config.Conexao.pas',
-  UClasse.Config.Acesso.Banco in 'Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas';
+  UClasse.Config.Acesso.Banco in 'Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas',
+  Form.Configuracoes.Backup in 'Forms\Form.Configuracoes.Backup.pas' {formConfiguracoesBackUp},
+  UClasse.Config.BackUp in 'Classes\Entity\Config\UClasse.Config.BackUp.pas';
 
 {$R *.res}
 

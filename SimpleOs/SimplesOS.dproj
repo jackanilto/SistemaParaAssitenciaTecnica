@@ -518,6 +518,11 @@
         </DCCReference>
         <DCCReference Include="Classes\Entity\Config\UClasse.Config.Conexao.pas"/>
         <DCCReference Include="Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas"/>
+        <DCCReference Include="Forms\Form.Configuracoes.Backup.pas">
+            <Form>formConfiguracoesBackUp</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Config\UClasse.Config.BackUp.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

@@ -26,8 +26,8 @@ type
     procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }
-    var
-       FConfigConexao:TConfigConexaoBanco;
+  var
+    FConfigConexao: TConfigConexaoBanco;
   public
     { Public declarations }
   end;
@@ -50,7 +50,21 @@ end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
+
   FConfigConexao := TConfigConexaoBanco.create;
+
+  with Conexao do
+  begin
+
+    DriverName := 'FB';
+    Params.Add('Server=' + FConfigConexao.hostname);
+    Params.Add('Port=' + '3050');
+    Params.Add('Database=' + FConfigConexao.localBD);
+    Params.Add('User_Name=' + FConfigConexao.user);
+    Params.Add('Password=' + FConfigConexao.password);
+
+  end;
+
 end;
 
 procedure TDataModule1.DataModuleDestroy(Sender: TObject);

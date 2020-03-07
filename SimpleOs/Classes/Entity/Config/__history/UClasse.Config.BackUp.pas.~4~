@@ -1,0 +1,34 @@
+unit UClasse.Config.BackUp;
+
+interface
+
+uses
+  UClasse.Config.Acesso.Banco;
+
+Type
+  TClasseConfigBackUp = class
+  private
+    FQuery: TConfigConexaoBanco;
+  public
+
+    constructor create;
+    destructor destroy; override;
+
+  end;
+
+implementation
+
+{ TClasseConfigBackUp }
+
+constructor TClasseConfigBackUp.create;
+begin
+
+end;
+
+destructor TClasseConfigBackUp.destroy;
+begin
+
+  inherited;
+end;
+
+end.

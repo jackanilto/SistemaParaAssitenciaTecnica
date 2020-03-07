@@ -6216,7 +6216,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object Panel2: TPanel
-    Left = 305
+    Left = 308
     Top = 63
     Width = 869
     Height = 136
@@ -7094,7 +7094,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvCadastros: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7106,7 +7106,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 337
+    ExplicitLeft = 150
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7192,7 +7192,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7201,7 +7201,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 337
+    ExplicitLeft = 150
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7257,7 +7257,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7267,7 +7267,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 337
+    ExplicitLeft = 150
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7384,19 +7384,51 @@ object formPrincipal: TformPrincipal
   object spvExtras: TSplitView
     Left = 150
     Top = 57
-    Width = 0
+    Width = 187
     Height = 467
     CloseStyle = svcCompact
-    Color = clPurple
+    Color = 13401438
     CompactWidth = 0
-    Opened = False
-    OpenedWidth = 100
+    OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 337
+    object CategoryButtons7: TCategoryButtons
+      Left = -30
+      Top = 3
+      Width = 217
+      Height = 270
+      Margins.Bottom = 0
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      BorderStyle = bsNone
+      ButtonFlow = cbfVertical
+      ButtonWidth = 140
+      ButtonOptions = [boFullSize, boGradientFill, boShowCaptions, boVerticalCategoryCaptions]
+      Categories = <
+        item
+          Color = 13401438
+          Collapsed = False
+          Items = <
+            item
+              Action = acConfigurarBackUp
+            end
+            item
+            end>
+        end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -15
+      Font.Name = 'Roboto'
+      Font.Orientation = 50
+      Font.Style = []
+      HotButtonColor = 13401438
+      RegularButtonColor = clNone
+      SelectedButtonColor = clNone
+      TabOrder = 0
+    end
   end
   object spvSobre: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7407,10 +7439,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 337
+    ExplicitLeft = 150
   end
   object spvConfiguracoes: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7421,7 +7453,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 337
+    ExplicitLeft = 150
   end
   object Button2: TButton
     Left = 824
@@ -7433,7 +7465,7 @@ object formPrincipal: TformPrincipal
     OnClick = Button2Click
   end
   object spCaixa: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7444,6 +7476,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 10
+    ExplicitLeft = 150
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -8647,6 +8680,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioComissoesTecnicos: TAction
       Caption = 'Comissoes dos t'#233'cnicos'
       OnExecute = acRelatorioComissoesTecnicosExecute
+    end
+    object acConfigurarBackUp: TAction
+      Caption = 'Configurar BackUp'
+      OnExecute = acConfigurarBackUpExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu
