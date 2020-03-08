@@ -3,20 +3,39 @@ unit UClasse.Config.BackUp;
 interface
 
 uses
-  UClasse.Config.Conexao, System.SysUtils, Data.DB, Vcl.Dialogs;
+  UClasse.Config.Conexao, Winapi.Windows, Winapi.Messages, System.SysUtils,
+  System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Def, FireDAC.VCLUI.Wait,
+  FireDAC.Phys.IBWrapper, FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.IBBase,
+  FireDAC.Phys.FB, FireDAC.Comp.UI, Vcl.StdCtrls, Data.DB;
 
 Type
   TClasseConfigBackUp = class
   private
     FQuery: TClasseConexaoConfig;
+    FDI_Restore: TFDIBRestore;
+    FDI_Backup: TFDIBBackup;
+    FDPhysFBDriverLink1: TFDPhysFBDriverLink;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    FlocalBD: string;
+    FlocalSalvarArquivo: string;
+    procedure SetlocalBD(const Value: string);
+    procedure SetlocalSalvarArquivo(const Value: string);
   public
 
-    procedure retornarDados(value: TDataSource);
+    procedure retornarDados(Value: TDataSource);
     procedure inserir;
-    procedure gravar(value: string);
+    procedure gravar(Value: string);
     procedure editar;
     procedure excluir;
     procedure cancelar;
+
+    property localBD: string read FlocalBD write SetlocalBD;
+    property localSalvarArquivo: string read FlocalSalvarArquivo
+      write SetlocalSalvarArquivo;
+
+    procedure iniciarBackUpManual;
 
     constructor create;
     destructor destroy; override;
@@ -34,14 +53,22 @@ end;
 
 constructor TClasseConfigBackUp.create;
 begin
+
   FQuery := TClasseConexaoConfig.create;
   FQuery.Query('config_backup');
+
+  FDPhysFBDriverLink1 := TFDPhysFBDriverLink.create(nil);
+
+  FDPhysFBDriverLink1.VendorLib := ExtractFilePath(application.exename) +
+    'fbclient.dll';
+
 end;
 
 destructor TClasseConfigBackUp.destroy;
 begin
 
   FreeAndNil(FQuery);
+  FreeAndNil(FDPhysFBDriverLink1);
 
   inherited;
 end;
@@ -56,19 +83,68 @@ begin
   FQuery.retornarQuery.Delete;
 end;
 
-procedure TClasseConfigBackUp.gravar(value: string);
+procedure TClasseConfigBackUp.gravar(Value: string);
 begin
 
   try
-    FQuery.retornarQuery.FieldByName('horario').AsDateTime := StrToTime(value);
+    FQuery.retornarQuery.FieldByName('horario').AsDateTime := StrToTime(Value);
     FQuery.retornarQuery.Post;
   except
     on e: Exception do
     begin
-      MessageDlg('ERRO. Não foi possivel inserir o horário para backup. ' + e.Message,
-        mtError, [mbOk], 0, mbOk);
+      MessageDlg('ERRO. Não foi possivel inserir o horário para backup. ' +
+        e.Message, mtError, [mbOk], 0, mbOk);
     end;
 
+  end;
+
+end;
+
+procedure TClasseConfigBackUp.iniciarBackUpManual;
+var
+  Data: string;
+  hora: string;
+begin
+
+  Data := FormatDateTime('ddmmyy', date);
+  hora := FormatDateTime('hhmmss', time);
+
+  if not DirectoryExists(localSalvarArquivo+ 'BackUp') then
+  begin
+//    if not CreateDir(ExtractFilePath(application.exename) + 'BackUp') then
+      ForceDirectories(localSalvarArquivo + 'BackUp')
+  end;
+
+  try
+
+    FDI_Backup := TFDIBBackup.create(nil);
+
+    try
+
+      FDI_Backup.DriverLink := FDPhysFBDriverLink1;
+      FDI_Backup.UserName := 'sysdba';
+      FDI_Backup.Password := 'masterkey';
+      FDI_Backup.host := 'localhost';
+      FDI_Backup.Protocol := ipTCPIP;
+      FDI_Backup.Verbose := True;
+      FDI_Backup.Database := localBD;
+      FDI_Backup.BackupFiles.Add(localSalvarArquivo + '\BackUp\' + 'BackUp_' +
+        Data + hora + '.fbk');
+      FDI_Backup.BackUp;
+
+      MessageDlg('Backup realizado com sucesso!', mtInformation, [mbOk], 0);
+
+      // ExtractFilePath(application.exename)
+
+    except
+      on e: Exception do
+      begin
+        raise Exception.create('Ocorreu um erro ao tentar realizar o BackUp' +
+          e.Message);
+      end;
+    end;
+  finally
+    FDI_Backup.Free;
   end;
 
 end;
@@ -78,14 +154,32 @@ begin
   FQuery.retornarQuery.Insert;
 end;
 
-procedure TClasseConfigBackUp.retornarDados(value: TDataSource);
+procedure TClasseConfigBackUp.retornarDados(Value: TDataSource);
 begin
 
   FQuery.retornarQuery.FieldByName('id').Visible := false;
   FQuery.retornarQuery.FieldByName('horario').DisplayLabel := 'Horário';
 
-  value.DataSet := FQuery.retornarQuery;
+  Value.DataSet := FQuery.retornarQuery;
 
+end;
+
+procedure TClasseConfigBackUp.SetlocalBD(const Value: string);
+begin
+
+  if value = EmptyStr then
+    raise Exception.Create('ERRO! Informe qual banco de dados deseja realizar o backup;');
+
+  FlocalBD := Value;
+end;
+
+procedure TClasseConfigBackUp.SetlocalSalvarArquivo(const Value: string);
+begin
+
+  if value = EmptyStr then
+    raise Exception.Create('ERRO! Informe o local que deseja salvar o banco dados.');
+
+  FlocalSalvarArquivo := Value;
 end;
 
 end.

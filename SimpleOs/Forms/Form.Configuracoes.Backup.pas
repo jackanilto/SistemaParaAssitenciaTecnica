@@ -33,6 +33,8 @@ type
     procedure sbEditarClick(Sender: TObject);
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
+    procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   var
@@ -51,7 +53,8 @@ implementation
 procedure TformConfiguracoesBackUp.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
-  MaskEdit1.Text := TimeToStr(DataSource1.DataSet.FieldByName('horario').AsDateTime);
+  MaskEdit1.Text := TimeToStr(DataSource1.DataSet.FieldByName('horario')
+    .AsDateTime);
 end;
 
 procedure TformConfiguracoesBackUp.FormClose(Sender: TObject;
@@ -71,6 +74,18 @@ begin
   lblCaption.Caption := formConfiguracoesBackUp.Caption;
 end;
 
+procedure TformConfiguracoesBackUp.Panel1MouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+const
+  SC_DRAGMOVE = $F012;
+begin
+  if Button = mbleft then
+  begin
+    ReleaseCapture;
+    self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
+  end;
+end;
+
 procedure TformConfiguracoesBackUp.sbCancelarClick(Sender: TObject);
 begin
   FConfigBackup.cancelar;
@@ -88,7 +103,12 @@ procedure TformConfiguracoesBackUp.sbExcluirClick(Sender: TObject);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    FConfigBackup.excluir;
+    if application.MessageBox('Deseja realmente excluir este reglistro?',
+      'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+      FConfigBackup.excluir;
+    end;
+
   end;
 end;
 
@@ -112,10 +132,8 @@ begin
   end
   else
   begin
-    MessageDlg('ERRO. Digite um horário válido. ',
-    mtError, [mbOk], 0, mbOk);
+    MessageDlg('ERRO. Digite um horário válido. ', mtError, [mbOk], 0, mbOk);
   end;
-
 
 end;
 

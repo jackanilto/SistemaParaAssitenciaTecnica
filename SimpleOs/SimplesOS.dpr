@@ -175,7 +175,8 @@ uses
   UClasse.Config.Conexao in 'Classes\Entity\Config\UClasse.Config.Conexao.pas',
   UClasse.Config.Acesso.Banco in 'Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas',
   Form.Configuracoes.Backup in 'Forms\Form.Configuracoes.Backup.pas' {formConfiguracoesBackUp},
-  UClasse.Config.BackUp in 'Classes\Entity\Config\UClasse.Config.BackUp.pas';
+  UClasse.Config.BackUp in 'Classes\Entity\Config\UClasse.Config.BackUp.pas',
+  Form.Backup.Manual in 'Forms\Form.Backup.Manual.pas' {formBackUpManual};
 
 {$R *.res}
 

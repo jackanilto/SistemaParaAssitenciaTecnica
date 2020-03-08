@@ -4248,3 +4248,91 @@ Failed to locate host machine.
 06/03/20 20:45:29 - Caption: Configurações de BackUp do sistema
 06/03/20 20:45:29 - Erro:EDatabaseError
 06/03/20 20:45:29 - Erro:Field '' not found
+08/03/20 07:26:50 - ===========================================
+08/03/20 07:26:50 - Form: formPrincipal
+08/03/20 07:26:50 - Caption: SimpleOS
+08/03/20 07:26:50 - Erro:EAccessViolation
+08/03/20 07:26:50 - Erro:Access violation at address 00BBD5BF in module 'SimplesOS.exe'. Read of address 00000004
+08/03/20 07:54:05 - ===========================================
+08/03/20 07:54:05 - Form: formPrincipal
+08/03/20 07:54:05 - Caption: SimpleOS
+08/03/20 07:54:05 - Erro:EAccessViolation
+08/03/20 07:54:05 - Erro:Access violation at address 00BC00A3 in module 'SimplesOS.exe'. Read of address 00000004
+08/03/20 07:57:34 - ===========================================
+08/03/20 07:57:34 - Form: formBackUpManual
+08/03/20 07:57:34 - Caption: BackUp do sistema
+08/03/20 07:57:34 - Erro:Exception
+08/03/20 07:57:34 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys]-370. To perform operation DriverLink must be specified
+08/03/20 07:59:07 - ===========================================
+08/03/20 07:59:07 - Form: formPrincipal
+08/03/20 07:59:07 - Caption: SimpleOS
+08/03/20 07:59:07 - Erro:EAccessViolation
+08/03/20 07:59:07 - Erro:Access violation at address 00BC12D3 in module 'SimplesOS.exe'. Read of address 00000004
+08/03/20 08:00:42 - ===========================================
+08/03/20 08:00:42 - Form: formBackUpManual
+08/03/20 08:00:42 - Caption: BackUp do sistema
+08/03/20 08:00:42 - Erro:Exception
+08/03/20 08:00:42 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file \BackUp\BackUp_080320080042.fbk
+Exiting before completion due to errors
+08/03/20 08:10:22 - ===========================================
+08/03/20 08:10:22 - Form: formBackUpManual
+08/03/20 08:10:22 - Caption: BackUp do sistema
+08/03/20 08:10:22 - Erro:Exception
+08/03/20 08:10:22 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. ERRO! Informe qual banco de dados deseja realizar o backup;
+08/03/20 08:11:46 - ===========================================
+08/03/20 08:11:46 - Form: formBackUpManual
+08/03/20 08:11:46 - Caption: BackUp do sistema
+08/03/20 08:11:46 - Erro:Exception
+08/03/20 08:11:46 - Erro:ERRO! Informe qual banco de dados deseja realizar o backup;
+08/03/20 08:11:50 - ===========================================
+08/03/20 08:11:50 - Form: formBackUpManual
+08/03/20 08:11:50 - Caption: BackUp do sistema
+08/03/20 08:11:50 - Erro:Exception
+08/03/20 08:11:50 - Erro:ERRO! Informe qual banco de dados deseja realizar o backup;
+08/03/20 08:12:06 - ===========================================
+08/03/20 08:12:06 - Form: formBackUpManual
+08/03/20 08:12:06 - Caption: BackUp do sistema
+08/03/20 08:12:06 - Erro:Exception
+08/03/20 08:12:06 - Erro:ERRO! Informe o local que deseja salvar o banco dados.
+08/03/20 08:12:13 - ===========================================
+08/03/20 08:12:13 - Form: formBackUpManual
+08/03/20 08:12:13 - Caption: BackUp do sistema
+08/03/20 08:12:13 - Erro:Exception
+08/03/20 08:12:13 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file c:\BackUp\BackUp_080320081213.fbk
+Exiting before completion due to errors
+08/03/20 08:13:53 - ===========================================
+08/03/20 08:13:53 - Form: formBackUpManual
+08/03/20 08:13:53 - Caption: BackUp do sistema
+08/03/20 08:13:53 - Erro:Exception
+08/03/20 08:13:53 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file C:\\BackUp\BackUp_080320081353.fbk
+Exiting before completion due to errors
+08/03/20 08:14:11 - ===========================================
+08/03/20 08:14:11 - Form: formBackUpManual
+08/03/20 08:14:11 - Caption: BackUp do sistema
+08/03/20 08:14:11 - Erro:Exception
+08/03/20 08:14:11 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file C:\Users\noels\Documents\BackUp\BackUp_080320081411.fbk
+Exiting before completion due to errors
+08/03/20 08:15:46 - ===========================================
+08/03/20 08:15:46 - Form: formBackUpManual
+08/03/20 08:15:46 - Caption: BackUp do sistema
+08/03/20 08:15:46 - Erro:Exception
+08/03/20 08:15:46 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file C:\\BackUp\BackUp_080320081546.fbk
+Exiting before completion due to errors
+08/03/20 08:18:16 - ===========================================
+08/03/20 08:18:16 - Form: formBackUpManual
+08/03/20 08:18:16 - Caption: BackUp do sistema
+08/03/20 08:18:16 - Erro:Exception
+08/03/20 08:18:16 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file C:\\BackUp\BackUp_080320081816.fbk
+Exiting before completion due to errors
+08/03/20 08:18:55 - ===========================================
+08/03/20 08:18:55 - Form: formBackUpManual
+08/03/20 08:18:55 - Caption: BackUp do sistema
+08/03/20 08:18:55 - Erro:Exception
+08/03/20 08:18:55 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file C:\\BackUp\BackUp_080320081855.fbk
+Exiting before completion due to errors
+08/03/20 08:19:05 - ===========================================
+08/03/20 08:19:05 - Form: formBackUpManual
+08/03/20 08:19:05 - Caption: BackUp do sistema
+08/03/20 08:19:05 - Erro:Exception
+08/03/20 08:19:05 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file C:\Users\noels\Documents\BackUp\BackUp_080320081905.fbk
+Exiting before completion due to errors

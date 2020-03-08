@@ -7106,7 +7106,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 150
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7201,7 +7200,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 150
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7267,7 +7265,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 150
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7413,6 +7410,7 @@ object formPrincipal: TformPrincipal
               Action = acConfigurarBackUp
             end
             item
+              Action = acBackupManual
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -7439,7 +7437,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 150
   end
   object spvConfiguracoes: TSplitView
     Left = 337
@@ -7453,7 +7450,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 150
   end
   object Button2: TButton
     Left = 824
@@ -7476,7 +7472,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 10
-    ExplicitLeft = 150
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -8684,6 +8679,10 @@ object formPrincipal: TformPrincipal
     object acConfigurarBackUp: TAction
       Caption = 'Configurar BackUp'
       OnExecute = acConfigurarBackUpExecute
+    end
+    object acBackupManual: TAction
+      Caption = 'Backup manual'
+      OnExecute = acBackupManualExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

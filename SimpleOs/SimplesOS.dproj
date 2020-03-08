@@ -523,6 +523,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Config\UClasse.Config.BackUp.pas"/>
+        <DCCReference Include="Forms\Form.Backup.Manual.pas">
+            <Form>formBackUpManual</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

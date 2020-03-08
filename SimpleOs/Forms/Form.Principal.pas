@@ -121,6 +121,7 @@ type
     acRelatorioComissoesTecnicos: TAction;
     CategoryButtons7: TCategoryButtons;
     acConfigurarBackUp: TAction;
+    acBackupManual: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -190,6 +191,7 @@ type
     procedure acRelatorioRetiradaDeValoresExecute(Sender: TObject);
     procedure acRelatorioComissoesTecnicosExecute(Sender: TObject);
     procedure acConfigurarBackUpExecute(Sender: TObject);
+    procedure acBackupManualExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -229,12 +231,19 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Servico.Mais.Realizados, Form.Relatorio.Saida.Produtos,
   Form.Relatorio.Entrada.Produtos, Form.Relatorio.Vendas.Por.Funcionario,
   Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
-  Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup;
+  Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup,
+  Form.Backup.Manual;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
   formAtividadeFuncionario := TformAtividadeFuncionario.Create(self);
   TFactory.new.criarJanela.FormShow(formAtividadeFuncionario, '');
+end;
+
+procedure TformPrincipal.acBackupManualExecute(Sender: TObject);
+begin
+  formBackUpManual := TformBackUpManual.Create(self);
+  TFactory.new.criarJanela.formShow(formBackUpManual, '');
 end;
 
 procedure TformPrincipal.acCadastrarServicosExecute(Sender: TObject);

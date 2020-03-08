@@ -1,17 +1,7 @@
  #Relatório de produto --FEITO
  #Relatório de produtos por situação no estoque --FEITO
  #Relatório de produtos mas vendidos --FEITO
- #Relatório de venda --FEITO
- #Relatório de Vendas Inadimplentes (Parcelas) --FEITO
- #Relatório de serviços mais realizados --FEITO
- #Relatório de vendas por cliente --CANCELADO
- #Relatório de saída de valores --FEITO
- #Relatório de saída de produtos --FEITO
- #Relatório de entradas de produtos --FEITO
- #Relatório de vendas por funcionário --FEITO
- #Relatório de transportadoras -FEITO
- #Relatório de fornecedores --FEITO
- #Relatório de fornecedores --FEITO
+ # nm
  
   Quinta parte
   
@@ -27,8 +17,8 @@
 	#Processo para aplicar o sistema de configurações --FEITO
 	
 #Sistema de backup
-	#Janela de configurações do backup
-	#Janela para realizar o backup manualmente
+	#Janela de configurações do backup --FEITO
+	#Janela para realizar o backup manualmente --FEITO
 	#BackUP automatico
 	
 #Log de eventos

@@ -41,8 +41,7 @@ object formConfiguracoesBackUp: TformConfiguracoesBackUp
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -266
-    ExplicitWidth = 1019
+    OnMouseDown = Panel1MouseDown
     DesignSize = (
       753
       41)
@@ -143,7 +142,6 @@ object formConfiguracoesBackUp: TformConfiguracoesBackUp
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 256
     object sbNovo: TSpeedButton
       Left = 71
       Top = 24
