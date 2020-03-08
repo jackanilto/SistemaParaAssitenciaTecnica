@@ -8695,4 +8695,9 @@ object formPrincipal: TformPrincipal
       Caption = 'Sair'
     end
   end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 864
+    Top = 344
+  end
 end

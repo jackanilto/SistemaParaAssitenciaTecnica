@@ -152,9 +152,11 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO')
-        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+      FGravarLog
+              .getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO').AsString)
+              .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+              .getOperacao('excluindo')
+              .gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -174,9 +176,10 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO')
-      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
+    FGravarLog
+            .getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO').AsString)
+            .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+            .getOperacao('Editando');
 
     FQuery.TQuery.Edit;
 
@@ -566,6 +569,9 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+
+  FGravarLog.getOperacao('Inserindo');
+
 end;
 
 function TEntityProdutos.listarGrid(value: TDataSource): iCadastroProdutos;

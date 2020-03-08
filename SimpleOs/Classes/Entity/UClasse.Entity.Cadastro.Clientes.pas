@@ -151,8 +151,11 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      FGravarLog
+              .getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+              .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+              .getOperacao('Deletar')
+              .gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -172,8 +175,10 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+    FGravarLog
+            .getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+            .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+            .getOperacao('Editando');
 
     FQuery.TQuery.Edit;
 
@@ -489,7 +494,14 @@ begin
     FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
 
   try
+
     FQuery.TQuery.Post;
+
+    FGravarLog
+            .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+            .getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+            .gravarLog;
+
   except
     on e: Exception do
     begin
@@ -505,6 +517,9 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+
+  FGravarLog.getOperacao('Inserindo')
+
 end;
 
 function TEntityCadastroClientes.listarGrid(value: TDataSource)

@@ -8,11 +8,15 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Def, FireDAC.VCLUI.Wait,
   FireDAC.Phys.IBWrapper, FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.IBBase,
-  FireDAC.Phys.FB, FireDAC.Comp.UI, Vcl.StdCtrls, Data.DB;
+  FireDAC.Phys.FB, FireDAC.Comp.UI, Vcl.StdCtrls, Data.DB,
+  System.Generics.Collections;
 
 Type
   TClasseConfigBackUp = class
   private
+
+   ListaHorarios: TList<string>;
+
     FQuery: TClasseConexaoConfig;
     FDI_Restore: TFDIBRestore;
     FDI_Backup: TFDIBBackup;
@@ -20,6 +24,7 @@ Type
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     FlocalBD: string;
     FlocalSalvarArquivo: string;
+
     procedure SetlocalBD(const Value: string);
     procedure SetlocalSalvarArquivo(const Value: string);
   public
@@ -36,6 +41,9 @@ Type
       write SetlocalSalvarArquivo;
 
     procedure iniciarBackUpManual;
+    procedure iniciarBackUpAutomaticamente;
+
+    function listarHorariosBackupAutomatico:TList<string>;
 
     constructor create;
     destructor destroy; override;
@@ -62,6 +70,17 @@ begin
   FDPhysFBDriverLink1.VendorLib := ExtractFilePath(application.exename) +
     'fbclient.dll';
 
+    ListaHorarios := TList<string>.Create;
+
+    while not FQuery.retornarQuery.Eof do
+    begin
+
+      ListaHorarios.Add(FQuery.retornarQuery.FieldByName('horario').AsString);
+
+      FQuery.retornarQuery.Next;
+
+    end
+
 end;
 
 destructor TClasseConfigBackUp.destroy;
@@ -69,6 +88,7 @@ begin
 
   FreeAndNil(FQuery);
   FreeAndNil(FDPhysFBDriverLink1);
+  FreeAndNil(ListaHorarios);
 
   inherited;
 end;
@@ -100,6 +120,63 @@ begin
 
 end;
 
+procedure TClasseConfigBackUp.iniciarBackUpAutomaticamente;
+var
+  Data: string;
+  hora: string;
+
+  threadBackUp: TThread;
+
+begin
+
+  threadBackUp := TThread.CreateAnonymousThread(
+    procedure
+    begin
+      Data := FormatDateTime('ddmmyy', date);
+      hora := FormatDateTime('hhmmss', time);
+
+      if not DirectoryExists(ExtractFilePath(application.exename) + 'BackUp')
+      then
+      begin
+        // if not CreateDir(ExtractFilePath(application.exename) + 'BackUp') then
+        // raise Exception.create
+        // ('Não foi possível criar o diretório de backup.');
+        ForceDirectories(localSalvarArquivo + 'BackUp')
+      end;
+
+      try
+
+        FDI_Backup := TFDIBBackup.create(nil);
+
+        try
+
+          FDI_Backup.DriverLink := FDPhysFBDriverLink1;
+          FDI_Backup.UserName := 'sysdba';
+          FDI_Backup.Password := 'masterkey';
+          FDI_Backup.host := 'localhost';
+          FDI_Backup.Protocol := ipTCPIP;
+          FDI_Backup.Verbose := True;
+          FDI_Backup.Database := localBD;
+          FDI_Backup.BackupFiles.Add(localSalvarArquivo + '\BackUp\' + 'BackUp_'
+            + Data + hora + '.fbk');
+          FDI_Backup.BackUp;
+
+        except
+          on e: Exception do
+          begin
+            raise Exception.create('Ocorreu um erro ao tentar realizar o BackUp'
+              + e.Message);
+          end;
+        end;
+      finally
+        FDI_Backup.Free;
+      end;
+    end);
+
+  threadBackUp.Start();
+
+end;
+
 procedure TClasseConfigBackUp.iniciarBackUpManual;
 var
   Data: string;
@@ -109,10 +186,10 @@ begin
   Data := FormatDateTime('ddmmyy', date);
   hora := FormatDateTime('hhmmss', time);
 
-  if not DirectoryExists(localSalvarArquivo+ 'BackUp') then
+  if not DirectoryExists(localSalvarArquivo + 'BackUp') then
   begin
-//    if not CreateDir(ExtractFilePath(application.exename) + 'BackUp') then
-      ForceDirectories(localSalvarArquivo + 'BackUp')
+    // if not CreateDir(ExtractFilePath(application.exename) + 'BackUp') then
+    ForceDirectories(localSalvarArquivo + 'BackUp')
   end;
 
   try
@@ -154,6 +231,11 @@ begin
   FQuery.retornarQuery.Insert;
 end;
 
+function TClasseConfigBackUp.listarHorariosBackupAutomatico: TList<string>;
+begin
+  result := ListaHorarios;
+end;
+
 procedure TClasseConfigBackUp.retornarDados(Value: TDataSource);
 begin
 
@@ -167,8 +249,9 @@ end;
 procedure TClasseConfigBackUp.SetlocalBD(const Value: string);
 begin
 
-  if value = EmptyStr then
-    raise Exception.Create('ERRO! Informe qual banco de dados deseja realizar o backup;');
+  if Value = EmptyStr then
+    raise Exception.create
+      ('ERRO! Informe qual banco de dados deseja realizar o backup;');
 
   FlocalBD := Value;
 end;
@@ -176,8 +259,9 @@ end;
 procedure TClasseConfigBackUp.SetlocalSalvarArquivo(const Value: string);
 begin
 
-  if value = EmptyStr then
-    raise Exception.Create('ERRO! Informe o local que deseja salvar o banco dados.');
+  if Value = EmptyStr then
+    raise Exception.create
+      ('ERRO! Informe o local que deseja salvar o banco dados.');
 
   FlocalSalvarArquivo := Value;
 end;

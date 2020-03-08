@@ -4336,3 +4336,8 @@ Exiting before completion due to errors
 08/03/20 08:19:05 - Erro:Exception
 08/03/20 08:19:05 - Erro:Ocorreu um erro ao tentar efetuar o backup do banco de dados. Ocorreu um erro ao tentar realizar o BackUp[FireDAC][Phys][FB]cannot open backup file C:\Users\noels\Documents\BackUp\BackUp_080320081905.fbk
 Exiting before completion due to errors
+08/03/20 14:18:17 - ===========================================
+08/03/20 14:18:17 - Form: formCadastroDeClientes
+08/03/20 14:18:17 - Caption: Cadastro de clientes
+08/03/20 14:18:17 - Erro:Exception
+08/03/20 14:18:17 - Erro:Informe o tipo de cadastro realizado.

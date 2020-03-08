@@ -16,7 +16,8 @@ uses
   Form.Relatorio.OS.Por.Status, Form.Relatorio.OS, Form.Relatorio.Produtos,
   Form.Relatorio.Situacao.Estoque, Form.Relatorio.Transportadoras,
   Form.Abertura.Caixa, UClasse.Entity.Caixa, Form.Login, UDados.Conexao,
-  Form.Comissoes.Funcionario, Form.Relatorio.Comissoes;
+  Form.Comissoes.Funcionario, Form.Relatorio.Comissoes, UClasse.Config.BackUp,
+  UClasse.Config.Acesso.Banco;
 
 type
   TformPrincipal = class(TForm)
@@ -122,6 +123,7 @@ type
     CategoryButtons7: TCategoryButtons;
     acConfigurarBackUp: TAction;
     acBackupManual: TAction;
+    Timer1: TTimer;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -192,11 +194,16 @@ type
     procedure acRelatorioComissoesTecnicosExecute(Sender: TObject);
     procedure acConfigurarBackUpExecute(Sender: TObject);
     procedure acBackupManualExecute(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   var
     F_SplitView: TSplitView;
+    FHorarios: array [0..100] of string;
+    FBackUp:TClasseConfigBackUp;
+    FConfigConexao:TConfigConexaoBanco;
     procedure closeSplit;
+
   public
     { Public declarations }
   end;
@@ -724,6 +731,8 @@ end;
 procedure TformPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   FreeAndNil(FProcessoCaixa);
+  FreeAndNil(FBackUp);
+  FreeAndNil(FConfigConexao);
 end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);
@@ -738,11 +747,17 @@ begin
 
   FProcessoCaixa := TEntityCaixa.Create;
 
+  FBackUp := TClasseConfigBackUp.create;
+
+  FConfigConexao := TConfigConexaoBanco.create;
+
   ReportMemoryLeaksOnShutdown := true;
 
 end;
 
 procedure TformPrincipal.FormShow(Sender: TObject);
+var
+  I: Integer;
 begin
 
   formLogin := TformLogin.Create(self);
@@ -792,6 +807,7 @@ begin
 
   Label7.Caption := FSituacaoDoCaixa;
 
+
 end;
 
 procedure TformPrincipal.closeSplit;
@@ -806,6 +822,23 @@ begin
     SplitView1.Close
   else
     SplitView1.Open;
+end;
+
+procedure TformPrincipal.Timer1Timer(Sender: TObject);
+var
+  i:integer;
+begin
+
+  for I := 0 to pred(FBackUp.listarHorariosBackupAutomatico.Count) do
+  begin
+   if  FBackUp.listarHorariosBackupAutomatico[i] = TimeToStr(time) then
+    begin
+      FBackUp.localBD := FConfigConexao.localBD;
+      FBackUp.localSalvarArquivo := ExtractFilePath(application.ExeName);
+      FBackUp.iniciarBackUpAutomaticamente;
+    end;
+  end;
+
 end;
 
 end.
