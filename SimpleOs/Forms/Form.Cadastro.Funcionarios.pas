@@ -295,13 +295,15 @@ end;
 
 procedure TformCadastroDeFuncionarios.validacaoCamposUsuarioSenha;
 begin
+
   if FTipoOperacaoForm = 'novo' then
     FEntityFuncionario.validarUsuario(edtUsuario.Text)
       .validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
+
   if FTipoOperacaoForm = 'editar' then
-    if edtSenha.Text <> EmptyStr then
-      FEntityFuncionario.validarUsuario(edtUsuario.Text)
-        .validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
+      FEntityFuncionario
+                      .validarUsuarioEditando(DataSource1.DataSet.FieldByName('ID').AsInteger ,edtUsuario.Text)
+                      .validarSenhaEditando(edtSenha.Text, edtConfirmaSenha.Text);
 end;
 
 procedure TformCadastroDeFuncionarios.sbEditarClick(Sender: TObject);

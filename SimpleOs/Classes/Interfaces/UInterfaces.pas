@@ -635,7 +635,9 @@ type
     function exportar: iCadastroFuncionario;
 
     function validarUsuario(value: string): iCadastroFuncionario;
+    function validarUsuarioEditando(codigo: integer; usuario: string): iCadastroFuncionario;
     function validarSenha(value1, value2: string): iCadastroFuncionario;
+    function validarSenhaEditando(value1, value2: string): iCadastroFuncionario;
 
   end;
 

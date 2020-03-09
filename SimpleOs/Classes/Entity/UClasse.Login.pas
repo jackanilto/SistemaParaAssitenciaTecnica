@@ -64,7 +64,7 @@ begin
     begin
       result := true;
 
-      NomeFuncionarioLogado := FQuery.FieldByName('NOME').AsString;
+      NomeFuncionarioLogado := FQuery.FieldByName('USUARIO').AsString;
       funcionarioLogado := FQuery.FieldByName('ID').AsInteger;
 
     end

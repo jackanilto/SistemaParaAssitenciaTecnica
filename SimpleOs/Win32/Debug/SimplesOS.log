@@ -4341,3 +4341,59 @@ Exiting before completion due to errors
 08/03/20 14:18:17 - Caption: Cadastro de clientes
 08/03/20 14:18:17 - Erro:Exception
 08/03/20 14:18:17 - Erro:Informe o tipo de cadastro realizado.
+09/03/20 14:32:56 - ===========================================
+09/03/20 14:32:56 - Form: formCadastroDeFuncionarios
+09/03/20 14:32:56 - Caption: Cadastro de funcionários
+09/03/20 14:32:56 - Erro:EACBrHTTPError
+09/03/20 14:32:56 - Erro:Erro HTTP: 500 
+Socket Error: 11001 Host not found
+URL: http://cep.republicavirtual.com.br/web_cep.php?cep=46900000&formato=xml
+
+Resposta HTTP:
+
+
+09/03/20 14:33:34 - ===========================================
+09/03/20 14:33:34 - Form: formCadastroDeFuncionarios
+09/03/20 14:33:34 - Caption: Cadastro de funcionários
+09/03/20 14:33:34 - Erro:Exception
+09/03/20 14:33:34 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+09/03/20 14:33:38 - ===========================================
+09/03/20 14:33:38 - Form: formCadastroDeFuncionarios
+09/03/20 14:33:38 - Caption: Cadastro de funcionários
+09/03/20 14:33:38 - Erro:Exception
+09/03/20 14:33:38 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+09/03/20 15:24:41 - ===========================================
+09/03/20 15:24:41 - Form: formCadastroDeFuncionarios
+09/03/20 15:24:41 - Caption: Cadastro de funcionários
+09/03/20 15:24:41 - Erro:Exception
+09/03/20 15:24:41 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+09/03/20 15:24:48 - ===========================================
+09/03/20 15:24:48 - Form: formCadastroDeFuncionarios
+09/03/20 15:24:48 - Caption: Cadastro de funcionários
+09/03/20 15:24:48 - Erro:Exception
+09/03/20 15:24:48 - Erro:Informe a senha para o usuário.
+09/03/20 15:24:57 - ===========================================
+09/03/20 15:24:57 - Form: formCadastroDeFuncionarios
+09/03/20 15:24:57 - Caption: Cadastro de funcionários
+09/03/20 15:24:57 - Erro:Exception
+09/03/20 15:24:57 - Erro:Informe a senha para o usuário.
+09/03/20 15:25:00 - ===========================================
+09/03/20 15:25:00 - Form: formCadastroDeFuncionarios
+09/03/20 15:25:00 - Caption: Cadastro de funcionários
+09/03/20 15:25:00 - Erro:Exception
+09/03/20 15:25:00 - Erro:Informe a senha para o usuário.
+09/03/20 15:25:03 - ===========================================
+09/03/20 15:25:03 - Form: formCadastroDeFuncionarios
+09/03/20 15:25:03 - Caption: Cadastro de funcionários
+09/03/20 15:25:03 - Erro:Exception
+09/03/20 15:25:03 - Erro:Informe a senha para o usuário.
+09/03/20 15:31:00 - ===========================================
+09/03/20 15:31:00 - Form: formCadastroDeFuncionarios
+09/03/20 15:31:00 - Caption: Cadastro de funcionários
+09/03/20 15:31:00 - Erro:Exception
+09/03/20 15:31:00 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+09/03/20 15:33:21 - ===========================================
+09/03/20 15:33:21 - Form: formCadastroDeFuncionarios
+09/03/20 15:33:21 - Caption: Cadastro de funcionários
+09/03/20 15:33:21 - Erro:Exception
+09/03/20 15:33:21 - Erro:ERRO! As senha não são iguais
