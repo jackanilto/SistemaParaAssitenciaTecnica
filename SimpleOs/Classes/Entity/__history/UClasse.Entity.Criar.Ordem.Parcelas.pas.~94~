@@ -22,6 +22,7 @@ type
     FValor: string;
     FDataInicial: TDate;
     FDataFinal: TDate;
+    FEstadoTabela: string;
 
     FID: integer;
     FID_ORDEM: integer;
@@ -103,6 +104,7 @@ type
 
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
     function adicionarParcela: iParcelaOrdem;
+    function estadoDaTabela(value: string): iParcelaOrdem;
 
     constructor create;
     destructor destroy; override;
@@ -123,9 +125,16 @@ end;
 
 function TEntityGerarParcelas.adicionarParcela: iParcelaOrdem;
 begin
-  if FQuery.TQuery.State in [dsInsert] then
-    FQuery.TQuery.FieldByName('id').AsInteger :=
-      FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
+
+  if FEstadoTabela = 'insert' then
+  begin
+
+    FQuery.TQuery.Insert;
+
+    if FQuery.TQuery.State in [dsInsert] then
+      FQuery.TQuery.FieldByName('id').AsInteger :=
+        FQuery.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
+  end;
 
   with FQuery.TQuery do
   begin
@@ -135,7 +144,7 @@ begin
     FieldByName('PARCELA').AsInteger := FPARCELA;
     FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
     FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
-    FieldByName('PGTO').AsString := FPGTO;
+    FieldByName('PGTO').AsString := 'Nao';
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
   end;
 
@@ -255,8 +264,8 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID')
-        .AsInteger.ToString).gravarLog;
+      FGravarLog.getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID')
+        .AsInteger.ToString).getOperacao('deletando a parcela').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -276,12 +285,18 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
-      .gravarLog;
+    FGravarLog.getNomeRegistro('Editando a parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
+      .getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
   end;
+end;
+
+function TEntityGerarParcelas.estadoDaTabela(value: string): iParcelaOrdem;
+begin
+  result := self;
+  FEstadoTabela := value;
 end;
 
 function TEntityGerarParcelas.ExecSql: iParcelaOrdem;
@@ -307,7 +322,7 @@ begin
 
     try
       FQuery.TQuery.Edit;
-      FQuery.TQuery.FieldByName('PGTO').AsString := 'Não';
+      FQuery.TQuery.FieldByName('PGTO').AsString := 'Nao';
       FQuery.TQuery.FieldByName('DATA_PAGAMENTO').Clear;
       FQuery.TQuery.FieldByName('HORA_PAGAMENTO').Clear;
       FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := '';
@@ -360,7 +375,7 @@ begin
       FieldByName('PARCELA').AsInteger := parcelaAtual;
       FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
       FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
-      FieldByName('PGTO').AsString := 'Não';
+      FieldByName('PGTO').AsString := 'Nao';
     end;
 
     try
@@ -681,6 +696,10 @@ begin
     FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Funcionário';
     FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Furcionário';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+    FieldByName('DATA_ESTORNO').Visible := false;
+
+    FieldByName('NOME_FUNCIONARIO').DisplayWidth := 40;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
 
     FieldByName('ID_CLIENTE').visible := false;
 

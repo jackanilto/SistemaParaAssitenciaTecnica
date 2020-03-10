@@ -4472,3 +4472,23 @@ Resposta HTTP:
 09/03/20 23:37:36 - Caption: Localizar Produtos saída
 09/03/20 23:37:36 - Erro:EDatabaseError
 09/03/20 23:37:36 - Erro:Field 'PRODUTOS' not found
+10/03/20 19:52:44 - ===========================================
+10/03/20 19:52:44 - Form: formCriarConsultarOrdemServico
+10/03/20 19:52:44 - Caption: 
+10/03/20 19:52:44 - Erro:Exception
+10/03/20 19:52:44 - Erro:Informe a data base para o vencimento.
+10/03/20 19:56:51 - ===========================================
+10/03/20 19:56:51 - Form: formCriarConsultarOrdemServico
+10/03/20 19:56:51 - Caption: 
+10/03/20 19:56:51 - Erro:Exception
+10/03/20 19:56:51 - Erro:Informe a data base para o vencimento.
+10/03/20 20:31:09 - ===========================================
+10/03/20 20:31:09 - Form: FormVendaConfirmarPagamento
+10/03/20 20:31:09 - Caption: '
+10/03/20 20:31:09 - Erro:Exception
+10/03/20 20:31:09 - Erro:ERRO! Infome o meio de pagamento do venda
+10/03/20 20:31:13 - ===========================================
+10/03/20 20:31:13 - Form: FormVendaConfirmarPagamento
+10/03/20 20:31:13 - Caption: '
+10/03/20 20:31:13 - Erro:Exception
+10/03/20 20:31:13 - Erro:ERRO! Infome o meio de pagamento do venda

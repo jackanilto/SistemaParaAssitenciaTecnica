@@ -189,7 +189,6 @@ begin
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Venda de produtos').getCodigoFuncionario
     (funcionarioLogado);
-  // (0 { definir o usuário quando construir a aplicação } );
 
 end;
 
@@ -205,7 +204,7 @@ begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_CLIENTE')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+        .getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -575,6 +574,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
 end;
 
 function TEntityVenda.listarGrid(value: TDataSource): iVenda;

@@ -15,7 +15,7 @@ type
     FQuery: iConexaoQuery;
     FQueryParcelas: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
-    FEstornarOS:iEstornarOS;
+    FEstornarOS: iEstornarOS;
     FTabela: string;
     FCampo: string;
     FValor: string;
@@ -340,7 +340,7 @@ begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('EQUIPAMENTO')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+        .getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Edit;
       FQuery.TQuery.FieldByName('STATUS').AsString := 'Deletado';
@@ -363,11 +363,11 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
+    FQuery.TQuery.Edit;
+
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('EQUIPAMENTO')
       .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
-
-    FQuery.TQuery.Edit;
+      .getOperacao('deletado');
 
   end;
 end;
@@ -404,15 +404,15 @@ begin
 
         estornarParcelas(FQuery.TQuery.FieldByName('ID').AsInteger);
 
-        FEstornarOS
-                  .getID_ORDEM(FQuery.TQuery.FieldByName('ID').AsInteger)
-                  .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
-                  .getVALOR_OS(FQuery.TQuery.FieldByName('VALOR_DA_ORDEM').AsCurrency)
-                  .getDATA(datetostr(date))
-                  .getHORA(TimeToStr(time))
-                  .getMOTIVO('')
-                  .inserir
-                  .gravar;
+        FEstornarOS.getID_ORDEM(FQuery.TQuery.FieldByName('ID').AsInteger)
+          .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+          .getVALOR_OS(FQuery.TQuery.FieldByName('VALOR_DA_ORDEM').AsCurrency)
+          .getDATA(datetostr(date)).getHORA(TimeToStr(time)).getMOTIVO('')
+          .inserir.Gravar;
+
+        FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('EQUIPAMENTO')
+          .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id')
+          .AsInteger).getOperacao('estornado').gravarLog;
 
       end;
     end
@@ -828,6 +828,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
 end;
 
 function TEntityCriarOrdemServico.listarGrid(value: TDataSource)

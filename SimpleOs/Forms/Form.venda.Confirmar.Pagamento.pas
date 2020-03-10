@@ -330,7 +330,7 @@ begin
   lblValorParcelado.Caption := 'Valor à vista de ' +
     FormatFloat('R$ ###,##0.00', totalDaVendaCalulado);
 
-  FEntityVenda.inserir;
+  FEntityVenda.inserir; //prepara a tabela para inserir a venda
 
   FVisualizarDadosEmpresa.abrir.listarGrid(s_DadosEmpresa);
 

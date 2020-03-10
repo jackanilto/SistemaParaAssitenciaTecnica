@@ -297,7 +297,7 @@ begin
   FQuery := TConexaoQuery.new.Query(FTabela);
   FQueryParcelas := TConexaoQuery.new.Query('PARCELAS_ORDEM');
 
-  FEstornarOS := TEntityEstornarVenda
+  FEstornarOS := TEntityEstornarOS.new;
 
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Ordem de serviço').getCodigoFuncionario
@@ -340,7 +340,7 @@ begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('EQUIPAMENTO')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+        .getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Edit;
       FQuery.TQuery.FieldByName('STATUS').AsString := 'Deletado';
@@ -365,7 +365,7 @@ begin
 
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('EQUIPAMENTO')
       .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
+      .getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -402,9 +402,17 @@ begin
         FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
         FQuery.TQuery.Post;
 
-        {CÓDIFICAR AQUI}
-
         estornarParcelas(FQuery.TQuery.FieldByName('ID').AsInteger);
+
+        FEstornarOS
+                  .getID_ORDEM(FQuery.TQuery.FieldByName('ID').AsInteger)
+                  .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+                  .getVALOR_OS(FQuery.TQuery.FieldByName('VALOR_DA_ORDEM').AsCurrency)
+                  .getDATA(datetostr(date))
+                  .getHORA(TimeToStr(time))
+                  .getMOTIVO('')
+                  .inserir
+                  .gravar;
 
       end;
     end
@@ -429,6 +437,7 @@ begin
 
       FQueryParcelas.TQuery.Edit;
       FQueryParcelas.TQuery.FieldByName('PGTO').AsString := 'Estornada';
+      FQueryParcelas.TQuery.FieldByName('DATA_ESTORNO').AsDateTime := date;
       FQueryParcelas.TQuery.Post;
 
       FQueryParcelas.TQuery.Next;
@@ -819,6 +828,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
 end;
 
 function TEntityCriarOrdemServico.listarGrid(value: TDataSource)

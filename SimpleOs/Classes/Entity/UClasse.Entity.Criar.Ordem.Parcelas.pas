@@ -150,6 +150,10 @@ begin
 
   try
     FQuery.TQuery.Post;
+
+        FGravarLog.getNomeRegistro('Adicionando uma parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
+      .getOperacao('adicionar').gravarLog;
+
     showmessage('Parcela adicionada com sucesso!');
   except
     on e: exception do
@@ -264,8 +268,8 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID')
-        .AsInteger.ToString).gravarLog;
+      FGravarLog.getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID')
+        .AsInteger.ToString).getOperacao('deletando a parcela').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -285,8 +289,8 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
-      .gravarLog;
+    FGravarLog.getNomeRegistro('Editando a parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
+      .getOperacao('editando').gravarLog;
 
     FQuery.TQuery.Edit;
 
@@ -331,6 +335,12 @@ begin
       FQuery.TQuery.FieldByName('MULTA').AsCurrency := 0;
       FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := 0;
       FQuery.TQuery.Post;
+
+      FGravarLog
+              .getNomeRegistro('Estornando esta parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
+              .getOperacao('estornando')
+              .gravarLog;
+
     except
       on e: exception do
       begin
@@ -648,8 +658,8 @@ begin
 
   end;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
-    .gravarLog;
+  FGravarLog.getNomeRegistro('Quitando esta parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
+    .getOperacao('quitar').gravarLog;
 
   try
     FQuery.TQuery.Post;

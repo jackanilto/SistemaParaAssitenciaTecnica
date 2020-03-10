@@ -48,6 +48,8 @@ type
     frxDB_Empresa: TfrxDBDataset;
     frxDB_ImprimirReciboItens: TfrxDBDataset;
     s_ImprimirReciboItens: TDataSource;
+    s_jurosMulta: TDataSource;
+    frxDB_JurosMulta: TfrxDBDataset;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -67,6 +69,9 @@ type
     procedure sbCancelarVendaClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure sbImprimirReciboClick(Sender: TObject);
+    procedure sbImprimirClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     procedure calcularDesconto;
     procedure validarParcelas;
@@ -249,6 +254,7 @@ begin
     .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
     .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
     .getDesconto(desconto_atual).getTOTAL(CurrToStr(totalDaVendaCalulado))
+    .getFormaPagamento(edtConfirmarFormaPagamento.Text)
     .gerarParcelaAvista;
 end;
 
@@ -260,7 +266,9 @@ begin
     (Parcelas).getVALOR_DA_PARCELA
     (CurrToStr(TFactory.new.calcularParcela.getvalor(totalDaVendaCalulado)
     .getNumeroParcelas(Parcelas).valorDeCadaParcela))
-    .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date)).gerarParcelas;
+    .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
+    .getFormaPagamento('Nao')
+    .gerarParcelas;
 end;
 
 procedure TFormVendaConfirmarPagamento.FormClose(Sender: TObject;
@@ -282,6 +290,29 @@ begin
   FVisualizarDadosEmpresa := TEntityCadastroDadosEmpresa.new;
   FImprimirParcelas := TImprimirParcelasVenda.new;
 
+end;
+
+procedure TFormVendaConfirmarPagamento.FormKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  if Key = 113 then
+    if sbConfirmarVenda.Enabled = true then
+      sbConfirmarVenda.Click;
+
+  if Key = 27 then
+    if sbCancelarVenda.Enabled = true then
+      sbCancelarVenda.Click;
+
+end;
+
+procedure TFormVendaConfirmarPagamento.FormKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    Key := #0;
+    Perform(Wm_NextDlgCtl, 0, 0);
+  end;
 end;
 
 procedure TFormVendaConfirmarPagamento.FormShow(Sender: TObject);
@@ -320,8 +351,12 @@ end;
 
 procedure TFormVendaConfirmarPagamento.sbCancelarVendaClick(Sender: TObject);
 begin
-  formVendas.limparDados;
-  close;
+  if application.MessageBox('Deseja realemente cancelar esta Venda?',
+    'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+  begin
+    formVendas.limparDados;
+    close;
+  end;
 end;
 
 procedure TFormVendaConfirmarPagamento.sbConfirmarVendaClick(Sender: TObject);
@@ -357,7 +392,8 @@ begin
     .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
     .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(desconto_atual)
     .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS(Parcelas)
-    .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text).gravar;
+    .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text)
+    .getVENCIMENTO(DateToStr(edtDataVencimento.Date)).gravar;
 
   if edtParcelado.Text = 'À vista' then
   begin
@@ -386,6 +422,9 @@ begin
     .retornarDataSet(s_ImprimirRecibo).selecionarItens
     (FEntityVenda.setCodigoVenda).retornarDataSetItens(s_ImprimirReciboItens);
 
+  FImprimirParcelas.selecionarParcelas(FEntityVenda.setCodigoVenda)
+    .retornarDataSet(s_ImprimirParcelas).retonarJurosMultaAtraso(s_jurosMulta);
+
   // close;
 
 end;
@@ -393,6 +432,13 @@ end;
 procedure TFormVendaConfirmarPagamento.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TFormVendaConfirmarPagamento.sbImprimirClick(Sender: TObject);
+begin
+  frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/carne_pagamento.fr3');
+  frx_ImprimirParcelas.ShowReport();
 end;
 
 procedure TFormVendaConfirmarPagamento.sbImprimirReciboClick(Sender: TObject);

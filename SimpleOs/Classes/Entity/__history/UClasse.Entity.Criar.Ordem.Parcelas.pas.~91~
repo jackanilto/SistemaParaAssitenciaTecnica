@@ -144,7 +144,7 @@ begin
     FieldByName('PARCELA').AsInteger := FPARCELA;
     FieldByName('VALOR_PARCELA').AsCurrency := FVALOR_PARCELA;
     FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
-    FieldByName('PGTO').AsString := FPGTO;
+    FieldByName('PGTO').AsString := 'Nao';
     FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
   end;
 
@@ -265,7 +265,7 @@ begin
     begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID')
-        .AsInteger.ToString).gravarLog;
+        .AsInteger.ToString).getOperacao('deletando a parcela').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -696,6 +696,10 @@ begin
     FieldByName('ID_FUNCIONARIO').DisplayLabel := 'Cód. Funcionário';
     FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Furcionário';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+    FieldByName('DATA_ESTORNO').Visible := false;
+
+    FieldByName('NOME_FUNCIONARIO').DisplayWidth := 40;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
 
     FieldByName('ID_CLIENTE').visible := false;
 

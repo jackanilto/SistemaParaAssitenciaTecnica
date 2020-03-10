@@ -18,9 +18,8 @@ Rever o funcionamento do log de eventos nas seguintes janela
 #Número de parcelas --FEITO
 #Entrada de produtos --FEITO
 #Saida de produtos --FEITO
-#Ordem de serviços
-#Criar ordem de serviços
-#Venda de produtos
+#Criar ordem de serviços --FEITO
+#Venda de produtos --FEITO
 #Quitar parcelas
 #Visualizar vendas
 #Encerramento de caixa

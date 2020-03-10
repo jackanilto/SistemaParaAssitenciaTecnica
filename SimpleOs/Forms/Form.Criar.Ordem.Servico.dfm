@@ -2,7 +2,6 @@
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'Criar / Consultar ordem de servi'#231'o'
   ClientHeight = 585
   ClientWidth = 973
   Color = clBtnFace
