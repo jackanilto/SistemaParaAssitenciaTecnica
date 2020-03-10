@@ -196,6 +196,8 @@ begin
   inherited;
   FEntityProblemasFrequentes.inserir;
   edtEquipamento.SetFocus;
+  edtDataCadastro.clear;
+  edtDataCadastro.Text := DateToStr(Date);
 end;
 
 procedure TformCadastroProblemasFrequentes.sbSalvarClick(Sender: TObject);

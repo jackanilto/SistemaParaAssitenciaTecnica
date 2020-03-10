@@ -129,7 +129,7 @@ begin
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Transportadora').getCodigoFuncionario
+  FGravarLog.getJanela('Cadastro transportadora').getCodigoFuncionario
     (funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
@@ -147,7 +147,7 @@ begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+        .getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -169,7 +169,7 @@ begin
 
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
       .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
+      .getOperacao('Editando');
 
     FQuery.TQuery.Edit;
 
@@ -478,6 +478,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('Inserindo');
 end;
 
 function TEntityCadastroTransportadora.listarGrid(value: TDataSource)

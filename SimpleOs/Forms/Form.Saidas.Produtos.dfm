@@ -70,12 +70,12 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
   inherited CardPanel1: TCardPanel
     Width = 1005
     Height = 295
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1005
     ExplicitHeight = 295
     inherited cardPanelCadatro: TCard
       Width = 1005
       Height = 295
-      Caption = #39
       ExplicitWidth = 1005
       ExplicitHeight = 295
       object Label1: TLabel

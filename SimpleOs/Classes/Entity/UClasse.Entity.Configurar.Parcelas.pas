@@ -114,8 +114,8 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      // FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-      // .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('id').AsInteger.ToString)
+       .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -135,8 +135,8 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    // FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-    // .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('id').AsInteger.ToString)
+     .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -215,8 +215,8 @@ begin
   FQuery.TQuery.FieldByName('juros').AsCurrency := StrToCurr(FValorJuros);
   FQuery.TQuery.FieldByName('multa').AsCurrency := StrToCurr(FValorMulta);
 
-  // FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-  // .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('id').AsInteger.ToString)
+   .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
   try
     FQuery.TQuery.Post;
@@ -235,6 +235,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo')
 end;
 
 function TEntityConfigurarParcelas.listarGrid(value: TDataSource)

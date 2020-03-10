@@ -191,8 +191,9 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
-        .gravarLog;
+      FGravarLog.getCodigoRegistro(FQuery.TQuery.FieldByName('ID').AsInteger)
+        .getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO').AsString)
+        .getOperacao('deletando').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -212,8 +213,9 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
-      .gravarLog;
+      FGravarLog.getCodigoRegistro(FQuery.TQuery.FieldByName('ID').AsInteger)
+        .getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO').AsString)
+        .getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -460,9 +462,9 @@ begin
   if FHORA <> '  :  :  ' then
     FQuery.TQuery.FieldByName('HORA').AsDateTime := StrToTime(FHORA);
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
-    .gravarLog;
-
+      FGravarLog.getCodigoRegistro(FQuery.TQuery.FieldByName('ID').AsInteger)
+        .getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTO').AsString)
+        .getOperacao('deletando').gravarLog;
   try
     FQuery.TQuery.Post;
   except
@@ -480,6 +482,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
 end;
 
 function TEntityEntradasProdutos.listarGrid(value: TDataSource)

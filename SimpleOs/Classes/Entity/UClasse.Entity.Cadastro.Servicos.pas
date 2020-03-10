@@ -121,7 +121,7 @@ begin
     begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -142,7 +142,7 @@ begin
   begin
 
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO').AsString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -311,6 +311,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
 end;
 
 function TEntityCadastroServicos.listarGrid(value: TDataSource)

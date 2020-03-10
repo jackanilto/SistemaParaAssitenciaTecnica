@@ -122,13 +122,13 @@ begin
       try
         TQuery.Edit;
 
-        showmessage('Entrou');
+//        showmessage('Entrou');
 
         TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger :=
           TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger - FQUANTIDADE;
         TQuery.FieldByName('DATA_ALTERACAO').AsDateTime := date;
 
-        showmessage(inttostr(TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger));
+//        showmessage(inttostr(TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger));
 
         TQuery.Post;
       except
@@ -171,6 +171,7 @@ end;
 
 function TEntitySaidasProdutos.deletar: iSaidaDeProdutos;
 begin
+
   result := self;
 
   if FQuery.TQuery.RecordCount >= 1 then
@@ -180,9 +181,10 @@ begin
     begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTOS').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
+
     end;
   end;
 
@@ -201,7 +203,7 @@ begin
   begin
 
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('PRODUTOS').AsString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -463,6 +465,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
 end;
 
 function TEntitySaidasProdutos.listarGrid(value: TDataSource): iSaidaDeProdutos;

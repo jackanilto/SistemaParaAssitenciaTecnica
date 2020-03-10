@@ -96,7 +96,7 @@ begin
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('FORMAS_PAGAMENTO').getCodigoFuncionario
+  FGravarLog.getJanela('Cadastro formas de pagamento').getCodigoFuncionario
     (funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
@@ -114,7 +114,7 @@ begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('FORMA_PAGAMENTO')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+        .getOperacao('deletando').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -136,7 +136,7 @@ begin
 
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('FORMA_PAGAMENTO')
       .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
+      .getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -224,6 +224,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
 end;
 
 function TEntityFormaPagamento.listarGrid(value: TDataSource): iFormaPagamento;

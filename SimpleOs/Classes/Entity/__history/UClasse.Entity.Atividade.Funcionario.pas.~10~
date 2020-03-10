@@ -1,0 +1,304 @@
+unit UClasse.Entity.Atividade.Funcionario;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids;
+
+type
+
+  TEntityAtividadeFuncionario = class(TInterfacedObject, iAtividadeFuncionarios)
+  private
+
+    FQuery: iConexaoQuery;
+    FEntityQuery: TFDQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FAtividade: string;
+
+  public
+
+    function nomeTabela(value: string): iAtividadeFuncionarios;
+    function getCampo(value: string): iAtividadeFuncionarios;
+    function getValor(value: string): iAtividadeFuncionarios;
+    function getDataInicial(value: TDate): iAtividadeFuncionarios;
+    function getDataFinal(value: TDate): iAtividadeFuncionarios;
+    function open(value: string): iAtividadeFuncionarios;
+    function pesquisar: iAtividadeFuncionarios;
+    function ExecSql: iAtividadeFuncionarios;
+    function sqlPesquisa: iAtividadeFuncionarios;
+    function sqlPesquisaData: iAtividadeFuncionarios;
+    function sqlPesquisaEstatica: iAtividadeFuncionarios;
+
+    function abrir: iAtividadeFuncionarios;
+    function inserir: iAtividadeFuncionarios;
+    function Gravar: iAtividadeFuncionarios;
+    function deletar: iAtividadeFuncionarios;
+    function atualizar: iAtividadeFuncionarios;
+    function editar: iAtividadeFuncionarios;
+    function cancelar: iAtividadeFuncionarios;
+    function fecharQuery: iAtividadeFuncionarios;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iAtividadeFuncionarios;
+    function ordenarGrid(column: TColumn): iAtividadeFuncionarios;
+
+    function getCodigo(value: integer): iAtividadeFuncionarios;
+    function getAtividadeFuncionario(value: string): iAtividadeFuncionarios;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iAtividadeFuncionarios;
+  end;
+
+implementation
+
+{ TEntityAtividadeFuncionario }
+
+function TEntityAtividadeFuncionario.abrir: iAtividadeFuncionarios;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TEntityAtividadeFuncionario.atualizar: iAtividadeFuncionarios;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TEntityAtividadeFuncionario.cancelar: iAtividadeFuncionarios;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+function TEntityAtividadeFuncionario.codigoCadastro(sp: string): integer;
+begin
+  result := FQuery.codigoCadastro('');
+end;
+
+constructor TEntityAtividadeFuncionario.create;
+begin
+  FTabela := 'ATIVIDADE_FUNCIONARIO';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('cadastrop atividade funcionário').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TEntityAtividadeFuncionario.deletar: iAtividadeFuncionarios;
+begin
+  result := self;
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ATIVIDADE')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .getOperacao('deletando').gravarLog;
+
+      FQuery.TQuery.Delete;
+    end;
+  end;
+
+end;
+
+destructor TEntityAtividadeFuncionario.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntityAtividadeFuncionario.editar: iAtividadeFuncionarios;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ATIVIDADE').AsString)
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('editando');
+
+    FQuery.TQuery.Edit;
+
+  end;
+end;
+
+function TEntityAtividadeFuncionario.ExecSql: iAtividadeFuncionarios;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntityAtividadeFuncionario.fecharQuery: iAtividadeFuncionarios;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntityAtividadeFuncionario.getCampo(value: string)
+  : iAtividadeFuncionarios;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntityAtividadeFuncionario.getCodigo(value: integer)
+  : iAtividadeFuncionarios;
+begin
+  result := self;
+  FCodigo := value;
+end;
+
+function TEntityAtividadeFuncionario.getDataFinal(value: TDate)
+  : iAtividadeFuncionarios;
+begin
+  result := self;
+  FQuery.getDataFinal(value);
+end;
+
+function TEntityAtividadeFuncionario.getDataInicial(value: TDate)
+  : iAtividadeFuncionarios;
+begin
+  result := self;
+  FQuery.getDataInicial(value);
+end;
+
+function TEntityAtividadeFuncionario.getAtividadeFuncionario(value: string)
+  : iAtividadeFuncionarios;
+begin
+  result := self;
+  if value = EmptyStr then
+    raise Exception.create('Informe a atividade que deseja cadastrar.');
+  FAtividade := value;
+end;
+
+function TEntityAtividadeFuncionario.getValor(value: string)
+  : iAtividadeFuncionarios;
+begin
+  result := self;
+  FValor := value;
+end;
+
+function TEntityAtividadeFuncionario.Gravar: iAtividadeFuncionarios;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_ATIVIDADE_FUNCIONARIO_ID');
+
+  FQuery.TQuery.FieldByName('ATIVIDADE').AsString := FAtividade;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ATIVIDADE').AsString)
+    .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: Exception do
+    begin
+      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
+function TEntityAtividadeFuncionario.inserir: iAtividadeFuncionarios;
+begin
+  result := self;
+  FQuery.TQuery.EmptyDataSet;
+  FQuery.TQuery.Append;
+end;
+
+function TEntityAtividadeFuncionario.listarGrid(value: TDataSource)
+  : iAtividadeFuncionarios;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('ATIVIDADE').DisplayLabel := 'Atividade';
+  FQuery.TQuery.FieldByName('ATIVIDADE').DisplayWidth := 50;
+
+  // FQuery.TQuery.SQL.Add('order by id desc');
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TEntityAtividadeFuncionario.new: iAtividadeFuncionarios;
+begin
+  result := self.create;
+end;
+
+function TEntityAtividadeFuncionario.nomeTabela(value: string)
+  : iAtividadeFuncionarios;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntityAtividadeFuncionario.open(value: string)
+  : iAtividadeFuncionarios;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntityAtividadeFuncionario.ordenarGrid(column: TColumn)
+  : iAtividadeFuncionarios;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntityAtividadeFuncionario.pesquisar: iAtividadeFuncionarios;
+begin
+  result := self;
+end;
+
+function TEntityAtividadeFuncionario.sqlPesquisa: iAtividadeFuncionarios;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityAtividadeFuncionario.sqlPesquisaData: iAtividadeFuncionarios;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntityAtividadeFuncionario.sqlPesquisaEstatica
+  : iAtividadeFuncionarios;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+end.

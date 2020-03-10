@@ -55,7 +55,7 @@ begin
   formSaidaDeProdutos.edtCodigoProduto.Text :=
     inttostr(DataSource1.DataSet.FieldByName('ID').AsInteger);
   formSaidaDeProdutos.edtProduto.Text := DataSource1.DataSet.FieldByName
-    ('SERVICO_PRODUTO').AsString;
+    ('PRODUTO').AsString;
   formSaidaDeProdutos.edtValorProduto.Text :=
     CurrToStr(DataSource1.DataSet.FieldByName('VALOR_VENDA').AsCurrency);
   formSaidaDeProdutos.edtQuantidade.Text := '1';
@@ -130,8 +130,7 @@ begin
   FQuery.Active := true;
 
   FQuery.FieldByName('ID').DisplayLabel := 'Código';
-  FQuery.FieldByName('TIPO_CADASTROS').DisplayLabel := 'Tipo de cadastro';
-  FQuery.FieldByName('SERVICO_PRODUTO').DisplayLabel := 'Produto/Serviço';
+  FQuery.FieldByName('PRODUTO').DisplayLabel := 'Produto';
   FQuery.FieldByName('CODIGO_BARRAS').DisplayLabel := 'Cód. de barras';
   FQuery.FieldByName('DESCRICAO').DisplayLabel := 'Descrição';
   FQuery.FieldByName('VALOR_CUSTO').DisplayLabel := 'Valor de custo';
@@ -152,8 +151,7 @@ begin
   FQuery.FieldByName('FOTO').Visible := false;
   FQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
 
-  FQuery.FieldByName('SERVICO_PRODUTO').DisplayWidth := 30;
-  FQuery.FieldByName('TIPO_CADASTROS').DisplayWidth := 18;
+  FQuery.FieldByName('PRODUTO').DisplayWidth := 30;
   FQuery.FieldByName('CODIGO_BARRAS').DisplayWidth := 25;
   FQuery.FieldByName('DESCRICAO').DisplayWidth := 20;
   FQuery.FieldByName('GRUPO').DisplayWidth := 30;

@@ -4397,3 +4397,78 @@ Resposta HTTP:
 09/03/20 15:33:21 - Caption: Cadastro de funcionários
 09/03/20 15:33:21 - Erro:Exception
 09/03/20 15:33:21 - Erro:ERRO! As senha não são iguais
+09/03/20 21:47:19 - ===========================================
+09/03/20 21:47:19 - Form: formPrincipal
+09/03/20 21:47:19 - Caption: SimpleOS
+09/03/20 21:47:19 - Erro:EAccessViolation
+09/03/20 21:47:19 - Erro:Access violation at address 00BBFEE7 in module 'SimplesOS.exe'. Read of address 00000004
+09/03/20 21:47:56 - ===========================================
+09/03/20 21:47:56 - Form: formPrincipal
+09/03/20 21:47:56 - Caption: SimpleOS
+09/03/20 21:47:56 - Erro:EAccessViolation
+09/03/20 21:47:56 - Erro:Access violation at address 00BBFEE7 in module 'SimplesOS.exe'. Read of address 00000004
+09/03/20 21:51:38 - ===========================================
+09/03/20 21:51:38 - Form: formPrincipal
+09/03/20 21:51:38 - Caption: SimpleOS
+09/03/20 21:51:38 - Erro:EAccessViolation
+09/03/20 21:51:38 - Erro:Access violation at address 00BBFEE7 in module 'SimplesOS.exe'. Read of address 00000004
+09/03/20 22:29:56 - ===========================================
+09/03/20 22:29:56 - Form: formConfigurarParcelas
+09/03/20 22:29:56 - Caption: Configurar parcelas
+09/03/20 22:29:56 - Erro:Exception
+09/03/20 22:29:56 - Erro:Não é possível inserir mais de um registro neste tabela.
+09/03/20 22:29:59 - ===========================================
+09/03/20 22:29:59 - Form: formConfigurarParcelas
+09/03/20 22:29:59 - Caption: Configurar parcelas
+09/03/20 22:29:59 - Erro:EDatabaseError
+09/03/20 22:29:59 - Erro:Field 'grupo' not found
+09/03/20 22:30:03 - ===========================================
+09/03/20 22:30:03 - Form: formConfigurarParcelas
+09/03/20 22:30:03 - Caption: Configurar parcelas
+09/03/20 22:30:03 - Erro:EDatabaseError
+09/03/20 22:30:03 - Erro:Field 'grupo' not found
+09/03/20 22:43:04 - ===========================================
+09/03/20 22:43:04 - Form: formPrincipal
+09/03/20 22:43:04 - Caption: SimpleOS
+09/03/20 22:43:04 - Erro:EAccessViolation
+09/03/20 22:43:04 - Erro:Access violation at address 00BC0267 in module 'SimplesOS.exe'. Read of address 00000004
+09/03/20 22:46:31 - ===========================================
+09/03/20 22:46:31 - Form: formCadastroProblemasFrequentes
+09/03/20 22:46:31 - Caption: Problemas frequentes
+09/03/20 22:46:31 - Erro:Exception
+09/03/20 22:46:31 - Erro:Infome a marca do equipamento.
+09/03/20 22:46:39 - ===========================================
+09/03/20 22:46:39 - Form: formCadastroProblemasFrequentes
+09/03/20 22:46:39 - Caption: Problemas frequentes
+09/03/20 22:46:39 - Erro:Exception
+09/03/20 22:46:39 - Erro:Informe uma data de cadastro válida.
+09/03/20 22:46:42 - ===========================================
+09/03/20 22:46:42 - Form: formCadastroProblemasFrequentes
+09/03/20 22:46:42 - Caption: Problemas frequentes
+09/03/20 22:46:42 - Erro:Exception
+09/03/20 22:46:42 - Erro:Informe uma data de cadastro válida.
+09/03/20 22:49:01 - ===========================================
+09/03/20 22:49:01 - Form: formCadastroProblemasFrequentes
+09/03/20 22:49:01 - Caption: Problemas frequentes
+09/03/20 22:49:01 - Erro:Exception
+09/03/20 22:49:01 - Erro:Informe o defeito apresentado no equipamento.
+09/03/20 23:31:55 - ===========================================
+09/03/20 23:31:55 - Form: FormLocalizarProdutosSaida
+09/03/20 23:31:55 - Caption: Localizar Produtos saída
+09/03/20 23:31:55 - Erro:EDatabaseError
+09/03/20 23:31:55 - Erro:Field 'TIPO_CADASTROS' not found
+09/03/20 23:34:42 - ===========================================
+09/03/20 23:34:42 - Form: FormLocalizarProdutosSaida
+09/03/20 23:34:42 - Caption: Localizar Produtos saída
+09/03/20 23:34:42 - Erro:EDatabaseError
+09/03/20 23:34:42 - Erro:Field 'SERVICO_PRODUTO' not found
+09/03/20 23:36:04 - ===========================================
+09/03/20 23:36:04 - Form: FormLocalizarProdutosSaida
+09/03/20 23:36:04 - Caption: Localizar Produtos saída
+09/03/20 23:36:04 - Erro:EDatabaseError
+09/03/20 23:36:04 - Erro:Field 'PRODUTOS' not found
+09/03/20 23:37:36 - ===========================================
+09/03/20 23:37:36 - Form: FormLocalizarProdutosSaida
+09/03/20 23:37:36 - Caption: Localizar Produtos saída
+09/03/20 23:37:36 - Erro:EDatabaseError
+09/03/20 23:37:36 - Erro:Field 'PRODUTOS' not found

@@ -29,7 +29,6 @@ object FormLocalizarProdutosSaida: TFormLocalizarProdutosSaida
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitLeft = -118
     DesignSize = (
       917
       41)
@@ -131,8 +130,6 @@ object FormLocalizarProdutosSaida: TFormLocalizarProdutosSaida
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 232
-    ExplicitWidth = 844
     DesignSize = (
       917
       65)
@@ -184,7 +181,6 @@ object FormLocalizarProdutosSaida: TFormLocalizarProdutosSaida
         'Produto/Servi'#231'o'
         'Tipo de cadastro'
         'C'#243'digo de barras')
-      ExplicitLeft = 503
     end
     object edtPesquisar: TEdit
       Left = 707
@@ -200,7 +196,6 @@ object FormLocalizarProdutosSaida: TFormLocalizarProdutosSaida
       ParentFont = False
       TabOrder = 1
       OnKeyUp = edtPesquisarKeyUp
-      ExplicitLeft = 634
     end
   end
   object DBGrid1: TDBGrid

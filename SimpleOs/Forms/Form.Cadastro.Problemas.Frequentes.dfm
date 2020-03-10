@@ -2,6 +2,7 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
   Caption = 'Problemas frequentes'
   ClientHeight = 596
   ClientWidth = 980
+  ExplicitTop = -42
   ExplicitWidth = 980
   ExplicitHeight = 596
   PixelsPerInch = 96
@@ -56,6 +57,7 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
   inherited CardPanel1: TCardPanel
     Width = 980
     Height = 440
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 980
     ExplicitHeight = 440
     inherited cardPanelCadatro: TCard
@@ -405,7 +407,7 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
     Top = 137
   end
   object frx_ProblemasFrequentes: TfrxReport
-    Version = '6.2.11'
+    Version = '6.3.3'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
@@ -442,6 +444,7 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       Frame.Typ = []
+      MirrorMode = []
       object ReportTitle1: TfrxReportTitle
         FillType = ftBrush
         Frame.Typ = []

@@ -770,6 +770,8 @@ begin
     begin
 
       FreeAndNil(FProcessoCaixa);
+      FreeAndNil(FBackUp);
+      FreeAndNil(FConfigConexao);
       application.Terminate;
 
     end;

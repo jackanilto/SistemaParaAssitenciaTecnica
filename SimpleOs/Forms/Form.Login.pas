@@ -89,6 +89,7 @@ begin
 
 procedure TformLogin.sbEntrarClick(Sender: TObject);
 begin
+
   FLogin.verificarUsuario(edtUsuario).verificarSenha(edtSenha);
 
   if FLogin.realizarLogin = true then

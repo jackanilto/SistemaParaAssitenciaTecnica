@@ -95,7 +95,7 @@ begin
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Grupos').getCodigoFuncionario(funcionarioLogado);
+  FGravarLog.getJanela('Cadastro grupos').getCodigoFuncionario(funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
 end;
@@ -111,7 +111,7 @@ begin
     begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('deletando').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -132,7 +132,7 @@ begin
   begin
 
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('grupo').AsString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -221,6 +221,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo')
 end;
 
 function TEntityGrupos.listarGrid(value: TDataSource): iCadastroGrupos;

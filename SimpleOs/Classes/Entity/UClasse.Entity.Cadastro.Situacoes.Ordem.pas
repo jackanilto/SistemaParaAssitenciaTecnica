@@ -111,9 +111,10 @@ begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SITUACAO_ORDEM')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .gravarLog;
+        .getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
+
     end;
   end;
 
@@ -127,17 +128,20 @@ end;
 
 function TEntityCadastroSituacoesOrdem.editar: iCadastroSituacoesOrdem;
 begin
+
   result := self;
+
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SITUACAO_ORDEM')
       .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-      .gravarLog;
+      .getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
   end;
+
 end;
 
 function TEntityCadastroSituacoesOrdem.ExecSql: iCadastroSituacoesOrdem;
@@ -237,6 +241,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
 end;
 
 function TEntityCadastroSituacoesOrdem.listarGrid(value: TDataSource)

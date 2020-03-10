@@ -94,7 +94,7 @@ begin
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Marca').getCodigoFuncionario(funcionarioLogado);
+  FGravarLog.getJanela('Cadastro marca').getCodigoFuncionario(funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
 end;
@@ -110,7 +110,7 @@ begin
     begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('Marca').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -131,7 +131,7 @@ begin
   begin
 
     FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('marca').AsString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -218,6 +218,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo')
 end;
 
 function TEntityMarcas.listarGrid(value: TDataSource): iCadastroMarcas;
