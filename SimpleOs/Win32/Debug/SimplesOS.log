@@ -4492,3 +4492,433 @@ Resposta HTTP:
 10/03/20 20:31:13 - Caption: '
 10/03/20 20:31:13 - Erro:Exception
 10/03/20 20:31:13 - Erro:ERRO! Infome o meio de pagamento do venda
+11/03/20 10:55:04 - ===========================================
+11/03/20 10:55:04 - Form: formQuitarParcelasVendas
+11/03/20 10:55:04 - Caption: Ver parcelas das vendas realizadas
+11/03/20 10:55:04 - Erro:Exception
+11/03/20 10:55:04 - Erro:Houve um erro ao tentar quitar esta parcela. Field 'ID' not found
+11/03/20 10:58:20 - ===========================================
+11/03/20 10:58:20 - Form: formQuitarParcelasVendas
+11/03/20 10:58:20 - Caption: Ver parcelas das vendas realizadas
+11/03/20 10:58:20 - Erro:Exception
+11/03/20 10:58:20 - Erro:ERRO! Informe o meio de pagamento da parcela.
+11/03/20 10:59:05 - ===========================================
+11/03/20 10:59:05 - Form: formQuitarParcelasVendas
+11/03/20 10:59:05 - Caption: Ver parcelas das vendas realizadas
+11/03/20 10:59:05 - Erro:Exception
+11/03/20 10:59:05 - Erro:ERRO! Informe o meio de pagamento da parcela.
+11/03/20 11:57:08 - ===========================================
+11/03/20 11:57:08 - Form: formPrincipal
+11/03/20 11:57:08 - Caption: SimpleOS
+11/03/20 11:57:08 - Erro:EAccessViolation
+11/03/20 11:57:08 - Erro:Access violation at address 00BC0AE7 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 11:58:39 - ===========================================
+11/03/20 11:58:39 - Form: formVisualizarVendas
+11/03/20 11:58:39 - Caption: Visualizar vendas
+11/03/20 11:58:39 - Erro:Exception
+11/03/20 11:58:39 - Erro:ERRO! Esta venda já foi estornada
+11/03/20 11:58:53 - ===========================================
+11/03/20 11:58:53 - Form: formVisualizarVendas
+11/03/20 11:58:53 - Caption: Visualizar vendas
+11/03/20 11:58:53 - Erro:Exception
+11/03/20 11:58:53 - Erro:Houve um erro ao tentar estornar esta venda. 'JANAINA SOUZA LOPES' is not a valid integer value
+11/03/20 12:13:46 - ===========================================
+11/03/20 12:13:46 - Form: formPrincipal
+11/03/20 12:13:46 - Caption: SimpleOS
+11/03/20 12:13:46 - Erro:Exception
+11/03/20 12:13:46 - Erro:É necessário o código do usuário.
+11/03/20 12:13:47 - ===========================================
+11/03/20 12:13:47 - Form: formPrincipal
+11/03/20 12:13:47 - Caption: SimpleOS
+11/03/20 12:13:47 - Erro:EAccessViolation
+11/03/20 12:13:47 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:48 - ===========================================
+11/03/20 12:13:48 - Form: formPrincipal
+11/03/20 12:13:48 - Caption: SimpleOS
+11/03/20 12:13:48 - Erro:EAccessViolation
+11/03/20 12:13:48 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:49 - ===========================================
+11/03/20 12:13:49 - Form: formPrincipal
+11/03/20 12:13:49 - Caption: SimpleOS
+11/03/20 12:13:49 - Erro:EAccessViolation
+11/03/20 12:13:49 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:50 - ===========================================
+11/03/20 12:13:50 - Form: formPrincipal
+11/03/20 12:13:50 - Caption: SimpleOS
+11/03/20 12:13:50 - Erro:EAccessViolation
+11/03/20 12:13:50 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:51 - ===========================================
+11/03/20 12:13:51 - Form: formPrincipal
+11/03/20 12:13:51 - Caption: SimpleOS
+11/03/20 12:13:51 - Erro:EAccessViolation
+11/03/20 12:13:51 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:52 - ===========================================
+11/03/20 12:13:52 - Form: formPrincipal
+11/03/20 12:13:52 - Caption: SimpleOS
+11/03/20 12:13:52 - Erro:EAccessViolation
+11/03/20 12:13:52 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:53 - ===========================================
+11/03/20 12:13:53 - Form: formPrincipal
+11/03/20 12:13:53 - Caption: SimpleOS
+11/03/20 12:13:53 - Erro:EAccessViolation
+11/03/20 12:13:53 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:54 - ===========================================
+11/03/20 12:13:54 - Form: formPrincipal
+11/03/20 12:13:54 - Caption: SimpleOS
+11/03/20 12:13:54 - Erro:EAccessViolation
+11/03/20 12:13:54 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:55 - ===========================================
+11/03/20 12:13:55 - Form: formPrincipal
+11/03/20 12:13:55 - Caption: SimpleOS
+11/03/20 12:13:55 - Erro:EAccessViolation
+11/03/20 12:13:55 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:56 - ===========================================
+11/03/20 12:13:56 - Form: formPrincipal
+11/03/20 12:13:56 - Caption: SimpleOS
+11/03/20 12:13:56 - Erro:EAccessViolation
+11/03/20 12:13:56 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:57 - ===========================================
+11/03/20 12:13:57 - Form: formPrincipal
+11/03/20 12:13:57 - Caption: SimpleOS
+11/03/20 12:13:57 - Erro:EAccessViolation
+11/03/20 12:13:57 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:58 - ===========================================
+11/03/20 12:13:58 - Form: formPrincipal
+11/03/20 12:13:58 - Caption: SimpleOS
+11/03/20 12:13:58 - Erro:EAccessViolation
+11/03/20 12:13:58 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:13:59 - ===========================================
+11/03/20 12:13:59 - Form: formPrincipal
+11/03/20 12:13:59 - Caption: SimpleOS
+11/03/20 12:13:59 - Erro:EAccessViolation
+11/03/20 12:13:59 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:00 - ===========================================
+11/03/20 12:14:00 - Form: formPrincipal
+11/03/20 12:14:00 - Caption: SimpleOS
+11/03/20 12:14:00 - Erro:EAccessViolation
+11/03/20 12:14:00 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:01 - ===========================================
+11/03/20 12:14:01 - Form: formPrincipal
+11/03/20 12:14:01 - Caption: SimpleOS
+11/03/20 12:14:01 - Erro:EAccessViolation
+11/03/20 12:14:01 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:02 - ===========================================
+11/03/20 12:14:02 - Form: formPrincipal
+11/03/20 12:14:02 - Caption: SimpleOS
+11/03/20 12:14:02 - Erro:EAccessViolation
+11/03/20 12:14:02 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:03 - ===========================================
+11/03/20 12:14:03 - Form: formPrincipal
+11/03/20 12:14:03 - Caption: SimpleOS
+11/03/20 12:14:03 - Erro:EAccessViolation
+11/03/20 12:14:03 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:04 - ===========================================
+11/03/20 12:14:04 - Form: formPrincipal
+11/03/20 12:14:04 - Caption: SimpleOS
+11/03/20 12:14:04 - Erro:EAccessViolation
+11/03/20 12:14:04 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:05 - ===========================================
+11/03/20 12:14:05 - Form: formPrincipal
+11/03/20 12:14:05 - Caption: SimpleOS
+11/03/20 12:14:05 - Erro:EAccessViolation
+11/03/20 12:14:05 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:06 - ===========================================
+11/03/20 12:14:06 - Form: formPrincipal
+11/03/20 12:14:06 - Caption: SimpleOS
+11/03/20 12:14:06 - Erro:EAccessViolation
+11/03/20 12:14:06 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:07 - ===========================================
+11/03/20 12:14:07 - Form: formPrincipal
+11/03/20 12:14:07 - Caption: SimpleOS
+11/03/20 12:14:07 - Erro:EAccessViolation
+11/03/20 12:14:07 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:08 - ===========================================
+11/03/20 12:14:08 - Form: formPrincipal
+11/03/20 12:14:08 - Caption: SimpleOS
+11/03/20 12:14:08 - Erro:EAccessViolation
+11/03/20 12:14:08 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:09 - ===========================================
+11/03/20 12:14:09 - Form: formPrincipal
+11/03/20 12:14:09 - Caption: SimpleOS
+11/03/20 12:14:09 - Erro:EAccessViolation
+11/03/20 12:14:09 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:10 - ===========================================
+11/03/20 12:14:10 - Form: formPrincipal
+11/03/20 12:14:10 - Caption: SimpleOS
+11/03/20 12:14:10 - Erro:EAccessViolation
+11/03/20 12:14:10 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:11 - ===========================================
+11/03/20 12:14:11 - Form: formPrincipal
+11/03/20 12:14:11 - Caption: SimpleOS
+11/03/20 12:14:11 - Erro:EAccessViolation
+11/03/20 12:14:11 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:14:12 - ===========================================
+11/03/20 12:14:12 - Form: formPrincipal
+11/03/20 12:14:12 - Caption: SimpleOS
+11/03/20 12:14:12 - Erro:EAccessViolation
+11/03/20 12:14:12 - Erro:Access violation at address 00BD84C0 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:16 - ===========================================
+11/03/20 12:17:16 - Form: formPrincipal
+11/03/20 12:17:16 - Caption: SimpleOS
+11/03/20 12:17:16 - Erro:Exception
+11/03/20 12:17:16 - Erro:É necessário o código do usuário.
+11/03/20 12:17:17 - ===========================================
+11/03/20 12:17:17 - Form: formPrincipal
+11/03/20 12:17:17 - Caption: SimpleOS
+11/03/20 12:17:17 - Erro:EAccessViolation
+11/03/20 12:17:17 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:18 - ===========================================
+11/03/20 12:17:18 - Form: formPrincipal
+11/03/20 12:17:18 - Caption: SimpleOS
+11/03/20 12:17:18 - Erro:EAccessViolation
+11/03/20 12:17:18 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:19 - ===========================================
+11/03/20 12:17:19 - Form: formPrincipal
+11/03/20 12:17:19 - Caption: SimpleOS
+11/03/20 12:17:19 - Erro:EAccessViolation
+11/03/20 12:17:19 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:20 - ===========================================
+11/03/20 12:17:20 - Form: formPrincipal
+11/03/20 12:17:20 - Caption: SimpleOS
+11/03/20 12:17:20 - Erro:EAccessViolation
+11/03/20 12:17:20 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:21 - ===========================================
+11/03/20 12:17:21 - Form: formPrincipal
+11/03/20 12:17:21 - Caption: SimpleOS
+11/03/20 12:17:21 - Erro:EAccessViolation
+11/03/20 12:17:21 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:22 - ===========================================
+11/03/20 12:17:22 - Form: formPrincipal
+11/03/20 12:17:22 - Caption: SimpleOS
+11/03/20 12:17:22 - Erro:EAccessViolation
+11/03/20 12:17:22 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:23 - ===========================================
+11/03/20 12:17:23 - Form: formPrincipal
+11/03/20 12:17:23 - Caption: SimpleOS
+11/03/20 12:17:23 - Erro:EAccessViolation
+11/03/20 12:17:23 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:24 - ===========================================
+11/03/20 12:17:24 - Form: formPrincipal
+11/03/20 12:17:24 - Caption: SimpleOS
+11/03/20 12:17:24 - Erro:EAccessViolation
+11/03/20 12:17:24 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:25 - ===========================================
+11/03/20 12:17:25 - Form: formPrincipal
+11/03/20 12:17:25 - Caption: SimpleOS
+11/03/20 12:17:25 - Erro:EAccessViolation
+11/03/20 12:17:25 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:26 - ===========================================
+11/03/20 12:17:26 - Form: formPrincipal
+11/03/20 12:17:26 - Caption: SimpleOS
+11/03/20 12:17:26 - Erro:EAccessViolation
+11/03/20 12:17:26 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:27 - ===========================================
+11/03/20 12:17:27 - Form: formPrincipal
+11/03/20 12:17:27 - Caption: SimpleOS
+11/03/20 12:17:27 - Erro:EAccessViolation
+11/03/20 12:17:27 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:28 - ===========================================
+11/03/20 12:17:28 - Form: formPrincipal
+11/03/20 12:17:28 - Caption: SimpleOS
+11/03/20 12:17:28 - Erro:EAccessViolation
+11/03/20 12:17:28 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:29 - ===========================================
+11/03/20 12:17:29 - Form: formPrincipal
+11/03/20 12:17:29 - Caption: SimpleOS
+11/03/20 12:17:29 - Erro:EAccessViolation
+11/03/20 12:17:29 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:30 - ===========================================
+11/03/20 12:17:30 - Form: formPrincipal
+11/03/20 12:17:30 - Caption: SimpleOS
+11/03/20 12:17:30 - Erro:EAccessViolation
+11/03/20 12:17:30 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:31 - ===========================================
+11/03/20 12:17:31 - Form: formPrincipal
+11/03/20 12:17:31 - Caption: SimpleOS
+11/03/20 12:17:31 - Erro:EAccessViolation
+11/03/20 12:17:31 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:32 - ===========================================
+11/03/20 12:17:32 - Form: formPrincipal
+11/03/20 12:17:32 - Caption: SimpleOS
+11/03/20 12:17:32 - Erro:EAccessViolation
+11/03/20 12:17:32 - Erro:Access violation at address 00BD8428 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:17:59 - ===========================================
+11/03/20 12:17:59 - Form: formPrincipal
+11/03/20 12:17:59 - Caption: SimpleOS
+11/03/20 12:17:59 - Erro:Exception
+11/03/20 12:17:59 - Erro:É necessário o código do usuário.
+11/03/20 12:18:00 - ===========================================
+11/03/20 12:18:00 - Form: formPrincipal
+11/03/20 12:18:00 - Caption: SimpleOS
+11/03/20 12:18:00 - Erro:EAccessViolation
+11/03/20 12:18:00 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:01 - ===========================================
+11/03/20 12:18:01 - Form: formPrincipal
+11/03/20 12:18:01 - Caption: SimpleOS
+11/03/20 12:18:01 - Erro:EAccessViolation
+11/03/20 12:18:01 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:02 - ===========================================
+11/03/20 12:18:02 - Form: formPrincipal
+11/03/20 12:18:02 - Caption: SimpleOS
+11/03/20 12:18:02 - Erro:EAccessViolation
+11/03/20 12:18:02 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:03 - ===========================================
+11/03/20 12:18:03 - Form: formPrincipal
+11/03/20 12:18:03 - Caption: SimpleOS
+11/03/20 12:18:03 - Erro:EAccessViolation
+11/03/20 12:18:03 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:04 - ===========================================
+11/03/20 12:18:04 - Form: formPrincipal
+11/03/20 12:18:04 - Caption: SimpleOS
+11/03/20 12:18:04 - Erro:EAccessViolation
+11/03/20 12:18:04 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:05 - ===========================================
+11/03/20 12:18:05 - Form: formPrincipal
+11/03/20 12:18:05 - Caption: SimpleOS
+11/03/20 12:18:05 - Erro:EAccessViolation
+11/03/20 12:18:05 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:06 - ===========================================
+11/03/20 12:18:06 - Form: formPrincipal
+11/03/20 12:18:06 - Caption: SimpleOS
+11/03/20 12:18:06 - Erro:EAccessViolation
+11/03/20 12:18:06 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:07 - ===========================================
+11/03/20 12:18:07 - Form: formPrincipal
+11/03/20 12:18:07 - Caption: SimpleOS
+11/03/20 12:18:07 - Erro:EAccessViolation
+11/03/20 12:18:07 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:08 - ===========================================
+11/03/20 12:18:08 - Form: formPrincipal
+11/03/20 12:18:08 - Caption: SimpleOS
+11/03/20 12:18:08 - Erro:EAccessViolation
+11/03/20 12:18:08 - Erro:Access violation at address 00BD8398 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:42 - ===========================================
+11/03/20 12:18:42 - Form: formPrincipal
+11/03/20 12:18:42 - Caption: SimpleOS
+11/03/20 12:18:42 - Erro:Exception
+11/03/20 12:18:42 - Erro:É necessário o código do usuário.
+11/03/20 12:18:43 - ===========================================
+11/03/20 12:18:43 - Form: formPrincipal
+11/03/20 12:18:43 - Caption: SimpleOS
+11/03/20 12:18:43 - Erro:EAccessViolation
+11/03/20 12:18:43 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:44 - ===========================================
+11/03/20 12:18:44 - Form: formPrincipal
+11/03/20 12:18:44 - Caption: SimpleOS
+11/03/20 12:18:44 - Erro:EAccessViolation
+11/03/20 12:18:44 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:45 - ===========================================
+11/03/20 12:18:45 - Form: formPrincipal
+11/03/20 12:18:45 - Caption: SimpleOS
+11/03/20 12:18:45 - Erro:EAccessViolation
+11/03/20 12:18:45 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:46 - ===========================================
+11/03/20 12:18:46 - Form: formPrincipal
+11/03/20 12:18:46 - Caption: SimpleOS
+11/03/20 12:18:46 - Erro:EAccessViolation
+11/03/20 12:18:46 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:47 - ===========================================
+11/03/20 12:18:47 - Form: formPrincipal
+11/03/20 12:18:47 - Caption: SimpleOS
+11/03/20 12:18:47 - Erro:EAccessViolation
+11/03/20 12:18:47 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:48 - ===========================================
+11/03/20 12:18:48 - Form: formPrincipal
+11/03/20 12:18:48 - Caption: SimpleOS
+11/03/20 12:18:48 - Erro:EAccessViolation
+11/03/20 12:18:48 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:49 - ===========================================
+11/03/20 12:18:49 - Form: formPrincipal
+11/03/20 12:18:49 - Caption: SimpleOS
+11/03/20 12:18:49 - Erro:EAccessViolation
+11/03/20 12:18:49 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:50 - ===========================================
+11/03/20 12:18:50 - Form: formPrincipal
+11/03/20 12:18:50 - Caption: SimpleOS
+11/03/20 12:18:50 - Erro:EAccessViolation
+11/03/20 12:18:50 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:51 - ===========================================
+11/03/20 12:18:51 - Form: formPrincipal
+11/03/20 12:18:51 - Caption: SimpleOS
+11/03/20 12:18:51 - Erro:EAccessViolation
+11/03/20 12:18:51 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:52 - ===========================================
+11/03/20 12:18:52 - Form: formPrincipal
+11/03/20 12:18:52 - Caption: SimpleOS
+11/03/20 12:18:52 - Erro:EAccessViolation
+11/03/20 12:18:52 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:18:53 - ===========================================
+11/03/20 12:18:53 - Form: formPrincipal
+11/03/20 12:18:53 - Caption: SimpleOS
+11/03/20 12:18:53 - Erro:EAccessViolation
+11/03/20 12:18:53 - Erro:Access violation at address 00BD82E8 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:44 - ===========================================
+11/03/20 12:19:44 - Form: formPrincipal
+11/03/20 12:19:44 - Caption: SimpleOS
+11/03/20 12:19:44 - Erro:Exception
+11/03/20 12:19:44 - Erro:É necessário o código do usuário.
+11/03/20 12:19:45 - ===========================================
+11/03/20 12:19:45 - Form: formPrincipal
+11/03/20 12:19:45 - Caption: SimpleOS
+11/03/20 12:19:45 - Erro:EAccessViolation
+11/03/20 12:19:45 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:46 - ===========================================
+11/03/20 12:19:46 - Form: formPrincipal
+11/03/20 12:19:46 - Caption: SimpleOS
+11/03/20 12:19:46 - Erro:EAccessViolation
+11/03/20 12:19:46 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:47 - ===========================================
+11/03/20 12:19:47 - Form: formPrincipal
+11/03/20 12:19:47 - Caption: SimpleOS
+11/03/20 12:19:47 - Erro:EAccessViolation
+11/03/20 12:19:47 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:48 - ===========================================
+11/03/20 12:19:48 - Form: formPrincipal
+11/03/20 12:19:48 - Caption: SimpleOS
+11/03/20 12:19:48 - Erro:EAccessViolation
+11/03/20 12:19:48 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:49 - ===========================================
+11/03/20 12:19:49 - Form: formPrincipal
+11/03/20 12:19:49 - Caption: SimpleOS
+11/03/20 12:19:49 - Erro:EAccessViolation
+11/03/20 12:19:49 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:50 - ===========================================
+11/03/20 12:19:50 - Form: formPrincipal
+11/03/20 12:19:50 - Caption: SimpleOS
+11/03/20 12:19:50 - Erro:EAccessViolation
+11/03/20 12:19:50 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:51 - ===========================================
+11/03/20 12:19:51 - Form: formPrincipal
+11/03/20 12:19:51 - Caption: SimpleOS
+11/03/20 12:19:51 - Erro:EAccessViolation
+11/03/20 12:19:51 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:52 - ===========================================
+11/03/20 12:19:52 - Form: formPrincipal
+11/03/20 12:19:52 - Caption: SimpleOS
+11/03/20 12:19:52 - Erro:EAccessViolation
+11/03/20 12:19:52 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:53 - ===========================================
+11/03/20 12:19:53 - Form: formPrincipal
+11/03/20 12:19:53 - Caption: SimpleOS
+11/03/20 12:19:53 - Erro:EAccessViolation
+11/03/20 12:19:53 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:54 - ===========================================
+11/03/20 12:19:54 - Form: formPrincipal
+11/03/20 12:19:54 - Caption: SimpleOS
+11/03/20 12:19:54 - Erro:EAccessViolation
+11/03/20 12:19:54 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:55 - ===========================================
+11/03/20 12:19:55 - Form: formPrincipal
+11/03/20 12:19:55 - Caption: SimpleOS
+11/03/20 12:19:55 - Erro:EAccessViolation
+11/03/20 12:19:55 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:19:56 - ===========================================
+11/03/20 12:19:56 - Form: formPrincipal
+11/03/20 12:19:56 - Caption: SimpleOS
+11/03/20 12:19:56 - Erro:EAccessViolation
+11/03/20 12:19:56 - Erro:Access violation at address 00BD8254 in module 'SimplesOS.exe'. Read of address 00000004
+11/03/20 12:20:31 - ===========================================
+11/03/20 12:20:31 - Form: formPrincipal
+11/03/20 12:20:31 - Caption: SimpleOS
+11/03/20 12:20:31 - Erro:EAccessViolation
+11/03/20 12:20:31 - Erro:Access violation at address 00BC0BDF in module 'SimplesOS.exe'. Read of address 00000004

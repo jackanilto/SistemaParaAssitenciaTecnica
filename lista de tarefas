@@ -20,9 +20,9 @@ Rever o funcionamento do log de eventos nas seguintes janela
 #Saida de produtos --FEITO
 #Criar ordem de serviços --FEITO
 #Venda de produtos --FEITO
-#Quitar parcelas
-#Visualizar vendas
-#Encerramento de caixa
+#Quitar parcelas --FEITO
+#Visualizar vendas --FEITO
+#Encerramento de caixa --Não há necessidade
 #Reabertura do caixa
 #Retirada de valores
 #Comissões por técnico

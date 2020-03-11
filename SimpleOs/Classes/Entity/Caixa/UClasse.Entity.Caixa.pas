@@ -4,7 +4,8 @@ interface
 
 uses
   FireDAC.Comp.Client, UDados.Conexao, System.SysUtils, Vcl.StdCtrls,
-  Vcl.Dialogs, Data.DB, Vcl.Forms, Vcl.Controls, Winapi.Windows;
+  Vcl.Dialogs, Data.DB, Vcl.Forms, Vcl.Controls, Winapi.Windows, UInterfaces,
+  UClasse.Gravar.Log.Sistema;
 
 type
   TEntityCaixa = class
@@ -17,6 +18,8 @@ type
     FQueryUltimoCaixa: TFDQuery;
     FQueryReaberturaCaixa: TFDQuery;
     spCodigoCadastro: TFDStoredProc;
+
+    FGravarLog: iGravarLogOperacoes;
 
   var
     FUltimaData: TDate;
@@ -271,6 +274,11 @@ begin
   FQuery.SQL.Add('select * from CAIXA_ABER_FECH order by id desc');
   FQuery.Active := true;
 
+//  FGravarLog := TGravarLogSistema.new;
+//
+//  FGravarLog.getJanela('Caixa')
+//    .getCodigoFuncionario(funcionarioLogado);
+
 end;
 
 destructor TEntityCaixa.destroy;
@@ -316,6 +324,8 @@ begin
       FQueryEncerramento.Post;
       showmessage('O caixa foi encerrado com sucesso!!!.');
 
+//      FGravarLog.getNomeRegistro(' ').getCodigoRegistro(0).getOperacao('encerramento do caixa manualmente').gravarLog;
+
     except
       on e: exception do
       begin
@@ -358,6 +368,8 @@ begin
     showmessage('O caixa anterior foi encerrado automaticamente.');
 
     value.DataSet := FQueryEncerramento;
+
+//    FGravarLog.getNomeRegistro(' ').getCodigoRegistro(0).getOperacao('encerramento do caixa').gravarLog;
 
   except
     on e: exception do
@@ -412,6 +424,8 @@ begin
 //    FQueryEncerramento.Refresh;
 
     showmessage('O caixa foi iniciado com sucesso!!!');
+
+//    FGravarLog.getNomeRegistro(' ').getCodigoRegistro(0).getOperacao('abertura do caixa').gravarLog;
 
   except
     on e: exception do
@@ -494,6 +508,8 @@ begin
 
       FQueryAbertura.Post;
       showmessage('O caixa foi Reaberto com sucesso!!!.');
+
+//      FGravarLog.getNomeRegistro(' ').getCodigoRegistro(0).getOperacao('reabertura do caixa').gravarLog;
 
     except
       on e: exception do

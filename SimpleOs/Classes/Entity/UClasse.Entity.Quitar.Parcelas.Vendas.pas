@@ -228,6 +228,13 @@ begin
 
       FQueryParcela.TQuery.Post;
 
+
+      FGravarLog
+              .getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+              .getCodigoRegistro(+FQuery.TQuery.FieldByName('ID_VENDA').AsInteger)
+              .getOperacao('estornada')
+              .gravarLog;
+
     end;
   end;
 
@@ -258,6 +265,13 @@ begin
       begin
         F_Query.Delete;
 //        F_Query.Post;
+
+      FGravarLog
+              .getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+              .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_VENDA').AsInteger)
+              .getOperacao('deletada')
+              .gravarLog;
+
       end;
     end;
 
@@ -684,6 +698,12 @@ begin
   FQueryParcela.TQuery.Post;
   ShowMessage('Parcela adicionada com sucesso.');
 
+        FGravarLog
+              .getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+              .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_VENDA').AsInteger)
+              .getOperacao('adicionando')
+              .gravarLog;
+
 end;
 
 function TEntityQuitarParcelaVenda.quitarParcela: iQuitarParcelasVenda;
@@ -709,6 +729,13 @@ begin
 
     try
       FQueryParcela.TQuery.Post;
+
+            FGravarLog
+              .getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+              .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_VENDA').AsInteger)
+              .getOperacao('quitada')
+              .gravarLog;
+
     except
       on e: Exception do
       begin

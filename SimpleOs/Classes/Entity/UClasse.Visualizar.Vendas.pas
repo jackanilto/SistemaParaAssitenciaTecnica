@@ -15,7 +15,7 @@ type
     FQuery: iConexaoQuery;
     FQueryItens: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
-    FEstornarVenda:iEstonarVenda;
+    FEstornarVenda: iEstonarVenda;
     FTabela: string;
     FCampo: string;
     FValor: string;
@@ -52,7 +52,7 @@ type
     function atualizarItens: iVisualizarVenda;
 
     function exportar: iVisualizarVenda;
-    function exportarItens:iVisualizarVenda;
+    function exportarItens: iVisualizarVenda;
 
     constructor create;
     destructor destroy; override;
@@ -105,7 +105,15 @@ begin
   result := self;
   if Application.MessageBox('Deseja realmente excluir esta venda?',
     'Pergunta do sistema', MB_YESNO + MB_ICONWARNING) = mryes then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_CLIENTE')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('ID')
+      .AsInteger).getOperacao('estornada').gravarLog;
+
     FQuery.TQuery.Delete;
+
+  end;
 
 end;
 
@@ -159,21 +167,18 @@ begin
         end;
       end;
 
-
-      FEstornarVenda
-                    .getID_VENDA(FQuery.TQuery.FieldByName('ID').AsInteger)
-                    .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
-                    .getVALOR_VENDA(FQuery.TQuery.FieldByName('TOTAL').AsCurrency)
-                    .getDATA(DateToStr(date))
-                    .getHORA(TimeToStr(time))
-                    .getMOTIVO('')
-                    .getFUNCIONARIO(0)
-                    .getNOME_FUNCIONARIO('')
-                    .getOBSERVACAO('')
-                    .inserir
-                    .gravar;
+      FEstornarVenda.getID_VENDA(FQuery.TQuery.FieldByName('ID').AsInteger)
+        .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+        .getVALOR_VENDA(FQuery.TQuery.FieldByName('TOTAL').AsCurrency)
+        .getDATA(DateToStr(date)).getHORA(TimeToStr(time)).getMOTIVO('')
+        .getFUNCIONARIO(0).getNOME_FUNCIONARIO('').getOBSERVACAO('')
+        .inserir.Gravar;
 
       showmessage('Venda estornada com sucesso!!!');
+
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_CLIENTE')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('ID')
+        .AsInteger).getOperacao('estornada').gravarLog;
 
     except
       on e: exception do
@@ -226,18 +231,27 @@ begin
     begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('id').AsInteger;
-      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('NOME_CLIENTE').AsString;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').AsString;
-      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('DATA_VENDA').AsDateTime;
-      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('HORA_VENDA').AsDateTime;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_CLIENTE')
+        .AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
+        ('NOME_CLIENTE').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('FUNCIONARIO')
+        .AsInteger;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName
+        ('NOME_FUNCIONARIO').AsString;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('DATA_VENDA')
+        .AsDateTime;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('HORA_VENDA')
+        .AsDateTime;
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('SUBTOTAL').AsCurrency;
       pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('TOTAL').AsCurrency;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('QUANTIDADE_PARCELAS').AsInteger;
-      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('VENCIMENTO').AsDateTime;
-      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('QUANTIDADE_PARCELAS')
+        .AsInteger;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('VENCIMENTO')
+        .AsDateTime;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName
+        ('FORMA_PAGAMENTO').AsString;
       pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('STATUS').AsString;
 
       linha := linha + 1;
@@ -273,19 +287,24 @@ begin
   pasta.cells[1, 6] := 'Valor unitário';
   pasta.cells[1, 7] := 'Quantidade';
 
-
   try
     while not FQueryItens.TQuery.Eof do
     begin
 
-      pasta.cells[linha, 1] := FQueryItens.TQuery.FieldByName('ID_VENDA').AsInteger;
-      pasta.cells[linha, 2] := FQueryItens.TQuery.FieldByName('ID_CLIENTE').AsInteger;
-      pasta.cells[linha, 3] := FQueryItens.TQuery.FieldByName('ID_PRODUTO').AsInteger;
-      pasta.cells[linha, 4] := FQueryItens.TQuery.FieldByName('PRODUTO').AsString;
-      pasta.cells[linha, 5] := FQueryItens.TQuery.FieldByName('VALOR_UNITARIO').AsCurrency;
-      pasta.cells[linha, 6] := FQueryItens.TQuery.FieldByName('QUANTIDADE').AsInteger;
-      pasta.cells[linha, 7] := FQueryItens.TQuery.FieldByName('TOTAL').AsCurrency;
-
+      pasta.cells[linha, 1] := FQueryItens.TQuery.FieldByName('ID_VENDA')
+        .AsInteger;
+      pasta.cells[linha, 2] := FQueryItens.TQuery.FieldByName('ID_CLIENTE')
+        .AsInteger;
+      pasta.cells[linha, 3] := FQueryItens.TQuery.FieldByName('ID_PRODUTO')
+        .AsInteger;
+      pasta.cells[linha, 4] := FQueryItens.TQuery.FieldByName
+        ('PRODUTO').AsString;
+      pasta.cells[linha, 5] := FQueryItens.TQuery.FieldByName('VALOR_UNITARIO')
+        .AsCurrency;
+      pasta.cells[linha, 6] := FQueryItens.TQuery.FieldByName('QUANTIDADE')
+        .AsInteger;
+      pasta.cells[linha, 7] := FQueryItens.TQuery.FieldByName('TOTAL')
+        .AsCurrency;
 
       linha := linha + 1;
 
