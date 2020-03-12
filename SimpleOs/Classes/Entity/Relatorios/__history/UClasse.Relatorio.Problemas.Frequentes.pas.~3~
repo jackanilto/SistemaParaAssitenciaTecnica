@@ -1,0 +1,215 @@
+unit UClasse.Relatorio.Problemas.Frequentes;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TRelatorioProblemasFrequentes = class(TInterfacedObject, iRelatorioComissoesTecnico)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FNome: string;
+
+  public
+
+    function nomeTabela(value: string): iRelatorioComissoesTecnico;
+    function getCampo(value: string): iRelatorioComissoesTecnico;
+    function getValor(value: string): iRelatorioComissoesTecnico;
+    function getDataInicial(value: TDate): iRelatorioComissoesTecnico;
+    function getDataFinal(value: TDate): iRelatorioComissoesTecnico;
+    function open(value: string): iRelatorioComissoesTecnico;
+    function pesquisar: iRelatorioComissoesTecnico;
+    function ExecSql: iRelatorioComissoesTecnico;
+    function sqlPesquisa: iRelatorioComissoesTecnico;
+    function sqlPesquisaData: iRelatorioComissoesTecnico;
+    function sqlPesquisaEstatica: iRelatorioComissoesTecnico;
+
+    function abrir: iRelatorioComissoesTecnico;
+    function atualizar: iRelatorioComissoesTecnico;
+    function cancelar: iRelatorioComissoesTecnico;
+    function fecharQuery: iRelatorioComissoesTecnico;
+    function listarGrid(value: TDataSource): iRelatorioComissoesTecnico;
+    function ordenarGrid(column: TColumn): iRelatorioComissoesTecnico;
+
+    function exportar: iRelatorioComissoesTecnico;
+    function validarData(componet: tmaskEdit):iRelatorioComissoesTecnico;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iRelatorioComissoesTecnico;
+  end;
+
+implementation
+
+{ TRelatorioProblemasFrequentes }
+
+function TRelatorioProblemasFrequentes.abrir: iRelatorioComissoesTecnico;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TRelatorioProblemasFrequentes.atualizar: iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TRelatorioProblemasFrequentes.cancelar: iRelatorioComissoesTecnico;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+constructor TRelatorioProblemasFrequentes.create;
+begin
+  FTabela := 'PRODUTOS';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+destructor TRelatorioProblemasFrequentes.destroy;
+begin
+
+  inherited;
+end;
+
+function TRelatorioProblemasFrequentes.ExecSql: iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TRelatorioProblemasFrequentes.exportar: iRelatorioComissoesTecnico;
+begin
+  result := self;
+end;
+
+function TRelatorioProblemasFrequentes.fecharQuery: iRelatorioComissoesTecnico;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TRelatorioProblemasFrequentes.getCampo(value: string): iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TRelatorioProblemasFrequentes.getDataFinal(value: TDate): iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TRelatorioProblemasFrequentes.getDataInicial(value: TDate): iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TRelatorioProblemasFrequentes.getValor(value: string): iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TRelatorioProblemasFrequentes.listarGrid(value: TDataSource): iRelatorioComissoesTecnico;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
+  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TRelatorioProblemasFrequentes.new: iRelatorioComissoesTecnico;
+begin
+  result := self.create;
+end;
+
+function TRelatorioProblemasFrequentes.nomeTabela(value: string): iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TRelatorioProblemasFrequentes.open(value: string): iRelatorioComissoesTecnico;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TRelatorioProblemasFrequentes.ordenarGrid(column: TColumn): iRelatorioComissoesTecnico;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TRelatorioProblemasFrequentes.pesquisar: iRelatorioComissoesTecnico;
+begin
+  result := self;
+end;
+
+function TRelatorioProblemasFrequentes.sqlPesquisa: iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TRelatorioProblemasFrequentes.sqlPesquisaData: iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TRelatorioProblemasFrequentes.sqlPesquisaEstatica: iRelatorioComissoesTecnico;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TRelatorioProblemasFrequentes.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.

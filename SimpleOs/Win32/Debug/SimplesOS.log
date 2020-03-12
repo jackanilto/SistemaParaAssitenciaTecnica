@@ -4922,3 +4922,13 @@ Resposta HTTP:
 11/03/20 12:20:31 - Caption: SimpleOS
 11/03/20 12:20:31 - Erro:EAccessViolation
 11/03/20 12:20:31 - Erro:Access violation at address 00BC0BDF in module 'SimplesOS.exe'. Read of address 00000004
+12/03/20 13:42:58 - ===========================================
+12/03/20 13:42:58 - Form: formPrincipal
+12/03/20 13:42:58 - Caption: SimpleOS
+12/03/20 13:42:58 - Erro:EAccessViolation
+12/03/20 13:42:58 - Erro:Access violation at address 00BC0BDF in module 'SimplesOS.exe'. Read of address 00000004
+12/03/20 13:43:17 - ===========================================
+12/03/20 13:43:17 - Form: formPrincipal
+12/03/20 13:43:17 - Caption: SimpleOS
+12/03/20 13:43:17 - Erro:EAccessViolation
+12/03/20 13:43:17 - Erro:Access violation at address 00BC0BDF in module 'SimplesOS.exe'. Read of address 00000004

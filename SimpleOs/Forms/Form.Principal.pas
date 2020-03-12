@@ -17,7 +17,7 @@ uses
   Form.Relatorio.Situacao.Estoque, Form.Relatorio.Transportadoras,
   Form.Abertura.Caixa, UClasse.Entity.Caixa, Form.Login, UDados.Conexao,
   Form.Comissoes.Funcionario, Form.Relatorio.Comissoes, UClasse.Config.BackUp,
-  UClasse.Config.Acesso.Banco;
+  UClasse.Config.Acesso.Banco, Form.Relatorio.Problemas.Frequentes;
 
 type
   TformPrincipal = class(TForm)
@@ -124,6 +124,7 @@ type
     acConfigurarBackUp: TAction;
     acBackupManual: TAction;
     Timer1: TTimer;
+    acRelatorioProblemasFrequentes: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -195,6 +196,7 @@ type
     procedure acConfigurarBackUpExecute(Sender: TObject);
     procedure acBackupManualExecute(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure acRelatorioProblemasFrequentesExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -482,6 +484,12 @@ begin
   formRelatorioParcelasPagasVendas :=
     TformRelatorioParcelasPagasVendas.Create(self);
   TFactory.new.criarJanela.FormShow(formRelatorioParcelasPagasVendas, '');
+end;
+
+procedure TformPrincipal.acRelatorioProblemasFrequentesExecute(Sender: TObject);
+begin
+  formRelatorioProblemasFrequentes := TformRelatorioProblemasFrequentes.Create(self);
+  TFactory.new.criarJanela.formShow(formRelatorioProblemasFrequentes, '');
 end;
 
 procedure TformPrincipal.acRelatorioProdutosMaisVendidosExecute

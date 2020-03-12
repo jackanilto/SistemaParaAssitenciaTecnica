@@ -7106,7 +7106,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 337
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7201,7 +7200,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 337
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7267,7 +7265,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 337
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7365,6 +7362,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioRetiradaDeValores
+            end
+            item
+              Action = acRelatorioProblemasFrequentes
             end>
           TextColor = 13402157
         end>
@@ -7379,6 +7379,9 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 0
+      ExplicitLeft = 6
+      ExplicitTop = 1
+      ExplicitWidth = 203
     end
   end
   object spvExtras: TSplitView
@@ -7441,7 +7444,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 337
   end
   object spvConfiguracoes: TSplitView
     Left = 150
@@ -7455,7 +7457,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 337
   end
   object Button2: TButton
     Left = 824
@@ -7478,7 +7479,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 10
-    ExplicitLeft = 337
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -8690,6 +8690,10 @@ object formPrincipal: TformPrincipal
     object acBackupManual: TAction
       Caption = 'Backup manual'
       OnExecute = acBackupManualExecute
+    end
+    object acRelatorioProblemasFrequentes: TAction
+      Caption = 'Problemas frequentes'
+      OnExecute = acRelatorioProblemasFrequentesExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

@@ -176,7 +176,9 @@ uses
   UClasse.Config.Acesso.Banco in 'Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas',
   Form.Configuracoes.Backup in 'Forms\Form.Configuracoes.Backup.pas' {formConfiguracoesBackUp},
   UClasse.Config.BackUp in 'Classes\Entity\Config\UClasse.Config.BackUp.pas',
-  Form.Backup.Manual in 'Forms\Form.Backup.Manual.pas' {formBackUpManual};
+  Form.Backup.Manual in 'Forms\Form.Backup.Manual.pas' {formBackUpManual},
+  UClasse.Relatorio.Problemas.Frequentes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Problemas.Frequentes.pas',
+  Form.Relatorio.Problemas.Frequentes in 'Forms\Relatorios\Form.Relatorio.Problemas.Frequentes.pas' {formRelatorioProblemasFrequentes};
 
 {$R *.res}
 

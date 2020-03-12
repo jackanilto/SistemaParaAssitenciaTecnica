@@ -113,8 +113,8 @@ begin
     begin
 
       FGravarLog.getNomeRegistro
-        (inttostr(FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger))
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+        ('Código do funcionário: '+FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger.ToString)
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -135,8 +135,8 @@ begin
   begin
 
     FGravarLog.getNomeRegistro
-      (inttostr(FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger))
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      ('Código do funcionário: '+FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger.ToString)
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -245,7 +245,7 @@ begin
   FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
   FGravarLog.getNomeRegistro
-    (inttostr(FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger))
+    ('Código do funcionário: '+FQuery.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger.ToString)
     .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
 
   try
@@ -265,6 +265,7 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo')
 end;
 
 function TEntityComissoesFuncionarios.listarGrid(value: TDataSource)

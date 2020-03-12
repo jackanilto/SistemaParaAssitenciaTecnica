@@ -2582,6 +2582,33 @@ type
 
   end;
 
+  iRelatorioProblemasFrequentes = interface
+    ['{689693E8-94B3-45EF-819F-7732D18204F0}']
+
+    function nomeTabela(value: string): iRelatorioProblemasFrequentes;
+    function getCampo(value: string): iRelatorioProblemasFrequentes;
+    function getValor(value: string): iRelatorioProblemasFrequentes;
+    function getDataInicial(value: TDate): iRelatorioProblemasFrequentes;
+    function getDataFinal(value: TDate): iRelatorioProblemasFrequentes;
+    function open(value: string): iRelatorioProblemasFrequentes;
+    function pesquisar: iRelatorioProblemasFrequentes;
+    function ExecSql: iRelatorioProblemasFrequentes;
+    function sqlPesquisa: iRelatorioProblemasFrequentes;
+    function sqlPesquisaData: iRelatorioProblemasFrequentes;
+    function sqlPesquisaEstatica: iRelatorioProblemasFrequentes;
+
+    function abrir: iRelatorioProblemasFrequentes;
+    function atualizar: iRelatorioProblemasFrequentes;
+    function cancelar: iRelatorioProblemasFrequentes;
+    function fecharQuery: iRelatorioProblemasFrequentes;
+    function listarGrid(value: TDataSource): iRelatorioProblemasFrequentes;
+    function ordenarGrid(column: TColumn): iRelatorioProblemasFrequentes;
+
+    function exportar: iRelatorioProblemasFrequentes;
+    function validarData(componet: tmaskEdit):iRelatorioProblemasFrequentes;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
