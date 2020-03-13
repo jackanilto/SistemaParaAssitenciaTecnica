@@ -4932,3 +4932,22 @@ Resposta HTTP:
 12/03/20 13:43:17 - Caption: SimpleOS
 12/03/20 13:43:17 - Erro:EAccessViolation
 12/03/20 13:43:17 - Erro:Access violation at address 00BC0BDF in module 'SimplesOS.exe'. Read of address 00000004
+12/03/20 20:09:19 - ===========================================
+12/03/20 20:09:19 - Form: formPrincipal
+12/03/20 20:09:19 - Caption: SimpleOS
+12/03/20 20:09:19 - Erro:EAccessViolation
+12/03/20 20:09:19 - Erro:Access violation at address 00BC0C2B in module 'SimplesOS.exe'. Read of address 00000004
+12/03/20 20:10:38 - ===========================================
+12/03/20 20:10:38 - Form: formRelatorioProblemasFrequentes
+12/03/20 20:10:38 - Caption: Relatório de problemas  frequentes
+12/03/20 20:10:38 - Erro:EIBNativeException
+12/03/20 20:10:38 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+IRELATORIOCOMISSOESTECNICO
+At line 1, column 15
+12/03/20 20:10:43 - ===========================================
+12/03/20 20:10:43 - Form: formRelatorioProblemasFrequentes
+12/03/20 20:10:43 - Caption: Relatório de problemas  frequentes
+12/03/20 20:10:43 - Erro:EAccessViolation
+12/03/20 20:10:43 - Erro:Access violation at address 00BDB1FE in module 'SimplesOS.exe'. Read of address 00000000

@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
 
 type
 
@@ -77,7 +78,7 @@ end;
 
 constructor TRelatorioProblemasFrequentes.create;
 begin
-  FTabela := 'iRelatorioComissoesTecnico';
+  FTabela := 'PROBLEMAS_FREQUENTES';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
@@ -100,8 +101,60 @@ begin
 end;
 
 function TRelatorioProblemasFrequentes.exportar: iRelatorioProblemasFrequentes;
+var
+  pasta: variant;
+  linha: integer;
 begin
-  result := self;
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório dos problemas frequentes';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Equipamento';
+  pasta.cells[1, 3] := 'Número de serie';
+  pasta.cells[1, 4] := 'Marca';
+  pasta.cells[1, 5] := 'Data de fabricação';
+  pasta.cells[1, 6] := 'Data de cadastro';;
+  pasta.cells[1, 7] := 'Defeito';
+  pasta.cells[1, 8] := 'Solução';
+  pasta.cells[1, 9] := 'Funcionário';
+  pasta.cells[1, 10] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('id').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('nome_peca').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
+        ('numero_serie').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('Marca').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('data_fabricacao')
+        .AsDateTime;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('data_cadastro')
+        .AsDateTime;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('defeito').Text;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName
+        ('solucao_defeito').Text;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('funcionario')
+        .AsInteger;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('observacao')
+        .AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
 end;
 
 function TRelatorioProblemasFrequentes.fecharQuery: iRelatorioProblemasFrequentes;
@@ -144,7 +197,7 @@ begin
   begin
 
     FieldByName('ID').DisplayLabel := 'Código';
-    FieldByName('NOME_PECA').DisplayLabel := 'Equipamento/Paça';
+    FieldByName('NOME_PECA').DisplayLabel := 'Equipamento/Peça';
     FieldByName('NUMERO_SERIE').DisplayLabel := 'Número de serie';
     FieldByName('MARCA').DisplayLabel := 'Marca';
     FieldByName('DATA_FABRICACAO').DisplayLabel := 'Data de fabricação';
@@ -155,6 +208,7 @@ begin
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
 
     FieldByName('NOME_PECA').DisplayWidth := 40;
+    FieldByName('NUMERO_SERIE').DisplayWidth := 40;
     FieldByName('DEFEITO').DisplayWidth := 40;
     FieldByName('SOLUCAO_DEFEITO').DisplayWidth := 40;
     FieldByName('OBSERVACAO').DisplayWidth := 40;
