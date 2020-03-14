@@ -4951,3 +4951,13 @@ At line 1, column 15
 12/03/20 20:10:43 - Caption: Relatório de problemas  frequentes
 12/03/20 20:10:43 - Erro:EAccessViolation
 12/03/20 20:10:43 - Erro:Access violation at address 00BDB1FE in module 'SimplesOS.exe'. Read of address 00000000
+13/03/20 11:15:08 - ===========================================
+13/03/20 11:15:08 - Form: formPrincipal
+13/03/20 11:15:08 - Caption: SimpleOS
+13/03/20 11:15:08 - Erro:EAccessViolation
+13/03/20 11:15:08 - Erro:Access violation at address 00BC0C2B in module 'SimplesOS.exe'. Read of address 00000004
+13/03/20 11:23:06 - ===========================================
+13/03/20 11:23:06 - Form: formPrincipal
+13/03/20 11:23:06 - Caption: SimpleOS
+13/03/20 11:23:06 - Erro:EAccessViolation
+13/03/20 11:23:06 - Erro:Access violation at address 00BC0C2B in module 'SimplesOS.exe'. Read of address 00000004

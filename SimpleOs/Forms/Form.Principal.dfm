@@ -7094,7 +7094,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvCadastros: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7106,6 +7106,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
+    ExplicitLeft = 150
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7191,7 +7192,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvMovimentacao: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7200,6 +7201,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
+    ExplicitLeft = 150
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7255,7 +7257,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7265,6 +7267,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 150
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7379,13 +7382,10 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 0
-      ExplicitLeft = 6
-      ExplicitTop = 1
-      ExplicitWidth = 203
     end
   end
   object spvExtras: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7396,6 +7396,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 150
     object CategoryButtons7: TCategoryButtons
       Left = -30
       Top = 3
@@ -7433,7 +7434,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvSobre: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7444,9 +7445,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    ExplicitLeft = 150
   end
   object spvConfiguracoes: TSplitView
-    Left = 150
+    Left = 337
     Top = 57
     Width = 0
     Height = 467
@@ -7457,6 +7459,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 8
+    ExplicitLeft = 150
   end
   object Button2: TButton
     Left = 824
@@ -7470,12 +7473,11 @@ object formPrincipal: TformPrincipal
   object spCaixa: TSplitView
     Left = 150
     Top = 57
-    Width = 0
+    Width = 187
     Height = 467
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
-    Opened = False
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 10
@@ -7507,6 +7509,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioComissoesTecnicos
+            end
+            item
+              Action = acRelatorioHistoricoCaixa
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -7520,6 +7525,15 @@ object formPrincipal: TformPrincipal
       SelectedButtonColor = clNone
       TabOrder = 0
     end
+  end
+  object Button3: TButton
+    Left = 800
+    Top = 263
+    Width = 75
+    Height = 25
+    Caption = 'Button3'
+    TabOrder = 11
+    OnClick = Button3Click
   end
   object ImageList1: TImageList
     Height = 24
@@ -8694,6 +8708,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioProblemasFrequentes: TAction
       Caption = 'Problemas frequentes'
       OnExecute = acRelatorioProblemasFrequentesExecute
+    end
+    object acRelatorioHistoricoCaixa: TAction
+      Caption = 'Hist'#243'rico do caixa'
+      OnExecute = acRelatorioHistoricoCaixaExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

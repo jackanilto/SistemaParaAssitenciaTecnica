@@ -1,0 +1,37 @@
+inherited formRelatorioHistoricoDoCaixa: TformRelatorioHistoricoDoCaixa
+  Caption = 'Hist'#243'rico de abertura e encerramento do caixa'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel3: TPanel
+    inherited sbImprimir: TSpeedButton
+      Left = -49
+      Top = 49
+      Visible = False
+      ExplicitLeft = -49
+      ExplicitTop = 49
+    end
+    inherited sbExportar: TSpeedButton
+      Left = 62
+      ExplicitLeft = 62
+    end
+    inherited cbPesquisar: TComboBox
+      Items.Strings = (
+        'Funcion'#225'rio abertura'
+        'Funcionario encerramento')
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

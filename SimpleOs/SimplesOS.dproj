@@ -532,6 +532,11 @@
             <Form>formRelatorioProblemasFrequentes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Historico.Caixa.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Historico.Caixa.pas">
+            <Form>formRelatorioHistoricoDoCaixa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

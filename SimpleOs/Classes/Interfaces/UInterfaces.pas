@@ -2609,6 +2609,33 @@ type
 
   end;
 
+  iRelatorioHistoricoCaixa = interface
+    ['{F6BCDBE0-B889-4B5E-9AE7-15EA4B953049}']
+
+    function nomeTabela(value: string): iRelatorioHistoricoCaixa;
+    function getCampo(value: string): iRelatorioHistoricoCaixa;
+    function getValor(value: string): iRelatorioHistoricoCaixa;
+    function getDataInicial(value: TDate): iRelatorioHistoricoCaixa;
+    function getDataFinal(value: TDate): iRelatorioHistoricoCaixa;
+    function open(value: string): iRelatorioHistoricoCaixa;
+    function pesquisar: iRelatorioHistoricoCaixa;
+    function ExecSql: iRelatorioHistoricoCaixa;
+    function sqlPesquisa: iRelatorioHistoricoCaixa;
+    function sqlPesquisaData: iRelatorioHistoricoCaixa;
+    function sqlPesquisaEstatica: iRelatorioHistoricoCaixa;
+
+    function abrir: iRelatorioHistoricoCaixa;
+    function atualizar: iRelatorioHistoricoCaixa;
+    function cancelar: iRelatorioHistoricoCaixa;
+    function fecharQuery: iRelatorioHistoricoCaixa;
+    function listarGrid(value: TDataSource): iRelatorioHistoricoCaixa;
+    function ordenarGrid(column: TColumn): iRelatorioHistoricoCaixa;
+
+    function exportar: iRelatorioHistoricoCaixa;
+    function validarData(componet: tmaskEdit):iRelatorioHistoricoCaixa;
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
