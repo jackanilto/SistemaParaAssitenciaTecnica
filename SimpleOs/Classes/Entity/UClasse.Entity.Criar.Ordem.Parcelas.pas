@@ -104,6 +104,7 @@ type
 
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
     function adicionarParcela: iParcelaOrdem;
+    function gravarEdicaoParcelas:iParcelaOrdem;
     function estadoDaTabela(value: string): iParcelaOrdem;
 
     constructor create;
@@ -290,7 +291,7 @@ begin
   begin
 
     FGravarLog.getNomeRegistro('Editando a parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
-      .getOperacao('editando').gravarLog;
+      .getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -669,6 +670,30 @@ begin
     begin
       raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
+
+  end;
+
+end;
+
+function TEntityGerarParcelas.gravarEdicaoParcelas: iParcelaOrdem;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency :=  FVALOR_PARCELA;
+  FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
+
+  try
+  FQuery.TQuery.Post;
+  showmessage('Operação realizada com sucesso!!!');
+
+
+  FGravarLog.gravarLog;
+
+  except on e:exception do
+  begin
+    raise Exception.Create('ERRO! Erro ao tentar gravar as alerações da parcela. '+e.Message);
+  end;
 
   end;
 

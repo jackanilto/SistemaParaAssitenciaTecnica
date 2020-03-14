@@ -91,6 +91,7 @@ end;
 procedure TformOrdemServico.DBGrid1TitleClick(Column: TColumn);
 begin
   FEntityOrdensServico.ordenarGrid(Column);
+  DataSource1.DataSet.First;
 end;
 
 procedure TformOrdemServico.edtPesquisarKeyUp(Sender: TObject; var Key: Word;

@@ -209,6 +209,7 @@ type
     procedure SpeedButton13Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Editarparcela1Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -841,14 +842,14 @@ begin
 
   if cds_AdicionarParcela.RecordCount >= 1 then
   begin
-    FEntityParcelasOrdem.getID_ORDEM(cds_AdicionarParcelaid_ordem.AsInteger)
-      .getID_CLIENTE(cds_AdicionarParcelaid_cliente.AsInteger)
-      .getDATA_VENCIMENTO(edtVencimentoParcela.Text)
-      .getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
-      .getTOTAL_PARCELAS(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)
-      .getPARCELA
-      (StrToInt(IntToStr(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)))
-      .getPGTO(edtPgtoParcela.Text).getObservacao(edtObservacoesParcela.Text)
+    FEntityParcelasOrdem
+                    .getID_ORDEM(cds_AdicionarParcelaid_ordem.AsInteger)
+                    .getID_CLIENTE(cds_AdicionarParcelaid_cliente.AsInteger)
+                    .getDATA_VENCIMENTO(edtVencimentoParcela.Text)
+                    .getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
+                    .getTOTAL_PARCELAS(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)
+                    .getPARCELA(StrToInt(IntToStr(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)))
+                    .getPGTO(edtPgtoParcela.Text).getObservacao(edtObservacoesParcela.Text)
       .adicionarParcela;
 
     FAtivarBotoes.ativarbotaoSalvarParcela;
@@ -856,6 +857,19 @@ begin
     FEntityParcelasOrdem.getCampo('ID_ORDEM')
       .getValor(IntToStr(cds_AdicionarParcelaid_ordem.AsInteger))
       .sqlPesquisaEstatica.listarGrid(s_ParcelasOS);
+
+      cds_AdicionarParcela.EmptyDataSet;
+
+  end;
+
+  if s_ParcelasOS.DataSet.State in [dsEdit] then
+  begin
+    FEntityParcelasOrdem
+                      .getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
+                      .getDATA_VENCIMENTO(edtVencimentoParcela.Text)
+                      .gravarEdicaoParcelas;
+
+    FAtivarBotoes.ativarbotaoSalvarParcela;
 
   end;
 
@@ -1091,6 +1105,21 @@ begin
   sbExcluirParcela.Enabled := true;
   sbImprimirParcelas.Enabled := true;
   sbCancelar.Enabled := false;
+end;
+
+procedure TformCriarConsultarOrdemServico.Editarparcela1Click(Sender: TObject);
+begin
+  if s_ParcelasOS.DataSet.RecordCount >= 1 then
+  begin
+
+    if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString = 'Nao' then
+    begin
+      FEntityParcelasOrdem.editar;
+      sbSalvarParcela.Enabled := true;
+    end;
+
+  end;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.habilitarBotoesQuitarParcela;

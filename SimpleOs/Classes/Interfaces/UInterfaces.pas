@@ -1087,6 +1087,7 @@ type
     function calularJuros: string;
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
     function adicionarParcela: iParcelaOrdem;
+    function gravarEdicaoParcelas:iParcelaOrdem;
     function estadoDaTabela(value: string): iParcelaOrdem;
 
   end;

@@ -153,7 +153,7 @@ begin
       totalJuros := total - valorParcela;
     end;
 
-    FJurosParcelas := total;
+    FJurosParcelas := totalJuros;
     FMultaParcela := F_MultaAtraso;
 
     result := currtostr(totalJuros + F_MultaAtraso + valorParcela);

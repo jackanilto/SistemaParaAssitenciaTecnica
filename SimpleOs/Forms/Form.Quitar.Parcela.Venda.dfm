@@ -42,7 +42,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
   end
   object Label6: TLabel
     Left = 391
-    Top = 60
+    Top = 64
     Width = 116
     Height = 17
     Caption = 'Data de vencimento'
@@ -50,30 +50,30 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
   object Label7: TLabel
     Left = 517
     Top = 64
-    Width = 31
+    Width = 50
     Height = 17
-    Caption = 'Juros'
+    Caption = 'Juros R$'
   end
   object Label8: TLabel
     Left = 607
     Top = 64
-    Width = 33
+    Width = 52
     Height = 17
-    Caption = 'Multa'
+    Caption = 'Multa R$'
   end
   object Label9: TLabel
     Left = 706
-    Top = 60
-    Width = 55
+    Top = 64
+    Width = 74
     Height = 17
-    Caption = 'Desconto'
+    Caption = 'Desconto R$'
   end
   object Label10: TLabel
     Left = 812
-    Top = 60
-    Width = 78
+    Top = 64
+    Width = 97
     Height = 17
-    Caption = 'Total a pagar'
+    Caption = 'Total a pagar R$'
   end
   object Label11: TLabel
     Left = 24

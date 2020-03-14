@@ -4961,3 +4961,28 @@ At line 1, column 15
 13/03/20 11:23:06 - Caption: SimpleOS
 13/03/20 11:23:06 - Erro:EAccessViolation
 13/03/20 11:23:06 - Erro:Access violation at address 00BC0C2B in module 'SimplesOS.exe'. Read of address 00000004
+14/03/20 15:25:33 - ===========================================
+14/03/20 15:25:33 - Form: formRelatorioHistoricoDoCaixa
+14/03/20 15:25:33 - Caption: Histórico de abertura e encerramento do caixa
+14/03/20 15:25:33 - Erro:EDatabaseError
+14/03/20 15:25:33 - Erro:Cannot access field 'FUNCIONARIO_ABERTURA' as type DateTime
+14/03/20 15:48:11 - ===========================================
+14/03/20 15:48:11 - Form: formCriarConsultarOrdemServico
+14/03/20 15:48:11 - Caption: 
+14/03/20 15:48:11 - Erro:Exception
+14/03/20 15:48:11 - Erro:Informe a data base para o vencimento.
+14/03/20 15:50:21 - ===========================================
+14/03/20 15:50:21 - Form: formCriarConsultarOrdemServico
+14/03/20 15:50:21 - Caption: 
+14/03/20 15:50:21 - Erro:Exception
+14/03/20 15:50:21 - Erro:Informe a forma de pagamento.
+14/03/20 16:01:41 - ===========================================
+14/03/20 16:01:41 - Form: formCriarConsultarOrdemServico
+14/03/20 16:01:41 - Caption: 
+14/03/20 16:01:41 - Erro:EConvertError
+14/03/20 16:01:41 - Erro:'' is not a valid date
+14/03/20 16:09:14 - ===========================================
+14/03/20 16:09:14 - Form: formCriarConsultarOrdemServico
+14/03/20 16:09:14 - Caption: 
+14/03/20 16:09:14 - Erro:EConvertError
+14/03/20 16:09:14 - Erro:'' is not a valid date

@@ -4945,6 +4945,7 @@
     Top = 293
     object Editarparcela1: TMenuItem
       Caption = 'Editar parcela'
+      OnClick = Editarparcela1Click
     end
   end
 end

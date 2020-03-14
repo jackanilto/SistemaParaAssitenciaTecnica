@@ -50,6 +50,7 @@ type
     constructor create;
     destructor destroy; override;
     class function new: iRelatorioHistoricoCaixa;
+
   end;
 
 implementation
@@ -134,17 +135,22 @@ begin
     begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
-      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('DATA_ABERTURA').AsString;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('HORA_ABERTURA').AsString;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('FUNCIONARIO_ABERTURA').AsDateTime;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO_ABERTURA').AsDateTime;
-      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('VALOR_ANTERIRO').AsString;
-      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_INFORMADO').AsString;
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('DATA_ENCERRAMENTO').AsString;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('HORA_ENCERRAMENTO').AsString;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('DATA_ABERTURA').AsDateTime;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('HORA_ABERTURA').AsDateTime;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('FUNCIONARIO_ABERTURA').AsInteger;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO_ABERTURA').AsString;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('VALOR_ANTERIRO').AsCurrency;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_INFORMADO').AsCurrency;
+
+      if FQuery.TQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime <> StrToDate('30/12/1899') then
+      begin
+        pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime;
+        pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('HORA_ENCERRAMENTO').AsDateTime;
+      end;
+
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('FUNCIONARIO_ENCERRAMENTO').AsInteger;
       pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString;
-      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('VALOR_ENCERRAMENTO').AsString;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('VALOR_ENCERRAMENTO').AsCurrency;
       pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('STATUS').AsString;
 
       linha := linha + 1;

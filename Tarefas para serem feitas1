@@ -29,8 +29,10 @@
 ##Implemetar comissões por porcentagem --FEITO
 
 ##Relatório de problemas mais frequentes --FEITO
-##Historio de aberturas de caixa
-##Criar procedimento para editar a parcela de uma ordem (criar o log dos eventos também)
-##Rever o funcionamento da janela Quitar Parcela Venda.(Cores da grid e o campo juros)
+##Historio de aberturas de caixa --FEITO
+##Criar procedimento para editar a parcela de uma ordem (criar o log dos eventos também) --FEITO
+##Rever o funcionamento da janela Quitar Parcela Venda.(Cores da grid e o campo juros) --FEITO
+##Criar o botão para gerar / faturar a OS do cliente
+##Criar janela para quitar as parcelas da OS
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos

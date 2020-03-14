@@ -2,6 +2,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
   Caption = 'Cadastro de forncedores'
   ClientHeight = 602
   ClientWidth = 1017
+  ExplicitTop = -48
   ExplicitWidth = 1017
   ExplicitHeight = 602
   PixelsPerInch = 96

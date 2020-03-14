@@ -12,13 +12,16 @@ type
   TEnumPesquisar = (abertura, fechamento);
 
 type
+  TEnumpesquisarData = (data_abertura, data_encerramento);
+
+type
   TformRelatorioHistoricoDoCaixa = class(TformModeloRelatorio)
-    ComboBox1: TComboBox;
-    MaskEdit1: TMaskEdit;
-    MaskEdit2: TMaskEdit;
+    cbPesquisarData: TComboBox;
+    edtData1: TMaskEdit;
+    edtData2: TMaskEdit;
     Label1: TLabel;
     Label2: TLabel;
-    SpeedButton1: TSpeedButton;
+    sbPesquisarData: TSpeedButton;
     Bevel1: TBevel;
     Bevel2: TBevel;
     procedure FormCreate(Sender: TObject);
@@ -26,6 +29,7 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbExportarClick(Sender: TObject);
+    procedure sbPesquisarDataClick(Sender: TObject);
   private
     { Private declarations }
     var
@@ -79,6 +83,9 @@ begin
   inherited;
   FRelatorio
             .abrir
+            .getCampo('ID')
+            .getValor('0')
+            .sqlPesquisa
             .listarGrid(DataSource1);
 end;
 
@@ -86,6 +93,38 @@ procedure TformRelatorioHistoricoDoCaixa.sbExportarClick(Sender: TObject);
 begin
   inherited;
   FRelatorio.exportar;
+end;
+
+procedure TformRelatorioHistoricoDoCaixa.sbPesquisarDataClick(Sender: TObject);
+var
+  FCampo:string;
+begin
+  inherited;
+
+
+  case TEnumpesquisarData(cbPesquisarData.ItemIndex) of
+  data_abertura:
+  begin
+    FCampo := 'DATA_ABERTURA';
+  end;
+  data_encerramento:
+  begin
+    FCampo := 'DATA_ENCERRAMENTO';
+  end;
+
+  end;
+
+  FRelatorio
+            .validarData(edtData1)
+            .validarData(edtData2);
+
+  FRelatorio
+            .getCampo(FCampo)
+            .getDataInicial(StrToDate(edtData1.Text))
+            .getDataFinal(StrToDate(edtData2.Text))
+            .sqlPesquisaData
+            .listarGrid(DataSource1);
+
 end;
 
 end.

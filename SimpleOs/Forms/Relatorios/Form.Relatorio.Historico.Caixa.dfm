@@ -3,8 +3,6 @@ inherited formRelatorioHistoricoDoCaixa: TformRelatorioHistoricoDoCaixa
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
-    ExplicitLeft = -40
-    ExplicitTop = 494
     inherited sbImprimir: TSpeedButton
       Left = -49
       Top = 49
@@ -45,7 +43,7 @@ inherited formRelatorioHistoricoDoCaixa: TformRelatorioHistoricoDoCaixa
       Font.Style = []
       ParentFont = False
     end
-    object SpeedButton1: TSpeedButton [6]
+    object sbPesquisarData: TSpeedButton [6]
       Left = 583
       Top = 23
       Width = 26
@@ -108,6 +106,7 @@ inherited formRelatorioHistoricoDoCaixa: TformRelatorioHistoricoDoCaixa
         99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
         1A9A381CB16550D1A599E9D3CDF6EEECFAF6F4F4EAE7E4C9C2C99586A9563E99
         361A99361A99361A99361A99361A99361A99361A99361A99361A}
+      OnClick = sbPesquisarDataClick
     end
     object Bevel1: TBevel [7]
       Left = 623
@@ -129,7 +128,7 @@ inherited formRelatorioHistoricoDoCaixa: TformRelatorioHistoricoDoCaixa
     inherited edtPesquisar: TEdit
       OnKeyUp = edtPesquisarKeyUp
     end
-    object ComboBox1: TComboBox
+    object cbPesquisarData: TComboBox
       Left = 272
       Top = 29
       Width = 113
@@ -141,9 +140,11 @@ inherited formRelatorioHistoricoDoCaixa: TformRelatorioHistoricoDoCaixa
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      Text = 'ComboBox1'
+      Items.Strings = (
+        'Data de abertura'
+        'Data de encerramento')
     end
-    object MaskEdit1: TMaskEdit
+    object edtData1: TMaskEdit
       Left = 391
       Top = 29
       Width = 90
@@ -159,7 +160,7 @@ inherited formRelatorioHistoricoDoCaixa: TformRelatorioHistoricoDoCaixa
       TabOrder = 3
       Text = '  /  /    '
     end
-    object MaskEdit2: TMaskEdit
+    object edtData2: TMaskEdit
       Left = 487
       Top = 29
       Width = 90
