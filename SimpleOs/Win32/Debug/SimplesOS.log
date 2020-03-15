@@ -4986,3 +4986,53 @@ At line 1, column 15
 14/03/20 16:09:14 - Caption: 
 14/03/20 16:09:14 - Erro:EConvertError
 14/03/20 16:09:14 - Erro:'' is not a valid date
+15/03/20 14:01:46 - ===========================================
+15/03/20 14:01:46 - Form: formCadastroDeClientes
+15/03/20 14:01:46 - Caption: Cadastro de clientes
+15/03/20 14:01:46 - Erro:Exception
+15/03/20 14:01:46 - Erro:Informe o tipo de cadastro realizado.
+15/03/20 14:14:14 - ===========================================
+15/03/20 14:14:14 - Form: formCriarConsultarOrdemServico
+15/03/20 14:14:14 - Caption: 
+15/03/20 14:14:14 - Erro:Exception
+15/03/20 14:14:14 - Erro:Informe a data base para o vencimento.
+15/03/20 14:18:12 - ===========================================
+15/03/20 14:18:12 - Form: formCriarConsultarOrdemServico
+15/03/20 14:18:12 - Caption: 
+15/03/20 14:18:12 - Erro:Exception
+15/03/20 14:18:12 - Erro:ERRO! Não foi possível gerar as informações para pagamento. Informe o código do orçamento.
+15/03/20 14:18:21 - ===========================================
+15/03/20 14:18:21 - Form: formCriarConsultarOrdemServico
+15/03/20 14:18:21 - Caption: 
+15/03/20 14:18:21 - Erro:Exception
+15/03/20 14:18:21 - Erro:ERRO! Não foi possível gerar as informações para pagamento. Informe o código do orçamento.
+15/03/20 14:22:55 - ===========================================
+15/03/20 14:22:55 - Form: formCriarConsultarOrdemServico
+15/03/20 14:22:55 - Caption: 
+15/03/20 14:22:55 - Erro:Exception
+15/03/20 14:22:55 - Erro:ERRO! Não foi possível gerar as informações para pagamento. Informe o código do orçamento.
+15/03/20 14:25:48 - ===========================================
+15/03/20 14:25:48 - Form: formCriarConsultarOrdemServico
+15/03/20 14:25:48 - Caption: 
+15/03/20 14:25:48 - Erro:Exception
+15/03/20 14:25:48 - Erro:ERRO! Não foi possível gerar as informações para pagamento. Informe o código do orçamento.
+15/03/20 14:27:27 - ===========================================
+15/03/20 14:27:27 - Form: formCriarConsultarOrdemServico
+15/03/20 14:27:27 - Caption: 
+15/03/20 14:27:27 - Erro:Exception
+15/03/20 14:27:27 - Erro:ERRO! Não foi possível gerar as informações para pagamento. Informe o código do orçamento.
+15/03/20 14:31:00 - ===========================================
+15/03/20 14:31:00 - Form: formCriarConsultarOrdemServico
+15/03/20 14:31:00 - Caption: 
+15/03/20 14:31:00 - Erro:Exception
+15/03/20 14:31:00 - Erro:Informe a data base para o vencimento.
+15/03/20 14:42:15 - ===========================================
+15/03/20 14:42:15 - Form: formCriarConsultarOrdemServico
+15/03/20 14:42:15 - Caption: 
+15/03/20 14:42:15 - Erro:EDatabaseError
+15/03/20 14:42:15 - Erro:Dataset not in edit or insert mode
+15/03/20 14:58:28 - ===========================================
+15/03/20 14:58:28 - Form: formPrincipal
+15/03/20 14:58:28 - Caption: SimpleOS
+15/03/20 14:58:28 - Erro:EAccessViolation
+15/03/20 14:58:28 - Erro:Access violation at address 00BC17C3 in module 'SimplesOS.exe'. Read of address 00000004

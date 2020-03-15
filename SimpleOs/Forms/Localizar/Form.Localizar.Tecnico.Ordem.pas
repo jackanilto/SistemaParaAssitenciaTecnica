@@ -29,6 +29,7 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
 
@@ -50,6 +51,11 @@ implementation
 {$R *.dfm}
 
 uses Form.Ordem.Servico, Form.Criar.Ordem.Servico;
+
+procedure TformLocalizarTecnico.cbPesquisarChange(Sender: TObject);
+begin
+  edtPesquisar.SetFocus;
+end;
 
 procedure TformLocalizarTecnico.DBGrid1DblClick(Sender: TObject);
 begin
@@ -92,8 +98,11 @@ end;
 procedure TformLocalizarTecnico.FormShow(Sender: TObject);
 begin
   FCampo := 'ID';
-  FValor := '0';
+  FValor := '%';
   Localizar;
+
+  edtPesquisar.SetFocus;
+
 end;
 
 procedure TformLocalizarTecnico.Localizar;

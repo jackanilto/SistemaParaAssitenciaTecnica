@@ -128,6 +128,7 @@ type
     acRelatorioProblemasFrequentes: TAction;
     Button3: TButton;
     acRelatorioHistoricoCaixa: TAction;
+    acQuitarParcelasOS: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -202,6 +203,7 @@ type
     procedure acRelatorioProblemasFrequentesExecute(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure acRelatorioHistoricoCaixaExecute(Sender: TObject);
+    procedure acQuitarParcelasOSExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -246,7 +248,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Entrada.Produtos, Form.Relatorio.Vendas.Por.Funcionario,
   Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
   Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup,
-  Form.Backup.Manual;
+  Form.Backup.Manual, Form.Quitar.Parcela.OS;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -549,6 +551,12 @@ procedure TformPrincipal.acQuitarParcelasExecute(Sender: TObject);
 begin
   formQuitarParcelasVendas := TformQuitarParcelasVendas.Create(self);
   TFactory.new.criarJanela.FormShow(formQuitarParcelasVendas, '');
+end;
+
+procedure TformPrincipal.acQuitarParcelasOSExecute(Sender: TObject);
+begin
+  formQuitarParcelaOS := TformQuitarParcelaOS.Create(self);
+  TFactory.new.criarJanela.formShow(formQuitarParcelaOS, '');
 end;
 
 procedure TformPrincipal.acReaberturaDoCaixaExecute(Sender: TObject);

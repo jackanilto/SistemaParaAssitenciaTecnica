@@ -32,7 +32,7 @@
 ##Historio de aberturas de caixa --FEITO
 ##Criar procedimento para editar a parcela de uma ordem (criar o log dos eventos também) --FEITO
 ##Rever o funcionamento da janela Quitar Parcela Venda.(Cores da grid e o campo juros) --FEITO
-##Criar o botão para gerar / faturar a OS do cliente
-##Criar janela para quitar as parcelas da OS
+##Criar o botão para gerar / faturar a OS do cliente --FEITO
+##Criar janela para quitar as parcelas da OS --EM ANDAMENTO
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos

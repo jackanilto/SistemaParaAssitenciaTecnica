@@ -180,7 +180,9 @@ uses
   UClasse.Relatorio.Problemas.Frequentes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Problemas.Frequentes.pas',
   Form.Relatorio.Problemas.Frequentes in 'Forms\Relatorios\Form.Relatorio.Problemas.Frequentes.pas' {formRelatorioProblemasFrequentes},
   UClasse.Relatorio.Historico.Caixa in 'Classes\Entity\Relatorios\UClasse.Relatorio.Historico.Caixa.pas',
-  Form.Relatorio.Historico.Caixa in 'Forms\Relatorios\Form.Relatorio.Historico.Caixa.pas' {formRelatorioHistoricoDoCaixa};
+  Form.Relatorio.Historico.Caixa in 'Forms\Relatorios\Form.Relatorio.Historico.Caixa.pas' {formRelatorioHistoricoDoCaixa},
+  Form.Quitar.Parcela.OS in 'Forms\Form.Quitar.Parcela.OS.pas' {formQuitarParcelaOS},
+  UClasse.Entity.Quitar.Parcela.OS in 'Classes\Entity\UClasse.Entity.Quitar.Parcela.OS.pas';
 
 {$R *.res}
 

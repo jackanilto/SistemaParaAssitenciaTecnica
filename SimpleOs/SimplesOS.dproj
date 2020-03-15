@@ -537,6 +537,11 @@
             <Form>formRelatorioHistoricoDoCaixa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\Form.Quitar.Parcela.OS.pas">
+            <Form>formQuitarParcelaOS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Quitar.Parcela.OS.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

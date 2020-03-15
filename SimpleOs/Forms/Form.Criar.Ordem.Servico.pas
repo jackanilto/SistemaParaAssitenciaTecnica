@@ -173,6 +173,7 @@ type
     frx_ImprimirRecibo: TfrxReport;
     PopupMenu1: TPopupMenu;
     Editarparcela1: TMenuItem;
+    SpeedButton1: TSpeedButton;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -210,6 +211,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Editarparcela1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -543,7 +545,14 @@ begin
   edtTotalDaOS.Text := '0';
   edtTotalDeParcelas.Text := '1';
 
+  edtDataEntrada.Text := DateToStr(Date);
+  edtDataBaseVencimento.Text := DateToStr(Date);
+
   limparDatas;
+
+  cds_tem_servicos_adicionados.EmptyDataSet;
+  cds_tem_servicos_adicionados_edit.EmptyDataSet;
+  abreATabelaDeParcelas;
 
   FAtivarBotoes.ativarBotaoNovo;
 
@@ -591,12 +600,20 @@ begin
       (cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
 
   if estado = 'insert' then
-    FEntityParcelasOrdem.getID_ORDEM(FEntityCriarOrdem.setId)
-      .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
-      .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
-      .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
-      .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
-      .gerarParcelas;
+
+  if application.MessageBox('Deseja gerar as informações para pagamento ou parcelamento agora?',
+   'Pergutna do sistema!', MB_YESNO+MB_ICONQUESTION)=mryes then
+  begin
+
+        FEntityParcelasOrdem
+                          .getID_ORDEM(FEntityCriarOrdem.setId)
+                          .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
+                          .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
+                          .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
+                          .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
+                          .gerarParcelas;
+
+  end;
 
   showmessage('Ordem de Serviço inserida com sucesso');
 
@@ -665,6 +682,42 @@ begin
     end;
 
   end;
+
+end;
+
+procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+
+    if s_ParcelasOS.DataSet.RecordCount = 0 then
+    begin
+
+     try
+     
+       FEntityParcelasOrdem
+                          .getID_ORDEM(StrToInt(edtCodigoOS.Text))
+                          .getID_CLIENTE(StrToInt(edtCodigoCliente.Text))
+                          .getTOTAL_PARCELAS(StrToInt(edtTotalDeParcelas.Text))
+                          .getVALOR_PARCELA(StrToCurr(edtValorOrdemParcelado.Text))
+                          .getDATA_VENCIMENTO(edtDataBaseVencimento.Text)
+                          .gerarParcelas;
+
+      showmessage('Parcelas / Informações para pagamento foram geradas com sucesso');                          
+
+                          
+     except on e:exception do
+     begin
+       raise Exception.Create('ERRO! Não foi possível gerar as informações para pagamento. '+e.Message);
+     end;
+
+     end;
+    end;
+
+
+  end;
+
 
 end;
 
@@ -920,7 +973,7 @@ begin
   edtDataEntrada.Text := DateToStr(date);
   edtDataDeSaida.Clear;
   edtDataRetorno.Clear;
-  edtDataBaseVencimento.Clear;
+//  edtDataBaseVencimento.Clear;
   edtHoraSaida.Text := '00:00:00';
 end;
 

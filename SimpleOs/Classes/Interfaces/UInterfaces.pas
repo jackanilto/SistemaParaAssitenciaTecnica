@@ -1678,6 +1678,32 @@ type
 
   end;
 
+  iQuitarParcelaOS = interface
+    ['{FF7DF130-C2CE-4859-B74D-39FE72FCC2D2}']
+
+    function nomeTabela(value: string): iQuitarParcelaOS;
+    function getCampo(value: string): iQuitarParcelaOS;
+    function getValor(value: string): iQuitarParcelaOS;
+    function getDataInicial(value: TDate): iQuitarParcelaOS;
+    function getDataFinal(value: TDate): iQuitarParcelaOS;
+    function open(value: string): iQuitarParcelaOS;
+    function pesquisar: iQuitarParcelaOS;
+    function ExecSql: iQuitarParcelaOS;
+    function sqlPesquisa: iQuitarParcelaOS;
+    function sqlPesquisaData: iQuitarParcelaOS;
+    function sqlPesquisaEstatica: iQuitarParcelaOS;
+
+    function abrir: iQuitarParcelaOS;
+    function atualizar: iQuitarParcelaOS;
+    function fecharQuery: iQuitarParcelaOS;
+    function listarGrid(value: TDataSource): iQuitarParcelaOS;
+    function ordenarGrid(column: TColumn): iQuitarParcelaOS;
+
+    function exportar: iQuitarParcelaOS;
+    function validarData(componet: tmaskEdit):iQuitarParcelaOS;
+
+  end;
+
   iVisualizarVenda = interface
     ['{CB3E53B7-428F-4694-BECE-BEBB8FA5A8C5}']
 

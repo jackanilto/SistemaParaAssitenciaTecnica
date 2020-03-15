@@ -35,6 +35,7 @@ type
       Shift: TShiftState);
     procedure sbCadastrarClientesClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     procedure Localizar;
@@ -56,6 +57,11 @@ implementation
 {$R *.dfm}
 
 uses Form.Criar.Ordem.Servico;
+
+procedure TformLocalizarClientesOrdem.cbPesquisarChange(Sender: TObject);
+begin
+  edtPesquisar.SetFocus;
+end;
 
 procedure TformLocalizarClientesOrdem.DBGrid1DblClick(Sender: TObject);
 begin
@@ -122,6 +128,9 @@ begin
   FCampo := 'ID';
   FValor := '0';
   Localizar;
+
+  edtPesquisar.SetFocus;
+
 end;
 
 procedure TformLocalizarClientesOrdem.Localizar;
@@ -173,9 +182,6 @@ end;
 
 procedure TformLocalizarClientesOrdem.sbCadastrarClientesClick(Sender: TObject);
 begin
-
-  if cbPesquisar.Text = 'Nome' then
-    // FClasseChamarCadastroClientes.nome := edtPesquisar.Text;
 
     FClasseChamarCadastroClientes.chamarCadastroClientes;
 
