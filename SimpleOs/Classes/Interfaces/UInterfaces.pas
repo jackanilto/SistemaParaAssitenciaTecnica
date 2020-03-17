@@ -1699,6 +1699,22 @@ type
     function listarGrid(value: TDataSource): iQuitarParcelaOS;
     function ordenarGrid(column: TColumn): iQuitarParcelaOS;
 
+    function CalularPagamento:iQuitarParcelaOS;
+    function setTotalParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalJurosParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalMultaParcela(value:TEdit):iQuitarParcelaOS;
+
+    function getDESCONTO(value:string):iQuitarParcelaOS;
+    function getJUROS(value:string):iQuitarParcelaOS;
+    function getMULTA(value:string):iQuitarParcelaOS;
+    function getVALOR_TOTAL(value:string):iQuitarParcelaOS;
+    function getDATA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getHORA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getFORMA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getPGTO(value:string):iQuitarParcelaOS;
+
+    function selecionarParcelaQuitar(value:integer):iquitarParcelaOS;
+
     function exportar: iQuitarParcelaOS;
     function validarData(componet: tmaskEdit):iQuitarParcelaOS;
 

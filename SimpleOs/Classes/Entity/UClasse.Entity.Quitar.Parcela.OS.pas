@@ -4,7 +4,8 @@ interface
 
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
-  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  UClasse.DiasMeses, Vcl.StdCtrls;
 
 type
 
@@ -12,12 +13,31 @@ type
   private
 
     FQuery: iConexaoQuery;
+    FQueryConfigPacelas:iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
+    FCalularDiferencaDiasMes:TCalcularDiaMeses;
     FTabela: string;
     FCampo: string;
     FValor: string;
     FDataInicial: TDate;
     FDataFinal: TDate;
+
+    F_JurosPorAtraso:Real;
+    F_MultaPorAtraso:Currency;
+    FtotalAPagar:Currency;
+
+    FJurosParcela:Currency;
+    FMultaParcela:Currency;
+
+    FDESCONTO: Currency;
+    FJUROS:Currency;
+    FMULTA:Currency;
+    FVALOR_TOTAL:Currency;
+    FDATA_PAGAMENTO:TDate;
+    FHORA_PAGAMENTO:TTime;
+    FFORMA_PAGAMENTO:String;
+    FPGTO:String;
+
 
     FCodigo: integer;
     FNome: string;
@@ -41,6 +61,22 @@ type
     function fecharQuery: iQuitarParcelaOS;
     function listarGrid(value: TDataSource): iQuitarParcelaOS;
     function ordenarGrid(column: TColumn): iQuitarParcelaOS;
+
+    function CalularPagamento:iQuitarParcelaOS;
+    function setTotalParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalJurosParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalMultaParcela(value:TEdit):iQuitarParcelaOS;
+
+    function getDESCONTO(value:string):iQuitarParcelaOS;
+    function getJUROS(value:string):iQuitarParcelaOS;
+    function getMULTA(value:string):iQuitarParcelaOS;
+    function getVALOR_TOTAL(value:string):iQuitarParcelaOS;
+    function getDATA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getHORA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getFORMA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getPGTO(value:string):iQuitarParcelaOS;
+
+    function selecionarParcelaQuitar(value:integer):iquitarParcelaOS;
 
     function exportar: iQuitarParcelaOS;
     function validarData(componet: tmaskEdit):iQuitarParcelaOS;
@@ -76,13 +112,20 @@ begin
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Quitar parcela OS').getCodigoFuncionario
     (funcionarioLogado);
-  // (0 { definir o usuário quando construir a aplicação } );
+
+  FCalularDiferencaDiasMes := TCalcularDiaMeses.Create;
+
+  FQueryConfigPacelas := TConexaoQuery.new.Query('CONFIGURAR_PARCELA');
+
+  F_JurosPorAtraso := FQueryConfigPacelas.TQuery.FieldByName('JUROS').AsFloat;
+  F_MultaPorAtraso := FQueryConfigPacelas.TQuery.FieldByName('MULTA').AsCurrency;
+
 
 end;
 
 destructor TEntityQuitarParcelaOS.destroy;
 begin
-
+  FreeAndNil(FCalularDiferencaDiasMes);
   inherited;
 end;
 
@@ -95,6 +138,55 @@ end;
 function TEntityQuitarParcelaOS.exportar: iQuitarParcelaOS;
 begin
   result := self;
+end;
+
+function TEntityQuitarParcelaOS.CalularPagamento: iQuitarParcelaOS;
+var
+  periodo: integer;
+  total: Currency;
+  valorParcela: Currency;
+  totalJuros: Currency;
+begin
+
+  result := self;
+  valorParcela := FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency;
+
+   if   date > FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime then
+   begin
+
+    periodo := FCalularDiferencaDiasMes.DifDiasMeses
+      (FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime, date);
+
+    if periodo >= 1 then
+    begin
+      total := valorParcela * (F_JurosPorAtraso / 100);
+      total := valorParcela + (total * periodo);
+      totalJuros := total - valorParcela;
+    end
+    else if periodo = 0 then
+    begin
+      total := valorParcela * (F_JurosPorAtraso / 100);
+      total := valorParcela + (total * 1);
+      totalJuros := total - valorParcela;
+    end;
+
+    FJurosParcela := totalJuros;
+    FMultaParcela := F_MultaPorAtraso;
+
+    FtotalAPagar := totalJuros + F_MultaPorAtraso + valorParcela;
+
+  end
+  else
+  begin
+
+    FJurosParcela := 0;
+    FMultaParcela := 0;
+
+    FtotalAPagar := valorParcela;
+
+  end;
+
+
 end;
 
 function TEntityQuitarParcelaOS.fecharQuery: iQuitarParcelaOS;
@@ -122,10 +214,123 @@ begin
   // FQuery.getDataInicial(value);
 end;
 
+function TEntityQuitarParcelaOS.getDATA_PAGAMENTO(
+  value: string): iQuitarParcelaOS;
+begin
+   result := self;
+
+  try
+    FDATA_PAGAMENTO := StrToDate(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Insira uma data válida.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
+
+end;
+
+function TEntityQuitarParcelaOS.getDESCONTO(value: string): iQuitarParcelaOS;
+begin
+
+  result := self;
+
+  try
+    FDESCONTO := StrToCurr(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Informe um valor de desconto válido.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
+end;
+
+function TEntityQuitarParcelaOS.getFORMA_PAGAMENTO(
+  value: string): iQuitarParcelaOS;
+begin
+
+  result := self;
+
+  if value = EmptyStr then
+  begin
+    MessageDlg('ERRO. Informe a forma de pagamento da parcela.', mtError, [mbOk], 0, mbOk);
+    abort;
+  end;
+
+
+end;
+
+function TEntityQuitarParcelaOS.getHORA_PAGAMENTO(
+  value: string): iQuitarParcelaOS;
+begin
+
+  result := self;
+
+  try
+    FHORA_PAGAMENTO := StrToTime(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Insrira um horário de pagamento válido.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
+end;
+
+function TEntityQuitarParcelaOS.getJUROS(value: string): iQuitarParcelaOS;
+begin
+
+  result := self;
+
+  try
+    FJUROS := StrToCurr(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Informe um valor de juros válido.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
+
+end;
+
+function TEntityQuitarParcelaOS.getMULTA(value: string): iQuitarParcelaOS;
+begin
+
+  result := self;
+
+  try
+    FMULTA := StrToCurr(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Informe um valor para a multa válido.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
+end;
+
+function TEntityQuitarParcelaOS.getPGTO(value: string): iQuitarParcelaOS;
+begin
+
+  result := self;
+
+  FPGTO := 'Sim';
+
+
+end;
+
 function TEntityQuitarParcelaOS.getValor(value: string): iQuitarParcelaOS;
 begin
   result := self;
   FValor := UpperCase(value);
+end;
+
+function TEntityQuitarParcelaOS.getVALOR_TOTAL(value: string): iQuitarParcelaOS;
+begin
+
 end;
 
 function TEntityQuitarParcelaOS.listarGrid(value: TDataSource): iQuitarParcelaOS;
@@ -195,6 +400,69 @@ end;
 function TEntityQuitarParcelaOS.pesquisar: iQuitarParcelaOS;
 begin
   result := self;
+end;
+
+function TEntityQuitarParcelaOS.selecionarParcelaQuitar(
+  value: integer): iquitarParcelaOS;
+var
+   FQueryParcelaOS:iConexaoQuery;
+begin
+
+  FQueryParcelaOS := TConexaoQuery.new.Query('PARCELAS_ORDEM');
+
+  FQueryParcelaOS.TQuery.Active := false;
+  FQueryParcelaOS.TQuery.SQL.Clear;
+  FQueryParcelaOS.TQuery.SQL.Add('select * from PARCELAS_ORDEM where ID =:i');
+  FQueryParcelaOS.TQuery.ParamByName('i').AsInteger := value;
+  FQueryParcelaOS.TQuery.Active := true;
+
+  if FQueryParcelaOS.TQuery.RecordCount >= 1 then
+  begin
+
+    FQueryParcelaOS.TQuery.Edit;
+
+    FQueryParcelaOS.TQuery.FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FQueryParcelaOS.TQuery.FieldByName('JUROS').AsCurrency := FJUROS;
+    FQueryParcelaOS.TQuery.FieldByName('MULTA').AsCurrency := FMULTA;
+    FQueryParcelaOS.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
+    FQueryParcelaOS.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := FDATA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := FHORA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := FFORMA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('PGTO').AsString := FPGTO;
+
+    try
+      FQueryParcelaOS.TQuery.Post;
+      showmessage('Parcela quitada com sucesso!!!');
+    except on e:exception do
+    begin
+      MessageDlg('ERRO. Ocorreu um erro ao tentar quitar esta parcela. '+e.Message, mtError, [mbOk], 0, mbOk);
+    end;
+
+    end;
+
+
+  end;
+
+end;
+
+function TEntityQuitarParcelaOS.setTotalJurosParcela(
+  value: TEdit): iQuitarParcelaOS;
+begin
+  result := self;
+  value.Text := CurrToStr(FJurosParcela);
+end;
+
+function TEntityQuitarParcelaOS.setTotalMultaParcela(
+  value: TEdit): iQuitarParcelaOS;
+begin
+  result := self;
+  value.Text := CurrToStr(FMultaParcela);
+end;
+
+function TEntityQuitarParcelaOS.setTotalParcela(value: TEdit): iQuitarParcelaOS;
+begin
+  result := self;
+  value.Text := CurrToStr(FtotalAPagar)
 end;
 
 function TEntityQuitarParcelaOS.sqlPesquisa: iQuitarParcelaOS;

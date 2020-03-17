@@ -105,7 +105,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 843
     DesignSize = (
       1049
       41)
@@ -207,8 +206,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 452
-    ExplicitWidth = 980
     DesignSize = (
       1049
       117)
@@ -985,7 +982,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
         'C'#243'digo da parcela'
         'Venda'
         'C'#243'digo do cliente')
-      ExplicitLeft = 654
     end
     object edtPesquisar: TEdit
       Left = 858
@@ -1001,7 +997,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Font.Quality = fqDraft
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 789
     end
   end
   object DBGrid1: TDBGrid
@@ -1028,6 +1023,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
     TitleFont.Quality = fqDraft
+    OnCellClick = DBGrid1CellClick
     OnTitleClick = e
   end
   object DBNavigator1: TDBNavigator

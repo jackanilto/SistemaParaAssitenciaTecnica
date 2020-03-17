@@ -166,6 +166,7 @@ begin
 
     if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Nao' then
     begin
+
       sbQuitarParela.Enabled := true;
 
       edtTotalAPagar.Text := FentityVisulizarParcelasVenda.CalcularJuros;
@@ -424,13 +425,15 @@ procedure TformQuitarParcelasVendas.sbQuitarParelaClick(Sender: TObject);
 begin
   if DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger <> 0 then
   begin
-    FentityVisulizarParcelasVenda.getCodigoParcela
-      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
-      .getDesconto(edtDesconto.Text).getJuros(edtJuros.Text)
-      .getDataPagamento(DateToStr(edtDataDePagamento.date))
-      .getTOTAL(edtTotalAPagar.Text).getFormaPagamento(edtFormaDePagamento.Text)
-      .selecionarParcelaQuitar(DataSource1.DataSet.FieldByName('ID_PARCELA')
-      .AsInteger).quitarParcela.atualizar;
+    FentityVisulizarParcelasVenda
+                    .getCodigoParcela(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+                    .getDesconto(edtDesconto.Text).getJuros(edtJuros.Text)
+                     .getDataPagamento(DateToStr(edtDataDePagamento.date))
+                     .getTOTAL(edtTotalAPagar.Text)
+                     .getFormaPagamento(edtFormaDePagamento.Text)
+                     .selecionarParcelaQuitar(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+                     .quitarParcela
+                     .atualizar;
 
     showmessage('Parcela quitada com sucesso');
 

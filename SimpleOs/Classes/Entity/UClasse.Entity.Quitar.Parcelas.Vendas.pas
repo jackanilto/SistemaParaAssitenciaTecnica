@@ -173,6 +173,7 @@ end;
 
 constructor TEntityQuitarParcelaVenda.create;
 begin
+
   FTabela := 'VISUALIZAR_PARCELAS_VENDA';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
@@ -191,7 +192,6 @@ begin
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Parcelas das vendas').getCodigoFuncionario
     (funcionarioLogado);
-  // (0 { definir o usuário quando construir a aplicação } );
 
 end;
 
