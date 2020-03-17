@@ -60,6 +60,7 @@ type
     procedure e(Column: TColumn);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure sbQuitarParelaClick(Sender: TObject);
   private
     { Private declarations }
     var
@@ -203,6 +204,24 @@ end;
 procedure TformQuitarParcelaOS.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformQuitarParcelaOS.sbQuitarParelaClick(Sender: TObject);
+begin
+
+  FEntityQuitar
+              .getDESCONTO(edtDesconto.Text)
+              .getJUROS(edtJuros.Text)
+              .getMULTA(edtMulta.Text)
+              .getVALOR_TOTAL(edtTotalAPagar.Text)
+              .getDATA_PAGAMENTO(DateToStr(edtDataDePagamento.Date))
+              .getHORA_PAGAMENTO(TimeToStr(Time))
+              .getFORMA_PAGAMENTO(edtFormaDePagamento.Text)
+              .getPGTO(edtPago.Text)
+              .selecionarParcelaQuitar(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+              .atualizar;
+
+
 end;
 
 end.

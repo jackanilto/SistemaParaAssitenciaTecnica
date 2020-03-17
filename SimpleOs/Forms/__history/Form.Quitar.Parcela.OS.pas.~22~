@@ -106,14 +106,37 @@ begin
 
     if DataSource1.DataSet.FieldByName('PGTO').AsString = 'Nao' then
     begin
+
+      sbQuitarParela.Enabled := true;
+
+      FEntityQuitar
+                  .CalularPagamento
+                  .setTotalParcela(edtTotalAPagar)
+                  .setTotalJurosParcela(edtJuros)
+                  .setTotalMultaParcela(edtMulta);
+
       ativarBotoes;
+
     end
-    else if DataSource1.DataSet.FieldByName('PGTO').AsString = 'Sim' then
+    else
     begin
+
       desativarBotoes;
+
+      if DataSource1.DataSet.FieldByName('PGTO').AsString = 'Sim' then
+      begin
+        sbEstornar.Enabled := true;
+        sbAdicionarParcela.Enabled := true;
+        sbExcluir.Enabled := true;
+        sbCancelar.Enabled := true;
+      end;
+
+
     end;
-
-
+  end
+  else
+  begin
+    desativarBotoes;
   end;
 
 end;

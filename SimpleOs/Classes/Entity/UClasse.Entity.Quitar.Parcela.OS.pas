@@ -217,6 +217,7 @@ end;
 function TEntityQuitarParcelaOS.getDATA_PAGAMENTO(
   value: string): iQuitarParcelaOS;
 begin
+
    result := self;
 
   try
@@ -258,6 +259,8 @@ begin
     MessageDlg('ERRO. Informe a forma de pagamento da parcela.', mtError, [mbOk], 0, mbOk);
     abort;
   end;
+
+  FFORMA_PAGAMENTO := value;
 
 
 end;
@@ -331,7 +334,18 @@ end;
 function TEntityQuitarParcelaOS.getVALOR_TOTAL(value: string): iQuitarParcelaOS;
 begin
 
-end;
+  result := self;
+
+  try
+    FVALOR_TOTAL := StrToCurr(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Informe o total de pagamento da parcela.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+  end;
+
+  end;
+
 
 function TEntityQuitarParcelaOS.listarGrid(value: TDataSource): iQuitarParcelaOS;
 begin
@@ -407,6 +421,8 @@ function TEntityQuitarParcelaOS.selecionarParcelaQuitar(
 var
    FQueryParcelaOS:iConexaoQuery;
 begin
+
+  result := self;
 
   FQueryParcelaOS := TConexaoQuery.new.Query('PARCELAS_ORDEM');
 

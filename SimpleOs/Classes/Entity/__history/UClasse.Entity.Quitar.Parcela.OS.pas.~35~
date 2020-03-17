@@ -217,6 +217,7 @@ end;
 function TEntityQuitarParcelaOS.getDATA_PAGAMENTO(
   value: string): iQuitarParcelaOS;
 begin
+
    result := self;
 
   try
@@ -234,11 +235,31 @@ end;
 function TEntityQuitarParcelaOS.getDESCONTO(value: string): iQuitarParcelaOS;
 begin
 
+  result := self;
+
+  try
+    FDESCONTO := StrToCurr(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Informe um valor de desconto válido.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
 end;
 
 function TEntityQuitarParcelaOS.getFORMA_PAGAMENTO(
   value: string): iQuitarParcelaOS;
 begin
+
+  result := self;
+
+  if value = EmptyStr then
+  begin
+    MessageDlg('ERRO. Informe a forma de pagamento da parcela.', mtError, [mbOk], 0, mbOk);
+    abort;
+  end;
+
 
 end;
 
@@ -246,20 +267,59 @@ function TEntityQuitarParcelaOS.getHORA_PAGAMENTO(
   value: string): iQuitarParcelaOS;
 begin
 
+  result := self;
+
+  try
+    FHORA_PAGAMENTO := StrToTime(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Insrira um horário de pagamento válido.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
 end;
 
 function TEntityQuitarParcelaOS.getJUROS(value: string): iQuitarParcelaOS;
 begin
+
+  result := self;
+
+  try
+    FJUROS := StrToCurr(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Informe um valor de juros válido.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
 
 end;
 
 function TEntityQuitarParcelaOS.getMULTA(value: string): iQuitarParcelaOS;
 begin
 
+  result := self;
+
+  try
+    FMULTA := StrToCurr(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Informe um valor para a multa válido.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+
+  end;
+
 end;
 
 function TEntityQuitarParcelaOS.getPGTO(value: string): iQuitarParcelaOS;
 begin
+
+  result := self;
+
+  FPGTO := 'Sim';
+
 
 end;
 
@@ -272,7 +332,18 @@ end;
 function TEntityQuitarParcelaOS.getVALOR_TOTAL(value: string): iQuitarParcelaOS;
 begin
 
-end;
+  result := self;
+
+  try
+    FVALOR_TOTAL := StrToCurr(value);
+  except on e:exception do
+  begin
+    MessageDlg('ERRO. Informe o total de pagamento da parcela.'+e.Message, mtError, [mbOk], 0, mbOk);
+  end;
+  end;
+
+  end;
+
 
 function TEntityQuitarParcelaOS.listarGrid(value: TDataSource): iQuitarParcelaOS;
 begin
@@ -345,7 +416,44 @@ end;
 
 function TEntityQuitarParcelaOS.selecionarParcelaQuitar(
   value: integer): iquitarParcelaOS;
+var
+   FQueryParcelaOS:iConexaoQuery;
 begin
+
+  FQueryParcelaOS := TConexaoQuery.new.Query('PARCELAS_ORDEM');
+
+  FQueryParcelaOS.TQuery.Active := false;
+  FQueryParcelaOS.TQuery.SQL.Clear;
+  FQueryParcelaOS.TQuery.SQL.Add('select * from PARCELAS_ORDEM where ID =:i');
+  FQueryParcelaOS.TQuery.ParamByName('i').AsInteger := value;
+  FQueryParcelaOS.TQuery.Active := true;
+
+  if FQueryParcelaOS.TQuery.RecordCount >= 1 then
+  begin
+
+    FQueryParcelaOS.TQuery.Edit;
+
+    FQueryParcelaOS.TQuery.FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FQueryParcelaOS.TQuery.FieldByName('JUROS').AsCurrency := FJUROS;
+    FQueryParcelaOS.TQuery.FieldByName('MULTA').AsCurrency := FMULTA;
+    FQueryParcelaOS.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
+    FQueryParcelaOS.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := FDATA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := FHORA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := FFORMA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('PGTO').AsString := FPGTO;
+
+    try
+      FQueryParcelaOS.TQuery.Post;
+      showmessage('Parcela quitada com sucesso!!!');
+    except on e:exception do
+    begin
+      MessageDlg('ERRO. Ocorreu um erro ao tentar quitar esta parcela. '+e.Message, mtError, [mbOk], 0, mbOk);
+    end;
+
+    end;
+
+
+  end;
 
 end;
 

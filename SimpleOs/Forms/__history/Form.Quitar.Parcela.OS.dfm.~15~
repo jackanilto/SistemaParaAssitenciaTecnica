@@ -284,7 +284,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
-      OnClick = sbQuitarParelaClick
     end
     object sbEstornar: TSpeedButton
       Left = 119
@@ -1032,7 +1031,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Top = 191
     Width = 220
     Height = 25
-    DataSource = DataSource1
     VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
     Flat = True
     TabOrder = 3

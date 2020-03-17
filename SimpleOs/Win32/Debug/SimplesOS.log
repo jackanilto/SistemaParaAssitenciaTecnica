@@ -5036,3 +5036,38 @@ At line 1, column 15
 15/03/20 14:58:28 - Caption: SimpleOS
 15/03/20 14:58:28 - Erro:EAccessViolation
 15/03/20 14:58:28 - Erro:Access violation at address 00BC17C3 in module 'SimplesOS.exe'. Read of address 00000004
+17/03/20 20:32:43 - ===========================================
+17/03/20 20:32:43 - Form: formQuitarParcelaOS
+17/03/20 20:32:43 - Caption: Quitar parcelas OS
+17/03/20 20:32:43 - Erro:EAccessViolation
+17/03/20 20:32:43 - Erro:Access violation at address 00C7F1FF in module 'SimplesOS.exe'. Read of address 00000000
+17/03/20 20:34:05 - ===========================================
+17/03/20 20:34:05 - Form: formQuitarParcelaOS
+17/03/20 20:34:05 - Caption: Quitar parcelas OS
+17/03/20 20:34:05 - Erro:EAccessViolation
+17/03/20 20:34:05 - Erro:Access violation at address 00C7F1FF in module 'SimplesOS.exe'. Read of address 00000000
+17/03/20 20:34:35 - ===========================================
+17/03/20 20:34:35 - Form: formQuitarParcelaOS
+17/03/20 20:34:35 - Caption: Quitar parcelas OS
+17/03/20 20:34:35 - Erro:EAccessViolation
+17/03/20 20:34:35 - Erro:Access violation at address 00C7F1FF in module 'SimplesOS.exe'. Read of address 00000000
+17/03/20 20:35:05 - ===========================================
+17/03/20 20:35:05 - Form: formQuitarParcelaOS
+17/03/20 20:35:05 - Caption: Quitar parcelas OS
+17/03/20 20:35:05 - Erro:EAccessViolation
+17/03/20 20:35:05 - Erro:Access violation at address 00C7F1FF in module 'SimplesOS.exe'. Read of address 00000000
+17/03/20 20:37:42 - ===========================================
+17/03/20 20:37:42 - Form: formQuitarParcelaOS
+17/03/20 20:37:42 - Caption: Quitar parcelas OS
+17/03/20 20:37:42 - Erro:EAccessViolation
+17/03/20 20:37:42 - Erro:Access violation at address 00C7F1FA in module 'SimplesOS.exe'. Read of address 00000000
+17/03/20 20:38:55 - ===========================================
+17/03/20 20:38:55 - Form: formQuitarParcelaOS
+17/03/20 20:38:55 - Caption: Quitar parcelas OS
+17/03/20 20:38:55 - Erro:EAccessViolation
+17/03/20 20:38:55 - Erro:Access violation at address 00C7F1FA in module 'SimplesOS.exe'. Read of address 00000000
+17/03/20 20:45:52 - ===========================================
+17/03/20 20:45:52 - Form: formQuitarParcelaOS
+17/03/20 20:45:52 - Caption: Quitar parcelas OS
+17/03/20 20:45:52 - Erro:EAccessViolation
+17/03/20 20:45:52 - Erro:Access violation at address 00C7F3B8 in module 'SimplesOS.exe'. Read of address 00000000
