@@ -1087,6 +1087,7 @@ type
     function calularJuros: string;
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
     function adicionarParcela: iParcelaOrdem;
+    function gravarEdicaoParcelas:iParcelaOrdem;
     function estadoDaTabela(value: string): iParcelaOrdem;
 
   end;
@@ -1674,6 +1675,49 @@ type
 
     function exportar: iQuitarParcelasVenda;
     procedure validarData(componet: tmaskEdit);
+
+  end;
+
+  iQuitarParcelaOS = interface
+    ['{FF7DF130-C2CE-4859-B74D-39FE72FCC2D2}']
+
+    function nomeTabela(value: string): iQuitarParcelaOS;
+    function getCampo(value: string): iQuitarParcelaOS;
+    function getValor(value: string): iQuitarParcelaOS;
+    function getDataInicial(value: TDate): iQuitarParcelaOS;
+    function getDataFinal(value: TDate): iQuitarParcelaOS;
+    function open(value: string): iQuitarParcelaOS;
+    function pesquisar: iQuitarParcelaOS;
+    function ExecSql: iQuitarParcelaOS;
+    function sqlPesquisa: iQuitarParcelaOS;
+    function sqlPesquisaData: iQuitarParcelaOS;
+    function sqlPesquisaEstatica: iQuitarParcelaOS;
+
+    function abrir: iQuitarParcelaOS;
+    function atualizar: iQuitarParcelaOS;
+    function fecharQuery: iQuitarParcelaOS;
+    function listarGrid(value: TDataSource): iQuitarParcelaOS;
+    function ordenarGrid(column: TColumn): iQuitarParcelaOS;
+
+    function CalularPagamento:iQuitarParcelaOS;
+    function setTotalParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalJurosParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalMultaParcela(value:TEdit):iQuitarParcelaOS;
+
+    function getDESCONTO(value:string):iQuitarParcelaOS;
+    function getJUROS(value:string):iQuitarParcelaOS;
+    function getMULTA(value:string):iQuitarParcelaOS;
+    function getVALOR_TOTAL(value:string):iQuitarParcelaOS;
+    function getDATA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getHORA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getFORMA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getPGTO(value:string):iQuitarParcelaOS;
+
+    function selecionarParcelaQuitar(value:integer):iquitarParcelaOS;
+    function estornarParcela(value:integer):iquitarParcelaOS;
+
+    function exportar: iQuitarParcelaOS;
+    function validarData(componet: tmaskEdit):iQuitarParcelaOS;
 
   end;
 
@@ -2612,27 +2656,27 @@ type
   iRelatorioHistoricoCaixa = interface
     ['{F6BCDBE0-B889-4B5E-9AE7-15EA4B953049}']
 
-    function nomeTabela(value: string): iRelatorioProblemasFrequentes;
-    function getCampo(value: string): iRelatorioProblemasFrequentes;
-    function getValor(value: string): iRelatorioProblemasFrequentes;
-    function getDataInicial(value: TDate): iRelatorioProblemasFrequentes;
-    function getDataFinal(value: TDate): iRelatorioProblemasFrequentes;
-    function open(value: string): iRelatorioProblemasFrequentes;
-    function pesquisar: iRelatorioProblemasFrequentes;
-    function ExecSql: iRelatorioProblemasFrequentes;
-    function sqlPesquisa: iRelatorioProblemasFrequentes;
-    function sqlPesquisaData: iRelatorioProblemasFrequentes;
-    function sqlPesquisaEstatica: iRelatorioProblemasFrequentes;
+    function nomeTabela(value: string): iRelatorioHistoricoCaixa;
+    function getCampo(value: string): iRelatorioHistoricoCaixa;
+    function getValor(value: string): iRelatorioHistoricoCaixa;
+    function getDataInicial(value: TDate): iRelatorioHistoricoCaixa;
+    function getDataFinal(value: TDate): iRelatorioHistoricoCaixa;
+    function open(value: string): iRelatorioHistoricoCaixa;
+    function pesquisar: iRelatorioHistoricoCaixa;
+    function ExecSql: iRelatorioHistoricoCaixa;
+    function sqlPesquisa: iRelatorioHistoricoCaixa;
+    function sqlPesquisaData: iRelatorioHistoricoCaixa;
+    function sqlPesquisaEstatica: iRelatorioHistoricoCaixa;
 
-    function abrir: iRelatorioProblemasFrequentes;
-    function atualizar: iRelatorioProblemasFrequentes;
-    function cancelar: iRelatorioProblemasFrequentes;
-    function fecharQuery: iRelatorioProblemasFrequentes;
-    function listarGrid(value: TDataSource): iRelatorioProblemasFrequentes;
-    function ordenarGrid(column: TColumn): iRelatorioProblemasFrequentes;
+    function abrir: iRelatorioHistoricoCaixa;
+    function atualizar: iRelatorioHistoricoCaixa;
+    function cancelar: iRelatorioHistoricoCaixa;
+    function fecharQuery: iRelatorioHistoricoCaixa;
+    function listarGrid(value: TDataSource): iRelatorioHistoricoCaixa;
+    function ordenarGrid(column: TColumn): iRelatorioHistoricoCaixa;
 
-    function exportar: iRelatorioProblemasFrequentes;
-    function validarData(componet: tmaskEdit):iRelatorioProblemasFrequentes;
+    function exportar: iRelatorioHistoricoCaixa;
+    function validarData(componet: tmaskEdit):iRelatorioHistoricoCaixa;
 
   end;
 

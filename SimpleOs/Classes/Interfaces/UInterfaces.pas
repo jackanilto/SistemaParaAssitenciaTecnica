@@ -1714,6 +1714,13 @@ type
     function getPGTO(value:string):iQuitarParcelaOS;
 
     function selecionarParcelaQuitar(value:integer):iquitarParcelaOS;
+    function estornarParcela(value:integer):iquitarParcelaOS;
+
+    function adicionarParcela:iQuitarParcelaOS;
+    function getValorParcela(value:string):iQuitarParcelaOS;
+    function getDataVencimento(value:string):iQuitarParcelaOS;
+
+    function excluir(value:integer):iQuitarParcelaOS;
 
     function exportar: iQuitarParcelaOS;
     function validarData(componet: tmaskEdit):iQuitarParcelaOS;

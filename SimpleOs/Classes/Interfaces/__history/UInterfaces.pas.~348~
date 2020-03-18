@@ -1699,37 +1699,29 @@ type
     function listarGrid(value: TDataSource): iQuitarParcelaOS;
     function ordenarGrid(column: TColumn): iQuitarParcelaOS;
 
-    function selecionarParcelaQuitar(value: integer): iQuitarParcelaOS;
-    function getCodigoParcela(value: integer): iQuitarParcelaOS;
-    function getDesconto(value: string): iQuitarParcelaOS;
-    function getJuros(value: string): iQuitarParcelaOS;
-    function getDataPagamento(value: string): iQuitarParcelaOS;
-    function getTOTAL(value: string): iQuitarParcelaOS;
-    function getFormaPagamento(value: string): iQuitarParcelaOS;
-    function quitarParcela: iQuitarParcelaOS;
-    function estornarParcela(value: integer): iQuitarParcelaOS;
+    function CalularPagamento:iQuitarParcelaOS;
+    function setTotalParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalJurosParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalMultaParcela(value:TEdit):iQuitarParcelaOS;
 
-    function prepararAdicionarParcela: iQuitarParcelaOS;
-    function getID_VENDA(value: integer): iQuitarParcelaOS;
-    function getID_CLIENTE(value: integer): iQuitarParcelaOS;
-    function getVALOR_VENDA(value: string): iQuitarParcelaOS;
-    function getQUANTIDADE_PARCELAS(value: integer): iQuitarParcelaOS;
-    function getPARCELA(value: integer): iQuitarParcelaOS;
-    function getVALOR_DA_PARCELA(value: string): iQuitarParcelaOS;
-    function getDATA_VENCIMENTO(value: string): iQuitarParcelaOS;
+    function getDESCONTO(value:string):iQuitarParcelaOS;
+    function getJUROS(value:string):iQuitarParcelaOS;
+    function getMULTA(value:string):iQuitarParcelaOS;
+    function getVALOR_TOTAL(value:string):iQuitarParcelaOS;
+    function getDATA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getHORA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getFORMA_PAGAMENTO(value:string):iQuitarParcelaOS;
+    function getPGTO(value:string):iQuitarParcelaOS;
 
-    function excluirParcela(value: integer): iQuitarParcelaOS;
+    function selecionarParcelaQuitar(value:integer):iquitarParcelaOS;
+    function estornarParcela(value:integer):iquitarParcelaOS;
 
-    function tableQuery: TFDQuery;
-
-    function CalcularJuros: string;
-    function retornarTotalDeParcelas(value: integer): integer;
-
-    function setJuros(value: TEdit): iQuitarParcelaOS;
-    function setMulta(value: TEdit): iQuitarParcelaOS;
+    function adicionarParcela:iQuitarParcelaOS;
+    function getValorParcela(value:string):iQuitarParcelaOS;
+    function dataVencimento(value:string):iQuitarParcelaOS;
 
     function exportar: iQuitarParcelaOS;
-    procedure validarData(componet: tmaskEdit);
+    function validarData(componet: tmaskEdit):iQuitarParcelaOS;
 
   end;
 

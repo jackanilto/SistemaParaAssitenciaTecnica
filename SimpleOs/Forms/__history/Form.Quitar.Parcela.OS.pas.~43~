@@ -60,12 +60,19 @@ type
     procedure e(Column: TColumn);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure sbQuitarParelaClick(Sender: TObject);
+    procedure sbEstornarClick(Sender: TObject);
+    procedure sbAdicionarParcelaClick(Sender: TObject);
+    procedure sbSalvarClick(Sender: TObject);
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
   private
     { Private declarations }
     var
       FEntityQuitar: iQuitarParcelaOS;
     procedure ativarBotoes;
     procedure desativarBotoes;
+    procedure limparEditsAdicionar;
   public
     { Public declarations }
   end;
@@ -162,6 +169,29 @@ begin
   sbImprimir.Enabled := false;
 end;
 
+procedure TformQuitarParcelaOS.limparEditsAdicionar;
+begin
+  edtTotalDeParcelas.Clear;
+  edtParcelaSelecionada.Clear;
+  edtJuros.Clear;
+  edtMulta.Clear;
+  edtDesconto.Clear;
+  edtTotalAPagar.Clear;
+  edtFormaDePagamento.Clear;
+  edtPago.Clear;
+  edtValorDaParcela.SetFocus;
+  lblCaption.Caption := self.Caption + ' - adicionando uma parcela';
+
+   sbAdicionarParcela.Enabled := false;
+   sbEstornar.Enabled := false;
+   sbSalvar.Enabled := true;
+   sbExcluir.Enabled := false;
+   sbCancelar.Enabled := true;
+   sbImprimirParcelas.Enabled := false;
+   sbExportar.Enabled := false;
+
+end;
+
 procedure TformQuitarParcelaOS.e(Column: TColumn);
 begin
   FEntityQuitar.ordenarGrid(Column);
@@ -200,9 +230,90 @@ begin
   end;
 end;
 
+procedure TformQuitarParcelaOS.sbAdicionarParcelaClick(Sender: TObject);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+   limparEditsAdicionar;
+
+  end
+  else
+  raise Exception.Create('ERRO!, Não há nenhum registro selecionado.'+
+                        ' Selecione um cliente antes de inserir uma parcela');
+
+end;
+
+procedure TformQuitarParcelaOS.sbCancelarClick(Sender: TObject);
+begin
+  edtTotalDeParcelas.Clear;
+  edtTotalDeParcelas.Clear;
+  edtParcelaSelecionada.Clear;
+  edtValorDaParcela.Clear;
+  edtJuros.Clear;
+  edtMulta.Clear;
+  edtDesconto.Clear;
+  edtPago.Clear;
+  edtFormaDePagamento.Clear;
+  desativarBotoes;
+  sbSalvar.Enabled := false;
+end;
+
+procedure TformQuitarParcelaOS.sbEstornarClick(Sender: TObject);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    FEntityQuitar
+                .estornarParcela(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+                .atualizar;
+  end;
+
+end;
+
+procedure TformQuitarParcelaOS.sbExcluirClick(Sender: TObject);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    FEntityQuitar.excluir(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
+  end;
+
+end;
+
 procedure TformQuitarParcelaOS.sbFecharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TformQuitarParcelaOS.sbQuitarParelaClick(Sender: TObject);
+begin
+
+  FEntityQuitar
+              .getDESCONTO(edtDesconto.Text)
+              .getJUROS(edtJuros.Text)
+              .getMULTA(edtMulta.Text)
+              .getVALOR_TOTAL(edtTotalAPagar.Text)
+              .getDATA_PAGAMENTO(DateToStr(edtDataDePagamento.Date))
+              .getHORA_PAGAMENTO(TimeToStr(Time))
+              .getFORMA_PAGAMENTO(edtFormaDePagamento.Text)
+              .getPGTO(edtPago.Text)
+              .selecionarParcelaQuitar(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+              .atualizar;
+
+
+end;
+
+procedure TformQuitarParcelaOS.sbSalvarClick(Sender: TObject);
+begin
+  FEntityQuitar
+              .getValorParcela(edtValorDaParcela.Text)
+              .getDataVencimento(edtDataDeVencimento.Text)
+              .adicionarParcela
+              .atualizar;
+
+  lblCaption.Caption := self.caption;
+
 end;
 
 end.

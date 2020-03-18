@@ -61,12 +61,15 @@ type
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure sbQuitarParelaClick(Sender: TObject);
+    procedure sbEstornarClick(Sender: TObject);
+    procedure sbAdicionarParcelaClick(Sender: TObject);
   private
     { Private declarations }
     var
       FEntityQuitar: iQuitarParcelaOS;
     procedure ativarBotoes;
     procedure desativarBotoes;
+    procedure limparEditsAdicionar;
   public
     { Public declarations }
   end;
@@ -163,6 +166,20 @@ begin
   sbImprimir.Enabled := false;
 end;
 
+procedure TformQuitarParcelaOS.limparEditsAdicionar;
+begin
+  edtTotalDeParcelas.Clear;
+  edtParcelaSelecionada.Clear;
+  edtJuros.Clear;
+  edtMulta.Clear;
+  edtDesconto.Clear;
+  edtTotalAPagar.Clear;
+  edtFormaDePagamento.Clear;
+  edtPago.Clear;
+  edtValorDaParcela.SetFocus;
+  lblCaption.Caption := self.Caption + ' - adicionando uma parcela';
+end;
+
 procedure TformQuitarParcelaOS.e(Column: TColumn);
 begin
   FEntityQuitar.ordenarGrid(Column);
@@ -199,6 +216,28 @@ begin
     ReleaseCapture;
     self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
   end;
+end;
+
+procedure TformQuitarParcelaOS.sbAdicionarParcelaClick(Sender: TObject);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+   limparEditsAdicionar;
+  end;
+
+end;
+
+procedure TformQuitarParcelaOS.sbEstornarClick(Sender: TObject);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    FEntityQuitar
+                .estornarParcela(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
+                .atualizar;
+  end;
+
 end;
 
 procedure TformQuitarParcelaOS.sbFecharClick(Sender: TObject);

@@ -5071,3 +5071,23 @@ At line 1, column 15
 17/03/20 20:45:52 - Caption: Quitar parcelas OS
 17/03/20 20:45:52 - Erro:EAccessViolation
 17/03/20 20:45:52 - Erro:Access violation at address 00C7F3B8 in module 'SimplesOS.exe'. Read of address 00000000
+18/03/20 10:45:08 - ===========================================
+18/03/20 10:45:08 - Form: formQuitarParcelaOS
+18/03/20 10:45:08 - Caption: Quitar parcelas OS
+18/03/20 10:45:08 - Erro:EAccessViolation
+18/03/20 10:45:08 - Erro:Access violation at address CCFFAB0E. Read of address CCFFAB0E
+18/03/20 10:48:09 - ===========================================
+18/03/20 10:48:09 - Form: formPrincipal
+18/03/20 10:48:09 - Caption: SimpleOS
+18/03/20 10:48:09 - Erro:EAccessViolation
+18/03/20 10:48:09 - Erro:Access violation at address CCFFAB0E. Read of address CCFFAB0E
+18/03/20 11:25:09 - ===========================================
+18/03/20 11:25:09 - Form: formQuitarParcelaOS
+18/03/20 11:25:09 - Caption: Quitar parcelas OS
+18/03/20 11:25:09 - Erro:EDBEditError
+18/03/20 11:25:09 - Erro:Invalid input value.  Use escape key to abandon changes
+18/03/20 11:25:16 - ===========================================
+18/03/20 11:25:16 - Form: formQuitarParcelaOS
+18/03/20 11:25:16 - Caption: Quitar parcelas OS
+18/03/20 11:25:16 - Erro:EDBEditError
+18/03/20 11:25:16 - Erro:Invalid input value.  Use escape key to abandon changes

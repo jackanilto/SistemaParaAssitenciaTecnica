@@ -105,7 +105,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 843
     DesignSize = (
       1049
       41)
@@ -207,8 +206,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 452
-    ExplicitWidth = 980
     DesignSize = (
       1049
       117)
@@ -287,6 +284,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbQuitarParelaClick
     end
     object sbEstornar: TSpeedButton
       Left = 119
@@ -369,6 +367,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbEstornarClick
     end
     object sbAdicionarParcela: TSpeedButton
       Left = 236
@@ -445,6 +444,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbAdicionarParcelaClick
     end
     object sbSalvar: TSpeedButton
       Left = 406
@@ -527,6 +527,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbSalvarClick
     end
     object sbExcluir: TSpeedButton
       Left = 509
@@ -609,6 +610,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbExcluirClick
     end
     object Label4: TLabel
       Left = 723
@@ -985,7 +987,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
         'C'#243'digo da parcela'
         'Venda'
         'C'#243'digo do cliente')
-      ExplicitLeft = 654
     end
     object edtPesquisar: TEdit
       Left = 858
@@ -1001,7 +1002,6 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Font.Quality = fqDraft
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 789
     end
   end
   object DBGrid1: TDBGrid
@@ -1028,12 +1028,15 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
     TitleFont.Quality = fqDraft
+    OnCellClick = DBGrid1CellClick
+    OnTitleClick = e
   end
   object DBNavigator1: TDBNavigator
     Left = 0
     Top = 191
     Width = 220
     Height = 25
+    DataSource = DataSource1
     VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
     Flat = True
     TabOrder = 3
@@ -1121,6 +1124,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     TabOrder = 14
   end
   object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
     Left = 728
     Top = 176
   end
