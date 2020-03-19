@@ -283,8 +283,6 @@ var
   pasta: variant;
   linha: integer;
 begin
-
-  {REALIZAR ESTA PARTE}
   
   FQuery.TQuery.Filtered := false;
 

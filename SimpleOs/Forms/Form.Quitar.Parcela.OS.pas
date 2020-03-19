@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Data.DB, Vcl.ComCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids,
   UInterfaces, UClasse.Entity.Quitar.Parcela.OS, UFactory, frxClass, frxDBSet,
-  UClasse.Preparar.Imprimir.Recibo;
+  UClasse.Preparar.Imprimir.Recibo, UClasse.Imprimir.Recibo.OS;
 
 type
   TEnumPesquisar = (parcela, os, cod_cliente, cliente);
@@ -63,6 +63,7 @@ type
     s_imprimirOS: TDataSource;
     s_imprimirServicosOS: TDataSource;
     s_imprimirparcelasOS: TDataSource;
+    s_Empresa: TDataSource;
     procedure FormShow(Sender: TObject);
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -84,6 +85,7 @@ type
     { Private declarations }
     var
       FEntityQuitar: iQuitarParcelaOS;
+      FEntityImprimirRecibo:iImprimirReciboPgtoParcelas;
     procedure ativarBotoes;
     procedure desativarBotoes;
     procedure limparEditsAdicionar;
@@ -249,11 +251,21 @@ end;
 procedure TformQuitarParcelaOS.FormCreate(Sender: TObject);
 begin
   FEntityQuitar := TEntityQuitarParcelaOS.new;
+  FEntityImprimirRecibo := TEntityImprimirReciboPgtoOS.new;
 end;
 
 procedure TformQuitarParcelaOS.FormShow(Sender: TObject);
 begin
+
   FEntityQuitar.abrir.listarGrid(DataSource1);
+
+  FEntityImprimirRecibo
+                    .abrir
+                    .getCampo('ID_PARCELA')
+                    .getValor('0')
+                    .sqlPesquisa
+                    .listarGrid(s_ImprirmirRecibo)
+                    .selecionarEmpresa(s_Empresa);
 
   TFactory.new
             .ftTable.FD_Table('FORMAS_PAGAMENTO')
@@ -354,6 +366,13 @@ begin
               .getPGTO(edtPago.Text)
               .selecionarParcelaQuitar(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger)
               .atualizar;
+
+  if application.MessageBox('Deseja imprimir o recibo do pagamento?',
+     'Pergunta do sistema!', MB_YESNO+MB_ICONQUESTION)=mryes then
+     begin
+
+     end;
+
 
 
 end;

@@ -2686,6 +2686,37 @@ type
 
   end;
 
+  iImprimirReciboPgtoParcelas = interface
+    ['{6944295A-A881-4ADD-A3C8-E837D9498DA3}']
+
+    function nomeTabela(value: string): iImprimirReciboPgtoParcelas;
+    function getCampo(value: string): iImprimirReciboPgtoParcelas;
+    function getValor(value: string): iImprimirReciboPgtoParcelas;
+    function getDataInicial(value: TDate): iImprimirReciboPgtoParcelas;
+    function getDataFinal(value: TDate): iImprimirReciboPgtoParcelas;
+    function open(value: string): iImprimirReciboPgtoParcelas;
+    function pesquisar: iImprimirReciboPgtoParcelas;
+    function ExecSql: iImprimirReciboPgtoParcelas;
+    function sqlPesquisa: iImprimirReciboPgtoParcelas;
+    function sqlPesquisaData: iImprimirReciboPgtoParcelas;
+    function sqlPesquisaEstatica: iImprimirReciboPgtoParcelas;
+    function SelectSql(value: string): iImprimirReciboPgtoParcelas;
+
+    function abrir: iImprimirReciboPgtoParcelas;
+    function atualizar: iImprimirReciboPgtoParcelas;
+    function cancelar: iImprimirReciboPgtoParcelas;
+    function fecharQuery: iImprimirReciboPgtoParcelas;
+    function listarGrid(value: TDataSource): iImprimirReciboPgtoParcelas;
+    function ordenarGrid(column: TColumn): iImprimirReciboPgtoParcelas;
+
+    function selecionarParcela(value:integer):iImprimirReciboPgtoParcelas;
+    function selecionarEmpresa(value:TDataSource):iImprimirReciboPgtoParcelas;
+
+    function exportar: iImprimirReciboPgtoParcelas;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

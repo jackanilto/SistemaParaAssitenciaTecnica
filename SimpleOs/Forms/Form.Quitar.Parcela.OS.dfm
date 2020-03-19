@@ -1860,4 +1860,8 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Left = 308
     Top = 365
   end
+  object s_Empresa: TDataSource
+    Left = 440
+    Top = 296
+  end
 end

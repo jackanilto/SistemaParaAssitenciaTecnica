@@ -5096,3 +5096,13 @@ At line 1, column 15
 18/03/20 18:45:56 - Caption: Quitar parcelas OS
 18/03/20 18:45:56 - Erro:EDatabaseError
 18/03/20 18:45:56 - Erro:Field '' not found
+19/03/20 13:02:58 - ===========================================
+19/03/20 13:02:58 - Form: formQuitarParcelasVendas
+19/03/20 13:02:58 - Caption: Ver parcelas das vendas realizadas
+19/03/20 13:02:58 - Erro:Exception
+19/03/20 13:02:58 - Erro:ERRO! Informe o meio de pagamento da parcela.
+19/03/20 13:20:17 - ===========================================
+19/03/20 13:20:17 - Form: formPrincipal
+19/03/20 13:20:17 - Caption: SimpleOS
+19/03/20 13:20:17 - Erro:EAccessViolation
+19/03/20 13:20:17 - Erro:Access violation at address 00BC1803 in module 'SimplesOS.exe'. Read of address 00000004

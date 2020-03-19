@@ -542,6 +542,8 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Quitar.Parcela.OS.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Imprimir.Parcelas.OS.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Imprimir.Recibo.OS.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>
