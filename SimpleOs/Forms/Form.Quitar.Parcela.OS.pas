@@ -6,7 +6,11 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Data.DB, Vcl.ComCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids,
-  UInterfaces, UClasse.Entity.Quitar.Parcela.OS, UFactory;
+  UInterfaces, UClasse.Entity.Quitar.Parcela.OS, UFactory, frxClass, frxDBSet,
+  UClasse.Preparar.Imprimir.Recibo;
+
+type
+  TEnumPesquisar = (parcela, os, cod_cliente, cliente);
 
 type
   TformQuitarParcelaOS = class(TForm)
@@ -52,6 +56,13 @@ type
     edtTotalAPagar: TEdit;
     edtDataDePagamento: TDateTimePicker;
     DataSource1: TDataSource;
+    s_ImprirmirRecibo: TDataSource;
+    frxDB_Imprimirrecibo: TfrxDBDataset;
+    frx_ImprimirRecibo: TfrxReport;
+    s_ImprimirInfoJuros: TDataSource;
+    s_imprimirOS: TDataSource;
+    s_imprimirServicosOS: TDataSource;
+    s_imprimirparcelasOS: TDataSource;
     procedure FormShow(Sender: TObject);
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -66,7 +77,10 @@ type
     procedure sbSalvarClick(Sender: TObject);
     procedure sbExcluirClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
-  private
+    procedure sbExportarClick(Sender: TObject);
+
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);  private
     { Private declarations }
     var
       FEntityQuitar: iQuitarParcelaOS;
@@ -198,6 +212,40 @@ begin
   DataSource1.DataSet.First;
 end;
 
+procedure TformQuitarParcelaOS.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+  var
+    FCampo:string;
+begin
+
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  parcela:
+  begin
+    FCampo := 'ID_PARCELA';
+  end;
+  os:
+  begin
+    FCampo := 'ID_ORDEM';
+  end;
+  cod_cliente:
+  begin
+    FCampo := 'ID_CLIENTE';
+  end;
+  cliente:
+  begin
+    FCampo := 'CLIENTE';
+  end;
+  end;
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntityQuitar
+                .getCampo(FCampo)
+                .getValor(edtPesquisar.Text)
+                .sqlPesquisa
+                .listarGrid(DataSource1);
+
+end;
+
 procedure TformQuitarParcelaOS.FormCreate(Sender: TObject);
 begin
   FEntityQuitar := TEntityQuitarParcelaOS.new;
@@ -280,6 +328,11 @@ begin
     FEntityQuitar.excluir(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
   end;
 
+end;
+
+procedure TformQuitarParcelaOS.sbExportarClick(Sender: TObject);
+begin
+  FEntityQuitar.exportar;
 end;
 
 procedure TformQuitarParcelaOS.sbFecharClick(Sender: TObject);

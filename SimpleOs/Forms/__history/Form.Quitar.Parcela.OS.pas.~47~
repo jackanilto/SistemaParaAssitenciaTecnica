@@ -9,6 +9,9 @@ uses
   UInterfaces, UClasse.Entity.Quitar.Parcela.OS, UFactory;
 
 type
+  TEnumPesquisar = (parcela, os, cod_cliente, cliente);
+
+type
   TformQuitarParcelaOS = class(TForm)
     Panel1: TPanel;
     sbFechar: TSpeedButton;
@@ -64,7 +67,12 @@ type
     procedure sbEstornarClick(Sender: TObject);
     procedure sbAdicionarParcelaClick(Sender: TObject);
     procedure sbSalvarClick(Sender: TObject);
-  private
+    procedure sbExcluirClick(Sender: TObject);
+    procedure sbCancelarClick(Sender: TObject);
+    procedure sbExportarClick(Sender: TObject);
+
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);  private
     { Private declarations }
     var
       FEntityQuitar: iQuitarParcelaOS;
@@ -196,6 +204,40 @@ begin
   DataSource1.DataSet.First;
 end;
 
+procedure TformQuitarParcelaOS.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+  var
+    FCampo:string;
+begin
+
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  parcela:
+  begin
+    FCampo := 'ID_PARCELA';
+  end;
+  os:
+  begin
+    FCampo := 'ID_ORDEM';
+  end;
+  cod_cliente:
+  begin
+    FCampo := 'ID_CLIENTE';
+  end;
+  cliente:
+  begin
+    FCampo := 'CLIENTE';
+  end;
+  end;
+
+  if edtPesquisar.Text <> EmptyStr then
+    FEntityQuitar
+                .getCampo(FCampo)
+                .getValor(edtPesquisar.Text)
+                .sqlPesquisa
+                .listarGrid(DataSource1);
+
+end;
+
 procedure TformQuitarParcelaOS.FormCreate(Sender: TObject);
 begin
   FEntityQuitar := TEntityQuitarParcelaOS.new;
@@ -242,6 +284,22 @@ begin
 
 end;
 
+procedure TformQuitarParcelaOS.sbCancelarClick(Sender: TObject);
+begin
+  edtTotalDeParcelas.Clear;
+  edtTotalDeParcelas.Clear;
+  edtParcelaSelecionada.Clear;
+  edtValorDaParcela.Clear;
+  edtJuros.Clear;
+  edtMulta.Clear;
+  edtDesconto.Clear;
+  edtPago.Clear;
+  edtFormaDePagamento.Clear;
+  edtDataDeVencimento.Clear;
+  desativarBotoes;
+  sbSalvar.Enabled := false;
+end;
+
 procedure TformQuitarParcelaOS.sbEstornarClick(Sender: TObject);
 begin
 
@@ -252,6 +310,21 @@ begin
                 .atualizar;
   end;
 
+end;
+
+procedure TformQuitarParcelaOS.sbExcluirClick(Sender: TObject);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    FEntityQuitar.excluir(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
+  end;
+
+end;
+
+procedure TformQuitarParcelaOS.sbExportarClick(Sender: TObject);
+begin
+  FEntityQuitar.exportar;
 end;
 
 procedure TformQuitarParcelaOS.sbFecharClick(Sender: TObject);
@@ -284,6 +357,9 @@ begin
               .getDataVencimento(edtDataDeVencimento.Text)
               .adicionarParcela
               .atualizar;
+
+  lblCaption.Caption := self.caption;
+
 end;
 
 end.

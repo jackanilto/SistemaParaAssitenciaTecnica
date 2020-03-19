@@ -367,6 +367,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbEstornarClick
     end
     object sbAdicionarParcela: TSpeedButton
       Left = 236
@@ -443,6 +444,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbAdicionarParcelaClick
     end
     object sbSalvar: TSpeedButton
       Left = 406
@@ -525,6 +527,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbSalvarClick
     end
     object sbExcluir: TSpeedButton
       Left = 509
@@ -607,6 +610,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbExcluirClick
     end
     object Label4: TLabel
       Left = 723
@@ -723,6 +727,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbCancelarClick
     end
     object sbImprimirParcelas: TSpeedButton
       Left = 143
@@ -881,6 +886,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = sbExportarClick
     end
     object sbImprimir: TSpeedButton
       Left = 454

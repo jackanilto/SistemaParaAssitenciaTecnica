@@ -1141,13 +1141,18 @@ end;
 
 procedure TformCriarConsultarOrdemServico.imprimirRecibo;
 begin
-  FEntityImprimirRecibo.getCampo('ID_PARCELA')
-    .getValor(IntToStr(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger))
-    .sqlPesquisaEstatica.listarGrid(s_ImprirmirRecibo).imprimirComprovante;
+
+  FEntityImprimirRecibo
+          .getCampo('ID_PARCELA')
+          .getValor(IntToStr(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger))
+          .sqlPesquisaEstatica.listarGrid(s_ImprirmirRecibo).imprimirComprovante;
+
   prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
+
   frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/comprovante_pagamento.fr3');
   frx_ImprimirRecibo.ShowReport;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.desabilitarBotoesParcelasEstornar;
