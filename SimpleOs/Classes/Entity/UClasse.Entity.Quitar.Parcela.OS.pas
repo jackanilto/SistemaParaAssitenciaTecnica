@@ -142,6 +142,13 @@ begin
    FAdicionarParcela.TQuery.Post;
    showmessage('Parcela adicionada com sucesso!!!');
 
+    FGravarLog
+           .getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString+' Parcela: '
+           +FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+           .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+           .getOperacao('parcela adicionada')
+           .gravarLog;
+
  except on e:exception do
  begin
   MessageDlg('ERRO. Ocorreu um erro ao adicionar a parcela . '+e.Message, mtError, [mbOk], 0, mbOk); 
@@ -219,6 +226,8 @@ begin
     if FEstornarParcela.TQuery.RecordCount >= 1 then
     begin
 
+    if FEstornarParcela.TQuery.FieldByName('PGTO').AsString = 'Sim' then
+      begin
       FEstornarParcela.TQuery.Edit;
 
       FEstornarParcela.TQuery.FieldByName('DESCONTO').Clear;
@@ -233,6 +242,14 @@ begin
     try
       FEstornarParcela.TQuery.Post;
       showmessage('Pagamento da parcela cancelada com sucesso!!!');
+
+      FGravarLog
+           .getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString+' Parcela: '
+           +FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+           .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+           .getOperacao('estornada')
+           .gravarLog;
+
     except on e:exception do
     begin
       MessageDlg('ERRO. Ocorreu um erro ao tentar estornada esta parcela. '+e.Message, mtError, [mbOk], 0, mbOk);
@@ -241,6 +258,7 @@ begin
     end;
 
     end;
+   end;
    end;
 
 end;
@@ -264,9 +282,18 @@ begin
     FDeletarParcela.TQuery.ParamByName('i').AsInteger := value;
     FDeletarParcela.TQuery.Active := true;
 
+    FGravarLog
+           .getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString+' Parcela: '
+           +FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+           .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+           .getOperacao('deletada')
+           .gravarLog;
+
     FDeletarParcela.TQuery.Delete;
     showmessage('Parcela excluida com sucesso!!!');
-        
+
+
+
    end;
    
    
@@ -683,6 +710,13 @@ begin
     try
       FQueryParcelaOS.TQuery.Post;
       showmessage('Parcela quitada com sucesso!!!');
+
+      FGravarLog
+              .getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString)
+              .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger)
+              .getOperacao('quitada')
+              .gravarLog;
+
     except on e:exception do
     begin
       MessageDlg('ERRO. Ocorreu um erro ao tentar quitar esta parcela. '+e.Message, mtError, [mbOk], 0, mbOk);

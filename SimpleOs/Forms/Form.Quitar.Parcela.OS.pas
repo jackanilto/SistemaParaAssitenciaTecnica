@@ -7,7 +7,13 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Data.DB, Vcl.ComCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids,
   UInterfaces, UClasse.Entity.Quitar.Parcela.OS, UFactory, frxClass, frxDBSet,
-  UClasse.Preparar.Imprimir.Recibo, UClasse.Imprimir.Recibo.OS;
+  UClasse.Preparar.Imprimir.Recibo, UClasse.Imprimir.Recibo.OS,
+  UClasse.Imprimir.Parcelas.OS, UClasse.Entity.Criar.Ordem.Servico,
+  UClasse.Entity.Ordem.Adicionar.Servico, UClasse.Entity.Criar.Ordem.Parcelas,
+  UClasse.Entity.Table, UClasse.Visualizar.Ordens.Servico,
+  UClasse.Visualizar.Ordens.Servicos.Incluidos,
+  UClasse.Visualizar.Ordens.Servico.Parcelas, UClasse.Entity.Dados.Empresa,
+  UClasse.Entity.Configurar.Parcelas;
 
 type
   TEnumPesquisar = (parcela, os, cod_cliente, cliente);
@@ -59,11 +65,21 @@ type
     s_ImprirmirRecibo: TDataSource;
     frxDB_Imprimirrecibo: TfrxDBDataset;
     frx_ImprimirRecibo: TfrxReport;
-    s_ImprimirInfoJuros: TDataSource;
     s_imprimirOS: TDataSource;
     s_imprimirServicosOS: TDataSource;
     s_imprimirparcelasOS: TDataSource;
     s_Empresa: TDataSource;
+    frxDB_Empresa: TfrxDBDataset;
+    frxDB_ListaParcelasOS: TfrxDBDataset;
+    frx_ListaParcelasOS: TfrxReport;
+    frxDB_ImprimirParcelasOS: TfrxDBDataset;
+    frx_ImprimirParcelas: TfrxReport;
+    DataSource2: TDataSource;
+    s_ImprimirInfoJuros: TDataSource;
+    frxDB_ImprimirInfoJuros: TfrxDBDataset;
+    frxDB_ImprimirServicosOS: TfrxDBDataset;
+    frxDB_ImprimirDadosEmpresa: TfrxDBDataset;
+    s_ImprimirEmpresa: TDataSource;
     procedure FormShow(Sender: TObject);
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -81,14 +97,30 @@ type
     procedure sbExportarClick(Sender: TObject);
 
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);  private
+      Shift: TShiftState);
+    procedure sbImprimirParcelasClick(Sender: TObject);
+  private
     { Private declarations }
     var
       FEntityQuitar: iQuitarParcelaOS;
       FEntityImprimirRecibo:iImprimirReciboPgtoParcelas;
+      FEntityImprimirParcelas:iImprimirParcelasOS;
+
+    FEntityCriarOrdem: iCriarOrdemServico;
+    FEntityServicosOrdem: iAdicionarServicosOrdem;
+    FEntityParcelasOrdem: iParcelaOrdem;
+    FEntityTableServicos: iFDTable;
+
+    FEntityVisualizarOS: iVisualizarOrdens;
+    FEntityVisualizasOSServicos: iVisualizarServicosOrdem;
+    FEntityVisualizarOSParcelas: iVisualizarParcelasOrdem;
+    FEntityVisualizarEmpresa: iDadosEmpresa;
+    FEntityVisualizarJuros: iConfigurarParcelas;
+
     procedure ativarBotoes;
     procedure desativarBotoes;
     procedure limparEditsAdicionar;
+    procedure prepararParaImprimir(value: Integer);
   public
     { Public declarations }
   end;
@@ -139,6 +171,7 @@ begin
                   .setTotalMultaParcela(edtMulta);
 
       ativarBotoes;
+      sbImprimirParcelas.Enabled := true;
 
     end
     else
@@ -152,6 +185,7 @@ begin
         sbAdicionarParcela.Enabled := true;
         sbExcluir.Enabled := true;
         sbCancelar.Enabled := true;
+        sbImprimirParcelas.Enabled := true;
       end;
 
 
@@ -252,6 +286,20 @@ procedure TformQuitarParcelaOS.FormCreate(Sender: TObject);
 begin
   FEntityQuitar := TEntityQuitarParcelaOS.new;
   FEntityImprimirRecibo := TEntityImprimirReciboPgtoOS.new;
+  FEntityImprimirParcelas := TEntityImprimirParcelas.new;
+
+  FEntityCriarOrdem       := TEntityCriarOrdemServico.new;
+  FEntityServicosOrdem    := TEntityAdicionarItemsOrdem.new;
+  FEntityParcelasOrdem    := TEntityGerarParcelas.new;
+  FEntityTableServicos    := TEntityTable.new;
+
+  FEntityVisualizarOS     := TEntityVisualizarOrdem.new;
+  FEntityVisualizasOSServicos  := TEntityVisualizarOrdemServicosIncluidos.new;
+  FEntityVisualizarOSParcelas   := TEntityVisualizarOrdemServicoParcelas.new;
+  FEntityVisualizarEmpresa := TEntityCadastroDadosEmpresa.new;
+  FEntityVisualizarJuros := TEntityConfigurarParcelas.new;
+//  FEntityImprimirRecibo := TEntityPrepararRecibo.new;
+
 end;
 
 procedure TformQuitarParcelaOS.FormShow(Sender: TObject);
@@ -288,6 +336,24 @@ begin
     ReleaseCapture;
     self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
   end;
+end;
+
+procedure TformQuitarParcelaOS.prepararParaImprimir(value: Integer);
+begin
+
+ FEntityVisualizarOS.getCampo('ID_ORDEM').getValor(value.ToString)
+    .sqlPesquisaEstatica.listarGrid(s_imprimirOS);
+
+  FEntityVisualizasOSServicos.getCampo('ID_ORDEM').getValor(value.ToString)
+    .sqlPesquisaEstatica.listarGrid(s_imprimirServicosOS);
+
+  FEntityVisualizarOSParcelas.getCampo('ID_ORDEM').getValor(value.ToString)
+    .sqlPesquisaEstatica.listarGrid(s_imprimirparcelasOS);
+
+  FEntityVisualizarEmpresa.abrir.listarGrid(s_ImprimirEmpresa);
+
+  FEntityVisualizarJuros.abrir.listarGrid(s_ImprimirInfoJuros);
+
 end;
 
 procedure TformQuitarParcelaOS.sbAdicionarParcelaClick(Sender: TObject);
@@ -352,8 +418,26 @@ begin
   close;
 end;
 
-procedure TformQuitarParcelaOS.sbQuitarParelaClick(Sender: TObject);
+procedure TformQuitarParcelaOS.sbImprimirParcelasClick(Sender: TObject);
 begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+   prepararParaImprimir(DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger);
+
+   frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/parcelas_os.fr3');
+   frx_ImprimirParcelas.ShowReport();
+  end;
+
+end;
+
+procedure TformQuitarParcelaOS.sbQuitarParelaClick(Sender: TObject);
+ var
+  _cod_parcela:integer;
+begin
+
+  _cod_parcela := DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger;
 
   FEntityQuitar
               .getDESCONTO(edtDesconto.Text)
@@ -370,6 +454,12 @@ begin
   if application.MessageBox('Deseja imprimir o recibo do pagamento?',
      'Pergunta do sistema!', MB_YESNO+MB_ICONQUESTION)=mryes then
      begin
+
+      FEntityImprimirRecibo.selecionarParcela(_cod_parcela).selecionarEmpresa(s_Empresa);
+
+        frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
+            'relatórios/recibo_parcelas_os.fr3');
+        frx_ImprimirRecibo.ShowReport;
 
      end;
 

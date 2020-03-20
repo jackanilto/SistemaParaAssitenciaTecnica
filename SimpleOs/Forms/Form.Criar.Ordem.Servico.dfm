@@ -916,7 +916,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 3
         ExplicitTop = -2
         object Label30: TLabel
           Left = 15
@@ -1417,7 +1416,7 @@
           end
           object sbImprimirParcelas: TSpeedButton
             Left = 751
-            Top = 10
+            Top = 6
             Width = 178
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'

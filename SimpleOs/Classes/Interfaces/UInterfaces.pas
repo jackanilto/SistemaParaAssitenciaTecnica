@@ -2717,6 +2717,37 @@ type
 
   end;
 
+  iImprimirParcelasOS = interface
+    ['{E6BDD340-8AD5-4644-AAE2-883305B10A47}']
+
+    function nomeTabela(value: string): iImprimirParcelasOS;
+    function getCampo(value: string): iImprimirParcelasOS;
+    function getValor(value: string): iImprimirParcelasOS;
+    function getDataInicial(value: TDate): iImprimirParcelasOS;
+    function getDataFinal(value: TDate): iImprimirParcelasOS;
+    function open(value: string): iImprimirParcelasOS;
+    function pesquisar: iImprimirParcelasOS;
+    function ExecSql: iImprimirParcelasOS;
+    function sqlPesquisa: iImprimirParcelasOS;
+    function sqlPesquisaData: iImprimirParcelasOS;
+    function sqlPesquisaEstatica: iImprimirParcelasOS;
+    function SelectSql(value: string): iImprimirParcelasOS;
+
+    function abrir: iImprimirParcelasOS;
+    function atualizar: iImprimirParcelasOS;
+    function cancelar: iImprimirParcelasOS;
+    function fecharQuery: iImprimirParcelasOS;
+    function listarGrid(value: TDataSource): iImprimirParcelasOS;
+    function ordenarGrid(column: TColumn): iImprimirParcelasOS;
+
+    function selecionarParcela(value:integer):iImprimirParcelasOS;
+    function selecionarEmpresa(value:TDataSource):iImprimirParcelasOS;
+
+    function exportar: iImprimirParcelasOS;
+    procedure validarData(componet: tmaskEdit);
+
+  end;
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;

@@ -199,6 +199,16 @@ function TEntityImprimirReciboPgtoOS.selecionarParcela(
   value: integer): iImprimirReciboPgtoParcelas;
 begin
   result := self;
+
+  with FQuery do
+  begin
+    TQuery.Active := false;
+    TQuery.SQL.Clear;
+    TQuery.SQL.Add('select * from VISUALIZAR_PARCELAS_OS where ID_PARCELA =:i');
+    TQuery.ParamByName('i').AsInteger := value;
+    TQuery.Active := true;
+  end;
+
 end;
 
 function TEntityImprimirReciboPgtoOS.SelectSql(
