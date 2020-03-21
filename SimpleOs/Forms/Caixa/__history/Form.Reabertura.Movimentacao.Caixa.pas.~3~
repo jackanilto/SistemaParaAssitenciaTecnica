@@ -1,0 +1,33 @@
+unit Form.Reabertura.Movimentacao.Caixa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TformMovimentacaoCaixa = class(TForm)
+    Panel1: TPanel;
+    sbFechar: TSpeedButton;
+    lblCaption: TLabel;
+    procedure sbFecharClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  formMovimentacaoCaixa: TformMovimentacaoCaixa;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformMovimentacaoCaixa.sbFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

@@ -184,7 +184,9 @@ uses
   Form.Quitar.Parcela.OS in 'Forms\Form.Quitar.Parcela.OS.pas' {formQuitarParcelaOS},
   UClasse.Entity.Quitar.Parcela.OS in 'Classes\Entity\UClasse.Entity.Quitar.Parcela.OS.pas',
   UClasse.Imprimir.Parcelas.OS in 'Classes\Entity\UClasse.Imprimir.Parcelas.OS.pas',
-  UClasse.Imprimir.Recibo.OS in 'Classes\Entity\UClasse.Imprimir.Recibo.OS.pas';
+  UClasse.Imprimir.Recibo.OS in 'Classes\Entity\UClasse.Imprimir.Recibo.OS.pas',
+  Form.Reabertura.Movimentacao.Caixa in 'Forms\Caixa\Form.Reabertura.Movimentacao.Caixa.pas' {formMovimentacaoCaixa},
+  UClasse.Relatorio.Movimentacao.OS in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.OS.pas';
 
 {$R *.res}
 
@@ -193,5 +195,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TformMovimentacaoCaixa, formMovimentacaoCaixa);
   Application.Run;
 end.

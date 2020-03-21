@@ -990,8 +990,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
         'C'#243'digo da parcela'
         'OS'
         'C'#243'digo do cliente'
-        'Cliente'
-        '')
+        'Cliente')
     end
     object edtPesquisar: TEdit
       Left = 858

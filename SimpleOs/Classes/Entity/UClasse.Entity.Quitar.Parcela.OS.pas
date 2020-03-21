@@ -13,35 +13,34 @@ type
   private
 
     FQuery: iConexaoQuery;
-    FQueryConfigPacelas:iConexaoQuery;
+    FQueryConfigPacelas: iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
-    FCalularDiferencaDiasMes:TCalcularDiaMeses;
-    FEstornarParcela:iConexaoQuery;
+    FCalularDiferencaDiasMes: TCalcularDiaMeses;
+    FEstornarParcela: iConexaoQuery;
     FTabela: string;
     FCampo: string;
     FValor: string;
     FDataInicial: TDate;
     FDataFinal: TDate;
 
-    F_JurosPorAtraso:Real;
-    F_MultaPorAtraso:Currency;
-    FtotalAPagar:Currency;
+    F_JurosPorAtraso: Real;
+    F_MultaPorAtraso: Currency;
+    FtotalAPagar: Currency;
 
-    FJurosParcela:Currency;
-    FMultaParcela:Currency;
+    FJurosParcela: Currency;
+    FMultaParcela: Currency;
 
     FDESCONTO: Currency;
-    FJUROS:Currency;
-    FMULTA:Currency;
-    FVALOR_TOTAL:Currency;
-    FDATA_PAGAMENTO:TDate;
-    FHORA_PAGAMENTO:TTime;
-    FFORMA_PAGAMENTO:String;
-    FPGTO:String;
+    FJUROS: Currency;
+    FMULTA: Currency;
+    FVALOR_TOTAL: Currency;
+    FDATA_PAGAMENTO: TDate;
+    FHORA_PAGAMENTO: TTime;
+    FFORMA_PAGAMENTO: String;
+    FPGTO: String;
 
-    FAdicionarValorParcela:Currency;
-    FAdicionarDataVencimentoParcela:TDate;
-
+    FAdicionarValorParcela: Currency;
+    FAdicionarDataVencimentoParcela: TDate;
 
     FCodigo: integer;
     FNome: string;
@@ -66,31 +65,31 @@ type
     function listarGrid(value: TDataSource): iQuitarParcelaOS;
     function ordenarGrid(column: TColumn): iQuitarParcelaOS;
 
-    function CalularPagamento:iQuitarParcelaOS;
-    function setTotalParcela(value:TEdit):iQuitarParcelaOS;
-    function setTotalJurosParcela(value:TEdit):iQuitarParcelaOS;
-    function setTotalMultaParcela(value:TEdit):iQuitarParcelaOS;
+    function CalularPagamento: iQuitarParcelaOS;
+    function setTotalParcela(value: TEdit): iQuitarParcelaOS;
+    function setTotalJurosParcela(value: TEdit): iQuitarParcelaOS;
+    function setTotalMultaParcela(value: TEdit): iQuitarParcelaOS;
 
-    function getDESCONTO(value:string):iQuitarParcelaOS;
-    function getJUROS(value:string):iQuitarParcelaOS;
-    function getMULTA(value:string):iQuitarParcelaOS;
-    function getVALOR_TOTAL(value:string):iQuitarParcelaOS;
-    function getDATA_PAGAMENTO(value:string):iQuitarParcelaOS;
-    function getHORA_PAGAMENTO(value:string):iQuitarParcelaOS;
-    function getFORMA_PAGAMENTO(value:string):iQuitarParcelaOS;
-    function getPGTO(value:string):iQuitarParcelaOS;
+    function getDESCONTO(value: string): iQuitarParcelaOS;
+    function getJUROS(value: string): iQuitarParcelaOS;
+    function getMULTA(value: string): iQuitarParcelaOS;
+    function getVALOR_TOTAL(value: string): iQuitarParcelaOS;
+    function getDATA_PAGAMENTO(value: string): iQuitarParcelaOS;
+    function getHORA_PAGAMENTO(value: string): iQuitarParcelaOS;
+    function getFORMA_PAGAMENTO(value: string): iQuitarParcelaOS;
+    function getPGTO(value: string): iQuitarParcelaOS;
 
-    function selecionarParcelaQuitar(value:integer):iquitarParcelaOS;
-    function estornarParcela(value:integer):iquitarParcelaOS;
+    function selecionarParcelaQuitar(value: integer): iQuitarParcelaOS;
+    function estornarParcela(value: integer): iQuitarParcelaOS;
 
-    function adicionarParcela:iQuitarParcelaOS;
-    function getValorParcela(value:string):iQuitarParcelaOS;
-    function getDataVencimento(value:string):iQuitarParcelaOS;
+    function adicionarParcela: iQuitarParcelaOS;
+    function getValorParcela(value: string): iQuitarParcelaOS;
+    function getDataVencimento(value: string): iQuitarParcelaOS;
 
-    function excluir(value:integer):iQuitarParcelaOS;
+    function excluir(value: integer): iQuitarParcelaOS;
 
     function exportar: iQuitarParcelaOS;
-    function validarData(componet: tmaskEdit):iQuitarParcelaOS;
+    function validarData(componet: tmaskEdit): iQuitarParcelaOS;
 
     constructor create;
     destructor destroy; override;
@@ -111,51 +110,53 @@ end;
 
 function TEntityQuitarParcelaOS.adicionarParcela: iQuitarParcelaOS;
 var
-  FAdicionarParcela:iConexaoQuery;
+  FAdicionarParcela: iConexaoQuery;
 begin
   result := self;
 
   FAdicionarParcela := TConexaoQuery.new.Query('PARCELAS_ORDEM');
 
   FAdicionarParcela.TQuery.Insert;
-  
-  FAdicionarParcela.TQuery.FieldByName('ID').AsInteger := 
-                    FAdicionarParcela.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
 
-  FAdicionarParcela.TQuery.FieldByName('ID_ORDEM').AsInteger := 
-                    FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger;  
-                     
-  FAdicionarParcela.TQuery.FieldByName('ID_CLIENTE').AsInteger := 
-                    FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
-                    
-  FAdicionarParcela.TQuery.FieldByName('TOTAL_PARCELAS').AsInteger := 
-                    FQuery.TQuery.FieldByName('TOTAL_PARCELAS').AsInteger + 1;
-                     
-  FAdicionarParcela.TQuery.FieldByName('PARCELA').AsInteger := 
-                    FQuery.TQuery.FieldByName('TOTAL_PARCELAS').AsInteger + 1;
-                    
-  FAdicionarParcela.TQuery.FieldByName('VALOR_PARCELA').AsCurrency := FAdicionarValorParcela;
-  FAdicionarParcela.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime := FAdicionarDataVencimentoParcela;
+  FAdicionarParcela.TQuery.FieldByName('ID').AsInteger :=
+    FAdicionarParcela.codigoCadastro('SP_GEN_PARCELAS_ORDEM_ID');
 
- try       
-              
-   FAdicionarParcela.TQuery.Post;
-   showmessage('Parcela adicionada com sucesso!!!');
+  FAdicionarParcela.TQuery.FieldByName('ID_ORDEM').AsInteger :=
+    FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger;
 
-    FGravarLog
-           .getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString+' Parcela: '
-           +FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
-           .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
-           .getOperacao('parcela adicionada')
-           .gravarLog;
+  FAdicionarParcela.TQuery.FieldByName('ID_CLIENTE').AsInteger :=
+    FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
 
- except on e:exception do
- begin
-  MessageDlg('ERRO. Ocorreu um erro ao adicionar a parcela . '+e.Message, mtError, [mbOk], 0, mbOk); 
- end;
+  FAdicionarParcela.TQuery.FieldByName('TOTAL_PARCELAS').AsInteger :=
+    FQuery.TQuery.FieldByName('TOTAL_PARCELAS').AsInteger + 1;
 
- end;
-  
+  FAdicionarParcela.TQuery.FieldByName('PARCELA').AsInteger :=
+    FQuery.TQuery.FieldByName('TOTAL_PARCELAS').AsInteger + 1;
+
+  FAdicionarParcela.TQuery.FieldByName('VALOR_PARCELA').AsCurrency :=
+    FAdicionarValorParcela;
+  FAdicionarParcela.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime :=
+    FAdicionarDataVencimentoParcela;
+
+  try
+
+    FAdicionarParcela.TQuery.Post;
+    showmessage('Parcela adicionada com sucesso!!!');
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString +
+      ' Parcela: ' + FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+      .getOperacao('parcela adicionada').gravarLog;
+
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Ocorreu um erro ao adicionar a parcela . ' + e.Message,
+        mtError, [mbOk], 0, mbOk);
+    end;
+
+  end;
+
 end;
 
 function TEntityQuitarParcelaOS.atualizar: iQuitarParcelaOS;
@@ -173,27 +174,30 @@ begin
   FGravarLog.getJanela('Quitar parcela OS').getCodigoFuncionario
     (funcionarioLogado);
 
-  FCalularDiferencaDiasMes := TCalcularDiaMeses.Create;
+  FCalularDiferencaDiasMes := TCalcularDiaMeses.create;
 
   FQueryConfigPacelas := TConexaoQuery.new.Query('CONFIGURAR_PARCELA');
 
   F_JurosPorAtraso := FQueryConfigPacelas.TQuery.FieldByName('JUROS').AsFloat;
-  F_MultaPorAtraso := FQueryConfigPacelas.TQuery.FieldByName('MULTA').AsCurrency;
-
+  F_MultaPorAtraso := FQueryConfigPacelas.TQuery.FieldByName('MULTA')
+    .AsCurrency;
 
 end;
 
-function TEntityQuitarParcelaOS.getDataVencimento(value: string): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.getDataVencimento(value: string)
+  : iQuitarParcelaOS;
 begin
 
   result := self;
 
   try
-    FAdicionarDataVencimentoParcela := StrToDate(value); 
-  except on e:exception do
-  begin
-    MessageDlg('ERRO. Informe a data de vencimento válida. '+e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+    FAdicionarDataVencimentoParcela := StrToDate(value);
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Informe a data de vencimento válida. ' + e.Message,
+        mtError, [mbOk], 0, mbOk);
+    end;
 
   end;
 
@@ -205,76 +209,84 @@ begin
   inherited;
 end;
 
-function TEntityQuitarParcelaOS.estornarParcela(
-  value: integer): iquitarParcelaOS;
+function TEntityQuitarParcelaOS.estornarParcela(value: integer)
+  : iQuitarParcelaOS;
 begin
 
   result := self;
 
-   if application.MessageBox('Deseja realmente Cancelar o pagamento desta parcela ',
-    'Pergunta do sistema!',  MB_YESNO+MB_ICONQUESTION)=mryes then
-   begin
+  if application.MessageBox
+    ('Deseja realmente Cancelar o pagamento desta parcela ',
+    'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+  begin
 
     FEstornarParcela := TConexaoQuery.new.Query('PARCELAS_ORDEM');
 
     FEstornarParcela.TQuery.Active := false;
     FEstornarParcela.TQuery.SQL.Clear;
-    FEstornarParcela.TQuery.SQL.Add('select * from PARCELAS_ORDEM where ID =:i');
+    FEstornarParcela.TQuery.SQL.Add
+      ('select * from PARCELAS_ORDEM where ID =:i');
     FEstornarParcela.TQuery.ParamByName('i').AsInteger := value;
     FEstornarParcela.TQuery.Active := true;
 
     if FEstornarParcela.TQuery.RecordCount >= 1 then
     begin
 
-    if FEstornarParcela.TQuery.FieldByName('PGTO').AsString = 'Sim' then
+      if FEstornarParcela.TQuery.FieldByName('PGTO').AsString = 'Sim' then
       begin
-      FEstornarParcela.TQuery.Edit;
+        FEstornarParcela.TQuery.Edit;
 
-      FEstornarParcela.TQuery.FieldByName('DESCONTO').Clear;
-      FEstornarParcela.TQuery.FieldByName('JUROS').Clear;
-      FEstornarParcela.TQuery.FieldByName('MULTA').Clear;
-      FEstornarParcela.TQuery.FieldByName('VALOR_TOTAL').Clear;
-      FEstornarParcela.TQuery.FieldByName('DATA_PAGAMENTO').Clear;
-      FEstornarParcela.TQuery.FieldByName('HORA_PAGAMENTO').Clear;
-      FEstornarParcela.TQuery.FieldByName('FORMA_PAGAMENTO').Clear;
-      FEstornarParcela.TQuery.FieldByName('PGTO').AsString := 'Nao';
+        FEstornarParcela.TQuery.FieldByName('DESCONTO').Clear;
+        FEstornarParcela.TQuery.FieldByName('JUROS').Clear;
+        FEstornarParcela.TQuery.FieldByName('MULTA').Clear;
+        FEstornarParcela.TQuery.FieldByName('VALOR_TOTAL').Clear;
+        FEstornarParcela.TQuery.FieldByName('DATA_PAGAMENTO').Clear;
+        FEstornarParcela.TQuery.FieldByName('HORA_PAGAMENTO').Clear;
+        FEstornarParcela.TQuery.FieldByName('FORMA_PAGAMENTO').Clear;
+        FEstornarParcela.TQuery.FieldByName('PGTO').AsString := 'Nao';
 
-    try
-      FEstornarParcela.TQuery.Post;
-      showmessage('Pagamento da parcela cancelada com sucesso!!!');
+        try
+          FEstornarParcela.TQuery.Post;
+          showmessage('Pagamento da parcela cancelada com sucesso!!!');
 
-      FGravarLog
-           .getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString+' Parcela: '
-           +FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
-           .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
-           .getOperacao('estornada')
-           .gravarLog;
+          FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE')
+            .AsString + ' Parcela: ' + FQuery.TQuery.FieldByName('ID_PARCELA')
+            .AsInteger.ToString).getCodigoRegistro
+            (FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+            .getOperacao('estornada').gravarLog;
 
-    except on e:exception do
-    begin
-      MessageDlg('ERRO. Ocorreu um erro ao tentar estornada esta parcela. '+e.Message, mtError, [mbOk], 0, mbOk);
+        except
+          on e: exception do
+          begin
+            MessageDlg
+              ('ERRO. Ocorreu um erro ao tentar estornada esta parcela. ' +
+              e.Message, mtError, [mbOk], 0, mbOk);
+          end;
+
+        end;
+
+      end
+      else
+      begin
+        MessageDlg('ERRO. Esta parcela já foi estornada. ', mtError, [mbOk], 0, mbOk);
+      end;
     end;
-
-    end;
-
-    end;
-   end;
-   end;
+  end;
 
 end;
 
-function TEntityQuitarParcelaOS.excluir(value:integer): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.excluir(value: integer): iQuitarParcelaOS;
 var
-  FDeletarParcela:iConexaoQuery;
+  FDeletarParcela: iConexaoQuery;
 begin
 
-   result := self;
+  result := self;
 
-   FDeletarParcela := TConexaoQuery.new.Query('PARCELAS_ORDEM');
+  FDeletarParcela := TConexaoQuery.new.Query('PARCELAS_ORDEM');
 
-   if application.MessageBox('Deseja excluir esta parcela?',
-       'Pergunta do sistema!', MB_YESNO+MB_ICONQUESTION)=mryes then
-   begin
+  if application.MessageBox('Deseja excluir esta parcela?',
+    'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+  begin
 
     FDeletarParcela.TQuery.Active := false;
     FDeletarParcela.TQuery.SQL.Clear;
@@ -282,21 +294,16 @@ begin
     FDeletarParcela.TQuery.ParamByName('i').AsInteger := value;
     FDeletarParcela.TQuery.Active := true;
 
-    FGravarLog
-           .getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString+' Parcela: '
-           +FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
-           .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
-           .getOperacao('deletada')
-           .gravarLog;
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString +
+      ' Parcela: ' + FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+      .getOperacao('deletada').gravarLog;
 
     FDeletarParcela.TQuery.Delete;
     showmessage('Parcela excluida com sucesso!!!');
 
+  end;
 
-
-   end;
-   
-   
 end;
 
 function TEntityQuitarParcelaOS.ExecSql: iQuitarParcelaOS;
@@ -310,7 +317,7 @@ var
   pasta: variant;
   linha: integer;
 begin
-  
+
   FQuery.TQuery.Filtered := false;
 
   linha := 2;
@@ -344,35 +351,48 @@ begin
     while not FQuery.TQuery.Eof do
     begin
 
-      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger;
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_PARCELA')
+        .AsInteger;
       pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('ID_CLIENTE')
+        .AsInteger;
       pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('CLIENTE').AsString;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('TOTAL_PARCELAS').AsInteger;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('TOTAL_PARCELAS')
+        .AsInteger;
       pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('PARCELA').AsInteger;
-      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency;
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_PARCELA')
+        .AsCurrency;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO')
+        .AsDateTime;
       pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('JUROS').AsCurrency;
       pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('MULTA').AsCurrency;
-      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('VALOR_TOTAL')
+        .AsCurrency;
 
-      if FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime = StrToDate('30/12/1899') then
+      if FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime = StrToDate
+        ('30/12/1899') then
       begin
-        pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime;
-        pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime;
-        end
+        pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO')
+          .AsDateTime;
+        pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('HORA_PAGAMENTO')
+          .AsDateTime;
+      end
       else
       begin
         pasta.cells[linha, 13] := ' ';
         pasta.cells[linha, 14] := ' ';
       end;
 
-      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName
+        ('FORMA_PAGAMENTO').AsString;
       pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('PGTO').AsString;
-      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('ID_FUNCIONARIO').ASInteger;
-      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').AsString;
-      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
+      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('ID_FUNCIONARIO')
+        .AsInteger;
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName
+        ('NOME_FUNCIONARIO').AsString;
+      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('OBSERVACAO')
+        .AsString;
 
       linha := linha + 1;
 
@@ -395,8 +415,8 @@ begin
   result := self;
   valorParcela := FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency;
 
-   if   date > FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime then
-   begin
+  if date > FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime then
+  begin
 
     periodo := FCalularDiferencaDiasMes.DifDiasMeses
       (FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime, date);
@@ -430,7 +450,6 @@ begin
 
   end;
 
-
 end;
 
 function TEntityQuitarParcelaOS.fecharQuery: iQuitarParcelaOS;
@@ -458,21 +477,22 @@ begin
   // FQuery.getDataInicial(value);
 end;
 
-function TEntityQuitarParcelaOS.getDATA_PAGAMENTO(
-  value: string): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.getDATA_PAGAMENTO(value: string)
+  : iQuitarParcelaOS;
 begin
 
-   result := self;
+  result := self;
 
   try
     FDATA_PAGAMENTO := StrToDate(value);
-  except on e:exception do
-  begin
-    MessageDlg('ERRO. Insira uma data válida.'+e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Insira uma data válida.' + e.Message, mtError,
+        [mbOk], 0, mbOk);
+    end;
 
   end;
-
 
 end;
 
@@ -483,44 +503,48 @@ begin
 
   try
     FDESCONTO := StrToCurr(value);
-  except on e:exception do
-  begin
-    MessageDlg('ERRO. Informe um valor de desconto válido.'+e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Informe um valor de desconto válido.' + e.Message,
+        mtError, [mbOk], 0, mbOk);
+    end;
 
   end;
 
 end;
 
-function TEntityQuitarParcelaOS.getFORMA_PAGAMENTO(
-  value: string): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.getFORMA_PAGAMENTO(value: string)
+  : iQuitarParcelaOS;
 begin
 
   result := self;
 
   if value = EmptyStr then
   begin
-    MessageDlg('ERRO. Informe a forma de pagamento da parcela.', mtError, [mbOk], 0, mbOk);
+    MessageDlg('ERRO. Informe a forma de pagamento da parcela.', mtError,
+      [mbOk], 0, mbOk);
     abort;
   end;
 
   FFORMA_PAGAMENTO := value;
 
-
 end;
 
-function TEntityQuitarParcelaOS.getHORA_PAGAMENTO(
-  value: string): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.getHORA_PAGAMENTO(value: string)
+  : iQuitarParcelaOS;
 begin
 
   result := self;
 
   try
     FHORA_PAGAMENTO := StrToTime(value);
-  except on e:exception do
-  begin
-    MessageDlg('ERRO. Insrira um horário de pagamento válido.'+e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Insrira um horário de pagamento válido.' + e.Message,
+        mtError, [mbOk], 0, mbOk);
+    end;
 
   end;
 
@@ -533,13 +557,14 @@ begin
 
   try
     FJUROS := StrToCurr(value);
-  except on e:exception do
-  begin
-    MessageDlg('ERRO. Informe um valor de juros válido.'+e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Informe um valor de juros válido.' + e.Message, mtError,
+        [mbOk], 0, mbOk);
+    end;
 
   end;
-
 
 end;
 
@@ -550,10 +575,12 @@ begin
 
   try
     FMULTA := StrToCurr(value);
-  except on e:exception do
-  begin
-    MessageDlg('ERRO. Informe um valor para a multa válido.'+e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Informe um valor para a multa válido.' + e.Message,
+        mtError, [mbOk], 0, mbOk);
+    end;
 
   end;
 
@@ -566,7 +593,6 @@ begin
 
   FPGTO := 'Sim';
 
-
 end;
 
 function TEntityQuitarParcelaOS.getValor(value: string): iQuitarParcelaOS;
@@ -575,18 +601,20 @@ begin
   FValor := UpperCase(value);
 end;
 
-function TEntityQuitarParcelaOS.getValorParcela(
-  value: string): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.getValorParcela(value: string)
+  : iQuitarParcelaOS;
 begin
 
   result := self;
 
   try
     FAdicionarValorParcela := StrToCurr(value);
-  except on e:exception do
-  begin
-    MessageDlg('ERRO. Informe o valor da parcela. '+e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Informe o valor da parcela. ' + e.Message, mtError,
+        [mbOk], 0, mbOk);
+    end;
 
   end;
 
@@ -599,16 +627,18 @@ begin
 
   try
     FVALOR_TOTAL := StrToCurr(value);
-  except on e:exception do
-  begin
-    MessageDlg('ERRO. Informe o total de pagamento da parcela.'+e.Message, mtError, [mbOk], 0, mbOk);
-  end;
+  except
+    on e: exception do
+    begin
+      MessageDlg('ERRO. Informe o total de pagamento da parcela.' + e.Message,
+        mtError, [mbOk], 0, mbOk);
+    end;
   end;
 
-  end;
+end;
 
-
-function TEntityQuitarParcelaOS.listarGrid(value: TDataSource): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.listarGrid(value: TDataSource)
+  : iQuitarParcelaOS;
 begin
 
   result := self;
@@ -677,10 +707,10 @@ begin
   result := self;
 end;
 
-function TEntityQuitarParcelaOS.selecionarParcelaQuitar(
-  value: integer): iquitarParcelaOS;
+function TEntityQuitarParcelaOS.selecionarParcelaQuitar(value: integer)
+  : iQuitarParcelaOS;
 var
-   FQueryParcelaOS:iConexaoQuery;
+  FQueryParcelaOS: iConexaoQuery;
 begin
 
   result := self;
@@ -701,43 +731,46 @@ begin
     FQueryParcelaOS.TQuery.FieldByName('DESCONTO').AsCurrency := FDESCONTO;
     FQueryParcelaOS.TQuery.FieldByName('JUROS').AsCurrency := FJUROS;
     FQueryParcelaOS.TQuery.FieldByName('MULTA').AsCurrency := FMULTA;
-    FQueryParcelaOS.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
-    FQueryParcelaOS.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := FDATA_PAGAMENTO;
-    FQueryParcelaOS.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := FHORA_PAGAMENTO;
-    FQueryParcelaOS.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := FFORMA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('VALOR_TOTAL').AsCurrency :=
+      FVALOR_TOTAL;
+    FQueryParcelaOS.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime :=
+      FDATA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime :=
+      FHORA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('FORMA_PAGAMENTO').AsString :=
+      FFORMA_PAGAMENTO;
     FQueryParcelaOS.TQuery.FieldByName('PGTO').AsString := FPGTO;
 
     try
       FQueryParcelaOS.TQuery.Post;
       showmessage('Parcela quitada com sucesso!!!');
 
-      FGravarLog
-              .getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString)
-              .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger)
-              .getOperacao('quitada')
-              .gravarLog;
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString)
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger)
+        .getOperacao('quitada').gravarLog;
 
-    except on e:exception do
-    begin
-      MessageDlg('ERRO. Ocorreu um erro ao tentar quitar esta parcela. '+e.Message, mtError, [mbOk], 0, mbOk);
+    except
+      on e: exception do
+      begin
+        MessageDlg('ERRO. Ocorreu um erro ao tentar quitar esta parcela. ' +
+          e.Message, mtError, [mbOk], 0, mbOk);
+      end;
+
     end;
-
-    end;
-
 
   end;
 
 end;
 
-function TEntityQuitarParcelaOS.setTotalJurosParcela(
-  value: TEdit): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.setTotalJurosParcela(value: TEdit)
+  : iQuitarParcelaOS;
 begin
   result := self;
   value.Text := CurrToStr(FJurosParcela);
 end;
 
-function TEntityQuitarParcelaOS.setTotalMultaParcela(
-  value: TEdit): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.setTotalMultaParcela(value: TEdit)
+  : iQuitarParcelaOS;
 begin
   result := self;
   value.Text := CurrToStr(FMultaParcela);
@@ -769,7 +802,8 @@ begin
     .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
 end;
 
-function TEntityQuitarParcelaOS.validarData(componet: tmaskEdit):iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.validarData(componet: tmaskEdit)
+  : iQuitarParcelaOS;
 var
   d: TDate;
 begin
@@ -777,7 +811,7 @@ begin
   result := self;
 
   try
-    d := strtodate(componet.Text);
+    d := StrToDate(componet.Text);
   except
     componet.SetFocus;
     componet.Clear;

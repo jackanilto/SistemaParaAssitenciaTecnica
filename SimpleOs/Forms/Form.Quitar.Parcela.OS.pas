@@ -305,7 +305,12 @@ end;
 procedure TformQuitarParcelaOS.FormShow(Sender: TObject);
 begin
 
-  FEntityQuitar.abrir.listarGrid(DataSource1);
+  FEntityQuitar
+            .abrir
+            .getCampo('ID_PARCELA')
+            .getValor('0')
+            .sqlPesquisa
+            .listarGrid(DataSource1);
 
   FEntityImprimirRecibo
                     .abrir

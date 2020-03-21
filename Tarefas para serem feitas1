@@ -23,6 +23,7 @@
 	
 #Log de eventos --FEITO
 
+#Criação de relatório de Movimentação do caixa
 #Personalizar acesso dos usuários as sistema conforme vontade do adminstrador
 
 
@@ -33,6 +34,7 @@
 ##Criar procedimento para editar a parcela de uma ordem (criar o log dos eventos também) --FEITO
 ##Rever o funcionamento da janela Quitar Parcela Venda.(Cores da grid e o campo juros) --FEITO
 ##Criar o botão para gerar / faturar a OS do cliente --FEITO
-##Criar janela para quitar as parcelas da OS --EM ANDAMENTO
+##Criar janela para quitar as parcelas da OS --FEITO
+
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos

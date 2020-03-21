@@ -2748,6 +2748,66 @@ type
 
   end;
 
+  iRelatorioMovimentacaoOS = interface
+    ['{7BC9824C-5C77-4717-B3B0-059B53746DFF}']
+
+    function nomeTabela(value: string): iRelatorioMovimentacaoOS;
+    function getCampo(value: string): iRelatorioMovimentacaoOS;
+    function getValor(value: string): iRelatorioMovimentacaoOS;
+    function getDataInicial(value: TDate): iRelatorioMovimentacaoOS;
+    function getDataFinal(value: TDate): iRelatorioMovimentacaoOS;
+    function open(value: string): iRelatorioMovimentacaoOS;
+    function pesquisar: iRelatorioMovimentacaoOS;
+    function ExecSql: iRelatorioMovimentacaoOS;
+    function sqlPesquisa: iRelatorioMovimentacaoOS;
+    function sqlPesquisaData: iRelatorioMovimentacaoOS;
+    function sqlPesquisaEstatica: iRelatorioMovimentacaoOS;
+    function SelectSql(value: string): iRelatorioMovimentacaoOS;
+
+    function abrir: iRelatorioMovimentacaoOS;
+    function atualizar: iRelatorioMovimentacaoOS;
+    function cancelar: iRelatorioMovimentacaoOS;
+    function fecharQuery: iRelatorioMovimentacaoOS;
+    function listarGrid(value: TDataSource): iRelatorioMovimentacaoOS;
+    function ordenarGrid(column: TColumn): iRelatorioMovimentacaoOS;
+
+    function exportar: iRelatorioMovimentacaoOS;
+    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoOS;
+
+    function retornarTotal:Currency;
+
+
+  end;
+
+  iRelatorioMovimentacaoVenda = interface
+    ['{4FA7855D-D837-4CF6-A3A3-A95193E636D5}']
+  end;
+
+  iRelatorioMovimentacaoRetiradas = interface
+    ['{0EE3053E-4681-4053-BD0D-2253A5D57084}']
+  end;
+
+  iRelatorioMovimentacaoContas = interface
+    ['{BA98DB5C-8CB8-455B-8AFD-AE5674366C8D}']
+  end;
+
+  iRelatorioMovimentacaoCaixa = interface
+    ['{3E783769-7137-4086-9A14-33ACD7C8FB73}']
+  end;
+
+  iFactoryMovimentacao = interface
+    ['{1116AD9D-EE16-4F5F-90BA-42BD1F41F2E6}']
+
+    function movimentacaoOS:iRelatorioMovimentacaoOS;
+    function movimentacaoVenda:iRelatorioMovimentacaoVenda;
+    function movimentacaoRetiradas:iRelatorioMovimentacaoRetiradas;
+    function movimentacaoContas:iRelatorioMovimentacaoContas;
+    function movimentacaoCaixa:iRelatorioMovimentacaoCaixa;
+
+  end;
+
+  //****************************************************
+
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
   end;
