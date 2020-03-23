@@ -47,6 +47,7 @@ type
     function exportar: iRelatorioMovimentacaoOS;
     function validarData(componet: tmaskEdit):iRelatorioMovimentacaoOS;
 
+    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoOS;
     function retornarTotal:Currency;
 
     constructor create;
@@ -80,11 +81,12 @@ end;
 
 constructor TRelatorioMovimentacaoOS.create;
 begin
-  FTabela := 'PRODUTOS';
+
+  FTabela := 'PARCELAS_ORDEM';
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FGravarLog := TGravarLogSistema.new;
-  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+  FGravarLog.getJanela('Movimentaçaõ caixa - Parcelas OS').getCodigoFuncionario
     (funcionarioLogado);
   // (0 { definir o usuário quando construir a aplicação } );
 
@@ -143,9 +145,30 @@ begin
 
   result := self;
 
-  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
-  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+  with FQuery.TQuery do
+  begin
+
+    FieldByName('ID').DisplayLabel := 'Parcela';
+    FieldByName('ID_ORDEM').DisplayLabel := 'OS';
+    FieldByName('ID_CLIENTE').Visible := false;
+    FieldByName('TOTAL_PARCELAS').Visible := false;
+    FieldByName('PARCELA').DisplayLabel := 'Parcela';
+    FieldByName('VALOR_PARCELA').Visible := false;
+    FieldByName('DATA_VENCIMENTO').Visible := false;
+    FieldByName('DESCONTO').Visible := false;
+    FieldByName('JUROS').Visible := false;
+    FieldByName('MULTA').Visible := false;
+    FieldByName('VALOR_TOTAL').DisplayLabel := 'Valor';
+    FieldByName('DATA_PAGAMENTO').DisplayLabel := 'Pagamento';
+    FieldByName('HORA_PAGAMENTO').Visible := false;
+    FieldByName('FORMA_PAGAMENTO').Visible := false;
+    FieldByName('PGTO').Visible := false;
+    FieldByName('DATA_ESTORNO').Visible := false;
+    FieldByName('ID_FUNCIONARIO').Visible := false;
+    FieldByName('NOME_FUNCIONARIO').Visible := false;
+    FieldByName('OBSERVACAO').Visible := false;
+
+  end;
 
   value.DataSet := FQuery.TQuery;
 
@@ -183,8 +206,50 @@ begin
 end;
 
 function TRelatorioMovimentacaoOS.retornarTotal: Currency;
+var
+  total:currency;
 begin
+
   result := 0;
+
+  total := 0;
+
+  FQuery.TQuery.First;
+
+  while not FQuery.TQuery.Eof do
+  begin
+
+    total := total + FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency;
+
+    FQuery.TQuery.Next;
+
+  end;
+
+  result := total;
+
+
+end;
+
+function TRelatorioMovimentacaoOS.selecionarParcelasOrdemData(data1,
+  data2: TDate): iRelatorioMovimentacaoOS;
+begin
+
+  result := self;
+
+  with FQuery do
+  begin
+
+    TQuery.Active := false;
+    TQuery.SQL.Clear;
+    TQuery.SQL.Add
+        ('select * from PARCELAS_ORDEM where DATA_PAGAMENTO between :d1 and :d2 and PGTO =:p');
+    TQuery.ParamByName('d1').AsDate := data1;
+    TQuery.ParamByName('d2').AsDate := data2;
+    TQuery.ParamByName('p').AsString := 'Sim';
+    TQuery.Active := true;
+
+  end;
+
 end;
 
 function TRelatorioMovimentacaoOS.SelectSql(
@@ -213,10 +278,13 @@ begin
     .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
 end;
 
-procedure TRelatorioMovimentacaoOS.validarData(componet: tmaskEdit);
+function TRelatorioMovimentacaoOS.validarData(componet: tmaskEdit):iRelatorioMovimentacaoOS;
 var
   d: TDate;
 begin
+
+  result := self;
+
   try
     d := strtodate(componet.Text);
   except

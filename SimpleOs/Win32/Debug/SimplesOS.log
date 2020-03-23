@@ -5111,3 +5111,88 @@ At line 1, column 15
 20/03/20 11:26:47 - Caption: SimpleOS
 20/03/20 11:26:47 - Erro:EAccessViolation
 20/03/20 11:26:47 - Erro:Access violation at address 00BC184B in module 'SimplesOS.exe'. Read of address 00000004
+21/03/20 21:13:06 - ===========================================
+21/03/20 21:13:06 - Form: formPrincipal
+21/03/20 21:13:06 - Caption: SimpleOS
+21/03/20 21:13:06 - Erro:EAccessViolation
+21/03/20 21:13:06 - Erro:Access violation at address 00BC1A3F in module 'SimplesOS.exe'. Read of address 00000004
+22/03/20 13:41:11 - ===========================================
+22/03/20 13:41:11 - Form: formPrincipal
+22/03/20 13:41:11 - Caption: SimpleOS
+22/03/20 13:41:11 - Erro:EAccessViolation
+22/03/20 13:41:11 - Erro:Access violation at address 00BC18D3 in module 'SimplesOS.exe'. Read of address 00000004
+23/03/20 13:54:35 - ===========================================
+23/03/20 13:54:35 - Form: formMovimentacaoCaixa
+23/03/20 13:54:35 - Caption: Movimentação do caixa
+23/03/20 13:54:35 - Erro:EDatabaseError
+23/03/20 13:54:35 - Erro:Field 'DATA_PAGAMENTO' not found
+23/03/20 14:45:28 - ===========================================
+23/03/20 14:45:28 - Form: formMovimentacaoCaixa
+23/03/20 14:45:28 - Caption: Movimentação do caixa
+23/03/20 14:45:28 - Erro:EDatabaseError
+23/03/20 14:45:28 - Erro:Field 'grupo' not found
+23/03/20 15:00:02 - ===========================================
+23/03/20 15:00:02 - Form: formMovimentacaoCaixa
+23/03/20 15:00:02 - Caption: Movimentação do caixa
+23/03/20 15:00:02 - Erro:Exception
+23/03/20 15:00:02 - Erro:Digite uma data válida.
+23/03/20 15:04:05 - ===========================================
+23/03/20 15:04:05 - Form: formMovimentacaoCaixa
+23/03/20 15:04:05 - Caption: Movimentação do caixa
+23/03/20 15:04:05 - Erro:EIBNativeException
+23/03/20 15:04:05 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -206
+Column unknown
+DATA
+At line 1, column 41
+23/03/20 15:04:54 - ===========================================
+23/03/20 15:04:54 - Form: formMovimentacaoCaixa
+23/03/20 15:04:54 - Caption: Movimentação do caixa
+23/03/20 15:04:54 - Erro:EIBNativeException
+23/03/20 15:04:54 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -206
+Column unknown
+DATA
+At line 1, column 41
+23/03/20 15:09:58 - ===========================================
+23/03/20 15:09:58 - Form: formMovimentacaoCaixa
+23/03/20 15:09:58 - Caption: Movimentação do caixa
+23/03/20 15:09:58 - Erro:EDatabaseError
+23/03/20 15:09:58 - Erro:Parameter 'D2' not found
+23/03/20 15:10:53 - ===========================================
+23/03/20 15:10:53 - Form: formMovimentacaoCaixa
+23/03/20 15:10:53 - Caption: Movimentação do caixa
+23/03/20 15:10:53 - Erro:EDatabaseError
+23/03/20 15:10:53 - Erro:Parameter 'D2' not found
+23/03/20 15:11:52 - ===========================================
+23/03/20 15:11:52 - Form: formMovimentacaoCaixa
+23/03/20 15:11:52 - Caption: Movimentação do caixa
+23/03/20 15:11:52 - Erro:EIBNativeException
+23/03/20 15:11:52 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 67
+ORDE
+23/03/20 15:12:28 - ===========================================
+23/03/20 15:12:28 - Form: formMovimentacaoCaixa
+23/03/20 15:12:28 - Caption: Movimentação do caixa
+23/03/20 15:12:28 - Erro:EIBNativeException
+23/03/20 15:12:28 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 81
+ID
+23/03/20 15:13:54 - ===========================================
+23/03/20 15:13:54 - Form: formMovimentacaoCaixa
+23/03/20 15:13:54 - Caption: Movimentação do caixa
+23/03/20 15:13:54 - Erro:EIBNativeException
+23/03/20 15:13:54 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 71
+ORDER
+23/03/20 15:14:36 - ===========================================
+23/03/20 15:14:36 - Form: formMovimentacaoCaixa
+23/03/20 15:14:36 - Caption: Movimentação do caixa
+23/03/20 15:14:36 - Erro:EIBNativeException
+23/03/20 15:14:36 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 81
+ID

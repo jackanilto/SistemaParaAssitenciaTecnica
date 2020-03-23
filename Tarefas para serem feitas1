@@ -1,7 +1,6 @@
  #Relatório de produto --FEITO
  #Relatório de produtos por situação no estoque --FEITO
  #Relatório de produtos mas vendidos --FEITO
- # nm
  
   Quinta parte
   
@@ -23,7 +22,7 @@
 	
 #Log de eventos --FEITO
 
-#Criação de relatório de Movimentação do caixa
+#Criação de relatório de Movimentação do caixa --FEITO
 #Personalizar acesso dos usuários as sistema conforme vontade do adminstrador
 
 
@@ -38,3 +37,4 @@
 
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos
+##Criar uma janela especifica para quitar as contas

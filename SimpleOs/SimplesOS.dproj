@@ -544,11 +544,16 @@
         <DCCReference Include="Classes\Entity\UClasse.Entity.Quitar.Parcela.OS.pas"/>
         <DCCReference Include="Classes\Entity\UClasse.Imprimir.Parcelas.OS.pas"/>
         <DCCReference Include="Classes\Entity\UClasse.Imprimir.Recibo.OS.pas"/>
-        <DCCReference Include="Forms\Caixa\Form.Reabertura.Movimentacao.Caixa.pas">
+        <DCCReference Include="Forms\Caixa\Form.Movimentacao.Caixa.pas">
             <Form>formMovimentacaoCaixa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.OS.pas"/>
+        <DCCReference Include="Classes\Factory\UFactory.Movimentacao.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Venda.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Retiradas.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Contas.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Caixa.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

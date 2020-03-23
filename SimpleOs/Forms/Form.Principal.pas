@@ -129,6 +129,7 @@ type
     Button3: TButton;
     acRelatorioHistoricoCaixa: TAction;
     acQuitarParcelasOS: TAction;
+    acCaixaMovimentacao: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -204,6 +205,7 @@ type
     procedure Button3Click(Sender: TObject);
     procedure acRelatorioHistoricoCaixaExecute(Sender: TObject);
     procedure acQuitarParcelasOSExecute(Sender: TObject);
+    procedure acCaixaMovimentacaoExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -248,7 +250,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Entrada.Produtos, Form.Relatorio.Vendas.Por.Funcionario,
   Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
   Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup,
-  Form.Backup.Manual, Form.Quitar.Parcela.OS;
+  Form.Backup.Manual, Form.Quitar.Parcela.OS, Form.Movimentacao.Caixa;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -333,6 +335,14 @@ begin
     spCaixa.Opened := true;
     F_SplitView := spCaixa;
   end;
+end;
+
+procedure TformPrincipal.acCaixaMovimentacaoExecute(Sender: TObject);
+begin
+
+  formMovimentacaoCaixa := TformMovimentacaoCaixa.Create(self);
+  TFactory.new.criarJanela.formShow(formMovimentacaoCaixa, '');
+
 end;
 
 procedure TformPrincipal.acClientesExecute(Sender: TObject);

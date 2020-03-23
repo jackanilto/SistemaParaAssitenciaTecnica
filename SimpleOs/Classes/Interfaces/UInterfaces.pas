@@ -2774,6 +2774,7 @@ type
     function exportar: iRelatorioMovimentacaoOS;
     function validarData(componet: tmaskEdit):iRelatorioMovimentacaoOS;
 
+    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoOS;
     function retornarTotal:Currency;
 
 
@@ -2781,19 +2782,129 @@ type
 
   iRelatorioMovimentacaoVenda = interface
     ['{4FA7855D-D837-4CF6-A3A3-A95193E636D5}']
+
+    function nomeTabela(value: string): iRelatorioMovimentacaoVenda;
+    function getCampo(value: string): iRelatorioMovimentacaoVenda;
+    function getValor(value: string): iRelatorioMovimentacaoVenda;
+    function getDataInicial(value: TDate): iRelatorioMovimentacaoVenda;
+    function getDataFinal(value: TDate): iRelatorioMovimentacaoVenda;
+    function open(value: string): iRelatorioMovimentacaoVenda;
+    function pesquisar: iRelatorioMovimentacaoVenda;
+    function ExecSql: iRelatorioMovimentacaoVenda;
+    function sqlPesquisa: iRelatorioMovimentacaoVenda;
+    function sqlPesquisaData: iRelatorioMovimentacaoVenda;
+    function sqlPesquisaEstatica: iRelatorioMovimentacaoVenda;
+    function SelectSql(value: string): iRelatorioMovimentacaoVenda;
+
+    function abrir: iRelatorioMovimentacaoVenda;
+    function atualizar: iRelatorioMovimentacaoVenda;
+    function cancelar: iRelatorioMovimentacaoVenda;
+    function fecharQuery: iRelatorioMovimentacaoVenda;
+    function listarGrid(value: TDataSource): iRelatorioMovimentacaoVenda;
+    function ordenarGrid(column: TColumn): iRelatorioMovimentacaoVenda;
+
+    function exportar: iRelatorioMovimentacaoVenda;
+    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoVenda;
+
+    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoVenda;
+    function retornarTotal:Currency;
+
   end;
 
   iRelatorioMovimentacaoRetiradas = interface
     ['{0EE3053E-4681-4053-BD0D-2253A5D57084}']
+
+    function nomeTabela(value: string): iRelatorioMovimentacaoRetiradas;
+    function getCampo(value: string): iRelatorioMovimentacaoRetiradas;
+    function getValor(value: string): iRelatorioMovimentacaoRetiradas;
+    function getDataInicial(value: TDate): iRelatorioMovimentacaoRetiradas;
+    function getDataFinal(value: TDate): iRelatorioMovimentacaoRetiradas;
+    function open(value: string): iRelatorioMovimentacaoRetiradas;
+    function pesquisar: iRelatorioMovimentacaoRetiradas;
+    function ExecSql: iRelatorioMovimentacaoRetiradas;
+    function sqlPesquisa: iRelatorioMovimentacaoRetiradas;
+    function sqlPesquisaData: iRelatorioMovimentacaoRetiradas;
+    function sqlPesquisaEstatica: iRelatorioMovimentacaoRetiradas;
+    function SelectSql(value: string): iRelatorioMovimentacaoRetiradas;
+
+    function abrir: iRelatorioMovimentacaoRetiradas;
+    function atualizar: iRelatorioMovimentacaoRetiradas;
+    function cancelar: iRelatorioMovimentacaoRetiradas;
+    function fecharQuery: iRelatorioMovimentacaoRetiradas;
+    function listarGrid(value: TDataSource): iRelatorioMovimentacaoRetiradas;
+    function ordenarGrid(column: TColumn): iRelatorioMovimentacaoRetiradas;
+
+    function exportar: iRelatorioMovimentacaoRetiradas;
+    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoRetiradas;
+
+    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoRetiradas;
+    function retornarTotal:Currency;
+
   end;
 
   iRelatorioMovimentacaoContas = interface
     ['{BA98DB5C-8CB8-455B-8AFD-AE5674366C8D}']
+
+    function nomeTabela(value: string): iRelatorioMovimentacaoContas;
+    function getCampo(value: string): iRelatorioMovimentacaoContas;
+    function getValor(value: string): iRelatorioMovimentacaoContas;
+    function getDataInicial(value: TDate): iRelatorioMovimentacaoContas;
+    function getDataFinal(value: TDate): iRelatorioMovimentacaoContas;
+    function open(value: string): iRelatorioMovimentacaoContas;
+    function pesquisar: iRelatorioMovimentacaoContas;
+    function ExecSql: iRelatorioMovimentacaoContas;
+    function sqlPesquisa: iRelatorioMovimentacaoContas;
+    function sqlPesquisaData: iRelatorioMovimentacaoContas;
+    function sqlPesquisaEstatica: iRelatorioMovimentacaoContas;
+    function SelectSql(value: string): iRelatorioMovimentacaoContas;
+
+    function abrir: iRelatorioMovimentacaoContas;
+    function atualizar: iRelatorioMovimentacaoContas;
+    function cancelar: iRelatorioMovimentacaoContas;
+    function fecharQuery: iRelatorioMovimentacaoContas;
+    function listarGrid(value: TDataSource): iRelatorioMovimentacaoContas;
+    function ordenarGrid(column: TColumn): iRelatorioMovimentacaoContas;
+
+    function exportar: iRelatorioMovimentacaoContas;
+    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoContas;
+
+    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoContas;
+    function retornarTotal:Currency;
+
   end;
 
   iRelatorioMovimentacaoCaixa = interface
     ['{3E783769-7137-4086-9A14-33ACD7C8FB73}']
+
+    function nomeTabela(value: string): iRelatorioMovimentacaoCaixa;
+    function getCampo(value: string): iRelatorioMovimentacaoCaixa;
+    function getValor(value: string): iRelatorioMovimentacaoCaixa;
+    function getDataInicial(value: TDate): iRelatorioMovimentacaoCaixa;
+    function getDataFinal(value: TDate): iRelatorioMovimentacaoCaixa;
+    function open(value: string): iRelatorioMovimentacaoCaixa;
+    function pesquisar: iRelatorioMovimentacaoCaixa;
+    function ExecSql: iRelatorioMovimentacaoCaixa;
+    function sqlPesquisa: iRelatorioMovimentacaoCaixa;
+    function sqlPesquisaData: iRelatorioMovimentacaoCaixa;
+    function sqlPesquisaEstatica: iRelatorioMovimentacaoCaixa;
+    function SelectSql(value: string): iRelatorioMovimentacaoCaixa;
+
+    function abrir: iRelatorioMovimentacaoCaixa;
+    function atualizar: iRelatorioMovimentacaoCaixa;
+    function cancelar: iRelatorioMovimentacaoCaixa;
+    function fecharQuery: iRelatorioMovimentacaoCaixa;
+    function listarGrid(value: TDataSource): iRelatorioMovimentacaoCaixa;
+    function ordenarGrid(column: TColumn): iRelatorioMovimentacaoCaixa;
+
+    function exportar: iRelatorioMovimentacaoCaixa;
+    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoCaixa;
+
+    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoCaixa;
+    function retornarTotal:Currency;
+
   end;
+
+
 
   iFactoryMovimentacao = interface
     ['{1116AD9D-EE16-4F5F-90BA-42BD1F41F2E6}']

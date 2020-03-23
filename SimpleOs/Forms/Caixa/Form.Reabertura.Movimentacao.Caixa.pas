@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, UFactory.Movimentacao, Vcl.Mask;
 
 type
   TformMovimentacaoCaixa = class(TForm)
@@ -20,6 +20,11 @@ type
     tsContas: TTabSheet;
     tsCaixa: TTabSheet;
     DBGrid1: TDBGrid;
+    GroupBox1: TGroupBox;
+    edtData1: TMaskEdit;
+    edtData2: TMaskEdit;
+    sbPesquisarData: TSpeedButton;
+    s_OS: TDataSource;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -40,6 +45,8 @@ implementation
 procedure TformMovimentacaoCaixa.FormShow(Sender: TObject);
 begin
   lblCaption.Caption := Self.Caption;
+  TFactoryMovimentacao.new.movimentacaoOS.abrir.listarGrid(s_OS);
+
 end;
 
 procedure TformMovimentacaoCaixa.Panel1MouseDown(Sender: TObject;

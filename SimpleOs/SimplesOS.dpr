@@ -185,8 +185,13 @@ uses
   UClasse.Entity.Quitar.Parcela.OS in 'Classes\Entity\UClasse.Entity.Quitar.Parcela.OS.pas',
   UClasse.Imprimir.Parcelas.OS in 'Classes\Entity\UClasse.Imprimir.Parcelas.OS.pas',
   UClasse.Imprimir.Recibo.OS in 'Classes\Entity\UClasse.Imprimir.Recibo.OS.pas',
-  Form.Reabertura.Movimentacao.Caixa in 'Forms\Caixa\Form.Reabertura.Movimentacao.Caixa.pas' {formMovimentacaoCaixa},
-  UClasse.Relatorio.Movimentacao.OS in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.OS.pas';
+  Form.Movimentacao.Caixa in 'Forms\Caixa\Form.Movimentacao.Caixa.pas' {formMovimentacaoCaixa},
+  UClasse.Relatorio.Movimentacao.OS in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.OS.pas',
+  UFactory.Movimentacao in 'Classes\Factory\UFactory.Movimentacao.pas',
+  UClasse.Relatorio.Movimentacao.Venda in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Venda.pas',
+  UClasse.Relatorio.Movimentacao.Retiradas in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Retiradas.pas',
+  UClasse.Relatorio.Movimentacao.Contas in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Contas.pas',
+  UClasse.Relatorio.Movimentacao.Caixa in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Caixa.pas';
 
 {$R *.res}
 
@@ -195,6 +200,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TformMovimentacaoCaixa, formMovimentacaoCaixa);
   Application.Run;
 end.
