@@ -5196,3 +5196,8 @@ ORDER
 SQL error code = -104
 Token unknown - line 1, column 81
 ID
+24/03/20 19:55:55 - ===========================================
+24/03/20 19:55:55 - Form: formPrincipal
+24/03/20 19:55:55 - Caption: SimpleOS
+24/03/20 19:55:55 - Erro:EAccessViolation
+24/03/20 19:55:55 - Erro:Access violation at address 00BC19FB in module 'SimplesOS.exe'. Read of address 00000004

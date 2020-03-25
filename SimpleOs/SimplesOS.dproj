@@ -554,6 +554,11 @@
         <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Retiradas.pas"/>
         <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Contas.pas"/>
         <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Caixa.pas"/>
+        <DCCReference Include="Forms\Form.Acesso.Recursos.Fucnionarios.pas">
+            <Form>formConfigurarAcessoFuncionario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Configurar.Acesso.Funcionario.pas"/>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

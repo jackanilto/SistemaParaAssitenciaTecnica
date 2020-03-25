@@ -9,7 +9,8 @@ uses
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Cadastro.Funcionario, Vcl.Mask,
   UClasse.Entity.Table, ACBrBase, ACBrSocket, ACBrCEP, Vcl.Imaging.jpeg,
-  Vcl.ExtDlgs, UFactory, UFactory.Entity, frxClass, frxDBSet;
+  Vcl.ExtDlgs, UFactory, UFactory.Entity, frxClass, frxDBSet,
+  Form.Acesso.Recursos.Fucnionarios;
 
 type
   TformCadastroDeFuncionarios = class(TformExemploEmbeded)
@@ -421,7 +422,8 @@ begin
   inherited;
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    showmessage('Implementar este recurso no final do projeto.');
+      formConfigurarAcessoFuncionario := TformConfigurarAcessoFuncionario.Create(self);
+      TFactory.new.criarJanela.formShow(formConfigurarAcessoFuncionario, '');
   end;
 end;
 

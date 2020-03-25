@@ -1,0 +1,35 @@
+unit Form.Acesso.Recursos.Fucnionarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
+  Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Configurar.Acesso.Funcionario;
+
+type
+  TformConfigurarAcessoFuncionario = class(TformExemploEmbeded)
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    var
+      FEntityAcesso:iNivelAcessoFuncionario;
+  public
+    { Public declarations }
+  end;
+
+var
+  formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformConfigurarAcessoFuncionario.FormShow(Sender: TObject);
+begin
+  inherited;
+  lblCaption.Caption := self.Caption;
+end;
+
+end.

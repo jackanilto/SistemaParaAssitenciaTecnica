@@ -191,7 +191,9 @@ uses
   UClasse.Relatorio.Movimentacao.Venda in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Venda.pas',
   UClasse.Relatorio.Movimentacao.Retiradas in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Retiradas.pas',
   UClasse.Relatorio.Movimentacao.Contas in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Contas.pas',
-  UClasse.Relatorio.Movimentacao.Caixa in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Caixa.pas';
+  UClasse.Relatorio.Movimentacao.Caixa in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Caixa.pas',
+  Form.Acesso.Recursos.Fucnionarios in 'Forms\Form.Acesso.Recursos.Fucnionarios.pas' {formConfigurarAcessoFuncionario},
+  UClasse.Entity.Configurar.Acesso.Funcionario in 'Classes\Entity\UClasse.Entity.Configurar.Acesso.Funcionario.pas';
 
 {$R *.res}
 

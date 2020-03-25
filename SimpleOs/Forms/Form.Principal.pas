@@ -130,6 +130,7 @@ type
     acRelatorioHistoricoCaixa: TAction;
     acQuitarParcelasOS: TAction;
     acCaixaMovimentacao: TAction;
+    acConfigurarAcessoFuncionario: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -206,6 +207,7 @@ type
     procedure acRelatorioHistoricoCaixaExecute(Sender: TObject);
     procedure acQuitarParcelasOSExecute(Sender: TObject);
     procedure acCaixaMovimentacaoExecute(Sender: TObject);
+    procedure acConfigurarAcessoFuncionarioExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -250,7 +252,8 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Entrada.Produtos, Form.Relatorio.Vendas.Por.Funcionario,
   Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
   Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup,
-  Form.Backup.Manual, Form.Quitar.Parcela.OS, Form.Movimentacao.Caixa;
+  Form.Backup.Manual, Form.Quitar.Parcela.OS, Form.Movimentacao.Caixa,
+  Form.Acesso.Recursos.Fucnionarios;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -367,6 +370,12 @@ begin
     spvConfiguracoes.Opened := true;
     F_SplitView := spvConfiguracoes;
   end;
+end;
+
+procedure TformPrincipal.acConfigurarAcessoFuncionarioExecute(Sender: TObject);
+begin
+  formConfigurarAcessoFuncionario := TformConfigurarAcessoFuncionario.Create(self);
+  TFactory.new.criarJanela.formShow(formConfigurarAcessoFuncionario, '');
 end;
 
 procedure TformPrincipal.acConfigurarBackUpExecute(Sender: TObject);

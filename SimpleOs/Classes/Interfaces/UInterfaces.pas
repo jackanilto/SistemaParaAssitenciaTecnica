@@ -2921,6 +2921,101 @@ type
 
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
+
+    function nomeTabela(value: string): iNivelAcessoFuncionario;
+    function getCampo(value: string): iNivelAcessoFuncionario;
+    function getValor(value: string): iNivelAcessoFuncionario;
+    function getDataInicial(value: TDate): iNivelAcessoFuncionario;
+    function getDataFinal(value: TDate): iNivelAcessoFuncionario;
+    function open(value: string): iNivelAcessoFuncionario;
+    function pesquisar: iNivelAcessoFuncionario;
+    function ExecSql: iNivelAcessoFuncionario;
+    function sqlPesquisa: iNivelAcessoFuncionario;
+    function sqlPesquisaData: iNivelAcessoFuncionario;
+    function sqlPesquisaEstatica: iNivelAcessoFuncionario;
+    function SelectSql(value: string): iNivelAcessoFuncionario;
+
+    function abrir: iNivelAcessoFuncionario;
+    function inserir: iNivelAcessoFuncionario;
+    function gravar: iNivelAcessoFuncionario;
+    function deletar: iNivelAcessoFuncionario;
+    function atualizar: iNivelAcessoFuncionario;
+    function editar: iNivelAcessoFuncionario;
+    function cancelar: iNivelAcessoFuncionario;
+    function fecharQuery: iNivelAcessoFuncionario;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iNivelAcessoFuncionario;
+    function ordenarGrid(column: TColumn): iNivelAcessoFuncionario;
+
+    function getID(value:integer): iNivelAcessoFuncionario;
+    function getID_FUNCIONARIO(value:integer): iNivelAcessoFuncionario;
+    function getFUNCIONARIO(value:string): iNivelAcessoFuncionario;
+    function getFORMCADASTROMARCAS(value:string): iNivelAcessoFuncionario;
+    function getFORMCADASTROGRUPOS(value:string): iNivelAcessoFuncionario;
+    function getFORMFORMAPAGAMENTO(value:string): iNivelAcessoFuncionario;
+    function getFORMTIPORETIRADAS(value:string): iNivelAcessoFuncionario;
+    function getFORMCONFIGPARCELAS(value:string): iNivelAcessoFuncionario;
+    function getFORMATFUNCIONARIO(value:string): iNivelAcessoFuncionario;
+    function getFORMCADCONTASAPAGAR(value:string): iNivelAcessoFuncionario;
+    function getFORMCADPROBLEMASFREQUENTES(value:string): iNivelAcessoFuncionario;
+    function getFORMCADFORNECEDORES(value:string): iNivelAcessoFuncionario;
+    function getFORMCADTRANSPORTADORA(value:string): iNivelAcessoFuncionario;
+    function getFORMCADPRODUTOS(value:string): iNivelAcessoFuncionario;
+    function getFORMCOMFUNCIONARIOS(value:string): iNivelAcessoFuncionario;
+    function getFORMCADDEFUNCIONARIO(value:string): iNivelAcessoFuncionario;
+    function getFORMCADSITUACOESORDEM(value:string): iNivelAcessoFuncionario;
+    function getFORMCADDECLIENTES(value:string): iNivelAcessoFuncionario;
+    function getFORMENTDEPRODUTOS(value:string): iNivelAcessoFuncionario;
+    function getFORMSAIDADEPRODUTOS(value:string): iNivelAcessoFuncionario;
+    function getFORMORDEMSERVICO(value:string): iNivelAcessoFuncionario;
+    function getFORMCCONSORDEMSERVICO(value:string): iNivelAcessoFuncionario;
+    function getFORMCADDESERVICOS(value:string): iNivelAcessoFuncionario;
+    function getFORMCADEMPRESA(value:string): iNivelAcessoFuncionario;
+    function getFORMVENDAS(value:string): iNivelAcessoFuncionario;
+    function getFORMNUMPARCELAS(value:string): iNivelAcessoFuncionario;
+    function getFORMQUITARPARCVENDAS(value:string): iNivelAcessoFuncionario;
+    function getFORMVISUALIZARVENDAS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELCLIENTES(value:string): iNivelAcessoFuncionario;
+    function getFORMRELHISTORICOOS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELCONTASARECEBEROS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELCONTASARECEBERVENDA(value:string): iNivelAcessoFuncionario;
+    function getFORMRELPARCELASPAGASOS(value:string): iNivelAcessoFuncionario;
+    function getFORMOSESTORNADAS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELVENDASESTORNADAS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELCONTASAPAGAR(value:string): iNivelAcessoFuncionario;
+    function getFORMRELREPAROSPORPERIODO(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATOSPORTECNICO(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATOSPORSTATUS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATORDEMDESERVICO(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATFORNECEDORES(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATOSINADIMPLENTES(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATDEPRODUTOS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATSITUACAODOESTOQUE(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATPRODVENDIDOS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATVENDAS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATVENDASINADIMP(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATSERVICOSMAISREALIZ(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATSAIDADEPRODUTOS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATENTRDEPRODUTOS(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATVENDASFUNCIONARIO(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATTRANSPORTADORA(value:string): iNivelAcessoFuncionario;
+    function getFORMINICIARCAIXA(value:string): iNivelAcessoFuncionario;
+    function getFORMENCERRAMENTOCAIXA(value:string): iNivelAcessoFuncionario;
+    function getFORMREABERTURADECAIXA(value:string): iNivelAcessoFuncionario;
+    function getFORMRETIRADADEVALORES(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATRETIRDEVALORES(value:string): iNivelAcessoFuncionario;
+    function getFORMCOMISSOESTECNICOS(value:string): iNivelAcessoFuncionario;
+    function getFORMCONFIGCONEXAOBANCO(value:string): iNivelAcessoFuncionario;
+    function getFORMCONFIGBACKUP(value:string): iNivelAcessoFuncionario;
+    function getFORMBACKUPMANUAL(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATPROBLFREQUENTES(value:string): iNivelAcessoFuncionario;
+    function getFORMRELATHISTORICOCAIXA(value:string): iNivelAcessoFuncionario;
+    function getFORMQUITARPARCELAOS(value:string): iNivelAcessoFuncionario;
+    function getFORMMOVIMENTACAOCAIXA(value:string): iNivelAcessoFuncionario;
+    function getESTORNAR(value:string): iNivelAcessoFuncionario;
+    function getADICIONARPARCELA(value:string): iNivelAcessoFuncionario;
+    function getEXCLUIRPARCELA(value:string): iNivelAcessoFuncionario;
+
   end;
 
   iFactoryEntity = interface
