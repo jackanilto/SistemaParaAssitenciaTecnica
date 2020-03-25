@@ -5201,3 +5201,18 @@ ID
 24/03/20 19:55:55 - Caption: SimpleOS
 24/03/20 19:55:55 - Erro:EAccessViolation
 24/03/20 19:55:55 - Erro:Access violation at address 00BC19FB in module 'SimplesOS.exe'. Read of address 00000004
+25/03/20 14:18:06 - ===========================================
+25/03/20 14:18:06 - Form: formPrincipal
+25/03/20 14:18:06 - Caption: SimpleOS
+25/03/20 14:18:06 - Erro:EAccessViolation
+25/03/20 14:18:06 - Erro:Access violation at address 00BC1A3F in module 'SimplesOS.exe'. Read of address 00000004
+25/03/20 15:05:02 - ===========================================
+25/03/20 15:05:02 - Form: formPrincipal
+25/03/20 15:05:02 - Caption: SimpleOS
+25/03/20 15:05:02 - Erro:EAccessViolation
+25/03/20 15:05:02 - Erro:Access violation at address 00BC1A3F in module 'SimplesOS.exe'. Read of address 00000004
+25/03/20 15:24:55 - ===========================================
+25/03/20 15:24:55 - Form: formConfigurarAcessoFuncionario
+25/03/20 15:24:55 - Caption: Configurar acesso do funcionário
+25/03/20 15:24:55 - Erro:EDatabaseError
+25/03/20 15:24:55 - Erro:Dataset not in edit or insert mode
