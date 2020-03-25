@@ -1,5 +1,0 @@
-inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
-  Caption = 'Configurar acesso do funcion'#225'rio'
-  PixelsPerInch = 96
-  TextHeight = 13
-end

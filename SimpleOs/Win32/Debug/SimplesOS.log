@@ -5216,3 +5216,18 @@ ID
 25/03/20 15:24:55 - Caption: Configurar acesso do funcionário
 25/03/20 15:24:55 - Erro:EDatabaseError
 25/03/20 15:24:55 - Erro:Dataset not in edit or insert mode
+25/03/20 20:21:40 - ===========================================
+25/03/20 20:21:40 - Form: formConfigurarAcessoFuncionario
+25/03/20 20:21:40 - Caption: Configurar acesso do funcionário
+25/03/20 20:21:40 - Erro:EDatabaseError
+25/03/20 20:21:40 - Erro:Dataset not in edit or insert mode
+25/03/20 20:31:37 - ===========================================
+25/03/20 20:31:37 - Form: formConfigurarAcessoFuncionario
+25/03/20 20:31:37 - Caption: Configurar acesso do funcionário
+25/03/20 20:31:37 - Erro:EDatabaseError
+25/03/20 20:31:37 - Erro:Dataset not in edit or insert mode
+25/03/20 20:52:55 - ===========================================
+25/03/20 20:52:55 - Form: formConfigurarAcessoFuncionario
+25/03/20 20:52:55 - Caption: Configurar acesso do funcionário
+25/03/20 20:52:55 - Erro:EConvertError
+25/03/20 20:52:55 - Erro:'NOELSON' is not a valid integer value
