@@ -90,6 +90,7 @@ type
     FESTORNAR: String;
     FADICIONARPARCELA: String;
     FEXCLUIRPARCELA: String;
+    FFORMRELATORIOPARCELASPAGASVENDA:String;
 
   public
 
@@ -186,6 +187,7 @@ type
     function getESTORNAR(value:string = 'Nao'): iNivelAcessoFuncionario;
     function getADICIONARPARCELA(value:string = 'Nao'): iNivelAcessoFuncionario;
     function getEXCLUIRPARCELA(value:string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMRELATORIOPARCELASPAGASVENDA(value:string = 'Nao'): iNivelAcessoFuncionario;
 
     constructor create;
     destructor destroy; override;
@@ -576,6 +578,13 @@ function TEntityConfigAcessoFuncionario.getFORMRELATORDEMDESERVICO(
 begin
   result := self;
   FFORMRELATORDEMDESERVICO := value;
+end;
+
+function TEntityConfigAcessoFuncionario.getFORMRELATORIOPARCELASPAGASVENDA(
+  value: string): iNivelAcessoFuncionario;
+begin
+  result := self;
+  FFORMRELATORIOPARCELASPAGASVENDA := value;
 end;
 
 function TEntityConfigAcessoFuncionario.getFORMRELATOSINADIMPLENTES(
@@ -980,6 +989,7 @@ begin
     FieldByName('ESTORNAR').DisplayLabel := 'Estornar';
     FieldByName('ADICIONARPARCELA').DisplayLabel := 'Adiconar parcela';
     FieldByName('EXCLUIRPARCELA').DisplayLabel := 'Excluir parcela';
+    FieldByName('FORMRELATORIOPARCELASPAGASVENDA').DisplayLabel := 'Rel. Parcelas pagas vendas';
 
     FieldByName('FUNCIONARIO').DisplayWidth := 40;
 

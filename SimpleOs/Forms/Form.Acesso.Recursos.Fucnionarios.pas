@@ -44,14 +44,14 @@ type
     Label14: TLabel;
     edtCad_ProblemasFrequentes: TComboBox;
     Label15: TLabel;
-    ComboBox14: TComboBox;
-    edtCad_SituacaoOrdem: TLabel;
-    ComboBox15: TComboBox;
-    edtCad_Servicos: TLabel;
-    ComboBox16: TComboBox;
-    edtCad_DadosEmpresa: TLabel;
-    ComboBox17: TComboBox;
-    edtCad_NumeroParcelas: TLabel;
+    edtCad_SituacaoOrdem: TComboBox;
+    lblSituacaoOrdem: TLabel;
+    edtCad_Servicos: TComboBox;
+    lblServicos: TLabel;
+    edtCad_DadosEmpresa: TComboBox;
+    lblEmpresa: TLabel;
+    edtCad_NumeroParcelas: TComboBox;
+    lblNumParcelas: TLabel;
     edtMov_Entradas: TComboBox;
     Label20: TLabel;
     edtMov_SaidaProdutos: TComboBox;
@@ -138,11 +138,26 @@ type
     Label61: TLabel;
     edtExtras_BackupManual: TComboBox;
     Label62: TLabel;
+    Label16: TLabel;
+    edtCaixa_IniciarCaixa: TComboBox;
+    Label17: TLabel;
+    edtExtra_ConfigBD: TComboBox;
+    Label18: TLabel;
+    Label19: TLabel;
+    edtMov_AdicionarParcela: TComboBox;
+    edtMov_ExcluirParcela: TComboBox;
+    Label63: TLabel;
+    edtMov_EstornarParcela: TComboBox;
+    ComboBox1: TComboBox;
+    Label64: TLabel;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure ComboBox1Change(Sender: TObject);
   private
     { Private declarations }
+    procedure atribuirValores(value:string);
     var
       FEntityAcesso:iNivelAcessoFuncionario;
   public
@@ -157,6 +172,114 @@ implementation
 {$R *.dfm}
 
 uses Form.Cadastro.Funcionarios;
+
+procedure TformConfigurarAcessoFuncionario.atribuirValores(value: string);
+var
+  i: Integer;
+begin
+
+    for i := 0 to ComponentCount -1 do
+     if Components[i] is TComboBox then
+        TComboBox(Components[i]).Text := value;
+
+    end;
+
+procedure TformConfigurarAcessoFuncionario.ComboBox1Change(Sender: TObject);
+begin
+  inherited;
+
+  if DataSource1.DataSet.State in [dsInsert, dsEdit] then
+  begin
+    if ComboBox1.Text = 'Permitir acesso a todos os recursos do sistema' then
+      atribuirValores('Sim')
+    else
+      atribuirValores('Nao');
+  end;
+
+end;
+
+procedure TformConfigurarAcessoFuncionario.DataSource1DataChange(
+  Sender: TObject; Field: TField);
+begin
+  inherited;
+  with DataSource1.DataSet do
+  begin
+
+    edtCad_Produto.Text := FieldByName('formCadProdutos').AsString;
+    edtCad_Cliente.Text := FieldByName('formCadDeClientes').AsString;
+    edtCad_Funcionario.Text := FieldByName('formCadDeFuncionarios').AsString;
+    edtCad_Transportadora.Text := FieldByName('formCadTransportadora').AsString;
+    edtCad_Fornecedores.Text := FieldByName('formCadFornecedores').AsString;
+    edtCad_Marcas.Text := FieldByName('formCadastroMarcas').AsString;
+    edtCad_Grupos.Text := FieldByName('formCadastroGrupos').AsString;
+    edtCad_MeiosPagamento.Text := FieldByName('formFormaPagamento').AsString;
+    edtCad_TipoRetirada.Text := FieldByName('formTipoRetiradas').AsString;
+    edtCad_ConfigParcelas.Text := FieldByName('formConfigParcelas').AsString;
+    edtCad_AtividadeFuncionario.Text := FieldByName('formAtFuncionario').AsString;
+    edtCad_ContasAPagar.Text := FieldByName('formCadContasAPagar').AsString;
+    edtCad_ProblemasFrequentes.Text := FieldByName('formCadProblemasFrequentes').AsString;
+    edtCad_SituacaoOrdem.Text := FieldByName('formCadSituacoesOrdem').AsString;
+    edtCad_Servicos.Text := FieldByName('formCadDeServicos').AsString;
+    edtCad_DadosEmpresa.Text := FieldByName('formCadEmpresa').AsString;
+    edtCad_NumeroParcelas.Text := FieldByName('formNumParcelas').AsString;
+
+    edtMov_Entradas.Text := FieldByName('formEntDeProdutos').AsString;
+    edtMov_SaidaProdutos.Text := FieldByName('formSaidaDeProdutos').AsString;
+    edtMov_OrdemServico.Text := FieldByName('formOrdemServico').AsString;
+    edtMov_CriarOS.Text := FieldByName('formCConsOrdemServico').AsString;
+    edtMov_VendaDeProdutos.Text := FieldByName('formVendas').AsString;
+    edtMov_VisualizarParcela.Text := FieldByName('formQuitarParcVendas').AsString;
+    edtMov_VisualizarVendas.Text := FieldByName('formVisualizarVendas').AsString;
+    edtMov_VisualizarParcelaOS.Text := FieldByName('formQuitarParcelaOS').AsString;
+    edtMov_AdicionarParcela.Text := FieldByName('adicionarParcela').AsString;
+    edtMov_ExcluirParcela.Text := FieldByName('excluirParcela').AsString;
+    edtMov_EstornarParcela.Text := FieldByName('estornar').AsString;
+
+    edtRel_Clientes.Text := FieldByName('formRelClientes').AsString;
+    edtRel_HistoricoOS.Text := FieldByName('formRelHistoricoOS').AsString;
+    edtRel_ParcelaAReceberOS.Text := FieldByName('formRelContasAReceberOS').AsString;
+    edtRel_ParcelaAReceberVenda.Text := FieldByName('formRelContasAReceberVenda').AsString;
+    edtRel_ParcelaPagasOS.Text := FieldByName('formRelParcelasPagasOS').AsString;
+    edtRel_ParcelasPagasVendas.Text := FieldByName('FORMRELATORIOPARCELASPAGASVENDA').AsString;
+    edtRel_OsEstornadas.Text := FieldByName('formOSEstornadas').AsString;
+    edtRel_VendasEstornadas.Text := FieldByName('formRelVendasEstornadas').AsString;
+    edtRel_ContasAPagar.Text := FieldByName('formRelContasAPagar').AsString;
+    edtRel_ReparosPorPeriodo.Text := FieldByName('formRelReparosPorPeriodo').AsString;
+    edtRel_ReparosPorTecnico.Text := FieldByName('formRelatOSPorTecnico').AsString;
+    edtRel_OsPorSituacao.Text := FieldByName('formRelatOSPorStatus').AsString;
+    edtRel_RelatorioOS.Text := FieldByName('formRelatOrdemDeServico').AsString;
+    edtRel_Fornecedores.Text := FieldByName('formRelatFornecedores').AsString;
+    edtRel_OSInadimplentes.Text := FieldByName('formRelatOSInadimplentes').AsString;
+    edtRel_Produtos.Text := FieldByName('formRelatDeProdutos').AsString;
+    edtRel_SituacaoEstoque.Text := FieldByName('formRelatSituacaoDoEstoque').AsString;
+    edtRel_ProdutosMaisVendidos.Text := FieldByName('formRelatProdVendidos').AsString;
+    edtRel_Vendas.Text := FieldByName('formRelatVendas').AsString;
+    edtRel_VendasInadimplentes.Text := FieldByName('formRelatVendasInadimp').AsString;
+    edtRel_ServicosMaisRealzados.Text := FieldByName('formRelatServicosMaisRealiz').AsString;
+    edtRel_SaidaDeProdutos.Text := FieldByName('formRelatSaidaDeProdutos').AsString;
+    edtRel_EntradasDeProdutos.Text := FieldByName('formRelatEntrDeProdutos').AsString;
+    edtRel_VendaPorFuncionarios.Text := FieldByName('formRelatVendasFuncionario').AsString;
+    edtRel_Trasportadora.Text := FieldByName('formRelatTransportadora').AsString;
+    edtRel_RetiradaDeValores.Text := FieldByName('formRelatHistoricoCaixa').AsString;
+    edtRel_ProblemasFrequentes.Text := FieldByName('formRelatProblFrequentes').AsString;
+
+    edtCaixa_EncerramentoCaixa.Text := FieldByName('formEncerramentoCaixa').AsString;
+    edtCaixa_ReaberturaCaixa.Text := FieldByName('formReaberturaDeCaixa').AsString;
+    edtCaixa_RetiradaDeValores.Text := FieldByName('formRetiradaDeValores').AsString;
+    edtCaixa_ComissoesTecnicos.Text := FieldByName('FORMCOMISSOESTECNICOS').AsString;
+    edtCaixa_HistoricoCaixa.Text := FieldByName('formComissoesTecnicos').AsString;
+    edtCaixa_MovimentacaoCaixa.Text := FieldByName('formMovimentacaoCaixa').AsString;
+    edtCaixa_IniciarCaixa.Text := FieldByName('formIniciarCaixa').AsString;
+
+    edtExtras_ConfigurarBackup.Text := FieldByName('formConfigBackUp').AsString;
+    edtExtras_BackupManual.Text := FieldByName('formBackUpManual').AsString;
+    edtExtra_ConfigBD.Text := FieldByName('formConfigConexaoBanco').AsString;
+
+
+
+
+  end;
+end;
 
 procedure TformConfigurarAcessoFuncionario.FormCreate(Sender: TObject);
 begin
@@ -189,6 +312,7 @@ procedure TformConfigurarAcessoFuncionario.sbNovoClick(Sender: TObject);
 begin
   inherited;
   FEntityAcesso.inserir;
+  edtCad_Produto.SetFocus;
 end;
 
 end.

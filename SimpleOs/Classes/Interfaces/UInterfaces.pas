@@ -3015,6 +3015,7 @@ type
     function getESTORNAR(value:string = 'Nao'): iNivelAcessoFuncionario;
     function getADICIONARPARCELA(value:string = 'Nao'): iNivelAcessoFuncionario;
     function getEXCLUIRPARCELA(value:string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMRELATORIOPARCELASPAGASVENDA(value:string = 'Nao'): iNivelAcessoFuncionario;
 
   end;
 

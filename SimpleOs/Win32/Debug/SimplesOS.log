@@ -5231,3 +5231,38 @@ ID
 25/03/20 20:52:55 - Caption: Configurar acesso do funcionário
 25/03/20 20:52:55 - Erro:EConvertError
 25/03/20 20:52:55 - Erro:'NOELSON' is not a valid integer value
+26/03/20 15:15:56 - ===========================================
+26/03/20 15:15:56 - Form: formPrincipal
+26/03/20 15:15:56 - Caption: SimpleOS
+26/03/20 15:15:56 - Erro:EAccessViolation
+26/03/20 15:15:56 - Erro:Access violation at address 00BC1A3F in module 'SimplesOS.exe'. Read of address 00000004
+26/03/20 15:18:44 - ===========================================
+26/03/20 15:18:44 - Form: formConfigurarAcessoFuncionario
+26/03/20 15:18:44 - Caption: Configurar acesso do funcionário
+26/03/20 15:18:44 - Erro:EDatabaseError
+26/03/20 15:18:44 - Erro:Field 'formRelatorioParcelasPagasVendas' not found
+26/03/20 15:20:14 - ===========================================
+26/03/20 15:20:14 - Form: formConfigurarAcessoFuncionario
+26/03/20 15:20:14 - Caption: Configurar acesso do funcionário
+26/03/20 15:20:14 - Erro:EDatabaseError
+26/03/20 15:20:14 - Erro:Field 'formRelatorioParcelasPagasVendas' not found
+26/03/20 15:22:15 - ===========================================
+26/03/20 15:22:15 - Form: formConfigurarAcessoFuncionario
+26/03/20 15:22:15 - Caption: Configurar acesso do funcionário
+26/03/20 15:22:15 - Erro:EDatabaseError
+26/03/20 15:22:15 - Erro:Field 'formRelatorioParcelasPagasVendas' not found
+26/03/20 15:25:04 - ===========================================
+26/03/20 15:25:04 - Form: formConfigurarAcessoFuncionario
+26/03/20 15:25:04 - Caption: Configurar acesso do funcionário
+26/03/20 15:25:04 - Erro:EDatabaseError
+26/03/20 15:25:04 - Erro:Field 'formRelatorioParcelasPagasVendas' not found
+26/03/20 15:26:18 - ===========================================
+26/03/20 15:26:18 - Form: formConfigurarAcessoFuncionario
+26/03/20 15:26:18 - Caption: Configurar acesso do funcionário
+26/03/20 15:26:18 - Erro:EDatabaseError
+26/03/20 15:26:18 - Erro:Field 'formRelatorioParcelasPagasVendas' not found
+26/03/20 15:30:21 - ===========================================
+26/03/20 15:30:21 - Form: formConfigurarAcessoFuncionario
+26/03/20 15:30:21 - Caption: Configurar acesso do funcionário
+26/03/20 15:30:21 - Erro:EDatabaseError
+26/03/20 15:30:21 - Erro:Field '' not found
