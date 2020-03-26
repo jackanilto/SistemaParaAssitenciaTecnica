@@ -648,6 +648,7 @@ object formExemploEmbeded: TformExemploEmbeded
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnChange = cbPesquisarChange
     end
     object edtPesquisar: TEdit
       Left = 718
@@ -878,6 +879,7 @@ object formExemploEmbeded: TformExemploEmbeded
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = [fsBold]
+        OnDblClick = DBGrid1DblClick
       end
     end
   end

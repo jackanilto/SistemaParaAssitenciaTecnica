@@ -59,6 +59,8 @@ type
     procedure Editar1Click(Sender: TObject);
     procedure Excluir1Click(Sender: TObject);
     procedure validarData(componet: tmaskEdit);
+    procedure cbPesquisarChange(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
     procedure ativarDesativarNovo;
@@ -130,6 +132,18 @@ begin
   sbEditar.Enabled := true;
   sbExcluir.Enabled := true;
   sbCancelar.Enabled := false;
+end;
+
+procedure TformExemploEmbeded.cbPesquisarChange(Sender: TObject);
+begin
+  if cbPesquisar.Text <> EmptyStr then
+    edtPesquisar.SetFocus;
+end;
+
+procedure TformExemploEmbeded.DBGrid1DblClick(Sender: TObject);
+begin
+  if sbEditar.Enabled = true then
+    sbEditar.Click;
 end;
 
 procedure TformExemploEmbeded.Editar1Click(Sender: TObject);

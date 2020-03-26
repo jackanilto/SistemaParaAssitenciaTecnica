@@ -5266,3 +5266,33 @@ ID
 26/03/20 15:30:21 - Caption: Configurar acesso do funcionário
 26/03/20 15:30:21 - Erro:EDatabaseError
 26/03/20 15:30:21 - Erro:Field '' not found
+26/03/20 20:10:44 - ===========================================
+26/03/20 20:10:44 - Form: formConfigurarAcessoFuncionario
+26/03/20 20:10:44 - Caption: Configurar acesso do funcionário
+26/03/20 20:10:44 - Erro:EInvalidOperation
+26/03/20 20:10:44 - Erro:Cannot focus a disabled or invisible window
+26/03/20 20:10:55 - ===========================================
+26/03/20 20:10:55 - Form: formConfigurarAcessoFuncionario
+26/03/20 20:10:55 - Caption: Configurar acesso do funcionário
+26/03/20 20:10:55 - Erro:EDatabaseError
+26/03/20 20:10:55 - Erro:Field 'RECURSOS' not found
+26/03/20 20:12:51 - ===========================================
+26/03/20 20:12:51 - Form: formConfigurarAcessoFuncionario
+26/03/20 20:12:51 - Caption: Configurar acesso do funcionário
+26/03/20 20:12:51 - Erro:EInvalidOperation
+26/03/20 20:12:51 - Erro:Cannot focus a disabled or invisible window
+26/03/20 20:16:07 - ===========================================
+26/03/20 20:16:07 - Form: formConfigurarAcessoFuncionario
+26/03/20 20:16:07 - Caption: Configurar acesso do funcionário
+26/03/20 20:16:07 - Erro:EInvalidOperation
+26/03/20 20:16:07 - Erro:Cannot focus a disabled or invisible window
+26/03/20 20:22:53 - ===========================================
+26/03/20 20:22:53 - Form: formConfigurarAcessoFuncionario
+26/03/20 20:22:53 - Caption: Configurar acesso do funcionário
+26/03/20 20:22:53 - Erro:EDatabaseError
+26/03/20 20:22:53 - Erro:Field 'SERVICO_PRODUTO' not found
+26/03/20 20:23:31 - ===========================================
+26/03/20 20:23:31 - Form: formConfigurarAcessoFuncionario
+26/03/20 20:23:31 - Caption: Configurar acesso do funcionário
+26/03/20 20:23:31 - Erro:EDatabaseError
+26/03/20 20:23:31 - Erro:Field 'SERVICO_PRODUTO' not found

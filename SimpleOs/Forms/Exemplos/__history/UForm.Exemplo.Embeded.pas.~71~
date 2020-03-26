@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
   Vcl.Buttons, Vcl.StdCtrls, Vcl.WinXPanels, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.Menus;
+  Vcl.Menus, Vcl.Mask;
 
 type
   TformExemploEmbeded = class(TForm)
@@ -58,6 +58,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Editar1Click(Sender: TObject);
     procedure Excluir1Click(Sender: TObject);
+    procedure validarData(componet: tmaskEdit);
   private
     { Private declarations }
     procedure ativarDesativarNovo;
@@ -293,6 +294,23 @@ begin
   lblConsulta.Enabled := true;
   showmessage('Operação realizada com sucesso!');
   ativarDesativarSalvar;
+end;
+
+procedure TformExemploEmbeded.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+
+  if componet.Text <> '  /  /    ' then
+  begin
+    try
+      d := strtodate(componet.Text);
+    except
+      componet.SetFocus;
+      componet.Clear;
+      raise Exception.Create('Digite uma data válida.');
+    end;
+  end;
 end;
 
 end.

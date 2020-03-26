@@ -244,7 +244,7 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('FUNCIONARIO')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
         .gravarLog;
 
@@ -266,7 +266,7 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('FUNCIONARIO')
       .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
       .gravarLog;
 
@@ -890,7 +890,7 @@ begin
 
     end;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('RECURSOS')
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('FUNCIONARIO')
     .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
     .gravarLog;
 

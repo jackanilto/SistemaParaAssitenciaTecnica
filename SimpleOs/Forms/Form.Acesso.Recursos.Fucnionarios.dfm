@@ -91,7 +91,6 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
   inherited CardPanel1: TCardPanel
     Width = 979
     Height = 434
-    ActiveCard = cardPanelCadatro
     ExplicitWidth = 979
     ExplicitHeight = 434
     inherited cardPanelCadatro: TCard
@@ -104,7 +103,7 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
         Top = 0
         Width = 975
         Height = 430
-        ActivePage = tsCadastros
+        ActivePage = tsRelatorios
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -115,7 +114,6 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
         TabOrder = 0
         object tsCadastros: TTabSheet
           Caption = 'Cadastros'
-          ExplicitLeft = 5
           object Label1: TLabel
             Left = 32
             Top = 14
@@ -409,7 +407,6 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
         object tsMovimentacao: TTabSheet
           Caption = 'Movimenta'#231#227'o'
           ImageIndex = 1
-          ExplicitLeft = 5
           object Label20: TLabel
             Left = 24
             Top = 14
@@ -1133,8 +1130,6 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
         object tsExtras: TTabSheet
           Caption = 'Extras'
           ImageIndex = 4
-          ExplicitLeft = 5
-          ExplicitTop = 84
           object Label61: TLabel
             Left = 40
             Top = 14
@@ -1214,6 +1209,7 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
         Width = 979
         Height = 389
         DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
       end
     end
   end

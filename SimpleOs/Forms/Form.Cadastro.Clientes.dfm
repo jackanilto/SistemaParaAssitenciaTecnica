@@ -3,6 +3,7 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   ClientHeight = 607
   ClientWidth = 1031
   OnClose = FormClose
+  ExplicitTop = -53
   ExplicitWidth = 1031
   ExplicitHeight = 607
   PixelsPerInch = 96

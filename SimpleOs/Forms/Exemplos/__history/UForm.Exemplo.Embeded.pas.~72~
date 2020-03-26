@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
   Vcl.Buttons, Vcl.StdCtrls, Vcl.WinXPanels, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.Menus;
+  Vcl.Menus, Vcl.Mask;
 
 type
   TformExemploEmbeded = class(TForm)
@@ -58,6 +58,8 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Editar1Click(Sender: TObject);
     procedure Excluir1Click(Sender: TObject);
+    procedure validarData(componet: tmaskEdit);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     procedure ativarDesativarNovo;
@@ -66,7 +68,6 @@ type
     procedure ativarDesativarExcluir;
     procedure ativarDesativarCancelar;
     procedure ativarDesativarPesquisar;
-    function isCPF(cpf: string): boolean;
   public
     { Public declarations }
   end;
@@ -132,6 +133,12 @@ begin
   sbCancelar.Enabled := false;
 end;
 
+procedure TformExemploEmbeded.cbPesquisarChange(Sender: TObject);
+begin
+  if cbPesquisar.Text <> EmptyStr then
+    edtPesquisar.SetFocus;
+end;
+
 procedure TformExemploEmbeded.Editar1Click(Sender: TObject);
 begin
   if sbEditar.Enabled = true then
@@ -195,59 +202,6 @@ begin
   sbExcluir.Enabled := false;
   sbCancelar.Enabled := false;
 
-end;
-
-function TformExemploEmbeded.isCPF(cpf: string): boolean;
-var
-  dig10, dig11: string;
-  s, i, r, peso: Integer;
-begin
-  if ((cpf = '00000000000') or (cpf = '11111111111') or (cpf = '22222222222') or
-    (cpf = '33333333333') or (cpf = '44444444444') or (cpf = '55555555555') or
-    (cpf = '66666666666') or (cpf = '77777777777') or (cpf = '88888888888') or
-    (cpf = '99999999999') or (length(cpf) <> 11)) then
-  begin
-    isCPF := false;
-    exit;
-  end;
-  try
-    { *-- cáculo do 10. Digito--* }
-    s := 0;
-    peso := 10;
-    for i := 1 to 9 do
-    begin
-      s := s + (strtoint(cpf[i]) * peso);
-      peso := peso - 1;
-    end;
-    r := 11 - (s mod 11);
-    if ((r = 10) or (r = 11)) then
-      dig10 := '0'
-    else
-      str(r: 1, dig10); // conversao em caractere númericos
-
-    { *--cácula o segundo digito--* }
-    s := 0;
-    peso := 11;
-    for i := 1 to 10 do
-    begin
-      s := s + (strtoint(cpf[i]) * peso);
-      peso := peso - 1;
-    end;
-    r := 11 - (s mod 11);
-    if ((r = 10) or (r = 11)) then
-      dig11 := '0'
-    else
-      str(r: 1, dig11);
-
-    { verifica se os digigitos informados conferem com o resultado }
-
-    if ((dig10 = cpf[10]) and (dig11 = cpf[11])) then
-      isCPF := true
-    else
-      isCPF := false
-  except
-    isCPF := false;
-  end;
 end;
 
 procedure TformExemploEmbeded.lblCadastroClick(Sender: TObject);
@@ -347,6 +301,23 @@ begin
   lblConsulta.Enabled := true;
   showmessage('Operação realizada com sucesso!');
   ativarDesativarSalvar;
+end;
+
+procedure TformExemploEmbeded.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+
+  if componet.Text <> '  /  /    ' then
+  begin
+    try
+      d := strtodate(componet.Text);
+    except
+      componet.SetFocus;
+      componet.Clear;
+      raise Exception.Create('Digite uma data válida.');
+    end;
+  end;
 end;
 
 end.
