@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Mask, Vcl.Menus, UInterfaces,
   UClasse.Visualizar.Vendas, frxClass, frxDBSet, UClasse.Entity.Dados.Empresa,
-  UClasse.Imprimir.Recibo;
+  UClasse.Imprimir.Recibo, UFactory;
 
 type
   TEnumPesquisar = (venda, codigo_cliente, nome_cliente);
@@ -227,7 +227,11 @@ end;
 
 procedure TformVisualizarVendas.sbEstornarVendaClick(Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('ESTORNAR');
+
   EstornarVenda;
+
 end;
 
 procedure TformVisualizarVendas.sbExportarListaClick(Sender: TObject);

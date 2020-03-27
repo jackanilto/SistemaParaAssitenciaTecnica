@@ -3,7 +3,7 @@ unit UClasse.Criar.Janela;
 interface
 
 uses UInterfaces, Vcl.Forms, System.SysUtils,
-  FireDAC.Comp.Client, UDados.Conexao;
+  FireDAC.Comp.Client, UDados.Conexao, Vcl.Dialogs;
 
 type
 
@@ -13,6 +13,7 @@ type
     function permitirAcesso(value: string): boolean;
   public
     function formShow(form: TForm; nomeForm: string): iCriarJanelas;
+    function verificarPermisao(value:string):iCriarJanelas;
     constructor create;
     destructor destroy; override;
     class function new: iCriarJanelas;
@@ -24,12 +25,13 @@ implementation
 
 constructor TCriarJanela.create;
 begin
-
+  FQuery := TFDQuery.create(nil);
+  FQuery.Connection := DataModule1.Conexao;
 end;
 
 destructor TCriarJanela.destroy;
 begin
-
+  FreeAndNil(FQuery);
   inherited;
 end;
 
@@ -42,7 +44,9 @@ begin
       form.ShowModal;
     end
     else
+    begin
       raise Exception.create('Você não possui acesso a este recurso.');
+    end;
   finally
     FreeAndNil(form);
   end;
@@ -59,27 +63,32 @@ begin
 
   result := true;
 
-  // with Dados do
-  // begin
-  //
-  // FQuery := TFDQuery.create(nil);
-  // FQuery.Connection := Dados.conexao;
-  //
-  // FQuery.Active := false;
-  // FQuery.SQL.Clear;
-  // FQuery.SQL.Add('select * from ACESSO_REC where ID_FUNCIONARIO =:F and ' +
-  // value + ' =:valor');
-  // FQuery.ParamByName('F').AsString := funcionarioAtivo.ToString;
-  // FQuery.ParamByName('valor').AsString := 'Sim';
-  // FQuery.Active := true;
-  //
-  // if FQuery.RecordCount >= 1 then
-  // result := true
-  // else
-  // result := false;
-  //
-  // FQuery.Free;
+  with DataModule1 do
+  begin
 
+    FQuery.Active := false;
+    FQuery.SQL.Clear;
+    FQuery.SQL.Add('select * from RECURSOS where ID_FUNCIONARIO =:F and ' +
+      value + ' =:valor');
+    FQuery.ParamByName('F').AsString := funcionarioLogado.ToString;
+    FQuery.ParamByName('valor').AsString := 'Sim';
+    FQuery.Active := true;
+
+//    showmessage(FQuery.FieldByName(value).AsString);
+
+    if FQuery.RecordCount >= 1 then
+      result := true
+    else
+      result := false;
+
+  end;
+
+end;
+
+function TCriarJanela.verificarPermisao(value: string): iCriarJanelas;
+begin
+  if permitirAcesso(value) = false then
+    raise Exception.Create('Você não possuir acesso a este recurso do sistema');
 end;
 
 end.

@@ -14,7 +14,7 @@ uses
   UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
   UClasse.Entity.Dados.Empresa, frxBarcode, UClasse.Calcular.Juros,
   UClasse.Entity.Configurar.Parcelas, UClasse.Preparar.Imprimir.Recibo,
-  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus;
+  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus, UFactory.Entity;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -509,6 +509,9 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbExcluirClick(Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('EXCLUIRPARCELA');
+
   FEntityCriarOrdem.deletar;
   FAtivarBotoes.ativarBotaoExcluir;
   lblCaption.Caption := 'Ordem de serviços - OS excluida';
@@ -626,6 +629,9 @@ end;
 procedure TformCriarConsultarOrdemServico.sbExcluirParcelaClick
   (Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('EXCLUIRPARCELA');
+
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
     FEntityParcelasOrdem.deletar;
@@ -723,6 +729,8 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbEstornarOSClick(Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('ESTORNAR');
 
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
@@ -834,13 +842,20 @@ end;
 procedure TformCriarConsultarOrdemServico.sbEstornarParcelaClick
   (Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('ESTORNAR');
+
   FEntityParcelasOrdem.extornarParcelaSelecionada(0);
   FAtivarBotoes.ativarbotaoEstornarParcela;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbAdicionarParcelaClick
   (Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('ADICIONARPARCELA');
+
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
 

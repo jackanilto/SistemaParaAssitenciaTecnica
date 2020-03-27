@@ -364,6 +364,8 @@ end;
 procedure TformQuitarParcelaOS.sbAdicionarParcelaClick(Sender: TObject);
 begin
 
+  TFactory.new.criarJanela.verificarPermisao('ADICIONARPARCELA');
+
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
    limparEditsAdicionar;
@@ -394,6 +396,8 @@ end;
 procedure TformQuitarParcelaOS.sbEstornarClick(Sender: TObject);
 begin
 
+  TFactory.new.criarJanela.verificarPermisao('ESTORNAR');
+
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
     FEntityQuitar
@@ -405,6 +409,8 @@ end;
 
 procedure TformQuitarParcelaOS.sbExcluirClick(Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('EXCLUIRPARCELA');
 
   if DataSource1.DataSet.RecordCount >= 1 then
   begin

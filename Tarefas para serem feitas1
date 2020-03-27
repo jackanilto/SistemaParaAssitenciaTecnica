@@ -24,7 +24,7 @@
 
 #Criação de relatório de Movimentação do caixa --FEITO
 #Formulário para configuração do nivel de acesso do funcionário --FEITO
-#Personalizar acesso dos usuários as sistema conforme vontade do adminstrador
+#Personalizar acesso dos usuários as sistema conforme vontade do adminstrador --FEITO
 
 
 ##Implemetar comissões por porcentagem --FEITO
@@ -35,6 +35,8 @@
 ##Rever o funcionamento da janela Quitar Parcela Venda.(Cores da grid e o campo juros) --FEITO
 ##Criar o botão para gerar / faturar a OS do cliente --FEITO
 ##Criar janela para quitar as parcelas da OS --FEITO
+
+###Correção no sistema de cadastros de funcionários=Problemas com senhas ao editar um registro
 
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos

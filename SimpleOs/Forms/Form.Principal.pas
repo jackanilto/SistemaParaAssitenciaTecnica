@@ -29,7 +29,6 @@ type
     ImageList1: TImageList;
     Label1: TLabel;
     lblFuncionario: TLabel;
-    Image1: TImage;
     CategoryButtons2: TCategoryButtons;
     actionPrincipal: TActionList;
     acSair: TAction;
@@ -131,6 +130,8 @@ type
     acQuitarParcelasOS: TAction;
     acCaixaMovimentacao: TAction;
     acConfigurarAcessoFuncionario: TAction;
+    pnlFoto: TPanel;
+    Image1: TImage;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -208,6 +209,10 @@ type
     procedure acQuitarParcelasOSExecute(Sender: TObject);
     procedure acCaixaMovimentacaoExecute(Sender: TObject);
     procedure acConfigurarAcessoFuncionarioExecute(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -216,6 +221,7 @@ type
     FBackUp:TClasseConfigBackUp;
     FConfigConexao:TConfigConexaoBanco;
     procedure closeSplit;
+    procedure arrendondarImagem(value:TPanel);
 
   public
     { Public declarations }
@@ -258,56 +264,59 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
   formAtividadeFuncionario := TformAtividadeFuncionario.Create(self);
-  TFactory.new.criarJanela.FormShow(formAtividadeFuncionario, '');
+  TFactory.new.criarJanela.FormShow(formAtividadeFuncionario, 'FORMATFUNCIONARIO');
 end;
 
 procedure TformPrincipal.acBackupManualExecute(Sender: TObject);
 begin
   formBackUpManual := TformBackUpManual.Create(self);
-  TFactory.new.criarJanela.formShow(formBackUpManual, '');
+  TFactory.new.criarJanela.formShow(formBackUpManual, 'FORMBACKUPMANUAL');
 end;
 
 procedure TformPrincipal.acCadastrarServicosExecute(Sender: TObject);
 begin
   formCadastroDeServicos := TformCadastroDeServicos.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroDeServicos, '');
+  TFactory.new.criarJanela.FormShow(formCadastroDeServicos, 'FORMCADDESERVICOS');
 end;
 
 procedure TformPrincipal.acCadastroFornecedoresExecute(Sender: TObject);
 begin
   formCadastroFornecedores := TformCadastroFornecedores.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroFornecedores, '');
+  TFactory.new.criarJanela.FormShow(formCadastroFornecedores, 'FORMCADFORNECEDORES');
 end;
 
 procedure TformPrincipal.acCadastroFuncionariosExecute(Sender: TObject);
 begin
   formCadastroDeFuncionarios := TformCadastroDeFuncionarios.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroDeFuncionarios, '');
+  TFactory.new.criarJanela.FormShow(formCadastroDeFuncionarios, 'FORMCADDEFUNCIONARIOS');
 end;
 
 procedure TformPrincipal.acCadastroGruposExecute(Sender: TObject);
 begin
   formCadastroGrupos := TformCadastroGrupos.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroGrupos, '')
+  TFactory.new.criarJanela.FormShow(formCadastroGrupos, 'FORMCADASTROGRUPOS')
 end;
 
 procedure TformPrincipal.acCadastroMarcasExecute(Sender: TObject);
 begin
   formCadastroMarcas := TformCadastroMarcas.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroMarcas, '')
+  TFactory.new.criarJanela.FormShow(formCadastroMarcas, 'FORMCADASTROMARCAS')
 end;
 
 procedure TformPrincipal.acCadastroProdutosExecute(Sender: TObject);
 begin
   FormCadastroProdutos := TFormCadastroProdutos.Create(self);
-  TFactory.new.criarJanela.FormShow(FormCadastroProdutos, '');
+  TFactory.new.criarJanela.FormShow(FormCadastroProdutos, 'FORMCADPRODUTOS');
 end;
 
 procedure TformPrincipal.acCadastrosExecute(Sender: TObject);
 begin
   if spvCadastros.Opened = true then
-    spvCadastros.Opened := false
-  else
+  begin
+    spvCadastros.Opened := false;
+//    CategoryButtons1.SelectedButtonColor := $00804E3B;
+  end
+      else
   begin
     closeSplit;
     spvCadastros.Opened := true;
@@ -319,13 +328,13 @@ end;
 procedure TformPrincipal.acCadastroSituacaoOrdemExecute(Sender: TObject);
 begin
   formCadastroSituacoesOrdem := TformCadastroSituacoesOrdem.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroSituacoesOrdem, '');
+  TFactory.new.criarJanela.FormShow(formCadastroSituacoesOrdem, 'FORMCADSITUACOESORDEM');
 end;
 
 procedure TformPrincipal.acCadastroTransportadoraExecute(Sender: TObject);
 begin
   formCadastroTransportadora := TformCadastroTransportadora.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroTransportadora, '');
+  TFactory.new.criarJanela.FormShow(formCadastroTransportadora, 'FORMCADTRANSPORTADORA');
 end;
 
 procedure TformPrincipal.acCaixaExecute(Sender: TObject);
@@ -344,20 +353,20 @@ procedure TformPrincipal.acCaixaMovimentacaoExecute(Sender: TObject);
 begin
 
   formMovimentacaoCaixa := TformMovimentacaoCaixa.Create(self);
-  TFactory.new.criarJanela.formShow(formMovimentacaoCaixa, '');
+  TFactory.new.criarJanela.formShow(formMovimentacaoCaixa, 'FORMMOVIMENTACAOCAIXA');
 
 end;
 
 procedure TformPrincipal.acClientesExecute(Sender: TObject);
 begin
   formCadastroDeClientes := TformCadastroDeClientes.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroDeClientes, '');
+  TFactory.new.criarJanela.FormShow(formCadastroDeClientes, 'FORMCADDECLIENTES');
 end;
 
 procedure TformPrincipal.acRelatorioComissoesTecnicosExecute(Sender: TObject);
 begin
  formComissoesTecnicos := TformComissoesTecnicos.Create(self);
-  TFactory.new.criarJanela.formShow(formComissoesTecnicos, '');
+  TFactory.new.criarJanela.formShow(formComissoesTecnicos, 'FORMCOMISSOESTECNICOS');
 end;
 
 procedure TformPrincipal.acConfiguracoesExecute(Sender: TObject);
@@ -374,6 +383,8 @@ end;
 
 procedure TformPrincipal.acConfigurarAcessoFuncionarioExecute(Sender: TObject);
 begin
+//*************************************
+//VER ESTE PONTO
   formConfigurarAcessoFuncionario := TformConfigurarAcessoFuncionario.Create(self);
   TFactory.new.criarJanela.formShow(formConfigurarAcessoFuncionario, '');
 end;
@@ -381,32 +392,32 @@ end;
 procedure TformPrincipal.acConfigurarBackUpExecute(Sender: TObject);
 begin
   formConfiguracoesBackUp := TformConfiguracoesBackUp.Create(self);
-  TFactory.new.criarJanela.formShow(formConfiguracoesBackUp, '');
+  TFactory.new.criarJanela.formShow(formConfiguracoesBackUp, 'FORMCONFIGBACKUP');
 end;
 
 procedure TformPrincipal.acConfigurarParcelaExecute(Sender: TObject);
 begin
   formConfigurarParcelas := TformConfigurarParcelas.Create(self);
-  TFactory.new.criarJanela.FormShow(formConfigurarParcelas, '');
+  TFactory.new.criarJanela.FormShow(formConfigurarParcelas, 'FORMCONFIGPARCELAS');
 end;
 
 procedure TformPrincipal.acContasAPagarExecute(Sender: TObject);
 begin
   formCadastroContasAPagar := TformCadastroContasAPagar.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroContasAPagar, '');
+  TFactory.new.criarJanela.FormShow(formCadastroContasAPagar, 'FORMCADCONTASAPAGAR');
 end;
 
 procedure TformPrincipal.acCriarOrdenServicoExecute(Sender: TObject);
 begin
   formCriarConsultarOrdemServico :=
     TformCriarConsultarOrdemServico.Create(self);
-  TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
+  TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
 end;
 
 procedure TformPrincipal.acDadosEmpresaExecute(Sender: TObject);
 begin
   formCadastroEmpresa := TformCadastroEmpresa.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroEmpresa, '');
+  TFactory.new.criarJanela.FormShow(formCadastroEmpresa, 'FORMCADEMPRESA');
 end;
 
 procedure TformPrincipal.acEncerramentoDoCaixaExecute(Sender: TObject);
@@ -420,7 +431,7 @@ begin
     if FCaixaTemporario.verificarSituacaoCaixa = 'aberto' then
     begin
       formEncerramentoCaixa := TformEncerramentoCaixa.Create(self);
-      TFactory.new.criarJanela.FormShow(formEncerramentoCaixa, '');
+      TFactory.new.criarJanela.FormShow(formEncerramentoCaixa, 'FORMENCERRAMENTOCAIXA');
     end;
   finally
     FCaixaTemporario.Free;
@@ -430,7 +441,7 @@ end;
 procedure TformPrincipal.acEntradasProdutosExecute(Sender: TObject);
 begin
   formEntradaDeProdutos := TformEntradaDeProdutos.Create(self);
-  TFactory.new.criarJanela.FormShow(formEntradaDeProdutos, '');
+  TFactory.new.criarJanela.FormShow(formEntradaDeProdutos, 'FORMENTDEPRODUTOS');
 end;
 
 procedure TformPrincipal.acExtrasExecute(Sender: TObject);
@@ -448,13 +459,13 @@ end;
 procedure TformPrincipal.acFormaPagamentoExecute(Sender: TObject);
 begin
   formFormaPagamento := TformFormaPagamento.Create(self);
-  TFactory.new.criarJanela.FormShow(formFormaPagamento, '');
+  TFactory.new.criarJanela.FormShow(formFormaPagamento, 'FORMFORMAPAGAMENTO');
 end;
 
 procedure TformPrincipal.acHistoricoOSClienteExecute(Sender: TObject);
 begin
   formRelatorioHistoricoOS := TformRelatorioHistoricoOS.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioHistoricoOS, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioHistoricoOS, 'FORMRELHISTORICOOS');
 end;
 
 procedure TformPrincipal.acMovimentacaoExecute(Sender: TObject);
@@ -472,50 +483,50 @@ end;
 procedure TformPrincipal.acNumeroDeParcelasExecute(Sender: TObject);
 begin
   formNumeroParcelas := TformNumeroParcelas.Create(self);
-  TFactory.new.criarJanela.FormShow(formNumeroParcelas, '');
+  TFactory.new.criarJanela.FormShow(formNumeroParcelas, 'FORMNUMPARCELAS');
 end;
 
 procedure TformPrincipal.acOrdemServicoExecute(Sender: TObject);
 begin
   formOrdemServico := TformOrdemServico.Create(self);
-  TFactory.new.criarJanela.FormShow(formOrdemServico, '');
+  TFactory.new.criarJanela.FormShow(formOrdemServico, 'FORMORDEMSERVICO');
 end;
 
 procedure TformPrincipal.acRelatorioOSEstornadasExecute(Sender: TObject);
 begin
   formOSEstornadas := TformOSEstornadas.Create(self);
-  TFactory.new.criarJanela.FormShow(formOSEstornadas, '');
+  TFactory.new.criarJanela.FormShow(formOSEstornadas, 'FORMOSESTORNADAS');
 end;
 
 procedure TformPrincipal.acRelatorioOSExecute(Sender: TObject);
 begin
   formRelatorioOrdemDeServico := TformRelatorioOrdemDeServico.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioOrdemDeServico, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioOrdemDeServico, 'FORMRELATORDEMDESERVICO');
 end;
 
 procedure TformPrincipal.acRelatorioOSPorStatusExecute(Sender: TObject);
 begin
   formRelatorioOSPorStatus := TformRelatorioOSPorStatus.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioOSPorStatus, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioOSPorStatus, 'FORMRELATOSPORSTATUS');
 end;
 
 procedure TformPrincipal.acRelatorioParcelasPagasOSExecute(Sender: TObject);
 begin
   formRelatorioParcelasPagasOS := TformRelatorioParcelasPagasOS.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioParcelasPagasOS, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioParcelasPagasOS, 'FORMRELPARCELASPAGASOS');
 end;
 
 procedure TformPrincipal.acRelatorioParcelasPagasVendasExecute(Sender: TObject);
 begin
   formRelatorioParcelasPagasVendas :=
     TformRelatorioParcelasPagasVendas.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioParcelasPagasVendas, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioParcelasPagasVendas, 'FORMRELATORIOPARCELASPAGASVENDA');
 end;
 
 procedure TformPrincipal.acRelatorioProblemasFrequentesExecute(Sender: TObject);
 begin
   formRelatorioProblemasFrequentes := TformRelatorioProblemasFrequentes.Create(self);
-  TFactory.new.criarJanela.formShow(formRelatorioProblemasFrequentes, '');
+  TFactory.new.criarJanela.formShow(formRelatorioProblemasFrequentes, 'FORMRELATPROBLFREQUENTES');
 end;
 
 procedure TformPrincipal.acRelatorioProdutosMaisVendidosExecute
@@ -523,32 +534,32 @@ procedure TformPrincipal.acRelatorioProdutosMaisVendidosExecute
 begin
   formRelatorioProdutosMaisVendidos :=
     TformRelatorioProdutosMaisVendidos.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioProdutosMaisVendidos, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioProdutosMaisVendidos, 'FORMRELATPRODVENDIDOS');
 end;
 
 procedure TformPrincipal.acRelatorioReparoPorTecnicoExecute(Sender: TObject);
 begin
   formRelatorioOSPorTecnico := TformRelatorioOSPorTecnico.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioOSPorTecnico, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioOSPorTecnico, 'FORMRELATOSPORTECNICO');
 end;
 
 procedure TformPrincipal.acRelatorioReparosPorPeriodoExecute(Sender: TObject);
 begin
   formRelatorioReparosPorPeriodo :=
     TformRelatorioReparosPorPeriodo.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioReparosPorPeriodo, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioReparosPorPeriodo, 'FORMRELREPAROSPORPERIODO');
 end;
 
 procedure TformPrincipal.acRelatorioRetiradaDeValoresExecute(Sender: TObject);
 begin
   formRelatorioRetiradaDeValores := TformRelatorioRetiradaDeValores.Create(self);
-  TFactory.new.criarJanela.formShow(formRelatorioRetiradaDeValores, '');
+  TFactory.new.criarJanela.formShow(formRelatorioRetiradaDeValores, 'FORMRELATRETIRDEVALORES');
 end;
 
 procedure TformPrincipal.acRelatorioSaidaDeProdutosExecute(Sender: TObject);
 begin
   formRelatorioSaidaDeProdutos := TformRelatorioSaidaDeProdutos.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioSaidaDeProdutos, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioSaidaDeProdutos, 'FORMRELATSAIDADEPRODUTOS');
 end;
 
 procedure TformPrincipal.acRelatorioServicosMaisRealizadosExecute
@@ -556,26 +567,26 @@ procedure TformPrincipal.acRelatorioServicosMaisRealizadosExecute
 begin
   formRelatorioServicosMaisRealizados :=
     TformRelatorioServicosMaisRealizados.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioServicosMaisRealizados, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioServicosMaisRealizados, 'FORMRELATSERVICOSMAISREALIZ');
 end;
 
 procedure TformPrincipal.acProblemasFrequentesExecute(Sender: TObject);
 begin
   formCadastroProblemasFrequentes :=
     TformCadastroProblemasFrequentes.Create(self);
-  TFactory.new.criarJanela.FormShow(formCadastroProblemasFrequentes, '');
+  TFactory.new.criarJanela.FormShow(formCadastroProblemasFrequentes, 'FORMCADPROBLEMASFREQUENTES');
 end;
 
 procedure TformPrincipal.acQuitarParcelasExecute(Sender: TObject);
 begin
   formQuitarParcelasVendas := TformQuitarParcelasVendas.Create(self);
-  TFactory.new.criarJanela.FormShow(formQuitarParcelasVendas, '');
+  TFactory.new.criarJanela.FormShow(formQuitarParcelasVendas, 'FORMQUITARPARCVENDAS');
 end;
 
 procedure TformPrincipal.acQuitarParcelasOSExecute(Sender: TObject);
 begin
   formQuitarParcelaOS := TformQuitarParcelaOS.Create(self);
-  TFactory.new.criarJanela.formShow(formQuitarParcelaOS, '');
+  TFactory.new.criarJanela.formShow(formQuitarParcelaOS, 'FORMQUITARPARCELAOS');
 end;
 
 procedure TformPrincipal.acReaberturaDoCaixaExecute(Sender: TObject);
@@ -589,7 +600,7 @@ begin
     if FCaixaTemporario.verificarSituacaoCaixa = 'fechado' then
     begin
       formReaberturaDeCaixa := TformReaberturaDeCaixa.Create(self);
-      TFactory.new.criarJanela.FormShow(formReaberturaDeCaixa, '');
+      TFactory.new.criarJanela.FormShow(formReaberturaDeCaixa, 'FORMREABERTURADECAIXA');
     end;
   finally
     FCaixaTemporario.Free;
@@ -599,32 +610,32 @@ end;
 procedure TformPrincipal.acRelaorioVendasEstornadasExecute(Sender: TObject);
 begin
   formRelatorioVendasEstornadas := tformRelatorioVendasEstornadas.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioVendasEstornadas, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioVendasEstornadas, 'FORMRELVENDASESTORNADAS');
 end;
 
 procedure TformPrincipal.acRelatorioClientesExecute(Sender: TObject);
 begin
   formRelatorioClientes := TformRelatorioClientes.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioClientes, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioClientes, 'FORMRELCLIENTES');
 end;
 
 procedure TformPrincipal.acRelatorioClientesOSInadimplentesExecute
   (Sender: TObject);
 begin
   formRelatorioOSInadimplentes := TformRelatorioOSInadimplentes.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioOSInadimplentes, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioOSInadimplentes, 'FORMRELATOSINADIMPLENTES');
 end;
 
 procedure TformPrincipal.acRelatorioContasAPagarExecute(Sender: TObject);
 begin
   formRelatorioContasAPagar := TformRelatorioContasAPagar.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioContasAPagar, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioContasAPagar, 'FORMRELCONTASAPAGAR');
 end;
 
 procedure TformPrincipal.acRelatorioContasAReceberExecute(Sender: TObject);
 begin
   formRelatorioContasAReceberOS := TformRelatorioContasAReceberOS.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioContasAReceberOS, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioContasAReceberOS, 'FORMRELCONTASARECEBEROS');
 end;
 
 procedure TformPrincipal.acRelatorioContasAReceberVendasExecute
@@ -632,32 +643,32 @@ procedure TformPrincipal.acRelatorioContasAReceberVendasExecute
 begin
   formRelatorioContasAReceberVenda :=
     TformRelatorioContasAReceberVenda.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioContasAReceberVenda, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioContasAReceberVenda, 'FORMRELCONTASARECEBERVENDA');
 end;
 
 procedure TformPrincipal.acRelatorioDeProdutosExecute(Sender: TObject);
 begin
   formRelatorioDeProdutos := TformRelatorioDeProdutos.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioDeProdutos, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioDeProdutos, 'FORMRELATDEPRODUTOS');
 end;
 
 procedure TformPrincipal.acRelatorioEntradasDeProdutosExecute(Sender: TObject);
 begin
   formRelatorioEntradasDeProdutos :=
     TformRelatorioEntradasDeProdutos.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioEntradasDeProdutos, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioEntradasDeProdutos, 'FORMRELATENTRDEPRODUTOS');
 end;
 
 procedure TformPrincipal.acRelatorioFornecedoresExecute(Sender: TObject);
 begin
   formRelatorioFornecedores := TformRelatorioFornecedores.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioFornecedores, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioFornecedores, 'FORMRELATFORNECEDORES');
 end;
 
 procedure TformPrincipal.acRelatorioHistoricoCaixaExecute(Sender: TObject);
 begin
   formRelatorioHistoricoDoCaixa := TformRelatorioHistoricoDoCaixa.Create(self);
-  TFactory.new.criarJanela.formShow(formRelatorioHistoricoDoCaixa, '');
+  TFactory.new.criarJanela.formShow(formRelatorioHistoricoDoCaixa, 'FORMRELATHISTORICOCAIXA');
 end;
 
 procedure TformPrincipal.acRelatoriosExecute(Sender: TObject);
@@ -676,26 +687,26 @@ procedure TformPrincipal.acRelatorioSituacaoEstoqueExecute(Sender: TObject);
 begin
   formRelatorioSituacaoDoEstoque :=
     TformRelatorioSituacaoDoEstoque.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioSituacaoDoEstoque, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioSituacaoDoEstoque, 'FORMRELATSITUACAODOESTOQUE');
 end;
 
 procedure TformPrincipal.acRelatorioTransportadorasExecute(Sender: TObject);
 begin
   formRelatorioTransportadora := tformRelatorioTransportadora.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioTransportadora, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioTransportadora, 'FORMRELATTRANSPORTADORA');
 end;
 
 procedure TformPrincipal.acRelatorioVendaInadimplentesExecute(Sender: TObject);
 begin
   formRelatorioVendasInadimplentes :=
     TformRelatorioVendasInadimplentes.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioVendasInadimplentes, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioVendasInadimplentes, 'FORMRELATVENDASINADIMP');
 end;
 
 procedure TformPrincipal.acRelatorioVendasExecute(Sender: TObject);
 begin
   formRelatorioVendas := TformRelatorioVendas.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioVendas, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioVendas, 'FORMRELATVENDAS');
 end;
 
 procedure TformPrincipal.acRelatorioVendasPorFuncionariosExecute
@@ -703,19 +714,19 @@ procedure TformPrincipal.acRelatorioVendasPorFuncionariosExecute
 begin
   formRelatorioVendasPorFuncionario :=
     TformRelatorioVendasPorFuncionario.Create(self);
-  TFactory.new.criarJanela.FormShow(formRelatorioVendasPorFuncionario, '');
+  TFactory.new.criarJanela.FormShow(formRelatorioVendasPorFuncionario, 'FORMRELATVENDASFUNCIONARIO');
 end;
 
 procedure TformPrincipal.acRetiradaDeValoresExecute(Sender: TObject);
 begin
   formRetiradaDeValores := TformRetiradaDeValores.Create(self);
-  TFactory.new.criarJanela.formShow(formRetiradaDeValores, '');
+  TFactory.new.criarJanela.formShow(formRetiradaDeValores, 'FORMRETIRADADEVALORES');
 end;
 
 procedure TformPrincipal.acSaidaProdutosExecute(Sender: TObject);
 begin
   formSaidaDeProdutos := TformSaidaDeProdutos.Create(self);
-  TFactory.new.criarJanela.FormShow(formSaidaDeProdutos, '');
+  TFactory.new.criarJanela.FormShow(formSaidaDeProdutos, 'FORMSAIDADEPRODUTOS');
 end;
 
 procedure TformPrincipal.acSairExecute(Sender: TObject);
@@ -738,19 +749,31 @@ end;
 procedure TformPrincipal.acTipoRetiradasExecute(Sender: TObject);
 begin
   formTipoRetiradas := TformTipoRetiradas.Create(self);
-  TFactory.new.criarJanela.FormShow(formTipoRetiradas, '');
+  TFactory.new.criarJanela.FormShow(formTipoRetiradas, 'FORMTIPORETIRADAS');
 end;
 
 procedure TformPrincipal.acVendaExecute(Sender: TObject);
 begin
   formVendas := TformVendas.Create(self);
-  TFactory.new.criarJanela.FormShow(formVendas, '');
+  TFactory.new.criarJanela.FormShow(formVendas, 'FORMVENDAS');
 end;
 
 procedure TformPrincipal.acVisualizarVendasExecute(Sender: TObject);
 begin
   formVisualizarVendas := TformVisualizarVendas.Create(self);
-  TFactory.new.criarJanela.FormShow(formVisualizarVendas, '');
+  TFactory.new.criarJanela.FormShow(formVisualizarVendas, 'FORMVISUALIZARVENDAS');
+end;
+
+procedure TformPrincipal.arrendondarImagem(value: TPanel);
+var
+  rgn: HRGN;
+  dc: HDC;
+begin
+ rgn := CreateRoundRectRgn(0, 0, value.Width, value.Height, 350, 350);
+  dc := GetDC(value.Handle);
+  SetWindowRgn(value.Handle, rgn, true);
+  ReleaseDC(value.Handle, dc);
+  DeleteObject(rgn);
 end;
 
 procedure TformPrincipal.Button1Click(Sender: TObject);
@@ -834,24 +857,32 @@ begin
 
     lblFuncionario.Caption := NomeFuncionarioLogado;
 
+    if imagemFuncionario.Picture.Graphic.Empty  then
+    begin
+      showmessage('sem fotoS');
+    end;
+    Image1.Picture := imagemFuncionario.Picture;
+
+    arrendondarImagem(pnlFoto);
+
   end;
 
   if FProcessoCaixa.verificarSituacaoCaixa = 'nao foi iniciado' then
   begin
     formIniciarCaixa := TformIniciarCaixa.Create(self);
-    TFactory.new.criarJanela.FormShow(formIniciarCaixa, '');
+    TFactory.new.criarJanela.FormShow(formIniciarCaixa, 'FORMINICIARCAIXA');
     FSituacaoDoCaixa := 'fechado';
   end
   else if FProcessoCaixa.verificarSituacaoCaixa = 'encerrar caixa anterior' then
   begin
     formIniciarCaixa := TformIniciarCaixa.Create(self);
-    TFactory.new.criarJanela.FormShow(formIniciarCaixa, '');
+    TFactory.new.criarJanela.FormShow(formIniciarCaixa, 'FORMINICIARCAIXA');
     FSituacaoDoCaixa := 'fechado';
   end
   else if FProcessoCaixa.verificarSituacaoCaixa = 'iniciar novo caixa' then
   begin
     formIniciarCaixa := TformIniciarCaixa.Create(self);
-    TFactory.new.criarJanela.FormShow(formIniciarCaixa, '');
+    TFactory.new.criarJanela.FormShow(formIniciarCaixa, 'FORMINICIARCAIXA');
     FSituacaoDoCaixa := 'fechado';
   end
   else if FProcessoCaixa.verificarSituacaoCaixa = 'fechado' then
@@ -866,6 +897,26 @@ begin
   Label7.Caption := FSituacaoDoCaixa;
 
 
+end;
+
+procedure TformPrincipal.Image2Click(Sender: TObject);
+begin
+  acClientes.Execute;
+end;
+
+procedure TformPrincipal.Image3Click(Sender: TObject);
+begin
+  acCadastroProdutos.Execute;
+end;
+
+procedure TformPrincipal.Image4Click(Sender: TObject);
+begin
+  acOrdemServico.Execute;
+end;
+
+procedure TformPrincipal.Image5Click(Sender: TObject);
+begin
+  acVenda.Execute;
 end;
 
 procedure TformPrincipal.closeSplit;

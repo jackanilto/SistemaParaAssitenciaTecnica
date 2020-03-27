@@ -4,7 +4,7 @@ interface
 
 uses
   UInterfaces, UDados.Conexao, Vcl.StdCtrls, System.SysUtils, Vcl.Dialogs,
-  UFactory, FireDAC.Comp.Client;
+  UFactory, FireDAC.Comp.Client, Data.DB;
 
 Type
   TRealizarLogin = class(TInterfacedObject, iLogin)
@@ -66,6 +66,7 @@ begin
 
       NomeFuncionarioLogado := FQuery.FieldByName('USUARIO').AsString;
       funcionarioLogado := FQuery.FieldByName('ID').AsInteger;
+      imagemFuncionario.Picture.Assign(TGraphicField(FQuery.FieldByName('FOTO')));
 
     end
   else

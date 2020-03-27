@@ -339,6 +339,8 @@ var
   totalDeParcelas: Integer;
 begin
 
+  TFactory.new.criarJanela.verificarPermisao('ADICIONARPARCELA');
+
   totalDeParcelas := FentityVisulizarParcelasVenda.retornarTotalDeParcelas
     (DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger) + 1;
 
@@ -379,6 +381,9 @@ end;
 
 procedure TformQuitarParcelasVendas.sbEstornarClick(Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('ESTORNAR');
+
   if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Sim' then
   begin
     FentityVisulizarParcelasVenda.estornarParcela
@@ -391,6 +396,9 @@ end;
 
 procedure TformQuitarParcelasVendas.sbExcluirClick(Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('EXCLUIRPARCELA');
+
   FentityVisulizarParcelasVenda.excluirParcela
     (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
 

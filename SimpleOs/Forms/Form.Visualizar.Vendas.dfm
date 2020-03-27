@@ -570,7 +570,6 @@ object formVisualizarVendas: TformVisualizarVendas
     Font.Style = []
     ParentFont = False
     TabOrder = 2
-    ExplicitLeft = 2
     object DBGrid1: TDBGrid
       Left = 2
       Top = 19

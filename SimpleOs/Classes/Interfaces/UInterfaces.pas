@@ -156,6 +156,7 @@ type
   iCriarJanelas = interface
     ['{BEA3A61C-1058-4F51-B6AB-C488A1B18E1D}']
     function formShow(form: TForm; nomeForm: string): iCriarJanelas;
+    function verificarPermisao(value:string):iCriarJanelas;
   end;
 
   iGerarCodigoBarras = interface

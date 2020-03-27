@@ -412,8 +412,12 @@ begin
   inherited;
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
-    tfactory.new.criarJanela.FormShow(formComissoesFuncionarios, '');
+      formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
+      try
+        formComissoesFuncionarios.ShowModal
+      finally
+        formComissoesFuncionarios.Free;
+      end;
   end;
 end;
 
@@ -422,8 +426,14 @@ begin
   inherited;
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
+
       formConfigurarAcessoFuncionario := TformConfigurarAcessoFuncionario.Create(self);
-      TFactory.new.criarJanela.formShow(formConfigurarAcessoFuncionario, '');
+      try
+        formConfigurarAcessoFuncionario.ShowModal;
+      finally
+        formConfigurarAcessoFuncionario.Free;
+      end;
+
   end;
 end;
 

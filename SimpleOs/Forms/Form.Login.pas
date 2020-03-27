@@ -41,7 +41,7 @@ var
 implementation
 
 uses
-  Form.Principal;
+  Form.Principal, UFactory.Query;
 
 {$R *.dfm}
 
@@ -77,6 +77,8 @@ end;
 
 procedure TformLogin.sbConfiguracoesClick(Sender: TObject);
 begin
+
+//  TFactory.new.criarJanela.verificarPermisao('FORMCONFIGCONEXAOBANCO');
 
   formConfigurarConexaoBanco := TformConfigurarConexaoBanco.Create(self);
   try

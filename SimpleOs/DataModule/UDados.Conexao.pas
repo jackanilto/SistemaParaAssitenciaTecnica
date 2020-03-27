@@ -9,7 +9,7 @@ uses
   FireDAC.Comp.Client, Data.DB, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
   FireDAC.Phys.IBBase, FireDAC.Comp.UI, Vcl.Forms, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
-  UClasse.Config.Acesso.Banco;
+  UClasse.Config.Acesso.Banco, Vcl.Imaging.jpeg, Vcl.ExtCtrls;
 
 type
   TDataModule1 = class(TDataModule)
@@ -36,6 +36,7 @@ var
   DataModule1: TDataModule1;
   funcionarioLogado: integer;
   NomeFuncionarioLogado: string;
+  imagemFuncionario:Timage;
 
 implementation
 
@@ -65,11 +66,14 @@ begin
 
   end;
 
+  imagemFuncionario := TImage.Create(nil);
+
 end;
 
 procedure TDataModule1.DataModuleDestroy(Sender: TObject);
 begin
   FConfigConexao.Free;
+  FreeAndNil(imagemFuncionario);
 end;
 
 end.
