@@ -22,6 +22,7 @@ type
     sbRestaurar: TSpeedButton;
     sbCancelar: TSpeedButton;
     DataSource1: TDataSource;
+    OpenDialog1: TOpenDialog;
     procedure FormShow(Sender: TObject);
     procedure sbFecharClick(Sender: TObject);
     procedure sbCancelarClick(Sender: TObject);
@@ -30,6 +31,7 @@ type
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure sbConfirmarClick(Sender: TObject);
     procedure sbRestaurarClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     var
@@ -44,6 +46,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformConfigurarConexaoBanco.Button1Click(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+    edtLocalDoBanco.Text := OpenDialog1.FileName;
+end;
 
 procedure TformConfigurarConexaoBanco.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -98,6 +106,7 @@ end;
 procedure TformConfigurarConexaoBanco.sbRestaurarClick(Sender: TObject);
 begin
   FConfConexao.restaurarConexao;
+  close;
 end;
 
 end.

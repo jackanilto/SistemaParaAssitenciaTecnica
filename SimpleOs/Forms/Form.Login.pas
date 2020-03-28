@@ -103,6 +103,7 @@ begin
   begin
     MessageDlg('Usuário ou Senha inválidos, tente novamente', mtError,
       [mbOk], 0, mbOk);
+      edtUsuario.SetFocus;
   end;
 
 end;

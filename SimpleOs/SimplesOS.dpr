@@ -193,7 +193,11 @@ uses
   UClasse.Relatorio.Movimentacao.Contas in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Contas.pas',
   UClasse.Relatorio.Movimentacao.Caixa in 'Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Caixa.pas',
   Form.Acesso.Recursos.Fucnionarios in 'Forms\Form.Acesso.Recursos.Fucnionarios.pas' {formConfigurarAcessoFuncionario},
-  UClasse.Entity.Configurar.Acesso.Funcionario in 'Classes\Entity\UClasse.Entity.Configurar.Acesso.Funcionario.pas';
+  UClasse.Entity.Configurar.Acesso.Funcionario in 'Classes\Entity\UClasse.Entity.Configurar.Acesso.Funcionario.pas',
+  Unit1 in 'Unit1.pas',
+  UClasse.Entity.Trocar.Usuario in 'Classes\Entity\UClasse.Entity.Trocar.Usuario.pas',
+  Form.Trocar.Usuario in 'Forms\Form.Trocar.Usuario.pas' {formTrocarDeUsuario},
+  Form.Alterar.Senha in 'Forms\Form.Alterar.Senha.pas' {Form2};
 
 {$R *.res}
 
@@ -202,5 +206,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TForm2, Form2);
   Application.Run;
 end.

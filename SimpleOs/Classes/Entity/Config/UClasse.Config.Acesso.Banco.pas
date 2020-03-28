@@ -3,7 +3,7 @@ unit UClasse.Config.Acesso.Banco;
 interface
 
 uses
-  UClasse.Config.Conexao, Data.DB, Vcl.Dialogs, System.SysUtils;
+  UClasse.Config.Conexao, Data.DB, Vcl.Dialogs, System.SysUtils, Vcl.Forms;
 
 Type
   TConfigConexaoBanco = class(TClasseConexaoConfig)
@@ -87,14 +87,19 @@ begin
 end;
 
 procedure TConfigConexaoBanco.restaurarConexao;
+var
+  local:string;
 begin
+
+  local:= ExtractFilePath(Application.ExeName);
+
   try
 
     FQueryConf.retornarQuery.Edit;
 
     FQueryConf.retornarQuery.FieldByName('id').AsInteger := 1;
     FQueryConf.retornarQuery.FieldByName('host').AsString := 'localhost';
-    FQueryConf.retornarQuery.FieldByName('local_bd').AsString := './';
+    FQueryConf.retornarQuery.FieldByName('local_bd').AsString := local+'\Banco\BD_SIMPLE_OS.FDB';
 
     FQueryConf.retornarQuery.Post;
     ShowMessage('Configurações restauradas com sucesso!!!');

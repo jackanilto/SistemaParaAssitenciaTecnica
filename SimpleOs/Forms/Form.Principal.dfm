@@ -5315,6 +5315,7 @@ object formPrincipal: TformPrincipal
     Width = 31
     Height = 13
     Caption = 'Label7'
+    Visible = False
   end
   object Panel1: TPanel
     Left = 0
@@ -5326,6 +5327,8 @@ object formPrincipal: TformPrincipal
     Color = 8408635
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = -24
     DesignSize = (
       1061
       57)
@@ -5879,15 +5882,6 @@ object formPrincipal: TformPrincipal
       Font.Style = []
       ParentFont = False
     end
-    object Button1: TButton
-      Left = 567
-      Top = 26
-      Width = 75
-      Height = 25
-      Caption = 'Button1'
-      TabOrder = 0
-      OnClick = Button1Click
-    end
     object pnlFoto: TPanel
       Left = 966
       Top = 0
@@ -5895,7 +5889,7 @@ object formPrincipal: TformPrincipal
       Height = 57
       Anchors = [akTop, akRight, akBottom]
       BevelOuter = bvNone
-      TabOrder = 1
+      TabOrder = 0
       object Image1: TImage
         Left = 0
         Top = 0
@@ -6189,9 +6183,10 @@ object formPrincipal: TformPrincipal
     end
     object CategoryButtons2: TCategoryButtons
       Left = 0
-      Top = 352
+      Top = 384
       Width = 150
-      Height = 115
+      Height = 83
+      Margins.Bottom = 15
       Align = alBottom
       BevelInner = bvNone
       BevelOuter = bvNone
@@ -6205,9 +6200,6 @@ object formPrincipal: TformPrincipal
           Color = clNone
           Collapsed = False
           Items = <
-            item
-              Action = acConfiguracoes
-            end
             item
               Action = acSair
               ImageIndex = 6
@@ -7056,58 +7048,6 @@ object formPrincipal: TformPrincipal
         0D948C8A68A0645444837F011D41362B786DE3850000000049454E44AE426082}
       OnClick = Image3Click
     end
-    object Label3: TLabel
-      Left = 40
-      Top = 72
-      Width = 171
-      Height = 19
-      Caption = #218'ltima ordem realizada:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 4733753
-      Font.Height = -16
-      Font.Name = 'Roboto'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label4: TLabel
-      Left = 40
-      Top = 102
-      Width = 186
-      Height = 19
-      Caption = #218'ltima ordem cadastrada:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 4733753
-      Font.Height = -16
-      Font.Name = 'Roboto'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label5: TLabel
-      Left = 217
-      Top = 72
-      Width = 110
-      Height = 19
-      Caption = 'Ordem N'#186' 0000'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 4733753
-      Font.Height = -16
-      Font.Name = 'Roboto'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label6: TLabel
-      Left = 232
-      Top = 102
-      Width = 110
-      Height = 19
-      Caption = 'Ordem N'#186' 0000'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 4733753
-      Font.Height = -16
-      Font.Name = 'Roboto'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
   end
   object spvCadastros: TSplitView
     Left = 150
@@ -7461,29 +7401,6 @@ object formPrincipal: TformPrincipal
     Placement = svpLeft
     TabOrder = 7
   end
-  object spvConfiguracoes: TSplitView
-    Left = 150
-    Top = 57
-    Width = 0
-    Height = 467
-    CloseStyle = svcCompact
-    Color = clTeal
-    CompactWidth = 0
-    Opened = False
-    OpenedWidth = 100
-    Placement = svpLeft
-    TabOrder = 8
-    Visible = False
-  end
-  object Button2: TButton
-    Left = 824
-    Top = 232
-    Width = 75
-    Height = 25
-    Caption = 'Button2'
-    TabOrder = 9
-    OnClick = Button2Click
-  end
   object spCaixa: TSplitView
     Left = 150
     Top = 57
@@ -7495,7 +7412,7 @@ object formPrincipal: TformPrincipal
     Opened = False
     OpenedWidth = 187
     Placement = svpLeft
-    TabOrder = 10
+    TabOrder = 8
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -7543,15 +7460,6 @@ object formPrincipal: TformPrincipal
       SelectedButtonColor = clNone
       TabOrder = 0
     end
-  end
-  object Button3: TButton
-    Left = 800
-    Top = 263
-    Width = 75
-    Height = 25
-    Caption = 'Button3'
-    TabOrder = 11
-    OnClick = Button3Click
   end
   object ImageList1: TImageList
     Height = 24
@@ -8747,11 +8655,13 @@ object formPrincipal: TformPrincipal
   object PopupMenuFuncionario: TPopupMenu
     Left = 872
     Top = 264
-    object Alterarsenha1: TMenuItem
-      Caption = 'Alterar senha'
-    end
     object Sair1: TMenuItem
+      Caption = 'Trocar de usu'#225'rio'
+      OnClick = Sair1Click
+    end
+    object Sair2: TMenuItem
       Caption = 'Sair'
+      OnClick = Sair2Click
     end
   end
   object Timer1: TTimer

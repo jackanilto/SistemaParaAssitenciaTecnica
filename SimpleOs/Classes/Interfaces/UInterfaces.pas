@@ -2906,6 +2906,14 @@ type
 
   end;
 
+  iTrocarDeUsuario = interface
+    ['{BC52F62A-A38D-42D9-923D-ED54BC9F26F2}']
+
+    function resetar:iTrocarDeUsuario;
+    function relogar:iTrocarDeUsuario;
+
+  end;
+
 
 
   iFactoryMovimentacao = interface

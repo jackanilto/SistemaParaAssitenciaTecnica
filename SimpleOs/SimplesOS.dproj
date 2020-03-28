@@ -559,6 +559,16 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\UClasse.Entity.Configurar.Acesso.Funcionario.pas"/>
+        <DCCReference Include="Unit1.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Trocar.Usuario.pas"/>
+        <DCCReference Include="Forms\Form.Trocar.Usuario.pas">
+            <Form>formTrocarDeUsuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Alterar.Senha.pas">
+            <Form>Form2</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_SimplesOS\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>

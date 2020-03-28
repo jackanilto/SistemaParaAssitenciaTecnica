@@ -9,7 +9,7 @@ uses
   FireDAC.Comp.Client, Data.DB, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
   FireDAC.Phys.IBBase, FireDAC.Comp.UI, Vcl.Forms, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
-  UClasse.Config.Acesso.Banco, Vcl.Imaging.jpeg, Vcl.ExtCtrls;
+  UClasse.Config.Acesso.Banco, Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.Dialogs;
 
 type
   TDataModule1 = class(TDataModule)
@@ -36,9 +36,12 @@ var
   DataModule1: TDataModule1;
   funcionarioLogado: integer;
   NomeFuncionarioLogado: string;
-  imagemFuncionario:Timage;
+  imagemFuncionario: Timage;
 
 implementation
+
+uses
+  Form.Configurar.Conexcao.Banco;
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 {$R *.dfm}
@@ -50,23 +53,54 @@ begin
 end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
+var
+  localizacaoBD:string;
 begin
 
   FConfigConexao := TConfigConexaoBanco.create;
 
-  with Conexao do
-  begin
+  try
+    with Conexao do
+    begin
 
-    DriverName := 'FB';
-    Params.Add('Server=' + FConfigConexao.hostname);
-    Params.Add('Port=' + '3050');
-    Params.Add('Database=' + FConfigConexao.localBD);
-    Params.Add('User_Name=' + FConfigConexao.user);
-    Params.Add('Password=' + FConfigConexao.password);
+      Connected := false;
+      DriverName := 'FB';
+      Params.Add('Server=' + FConfigConexao.hostname);
+      Params.Add('Port=' + '3050');
+      Params.Add('Database=' + FConfigConexao.localBD);
+      Params.Add('User_Name=' + FConfigConexao.user);
+      Params.Add('Password=' + FConfigConexao.password);
+      Connected := true;
+
+    end;
+
+  except
+    on e: EFDDBEngineException do
+    begin
+
+      Conexao.Connected := false;
+
+      MessageDlg('Erro com a conexão do banco de dados', mtError,
+        [mbOk], 0, mbOk);
+
+      formConfigurarConexaoBanco := TformConfigurarConexaoBanco.create(self);
+      try
+        formConfigurarConexaoBanco.ShowModal;
+      finally
+        formConfigurarConexaoBanco.Free;
+
+        showmessage('A aplicação será fechada para efetuar as configuração.'+
+        ' Por gentiliza, assim que for fechada abra novamente.'+
+        ' Se o erro continuar entre em contato com o suporte.');
+
+        halt;
+      end;
+
+    end;
 
   end;
 
-  imagemFuncionario := TImage.Create(nil);
+  imagemFuncionario := Timage.create(nil);
 
 end;
 

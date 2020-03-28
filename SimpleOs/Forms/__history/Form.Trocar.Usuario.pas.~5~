@@ -1,0 +1,47 @@
+unit Form.Trocar.Usuario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, UInterfaces,
+  UClasse.Login;
+
+type
+  TformTrocarDeUsuario = class(TForm)
+    lblCaption: TLabel;
+    SpeedButton1: TSpeedButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtUsuario: TEdit;
+    edtSenha: TEdit;
+    sbEntrar: TSpeedButton;
+    sbSair: TSpeedButton;
+    procedure sbSairClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+    var
+      FLogin:iLogin;
+  public
+    { Public declarations }
+  end;
+
+var
+  formTrocarDeUsuario: TformTrocarDeUsuario;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformTrocarDeUsuario.FormCreate(Sender: TObject);
+begin
+  FLogin := TRealizarLogin.new;
+end;
+
+procedure TformTrocarDeUsuario.sbSairClick(Sender: TObject);
+begin
+  close;
+end;
+
+end.
