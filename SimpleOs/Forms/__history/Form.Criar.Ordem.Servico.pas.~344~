@@ -14,7 +14,7 @@ uses
   UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
   UClasse.Entity.Dados.Empresa, frxBarcode, UClasse.Calcular.Juros,
   UClasse.Entity.Configurar.Parcelas, UClasse.Preparar.Imprimir.Recibo,
-  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus;
+  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus, UFactory.Entity;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -174,6 +174,7 @@ type
     PopupMenu1: TPopupMenu;
     Editarparcela1: TMenuItem;
     SpeedButton1: TSpeedButton;
+    tbOcorrencias: TTabSheet;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -509,6 +510,9 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbExcluirClick(Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('EXCLUIRPARCELA');
+
   FEntityCriarOrdem.deletar;
   FAtivarBotoes.ativarBotaoExcluir;
   lblCaption.Caption := 'Ordem de serviços - OS excluida';
@@ -550,6 +554,10 @@ begin
 
   limparDatas;
 
+  cds_tem_servicos_adicionados.EmptyDataSet;
+  cds_tem_servicos_adicionados_edit.EmptyDataSet;
+  abreATabelaDeParcelas;
+
   FAtivarBotoes.ativarBotaoNovo;
 
   lblCaption.Caption := 'Ordem de serviços - Nova OS';
@@ -558,8 +566,16 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbPesquisarCepClick(Sender: TObject);
 begin
+
   formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
-  TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
+  try
+    formLocalizarClientesOrdem.ShowModal;
+  finally
+    formLocalizarClientesOrdem.Free;
+  end;
+
+//  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
+//  TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
 end;
 
 procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
@@ -622,6 +638,9 @@ end;
 procedure TformCriarConsultarOrdemServico.sbExcluirParcelaClick
   (Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('EXCLUIRPARCELA');
+
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
     FEntityParcelasOrdem.deletar;
@@ -701,7 +720,7 @@ begin
                           .gerarParcelas;
 
       showmessage('Parcelas / Informações para pagamento foram geradas com sucesso');                          
-                          
+
                           
      except on e:exception do
      begin
@@ -719,6 +738,8 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbEstornarOSClick(Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('ESTORNAR');
 
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
@@ -751,8 +772,16 @@ end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
 begin
+
   formLocalizarTecnico := TformLocalizarTecnico.Create(self);
-  TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
+  try
+    formLocalizarTecnico.ShowModal;
+  finally
+    formLocalizarTecnico.Free;
+  end;
+
+//  formLocalizarTecnico := TformLocalizarTecnico.Create(self);
+//  TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);
@@ -830,13 +859,20 @@ end;
 procedure TformCriarConsultarOrdemServico.sbEstornarParcelaClick
   (Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('ESTORNAR');
+
   FEntityParcelasOrdem.extornarParcelaSelecionada(0);
   FAtivarBotoes.ativarbotaoEstornarParcela;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbAdicionarParcelaClick
   (Sender: TObject);
 begin
+
+  TFactory.new.criarJanela.verificarPermisao('ADICIONARPARCELA');
+
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
 
@@ -969,7 +1005,7 @@ begin
   edtDataEntrada.Text := DateToStr(date);
   edtDataDeSaida.Clear;
   edtDataRetorno.Clear;
-  edtDataBaseVencimento.Clear;
+//  edtDataBaseVencimento.Clear;
   edtHoraSaida.Text := '00:00:00';
 end;
 
@@ -1137,13 +1173,18 @@ end;
 
 procedure TformCriarConsultarOrdemServico.imprimirRecibo;
 begin
-  FEntityImprimirRecibo.getCampo('ID_PARCELA')
-    .getValor(IntToStr(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger))
-    .sqlPesquisaEstatica.listarGrid(s_ImprirmirRecibo).imprimirComprovante;
+
+  FEntityImprimirRecibo
+          .getCampo('ID_PARCELA')
+          .getValor(IntToStr(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger))
+          .sqlPesquisaEstatica.listarGrid(s_ImprirmirRecibo).imprimirComprovante;
+
   prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
+
   frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/comprovante_pagamento.fr3');
   frx_ImprimirRecibo.ShowReport;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.desabilitarBotoesParcelasEstornar;

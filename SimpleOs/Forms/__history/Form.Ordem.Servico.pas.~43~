@@ -37,6 +37,9 @@ type
     SpeedButton2: TSpeedButton;
     frxDB_ListaOrdemServico: TfrxDBDataset;
     frx_ListaOrdemServico: TfrxReport;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    sbCriarOS: TSpeedButton;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -52,6 +55,8 @@ type
     procedure sbExportarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure sbCriarOSClick(Sender: TObject);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     FEntityOrdensServico: iListarOrdensServico;
@@ -70,6 +75,14 @@ implementation
 
 uses Form.Cadastro.Clientes, Form.Criar.Ordem.Servico;
 
+procedure TformOrdemServico.cbPesquisarChange(Sender: TObject);
+begin
+
+  if cbPesquisar.Text <> EmptyStr then
+    edtPesquisar.SetFocus;
+
+end;
+
 procedure TformOrdemServico.DBGrid1DblClick(Sender: TObject);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
@@ -80,7 +93,7 @@ begin
     try
       formCriarConsultarOrdemServico :=
         TformCriarConsultarOrdemServico.Create(self);
-      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
+      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
     finally
       FEntityOrdensServico.atualizar;
     end;
@@ -91,6 +104,7 @@ end;
 procedure TformOrdemServico.DBGrid1TitleClick(Column: TColumn);
 begin
   FEntityOrdensServico.ordenarGrid(Column);
+  DataSource1.DataSet.First;
 end;
 
 procedure TformOrdemServico.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
@@ -131,7 +145,8 @@ end;
 
 procedure TformOrdemServico.FormShow(Sender: TObject);
 begin
-  FEntityOrdensServico.abrir.listarGrid(DataSource1);
+  FEntityOrdensServico.abrir.getCampo('ID_ORDEM').getValor('0')
+    .sqlPesquisa.listarGrid(DataSource1);
 end;
 
 procedure TformOrdemServico.Panel1MouseDown(Sender: TObject;
@@ -146,6 +161,12 @@ begin
   end;
 end;
 
+procedure TformOrdemServico.sbCriarOSClick(Sender: TObject);
+begin
+  formCriarConsultarOrdemServico := TformCriarConsultarOrdemServico.Create(self);
+  TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
+end;
+
 procedure TformOrdemServico.sbExportarClick(Sender: TObject);
 begin
   FEntityOrdensServico.exportar;
@@ -158,7 +179,11 @@ end;
 
 procedure TformOrdemServico.sbImprimirClick(Sender: TObject);
 begin
-  { CÓDIFICAR ESTA PARTE PARA A IMPESSÃO DA ORDEM DE SERVIÇO SELECIONADA }
+
+  frx_ListaOrdemServico.LoadFromFile(ExtractFilePath(application.ExeName) +
+    'relatórios/relatorio_lista_ordem_servico.fr3');
+  frx_ListaOrdemServico.ShowReport();
+
 end;
 
 procedure TformOrdemServico.SpeedButton1Click(Sender: TObject);
@@ -171,7 +196,7 @@ begin
     try
       formCriarConsultarOrdemServico :=
         TformCriarConsultarOrdemServico.Create(self);
-      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
+      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
     finally
       FEntityOrdensServico.atualizar;
     end;
@@ -181,20 +206,20 @@ end;
 
 procedure TformOrdemServico.SpeedButton2Click(Sender: TObject);
 begin
-FEntityOrdensServico
-                    .getDataInicial(StrToDate(edtData1.Text))
-                    .getDataFinal(StrToDate(edtData2.Text))
-                    .getCampo('DATA_DE_ENTRADA')
-                    .sqlPesquisaData
-                    .listarGrid(DataSource1);
+  FEntityOrdensServico.getDataInicial(StrToDate(edtData1.Text))
+    .getDataFinal(StrToDate(edtData2.Text)).getCampo('DATA_DE_ENTRADA')
+    .sqlPesquisaData.listarGrid(DataSource1);
 end;
 
 procedure TformOrdemServico.VerCadastro1Click(Sender: TObject);
 begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
+
+    codigoDocliente := DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger;
+
     formCadastroDeClientes := TformCadastroDeClientes.Create(self);
-    TFactory.new.criarJanela.FormShow(formCadastroDeClientes, '');
+    TFactory.new.criarJanela.FormShow(formCadastroDeClientes, 'FORMCADDECLIENTES');
   end;
 end;
 
@@ -208,7 +233,7 @@ begin
     try
       formCriarConsultarOrdemServico :=
         TformCriarConsultarOrdemServico.Create(self);
-      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, '');
+      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
     finally
       FEntityOrdensServico.atualizar;
     end;

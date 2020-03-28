@@ -565,8 +565,16 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbPesquisarCepClick(Sender: TObject);
 begin
+
   formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
-  TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
+  try
+    formLocalizarClientesOrdem.ShowModal;
+  finally
+    formLocalizarClientesOrdem.Free;
+  end;
+
+//  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
+//  TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
 end;
 
 procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
@@ -763,8 +771,16 @@ end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton3Click(Sender: TObject);
 begin
+
   formLocalizarTecnico := TformLocalizarTecnico.Create(self);
-  TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
+  try
+    formLocalizarTecnico.ShowModal;
+  finally
+    formLocalizarTecnico.Free;
+  end;
+
+//  formLocalizarTecnico := TformLocalizarTecnico.Create(self);
+//  TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);

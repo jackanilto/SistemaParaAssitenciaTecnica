@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbParcelas
+    ActivePage = tbOrdemServiço
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -509,7 +509,7 @@
           Left = 464
           Top = 127
           Width = 405
-          Height = 49
+          Height = 70
           Lines.Strings = (
             '')
           ScrollBars = ssVertical

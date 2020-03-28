@@ -5869,3 +5869,35 @@ Token unknown - line 1, column 53
 28/03/20 13:26:23 - Caption: SimpleOS
 28/03/20 13:26:23 - Erro:Exception
 28/03/20 13:26:23 - Erro:Você não possui acesso a este recurso.
+28/03/20 14:26:34 - ===========================================
+28/03/20 14:26:34 - Form: formCriarConsultarOrdemServico
+28/03/20 14:26:34 - Caption: 
+28/03/20 14:26:34 - Erro:EIBNativeException
+28/03/20 14:26:34 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 53
+=
+28/03/20 14:26:36 - ===========================================
+28/03/20 14:26:36 - Form: formCriarConsultarOrdemServico
+28/03/20 14:26:36 - Caption: 
+28/03/20 14:26:36 - Erro:EIBNativeException
+28/03/20 14:26:36 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 53
+=
+28/03/20 14:26:39 - ===========================================
+28/03/20 14:26:39 - Form: formCriarConsultarOrdemServico
+28/03/20 14:26:39 - Caption: 
+28/03/20 14:26:39 - Erro:EIBNativeException
+28/03/20 14:26:39 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 53
+=
+28/03/20 14:26:41 - ===========================================
+28/03/20 14:26:41 - Form: formCriarConsultarOrdemServico
+28/03/20 14:26:41 - Caption: 
+28/03/20 14:26:41 - Erro:EIBNativeException
+28/03/20 14:26:41 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 53
+=

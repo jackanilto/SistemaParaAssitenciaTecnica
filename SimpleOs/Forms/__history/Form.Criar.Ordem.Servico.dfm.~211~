@@ -30,7 +30,6 @@
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 973
     DesignSize = (
       1051
       41)
@@ -127,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbParcelas
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -136,11 +135,8 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitLeft = -8
     object tbOrdemServiço: TTabSheet
       Caption = 'Ordem de servi'#231'o'
-      ExplicitWidth = 965
-      ExplicitHeight = 437
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -151,8 +147,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 965
-        ExplicitHeight = 437
         object Label1: TLabel
           Left = 16
           Top = 17
@@ -612,8 +606,6 @@
     object tbServicosEFaturamento: TTabSheet
       Caption = 'Servi'#231'oes e faturamento'
       ImageIndex = 1
-      ExplicitWidth = 965
-      ExplicitHeight = 437
       object Panel4: TPanel
         Left = 0
         Top = 0
@@ -624,8 +616,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 965
-        ExplicitHeight = 437
         object SpeedButton4: TSpeedButton
           Left = 442
           Top = 256
@@ -664,7 +654,6 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
-          ExplicitWidth = 965
           object Label21: TLabel
             Left = 16
             Top = 25
@@ -917,8 +906,6 @@
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 2
-      ExplicitWidth = 965
-      ExplicitHeight = 437
       object Panel5: TPanel
         Left = 0
         Top = 0
@@ -929,8 +916,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 965
-        ExplicitHeight = 437
         object Label30: TLabel
           Left = 15
           Top = 9
@@ -1025,8 +1010,6 @@
           Color = 8406532
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 376
-          ExplicitWidth = 965
           object sbQuitarParcela: TSpeedButton
             Left = 15
             Top = 10
@@ -1737,8 +1720,6 @@
     Color = 8406532
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 510
-    ExplicitWidth = 973
     object sbNovo: TSpeedButton
       Left = 16
       Top = 24

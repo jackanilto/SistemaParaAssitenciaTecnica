@@ -145,8 +145,13 @@ end;
 
 procedure TformOrdemServico.FormShow(Sender: TObject);
 begin
-  FEntityOrdensServico.abrir.getCampo('ID_ORDEM').getValor('0')
-    .sqlPesquisa.listarGrid(DataSource1);
+//  FEntityOrdensServico.abrir.getCampo('ID_ORDEM').getValor('0')
+//    .sqlPesquisa.listarGrid(DataSource1);
+
+  FEntityOrdensServico.getDataInicial(Date)
+    .getDataFinal(Date).getCampo('DATA_DE_ENTRADA')
+    .sqlPesquisaData.listarGrid(DataSource1);
+
 end;
 
 procedure TformOrdemServico.Panel1MouseDown(Sender: TObject;

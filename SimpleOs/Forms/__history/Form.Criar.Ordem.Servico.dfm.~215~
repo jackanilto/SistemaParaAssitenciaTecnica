@@ -2,8 +2,8 @@
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  ClientHeight = 585
-  ClientWidth = 973
+  ClientHeight = 591
+  ClientWidth = 1051
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,7 +22,7 @@
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 973
+    Width = 1051
     Height = 41
     Align = alTop
     BevelOuter = bvNone
@@ -31,10 +31,10 @@
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
     DesignSize = (
-      973
+      1051
       41)
     object sbFechar: TSpeedButton
-      Left = 921
+      Left = 999
       Top = 2
       Width = 52
       Height = 33
@@ -104,7 +104,7 @@
       ExplicitLeft = 871
     end
     object lblCaption: TLabel
-      Left = 251
+      Left = 329
       Top = 10
       Width = 132
       Height = 19
@@ -124,9 +124,9 @@
   object PageControl1: TPageControl
     Left = 0
     Top = 41
-    Width = 973
-    Height = 469
-    ActivePage = tbServicosEFaturamento
+    Width = 1051
+    Height = 475
+    ActivePage = tbOcorrencias
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -140,8 +140,8 @@
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 965
-        Height = 437
+        Width = 1043
+        Height = 443
         Align = alClient
         BevelOuter = bvNone
         Color = 15527148
@@ -609,8 +609,8 @@
       object Panel4: TPanel
         Left = 0
         Top = 0
-        Width = 965
-        Height = 437
+        Width = 1043
+        Height = 443
         Align = alClient
         BevelOuter = bvNone
         Color = 15527148
@@ -649,7 +649,7 @@
         object GroupBox1: TGroupBox
           Left = 0
           Top = 0
-          Width = 965
+          Width = 1043
           Height = 201
           Align = alTop
           Caption = 'Faturamento'
@@ -880,14 +880,14 @@
         object GroupBox3: TGroupBox
           Left = 531
           Top = 219
-          Width = 417
+          Width = 502
           Height = 206
           Caption = 'Servi'#231'os'
           TabOrder = 2
           object DBGrid2: TDBGrid
             Left = 2
             Top = 19
-            Width = 413
+            Width = 498
             Height = 185
             Align = alClient
             DataSource = s_Servicos
@@ -903,14 +903,20 @@
         end
       end
     end
+    object tbOcorrencias: TTabSheet
+      Caption = 'Ocorr'#234'ncias'
+      ImageIndex = 3
+      ExplicitLeft = -12
+      ExplicitTop = 26
+    end
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 2
       object Panel5: TPanel
         Left = 0
         Top = 0
-        Width = 965
-        Height = 437
+        Width = 1043
+        Height = 443
         Align = alClient
         BevelOuter = bvNone
         Color = 15527148
@@ -1002,8 +1008,8 @@
         end
         object Panel6: TPanel
           Left = 0
-          Top = 376
-          Width = 965
+          Top = 382
+          Width = 1043
           Height = 61
           Align = alBottom
           BevelOuter = bvNone
@@ -1582,8 +1588,8 @@
         end
         object DBGrid3: TDBGrid
           Left = 0
-          Top = 224
-          Width = 965
+          Top = 230
+          Width = 1043
           Height = 152
           Align = alBottom
           BorderStyle = bsNone
@@ -1712,8 +1718,8 @@
   end
   object Panel3: TPanel
     Left = 0
-    Top = 510
-    Width = 973
+    Top = 516
+    Width = 1051
     Height = 75
     Align = alBottom
     BevelOuter = bvNone
@@ -1721,12 +1727,12 @@
     ParentBackground = False
     TabOrder = 2
     object sbNovo: TSpeedButton
-      Left = 7
+      Left = 16
       Top = 24
-      Width = 210
+      Width = 162
       Height = 35
       Hint = 'Criar uma nova ordem de servi'#231'o'
-      Caption = 'Criar ordem de servi'#231'o'
+      Caption = 'Ordem de servi'#231'o'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -1803,7 +1809,7 @@
       OnClick = sbNovoClick
     end
     object sbSalvar: TSpeedButton
-      Left = 223
+      Left = 184
       Top = 24
       Width = 89
       Height = 35
@@ -1885,7 +1891,7 @@
       OnClick = sbSalvarClick
     end
     object sbEditar: TSpeedButton
-      Left = 318
+      Left = 279
       Top = 24
       Width = 76
       Height = 35
@@ -1967,7 +1973,7 @@
       OnClick = sbEditarClick
     end
     object sbExcluir: TSpeedButton
-      Left = 400
+      Left = 361
       Top = 24
       Width = 100
       Height = 35
@@ -2049,7 +2055,7 @@
       OnClick = sbExcluirClick
     end
     object sbCancelar: TSpeedButton
-      Left = 506
+      Left = 467
       Top = 24
       Width = 96
       Height = 35
@@ -2131,7 +2137,7 @@
       OnClick = sbCancelarClick
     end
     object sbEstornarOS: TSpeedButton
-      Left = 608
+      Left = 569
       Top = 24
       Width = 114
       Height = 35
@@ -2213,7 +2219,7 @@
       OnClick = sbEstornarOSClick
     end
     object sbImprimirOS: TSpeedButton
-      Left = 778
+      Left = 863
       Top = 24
       Width = 114
       Height = 35
@@ -2293,6 +2299,85 @@
       ParentShowHint = False
       ShowHint = True
       OnClick = sbImprimirOSClick
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 689
+      Top = 24
+      Width = 145
+      Height = 35
+      Caption = 'Gerar parcelas '
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Roboto'
+      Font.Style = []
+      Glyph.Data = {
+        A2070000424DA207000000000000360000002800000019000000190000000100
+        1800000000006C070000120B0000120B0000000000000000000099361A99361A
+        99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
+        1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
+        361A99361A0099361A99361A99361A99361A99361A99361A99361A99361A9936
+        1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
+        361A99361A99361A99361A99361A99361A0099361A99361A99361AA9553EBC7B
+        69BC7B69BC7B69BC7B69BC7B69BC7B69BC7B69BC7B69BC7B69BC7B69BC7B69BC
+        7B69BC7B69BC7B69BC7B69BC7B69BC7B69BC7B69BC7B69BA786599361A009936
+        1A99361A99361AC89384FFFFFFFFFFFFFFFFFFFDFCFBFBF7F6FBF7F6FBF7F6FB
+        F7F6FBF7F6FBF7F6FBF7F6FBF7F6FBF7F6FBF7F6FBF7F6FCF9F8FFFFFFFFFFFF
+        FFFFFFFAF6F499361A0099361A99361A99361AC89384FFFFFFFEFEFEFDFAFABC
+        7B69AA5941AB5942AB5942AA5941AB5942AA5941AB5942AB5942AA5941AB5942
+        AB5942AC5C45E5CDC7FEFEFEFFFFFFF9F5F399361AFF99361A99361A99361AC8
+        9384FFFFFFFFFFFFE8D1CB9E3F2599361A99361A99361A9D3E23B87360C99586
+        C38A79A8543C99361A99361A99361A99361ABD7D6BFCF9F9FFFFFFFAF6F49936
+        1A0099361A99361A99361AC89384FCF9F8BB7A679F432899361A99361A99361A
+        A34A31E5CCC5FEFDFDFFFFFFFFFFFFF9F2F1C0837299361A99361A99361A9A38
+        1CA7523AE6CEC7FAF6F499361A0099361A99361A99361AC89384F5EDEAA2472E
+        9F4328C79182AF624C99361AD7B1A6FEFEFEFEFEFEFFFFFFFEFEFEFEFEFEF9F2
+        F1A9553E9D3E23C58E7EB36A5599361AD1A598F9F5F399361A0099361A99361A
+        99361AC89384F6EEEBA2472EC58D7DFFFFFFF0E1DD99361AF1E3DFFFFFFFFEFE
+        FEFFFFFFFFFFFFFEFEFEFFFFFFBC7B69BD7D6BFFFFFFF7EFED99361AD1A598FA
+        F6F499361A0099361A99361A99361AC89384F6EEEBA2472EAB5A43E8D1CBC995
+        8699361AE5CBC4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFAFAB26752A7523AE6
+        CEC7CFA19499361AD1A599FAF6F499361A0099361A99361A99361AC89384F8F1
+        F0A7523A99361A99361A99361A99361AB16550F8F1F0FEFEFEFFFFFFFEFEFEFE
+        FEFEDAB6AC9B391E99361A99361A99361A99361AD8B3A8F9F5F399361A009936
+        1A9A381C9B391EC89384FFFFFFF5EBE8D0A3969B391E99361A99361A99361AA9
+        563ED9B3A9E8D1CBE3C8C0C185749B3B1F99361A99361A99361AAE5F49EAD7D1
+        FDFCFBFAF6F499361A0099361AB56D59A8543CC89384FFFFFFFFFFFFF9F4F2A9
+        553E9B3B1F9B3B1F9B3B1F9B3B1F9B3B1F9D3E239B3B1F9B3B1F9B3B1F9B3B1F
+        9B3B1F9C3C21D9B3A9FFFFFFFFFFFFFAF6F499361A009D3E23E7D0C9AA5740C8
+        9384FFFFFFFEFEFEFEFEFEF3E7E4EAD6D0EAD6D0EAD6D0EAD6D0EAD6D0EAD6D0
+        EAD6D0EAD6D0EAD6D0EAD6D0EAD6D0ECD9D4FCF9F9FEFEFEFFFFFFF9F5F39936
+        1A00C38A79FBF7F6AB5A43BA7764E0C2B9E0C2B9DFC1B8DFC1B8DFC1B8DFC1B8
+        DFC1B8DFC1B8DFC1B8E0C2B9E0C2B9DFC1B8E0C2B9E0C2B9DFC1B8E0C2B9E0C2
+        B9DFC1B8E0C2B9DDBBB299361A00DDBBB2FDFCFBCA96889F43289B391E99361A
+        99361A99361A9A381C9E3F259E3F259E3F259E3F259E3F259E3F259B391E9936
+        1A99361A99361A9B3B1F9E3F259E3F259E3F2599361A99361A009C3C21BD7D6B
+        EFE0DCF1E5E1DFC0B7AB5A4399361A99361AA2472EEAD7D1EFDFDBEFDFDBEFDF
+        DBEFDFDBEFDFDBAA57409C3C21A0442A99361AAB5A43E9D4CFEFDFDBD9B5AB9A
+        381C99361A0099361A99361A9B3B1FC79080F4E9E6FDFCFBD6AFA3A7523A9936
+        1AB7705CF4E9E6FFFFFFFEFEFEFDFCFBD4AA9E9C3C21E9D4CFFDFAFAAE5F4999
+        361AD9B5ABFCFBFAB36A5599361A99361A0099361A99361A99361A99361AA34A
+        31CFA194F9F4F2F7EFEDCE9F91A1462CA3492FBB7865C18473AF614A9B391E9D
+        3E23ECD9D4FCF9F8B16550A34A31F4E9E6DEBEB59B391E99361A99361A009936
+        1A99361A99361A99361A99361A99361AA9563EDAB6ACFCFBFAF2E6E2C388779B
+        3B1F99361A99361A99361A99361AA34A31AC5C4599361AD0A295FCFBFAAB5942
+        99361A99361A99361A0099361A99361A99361A99361A99361A99361A99361A99
+        361AAD5D47E3C8C0FDFCFBEFE0DCB976639B3B1F99361A99361A9B3B1F9B3B1F
+        AA5740F9F4F2D5ADA299361A99361A99361A99361A0099361A99361A99361A99
+        361A99361A99361A99361A99361A99361A9B3B1FB7725EEAD6D0FDFAFAE5CCC5
+        B36853A7523AE7D0C9EFDFDBF5EBE8F7EFEDA7513999361A99361A99361A9936
+        1A0099361A99361A99361A99361A99361A99361A99361A99361A99361A99361A
+        99361A9C3C21C18574F2E6E3FCFBFAF8F1F0FFFFFFFEFEFEFEFEFECD9D909936
+        1A99361A99361A99361A99361A0099361A99361A99361A99361A99361A99361A
+        99361A99361A99361A99361A99361A99361A99361A9E3F25C89384F5EDEAFFFF
+        FFFFFFFFF1E4E0A1462C99361A99361A99361A99361A99361A0099361A99361A
+        99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A9936
+        1A99361A99361AA54E35D2A89CF9F4F2C2867699361A99361A99361A99361A99
+        361A99361AD7}
+      Layout = blGlyphRight
+      ParentFont = False
+      OnClick = SpeedButton1Click
     end
   end
   object DataSource1: TDataSource
