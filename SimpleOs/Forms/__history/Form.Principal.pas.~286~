@@ -312,8 +312,11 @@ end;
 procedure TformPrincipal.acCadastrosExecute(Sender: TObject);
 begin
   if spvCadastros.Opened = true then
-    spvCadastros.Opened := false
-  else
+  begin
+    spvCadastros.Opened := false;
+//    CategoryButtons1.SelectedButtonColor := $00804E3B;
+  end
+      else
   begin
     closeSplit;
     spvCadastros.Opened := true;
@@ -766,10 +769,10 @@ var
   rgn: HRGN;
   dc: HDC;
 begin
- rgn := CreateRoundRectRgn(0, 0, Panel1.Width, Panel1.Height, 350, 350);
-  dc := GetDC(Panel1.Handle);
-  SetWindowRgn(Panel1.Handle, rgn, true);
-  ReleaseDC(Panel1.Handle, dc);
+ rgn := CreateRoundRectRgn(0, 0, value.Width, value.Height, 350, 350);
+  dc := GetDC(value.Handle);
+  SetWindowRgn(value.Handle, rgn, true);
+  ReleaseDC(value.Handle, dc);
   DeleteObject(rgn);
 end;
 
@@ -853,6 +856,14 @@ begin
     end;
 
     lblFuncionario.Caption := NomeFuncionarioLogado;
+
+    if imagemFuncionario.Picture.Graphic.Empty  then
+    begin
+      showmessage('sem fotoS');
+    end;
+    Image1.Picture := imagemFuncionario.Picture;
+
+    arrendondarImagem(pnlFoto);
 
   end;
 

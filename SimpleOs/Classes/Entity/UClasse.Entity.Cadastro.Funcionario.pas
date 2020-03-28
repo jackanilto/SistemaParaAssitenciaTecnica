@@ -64,6 +64,7 @@ type
     function abrir: iCadastroFuncionario;
     function inserir: iCadastroFuncionario;
     function Gravar: iCadastroFuncionario;
+    function gravarEditando: iCadastroFuncionario;
     function deletar: iCadastroFuncionario;
     function atualizar: iCadastroFuncionario;
     function editar: iCadastroFuncionario;
@@ -103,7 +104,8 @@ type
     function exportar: iCadastroFuncionario;
 
     function validarUsuario(value: string): iCadastroFuncionario;
-    function validarUsuarioEditando(codigo: integer; usuario: string): iCadastroFuncionario;
+    function validarUsuarioEditando(codigo: integer; usuario: string)
+      : iCadastroFuncionario;
     function validarSenha(value1, value2: string): iCadastroFuncionario;
     function validarSenhaEditando(value1, value2: string): iCadastroFuncionario;
 
@@ -591,6 +593,70 @@ begin
 
 end;
 
+function TEntityCadastroFuncionario.gravarEditando: iCadastroFuncionario;
+begin
+
+  FQuery.TQuery.FieldByName('NOME').AsString := FNOME;
+  FQuery.TQuery.FieldByName('DOCUMENTO').AsString := FDOCUMENTO;
+  FQuery.TQuery.FieldByName('CPF').AsString := FCPF;
+  FQuery.TQuery.FieldByName('ENDERECO').AsString := FENDERECO;
+  FQuery.TQuery.FieldByName('BAIRRO').AsString := FBAIRRO;
+  FQuery.TQuery.FieldByName('NUMERO').AsInteger := FNUMERO;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').AsString := FCOMPLEMENTO;
+  FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
+  FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
+  FQuery.TQuery.FieldByName('UF').AsString := FUF;
+  FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
+  FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
+  FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
+  FQuery.TQuery.FieldByName('USUARIO').AsString := FUSUARIO;
+
+  if FSENHA <> EmptyStr then
+    FQuery.TQuery.FieldByName('SENHA').AsString := FSENHA;
+
+  FQuery.TQuery.FieldByName('STATUS').AsString := FSTATUS;
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
+    funcionarioLogado;
+  FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+  if FDATA_NASCIMENTO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_NASCIMENTO').AsDateTime :=
+      StrToDate(FDATA_NASCIMENTO);
+
+  if FDATA_CADASTRO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime :=
+      StrToDate(FDATA_CADASTRO);
+
+  if FDATA_DEMISSAO <> EmptyStr then
+    FQuery.TQuery.FieldByName('DATA_DEMISSAO').AsDateTime :=
+      StrToDate(FDATA_DEMISSAO);
+
+  if Assigned(F_FOTO) then
+  begin
+    FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
+  end;
+
+  if FATIVIDADE <> 0 then
+  begin
+    FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger := FATIVIDADE;
+    FQuery.TQuery.FieldByName('ATIVIDADE_NOME').AsString := FNomeAtividade;
+  end;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+    .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: Exception do
+    begin
+      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
 function TEntityCadastroFuncionario.inserir: iCadastroFuncionario;
 begin
 
@@ -719,8 +785,8 @@ begin
 
 end;
 
-function TEntityCadastroFuncionario.validarSenhaEditando(value1,
-  value2: string): iCadastroFuncionario;
+function TEntityCadastroFuncionario.validarSenhaEditando(value1, value2: string)
+  : iCadastroFuncionario;
 begin
 
   result := self;
@@ -728,7 +794,7 @@ begin
   if ((value1 <> EmptyStr) and (value2 <> EmptyStr)) then
   begin
     if value1 <> value2 then
-      raise Exception.Create('ERRO! As senha não são iguais');
+      raise Exception.create('ERRO! As senha não são iguais');
   end;
 
 end;

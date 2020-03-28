@@ -80,7 +80,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         ParentFont = False
       end
       object Label2: TLabel
-        Left = 14
+        Left = 15
         Top = 57
         Width = 36
         Height = 17
@@ -93,7 +93,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 14
+        Left = 13
         Top = 112
         Width = 116
         Height = 17
@@ -625,10 +625,11 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 0
       end
       object edtNome: TEdit
-        Left = 13
+        Left = 14
         Top = 77
         Width = 400
         Height = 25
@@ -656,8 +657,8 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         TabOrder = 3
       end
       object edtCPF: TEdit
-        Left = 14
-        Top = 184
+        Left = 13
+        Top = 190
         Width = 400
         Height = 25
         CharCase = ecUpperCase
@@ -847,7 +848,7 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
         TabOrder = 24
       end
       object edtDataNascimento: TMaskEdit
-        Left = 15
+        Left = 14
         Top = 132
         Width = 115
         Height = 25

@@ -107,6 +107,8 @@ type
     FTipoOperacaoForm: string;
     procedure validacaoCamposUsuarioSenha;
     procedure localizarAtividade;
+    procedure inserindo;
+    procedure editando;
   public
     { Public declarations }
   end;
@@ -288,6 +290,43 @@ begin
 
 end;
 
+procedure TformCadastroDeFuncionarios.inserindo;
+begin
+  FEntityFuncionario.getNome(edtNome.Text).getDATA_NASCIMENTO
+    (edtDataNascimento.Text).getDocumento(edtDocumento.Text).getCPF(edtCPF.Text)
+    .getCep(edtCEP.Text).getEndereco(edtEndereco.Text).getBairro(edtBairro.Text)
+    .getNumero(StrToInt(edtNumero.Text)).getComplemento(edtComplemento.Text)
+    .getCidade(edtCidade.Text).getUF(edtEstado.Text)
+    .getDATA_CADASTRO(edtDataCadastro.Text)
+    .getDATA_DEMISSAO(edtDataDemissao.Text).getTelefone(edtTelefone.Text)
+    .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
+    .getUSUARIO(edtUsuario.Text)
+    .getSENHA(tfactory.new.criptPass.md5(edtSenha.Text))
+    .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
+    .getNomeAtividade(edtAtividade.Text).getFoto(imagem).gravar;
+end;
+
+procedure TformCadastroDeFuncionarios.editando;
+begin
+  if edtSenha.Text <> EmptyStr then
+  begin
+    FEntityFuncionario.getSENHA(tfactory.new.criptPass.md5(edtSenha.Text));
+  end;
+  FEntityFuncionario.getNome(edtNome.Text).getDATA_NASCIMENTO
+    (edtDataNascimento.Text).getDocumento(edtDocumento.Text).getCPF(edtCPF.Text)
+    .getCep(edtCEP.Text).getEndereco(edtEndereco.Text).getBairro(edtBairro.Text)
+    .getNumero(StrToInt(edtNumero.Text)).getComplemento(edtComplemento.Text)
+    .getCidade(edtCidade.Text).getUF(edtEstado.Text)
+    .getDATA_CADASTRO(edtDataCadastro.Text)
+    .getDATA_DEMISSAO(edtDataDemissao.Text).getTelefone(edtTelefone.Text)
+    .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
+    .getUSUARIO(edtUsuario.Text).getSTATUS(edtStatus.Text)
+    .getObservacao(edtObservacao.Text)
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
+    .getNomeAtividade(edtAtividade.Text).getFoto(imagem).gravarEditando;
+end;
+
 procedure TformCadastroDeFuncionarios.sbCancelarClick(Sender: TObject);
 begin
   inherited;
@@ -302,9 +341,9 @@ begin
       .validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
 
   if FTipoOperacaoForm = 'editar' then
-      FEntityFuncionario
-                      .validarUsuarioEditando(DataSource1.DataSet.FieldByName('ID').AsInteger ,edtUsuario.Text)
-                      .validarSenhaEditando(edtSenha.Text, edtConfirmaSenha.Text);
+    FEntityFuncionario.validarUsuarioEditando
+      (DataSource1.DataSet.FieldByName('ID').AsInteger, edtUsuario.Text)
+      .validarSenhaEditando(edtSenha.Text, edtConfirmaSenha.Text);
 end;
 
 procedure TformCadastroDeFuncionarios.sbEditarClick(Sender: TObject);
@@ -361,21 +400,15 @@ begin
 
   validacaoCamposUsuarioSenha;
 
-  FEntityFuncionario.getNome(edtNome.Text).getDATA_NASCIMENTO
-    (edtDataNascimento.Text).getDocumento(edtDocumento.Text).getCPF(edtCPF.Text)
-    .getCep(edtCEP.Text).getEndereco(edtEndereco.Text).getBairro(edtBairro.Text)
-    .getNumero(StrToInt(edtNumero.Text)).getComplemento(edtComplemento.Text)
-    .getCidade(edtCidade.Text).getUF(edtEstado.Text)
-    .getDATA_CADASTRO(edtDataCadastro.Text)
-    .getDATA_DEMISSAO(edtDataDemissao.Text).getTelefone(edtTelefone.Text)
-    .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
-    .getUSUARIO(edtUsuario.Text)
-    .getSENHA(tfactory.new.criptPass.md5(edtSenha.Text))
-    .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
-    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
-    .getNomeAtividade(edtAtividade.Text).getFoto(imagem).gravar;
-
-  FTipoOperacaoForm := '';
+  if DataSource1.DataSet.State in [dsInsert] then
+  begin
+    inserindo;
+    FTipoOperacaoForm := '';
+  end
+  else if DataSource1.DataSet.State in [dsEdit] then
+  begin
+    editando;
+  end;
 
   inherited;
 end;
@@ -412,12 +445,12 @@ begin
   inherited;
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-      formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
-      try
-        formComissoesFuncionarios.ShowModal
-      finally
-        formComissoesFuncionarios.Free;
-      end;
+    formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
+    try
+      formComissoesFuncionarios.ShowModal
+    finally
+      formComissoesFuncionarios.Free;
+    end;
   end;
 end;
 
@@ -427,12 +460,13 @@ begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
 
-      formConfigurarAcessoFuncionario := TformConfigurarAcessoFuncionario.Create(self);
-      try
-        formConfigurarAcessoFuncionario.ShowModal;
-      finally
-        formConfigurarAcessoFuncionario.Free;
-      end;
+    formConfigurarAcessoFuncionario :=
+      TformConfigurarAcessoFuncionario.Create(self);
+    try
+      formConfigurarAcessoFuncionario.ShowModal;
+    finally
+      formConfigurarAcessoFuncionario.Free;
+    end;
 
   end;
 end;

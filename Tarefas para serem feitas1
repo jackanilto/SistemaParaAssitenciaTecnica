@@ -36,7 +36,7 @@
 ##Criar o botão para gerar / faturar a OS do cliente --FEITO
 ##Criar janela para quitar as parcelas da OS --FEITO
 
-###Correção no sistema de cadastros de funcionários=Problemas com senhas ao editar um registro
+###Correção no sistema de cadastros de funcionários=Problemas com senhas ao editar um registro --CORRIGIDO
 
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos

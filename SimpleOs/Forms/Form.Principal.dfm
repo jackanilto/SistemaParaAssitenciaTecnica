@@ -5852,29 +5852,29 @@ object formPrincipal: TformPrincipal
       OnClick = sbMenuClick
     end
     object Label1: TLabel
-      Left = 716
+      Left = 739
       Top = 14
-      Width = 47
-      Height = 33
+      Width = 35
+      Height = 24
       Anchors = [akTop, akRight]
       Caption = 'Ol'#225'!'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -27
+      Font.Height = -20
       Font.Name = 'Roboto'
       Font.Style = []
       ParentFont = False
     end
     object lblFuncionario: TLabel
-      Left = 779
-      Top = 12
-      Width = 71
-      Height = 33
+      Left = 780
+      Top = 14
+      Width = 53
+      Height = 24
       Anchors = [akTop, akRight]
       Caption = 'Bruna'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -27
+      Font.Height = -20
       Font.Name = 'Roboto'
       Font.Style = []
       ParentFont = False

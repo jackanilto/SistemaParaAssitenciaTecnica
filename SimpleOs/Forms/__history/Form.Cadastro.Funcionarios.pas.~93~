@@ -9,7 +9,8 @@ uses
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Cadastro.Funcionario, Vcl.Mask,
   UClasse.Entity.Table, ACBrBase, ACBrSocket, ACBrCEP, Vcl.Imaging.jpeg,
-  Vcl.ExtDlgs, UFactory, UFactory.Entity, frxClass, frxDBSet;
+  Vcl.ExtDlgs, UFactory, UFactory.Entity, frxClass, frxDBSet,
+  Form.Acesso.Recursos.Fucnionarios;
 
 type
   TformCadastroDeFuncionarios = class(TformExemploEmbeded)
@@ -295,13 +296,15 @@ end;
 
 procedure TformCadastroDeFuncionarios.validacaoCamposUsuarioSenha;
 begin
+
   if FTipoOperacaoForm = 'novo' then
     FEntityFuncionario.validarUsuario(edtUsuario.Text)
       .validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
+
   if FTipoOperacaoForm = 'editar' then
-    if edtSenha.Text <> EmptyStr then
-      FEntityFuncionario.validarUsuario(edtUsuario.Text)
-        .validarSenha(edtSenha.Text, edtConfirmaSenha.Text);
+      FEntityFuncionario
+                      .validarUsuarioEditando(DataSource1.DataSet.FieldByName('ID').AsInteger ,edtUsuario.Text)
+                      .validarSenhaEditando(edtSenha.Text, edtConfirmaSenha.Text);
 end;
 
 procedure TformCadastroDeFuncionarios.sbEditarClick(Sender: TObject);
@@ -409,8 +412,12 @@ begin
   inherited;
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
-    tfactory.new.criarJanela.FormShow(formComissoesFuncionarios, '');
+      formComissoesFuncionarios := TformComissoesFuncionarios.Create(self);
+      try
+        formComissoesFuncionarios.ShowModal
+      finally
+        formComissoesFuncionarios.Free;
+      end;
   end;
 end;
 
@@ -419,7 +426,14 @@ begin
   inherited;
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    showmessage('Implementar este recurso no final do projeto.');
+
+      formConfigurarAcessoFuncionario := TformConfigurarAcessoFuncionario.Create(self);
+      try
+        formConfigurarAcessoFuncionario.ShowModal;
+      finally
+        formConfigurarAcessoFuncionario.Free;
+      end;
+
   end;
 end;
 

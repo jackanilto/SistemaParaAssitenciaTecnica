@@ -103,8 +103,9 @@ type
     function exportar: iCadastroFuncionario;
 
     function validarUsuario(value: string): iCadastroFuncionario;
-    function validarUsuarioEditando(codigo:integer; usuario:string):iCadastroFuncionario;
+    function validarUsuarioEditando(codigo: integer; usuario: string): iCadastroFuncionario;
     function validarSenha(value1, value2: string): iCadastroFuncionario;
+    function validarSenhaEditando(value1, value2: string): iCadastroFuncionario;
 
     constructor create;
     destructor destroy; override;
@@ -163,7 +164,8 @@ begin
     begin
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('deletado').gravarLog;
+        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .getOperacao('deletado').gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -183,10 +185,9 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog
-            .getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
-            .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-            .getOperacao('editando');
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -244,28 +245,35 @@ begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
       pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('NOME').AsString;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('DATA_NASCIMENTO').AsDateTime;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('DATA_NASCIMENTO')
+        .AsDateTime;
       pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DOCUMENTO').AsString;
       pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('CPF').AsString;
       pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('ENDERECO').AsString;
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('BAIRRO').AsString;
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('NUMERO').AsInteger;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('COMPLEMENTO').AsString;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('COMPLEMENTO')
+        .AsString;
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('CEP').AsString;
       pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('CIDADE').AsString;
       pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('UF').AsString;
-      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime;
-      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('DATA_DEMISSAO').AsDateTime;
-      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('ATIVIDADE').AsInteger;
-      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('ATIVIDADE_NOME').AsString;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('DATA_CADASTRO')
+        .AsDateTime;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('DATA_DEMISSAO')
+        .AsDateTime;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('ATIVIDADE')
+        .AsInteger;
+      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName
+        ('ATIVIDADE_NOME').AsString;
       pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('TELEFONE').AsString;
       pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('CELULAR').AsString;
       pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('EMAIL').AsString;
       pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('USUARIO').AsString;
       pasta.cells[linha, 21] := FQuery.TQuery.FieldByName('STATUS').AsString;
-      pasta.cells[linha, 22] := FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger;
-      pasta.cells[linha, 23] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
-
+      pasta.cells[linha, 22] := FQuery.TQuery.FieldByName
+        ('FUNCIONARIO_CADASTRO').AsInteger;
+      pasta.cells[linha, 23] := FQuery.TQuery.FieldByName('OBSERVACAO')
+        .AsString;
 
       linha := linha + 1;
 
@@ -276,6 +284,7 @@ begin
   finally
   end;
 end;
+
 function TEntityCadastroFuncionario.fecharQuery: iCadastroFuncionario;
 begin
   FQuery.TQuery.close;
@@ -535,7 +544,10 @@ begin
   FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
   FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
   FQuery.TQuery.FieldByName('USUARIO').AsString := FUSUARIO;
-  FQuery.TQuery.FieldByName('SENHA').AsString := FSENHA;
+
+  if FSENHA <> EmptyStr then
+    FQuery.TQuery.FieldByName('SENHA').AsString := FSENHA;
+
   FQuery.TQuery.FieldByName('STATUS').AsString := FSTATUS;
   FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
     funcionarioLogado;
@@ -617,10 +629,10 @@ begin
   FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'Celular';
   FQuery.TQuery.FieldByName('EMAIL').DisplayLabel := 'E-Mail';
   FQuery.TQuery.FieldByName('USUARIO').DisplayLabel := 'Usuário';
-  FQuery.TQuery.FieldByName('SENHA').Visible := false;
+  FQuery.TQuery.FieldByName('SENHA').visible := false;
   FQuery.TQuery.FieldByName('STATUS').DisplayLabel := 'Status';
-  FQuery.TQuery.FieldByName('EXCLUIDO').Visible := false;
-  FQuery.TQuery.FieldByName('FOTO').Visible := false;
+  FQuery.TQuery.FieldByName('EXCLUIDO').visible := false;
+  FQuery.TQuery.FieldByName('FOTO').visible := false;
   FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').DisplayLabel :=
     'Funcionário';
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
@@ -707,6 +719,20 @@ begin
 
 end;
 
+function TEntityCadastroFuncionario.validarSenhaEditando(value1,
+  value2: string): iCadastroFuncionario;
+begin
+
+  result := self;
+
+  if ((value1 <> EmptyStr) and (value2 <> EmptyStr)) then
+  begin
+    if value1 <> value2 then
+      raise Exception.Create('ERRO! As senha não são iguais');
+  end;
+
+end;
+
 function TEntityCadastroFuncionario.validarUsuario(value: string)
   : iCadastroFuncionario;
 var
@@ -758,10 +784,20 @@ begin
 
     FTQuery.Active := false;
     FTQuery.SQL.Clear;
-    FTQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u and ID <>:I');
+    FTQuery.SQL.Add('select * from FUNCIONARIOS where USUARIO =:u');
     FTQuery.ParamByName('u').AsString := usuario;
-    FTQuery.ParamByName('I').AsInteger := codigo;
     FTQuery.Active := true;
+
+    if FTQuery.RecordCount >= 1 then
+    begin
+
+      if FTQuery.FieldByName('ID').AsInteger <> codigo then
+      begin
+        FTQuery.Free;
+        raise Exception.create
+          ('Já existe um cadatro com este usuário. Tente outro nome de usuário.');
+      end;
+    end;
 
   end
   else

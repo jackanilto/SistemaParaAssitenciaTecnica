@@ -5849,3 +5849,23 @@ Token unknown - line 1, column 53
 27/03/20 19:44:56 - Caption: SimpleOS
 27/03/20 19:44:56 - Erro:Exception
 27/03/20 19:44:56 - Erro:Você não possui acesso a este recurso.
+28/03/20 13:16:46 - ===========================================
+28/03/20 13:16:46 - Form: formPrincipal
+28/03/20 13:16:46 - Caption: SimpleOS
+28/03/20 13:16:46 - Erro:Exception
+28/03/20 13:16:46 - Erro:Você não possui acesso a este recurso.
+28/03/20 13:18:08 - ===========================================
+28/03/20 13:18:08 - Form: formPrincipal
+28/03/20 13:18:08 - Caption: SimpleOS
+28/03/20 13:18:08 - Erro:EAccessViolation
+28/03/20 13:18:08 - Erro:Access violation at address 00CA6497 in module 'SimplesOS.exe'. Read of address 00000000
+28/03/20 13:25:53 - ===========================================
+28/03/20 13:25:53 - Form: formPrincipal
+28/03/20 13:25:53 - Caption: SimpleOS
+28/03/20 13:25:53 - Erro:Exception
+28/03/20 13:25:53 - Erro:Você não possui acesso a este recurso.
+28/03/20 13:26:23 - ===========================================
+28/03/20 13:26:23 - Form: formPrincipal
+28/03/20 13:26:23 - Caption: SimpleOS
+28/03/20 13:26:23 - Erro:Exception
+28/03/20 13:26:23 - Erro:Você não possui acesso a este recurso.

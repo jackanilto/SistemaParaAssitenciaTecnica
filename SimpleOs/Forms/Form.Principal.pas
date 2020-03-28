@@ -857,10 +857,10 @@ begin
 
     lblFuncionario.Caption := NomeFuncionarioLogado;
 
-    if imagemFuncionario.Picture.Graphic.Empty  then
-    begin
-      showmessage('sem fotoS');
-    end;
+//    if imagemFuncionario.Picture.Graphic.Empty  then
+//    begin
+//      showmessage('sem fotoS');
+//    end;
     Image1.Picture := imagemFuncionario.Picture;
 
     arrendondarImagem(pnlFoto);

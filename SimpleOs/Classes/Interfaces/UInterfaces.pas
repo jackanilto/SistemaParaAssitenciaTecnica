@@ -599,6 +599,7 @@ type
     function abrir: iCadastroFuncionario;
     function inserir: iCadastroFuncionario;
     function gravar: iCadastroFuncionario;
+    function gravarEditando: iCadastroFuncionario;
     function deletar: iCadastroFuncionario;
     function atualizar: iCadastroFuncionario;
     function editar: iCadastroFuncionario;
