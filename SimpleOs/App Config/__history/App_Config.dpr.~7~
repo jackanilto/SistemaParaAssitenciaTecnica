@@ -1,0 +1,14 @@
+program App_Config;
+
+uses
+  Vcl.Forms,
+  Form.Conf in 'Form.Conf.pas' {formAppConfigMenu};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TformAppConfigMenu, formAppConfigMenu);
+  Application.Run;
+end.

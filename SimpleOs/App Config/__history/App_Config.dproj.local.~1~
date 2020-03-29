@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/01/09 16:21:41.000.555,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/01/09 16:33:31.000.469,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/02/04 18:49:35.000.527,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/03/29 11:11:52.000.928,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/03/29 11:12:22.000.945,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Form.Conf.pas=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/03/29 11:12:22.000.945,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Form.Conf.dfm=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit3.dfm</Transaction>
+    <Transaction>2020/03/29 11:12:46.000.659,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\App_Config.dproj=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/03/29 11:13:58.000.306,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Configuracoes.Backup.pas</Transaction>
+    <Transaction>2020/03/29 11:13:58.000.357,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Configurar.Conexcao.Banco.pas</Transaction>
+    <Transaction>2020/03/29 11:15:28.000.923,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.BackUp.pas</Transaction>
+    <Transaction>2020/03/29 11:15:28.000.943,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Conexao.pas</Transaction>
+    <Transaction>2020/03/29 11:15:28.000.906,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas</Transaction>
+    <Transaction>2020/03/29 11:24:45.000.045,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Interfaces\UInterfaces.pas</Transaction>
+    <Transaction>2020/03/29 11:30:30.000.505,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Conexao.pas=</Transaction>
+    <Transaction>2020/03/29 11:30:30.000.500,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.BackUp.pas=</Transaction>
+    <Transaction>2020/03/29 11:30:30.000.493,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas=</Transaction>
+    <Transaction>2020/03/29 11:30:37.000.617,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Configurar.Conexcao.Banco.pas=</Transaction>
+    <Transaction>2020/03/29 11:30:37.000.611,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Configuracoes.Backup.pas=</Transaction>
+    <Transaction>2020/03/29 11:31:01.000.575,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Interfaces\UInterfaces.pas=</Transaction>
+    <Transaction>2020/03/29 11:33:14.086,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Forms\Form.Configuracoes.Backup.pas</Transaction>
+    <Transaction>2020/03/29 11:33:14.145,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Forms\Form.Configurar.Conexcao.Banco.pas</Transaction>
+    <Transaction>2020/03/29 11:33:31.098,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.Acesso.Banco.pas</Transaction>
+    <Transaction>2020/03/29 11:33:31.128,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.BackUp.pas</Transaction>
+    <Transaction>2020/03/29 11:33:31.149,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.Conexao.pas</Transaction>
+  </Transactions>
+</BorlandProject>

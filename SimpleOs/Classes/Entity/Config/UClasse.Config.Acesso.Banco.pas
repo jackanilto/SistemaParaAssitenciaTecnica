@@ -15,10 +15,12 @@ Type
     FlocalBD: string;
     Fpassword: string;
     Fuser: string;
+    Fport: string;
     procedure Sethostname(const Value: string);
     procedure SetlocalBD(const Value: string);
     procedure Setpassword(const Value: string);
     procedure Setuser(const Value: string);
+    procedure Setport(const Value: string);
 
   public
 
@@ -30,6 +32,7 @@ Type
     property localBD: string read FlocalBD write SetlocalBD;
     property user:string read Fuser write Setuser;
     property password:string read Fpassword write Setpassword;
+    property port:string read Fport write Setport;
 
     constructor create;
     destructor destroy; override;
@@ -50,6 +53,7 @@ begin
   localBD := FQueryConf.retornarQuery.FieldByName('local_bd').AsString;
   user :=    FQueryConf.retornarQuery.FieldByName('user').AsString;
   password := FQueryConf.retornarQuery.FieldByName('password').AsString;
+  port := FQueryConf.retornarQuery.FieldByName('port').AsString;
 
 end;
 
@@ -134,6 +138,11 @@ end;
 procedure TConfigConexaoBanco.Setpassword(const Value: string);
 begin
   Fpassword := Value;
+end;
+
+procedure TConfigConexaoBanco.Setport(const Value: string);
+begin
+  Fport := Value;
 end;
 
 procedure TConfigConexaoBanco.Setuser(const Value: string);

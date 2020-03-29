@@ -66,7 +66,7 @@ begin
       Connected := false;
       DriverName := 'FB';
       Params.Add('Server=' + FConfigConexao.hostname);
-      Params.Add('Port=' + '3050');
+      Params.Add('Port=' + FConfigConexao.port);
       Params.Add('Database=' + FConfigConexao.localBD);
       Params.Add('User_Name=' + FConfigConexao.user);
       Params.Add('Password=' + FConfigConexao.password);
