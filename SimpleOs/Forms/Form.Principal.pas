@@ -253,7 +253,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
   Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup,
   Form.Backup.Manual, Form.Quitar.Parcela.OS, Form.Movimentacao.Caixa,
-  Form.Acesso.Recursos.Fucnionarios;
+  Form.Acesso.Recursos.Fucnionarios, Form.Sobre;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -730,14 +730,12 @@ end;
 
 procedure TformPrincipal.acSobreExecute(Sender: TObject);
 begin
-  if spvSobre.Opened = true then
-    spvSobre.Opened := false
-  else
-  begin
-    closeSplit;
-    spvSobre.Opened := true;
-    F_SplitView := spvSobre;
-  end;
+   formSobre := TformSobre.Create(self);
+   try
+     formSobre.ShowModal;
+   finally
+      formSobre.Free;
+   end;
 end;
 
 procedure TformPrincipal.acTipoRetiradasExecute(Sender: TObject);

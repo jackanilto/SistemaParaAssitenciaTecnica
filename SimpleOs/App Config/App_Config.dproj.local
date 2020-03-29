@@ -11,20 +11,20 @@
     <Transaction>2020/03/29 11:13:58.000.306,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Configuracoes.Backup.pas</Transaction>
     <Transaction>2020/03/29 11:13:58.000.357,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Configurar.Conexcao.Banco.pas</Transaction>
     <Transaction>2020/03/29 11:15:28.000.906,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas</Transaction>
-    <Transaction>2020/03/29 11:15:28.000.923,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.BackUp.pas</Transaction>
     <Transaction>2020/03/29 11:15:28.000.943,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Conexao.pas</Transaction>
+    <Transaction>2020/03/29 11:15:28.000.923,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.BackUp.pas</Transaction>
     <Transaction>2020/03/29 11:24:45.000.045,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Interfaces\UInterfaces.pas</Transaction>
+    <Transaction>2020/03/29 11:30:30.000.505,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Conexao.pas=</Transaction>
     <Transaction>2020/03/29 11:30:30.000.500,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.BackUp.pas=</Transaction>
     <Transaction>2020/03/29 11:30:30.000.493,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas=</Transaction>
-    <Transaction>2020/03/29 11:30:30.000.505,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Entity\Config\UClasse.Config.Conexao.pas=</Transaction>
     <Transaction>2020/03/29 11:30:37.000.617,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Configurar.Conexcao.Banco.pas=</Transaction>
     <Transaction>2020/03/29 11:30:37.000.611,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Forms\Form.Configuracoes.Backup.pas=</Transaction>
     <Transaction>2020/03/29 11:31:01.000.575,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\Classes\Interfaces\UInterfaces.pas=</Transaction>
-    <Transaction>2020/03/29 11:33:14.086,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Forms\Form.Configuracoes.Backup.pas</Transaction>
-    <Transaction>2020/03/29 11:33:14.145,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Forms\Form.Configurar.Conexcao.Banco.pas</Transaction>
-    <Transaction>2020/03/29 11:33:31.098,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.Acesso.Banco.pas</Transaction>
-    <Transaction>2020/03/29 11:33:31.128,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.BackUp.pas</Transaction>
-    <Transaction>2020/03/29 11:33:31.149,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.Conexao.pas</Transaction>
-    <Transaction>2020/03/29 11:53:13.427,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\ModelSupport_App_Config\default.txaPackage</Transaction>
+    <Transaction>2020/03/29 11:33:14.000.145,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Forms\Form.Configurar.Conexcao.Banco.pas</Transaction>
+    <Transaction>2020/03/29 11:33:14.000.086,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Forms\Form.Configuracoes.Backup.pas</Transaction>
+    <Transaction>2020/03/29 11:33:31.000.149,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.Conexao.pas</Transaction>
+    <Transaction>2020/03/29 11:33:31.000.098,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.Acesso.Banco.pas</Transaction>
+    <Transaction>2020/03/29 11:33:31.000.128,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Classe\UClasse.Config.BackUp.pas</Transaction>
+    <Transaction>2020/03/29 11:53:13.000.427,=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\ModelSupport_App_Config\default.txaPackage</Transaction>
   </Transactions>
 </BorlandProject>

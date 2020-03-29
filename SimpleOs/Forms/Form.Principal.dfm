@@ -5327,8 +5327,6 @@ object formPrincipal: TformPrincipal
     Color = 8408635
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = -24
     DesignSize = (
       1061
       57)

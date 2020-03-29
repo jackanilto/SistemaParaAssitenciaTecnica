@@ -197,7 +197,8 @@ uses
   Unit1 in 'Unit1.pas',
   UClasse.Entity.Trocar.Usuario in 'Classes\Entity\UClasse.Entity.Trocar.Usuario.pas',
   Form.Trocar.Usuario in 'Forms\Form.Trocar.Usuario.pas' {formTrocarDeUsuario},
-  Form.Alterar.Senha in 'Forms\Form.Alterar.Senha.pas' {Form2};
+  Form.Alterar.Senha in 'Forms\Form.Alterar.Senha.pas' {Form2},
+  Form.Sobre in 'Forms\Form.Sobre.pas' {formSobre};
 
 {$R *.res}
 

@@ -15,7 +15,5 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TformAppConfigMenu, formAppConfigMenu);
-  Application.CreateForm(TformConfiguracoesBackUp, formConfiguracoesBackUp);
-  Application.CreateForm(TformConfigurarConexaoBanco, formConfigurarConexaoBanco);
   Application.Run;
 end.

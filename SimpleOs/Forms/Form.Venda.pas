@@ -10,7 +10,8 @@ uses
   Form.Localizar.Clientes.Venda, UClasse.Entity.Localizar.Cliente.Venda,
   UInterfaces, Form.Localizar.Produtos.Venda, Datasnap.DBClient,
   UClasse.Entity.Itens.Venda, UClasse.Entity.Localizar.Produto.Venda,
-  UClasse.Venda, Form.Venda.Confirmar.Pagamento, UClasse.Venda.Parcelas;
+  UClasse.Venda, Form.Venda.Confirmar.Pagamento, UClasse.Venda.Parcelas,
+  Vcl.Imaging.pngimage;
 
 type
   TformVendas = class(TForm)
