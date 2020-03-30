@@ -5307,6 +5307,7 @@ object formPrincipal: TformPrincipal
       CF0C59608BF0C04D9318AED9EFB74E60C43ED29228DF9E8AC207BFBBA06EAA24
       2A5F7FD3AADC42B966A6126099A475FCC3BE1C44229148241289BE2FFDFF478E
       7F0E9760944C0000000049454E44AE426082}
+    PopupMenu = PopupMenuLogo
     Stretch = True
   end
   object Label7: TLabel
@@ -8666,5 +8667,24 @@ object formPrincipal: TformPrincipal
     OnTimer = Timer1Timer
     Left = 864
     Top = 344
+  end
+  object PopupMenuLogo: TPopupMenu
+    Left = 576
+    Top = 288
+    object Definirlogomarca1: TMenuItem
+      Caption = 'Definir logomarca'
+      OnClick = Definirlogomarca1Click
+    end
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    Filter = 
+      'All (*.png_old;*.gif;*.png;*.jpg;*.jpeg;*.bmp;*.ico;*.emf;*.wmf;' +
+      '*.tif;*.tiff)|*.jpg;*.jpeg;|Portable Network Graphics (*.png_old' +
+      ')||GIF Image (*.gif)||Portable Network Graphics (*.png)||JPEG Im' +
+      'age File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg|Bitmaps (' +
+      '*.bmp)||Icons (*.ico)||Enhanced Metafiles (*.emf)||Metafiles (*.' +
+      'wmf)||TIFF Images (*.tif)||TIFF Images (*.tiff)'
+    Left = 656
+    Top = 400
   end
 end

@@ -198,7 +198,8 @@ uses
   UClasse.Entity.Trocar.Usuario in 'Classes\Entity\UClasse.Entity.Trocar.Usuario.pas',
   Form.Trocar.Usuario in 'Forms\Form.Trocar.Usuario.pas' {formTrocarDeUsuario},
   Form.Alterar.Senha in 'Forms\Form.Alterar.Senha.pas' {Form2},
-  Form.Sobre in 'Forms\Form.Sobre.pas' {formSobre};
+  Form.Sobre in 'Forms\Form.Sobre.pas' {formSobre},
+  UClasse.Config.Imagem.Logo in 'Classes\Entity\Config\UClasse.Config.Imagem.Logo.pas';
 
 {$R *.res}
 

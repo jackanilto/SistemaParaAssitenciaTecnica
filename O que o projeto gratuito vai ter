@@ -1,0 +1,28 @@
+***********Parte do sistema que será gratuita
+
+
+#Clientes
+#Cadastro de funcionários -> Permissões
+#Cadastro de serviços
+#Ordem de serviços
+#Criar Ordem de Serviço
+Parcelas OS
+
+*******Relatórios
+
+#Relatório do cliente
+#Parcelas  a receber OS
+Parcelas pagas os
+#OS estornadas
+#OS por situação
+#Relatório OS
+#OS inadimplentes
+
+#Encerramento de caixa
+#Reabertura de caixa
+#Retirada de valores
+#Comissões dos técnicos
+#Historico do caixa
+#Movimentação do caixa
+
+	NÃO PERMITIR CONEXÃO COM MAIS DE UMA MAQUINA

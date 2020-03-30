@@ -13,3 +13,8 @@
 29/03/20 14:20:17 - Caption: SimpleOS
 29/03/20 14:20:17 - Erro:EAccessViolation
 29/03/20 14:20:17 - Erro:Access violation at address 00BC34BB in module 'SimplesOS.exe'. Read of address 00000004
+30/03/20 17:21:34 - ===========================================
+30/03/20 17:21:34 - Form: formPrincipal
+30/03/20 17:21:34 - Caption: SimpleOS
+30/03/20 17:21:34 - Erro:EAccessViolation
+30/03/20 17:21:34 - Erro:Access violation at address 00BC34BB in module 'SimplesOS.exe'. Read of address 00000004

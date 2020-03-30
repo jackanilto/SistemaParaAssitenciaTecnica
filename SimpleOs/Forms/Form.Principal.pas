@@ -18,7 +18,8 @@ uses
   Form.Abertura.Caixa, UClasse.Entity.Caixa, Form.Login, UDados.Conexao,
   Form.Comissoes.Funcionario, Form.Relatorio.Comissoes, UClasse.Config.BackUp,
   UClasse.Config.Acesso.Banco, Form.Relatorio.Problemas.Frequentes,
-  Form.Relatorio.Historico.Caixa, Form.Trocar.Usuario;
+  Form.Relatorio.Historico.Caixa, Form.Trocar.Usuario, UClasse.Config.Imagem.Logo,
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg;
 
 type
   TformPrincipal = class(TForm)
@@ -124,6 +125,9 @@ type
     pnlFoto: TPanel;
     Image1: TImage;
     Sair2: TMenuItem;
+    PopupMenuLogo: TPopupMenu;
+    Definirlogomarca1: TMenuItem;
+    OpenPictureDialog1: TOpenPictureDialog;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -207,6 +211,7 @@ type
     procedure Image5Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
     procedure Sair2Click(Sender: TObject);
+    procedure Definirlogomarca1Click(Sender: TObject);
   private
     { Private declarations }
   var
@@ -214,6 +219,7 @@ type
     FHorarios: array [0..100] of string;
     FBackUp:TClasseConfigBackUp;
     FConfigConexao:TConfigConexaoBanco;
+    FConfImagemLogo:TConfigImagemLogo;
     procedure closeSplit;
     procedure arrendondarImagem(value:TPanel);
 
@@ -804,6 +810,7 @@ begin
   FreeAndNil(FProcessoCaixa);
   FreeAndNil(FBackUp);
   FreeAndNil(FConfigConexao);
+  FreeAndNil(FConfImagemLogo);
 end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);
@@ -822,6 +829,8 @@ begin
 
   FConfigConexao := TConfigConexaoBanco.create;
 
+  FConfImagemLogo := TConfigImagemLogo.create;
+
   ReportMemoryLeaksOnShutdown := true;
 
 end;
@@ -830,6 +839,8 @@ procedure TformPrincipal.FormShow(Sender: TObject);
 var
   I: Integer;
 begin
+
+FConfImagemLogo.getImagemBD(imgLogo);
 
   formLogin := TformLogin.Create(self);
   try
@@ -843,6 +854,7 @@ begin
       FreeAndNil(FProcessoCaixa);
       FreeAndNil(FBackUp);
       FreeAndNil(FConfigConexao);
+      FreeAndNil(FConfImagemLogo);
       application.Terminate;
 
     end;
@@ -932,6 +944,24 @@ procedure TformPrincipal.closeSplit;
 begin
   if Assigned(F_SplitView) then
     F_SplitView.Opened := false;
+end;
+
+procedure TformPrincipal.Definirlogomarca1Click(Sender: TObject);
+var
+   img:TJpegImage;
+begin
+
+  img := TJPEGImage.Create;
+
+  if OpenPictureDialog1.Execute then
+  begin
+    imgLogo.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+    img.LoadFromFile(OpenPictureDialog1.FileName);
+    FConfImagemLogo.salvarImagemBd(img);
+  end;
+
+  img.Free;
+
 end;
 
 procedure TformPrincipal.sbMenuClick(Sender: TObject);

@@ -3,7 +3,6 @@ inherited formCadastroProdutos: TformCadastroProdutos
   ClientHeight = 590
   ClientWidth = 1084
   OnClose = FormClose
-  ExplicitTop = -36
   ExplicitWidth = 1084
   ExplicitHeight = 590
   PixelsPerInch = 96

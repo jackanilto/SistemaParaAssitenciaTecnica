@@ -1,0 +1,106 @@
+Ordem de teste dos recursos do software
+
+
+****************Processo referente os sistema de OS****************************
+#Clientes
+#Meios de pagamento
+#Configurar parcelas(ver se o processo esta sendo aplicado nas parcelas das OS)
+#Cadastro de funcionários -> Permissões -> Comissões
+#Problemas frequentes
+#Situação ordem de serviço
+#Cadastro de serviços
+#Número de parcelas
+#Ordem de serviços
+#Criar Ordem de Serviço
+Parcelas OS
+
+*******Relatórios
+
+#Relatório do cliente
+#Parcelas  a receber OS
+Parcelas pagas os
+#OS estornadas
+#Reparos por período
+#Reparos por técnico
+#OS por situação
+#Relatório OS
+#OS inadimplentes
+#Serviços mais realizados
+#Problemas frequentes
+
+
+****************Processo referente os sistema de Vendas****************************
+
+#Produtos
+#Historico de compras
+#Transportadora
+#Fornecedores
+#Marcas
+#Grupos
+#Tipo retirada
+#Atividade funcionários
+#Contas a pagar
+#Dados da empresa
+#Entrada de produtos
+#Saída de produtos
+#Venda de produtos
+#Parcelas vendas
+#Visualizar vendas
+
+*****Relatórios
+
+#Parcelas a receber Vendas
+#Parcelas pagas Vendas
+#Vendas estornadas
+#Relatório de contas a pagar
+#Relatório de fornecedores
+#Relatório de produtos
+#Relatório Situação do estoque
+#Relatório Produtos mais vendidos
+#Relatório de vendas
+#Relatório vendas inadimplentes
+#Relatório Saída de produtos
+#Relatório Entrada de produtos
+#Relatório Vendas por funcionários
+#Relatório Transportadora
+#Relatório Retirada de valores
+
+
+*********************Processo em comum com as duas partes do projeto***************
+Caixa
+
+#Encerramento de caixa
+#Reabertura de caixa
+#Retirada de valores
+#Comissões dos técnicos
+#Historico do caixa
+#Movimentação do caixa
+
+****************************Extras**********************************************
+#Configurar BackUp
+#BackUp Manual
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

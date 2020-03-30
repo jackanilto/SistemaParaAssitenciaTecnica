@@ -215,10 +215,13 @@ end;
 procedure TformSaidaDeProdutos.sbSalvarClick(Sender: TObject);
 begin
 
-  FEntitySaida.getID_PRODUTO(StrToInt(edtCodigoProduto.Text))
-    .getPRODUTOS(edtProduto.Text).getVALORPRODUTO
-    (StrToCurr(edtValorProduto.Text)).getQUANTIDADE(StrToInt(edtQuantidade.Text)
-    ).getTOTAL(StrToCurr(edtTotal.Text)).getDATA(edtData.Text)
+  FEntitySaida
+    .getID_PRODUTO(StrToInt(edtCodigoProduto.Text))
+    .getPRODUTOS(edtProduto.Text)
+    .getVALORPRODUTO(StrToCurr(edtValorProduto.Text))
+    .getQUANTIDADE(StrToInt(edtQuantidade.Text))
+    .getTOTAL(StrToCurr(edtTotal.Text))
+    .getDATA(edtData.Text)
     .getHORA(edtHora.Text).getObservacao(edtObservacao.Text)
     .getCodigoProdutoAtualizar(StrToInt(edtCodigoProduto.Text))
     .getQuantidadeProdutoAtualizar(StrToInt(edtQuantidade.Text))

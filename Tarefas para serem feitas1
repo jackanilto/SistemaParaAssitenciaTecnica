@@ -28,7 +28,7 @@
 
 
 ##Implemetar comissões por porcentagem --FEITO
-
+ 
 ##Relatório de problemas mais frequentes --FEITO
 ##Historio de aberturas de caixa --FEITO
 ##Criar procedimento para editar a parcela de uma ordem (criar o log dos eventos também) --FEITO
@@ -39,12 +39,19 @@
 ###Correção no sistema de cadastros de funcionários=Problemas com senhas ao editar um registro --CORRIGIDO
 ###Tela Ordem de Serviço -> mosntrar as OS cadastradas no dia --FEITO
 
+#Janela para troca de Login --FEITO
+#Processo para deslogar --FEITO
+#Formulário para troca de senha --SEM NECESSIDADE
++++ 
+
+***********************************
+
+Recursos a serem analisados para a próxima versão
+
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos
 ##Criar uma janela especifica para quitar as contas
 
-#Janela para troca de Login --FEITO
-#Processo para deslogar
 
 
 
