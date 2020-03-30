@@ -17,9 +17,7 @@ type
 type
   TformRelatorioOrdemDeServico = class(TformModeloRelatorio)
     GroupBox1: TGroupBox;
-    GroupBox2: TGroupBox;
     DBGrid2: TDBGrid;
-    DBGrid3: TDBGrid;
     popM_ServicosRealiados: TPopupMenu;
     popM_Ocorrencias: TPopupMenu;
     Exportar1: TMenuItem;

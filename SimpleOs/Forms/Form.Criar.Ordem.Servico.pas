@@ -14,7 +14,7 @@ uses
   UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
   UClasse.Entity.Dados.Empresa, frxBarcode, UClasse.Calcular.Juros,
   UClasse.Entity.Configurar.Parcelas, UClasse.Preparar.Imprimir.Recibo,
-  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus, UFactory.Entity;
+  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus, UFactory.Entity, MidasLib;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)

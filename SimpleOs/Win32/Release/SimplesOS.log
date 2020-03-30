@@ -7211,3 +7211,23 @@ O sistema não pode encontrar o caminho especificado.
 29/03/20 14:18:53 - Form: 
 29/03/20 14:19:42 - ===========================================
 29/03/20 14:19:42 - Form: 
+30/03/20 18:18:05 - ===========================================
+30/03/20 18:18:05 - Form: formPrincipal
+30/03/20 18:18:05 - Caption: SimpleOS
+30/03/20 18:18:05 - Erro:ESQLiteNativeException
+30/03/20 18:18:05 - Erro:[FireDAC][Phys][SQLite] ERROR: no such table: config_img
+30/03/20 18:18:41 - ===========================================
+30/03/20 18:18:41 - Form: formPrincipal
+30/03/20 18:18:41 - Caption: SimpleOS
+30/03/20 18:18:41 - Erro:EInvalidGraphic
+30/03/20 18:18:41 - Erro:Unknown picture file extension (.)
+30/03/20 20:03:30 - ===========================================
+30/03/20 20:03:30 - Form: formPrincipal
+30/03/20 20:03:30 - Caption: SimpleOS
+30/03/20 20:03:30 - Erro:EAccessViolation
+30/03/20 20:03:30 - Erro:Access violation at address 00BC703B in module 'SimplesOS.exe'. Read of address 00000004
+30/03/20 20:10:22 - ===========================================
+30/03/20 20:10:22 - Form: formPrincipal
+30/03/20 20:10:22 - Caption: SimpleOS
+30/03/20 20:10:22 - Erro:Exception
+30/03/20 20:10:22 - Erro:Você não possui acesso a este recurso.

@@ -7575,7 +7575,7 @@ object formSobre: TformSobre
   object Label1: TLabel
     Left = 32
     Top = 144
-    Width = 432
+    Width = 440
     Height = 28
     Caption = 'SimpleOS - Software Para Assist'#234'ncia T'#233'cnica'#9
     Font.Charset = DEFAULT_CHARSET
@@ -7614,9 +7614,9 @@ object formSobre: TformSobre
   object Label4: TLabel
     Left = 152
     Top = 257
-    Width = 124
+    Width = 136
     Height = 21
-    Caption = 'Vers'#227'o 0.1 ALPHA'
+    Caption = 'Vers'#227'o 0.1.1 ALPHA'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16

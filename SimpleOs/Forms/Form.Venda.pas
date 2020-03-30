@@ -11,7 +11,7 @@ uses
   UInterfaces, Form.Localizar.Produtos.Venda, Datasnap.DBClient,
   UClasse.Entity.Itens.Venda, UClasse.Entity.Localizar.Produto.Venda,
   UClasse.Venda, Form.Venda.Confirmar.Pagamento, UClasse.Venda.Parcelas,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage, MidasLib;
 
 type
   TformVendas = class(TForm)

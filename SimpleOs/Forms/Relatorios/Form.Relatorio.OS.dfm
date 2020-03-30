@@ -197,10 +197,10 @@ inherited formRelatorioOrdemDeServico: TformRelatorioOrdemDeServico
   end
   object GroupBox1: TGroupBox [3]
     Left = 0
-    Top = 255
-    Width = 449
+    Top = 261
+    Width = 1019
     Height = 227
-    Anchors = [akRight, akBottom]
+    Align = alBottom
     Caption = 'Servi'#231'os Realizados'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -209,10 +209,12 @@ inherited formRelatorioOrdemDeServico: TformRelatorioOrdemDeServico
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    ExplicitTop = 255
+    ExplicitWidth = 449
     object DBGrid2: TDBGrid
       Left = 2
       Top = 19
-      Width = 445
+      Width = 1015
       Height = 206
       Align = alClient
       DataSource = s_ServicosRealizados
@@ -231,37 +233,6 @@ inherited formRelatorioOrdemDeServico: TformRelatorioOrdemDeServico
       TitleFont.Height = -13
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = [fsBold]
-    end
-  end
-  object GroupBox2: TGroupBox [4]
-    Left = 496
-    Top = 255
-    Width = 515
-    Height = 227
-    Anchors = [akRight, akBottom]
-    Caption = 'Ocorr'#234'ncias'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 4
-    object DBGrid3: TDBGrid
-      Left = 2
-      Top = 19
-      Width = 511
-      Height = 206
-      Align = alClient
-      DataSource = s_Ocorrencias
-      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-      PopupMenu = popM_Ocorrencias
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -13
-      TitleFont.Name = 'Segoe UI'
-      TitleFont.Style = []
     end
   end
   inherited DataSource1: TDataSource
