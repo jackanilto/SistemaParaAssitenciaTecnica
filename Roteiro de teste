@@ -2,17 +2,52 @@ Ordem de teste dos recursos do software
 
 
 ****************Processo referente os sistema de OS****************************
-#Clientes
-#Meios de pagamento
-#Configurar parcelas(ver se o processo esta sendo aplicado nas parcelas das OS)
-#Cadastro de funcionários -> Permissões -> Comissões
-#Problemas frequentes
-#Situação ordem de serviço
-#Cadastro de serviços
-#Número de parcelas
-#Ordem de serviços
-#Criar Ordem de Serviço
-Parcelas OS
+
+#Clientes --Ver a possibilidade de inclusão da foto no relatório. Alterar a mensagem de erro
+			Data de cadastro já deve aparecer com a data atual. Colocar o foco na caixa para selecionar o tipo de cadastro
+			
+#Cadastro de funcionários --Data de cadastro já deve aparecer com a data atual.
+							Busca de atividade dos funcionários não esta funcionando.
+							Permissões dos usuários -> aba Relatórios não esta com as opçãoes Sim e Não.
+							
+			
+#Meios de pagamento -> OK
+
+#Configurar parcelas(ver se o processo esta sendo aplicado nas parcelas das OS) -> Alterar o titulo para juros por atraso
+
+#Problemas frequentes -> OK
+
+#Situação ordem de serviço --> Permitir a opção de pesquisa nesta tela ou
+							   retornar todos os registros após qualquer alteração
+
+#Cadastro de serviços -> Campo valor no relatório de vir com o R$
+
+#Número de parcelas -> OK
+
+#Ordem de serviços -> Ver problemas com a exportação para o excel ao ter apenas um registro selecionado.
+					  Campo data de saída deve ficar em branco caso não haja nenhum valor.
+ 
+
+#Criar Ordem de Serviço-> Número de parcelas deve ser selecionado com base no cadastro
+					  de número de parcelas. O calculo dos valores das parcelas
+					  deve ser feito automaticamente.
+					  Formatar os valores monetarios na tela.
+					  Não permitir digitar os dados sem antes clicar no botão Ordem de Serviço.
+					  Não permitir que possa ser digitar dados nos campos Cód. Cliente e Cliente.
+					  Botão excluir não esta funcionando de forma correta, verificar a ordem de execução do botão
+					  Se uma OS for estornada não deve ser permitido a edição deste registro.
+					  Somente gravar a os se todos os campos necessarios estivem preencidos
+			Parcelas -> Se uma parcela não estiver quitada então não deve ser possivel estornar.
+						Ao cancelar uma operação o botão Salvar deve ser desabilitado.
+						Se aparcela já estiver quitada o botão Quitar deve ser desabilitado
+						Impressão de carnês de pagamento -> O campo Multa e Juros estão errados
+				
+				
+#Parcelas OS -> Exibir somente as parcelas que não foram pagas.
+				Ao exportar para o excel seo campo data de pagamento estiver vazio não permitir 
+				exporta ou exportar um valor em branco.
+				Botão Salvar só deve ficar ativo após clicar no botão Adicionar Parcela.
+
 
 *******Relatórios
 
