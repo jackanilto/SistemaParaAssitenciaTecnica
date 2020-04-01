@@ -5,7 +5,8 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Vcl.StdCtrls, UClasse.Entity.Criar.Ordem.Parcelas, UClasse.Entity.Estornar.OS;
+  Vcl.StdCtrls, UClasse.Entity.Criar.Ordem.Parcelas, UClasse.Entity.Estornar.OS,
+  RxToolEdit, RxCurrEdit;
 
 type
 
@@ -127,9 +128,9 @@ type
     function setValorDaParcelas: Currency;
     function setDataBaseVencimento: TDate;
 
-    function calcularDesconto(valor, desconto: TEdit): string;
-    function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
-    function calularTotalPorNumeroDeParcela(total, qtde: TEdit): string;
+    function calcularDesconto(valor, desconto: TCurrencyEdit): string;
+    function calcularAcrescimo(valor, desconto, acrescimo: TCurrencyEdit): string;
+    function calularTotalPorNumeroDeParcela(total:TCurrencyEdit; qtde:TComboBox): string;
     // function calcularValorTotal():string;
 
     function exportar: iCriarOrdemServico;
@@ -160,7 +161,7 @@ begin
 end;
 
 function TEntityCriarOrdemServico.calcularAcrescimo(valor, desconto,
-  acrescimo: TEdit): string;
+  acrescimo: TCurrencyEdit): string;
 var
   FValorOrdem: Currency;
   FDescontoOrdem: Currency;
@@ -212,7 +213,7 @@ begin
 end;
 
 function TEntityCriarOrdemServico.calcularDesconto(valor,
-  desconto: TEdit): string;
+  desconto: TCurrencyEdit): string;
 var
   FValorOrdem: Currency;
   FDescontoOrdem: Currency;
@@ -249,8 +250,8 @@ begin
 
 end;
 
-function TEntityCriarOrdemServico.calularTotalPorNumeroDeParcela(total,
-  qtde: TEdit): string;
+function TEntityCriarOrdemServico.calularTotalPorNumeroDeParcela(total:TCurrencyEdit;
+         qtde:TComboBox): string;
 var
   valor: Currency;
   quantidade: integer;

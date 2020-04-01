@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbOrdemServiço
+    ActivePage = tbServicosEFaturamento
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -606,10 +606,6 @@
     object tbServicosEFaturamento: TTabSheet
       Caption = 'Servi'#231'oes e faturamento'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel4: TPanel
         Left = 0
         Top = 0
@@ -658,6 +654,7 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
+          ExplicitLeft = -4
           object Label21: TLabel
             Left = 16
             Top = 25
@@ -677,7 +674,7 @@
             Top = 84
             Width = 79
             Height = 17
-            Caption = 'Acr'#233'scimo RS'
+            Caption = 'Acr'#233'scimo R$'
           end
           object Label26: TLabel
             Left = 369
@@ -773,41 +770,6 @@
               1616FF1616FF1616FF1616FF1616FF1616FF1616FF9797FFFFFF}
             OnClick = SpeedButton13Click
           end
-          object edtValorOrdem: TEdit
-            Left = 16
-            Top = 48
-            Width = 249
-            Height = 25
-            CharCase = ecUpperCase
-            TabOrder = 0
-          end
-          object edtDesconto: TEdit
-            Left = 16
-            Top = 107
-            Width = 121
-            Height = 25
-            CharCase = ecUpperCase
-            TabOrder = 1
-            OnExit = edtDescontoExit
-          end
-          object edtAcrescimo: TEdit
-            Left = 143
-            Top = 107
-            Width = 122
-            Height = 25
-            CharCase = ecUpperCase
-            TabOrder = 2
-            OnExit = edtAcrescimoExit
-          end
-          object edtTotalDeParcelas: TEdit
-            Left = 369
-            Top = 48
-            Width = 109
-            Height = 25
-            CharCase = ecUpperCase
-            TabOrder = 4
-            OnExit = edtTotalDeParcelasExit
-          end
           object edtDataBaseVencimento: TMaskEdit
             Left = 369
             Top = 107
@@ -818,21 +780,51 @@
             TabOrder = 6
             Text = '  /  /    '
           end
-          object edtTotalDaOS: TEdit
-            Left = 16
-            Top = 162
-            Width = 249
-            Height = 25
-            CharCase = ecUpperCase
-            TabOrder = 3
-            OnExit = edtTotalDaOSExit
-          end
           object edtValorOrdemParcelado: TEdit
             Left = 484
             Top = 48
             Width = 173
             Height = 25
             TabOrder = 5
+          end
+          object edtTotalDeParcelas: TComboBox
+            Left = 369
+            Top = 48
+            Width = 109
+            Height = 25
+            TabOrder = 4
+            OnExit = edtTotalDeParcelasExit
+          end
+          object edtValorOrdem: TCurrencyEdit
+            Left = 16
+            Top = 48
+            Width = 249
+            Height = 25
+            TabOrder = 0
+          end
+          object edtDesconto: TCurrencyEdit
+            Left = 16
+            Top = 107
+            Width = 121
+            Height = 25
+            TabOrder = 1
+            OnExit = edtDescontoExit
+          end
+          object edtAcrescimo: TCurrencyEdit
+            Left = 143
+            Top = 107
+            Width = 122
+            Height = 25
+            TabOrder = 2
+            OnExit = edtAcrescimoExit
+          end
+          object edtTotalDaOS: TCurrencyEdit
+            Left = 16
+            Top = 164
+            Width = 249
+            Height = 25
+            TabOrder = 3
+            OnExit = edtTotalDaOSExit
           end
         end
         object GroupBox2: TGroupBox
@@ -910,10 +902,6 @@
     object tbParcelas: TTabSheet
       Caption = 'Parcelas'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel5: TPanel
         Left = 0
         Top = 0
@@ -4315,8 +4303,8 @@
     Top = 109
   end
   object s_ImprirmirRecibo: TDataSource
-    Left = 132
-    Top = 205
+    Left = 244
+    Top = 125
   end
   object frxDB_Imprimirrecibo: TfrxDBDataset
     UserName = 'frxDB_Imprimirrecibo'

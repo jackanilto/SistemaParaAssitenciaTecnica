@@ -101,6 +101,7 @@ var
 begin
 
   FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
 
   linha := 2;
   pasta := CreateOleObject('Excel.application');
@@ -143,7 +144,12 @@ begin
         pasta.cells[linha, 10] := FieldByName('MARCAS').AsString;
         pasta.cells[linha, 11] := FieldByName('SITUACAO_DA_ORDEM').AsString;
         pasta.cells[linha, 12] := FieldByName('DATA_DE_ENTRADA').AsDateTime;
-        pasta.cells[linha, 13] := FieldByName('DATA_SAIDA').AsDateTime;
+
+        if FieldByName('DATA_SAIDA').AsDateTime <> StrToDateTime('30/12/1899') then
+          pasta.cells[linha, 13] := FieldByName('DATA_SAIDA').AsDateTime
+        else
+          pasta.cells[linha, 13] := ' ';
+
         pasta.cells[linha, 14] := FieldByName('PGTO').AsString;
         pasta.cells[linha, 15] := FieldByName('STATUS').AsString;
       end;

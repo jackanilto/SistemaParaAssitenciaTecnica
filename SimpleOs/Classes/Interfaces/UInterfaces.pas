@@ -8,7 +8,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
   Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask, Datasnap.DBClient,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, System.Classes, RxToolEdit, RxCurrEdit;
 
 type
   iConexaoQuery = interface
@@ -976,9 +976,9 @@ type
     function setValorDaParcelas: currency;
     function setDataBaseVencimento: TDate;
 
-    function calcularDesconto(valor, desconto: TEdit): string;
-    function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
-    function calularTotalPorNumeroDeParcela(total, qtde: TEdit): string;
+    function calcularDesconto(valor, desconto: TCurrencyEdit): string;
+    function calcularAcrescimo(valor, desconto, acrescimo: TCurrencyEdit): string;
+    function calularTotalPorNumeroDeParcela(total:TCurrencyEdit; qtde:TComboBox): string;
 
     function estadoDaTabela: string;
 

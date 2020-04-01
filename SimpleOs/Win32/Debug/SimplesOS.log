@@ -18,3 +18,262 @@
 30/03/20 17:21:34 - Caption: SimpleOS
 30/03/20 17:21:34 - Erro:EAccessViolation
 30/03/20 17:21:34 - Erro:Access violation at address 00BC34BB in module 'SimplesOS.exe'. Read of address 00000004
+01/04/20 15:09:38 - ===========================================
+01/04/20 15:09:38 - Form: formCriarConsultarOrdemServico
+01/04/20 15:09:38 - Caption: 
+01/04/20 15:09:38 - Erro:EAccessViolation
+01/04/20 15:09:38 - Erro:Access violation at address 0056C6C1 in module 'SimplesOS.exe'. Read of address 00000050
+01/04/20 15:09:51 - ===========================================
+01/04/20 15:09:51 - Form: formCriarConsultarOrdemServico
+01/04/20 15:09:51 - Caption: 
+01/04/20 15:09:51 - Erro:EAccessViolation
+01/04/20 15:09:51 - Erro:Access violation at address 0056C6C1 in module 'SimplesOS.exe'. Read of address 00000050
+01/04/20 15:10:37 - ===========================================
+01/04/20 15:10:37 - Form: formCriarConsultarOrdemServico
+01/04/20 15:10:37 - Caption: 
+01/04/20 15:10:37 - Erro:EAccessViolation
+01/04/20 15:10:37 - Erro:Access violation at address 0056C6C1 in module 'SimplesOS.exe'. Read of address 00000050
+01/04/20 15:14:11 - ===========================================
+01/04/20 15:14:11 - Form: formCriarConsultarOrdemServico
+01/04/20 15:14:11 - Caption: 
+01/04/20 15:14:11 - Erro:EInvalidOperation
+01/04/20 15:14:11 - Erro:Control 'TEdit($07E97360)' has no parent window. Path:
+TEdit($07E97360)
+01/04/20 15:14:33 - ===========================================
+01/04/20 15:14:33 - Form: formCriarConsultarOrdemServico
+01/04/20 15:14:33 - Caption: 
+01/04/20 15:14:33 - Erro:EInvalidOperation
+01/04/20 15:14:33 - Erro:Control 'TEdit($07E97360)' has no parent window. Path:
+TEdit($07E97360)
+01/04/20 15:16:05 - ===========================================
+01/04/20 15:16:05 - Form: formCriarConsultarOrdemServico
+01/04/20 15:16:05 - Caption: 
+01/04/20 15:16:05 - Erro:EInvalidOperation
+01/04/20 15:16:05 - Erro:Control 'TEdit($07C87360)' has no parent window. Path:
+TEdit($07C87360)
+01/04/20 15:16:17 - ===========================================
+01/04/20 15:16:17 - Form: formCriarConsultarOrdemServico
+01/04/20 15:16:17 - Caption: 
+01/04/20 15:16:17 - Erro:EInvalidOperation
+01/04/20 15:16:17 - Erro:Control 'TEdit($07C87360)' has no parent window. Path:
+TEdit($07C87360)
+01/04/20 15:16:25 - ===========================================
+01/04/20 15:16:25 - Form: formCriarConsultarOrdemServico
+01/04/20 15:16:25 - Caption: 
+01/04/20 15:16:25 - Erro:EInvalidOperation
+01/04/20 15:16:25 - Erro:Control 'TEdit($07C87360)' has no parent window. Path:
+TEdit($07C87360)
+01/04/20 15:17:28 - ===========================================
+01/04/20 15:17:28 - Form: formCriarConsultarOrdemServico
+01/04/20 15:17:28 - Caption: 
+01/04/20 15:17:28 - Erro:EInvalidOperation
+01/04/20 15:17:28 - Erro:Control 'TEdit($05537360)' has no parent window. Path:
+TEdit($05537360)
+01/04/20 15:17:41 - ===========================================
+01/04/20 15:17:41 - Form: formCriarConsultarOrdemServico
+01/04/20 15:17:41 - Caption: 
+01/04/20 15:17:41 - Erro:EInvalidOperation
+01/04/20 15:17:41 - Erro:Control 'TEdit($05537360)' has no parent window. Path:
+TEdit($05537360)
+01/04/20 15:17:47 - ===========================================
+01/04/20 15:17:47 - Form: formCriarConsultarOrdemServico
+01/04/20 15:17:47 - Caption: 
+01/04/20 15:17:47 - Erro:EInvalidOperation
+01/04/20 15:17:47 - Erro:Control 'TEdit($05537360)' has no parent window. Path:
+TEdit($05537360)
+01/04/20 15:19:06 - ===========================================
+01/04/20 15:19:06 - Form: formCriarConsultarOrdemServico
+01/04/20 15:19:06 - Caption: 
+01/04/20 15:19:06 - Erro:EInvalidOperation
+01/04/20 15:19:06 - Erro:Control 'TEdit($07C87360)' has no parent window. Path:
+TEdit($07C87360)
+01/04/20 15:19:17 - ===========================================
+01/04/20 15:19:17 - Form: formCriarConsultarOrdemServico
+01/04/20 15:19:17 - Caption: 
+01/04/20 15:19:17 - Erro:EInvalidOperation
+01/04/20 15:19:17 - Erro:Control 'TEdit($07C87360)' has no parent window. Path:
+TEdit($07C87360)
+01/04/20 15:19:24 - ===========================================
+01/04/20 15:19:24 - Form: formCriarConsultarOrdemServico
+01/04/20 15:19:24 - Caption: 
+01/04/20 15:19:24 - Erro:EInvalidOperation
+01/04/20 15:19:24 - Erro:Control 'TEdit($07C87360)' has no parent window. Path:
+TEdit($07C87360)
+01/04/20 15:19:26 - ===========================================
+01/04/20 15:19:26 - Form: formCriarConsultarOrdemServico
+01/04/20 15:19:26 - Caption: 
+01/04/20 15:19:26 - Erro:EInvalidOperation
+01/04/20 15:19:26 - Erro:Control 'TEdit($07C87360)' has no parent window. Path:
+TEdit($07C87360)
+01/04/20 15:20:36 - ===========================================
+01/04/20 15:20:36 - Form: formCriarConsultarOrdemServico
+01/04/20 15:20:36 - Caption: 
+01/04/20 15:20:36 - Erro:EAccessViolation
+01/04/20 15:20:36 - Erro:Access violation at address 00AB5380 in module 'SimplesOS.exe'. Read of address 00000000
+01/04/20 15:20:49 - ===========================================
+01/04/20 15:20:49 - Form: formCriarConsultarOrdemServico
+01/04/20 15:20:49 - Caption: 
+01/04/20 15:20:49 - Erro:EAccessViolation
+01/04/20 15:20:49 - Erro:Access violation at address 00AB5380 in module 'SimplesOS.exe'. Read of address 00000000
+01/04/20 15:20:51 - ===========================================
+01/04/20 15:20:51 - Form: formCriarConsultarOrdemServico
+01/04/20 15:20:51 - Caption: 
+01/04/20 15:20:51 - Erro:EAccessViolation
+01/04/20 15:20:51 - Erro:Access violation at address 00AB5380 in module 'SimplesOS.exe'. Read of address 00000000
+01/04/20 15:20:55 - ===========================================
+01/04/20 15:20:55 - Form: formCriarConsultarOrdemServico
+01/04/20 15:20:55 - Caption: 
+01/04/20 15:20:55 - Erro:EAccessViolation
+01/04/20 15:20:55 - Erro:Access violation at address 00AB5380 in module 'SimplesOS.exe'. Read of address 00000000
+01/04/20 15:30:17 - ===========================================
+01/04/20 15:30:17 - Form: formCriarConsultarOrdemServico
+01/04/20 15:30:17 - Caption: 
+01/04/20 15:30:17 - Erro:EInvalidOperation
+01/04/20 15:30:17 - Erro:Control 'TEdit($057CBE80)' has no parent window. Path:
+TEdit($057CBE80)
+01/04/20 15:30:20 - ===========================================
+01/04/20 15:30:20 - Form: formCriarConsultarOrdemServico
+01/04/20 15:30:20 - Caption: 
+01/04/20 15:30:20 - Erro:EInvalidOperation
+01/04/20 15:30:20 - Erro:Control 'TEdit($057CC160)' has no parent window. Path:
+TEdit($057CC160)
+01/04/20 15:30:23 - ===========================================
+01/04/20 15:30:23 - Form: formCriarConsultarOrdemServico
+01/04/20 15:30:23 - Caption: 
+01/04/20 15:30:23 - Erro:EInvalidOperation
+01/04/20 15:30:23 - Erro:Control 'TEdit($057CC440)' has no parent window. Path:
+TEdit($057CC440)
+01/04/20 15:30:37 - ===========================================
+01/04/20 15:30:37 - Form: formCriarConsultarOrdemServico
+01/04/20 15:30:37 - Caption: 
+01/04/20 15:30:37 - Erro:EInvalidOperation
+01/04/20 15:30:37 - Erro:Control 'TEdit($057CC720)' has no parent window. Path:
+TEdit($057CC720)
+01/04/20 15:30:41 - ===========================================
+01/04/20 15:30:41 - Form: formCriarConsultarOrdemServico
+01/04/20 15:30:41 - Caption: 
+01/04/20 15:30:41 - Erro:EInvalidOperation
+01/04/20 15:30:41 - Erro:Control 'TEdit($057CCA00)' has no parent window. Path:
+TEdit($057CCA00)
+01/04/20 15:32:10 - ===========================================
+01/04/20 15:32:10 - Form: formCriarConsultarOrdemServico
+01/04/20 15:32:10 - Caption: 
+01/04/20 15:32:10 - Erro:EInvalidOperation
+01/04/20 15:32:10 - Erro:Control 'TEdit($02AFB280)' has no parent window. Path:
+TEdit($02AFB280)
+01/04/20 15:32:27 - ===========================================
+01/04/20 15:32:27 - Form: formCriarConsultarOrdemServico
+01/04/20 15:32:27 - Caption: 
+01/04/20 15:32:27 - Erro:EInvalidOperation
+01/04/20 15:32:27 - Erro:Control 'TEdit($02AFB560)' has no parent window. Path:
+TEdit($02AFB560)
+01/04/20 15:32:33 - ===========================================
+01/04/20 15:32:33 - Form: formCriarConsultarOrdemServico
+01/04/20 15:32:33 - Caption: 
+01/04/20 15:32:33 - Erro:EInvalidOperation
+01/04/20 15:32:33 - Erro:Control 'TEdit($02AFB840)' has no parent window. Path:
+TEdit($02AFB840)
+01/04/20 15:36:02 - ===========================================
+01/04/20 15:36:02 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:02 - Caption: 
+01/04/20 15:36:02 - Erro:EInvalidOperation
+01/04/20 15:36:02 - Erro:Control 'TEdit($07C37920)' has no parent window. Path:
+TEdit($07C37920)
+01/04/20 15:36:18 - ===========================================
+01/04/20 15:36:18 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:18 - Caption: 
+01/04/20 15:36:18 - Erro:EInvalidOperation
+01/04/20 15:36:18 - Erro:Control 'TEdit($07C37C00)' has no parent window. Path:
+TEdit($07C37C00)
+01/04/20 15:36:36 - ===========================================
+01/04/20 15:36:36 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:36 - Caption: 
+01/04/20 15:36:36 - Erro:EInvalidOperation
+01/04/20 15:36:36 - Erro:Control 'TEdit($07C37EE0)' has no parent window. Path:
+TEdit($07C37EE0)
+01/04/20 15:36:38 - ===========================================
+01/04/20 15:36:38 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:38 - Caption: 
+01/04/20 15:36:38 - Erro:EInvalidOperation
+01/04/20 15:36:38 - Erro:Control 'TEdit($07C381C0)' has no parent window. Path:
+TEdit($07C381C0)
+01/04/20 15:36:41 - ===========================================
+01/04/20 15:36:41 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:41 - Caption: 
+01/04/20 15:36:41 - Erro:EInvalidOperation
+01/04/20 15:36:41 - Erro:Control 'TEdit($07C384A0)' has no parent window. Path:
+TEdit($07C384A0)
+01/04/20 15:36:43 - ===========================================
+01/04/20 15:36:43 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:43 - Caption: 
+01/04/20 15:36:43 - Erro:EInvalidOperation
+01/04/20 15:36:43 - Erro:Control 'TEdit($07C38780)' has no parent window. Path:
+TEdit($07C38780)
+01/04/20 15:36:45 - ===========================================
+01/04/20 15:36:45 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:45 - Caption: 
+01/04/20 15:36:45 - Erro:EInvalidOperation
+01/04/20 15:36:45 - Erro:Control 'TEdit($07C38A60)' has no parent window. Path:
+TEdit($07C38A60)
+01/04/20 15:36:47 - ===========================================
+01/04/20 15:36:47 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:47 - Caption: 
+01/04/20 15:36:47 - Erro:EInvalidOperation
+01/04/20 15:36:47 - Erro:Control 'TEdit($07C38D40)' has no parent window. Path:
+TEdit($07C38D40)
+01/04/20 15:36:51 - ===========================================
+01/04/20 15:36:51 - Form: formCriarConsultarOrdemServico
+01/04/20 15:36:51 - Caption: 
+01/04/20 15:36:51 - Erro:EInvalidOperation
+01/04/20 15:36:51 - Erro:Control 'TEdit($07C39020)' has no parent window. Path:
+TEdit($07C39020)
+01/04/20 15:50:18 - ===========================================
+01/04/20 15:50:18 - Form: formCriarConsultarOrdemServico
+01/04/20 15:50:18 - Caption: 
+01/04/20 15:50:18 - Erro:Exception
+01/04/20 15:50:18 - Erro:Preencha os campos com valores válidos. '' is not a valid floating point value
+01/04/20 15:50:35 - ===========================================
+01/04/20 15:50:35 - Form: formCriarConsultarOrdemServico
+01/04/20 15:50:35 - Caption: 
+01/04/20 15:50:35 - Erro:Exception
+01/04/20 15:50:35 - Erro:Preencha os campos com valores válidos. '' is not a valid floating point value
+01/04/20 15:53:23 - ===========================================
+01/04/20 15:53:23 - Form: formCriarConsultarOrdemServico
+01/04/20 15:53:23 - Caption: 
+01/04/20 15:53:23 - Erro:Exception
+01/04/20 15:53:23 - Erro:Informe um valor para o campo Valor da Ordem.
+01/04/20 15:53:28 - ===========================================
+01/04/20 15:53:28 - Form: formCriarConsultarOrdemServico
+01/04/20 15:53:28 - Caption: 
+01/04/20 15:53:28 - Erro:Exception
+01/04/20 15:53:28 - Erro:Informe um valor válido para a ordem.
+01/04/20 15:53:34 - ===========================================
+01/04/20 15:53:34 - Form: formCriarConsultarOrdemServico
+01/04/20 15:53:34 - Caption: 
+01/04/20 15:53:34 - Erro:Exception
+01/04/20 15:53:34 - Erro:Preencha os campos com valores válidos. '' is not a valid floating point value
+01/04/20 15:54:08 - ===========================================
+01/04/20 15:54:08 - Form: formCriarConsultarOrdemServico
+01/04/20 15:54:08 - Caption: 
+01/04/20 15:54:08 - Erro:Exception
+01/04/20 15:54:08 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+01/04/20 15:54:15 - ===========================================
+01/04/20 15:54:15 - Form: formCriarConsultarOrdemServico
+01/04/20 15:54:15 - Caption: 
+01/04/20 15:54:15 - Erro:Exception
+01/04/20 15:54:15 - Erro:Informe um valor igual ou maior que zero para o campo Acréscimo
+01/04/20 15:54:29 - ===========================================
+01/04/20 15:54:29 - Form: formCriarConsultarOrdemServico
+01/04/20 15:54:29 - Caption: 
+01/04/20 15:54:29 - Erro:Exception
+01/04/20 15:54:29 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+01/04/20 15:54:35 - ===========================================
+01/04/20 15:54:35 - Form: formCriarConsultarOrdemServico
+01/04/20 15:54:35 - Caption: 
+01/04/20 15:54:35 - Erro:Exception
+01/04/20 15:54:35 - Erro:Informe um valor igual ou maior que zero para o campo Desconto.
+01/04/20 15:54:42 - ===========================================
+01/04/20 15:54:42 - Form: formCriarConsultarOrdemServico
+01/04/20 15:54:42 - Caption: 
+01/04/20 15:54:42 - Erro:Exception
+01/04/20 15:54:42 - Erro:Preencha os campos com valores válidos. '' is not a valid floating point value

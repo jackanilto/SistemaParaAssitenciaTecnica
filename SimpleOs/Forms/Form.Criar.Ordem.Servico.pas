@@ -14,7 +14,8 @@ uses
   UClasse.Visualizar.Ordens.Servicos.Incluidos, frxClass, frxDBSet,
   UClasse.Entity.Dados.Empresa, frxBarcode, UClasse.Calcular.Juros,
   UClasse.Entity.Configurar.Parcelas, UClasse.Preparar.Imprimir.Recibo,
-  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus, UFactory.Entity, MidasLib;
+  UClasse.Ativar.Desativar.Botoes.Ordem.Servico, Vcl.Menus, UFactory.Entity,
+  MidasLib, RxToolEdit, RxCurrEdit;
 
 type
   TformCriarConsultarOrdemServico = class(TForm)
@@ -82,14 +83,10 @@ type
     SpeedButton3: TSpeedButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
-    edtValorOrdem: TEdit;
     Label21: TLabel;
     Label22: TLabel;
-    edtDesconto: TEdit;
-    edtAcrescimo: TEdit;
     Label23: TLabel;
     Label26: TLabel;
-    edtTotalDeParcelas: TEdit;
     edtDataBaseVencimento: TMaskEdit;
     Label28: TLabel;
     GroupBox3: TGroupBox;
@@ -97,7 +94,6 @@ type
     SpeedButton4: TSpeedButton;
     SpeedButton5: TSpeedButton;
     DBGrid1: TDBGrid;
-    edtTotalDaOS: TEdit;
     Label29: TLabel;
     s_Servicos: TDataSource;
     cds_tem_servicos_adicionados: TClientDataSet;
@@ -174,6 +170,11 @@ type
     PopupMenu1: TPopupMenu;
     Editarparcela1: TMenuItem;
     SpeedButton1: TSpeedButton;
+    edtTotalDeParcelas: TComboBox;
+    edtValorOrdem: TCurrencyEdit;
+    edtDesconto: TCurrencyEdit;
+    edtAcrescimo: TCurrencyEdit;
+    edtTotalDaOS: TCurrencyEdit;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -356,18 +357,21 @@ end;
 
 procedure TformCriarConsultarOrdemServico.edtAcrescimoExit(Sender: TObject);
 begin
+
   edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
     edtDesconto, edtAcrescimo);
+
 end;
 
 procedure TformCriarConsultarOrdemServico.edtDescontoExit(Sender: TObject);
 begin
 
-  edtTotalDaOS.Text := FEntityCriarOrdem.calcularDesconto(edtValorOrdem,
-    edtDesconto);
 
-  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
-    edtDesconto, edtAcrescimo);
+  edtTotalDaOS.Text := FEntityCriarOrdem.calcularDesconto
+    (edtValorOrdem, edtDesconto);
+
+  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo
+    (edtValorOrdem, edtDesconto, edtAcrescimo);
 
 end;
 
@@ -379,12 +383,14 @@ end;
 procedure TformCriarConsultarOrdemServico.edtTotalDeParcelasExit
   (Sender: TObject);
 begin
+
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
     edtValorOrdemParcelado.Text :=
       FEntityCriarOrdem.calularTotalPorNumeroDeParcela(edtTotalDaOS,
       edtTotalDeParcelas);
   end;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.FormClose(Sender: TObject;
@@ -396,6 +402,7 @@ end;
 
 procedure TformCriarConsultarOrdemServico.FormCreate(Sender: TObject);
 begin
+
 
   FEntityCriarOrdem := TEntityCriarOrdemServico.new;
   FEntityServicosOrdem := TEntityAdicionarItemsOrdem.new;
@@ -470,7 +477,6 @@ begin
 
 end;
 
-
 procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
   abreATabelaDeParcelas;
@@ -542,14 +548,14 @@ begin
   PageControl1.ActivePageIndex := 0;
   edtNomeCliente.Clear;
   edtNomeCliente.SetFocus;
-  edtValorOrdem.Text := '0';
-  edtDesconto.Text := '0';
-  edtAcrescimo.Text := '0';
-  edtTotalDaOS.Text := '0';
-  edtTotalDeParcelas.Text := '1';
+  // edtValorOrdem.Text := '0';
+//  edtDesconto.Text := '0';
+//  edtAcrescimo.Text := '0';
+//  edtTotalDaOS.Text := '0';
+//  edtTotalDeParcelas.Text := '1';
 
-  edtDataEntrada.Text := DateToStr(Date);
-  edtDataBaseVencimento.Text := DateToStr(Date);
+  edtDataEntrada.Text := DateToStr(date);
+  edtDataBaseVencimento.Text := DateToStr(date);
 
   limparDatas;
 
@@ -573,8 +579,8 @@ begin
     formLocalizarClientesOrdem.Free;
   end;
 
-//  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
-//  TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
+  // formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
+  // TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
 end;
 
 procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
@@ -612,19 +618,19 @@ begin
 
   if estado = 'insert' then
 
-  if application.MessageBox('Deseja gerar as informações para pagamento ou parcelamento agora?',
-   'Pergutna do sistema!', MB_YESNO+MB_ICONQUESTION)=mryes then
-  begin
+    if application.MessageBox
+      ('Deseja gerar as informações para pagamento ou parcelamento agora?',
+      'Pergutna do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
 
-        FEntityParcelasOrdem
-                          .getID_ORDEM(FEntityCriarOrdem.setId)
-                          .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
-                          .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
-                          .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
-                          .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
-                          .gerarParcelas;
+      FEntityParcelasOrdem.getID_ORDEM(FEntityCriarOrdem.setId)
+        .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
+        .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
+        .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
+        .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
+        .gerarParcelas;
 
-  end;
+    end;
 
   showmessage('Ordem de Serviço inserida com sucesso');
 
@@ -708,30 +714,29 @@ begin
     if s_ParcelasOS.DataSet.RecordCount = 0 then
     begin
 
-     try
-     
-       FEntityParcelasOrdem
-                          .getID_ORDEM(StrToInt(edtCodigoOS.Text))
-                          .getID_CLIENTE(StrToInt(edtCodigoCliente.Text))
-                          .getTOTAL_PARCELAS(StrToInt(edtTotalDeParcelas.Text))
-                          .getVALOR_PARCELA(StrToCurr(edtValorOrdemParcelado.Text))
-                          .getDATA_VENCIMENTO(edtDataBaseVencimento.Text)
-                          .gerarParcelas;
+      try
 
-      showmessage('Parcelas / Informações para pagamento foram geradas com sucesso');                          
+        FEntityParcelasOrdem.getID_ORDEM(StrToInt(edtCodigoOS.Text))
+          .getID_CLIENTE(StrToInt(edtCodigoCliente.Text))
+          .getTOTAL_PARCELAS(StrToInt(edtTotalDeParcelas.Text))
+          .getVALOR_PARCELA(StrToCurr(edtValorOrdemParcelado.Text))
+          .getDATA_VENCIMENTO(edtDataBaseVencimento.Text).gerarParcelas;
 
-                          
-     except on e:exception do
-     begin
-       raise Exception.Create('ERRO! Não foi possível gerar as informações para pagamento. '+e.Message);
-     end;
+        showmessage
+          ('Parcelas / Informações para pagamento foram geradas com sucesso');
 
-     end;
+      except
+        on e: Exception do
+        begin
+          raise Exception.Create
+            ('ERRO! Não foi possível gerar as informações para pagamento. ' +
+            e.Message);
+        end;
+
+      end;
     end;
 
-
   end;
-
 
 end;
 
@@ -779,8 +784,8 @@ begin
     formLocalizarTecnico.Free;
   end;
 
-//  formLocalizarTecnico := TformLocalizarTecnico.Create(self);
-//  TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
+  // formLocalizarTecnico := TformLocalizarTecnico.Create(self);
+  // TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);
@@ -926,14 +931,14 @@ begin
 
   if cds_AdicionarParcela.RecordCount >= 1 then
   begin
-    FEntityParcelasOrdem
-                    .getID_ORDEM(cds_AdicionarParcelaid_ordem.AsInteger)
-                    .getID_CLIENTE(cds_AdicionarParcelaid_cliente.AsInteger)
-                    .getDATA_VENCIMENTO(edtVencimentoParcela.Text)
-                    .getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
-                    .getTOTAL_PARCELAS(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)
-                    .getPARCELA(StrToInt(IntToStr(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)))
-                    .getPGTO(edtPgtoParcela.Text).getObservacao(edtObservacoesParcela.Text)
+    FEntityParcelasOrdem.getID_ORDEM(cds_AdicionarParcelaid_ordem.AsInteger)
+      .getID_CLIENTE(cds_AdicionarParcelaid_cliente.AsInteger)
+      .getDATA_VENCIMENTO(edtVencimentoParcela.Text)
+      .getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
+      .getTOTAL_PARCELAS(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)
+      .getPARCELA
+      (StrToInt(IntToStr(cds_AdicionarParcelaTotal_de_parcelas.AsInteger)))
+      .getPGTO(edtPgtoParcela.Text).getObservacao(edtObservacoesParcela.Text)
       .adicionarParcela;
 
     FAtivarBotoes.ativarbotaoSalvarParcela;
@@ -942,16 +947,14 @@ begin
       .getValor(IntToStr(cds_AdicionarParcelaid_ordem.AsInteger))
       .sqlPesquisaEstatica.listarGrid(s_ParcelasOS);
 
-      cds_AdicionarParcela.EmptyDataSet;
+    cds_AdicionarParcela.EmptyDataSet;
 
   end;
 
   if s_ParcelasOS.DataSet.State in [dsEdit] then
   begin
-    FEntityParcelasOrdem
-                      .getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
-                      .getDATA_VENCIMENTO(edtVencimentoParcela.Text)
-                      .gravarEdicaoParcelas;
+    FEntityParcelasOrdem.getVALOR_PARCELA(StrToCurr(edtValorParcela.Text))
+      .getDATA_VENCIMENTO(edtVencimentoParcela.Text).gravarEdicaoParcelas;
 
     FAtivarBotoes.ativarbotaoSalvarParcela;
 
@@ -1004,7 +1007,7 @@ begin
   edtDataEntrada.Text := DateToStr(date);
   edtDataDeSaida.Clear;
   edtDataRetorno.Clear;
-//  edtDataBaseVencimento.Clear;
+  // edtDataBaseVencimento.Clear;
   edtHoraSaida.Text := '00:00:00';
 end;
 
@@ -1150,6 +1153,10 @@ begin
     .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
     (edtFormaPagamentoParcela);
 
+  TFactory.new.ftTable.FD_Table('NUMERO_PARCELAS')
+    .getCampoTabela('NUM_PARCELAS').popularComponenteComboBox
+    (edtTotalDeParcelas)
+
 end;
 
 procedure TformCriarConsultarOrdemServico.prepararParaImprimir(value: Integer);
@@ -1173,10 +1180,9 @@ end;
 procedure TformCriarConsultarOrdemServico.imprimirRecibo;
 begin
 
-  FEntityImprimirRecibo
-          .getCampo('ID_PARCELA')
-          .getValor(IntToStr(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger))
-          .sqlPesquisaEstatica.listarGrid(s_ImprirmirRecibo).imprimirComprovante;
+  FEntityImprimirRecibo.getCampo('ID_PARCELA')
+    .getValor(IntToStr(s_ParcelasOS.DataSet.FieldByName('ID').AsInteger))
+    .sqlPesquisaEstatica.listarGrid(s_ImprirmirRecibo).imprimirComprovante;
 
   prepararParaImprimir(DataSource1.DataSet.FieldByName('ID').AsInteger);
 

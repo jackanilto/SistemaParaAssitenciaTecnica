@@ -24,8 +24,8 @@ Ordem de teste dos recursos do software
 
 #Número de parcelas -> OK
 
-#Ordem de serviços -> Ver problemas com a exportação para o excel ao ter apenas um registro selecionado.
-					  Campo data de saída deve ficar em branco caso não haja nenhum valor.
+#Ordem de serviços -> Ver problemas com a exportação para o excel ao ter apenas um registro selecionado. OK
+					  Campo data de saída deve ficar em branco caso não haja nenhum valor. OK
  
 
 #Criar Ordem de Serviço-> Número de parcelas deve ser selecionado com base no cadastro
@@ -36,7 +36,8 @@ Ordem de teste dos recursos do software
 					  Não permitir que possa ser digitar dados nos campos Cód. Cliente e Cliente.
 					  Botão excluir não esta funcionando de forma correta, verificar a ordem de execução do botão
 					  Se uma OS for estornada não deve ser permitido a edição deste registro.
-					  Somente gravar a os se todos os campos necessarios estivem preencidos
+					  Somente gravar a os se todos os campos necessarios estivem preencidos.
+					  
 			Parcelas -> Se uma parcela não estiver quitada então não deve ser possivel estornar.
 						Ao cancelar uma operação o botão Salvar deve ser desabilitado.
 						Se aparcela já estiver quitada o botão Quitar deve ser desabilitado
