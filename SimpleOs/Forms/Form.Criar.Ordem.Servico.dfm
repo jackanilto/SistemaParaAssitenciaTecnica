@@ -654,7 +654,6 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
-          ExplicitLeft = -4
           object Label21: TLabel
             Left = 16
             Top = 25
@@ -780,13 +779,6 @@
             TabOrder = 6
             Text = '  /  /    '
           end
-          object edtValorOrdemParcelado: TEdit
-            Left = 484
-            Top = 48
-            Width = 173
-            Height = 25
-            TabOrder = 5
-          end
           object edtTotalDeParcelas: TComboBox
             Left = 369
             Top = 48
@@ -825,6 +817,13 @@
             Height = 25
             TabOrder = 3
             OnExit = edtTotalDaOSExit
+          end
+          object edtValorOrdemParcelado: TCurrencyEdit
+            Left = 484
+            Top = 48
+            Width = 173
+            Height = 25
+            TabOrder = 5
           end
         end
         object GroupBox2: TGroupBox

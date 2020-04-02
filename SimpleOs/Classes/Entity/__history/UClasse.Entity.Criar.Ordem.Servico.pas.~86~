@@ -130,7 +130,7 @@ type
 
     function calcularDesconto(valor, desconto: TCurrencyEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TCurrencyEdit): string;
-    function calularTotalPorNumeroDeParcela(total:TCurrencyEdit; qtde:TComboEdit): string;
+    function calularTotalPorNumeroDeParcela(total:TCurrencyEdit; qtde:TComboBox): string;
     // function calcularValorTotal():string;
 
     function exportar: iCriarOrdemServico;
@@ -174,7 +174,6 @@ begin
     on e: exception do
     begin
       valor.Text := '0';
-      raise exception.create('Informe um valor válido para a ordem.');
     end;
   end;
 
@@ -184,8 +183,6 @@ begin
     on e: exception do
     begin
       desconto.Text := '0';
-      raise exception.create
-        ('Informe um valor igual ou maior que zero para o campo Desconto.')
     end;
   end;
 
@@ -195,8 +192,6 @@ begin
     on e: exception do
     begin
       acrescimo.Text := '0';
-      raise exception.create
-        ('Informe um valor igual ou maior que zero para o campo Acréscimo');
     end;
 
   end;
@@ -225,8 +220,6 @@ begin
     on e: exception do
     begin
       valor.Text := '0';
-      valor.SetFocus;
-      raise exception.create('Informe um valor para o campo Valor da Ordem.');
     end;
   end;
 
@@ -236,8 +229,6 @@ begin
     on e: exception do
     begin
       desconto.Text := '0';
-      raise exception.create
-        ('Informe um valor igual ou maior que zero para o campo Desconto.')
     end;
   end;
 
@@ -251,7 +242,7 @@ begin
 end;
 
 function TEntityCriarOrdemServico.calularTotalPorNumeroDeParcela(total:TCurrencyEdit;
-         qtde:TComboEdit): string;
+         qtde:TComboBox): string;
 var
   valor: Currency;
   quantidade: integer;

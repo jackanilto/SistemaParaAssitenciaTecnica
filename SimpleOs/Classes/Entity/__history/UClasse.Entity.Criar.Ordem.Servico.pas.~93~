@@ -174,7 +174,6 @@ begin
     on e: exception do
     begin
       valor.Text := '0';
-      raise exception.create('Informe um valor válido para a ordem.');
     end;
   end;
 
@@ -184,8 +183,6 @@ begin
     on e: exception do
     begin
       desconto.Text := '0';
-      raise exception.create
-        ('Informe um valor igual ou maior que zero para o campo Desconto.')
     end;
   end;
 
@@ -195,8 +192,6 @@ begin
     on e: exception do
     begin
       acrescimo.Text := '0';
-      raise exception.create
-        ('Informe um valor igual ou maior que zero para o campo Acréscimo');
     end;
 
   end;
@@ -219,39 +214,58 @@ var
   FDescontoOrdem: Currency;
 begin
 
-  try
+ try
     FValorOrdem := StrToCurr(valor.Text);
-  except
-    on e: exception do
-    begin
-      valor.Text := '0';
-      valor.SetFocus;
-      raise exception.create('Informe um valor para o campo Valor da Ordem.');
-    end;
-  end;
+ except
+ begin
+   FValorOrdem := 0;
+   valor.Text := '0';
+ end;
+
+ end;
 
   try
     FDescontoOrdem := StrToCurr(desconto.Text);
   except
-    on e: exception do
-    begin
-      desconto.Text := '0';
-      raise exception.create
-        ('Informe um valor igual ou maior que zero para o campo Desconto.')
-    end;
+  begin
+    FDescontoOrdem := 0;
+    desconto.Text := '0';
   end;
 
-  if ((valor.Text <> '0') and (desconto.Text <> '0')) then
-  begin
-    result := CurrToStr(FValorOrdem - FDescontoOrdem);
-  end
-  else
-    result := valor.Text;
+  end;
+
+  result := CurrToStr(FValorOrdem-FDescontoOrdem);
+
+
+//  try
+//    FValorOrdem := StrToCurr(valor.Text);
+//  except
+//    on e: exception do
+//    begin
+//      valor.Text := '0';
+//    end;
+//  end;
+//
+//  try
+//    FDescontoOrdem := StrToCurr(desconto.Text);
+//  except
+//    on e: exception do
+//    begin
+//      desconto.Text := '0';
+//    end;
+//  end;
+//
+//  if ((valor.Text <> '0') and (desconto.Text <> '0')) then
+//  begin
+//    result := CurrToStr(FValorOrdem - FDescontoOrdem);
+//  end
+//  else
+//    result := valor.Text;
 
 end;
 
 function TEntityCriarOrdemServico.calularTotalPorNumeroDeParcela(total:TCurrencyEdit;
-         qtde:TComboEdit): string;
+         qtde:TComboBox): string;
 var
   valor: Currency;
   quantidade: integer;

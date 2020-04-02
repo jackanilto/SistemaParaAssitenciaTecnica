@@ -130,7 +130,7 @@ type
 
     function calcularDesconto(valor, desconto: TCurrencyEdit): string;
     function calcularAcrescimo(valor, desconto, acrescimo: TCurrencyEdit): string;
-    function calularTotalPorNumeroDeParcela(total, qtde: TCurrencyEdit): string;
+    function calularTotalPorNumeroDeParcela(total:TCurrencyEdit; qtde:TComboBox): string;
     // function calcularValorTotal():string;
 
     function exportar: iCriarOrdemServico;
@@ -161,7 +161,7 @@ begin
 end;
 
 function TEntityCriarOrdemServico.calcularAcrescimo(valor, desconto,
-  acrescimo: TEdit): string;
+  acrescimo: TCurrencyEdit): string;
 var
   FValorOrdem: Currency;
   FDescontoOrdem: Currency;
@@ -213,7 +213,7 @@ begin
 end;
 
 function TEntityCriarOrdemServico.calcularDesconto(valor,
-  desconto: TEdit): string;
+  desconto: TCurrencyEdit): string;
 var
   FValorOrdem: Currency;
   FDescontoOrdem: Currency;
@@ -250,8 +250,8 @@ begin
 
 end;
 
-function TEntityCriarOrdemServico.calularTotalPorNumeroDeParcela(total,
-  qtde: TEdit): string;
+function TEntityCriarOrdemServico.calularTotalPorNumeroDeParcela(total:TCurrencyEdit;
+         qtde:TComboBox): string;
 var
   valor: Currency;
   quantidade: integer;

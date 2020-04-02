@@ -139,7 +139,6 @@ type
     Label40: TLabel;
     edtObservacoesParcela: TEdit;
     Label41: TLabel;
-    edtValorOrdemParcelado: TEdit;
     Label24: TLabel;
     cds_AdicionarParcela: TClientDataSet;
     cds_AdicionarParcelaid_ordem: TIntegerField;
@@ -175,6 +174,7 @@ type
     edtDesconto: TCurrencyEdit;
     edtAcrescimo: TCurrencyEdit;
     edtTotalDaOS: TCurrencyEdit;
+    edtValorOrdemParcelado: TCurrencyEdit;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -243,6 +243,8 @@ type
     procedure imprimirRecibo;
     procedure desabilitarBotoesParcelasEstornar;
     procedure habilitarBotoesQuitarParcela;
+    procedure atualizarValores;
+    procedure caluclarValorDoParcelamento;
   public
     { Public declarations }
   end;
@@ -358,20 +360,23 @@ end;
 procedure TformCriarConsultarOrdemServico.edtAcrescimoExit(Sender: TObject);
 begin
 
-  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
-    edtDesconto, edtAcrescimo);
+  atualizarValores;
+
+//  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
+//    edtDesconto, edtAcrescimo);
 
 end;
 
 procedure TformCriarConsultarOrdemServico.edtDescontoExit(Sender: TObject);
 begin
 
+  atualizarValores;
 
-  edtTotalDaOS.Text := FEntityCriarOrdem.calcularDesconto
-    (edtValorOrdem, edtDesconto);
-
-  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo
-    (edtValorOrdem, edtDesconto, edtAcrescimo);
+//  edtTotalDaOS.Text := FEntityCriarOrdem.calcularDesconto
+//    (edtValorOrdem, edtDesconto);
+//
+//  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo
+//    (edtValorOrdem, edtDesconto, edtAcrescimo);
 
 end;
 
@@ -548,11 +553,11 @@ begin
   PageControl1.ActivePageIndex := 0;
   edtNomeCliente.Clear;
   edtNomeCliente.SetFocus;
-  // edtValorOrdem.Text := '0';
-//  edtDesconto.Text := '0';
-//  edtAcrescimo.Text := '0';
-//  edtTotalDaOS.Text := '0';
-//  edtTotalDeParcelas.Text := '1';
+  edtValorOrdem.Text := '0';
+  edtDesconto.Text := '0';
+  edtAcrescimo.Text := '0';
+  edtTotalDaOS.Text := '0';
+  edtTotalDeParcelas.Text := '1';
 
   edtDataEntrada.Text := DateToStr(date);
   edtDataBaseVencimento.Text := DateToStr(date);
@@ -675,33 +680,9 @@ begin
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton13Click(Sender: TObject);
-var
-  valorMaoDeObra: Currency;
-  valorDoDesconto: Currency;
-  valorDoAcrescimo: Currency;
-  totalDaOS: Currency;
-  qtdeParcelas: Integer;
 begin
-  try
-    valorMaoDeObra := StrToCurr(edtValorOrdem.Text);
-    valorDoDesconto := StrToCurr(edtDesconto.Text);
-    valorDoAcrescimo := StrToCurr(edtAcrescimo.Text);
-    qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
 
-    edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) -
-      valorDoDesconto);
-
-    totalDaOS := StrToCurr(edtTotalDaOS.Text);
-
-    edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
-  except
-    on e: Exception do
-    begin
-      raise Exception.Create('Preencha os campos com valores válidos. ' +
-        e.Message);
-    end;
-
-  end;
+  caluclarValorDoParcelamento;
 
 end;
 
@@ -1057,10 +1038,16 @@ var
   valorDaOS: Currency;
 begin
 
-  valorDaOS := StrToCurr(edtValorOrdem.Text);
+  if edtTotalDaOS.Text <> EmptyStr then
+    valorDaOS := StrToCurr(edtValorOrdem.Text)
+  else
+    FValorTotalOrdemServico := 0;
 
   try
-    FValorTotalOrdemServico := StrToCurr(edtTotalDaOS.Text);
+    if edtTotalDaOS.Text <> EmptyStr then
+      FValorTotalOrdemServico := StrToCurr(edtTotalDaOS.Text)
+    else
+      FValorTotalOrdemServico := 0;
   except
     on e: Exception do
       raise Exception.Create('Informe um valor válido para o Total da OS');
@@ -1155,7 +1142,8 @@ begin
 
   TFactory.new.ftTable.FD_Table('NUMERO_PARCELAS')
     .getCampoTabela('NUM_PARCELAS').popularComponenteComboBox
-    (edtTotalDeParcelas)
+    (edtTotalDeParcelas);
+ edtTotalDeParcelas.ItemIndex := 0;
 
 end;
 
@@ -1225,6 +1213,65 @@ begin
   sbExcluirParcela.Enabled := true;
   sbImprimirParcelas.Enabled := true;
   sbCancelar.Enabled := false;
+end;
+
+procedure TformCriarConsultarOrdemServico.atualizarValores;
+var
+  valorOS: Currency;
+  valorDesconto: Currency;
+  valorAcrescimo: Currency;
+begin
+  if edtValorOrdem.Text <> EmptyStr then
+  begin
+    valorOS := StrToCurr(edtValorOrdem.Text);
+  end
+  else
+  begin
+    valorOS := 0;
+  end;
+  if edtDesconto.Text <> EmptyStr then
+  begin
+    valorDesconto := StrToCurr(edtDesconto.Text);
+  end
+  else
+  begin
+    valorDesconto := 0;
+  end;
+  if edtAcrescimo.Text <> EmptyStr then
+  begin
+    valorAcrescimo := StrToCurr(edtAcrescimo.Text);
+  end
+  else
+  begin
+    valorAcrescimo := 0;
+  end;
+  edtTotalDaOS.Text := CurrToStr((valorOS - valorDesconto) + valorAcrescimo);
+end;
+
+procedure TformCriarConsultarOrdemServico.caluclarValorDoParcelamento;
+var
+  valorMaoDeObra: Currency;
+  valorDoDesconto: Currency;
+  valorDoAcrescimo: Currency;
+  qtdeParcelas: Integer;
+  totalDaOS: Currency;
+begin
+  if edtValorOrdem.Text <> EmptyStr then
+    valorMaoDeObra := StrToCurr(edtValorOrdem.Text)
+  else
+    valorMaoDeObra := 0;
+  if edtDesconto.Text <> EmptyStr then
+    valorDoDesconto := StrToCurr(edtDesconto.Text)
+  else
+    valorDoDesconto := 0;
+  if edtAcrescimo.Text <> EmptyStr then
+    valorDoAcrescimo := StrToCurr(edtAcrescimo.Text)
+  else
+    valorDoAcrescimo := 0;
+  qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
+  edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) - valorDoDesconto);
+  totalDaOS := StrToCurr(edtTotalDaOS.Text);
+  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
 end;
 
 procedure TformCriarConsultarOrdemServico.abreATabelaDeParcelas;
