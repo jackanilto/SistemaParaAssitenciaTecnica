@@ -1268,10 +1268,18 @@ begin
     valorDoAcrescimo := StrToCurr(edtAcrescimo.Text)
   else
     valorDoAcrescimo := 0;
+
+  totalDaOS := StrToCurr(edtTotalDaOS.Text);
+
   qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
   edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) - valorDoDesconto);
-  totalDaOS := StrToCurr(edtTotalDaOS.Text);
-  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
+
+  edtValorOrdemParcelado.Text := CurrToStr(TFactory.new.calcularParcela.getValor(totalDaOS)
+                                .getNumeroParcelas(qtdeParcelas).valorDeCadaParcela);
+
+
+//  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
+
 end;
 
 procedure TformCriarConsultarOrdemServico.abreATabelaDeParcelas;
