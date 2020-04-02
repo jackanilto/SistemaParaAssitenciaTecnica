@@ -8,8 +8,10 @@ inherited formNumeroParcelas: TformNumeroParcelas
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 860
+    ExplicitWidth = 860
     inherited sbFechar: TSpeedButton
       Left = 808
+      ExplicitLeft = 808
     end
     inherited lblCaption: TLabel
       Left = 138
@@ -21,34 +23,43 @@ inherited formNumeroParcelas: TformNumeroParcelas
   end
   inherited Panel2: TPanel
     Width = 860
+    ExplicitWidth = 860
   end
   inherited Panel3: TPanel
     Top = 328
     Width = 860
+    ExplicitTop = 328
+    ExplicitWidth = 860
     inherited Label4: TLabel
       Left = 526
       Visible = False
+      ExplicitLeft = 526
     end
     inherited Label5: TLabel
       Left = 661
       Visible = False
+      ExplicitLeft = 661
     end
     inherited cbPesquisar: TComboBox
       Left = 526
       Visible = False
+      ExplicitLeft = 526
     end
     inherited edtPesquisar: TEdit
       Left = 661
       Visible = False
+      ExplicitLeft = 661
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 860
     Height = 247
+    ActiveCard = cardPanelCadatro
+    ExplicitWidth = 860
+    ExplicitHeight = 247
     inherited cardPanelCadatro: TCard
       Width = 860
       Height = 247
-      ExplicitTop = 1
       ExplicitWidth = 860
       ExplicitHeight = 247
       object Label1: TLabel
@@ -145,21 +156,28 @@ inherited formNumeroParcelas: TformNumeroParcelas
         Font.Style = []
         ParentFont = False
         TabOrder = 3
+        Visible = False
       end
     end
     inherited cardPanelConsulta: TCard
       Width = 860
       Height = 247
+      ExplicitWidth = 860
+      ExplicitHeight = 247
       inherited Panel4: TPanel
         Top = 202
         Width = 860
+        ExplicitTop = 202
+        ExplicitWidth = 860
         inherited sbImprimir: TSpeedButton
           Left = 585
           Visible = False
+          ExplicitLeft = 585
         end
         inherited sbExportar: TSpeedButton
           Left = 696
           Visible = False
+          ExplicitLeft = 696
         end
       end
       inherited DBGrid1: TDBGrid

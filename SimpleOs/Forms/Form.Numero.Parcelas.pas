@@ -56,10 +56,12 @@ begin
     IntToStr(DataSource1.DataSet.FieldByName('NUM_PARCELAS').AsInteger);
   edtJuros.Text := CurrToStr(DataSource1.DataSet.FieldByName('JUROS').AsFloat);
 
-  if DataSource1.DataSet.FieldByName('APLICAR_NA_OS').AsString = 's' then
-    CheckBox1.Checked := true
-  else
-    CheckBox1.Checked := false;
+  DataSource1.DataSet.FieldByName('APLICAR_NA_OS').Visible := false;
+
+//  if DataSource1.DataSet.FieldByName('APLICAR_NA_OS').AsString = 's' then
+//    CheckBox1.Checked := true
+//  else
+//    CheckBox1.Checked := false;
 
 end;
 
