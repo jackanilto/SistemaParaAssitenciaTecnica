@@ -30,9 +30,9 @@ Ordem de teste dos recursos do software
 
 #Criar Ordem de Serviço-> Número de parcelas deve ser selecionado com base no cadastro
 					  de número de parcelas. O calculo dos valores das parcelas
-					  deve ser feito automaticamente.
+					  deve ser feito automaticamente. -> OK
 					  Formatar os valores monetarios na tela. -> OK
-					  Não permitir digitar os dados sem antes clicar no botão Ordem de Serviço.
+					  Não permitir digitar os dados sem antes clicar no botão Ordem de Serviço. -> OK
 					  Não permitir que possa ser digitar dados nos campos Cód. Cliente e Cliente.
 					  Botão excluir não esta funcionando de forma correta, verificar a ordem de execução do botão
 					  Se uma OS for estornada não deve ser permitido a edição deste registro.

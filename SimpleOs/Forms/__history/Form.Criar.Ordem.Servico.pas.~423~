@@ -28,7 +28,6 @@ type
     tbParcelas: TTabSheet;
     Panel3: TPanel;
     sbNovo: TSpeedButton;
-    sbSalvar: TSpeedButton;
     sbEditar: TSpeedButton;
     sbExcluir: TSpeedButton;
     sbCancelar: TSpeedButton;
@@ -175,6 +174,7 @@ type
     edtAcrescimo: TCurrencyEdit;
     edtTotalDaOS: TCurrencyEdit;
     edtValorOrdemParcelado: TCurrencyEdit;
+    sbSalvar: TSpeedButton;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -245,6 +245,7 @@ type
     procedure habilitarBotoesQuitarParcela;
     procedure atualizarValores;
     procedure caluclarValorDoParcelamento;
+    procedure habilitarDesabilitarEdits(value:string);
   public
     { Public declarations }
   end;
@@ -484,12 +485,16 @@ end;
 
 procedure TformCriarConsultarOrdemServico.FormShow(Sender: TObject);
 begin
+
   abreATabelaDeParcelas;
   selecionarOrdem;
   popularComboBox;
   edtDataPagamentoParcela.DateTime := date;
   edtDataBaseVencimento.Text := DateToStr(date);
   PageControl1.ActivePageIndex := 0;
+
+  habilitarDesabilitarEdits('desativar');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.Panel1MouseDown(Sender: TObject;
@@ -506,9 +511,13 @@ end;
 
 procedure TformCriarConsultarOrdemServico.sbCancelarClick(Sender: TObject);
 begin
+
   FEntityCriarOrdem.cancelar;
   FAtivarBotoes.ativarBotaoCancelar;
   lblCaption.Caption := 'Ordem de serviços';
+
+  habilitarDesabilitarEdits('desativar');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbEditarClick(Sender: TObject);
@@ -516,6 +525,9 @@ begin
   FEntityCriarOrdem.editar;
   FAtivarBotoes.ativarBotaoEditar;
   lblCaption.Caption := 'Ordem de serviços - Editando OS';
+
+  habilitarDesabilitarEdits('ativar');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbExcluirClick(Sender: TObject);
@@ -538,6 +550,8 @@ begin
 
   edtNomeCliente.Clear;
   edtDataFabricacao.Clear;
+
+  habilitarDesabilitarEdits('desativar');
 
 end;
 
@@ -572,17 +586,23 @@ begin
 
   lblCaption.Caption := 'Ordem de serviços - Nova OS';
 
+  habilitarDesabilitarEdits('ativar');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.sbPesquisarCepClick(Sender: TObject);
 begin
 
-  formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
-  try
-    formLocalizarClientesOrdem.ShowModal;
-  finally
-    formLocalizarClientesOrdem.Free;
-  end;
+
+  if DataSource1.DataSet.State in [dsInsert] then
+    begin
+      formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
+      try
+        formLocalizarClientesOrdem.ShowModal;
+      finally
+        formLocalizarClientesOrdem.Free;
+      end;
+    end;
 
   // formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
   // TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
@@ -595,23 +615,34 @@ begin
 
   estado := FEntityCriarOrdem.estadoDaTabela;
 
-  FEntityCriarOrdem.getID_CLIENTE(edtCodigoCliente.Text)
-    .getEQUIPAMENTO(edtEquipamento.Text).getMarca(edtMarca.Text)
-    .getModelo(edtModelo.Text).getNUMERO_SERIE(edtNumeroDeSerie.Text)
-    .getDATA_FABRICACAO(edtDataFabricacao.Text).getDEFEITO_RELATADO
-    (edtDefeitoRelatado.Text).getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
-    .getSOLUCAO_DO_PROBLEMA(edtSolucaoDoProblema.Text)
-    .getSITUACAO_DA_ORDEM(edtSituacaoOrdem.Text)
-    .getPRIORIDADE(edtPrioridade.Text).getDataCadastro(edtDataEntrada.Text)
-    .getDataFinalizacao(edtDataDeSaida.Text).getHoraFinalizacao
-    (edtHoraSaida.Text).getIdTecnico(FIdTecnico.ToString)
-    .getTecnico(edtTecnicoResponsavel.Text).getRETORNO(edtRetorno.Text)
-    .getDATA_RETORNO(edtDataRetorno.Text).getObservacao(edtObservacao.Text)
-    .getVALOR_DA_ORDEM(edtValorOrdem.Text).getDesconto(edtDesconto.Text)
-    .getACRESCIMO(edtAcrescimo.Text).getTotalDoOrcamento(edtTotalDaOS.Text)
-    .getTOTAL_PARCELAS(edtTotalDeParcelas.Text).getDataBaseVencimento
-    (edtDataBaseVencimento.Text).getVALOR_DA_PARCELA
-    (edtValorOrdemParcelado.Text).gravar;
+  FEntityCriarOrdem
+                  .getID_CLIENTE(edtCodigoCliente.Text)
+                  .getEQUIPAMENTO(edtEquipamento.Text)
+                  .getMarca(edtMarca.Text)
+                  .getModelo(edtModelo.Text)
+                  .getNUMERO_SERIE(edtNumeroDeSerie.Text)
+                  .getDATA_FABRICACAO(edtDataFabricacao.Text)
+                  .getDEFEITO_RELATADO(edtDefeitoRelatado.Text)
+                  .getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
+                  .getSOLUCAO_DO_PROBLEMA(edtSolucaoDoProblema.Text)
+                  .getSITUACAO_DA_ORDEM(edtSituacaoOrdem.Text)
+                  .getPRIORIDADE(edtPrioridade.Text)
+                  .getDataCadastro(edtDataEntrada.Text)
+                  .getDataFinalizacao(edtDataDeSaida.Text)
+                  .getHoraFinalizacao(edtHoraSaida.Text)
+                  .getIdTecnico(FIdTecnico.ToString)
+                  .getTecnico(edtTecnicoResponsavel.Text)
+                  .getRETORNO(edtRetorno.Text)
+                  .getDATA_RETORNO(edtDataRetorno.Text)
+                  .getObservacao(edtObservacao.Text)
+                  .getVALOR_DA_ORDEM(edtValorOrdem.Text)
+                  .getDesconto(edtDesconto.Text)
+                  .getACRESCIMO(edtAcrescimo.Text)
+                  .getTotalDoOrcamento(edtTotalDaOS.Text)
+                  .getTOTAL_PARCELAS(edtTotalDeParcelas.Text)
+                  .getDataBaseVencimento(edtDataBaseVencimento.Text)
+                  .getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text)
+                  .gravar;
 
   if estado = 'insert' then
     FEntityServicosOrdem.gravarServicosAdicionadosInsert
@@ -642,6 +673,8 @@ begin
   FAtivarBotoes.ativarBotaoSalvar;
 
   lblCaption.Caption := 'Ordem de serviços';
+
+  habilitarDesabilitarEdits('desativar');
 
 end;
 
@@ -1038,7 +1071,10 @@ var
   valorDaOS: Currency;
 begin
 
-  valorDaOS := StrToCurr(edtValorOrdem.Text);
+  if edtTotalDaOS.Text <> EmptyStr then
+    valorDaOS := StrToCurr(edtValorOrdem.Text)
+  else
+    FValorTotalOrdemServico := 0;
 
   try
     if edtTotalDaOS.Text <> EmptyStr then
@@ -1212,6 +1248,75 @@ begin
   sbCancelar.Enabled := false;
 end;
 
+procedure TformCriarConsultarOrdemServico.habilitarDesabilitarEdits(
+  value: string);
+begin
+
+   if value = 'ativar' then
+   begin
+
+     edtCodigoOS.ReadOnly := true;
+     edtCodigoCliente.ReadOnly := true;
+     edtNomeCliente.ReadOnly := true;
+     edtEquipamento.ReadOnly := false;
+     edtMarca.ReadOnly := false;
+     edtModelo.ReadOnly := false;
+     edtNumeroDeSerie.ReadOnly := false;
+     edtDefeitoRelatado.ReadOnly := false;
+     edtLaudoTecnico.ReadOnly := false;
+     edtSolucaoDoProblema.ReadOnly := false;
+     edtSituacaoOrdem.Enabled := false;
+     edtPrioridade.Enabled := false;
+     edtDataEntrada.ReadOnly := false;
+     edtDataDeSaida.ReadOnly := false;
+     edtHoraSaida.ReadOnly := false;
+     edtTecnicoResponsavel.ReadOnly := false;
+     edtRetorno.ReadOnly := false;
+     edtDataRetorno.ReadOnly := false;
+     edtObservacao.ReadOnly := false;
+     edtValorOrdem.ReadOnly := false;
+     edtDesconto.ReadOnly := false;
+     edtAcrescimo.ReadOnly := false;
+     edtTotalDaOS.ReadOnly := false;
+     edtTotalDeParcelas.Enabled := false;
+     edtValorOrdemParcelado.ReadOnly := false;
+     edtDataBaseVencimento.Enabled := false;
+
+   end
+   else if value = 'desativar' then
+   begin
+
+     edtCodigoOS.ReadOnly := true;
+     edtCodigoCliente.ReadOnly := true;
+     edtNomeCliente.ReadOnly := true;
+     edtEquipamento.ReadOnly := true;
+     edtMarca.ReadOnly := true;
+     edtModelo.ReadOnly := true;
+     edtNumeroDeSerie.ReadOnly := true;
+     edtDefeitoRelatado.ReadOnly := true;
+     edtLaudoTecnico.ReadOnly := true;
+     edtSolucaoDoProblema.ReadOnly := true;
+     edtSituacaoOrdem.Enabled := true;
+     edtPrioridade.Enabled := true;
+     edtDataEntrada.ReadOnly := true;
+     edtDataDeSaida.ReadOnly := true;
+     edtHoraSaida.ReadOnly := true;
+     edtTecnicoResponsavel.ReadOnly := true;
+     edtRetorno.ReadOnly := true;
+     edtDataRetorno.ReadOnly := true;
+     edtObservacao.ReadOnly := true;
+     edtValorOrdem.ReadOnly := true;
+     edtDesconto.ReadOnly := true;
+     edtAcrescimo.ReadOnly := true;
+     edtTotalDaOS.ReadOnly := true;
+     edtTotalDeParcelas.Enabled := true;
+     edtValorOrdemParcelado.ReadOnly := true;
+     edtDataBaseVencimento.Enabled := true;
+
+   end;
+
+end;
+
 procedure TformCriarConsultarOrdemServico.atualizarValores;
 var
   valorOS: Currency;
@@ -1265,10 +1370,18 @@ begin
     valorDoAcrescimo := StrToCurr(edtAcrescimo.Text)
   else
     valorDoAcrescimo := 0;
+
+  totalDaOS := StrToCurr(edtTotalDaOS.Text);
+
   qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
   edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) - valorDoDesconto);
-  totalDaOS := StrToCurr(edtTotalDaOS.Text);
-  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
+
+  edtValorOrdemParcelado.Text := CurrToStr(TFactory.new.calcularParcela.getValor(totalDaOS)
+                                .getNumeroParcelas(qtdeParcelas).valorDeCadaParcela);
+
+
+//  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
+
 end;
 
 procedure TformCriarConsultarOrdemServico.abreATabelaDeParcelas;

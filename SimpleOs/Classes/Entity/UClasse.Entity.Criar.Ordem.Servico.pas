@@ -473,7 +473,7 @@ begin
     FACRESCIMO := StrToCurr(value);
   except
     on e: exception do
-      raise exception.create('Informe um valor válido para o acréscimo.');
+      FACRESCIMO := 0;
   end;
 end;
 
@@ -555,7 +555,7 @@ begin
     FDESCONTO := StrToCurr(value);
   except
     on e: exception do
-      raise exception.create('Informe um valor válido para o Desconto');
+      FDESCONTO := 0;
   end;
 end;
 

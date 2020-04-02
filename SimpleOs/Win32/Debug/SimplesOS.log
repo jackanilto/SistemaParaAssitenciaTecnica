@@ -442,3 +442,78 @@ TEdit($07C39020)
 02/04/20 14:10:55 - Caption: 
 02/04/20 14:10:55 - Erro:EConvertError
 02/04/20 14:10:55 - Erro:'' is not a valid floating point value
+02/04/20 14:36:30 - ===========================================
+02/04/20 14:36:30 - Form: formCriarConsultarOrdemServico
+02/04/20 14:36:30 - Caption: 
+02/04/20 14:36:30 - Erro:Exception
+02/04/20 14:36:30 - Erro:Informe um valor válido para o campo Valor da Ordem.
+02/04/20 14:36:48 - ===========================================
+02/04/20 14:36:48 - Form: formCriarConsultarOrdemServico
+02/04/20 14:36:48 - Caption: 
+02/04/20 14:36:48 - Erro:Exception
+02/04/20 14:36:48 - Erro:Informe um valor válido para o Desconto
+02/04/20 14:36:53 - ===========================================
+02/04/20 14:36:53 - Form: formCriarConsultarOrdemServico
+02/04/20 14:36:53 - Caption: 
+02/04/20 14:36:53 - Erro:Exception
+02/04/20 14:36:53 - Erro:Informe um valor válido para o Desconto
+02/04/20 14:41:16 - ===========================================
+02/04/20 14:41:16 - Form: formCriarConsultarOrdemServico
+02/04/20 14:41:16 - Caption: 
+02/04/20 14:41:16 - Erro:Exception
+02/04/20 14:41:16 - Erro:Informe um valor válido para o Desconto
+02/04/20 14:46:06 - ===========================================
+02/04/20 14:46:06 - Form: formCriarConsultarOrdemServico
+02/04/20 14:46:06 - Caption: 
+02/04/20 14:46:06 - Erro:Exception
+02/04/20 14:46:06 - Erro:Informe um valor válido para o acréscimo.
+02/04/20 14:57:29 - ===========================================
+02/04/20 14:57:29 - Form: formCriarConsultarOrdemServico
+02/04/20 14:57:29 - Caption: 
+02/04/20 14:57:29 - Erro:EInvalidOperation
+02/04/20 14:57:29 - Erro:Cannot focus a disabled or invisible window
+02/04/20 14:57:34 - ===========================================
+02/04/20 14:57:34 - Form: formCriarConsultarOrdemServico
+02/04/20 14:57:34 - Caption: 
+02/04/20 14:57:34 - Erro:EInvalidOperation
+02/04/20 14:57:34 - Erro:Cannot focus a disabled or invisible window
+02/04/20 14:57:36 - ===========================================
+02/04/20 14:57:36 - Form: formCriarConsultarOrdemServico
+02/04/20 14:57:36 - Caption: 
+02/04/20 14:57:36 - Erro:EInvalidOperation
+02/04/20 14:57:36 - Erro:Cannot focus a disabled or invisible window
+02/04/20 14:57:40 - ===========================================
+02/04/20 14:57:40 - Form: formCriarConsultarOrdemServico
+02/04/20 14:57:40 - Caption: 
+02/04/20 14:57:40 - Erro:EInvalidOperation
+02/04/20 14:57:40 - Erro:Cannot focus a disabled or invisible window
+02/04/20 14:57:43 - ===========================================
+02/04/20 14:57:43 - Form: formCriarConsultarOrdemServico
+02/04/20 14:57:43 - Caption: 
+02/04/20 14:57:43 - Erro:EInvalidOperation
+02/04/20 14:57:43 - Erro:Cannot focus a disabled or invisible window
+02/04/20 14:58:48 - ===========================================
+02/04/20 14:58:48 - Form: formCriarConsultarOrdemServico
+02/04/20 14:58:48 - Caption: 
+02/04/20 14:58:48 - Erro:EInvalidOperation
+02/04/20 14:58:48 - Erro:Cannot focus a disabled or invisible window
+02/04/20 14:58:51 - ===========================================
+02/04/20 14:58:51 - Form: formCriarConsultarOrdemServico
+02/04/20 14:58:51 - Caption: 
+02/04/20 14:58:51 - Erro:EInvalidOperation
+02/04/20 14:58:51 - Erro:Cannot focus a disabled or invisible window
+02/04/20 14:58:53 - ===========================================
+02/04/20 14:58:53 - Form: formCriarConsultarOrdemServico
+02/04/20 14:58:53 - Caption: 
+02/04/20 14:58:53 - Erro:EInvalidOperation
+02/04/20 14:58:53 - Erro:Cannot focus a disabled or invisible window
+02/04/20 14:59:32 - ===========================================
+02/04/20 14:59:32 - Form: formCriarConsultarOrdemServico
+02/04/20 14:59:32 - Caption: 
+02/04/20 14:59:32 - Erro:EInvalidOperation
+02/04/20 14:59:32 - Erro:Cannot focus a disabled or invisible window
+02/04/20 15:06:00 - ===========================================
+02/04/20 15:06:00 - Form: formPrincipal
+02/04/20 15:06:00 - Caption: SimpleOS
+02/04/20 15:06:00 - Erro:EAccessViolation
+02/04/20 15:06:00 - Erro:Access violation at address 00C02843 in module 'SimplesOS.exe'. Read of address 00000004

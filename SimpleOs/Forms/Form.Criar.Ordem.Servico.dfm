@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbOrdemServiço
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -433,6 +433,7 @@
           Width = 89
           Height = 25
           CharCase = ecUpperCase
+          ReadOnly = True
           TabOrder = 1
         end
         object edtNomeCliente: TEdit
@@ -441,6 +442,7 @@
           Width = 284
           Height = 25
           CharCase = ecUpperCase
+          ReadOnly = True
           TabOrder = 2
         end
         object edtMarca: TEdit
@@ -2376,8 +2378,8 @@
   end
   object s_Servicos: TDataSource
     OnDataChange = s_ServicosDataChange
-    Left = 695
-    Top = 288
+    Left = 439
+    Top = 120
   end
   object cds_tem_servicos_adicionados: TClientDataSet
     PersistDataPacket.Data = {
@@ -2389,8 +2391,8 @@
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 604
-    Top = 277
+    Left = 364
+    Top = 125
     object cds_tem_servicos_adicionadosid: TIntegerField
       FieldName = 'id'
     end
@@ -2416,8 +2418,8 @@
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 836
-    Top = 333
+    Left = 828
+    Top = 277
     object cds_tem_servicos_adicionados_editid: TIntegerField
       FieldName = 'id'
     end
@@ -2431,8 +2433,8 @@
   end
   object s_tem_servicos_adicionados_edit: TDataSource
     DataSet = cds_tem_servicos_adicionados_edit
-    Left = 836
-    Top = 277
+    Left = 940
+    Top = 253
   end
   object s_ParcelasOS: TDataSource
     OnDataChange = s_ParcelasOSDataChange
@@ -3488,8 +3490,8 @@
     Top = 221
   end
   object s_ImprimirEmpresa: TDataSource
-    Left = 612
-    Top = 237
+    Left = 620
+    Top = 213
   end
   object frx_ImprimirParcelas: TfrxReport
     Version = '6.3.3'
@@ -4287,7 +4289,7 @@
   end
   object frxBarCodeObject1: TfrxBarCodeObject
     Left = 500
-    Top = 245
+    Top = 213
   end
   object s_ImprimirInfoJuros: TDataSource
     Left = 860

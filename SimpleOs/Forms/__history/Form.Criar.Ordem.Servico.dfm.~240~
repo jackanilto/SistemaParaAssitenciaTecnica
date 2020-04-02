@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbOrdemServiço
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -433,6 +433,7 @@
           Width = 89
           Height = 25
           CharCase = ecUpperCase
+          ReadOnly = True
           TabOrder = 1
         end
         object edtNomeCliente: TEdit
@@ -441,6 +442,7 @@
           Width = 284
           Height = 25
           CharCase = ecUpperCase
+          ReadOnly = True
           TabOrder = 2
         end
         object edtMarca: TEdit
@@ -654,7 +656,6 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
-          ExplicitLeft = -4
           object Label21: TLabel
             Left = 16
             Top = 25
@@ -770,24 +771,6 @@
               1616FF1616FF1616FF1616FF1616FF1616FF1616FF9797FFFFFF}
             OnClick = SpeedButton13Click
           end
-          object edtDesconto: TEdit
-            Left = 16
-            Top = 107
-            Width = 121
-            Height = 25
-            CharCase = ecUpperCase
-            TabOrder = 1
-            OnExit = edtDescontoExit
-          end
-          object edtAcrescimo: TEdit
-            Left = 143
-            Top = 107
-            Width = 122
-            Height = 25
-            CharCase = ecUpperCase
-            TabOrder = 2
-            OnExit = edtAcrescimoExit
-          end
           object edtDataBaseVencimento: TMaskEdit
             Left = 369
             Top = 107
@@ -795,31 +778,16 @@
             Height = 25
             EditMask = '00/00/0000'
             MaxLength = 10
-            TabOrder = 5
+            TabOrder = 6
             Text = '  /  /    '
-          end
-          object edtTotalDaOS: TEdit
-            Left = 16
-            Top = 162
-            Width = 249
-            Height = 25
-            CharCase = ecUpperCase
-            TabOrder = 3
-            OnExit = edtTotalDaOSExit
-          end
-          object edtValorOrdemParcelado: TEdit
-            Left = 484
-            Top = 48
-            Width = 173
-            Height = 25
-            TabOrder = 4
           end
           object edtTotalDeParcelas: TComboBox
             Left = 369
             Top = 48
             Width = 109
             Height = 25
-            TabOrder = 6
+            TabOrder = 4
+            OnExit = edtTotalDeParcelasExit
           end
           object edtValorOrdem: TCurrencyEdit
             Left = 16
@@ -827,6 +795,37 @@
             Width = 249
             Height = 25
             TabOrder = 0
+          end
+          object edtDesconto: TCurrencyEdit
+            Left = 16
+            Top = 107
+            Width = 121
+            Height = 25
+            TabOrder = 1
+            OnExit = edtDescontoExit
+          end
+          object edtAcrescimo: TCurrencyEdit
+            Left = 143
+            Top = 107
+            Width = 122
+            Height = 25
+            TabOrder = 2
+            OnExit = edtAcrescimoExit
+          end
+          object edtTotalDaOS: TCurrencyEdit
+            Left = 16
+            Top = 164
+            Width = 249
+            Height = 25
+            TabOrder = 3
+            OnExit = edtTotalDaOSExit
+          end
+          object edtValorOrdemParcelado: TCurrencyEdit
+            Left = 484
+            Top = 48
+            Width = 173
+            Height = 25
+            TabOrder = 5
           end
         end
         object GroupBox2: TGroupBox
@@ -2379,8 +2378,8 @@
   end
   object s_Servicos: TDataSource
     OnDataChange = s_ServicosDataChange
-    Left = 695
-    Top = 288
+    Left = 439
+    Top = 120
   end
   object cds_tem_servicos_adicionados: TClientDataSet
     PersistDataPacket.Data = {
@@ -2392,8 +2391,8 @@
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 604
-    Top = 277
+    Left = 364
+    Top = 125
     object cds_tem_servicos_adicionadosid: TIntegerField
       FieldName = 'id'
     end
@@ -2434,8 +2433,8 @@
   end
   object s_tem_servicos_adicionados_edit: TDataSource
     DataSet = cds_tem_servicos_adicionados_edit
-    Left = 836
-    Top = 277
+    Left = 940
+    Top = 253
   end
   object s_ParcelasOS: TDataSource
     OnDataChange = s_ParcelasOSDataChange
@@ -3491,8 +3490,8 @@
     Top = 221
   end
   object s_ImprimirEmpresa: TDataSource
-    Left = 612
-    Top = 237
+    Left = 620
+    Top = 213
   end
   object frx_ImprimirParcelas: TfrxReport
     Version = '6.3.3'
@@ -4290,7 +4289,7 @@
   end
   object frxBarCodeObject1: TfrxBarCodeObject
     Left = 500
-    Top = 245
+    Top = 213
   end
   object s_ImprimirInfoJuros: TDataSource
     Left = 860
@@ -4305,8 +4304,8 @@
     Top = 109
   end
   object s_ImprirmirRecibo: TDataSource
-    Left = 132
-    Top = 205
+    Left = 244
+    Top = 125
   end
   object frxDB_Imprimirrecibo: TfrxDBDataset
     UserName = 'frxDB_Imprimirrecibo'

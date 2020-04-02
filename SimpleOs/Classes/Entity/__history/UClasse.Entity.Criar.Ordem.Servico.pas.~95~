@@ -225,6 +225,8 @@ begin
     on e: exception do
     begin
       valor.Text := '0';
+      valor.SetFocus;
+      raise exception.create('Informe um valor para o campo Valor da Ordem.');
     end;
   end;
 
@@ -234,6 +236,8 @@ begin
     on e: exception do
     begin
       desconto.Text := '0';
+      raise exception.create
+        ('Informe um valor igual ou maior que zero para o campo Desconto.')
     end;
   end;
 
@@ -551,7 +555,7 @@ begin
     FDESCONTO := StrToCurr(value);
   except
     on e: exception do
-      raise exception.create('Informe um valor válido para o Desconto');
+      FDESCONTO := 0;
   end;
 end;
 
