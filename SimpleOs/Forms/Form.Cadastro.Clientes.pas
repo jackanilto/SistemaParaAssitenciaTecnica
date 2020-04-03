@@ -12,6 +12,9 @@ uses
   Vcl.Imaging.jpeg, Vcl.ExtDlgs, frxClass, frxDBSet;
 
 type
+  TEnumPesquisar = (codigo, nome, cpf_cnpj, tipo_cadastro);
+
+type
   TformCadastroDeClientes = class(TformExemploEmbeded)
     DataSource1: TDataSource;
     edtCodigo: TEdit;
@@ -214,34 +217,43 @@ end;
 procedure TformCadastroDeClientes.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 var
-  campo: string;
+  FCampo: string;
 begin
   inherited;
 
-  if cbPesquisar.Text = 'Código' then
-    campo := 'ID'
-  else if cbPesquisar.Text = 'Nome' then
-    campo := 'NOME'
-  else if cbPesquisar.Text = 'CPF ou CNPJ' then
-    campo := 'CPF_CNPJ'
-  else if cbPesquisar.Text = 'Tipo cadastro' then
-    campo := 'TIPO_CADASTRO';
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  codigo:
+  begin
+    FCampo := 'ID';
+  end;
+  nome:
+  begin
+    FCampo := 'NOME';
+  end;
+  cpf_cnpj:
+  begin
+    FCampo := 'CPF_CNPJ';
+  end;
+  tipo_cadastro:
+  begin
+    FCampo := 'TIPO_CADASTRO';
+  end;
+  end;
 
   if edtPesquisar.Text <> EmptyStr then
-    FEntityClientes.getCampo(campo).getValor(edtPesquisar.Text)
-      .sqlPesquisa.listarGrid(DataSource1);
-
-  { Código
-    Nome
-    CPF ou CNPJ
-    Tipo cadastro }
+    FEntityClientes
+                  .getCampo(FCampo)
+                  .getValor(edtPesquisar.Text)
+                  .sqlPesquisa
+                  .listarGrid(DataSource1);
 end;
 
 procedure TformCadastroDeClientes.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   inherited;
-  imagem.Free;
+  if Assigned(imagem) then
+    FreeAndNil(imagem);
 end;
 
 procedure TformCadastroDeClientes.FormCreate(Sender: TObject);
@@ -311,6 +323,8 @@ begin
   inherited;
   FEntityClientes.inserir;
   edtNome.SetFocus;
+  DataSource1.DataSet.FieldByName('TIPO_CADASTRO').AsString := 'PF';
+  DataSource1.DataSet.FieldByName('DATA_CADASTRO').AsDateTime := Date;
 end;
 
 procedure TformCadastroDeClientes.sbPesquisarCepClick(Sender: TObject);
@@ -323,16 +337,28 @@ end;
 procedure TformCadastroDeClientes.sbSalvarClick(Sender: TObject);
 begin
 
-  FEntityClientes.getTIPO_CADASTRO(edtTipoCadastro.Text).getNOME(edtNome.Text)
-    .getDATA_NASCIMENTO(edtDataNascimento.Text)
-    .getDATA_CADASTRO(edtDataCadastro.Text).getCPF_CNPJ(edtCPFCNPJ.Text)
-    .getDocumento(edtDocumento.Text).getCEP(edtCEP.Text)
-    .getENDERECO(edtEndereco.Text).getBAIRRO(edtBairro.Text)
-    .getCOMPLEMENTO(edtComplemento.Text).getNUMERO(StrToInt(edtNumero.Text))
-    .getCIDADE(edtCidade.Text).getESTADO(edtEstado.Text)
-    .getTELEFONE(edtTelefone.Text).getCELULAR(edtCelular.Text)
-    .getEmail(edtEmail.Text).getSITUACAO_CLIENTE(edtSituacaoCliente.Text)
-    .getObservacao(edtObservacao.Text).getFoto(imagem).gravar;
+  FEntityClientes
+            .getTIPO_CADASTRO(edtTipoCadastro.Text)
+            .getNOME(edtNome.Text).getDATA_NASCIMENTO(edtDataNascimento.Text)
+            .getDATA_CADASTRO(edtDataCadastro.Text)
+            .getCPF_CNPJ(edtCPFCNPJ.Text)
+            .getDocumento(edtDocumento.Text)
+            .getCEP(edtCEP.Text)
+            .getENDERECO(edtEndereco.Text)
+            .getBAIRRO(edtBairro.Text)
+            .getCOMPLEMENTO(edtComplemento.Text)
+            .getNUMERO(StrToInt(edtNumero.Text))
+            .getCIDADE(edtCidade.Text)
+            .getESTADO(edtEstado.Text)
+            .getTELEFONE(edtTelefone.Text)
+            .getCELULAR(edtCelular.Text)
+            .getEmail(edtEmail.Text)
+            .getSITUACAO_CLIENTE(edtSituacaoCliente.Text)
+            .getObservacao(edtObservacao.Text)
+            .getFoto(imagem)
+            .gravar;
+
+            FreeAndNil(imagem);
 
   inherited;
 
@@ -343,6 +369,10 @@ begin
   inherited;
   if sbNovo.Enabled = false then
   begin
+
+    if Assigned(imagem) then
+      FreeAndNil(imagem);
+
     imagem := TJPEGImage.Create;
 
     if OpenPictureDialog1.Execute then

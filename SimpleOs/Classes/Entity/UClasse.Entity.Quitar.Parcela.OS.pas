@@ -137,6 +137,8 @@ begin
     FAdicionarValorParcela;
   FAdicionarParcela.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime :=
     FAdicionarDataVencimentoParcela;
+  FAdicionarParcela.TQuery.FieldByName('PGTO').AsString := 'Nao';
+
 
   try
 
@@ -370,7 +372,7 @@ begin
       pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('VALOR_TOTAL')
         .AsCurrency;
 
-      if FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime = StrToDate
+      if FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime <> StrToDate
         ('30/12/1899') then
       begin
         pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO')

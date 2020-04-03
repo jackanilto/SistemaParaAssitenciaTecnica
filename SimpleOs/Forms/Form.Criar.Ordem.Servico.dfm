@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbParcelas
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -914,6 +914,7 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = -2
         object Label30: TLabel
           Left = 15
           Top = 9
@@ -1495,8 +1496,8 @@
             OnClick = sbImprimirParcelasClick
           end
           object sbCancelarOperacaoParcela: TSpeedButton
-            Left = 619
-            Top = 10
+            Left = 623
+            Top = 6
             Width = 95
             Height = 35
             Hint = 'Criar uma nova ordem de servi'#231'o'
@@ -1620,47 +1621,12 @@
           Height = 25
           TabOrder = 3
         end
-        object edtValorParcela: TEdit
-          Left = 111
-          Top = 32
-          Width = 121
-          Height = 25
-          TabOrder = 4
-        end
         object edtVencimentoParcela: TEdit
           Left = 238
           Top = 32
           Width = 91
           Height = 25
-          TabOrder = 5
-        end
-        object edtDescontoParcela: TEdit
-          Left = 336
-          Top = 32
-          Width = 100
-          Height = 25
-          TabOrder = 6
-        end
-        object edtJurosParcelas: TEdit
-          Left = 442
-          Top = 32
-          Width = 100
-          Height = 25
-          TabOrder = 7
-        end
-        object edtMultaParcela: TEdit
-          Left = 548
-          Top = 32
-          Width = 100
-          Height = 25
-          TabOrder = 8
-        end
-        object edtTotalParcela: TEdit
-          Left = 654
-          Top = 32
-          Width = 121
-          Height = 25
-          TabOrder = 9
+          TabOrder = 4
         end
         object edtDataPagamentoParcela: TDateTimePicker
           Left = 15
@@ -1669,7 +1635,7 @@
           Height = 25
           Date = 43807.000000000000000000
           Time = 0.631795821762352700
-          TabOrder = 10
+          TabOrder = 5
         end
         object edtHoraPagamento: TMaskEdit
           Left = 135
@@ -1678,7 +1644,7 @@
           Height = 25
           EditMask = '00:00:00'
           MaxLength = 8
-          TabOrder = 11
+          TabOrder = 6
           Text = '  :  :  '
         end
         object edtFormaPagamentoParcela: TComboBox
@@ -1686,14 +1652,14 @@
           Top = 91
           Width = 145
           Height = 25
-          TabOrder = 12
+          TabOrder = 7
         end
         object edtPgtoParcela: TComboBox
           Left = 442
           Top = 91
           Width = 156
           Height = 25
-          TabOrder = 13
+          TabOrder = 8
           Items.Strings = (
             'Sim'
             'N'#227'o')
@@ -1702,6 +1668,41 @@
           Left = 15
           Top = 153
           Width = 760
+          Height = 25
+          TabOrder = 9
+        end
+        object edtValorParcela: TCurrencyEdit
+          Left = 111
+          Top = 32
+          Width = 121
+          Height = 25
+          TabOrder = 10
+        end
+        object edtDescontoParcela: TCurrencyEdit
+          Left = 335
+          Top = 32
+          Width = 101
+          Height = 25
+          TabOrder = 11
+        end
+        object edtJurosParcelas: TCurrencyEdit
+          Left = 442
+          Top = 32
+          Width = 100
+          Height = 25
+          TabOrder = 12
+        end
+        object edtMultaParcela: TCurrencyEdit
+          Left = 548
+          Top = 32
+          Width = 100
+          Height = 25
+          TabOrder = 13
+        end
+        object edtTotalParcela: TCurrencyEdit
+          Left = 654
+          Top = 32
+          Width = 121
           Height = 25
           TabOrder = 14
         end
@@ -2380,7 +2381,7 @@
   object s_Servicos: TDataSource
     OnDataChange = s_ServicosDataChange
     Left = 439
-    Top = 120
+    Top = 152
   end
   object cds_tem_servicos_adicionados: TClientDataSet
     PersistDataPacket.Data = {
@@ -2392,8 +2393,8 @@
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 364
-    Top = 125
+    Left = 348
+    Top = 157
     object cds_tem_servicos_adicionadosid: TIntegerField
       FieldName = 'id'
     end
@@ -2480,12 +2481,12 @@
     end
   end
   object s_imprimirOS: TDataSource
-    Left = 612
-    Top = 69
+    Left = 436
+    Top = 37
   end
   object s_imprimirServicosOS: TDataSource
     Left = 612
-    Top = 125
+    Top = 141
   end
   object s_imprimirparcelasOS: TDataSource
     Left = 612
@@ -2496,16 +2497,16 @@
     CloseDataSource = False
     DataSource = s_imprimirOS
     BCDToCurrency = False
-    Left = 756
-    Top = 69
+    Left = 796
+    Top = 77
   end
   object frxDB_ImprimirServicosOS: TfrxDBDataset
     UserName = 'frxDB_ImprimirServicosOS'
     CloseDataSource = False
     DataSource = s_imprimirServicosOS
     BCDToCurrency = False
-    Left = 756
-    Top = 125
+    Left = 788
+    Top = 133
   end
   object frxDB_ImprimirParcelasOS: TfrxDBDataset
     UserName = 'frxDB_ImprimirParcelasOS'
@@ -3503,7 +3504,7 @@
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43817.548792488400000000
-    ReportOptions.LastChange = 43817.860823645830000000
+    ReportOptions.LastChange = 43924.603155451390000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -3667,6 +3668,8 @@
           Top = 102.590600000000000000
           Width = 200.315090000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirParcelasOS."VALOR_PARCELA"]')
@@ -3793,9 +3796,9 @@
         end
         object Memo17: TfrxMemoView
           AllowVectorExport = True
-          Left = 162.299320000000000000
+          Left = 177.417440000000000000
           Top = 297.346630000000000000
-          Width = 98.267780000000000000
+          Width = 83.149660000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -3804,7 +3807,7 @@
           Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
-            'Juros por atraso R$')
+            'Juros por atraso')
           ParentFont = False
         end
         object Memo18: TfrxMemoView
@@ -4080,6 +4083,8 @@
           Top = 186.756030000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
@@ -4141,42 +4146,10 @@
             'Assinatura do recebedor')
           ParentFont = False
         end
-        object Memo35: TfrxMemoView
-          AllowVectorExport = True
-          Left = 351.496290000000000000
-          Top = 292.480520000000000000
-          Width = 86.929190000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Multa por atraso:')
-          ParentFont = False
-        end
-        object Memo36: TfrxMemoView
-          AllowVectorExport = True
-          Left = 464.882190000000000000
-          Top = 292.700990000000000000
-          Width = 86.929190000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Juros por atraso:')
-          ParentFont = False
-        end
         object BarCode1: TfrxBarCodeView
           AllowVectorExport = True
           Left = 585.827150000000000000
-          Top = 268.346630000000000000
+          Top = 264.567100000000000000
           Width = 103.000000000000000000
           Height = 37.795300000000000000
           BarType = bcCodeEAN13
@@ -4225,38 +4198,6 @@
             'PGTO: __/__/___')
           ParentFont = False
         end
-        object Memo39: TfrxMemoView
-          AllowVectorExport = True
-          Left = 101.267780000000000000
-          Top = 298.582870000000000000
-          Width = 49.133890000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDB_ImprimirInfoJuros."JUROS"]')
-          ParentFont = False
-        end
-        object Memo40: TfrxMemoView
-          AllowVectorExport = True
-          Left = 263.787570000000000000
-          Top = 297.582870000000000000
-          Width = 60.472480000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDB_ImprimirInfoJuros."MULTA"]')
-          ParentFont = False
-        end
         object Line1: TfrxLineView
           AllowVectorExport = True
           Left = 11.338590000000000000
@@ -4267,6 +4208,40 @@
           Frame.Typ = []
           Frame.Width = 1.500000000000000000
           Diagonal = True
+        end
+        object Memo40: TfrxMemoView
+          AllowVectorExport = True
+          Left = 101.267780000000000000
+          Top = 297.582870000000000000
+          Width = 64.252010000000000000
+          Height = 15.118120000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirInfoJuros."MULTA"]')
+          ParentFont = False
+        end
+        object Memo39: TfrxMemoView
+          AllowVectorExport = True
+          Left = 263.787570000000000000
+          Top = 296.582870000000000000
+          Width = 60.472480000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_ImprimirInfoJuros."JUROS"]')
+          ParentFont = False
         end
       end
       object PageFooter1: TfrxPageFooter
@@ -4293,7 +4268,7 @@
     Top = 213
   end
   object s_ImprimirInfoJuros: TDataSource
-    Left = 860
+    Left = 892
     Top = 53
   end
   object frxDB_ImprimirInfoJuros: TfrxDBDataset
@@ -4301,12 +4276,12 @@
     CloseDataSource = False
     DataSource = s_ImprimirInfoJuros
     BCDToCurrency = False
-    Left = 860
+    Left = 876
     Top = 109
   end
   object s_ImprirmirRecibo: TDataSource
-    Left = 244
-    Top = 125
+    Left = 228
+    Top = 157
   end
   object frxDB_Imprimirrecibo: TfrxDBDataset
     UserName = 'frxDB_Imprimirrecibo'

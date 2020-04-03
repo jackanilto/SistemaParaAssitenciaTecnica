@@ -99,6 +99,7 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure sbImprimirParcelasClick(Sender: TObject);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     var
@@ -131,6 +132,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformQuitarParcelaOS.cbPesquisarChange(Sender: TObject);
+begin
+  edtPesquisar.SetFocus;
+end;
 
 procedure TformQuitarParcelaOS.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -206,6 +212,7 @@ begin
   sbImprimirParcelas.Enabled := true;
   sbExportar.Enabled := true;
   sbImprimir.Enabled := true;
+  sbSalvar.Enabled := false;
 end;
 
 procedure TformQuitarParcelaOS.desativarBotoes;
@@ -214,9 +221,10 @@ begin
   sbAdicionarParcela.Enabled := false;
   sbCancelar.Enabled := false;
   sbExcluir.Enabled := false;
-  sbImprimirParcelas.Enabled := false;
-  sbExportar.Enabled := false;
-  sbImprimir.Enabled := false;
+  sbImprimirParcelas.Enabled := true;
+  sbExportar.Enabled := true;
+  sbImprimir.Enabled := true;
+  sbSalvar.Enabled := false;
 end;
 
 procedure TformQuitarParcelaOS.limparEditsAdicionar;
@@ -369,7 +377,7 @@ begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
    limparEditsAdicionar;
-
+   sbSalvar.Enabled := true;
   end
   else
   raise Exception.Create('ERRO!, Não há nenhum registro selecionado.'+
@@ -480,11 +488,14 @@ end;
 
 procedure TformQuitarParcelaOS.sbSalvarClick(Sender: TObject);
 begin
+
   FEntityQuitar
               .getValorParcela(edtValorDaParcela.Text)
               .getDataVencimento(edtDataDeVencimento.Text)
               .adicionarParcela
               .atualizar;
+
+   sbSalvar.Enabled := false;
 
   lblCaption.Caption := self.caption;
 

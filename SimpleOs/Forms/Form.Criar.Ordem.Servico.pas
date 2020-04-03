@@ -116,17 +116,12 @@ type
     DBNavigator1: TDBNavigator;
     edtNumeroParcela: TEdit;
     Label30: TLabel;
-    edtValorParcela: TEdit;
     Label31: TLabel;
     edtVencimentoParcela: TEdit;
     Label32: TLabel;
-    edtDescontoParcela: TEdit;
     Label33: TLabel;
-    edtJurosParcelas: TEdit;
     Label34: TLabel;
-    edtMultaParcela: TEdit;
     Label35: TLabel;
-    edtTotalParcela: TEdit;
     Label36: TLabel;
     edtDataPagamentoParcela: TDateTimePicker;
     Label37: TLabel;
@@ -175,6 +170,11 @@ type
     edtTotalDaOS: TCurrencyEdit;
     edtValorOrdemParcelado: TCurrencyEdit;
     sbSalvar: TSpeedButton;
+    edtValorParcela: TCurrencyEdit;
+    edtDescontoParcela: TCurrencyEdit;
+    edtJurosParcelas: TCurrencyEdit;
+    edtMultaParcela: TCurrencyEdit;
+    edtTotalParcela: TCurrencyEdit;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -322,7 +322,6 @@ begin
 
   adicionarServico;
   atualizarValores;
-//  SomarValoresServicosIncluidos
 
 end;
 
@@ -331,32 +330,55 @@ begin
   if s_ParcelasOS.DataSet.RecordCount >= 1 then
   begin
 
-    if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Sim' then
+    if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString = 'Sim' then
     begin
-      if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Estornada' then
-      begin
+
+      sbQuitarParcela.Enabled := false;
+      sbSalvarParcela.Enabled := false;
+      sbExcluirParcela.Enabled := false;
+      sbCancelar.Enabled := false;
+
+      sbEstornarParcela.Enabled := true;
+      sbImprimirParcelas.Enabled := true;
+      sbAdicionarParcela.Enabled := true;
+
+    end
+    else if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString = 'Nao' then
+    begin
+
         FEntityParcelasOrdem.editar;
         edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
-      end
-      else
-      begin
-        desabilitarBotoesParcelasEstornar;
-        raise Exception.Create
-          ('Esta parcela foi estornada e não poderá ser quitada');
-      end;
+
+      sbQuitarParcela.Enabled := true;
+      sbSalvarParcela.Enabled := false;
+      sbExcluirParcela.Enabled := true;
+      sbCancelar.Enabled := true;
+
+      sbEstornarParcela.Enabled := false;
+      sbImprimirParcelas.Enabled := true;
+      sbAdicionarParcela.Enabled := true;
+
+    end
+    else if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString = 'Estornada' then
+    begin
+
+      sbQuitarParcela.Enabled := false;
+      sbSalvarParcela.Enabled := false;
+      sbExcluirParcela.Enabled := false;
+      sbCancelar.Enabled := false;
+
+      sbEstornarParcela.Enabled := false;
+      sbImprimirParcelas.Enabled := true;
+      sbAdicionarParcela.Enabled := false;
 
     end;
 
-    habilitarBotoesQuitarParcela;
-
-  end
-  else
-  begin
-
-    desabilitarBotoesParcelasEstornar;
-    raise Exception.Create('Esta parcela já foi quitada.');
 
   end;
+//  if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Estornada' then
+//        FEntityParcelasOrdem.editar;
+//        edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.edtAcrescimoExit(Sender: TObject);
@@ -718,6 +740,16 @@ procedure TformCriarConsultarOrdemServico.sbCancelarOperacaoParcelaClick
 begin
   FEntityParcelasOrdem.cancelar;
   FAtivarBotoes.ativarBotaoCancelar;
+
+  sbQuitarParcela.Enabled := false;
+  sbSalvarParcela.Enabled := false;
+  sbExcluirParcela.Enabled := false;
+  sbCancelar.Enabled := true;
+
+  sbEstornarParcela.Enabled := false;
+  sbImprimirParcelas.Enabled := false;
+  sbAdicionarParcela.Enabled := false;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton13Click(Sender: TObject);
@@ -1227,6 +1259,7 @@ begin
     begin
       FEntityParcelasOrdem.editar;
       sbSalvarParcela.Enabled := true;
+      sbCancelarOperacaoParcela.Enabled := true;
     end;
 
   end;

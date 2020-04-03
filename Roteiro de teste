@@ -3,8 +3,10 @@ Ordem de teste dos recursos do software
 
 ****************Processo referente os sistema de OS****************************
 
-#Clientes --Ver a possibilidade de inclusão da foto no relatório. Alterar a mensagem de erro
-			Data de cadastro já deve aparecer com a data atual. Colocar o foco na caixa para selecionar o tipo de cadastro
+#Clientes --Ver a possibilidade de inclusão da foto no relatório. 
+			Alterar a mensagem de erro -> ser mais especificao quanto a mensagem de erro
+			Data de cadastro já deve aparecer com a data atual. -> OK 
+			Colocar o foco na caixa para selecionar o tipo de cadastro -> Nenhuma solução encontrada
 			
 #Cadastro de funcionários --Data de cadastro já deve aparecer com a data atual.
 							Busca de atividade dos funcionários não esta funcionando.
@@ -39,18 +41,17 @@ Ordem de teste dos recursos do software
 					  Se uma OS for estornada não deve ser permitido a edição deste registro. -> OK
 					  Somente gravar a os se todos os campos necessarios estivem preencidos. --> OK
 					  
-					  [REFATORAR TODOS OS PROCESSOS DE DESCONTO E ACRESCIMOS NO SISTEMA]
 					  
-			Parcelas -> Se uma parcela não estiver quitada então não deve ser possivel estornar.
-						Ao cancelar uma operação o botão Salvar deve ser desabilitado.
-						Se aparcela já estiver quitada o botão Quitar deve ser desabilitado
-						Impressão de carnês de pagamento -> O campo Multa e Juros estão errados
+			Parcelas -> Se uma parcela não estiver quitada então não deve ser possivel estornar. -> OK
+						Ao cancelar uma operação o botão Salvar deve ser desabilitado. -> OK
+						Se aparcela já estiver quitada o botão Quitar deve ser desabilitado -> OK
+						Impressão de carnês de pagamento -> O campo Multa e Juros estão errados -> OK
 				
 				
-#Parcelas OS -> Exibir somente as parcelas que não foram pagas.
-				Ao exportar para o excel seo campo data de pagamento estiver vazio não permitir 
-				exporta ou exportar um valor em branco.
-				Botão Salvar só deve ficar ativo após clicar no botão Adicionar Parcela.
+#Parcelas OS -> Exibir somente as parcelas que não foram pagas. -> Sem necessiade de alteração
+				Ao exportar para o excel, o campo data de pagamento estiver vazio não permitir 
+				exporta ou exportar um valor em branco. -> OK
+				Botão Salvar só deve ficar ativo após clicar no botão Adicionar Parcela. -> OK
 
 
 *******Relatórios

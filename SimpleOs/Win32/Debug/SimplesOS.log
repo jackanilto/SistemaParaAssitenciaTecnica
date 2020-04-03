@@ -614,3 +614,33 @@ Problematic key value is ("ID_ORDEM" = 0)
 02/04/20 20:47:30 - Caption: SimpleOS
 02/04/20 20:47:30 - Erro:EAccessViolation
 02/04/20 20:47:30 - Erro:Access violation at address 00C02EFB in module 'SimplesOS.exe'. Read of address 00000004
+03/04/20 16:44:41 - ===========================================
+03/04/20 16:44:41 - Form: formCriarConsultarOrdemServico
+03/04/20 16:44:41 - Caption: 
+03/04/20 16:44:41 - Erro:Exception
+03/04/20 16:44:41 - Erro:ERRO! Infome o valor da mão de obra da OS
+03/04/20 16:45:15 - ===========================================
+03/04/20 16:45:15 - Form: formCriarConsultarOrdemServico
+03/04/20 16:45:15 - Caption: 
+03/04/20 16:45:15 - Erro:Exception
+03/04/20 16:45:15 - Erro:Informe a forma de pagamento.
+03/04/20 14:47:33 - ===========================================
+03/04/20 14:47:33 - Form: formQuitarParcelaOS
+03/04/20 14:47:33 - Caption: Quitar parcelas OS
+03/04/20 14:47:33 - Erro:Exception
+03/04/20 14:47:33 - Erro:ERRO!, Não há nenhum registro selecionado. Selecione um cliente antes de inserir uma parcela
+03/04/20 15:09:21 - ===========================================
+03/04/20 15:09:21 - Form: formPrincipal
+03/04/20 15:09:21 - Caption: SimpleOS
+03/04/20 15:09:21 - Erro:EClassNotFound
+03/04/20 15:09:21 - Erro:Class TfrxCellularText not found
+03/04/20 15:13:35 - ===========================================
+03/04/20 15:13:35 - Form: formCadastroDeClientes
+03/04/20 15:13:35 - Caption: Cadastro de clientes
+03/04/20 15:13:35 - Erro:Exception
+03/04/20 15:13:35 - Erro:Informe um nome para o cliente.
+03/04/20 15:13:43 - ===========================================
+03/04/20 15:13:43 - Form: formCadastroDeClientes
+03/04/20 15:13:43 - Caption: Cadastro de clientes
+03/04/20 15:13:43 - Erro:Exception
+03/04/20 15:13:43 - Erro:Informe o tipo de cadastro realizado.

@@ -453,6 +453,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Height = 35
       Hint = 'Exclui o registro selecionado'
       Caption = 'Salvar'
+      Enabled = False
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -986,6 +987,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Font.Quality = fqDraft
       ParentFont = False
       TabOrder = 0
+      OnChange = cbPesquisarChange
       Items.Strings = (
         'C'#243'digo da parcela'
         'OS'
@@ -1154,7 +1156,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43910.436881400460000000
-    ReportOptions.LastChange = 43910.456285752310000000
+    ReportOptions.LastChange = 43924.612596111110000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1329,6 +1331,8 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
           Top = 37.795300000000000000
           Width = 268.346630000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -1611,6 +1615,8 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
           Top = 132.283550000000000000
           Width = 158.740260000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
