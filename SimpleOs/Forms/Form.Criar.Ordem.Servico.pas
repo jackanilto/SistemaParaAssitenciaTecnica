@@ -213,6 +213,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Editarparcela1Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure edtValorOrdemExit(Sender: TObject);
   private
     { Private declarations }
   var
@@ -234,7 +235,6 @@ type
 
     procedure limparDatas;
     procedure adicionarServico;
-    procedure SomarValoresServicosIncluidos;
     procedure subtrairValoresServicosIncluidos;
     procedure selecionarOrdem;
     procedure popularComboBox;
@@ -289,8 +289,6 @@ begin
     edtValorOrdemParcelado.Text :=
       CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
     edtHoraSaida.Text := TimeToStr(FieldByName('HORA_SAIDA').AsDateTime);
-    // edtDataBaseVencimento.Text := DateToStr(FieldByName('DATA_BASE_VENCIMENTO')
-    // .AsDateTime);
 
     // Tudo referente a datas
     if DataSource1.DataSet.FieldByName('DATA_FABRICACAO').AsDateTime <>
@@ -321,8 +319,11 @@ end;
 
 procedure TformCriarConsultarOrdemServico.DBGrid2DblClick(Sender: TObject);
 begin
+
   adicionarServico;
-  SomarValoresServicosIncluidos
+  atualizarValores;
+//  SomarValoresServicosIncluidos
+
 end;
 
 procedure TformCriarConsultarOrdemServico.DBGrid3CellClick(Column: TColumn);
@@ -363,21 +364,12 @@ begin
 
   atualizarValores;
 
-//  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo(edtValorOrdem,
-//    edtDesconto, edtAcrescimo);
-
 end;
 
 procedure TformCriarConsultarOrdemServico.edtDescontoExit(Sender: TObject);
 begin
 
   atualizarValores;
-
-//  edtTotalDaOS.Text := FEntityCriarOrdem.calcularDesconto
-//    (edtValorOrdem, edtDesconto);
-//
-//  edtTotalDaOS.Text := FEntityCriarOrdem.calcularAcrescimo
-//    (edtValorOrdem, edtDesconto, edtAcrescimo);
 
 end;
 
@@ -397,6 +389,11 @@ begin
       edtTotalDeParcelas);
   end;
 
+end;
+
+procedure TformCriarConsultarOrdemServico.edtValorOrdemExit(Sender: TObject);
+begin
+  edtDesconto.SetFocus;
 end;
 
 procedure TformCriarConsultarOrdemServico.FormClose(Sender: TObject;
@@ -603,14 +600,25 @@ begin
       end;
     end;
 
-  // formLocalizarClientesOrdem := TformLocalizarClientesOrdem.Create(self);
-  // TFactory.new.criarJanela.FormShow(formLocalizarClientesOrdem, '');
 end;
 
 procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
 var
   estado: string;
 begin
+
+  if edtValorOrdem.Text = EmptyStr then
+    raise Exception.Create('ERRO! Infome o valor da mão de obra da OS');
+
+
+   if edtTotalDaOS.Text = EmptyStr then
+    raise Exception.Create('ERRO! Informe o valor total da OS');
+
+  if edtValorOrdemParcelado.Text = EmptyStr then
+    raise Exception.Create('ERRO! Infome o valor da(s) parcela(s)');
+
+
+
 
   estado := FEntityCriarOrdem.estadoDaTabela;
 
@@ -665,6 +673,7 @@ begin
         .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
         .gerarParcelas;
 
+
     end;
 
   showmessage('Ordem de Serviço inserida com sucesso');
@@ -713,6 +722,8 @@ end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton13Click(Sender: TObject);
 begin
+
+  edtValorOrdemParcelado.SetFocus;
 
   caluclarValorDoParcelamento;
 
@@ -800,15 +811,14 @@ begin
       end;
     end;
 
-  // formLocalizarTecnico := TformLocalizarTecnico.Create(self);
-  // TFactory.new.criarJanela.FormShow(formLocalizarTecnico, '');
-
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);
 begin
+
   adicionarServico;
-  SomarValoresServicosIncluidos;
+  atualizarValores;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton5Click(Sender: TObject);
@@ -816,7 +826,10 @@ begin
 
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
-    subtrairValoresServicosIncluidos;
+
+    cds_tem_servicos_adicionados.Delete;
+    atualizarValores;
+
   end
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
@@ -824,7 +837,8 @@ begin
     FEntityServicosOrdem.getID_ORDEM(DataSource1.DataSet.FieldByName('ID')
       .AsInteger).excluiServicoDaOS(cds_tem_servicos_adicionadosid.AsInteger);
 
-    subtrairValoresServicosIncluidos;
+    cds_tem_servicos_adicionados.Delete;
+    atualizarValores;
 
   end;
 
@@ -1030,17 +1044,16 @@ end;
 
 procedure TformCriarConsultarOrdemServico.adicionarServico;
 begin
+
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
     if s_Servicos.DataSet.RecordCount >= 1 then
     begin
-      FEntityServicosOrdem.adicionarItemsTemporiamenteID
-        (s_Servicos.DataSet.FieldByName('ID').AsInteger)
-        .adicionarItemsTemporariamenteServico
-        (s_Servicos.DataSet.FieldByName('SERVICO').AsString)
-        .adicionarItemTemporariamenteValor
-        (s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
-        .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
+      FEntityServicosOrdem
+                    .adicionarItemsTemporiamenteID(s_Servicos.DataSet.FieldByName('ID').AsInteger)
+                    .adicionarItemsTemporariamenteServico(s_Servicos.DataSet.FieldByName('SERVICO').AsString)
+                    .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
+                    .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
     end;
   end
 
@@ -1067,34 +1080,6 @@ end;
 procedure TformCriarConsultarOrdemServico.Button1Click(Sender: TObject);
 begin
   imprimirRecibo;
-end;
-
-procedure TformCriarConsultarOrdemServico.SomarValoresServicosIncluidos;
-var
-  valorDaOS: Currency;
-begin
-
-  if edtTotalDaOS.Text <> EmptyStr then
-    valorDaOS := StrToCurr(edtValorOrdem.Text)
-  else
-    FValorTotalOrdemServico := 0;
-
-  try
-    if edtTotalDaOS.Text <> EmptyStr then
-      FValorTotalOrdemServico := StrToCurr(edtTotalDaOS.Text)
-    else
-      FValorTotalOrdemServico := 0;
-  except
-    on e: Exception do
-      raise Exception.Create('Informe um valor válido para o Total da OS');
-  end;
-  FValorServicosIncluidos := s_tem_servicos_adicionados.DataSet.FieldByName
-    ('valor').AsCurrency;
-  edtTotalDaOS.Text := CurrToStr(FValorTotalOrdemServico +
-    FValorServicosIncluidos);
-
-  edtValorOrdem.Text := CurrToStr(valorDaOS + FValorServicosIncluidos);
-
 end;
 
 procedure TformCriarConsultarOrdemServico.subtrairValoresServicosIncluidos;
@@ -1143,6 +1128,13 @@ begin // selecionar a OS ao chamar através do form  Ordem de Servico
 
     sbNovo.Enabled := false;
     sbSalvar.Enabled := false;
+
+    if DataSource1.DataSet.FieldByName('PGTO').AsString = 'Estornada' then
+    begin
+      sbEstornarOS.Enabled := false;
+      sbEditar.Enabled := false;
+    end;
+
 
     // habilitarBotoesQuitarParcela
 
@@ -1268,8 +1260,8 @@ begin
      edtDefeitoRelatado.ReadOnly := false;
      edtLaudoTecnico.ReadOnly := false;
      edtSolucaoDoProblema.ReadOnly := false;
-     edtSituacaoOrdem.Enabled := false;
-     edtPrioridade.Enabled := false;
+     edtSituacaoOrdem.Enabled := true;
+     edtPrioridade.Enabled := true;
      edtDataEntrada.ReadOnly := false;
      edtDataDeSaida.ReadOnly := false;
      edtHoraSaida.ReadOnly := false;
@@ -1281,9 +1273,9 @@ begin
      edtDesconto.ReadOnly := false;
      edtAcrescimo.ReadOnly := false;
      edtTotalDaOS.ReadOnly := false;
-     edtTotalDeParcelas.Enabled := false;
+     edtTotalDeParcelas.Enabled := true;
      edtValorOrdemParcelado.ReadOnly := false;
-     edtDataBaseVencimento.Enabled := false;
+     edtDataBaseVencimento.Enabled := true;
 
    end
    else if value = 'desativar' then
@@ -1299,8 +1291,8 @@ begin
      edtDefeitoRelatado.ReadOnly := true;
      edtLaudoTecnico.ReadOnly := true;
      edtSolucaoDoProblema.ReadOnly := true;
-     edtSituacaoOrdem.Enabled := true;
-     edtPrioridade.Enabled := true;
+     edtSituacaoOrdem.Enabled := false;
+     edtPrioridade.Enabled := false;
      edtDataEntrada.ReadOnly := true;
      edtDataDeSaida.ReadOnly := true;
      edtHoraSaida.ReadOnly := true;
@@ -1312,7 +1304,7 @@ begin
      edtDesconto.ReadOnly := true;
      edtAcrescimo.ReadOnly := true;
      edtTotalDaOS.ReadOnly := true;
-     edtTotalDeParcelas.Enabled := true;
+     edtTotalDeParcelas.Enabled := false;
      edtValorOrdemParcelado.ReadOnly := true;
      edtDataBaseVencimento.Enabled := true;
 
@@ -1325,7 +1317,10 @@ var
   valorOS: Currency;
   valorDesconto: Currency;
   valorAcrescimo: Currency;
+  totalOS:Currency;
+  servicosIncluidos: currency;
 begin
+
   if edtValorOrdem.Text <> EmptyStr then
   begin
     valorOS := StrToCurr(edtValorOrdem.Text);
@@ -1334,6 +1329,7 @@ begin
   begin
     valorOS := 0;
   end;
+
   if edtDesconto.Text <> EmptyStr then
   begin
     valorDesconto := StrToCurr(edtDesconto.Text);
@@ -1342,6 +1338,7 @@ begin
   begin
     valorDesconto := 0;
   end;
+
   if edtAcrescimo.Text <> EmptyStr then
   begin
     valorAcrescimo := StrToCurr(edtAcrescimo.Text);
@@ -1350,7 +1347,27 @@ begin
   begin
     valorAcrescimo := 0;
   end;
-  edtTotalDaOS.Text := CurrToStr((valorOS - valorDesconto) + valorAcrescimo);
+
+  servicosIncluidos := 0;
+
+  if s_tem_servicos_adicionados.DataSet.RecordCount >= 1 then
+  begin
+
+     s_tem_servicos_adicionados.DataSet.First;
+
+  while not s_tem_servicos_adicionados.DataSet.eof do
+  begin
+
+    servicosIncluidos := servicosIncluidos + s_tem_servicos_adicionados.DataSet.FieldByName
+    ('valor').AsCurrency;
+
+    s_tem_servicos_adicionados.DataSet.Next;
+
+  end;
+  end;
+
+  edtTotalDaOS.Text := CurrToStr((valorOS - valorDesconto) + (valorAcrescimo + servicosIncluidos));
+
 end;
 
 procedure TformCriarConsultarOrdemServico.caluclarValorDoParcelamento;
@@ -1374,6 +1391,7 @@ begin
   else
     valorDoAcrescimo := 0;
 
+  atualizarValores;
   totalDaOS := StrToCurr(edtTotalDaOS.Text);
 
   qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);

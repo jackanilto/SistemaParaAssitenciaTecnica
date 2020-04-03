@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbOrdemServiço
+    ActivePage = tbServicosEFaturamento
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -795,6 +795,7 @@
             Width = 249
             Height = 25
             TabOrder = 0
+            OnExit = edtValorOrdemExit
           end
           object edtDesconto: TCurrencyEdit
             Left = 16
@@ -895,7 +896,7 @@
             TitleFont.Height = -13
             TitleFont.Name = 'Segoe UI'
             TitleFont.Style = []
-            OnDblClick = DBGrid2DblClick
+            OnDblClick = Editarparcela1Click
           end
         end
       end

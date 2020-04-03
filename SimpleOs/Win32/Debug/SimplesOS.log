@@ -517,3 +517,100 @@ TEdit($07C39020)
 02/04/20 15:06:00 - Caption: SimpleOS
 02/04/20 15:06:00 - Erro:EAccessViolation
 02/04/20 15:06:00 - Erro:Access violation at address 00C02843 in module 'SimplesOS.exe'. Read of address 00000004
+02/04/20 18:40:03 - ===========================================
+02/04/20 18:40:03 - Form: formCriarConsultarOrdemServico
+02/04/20 18:40:03 - Caption: 
+02/04/20 18:40:03 - Erro:EDBEditError
+02/04/20 18:40:03 - Erro:Invalid input value.  Use escape key to abandon changes
+02/04/20 18:40:48 - ===========================================
+02/04/20 18:40:48 - Form: formCriarConsultarOrdemServico
+02/04/20 18:40:48 - Caption: 
+02/04/20 18:40:48 - Erro:EDBEditError
+02/04/20 18:40:48 - Erro:Invalid input value.  Use escape key to abandon changes
+02/04/20 18:40:50 - ===========================================
+02/04/20 18:40:50 - Form: formCriarConsultarOrdemServico
+02/04/20 18:40:50 - Caption: 
+02/04/20 18:40:50 - Erro:EDBEditError
+02/04/20 18:40:50 - Erro:Invalid input value.  Use escape key to abandon changes
+02/04/20 18:43:35 - ===========================================
+02/04/20 18:43:35 - Form: formCriarConsultarOrdemServico
+02/04/20 18:43:35 - Caption: 
+02/04/20 18:43:35 - Erro:EIBNativeException
+02/04/20 18:43:35 - Erro:[FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_SERVICOS_ORDEM_1" on table "SERVICOS_ORDEM"
+Foreign key reference target does not exist
+Problematic key value is ("ID_ORDEM" = 0)
+02/04/20 19:40:57 - ===========================================
+02/04/20 19:40:57 - Form: formCriarConsultarOrdemServico
+02/04/20 19:40:57 - Caption: 
+02/04/20 19:40:57 - Erro:Exception
+02/04/20 19:40:57 - Erro:ERRO! Infome o valor da(s) parcela(s)
+02/04/20 19:41:07 - ===========================================
+02/04/20 19:41:07 - Form: formCriarConsultarOrdemServico
+02/04/20 19:41:07 - Caption: 
+02/04/20 19:41:07 - Erro:EConvertError
+02/04/20 19:41:07 - Erro:'' is not a valid floating point value
+02/04/20 19:43:55 - ===========================================
+02/04/20 19:43:55 - Form: formCriarConsultarOrdemServico
+02/04/20 19:43:55 - Caption: 
+02/04/20 19:43:55 - Erro:Exception
+02/04/20 19:43:55 - Erro:ERRO! Infome o valor da mão de obra da OS
+02/04/20 19:44:05 - ===========================================
+02/04/20 19:44:05 - Form: formCriarConsultarOrdemServico
+02/04/20 19:44:05 - Caption: 
+02/04/20 19:44:05 - Erro:EConvertError
+02/04/20 19:44:05 - Erro:'' is not a valid floating point value
+02/04/20 19:45:35 - ===========================================
+02/04/20 19:45:35 - Form: formCriarConsultarOrdemServico
+02/04/20 19:45:35 - Caption: 
+02/04/20 19:45:35 - Erro:Exception
+02/04/20 19:45:35 - Erro:ERRO! Infome o valor da mão de obra da OS
+02/04/20 19:45:42 - ===========================================
+02/04/20 19:45:42 - Form: formCriarConsultarOrdemServico
+02/04/20 19:45:42 - Caption: 
+02/04/20 19:45:42 - Erro:EConvertError
+02/04/20 19:45:42 - Erro:'' is not a valid floating point value
+02/04/20 19:45:47 - ===========================================
+02/04/20 19:45:47 - Form: formCriarConsultarOrdemServico
+02/04/20 19:45:47 - Caption: 
+02/04/20 19:45:47 - Erro:EConvertError
+02/04/20 19:45:47 - Erro:'' is not a valid floating point value
+02/04/20 19:48:02 - ===========================================
+02/04/20 19:48:02 - Form: formCriarConsultarOrdemServico
+02/04/20 19:48:02 - Caption: 
+02/04/20 19:48:02 - Erro:Exception
+02/04/20 19:48:02 - Erro:ERRO! Infome o valor da mão de obra da OS
+02/04/20 19:48:52 - ===========================================
+02/04/20 19:48:52 - Form: formCriarConsultarOrdemServico
+02/04/20 19:48:52 - Caption: 
+02/04/20 19:48:52 - Erro:EConvertError
+02/04/20 19:48:52 - Erro:'' is not a valid floating point value
+02/04/20 19:50:47 - ===========================================
+02/04/20 19:50:47 - Form: formCriarConsultarOrdemServico
+02/04/20 19:50:47 - Caption: 
+02/04/20 19:50:47 - Erro:Exception
+02/04/20 19:50:47 - Erro:ERRO! Infome o valor da mão de obra da OS
+02/04/20 19:53:06 - ===========================================
+02/04/20 19:53:06 - Form: formCriarConsultarOrdemServico
+02/04/20 19:53:06 - Caption: 
+02/04/20 19:53:06 - Erro:Exception
+02/04/20 19:53:06 - Erro:ERRO! Infome o valor da mão de obra da OS
+02/04/20 20:30:41 - ===========================================
+02/04/20 20:30:41 - Form: formCriarConsultarOrdemServico
+02/04/20 20:30:41 - Caption: 
+02/04/20 20:30:41 - Erro:EConvertError
+02/04/20 20:30:41 - Erro:'' is not a valid floating point value
+02/04/20 20:30:49 - ===========================================
+02/04/20 20:30:49 - Form: formCriarConsultarOrdemServico
+02/04/20 20:30:49 - Caption: 
+02/04/20 20:30:49 - Erro:EConvertError
+02/04/20 20:30:49 - Erro:'' is not a valid floating point value
+02/04/20 20:32:08 - ===========================================
+02/04/20 20:32:08 - Form: formCriarConsultarOrdemServico
+02/04/20 20:32:08 - Caption: 
+02/04/20 20:32:08 - Erro:EConvertError
+02/04/20 20:32:08 - Erro:'' is not a valid floating point value
+02/04/20 20:47:30 - ===========================================
+02/04/20 20:47:30 - Form: formPrincipal
+02/04/20 20:47:30 - Caption: SimpleOS
+02/04/20 20:47:30 - Erro:EAccessViolation
+02/04/20 20:47:30 - Erro:Access violation at address 00C02EFB in module 'SimplesOS.exe'. Read of address 00000004
