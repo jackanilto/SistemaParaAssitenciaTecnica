@@ -15,10 +15,10 @@ inherited formConfigurarParcelas: TformConfigurarParcelas
     end
     inherited lblCaption: TLabel
       Left = 111
-      Width = 141
-      Caption = 'Configurar parcelas'
-      ExplicitLeft = 195
-      ExplicitWidth = 141
+      Width = 262
+      Caption = 'Configurar parcelas - Juros e Multas'
+      ExplicitLeft = 111
+      ExplicitWidth = 262
     end
   end
   inherited Panel2: TPanel

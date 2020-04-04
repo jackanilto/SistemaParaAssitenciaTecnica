@@ -7049,7 +7049,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvCadastros: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7061,7 +7061,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 150
+    ExplicitLeft = 323
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7149,9 +7149,10 @@ object formPrincipal: TformPrincipal
   object spvMovimentacao: TSplitView
     Left = 150
     Top = 57
-    Width = 173
+    Width = 0
     Height = 467
     Color = 13401438
+    Opened = False
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
@@ -7213,7 +7214,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvRelatorio: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7223,7 +7224,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 150
+    ExplicitLeft = 323
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7341,7 +7342,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvExtras: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7352,7 +7353,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 150
+    ExplicitLeft = 323
     object CategoryButtons7: TCategoryButtons
       Left = -30
       Top = 3
@@ -7390,7 +7391,7 @@ object formPrincipal: TformPrincipal
     end
   end
   object spvSobre: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7401,10 +7402,10 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 150
+    ExplicitLeft = 323
   end
   object spCaixa: TSplitView
-    Left = 323
+    Left = 150
     Top = 57
     Width = 0
     Height = 467
@@ -7415,7 +7416,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 150
+    ExplicitLeft = 323
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3

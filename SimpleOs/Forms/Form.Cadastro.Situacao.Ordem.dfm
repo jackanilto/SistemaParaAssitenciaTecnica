@@ -8,8 +8,10 @@ inherited formCadastroSituacoesOrdem: TformCadastroSituacoesOrdem
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 837
+    ExplicitWidth = 837
     inherited sbFechar: TSpeedButton
       Left = 785
+      ExplicitLeft = 785
     end
     inherited lblCaption: TLabel
       Left = 115
@@ -21,35 +23,42 @@ inherited formCadastroSituacoesOrdem: TformCadastroSituacoesOrdem
   end
   inherited Panel2: TPanel
     Width = 837
+    ExplicitWidth = 837
   end
   inherited Panel3: TPanel
     Top = 333
     Width = 837
+    ExplicitTop = 333
+    ExplicitWidth = 837
     inherited Label4: TLabel
-      Left = 503
+      Left = 516
       Visible = False
+      ExplicitLeft = 516
     end
     inherited Label5: TLabel
-      Left = 638
+      Left = 651
       Visible = False
+      ExplicitLeft = 651
     end
     inherited cbPesquisar: TComboBox
-      Left = 503
+      Left = 516
       Visible = False
+      ExplicitLeft = 516
     end
     inherited edtPesquisar: TEdit
-      Left = 638
+      Left = 651
       Visible = False
+      ExplicitLeft = 651
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 837
     Height = 252
+    ExplicitWidth = 837
+    ExplicitHeight = 252
     inherited cardPanelCadatro: TCard
       Width = 837
       Height = 252
-      ExplicitLeft = 11
-      ExplicitTop = 5
       ExplicitWidth = 837
       ExplicitHeight = 252
       object Label1: TLabel
@@ -110,16 +119,22 @@ inherited formCadastroSituacoesOrdem: TformCadastroSituacoesOrdem
     inherited cardPanelConsulta: TCard
       Width = 837
       Height = 252
+      ExplicitWidth = 837
+      ExplicitHeight = 252
       inherited Panel4: TPanel
         Top = 207
         Width = 837
+        ExplicitTop = 207
+        ExplicitWidth = 837
         inherited sbImprimir: TSpeedButton
           Left = 562
           Visible = False
+          ExplicitLeft = 562
         end
         inherited sbExportar: TSpeedButton
           Left = 673
           Visible = False
+          ExplicitLeft = 673
         end
       end
       inherited DBGrid1: TDBGrid

@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UClasse.Entity.Cadastro.Servicos, UInterfaces, frxClass,
-  frxDBSet;
+  frxDBSet, Vcl.Mask, RxToolEdit, RxCurrEdit;
 
 type
   TEnumPesquisar = (codigo, servico);
@@ -18,7 +18,6 @@ type
     DataSource1: TDataSource;
     edtCodigo: TEdit;
     edtServico: TEdit;
-    edtValor: TEdit;
     edtDescricao: TEdit;
     Label1: TLabel;
     Label2: TLabel;
@@ -26,6 +25,7 @@ type
     Label6: TLabel;
     frxDB_CadastroServicos: TfrxDBDataset;
     frx_Servicos: TfrxReport;
+    edtValor: TCurrencyEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);

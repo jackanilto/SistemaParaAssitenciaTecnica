@@ -644,3 +644,23 @@ Problematic key value is ("ID_ORDEM" = 0)
 03/04/20 15:13:43 - Caption: Cadastro de clientes
 03/04/20 15:13:43 - Erro:Exception
 03/04/20 15:13:43 - Erro:Informe o tipo de cadastro realizado.
+04/04/20 13:34:22 - ===========================================
+04/04/20 13:34:22 - Form: formCadastroSituacoesOrdem
+04/04/20 13:34:22 - Caption: Cadastro de situações da ordem
+04/04/20 13:34:22 - Erro:EAccessViolation
+04/04/20 13:34:22 - Erro:Access violation at address 00C5BAD5 in module 'SimplesOS.exe'. Read of address 00000000
+04/04/20 13:41:47 - ===========================================
+04/04/20 13:41:47 - Form: formCadastroDeServicos
+04/04/20 13:41:47 - Caption: Cadastro de serviços
+04/04/20 13:41:47 - Erro:Exception
+04/04/20 13:41:47 - Erro:Informe o nome para o serviço.
+04/04/20 13:41:52 - ===========================================
+04/04/20 13:41:52 - Form: formCadastroDeServicos
+04/04/20 13:41:52 - Caption: Cadastro de serviços
+04/04/20 13:41:52 - Erro:Exception
+04/04/20 13:41:52 - Erro:Informe um número válido para o Valor do Serviço.
+04/04/20 13:42:00 - ===========================================
+04/04/20 13:42:00 - Form: formCadastroDeServicos
+04/04/20 13:42:00 - Caption: Cadastro de serviços
+04/04/20 13:42:00 - Erro:Exception
+04/04/20 13:42:00 - Erro:Informe um número válido para o Valor do Serviço.

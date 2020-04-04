@@ -55,6 +55,7 @@ inherited formCadastroDeServicos: TformCadastroDeServicos
   inherited CardPanel1: TCardPanel
     Width = 844
     Height = 239
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 844
     ExplicitHeight = 239
     inherited cardPanelCadatro: TCard
@@ -102,7 +103,7 @@ inherited formCadastroDeServicos: TformCadastroDeServicos
         ParentFont = False
       end
       object Label6: TLabel
-        Left = 436
+        Left = 445
         Top = 29
         Width = 57
         Height = 17
@@ -143,22 +144,8 @@ inherited formCadastroDeServicos: TformCadastroDeServicos
         ParentFont = False
         TabOrder = 1
       end
-      object edtValor: TEdit
-        Left = 24
-        Top = 187
-        Width = 393
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 2
-      end
       object edtDescricao: TEdit
-        Left = 436
+        Left = 445
         Top = 48
         Width = 381
         Height = 25
@@ -170,6 +157,19 @@ inherited formCadastroDeServicos: TformCadastroDeServicos
         Font.Style = []
         ParentFont = False
         TabOrder = 3
+      end
+      object edtValor: TCurrencyEdit
+        Left = 24
+        Top = 187
+        Width = 393
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
       end
     end
     inherited cardPanelConsulta: TCard

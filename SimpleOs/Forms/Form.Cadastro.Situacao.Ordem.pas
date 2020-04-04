@@ -86,7 +86,9 @@ end;
 procedure TformCadastroSituacoesOrdem.sbCancelarClick(Sender: TObject);
 begin
   inherited;
-  FEntityCadastroSituacaoOrdem.cancelar;
+  FEntityCadastroSituacaoOrdem
+                            .abrir
+                            .listarGrid(DataSource1);
 end;
 
 procedure TformCadastroSituacoesOrdem.sbEditarClick(Sender: TObject);
@@ -113,7 +115,11 @@ end;
 procedure TformCadastroSituacoesOrdem.sbSalvarClick(Sender: TObject);
 begin
 
-  FEntityCadastroSituacaoOrdem.getSITUACAO_ORDEM(edtSituacaoOrdem.Text).gravar;
+  FEntityCadastroSituacaoOrdem
+                          .getSITUACAO_ORDEM(edtSituacaoOrdem.Text)
+                          .gravar
+                          .abrir
+                          .listarGrid(DataSource1);
 
   inherited;
 

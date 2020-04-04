@@ -6,7 +6,7 @@ Ordem de teste dos recursos do software
 #Clientes --Ver a possibilidade de inclusão da foto no relatório. 
 			Alterar a mensagem de erro -> ser mais especificao quanto a mensagem de erro
 			Data de cadastro já deve aparecer com a data atual. -> OK 
-			Colocar o foco na caixa para selecionar o tipo de cadastro -> Nenhuma solução encontrada
+			Colocar o foco na caixa para selecionar o tipo de cadastro -> OK
 			
 #Cadastro de funcionários --Data de cadastro já deve aparecer com a data atual.
 							Busca de atividade dos funcionários não esta funcionando.
@@ -15,14 +15,14 @@ Ordem de teste dos recursos do software
 			
 #Meios de pagamento -> OK
 
-#Configurar parcelas(ver se o processo esta sendo aplicado nas parcelas das OS) -> Alterar o titulo para juros por atraso
+#Configurar parcelas(ver se o processo esta sendo aplicado nas parcelas das OS) -> Alterar o titulo para juros por atraso -> OK
 
 #Problemas frequentes -> OK
 
 #Situação ordem de serviço --> Permitir a opção de pesquisa nesta tela ou
-							   retornar todos os registros após qualquer alteração
+							   retornar todos os registros após qualquer alteração -> OK
 
-#Cadastro de serviços -> Campo valor no relatório de vir com o R$
+#Cadastro de serviços -> Campo valor no relatório de vir com o R$ -> OK
 
 #Número de parcelas -> OK
 
