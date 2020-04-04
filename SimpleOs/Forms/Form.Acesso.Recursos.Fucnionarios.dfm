@@ -2,7 +2,6 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
   Caption = 'Configurar acesso do funcion'#225'rio'
   ClientHeight = 590
   ClientWidth = 979
-  ExplicitTop = -36
   ExplicitWidth = 979
   ExplicitHeight = 590
   PixelsPerInch = 96
@@ -91,6 +90,7 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
   inherited CardPanel1: TCardPanel
     Width = 979
     Height = 434
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 979
     ExplicitHeight = 434
     inherited cardPanelCadatro: TCard
@@ -103,7 +103,7 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
         Top = 0
         Width = 975
         Height = 430
-        ActivePage = tsRelatorios
+        ActivePage = tsCadastros
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -793,7 +793,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 0
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_HistoricoOS: TComboBox
             Left = 40
@@ -801,7 +803,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 1
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ParcelaAReceberOS: TComboBox
             Left = 40
@@ -809,7 +813,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 2
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ParcelaAReceberVenda: TComboBox
             Left = 40
@@ -817,7 +823,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 3
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ParcelaPagasOS: TComboBox
             Left = 40
@@ -825,7 +833,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 4
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ParcelasPagasVendas: TComboBox
             Left = 40
@@ -833,7 +843,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 5
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_OsEstornadas: TComboBox
             Left = 208
@@ -841,7 +853,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 6
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_VendasEstornadas: TComboBox
             Left = 208
@@ -849,7 +863,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 7
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ContasAPagar: TComboBox
             Left = 208
@@ -857,7 +873,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 8
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ReparosPorPeriodo: TComboBox
             Left = 208
@@ -865,7 +883,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 9
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ReparosPorTecnico: TComboBox
             Left = 208
@@ -873,7 +893,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 10
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_OsPorSituacao: TComboBox
             Left = 208
@@ -881,7 +903,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 11
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_RelatorioOS: TComboBox
             Left = 379
@@ -889,7 +913,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 12
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_Fornecedores: TComboBox
             Left = 379
@@ -897,7 +923,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 13
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_OSInadimplentes: TComboBox
             Left = 379
@@ -905,7 +933,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 14
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_Produtos: TComboBox
             Left = 379
@@ -913,7 +943,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 15
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_SituacaoEstoque: TComboBox
             Left = 379
@@ -921,7 +953,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 16
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ProdutosMaisVendidos: TComboBox
             Left = 379
@@ -929,7 +963,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 17
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_Vendas: TComboBox
             Left = 544
@@ -937,7 +973,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 18
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_VendasInadimplentes: TComboBox
             Left = 544
@@ -945,7 +983,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 19
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ServicosMaisRealzados: TComboBox
             Left = 544
@@ -953,7 +993,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 20
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_SaidaDeProdutos: TComboBox
             Left = 544
@@ -961,7 +1003,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 21
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_EntradasDeProdutos: TComboBox
             Left = 544
@@ -969,7 +1013,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 22
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_VendaPorFuncionarios: TComboBox
             Left = 544
@@ -977,7 +1023,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 23
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_Trasportadora: TComboBox
             Left = 717
@@ -985,7 +1033,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 24
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_RetiradaDeValores: TComboBox
             Left = 717
@@ -993,7 +1043,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 25
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
           object edtRel_ProblemasFrequentes: TComboBox
             Left = 717
@@ -1001,7 +1053,9 @@ inherited formConfigurarAcessoFuncionario: TformConfigurarAcessoFuncionario
             Width = 137
             Height = 25
             TabOrder = 26
-            Text = 'ComboBox1'
+            Items.Strings = (
+              'Sim'
+              'Nao')
           end
         end
         object tsCaixa: TTabSheet

@@ -8,9 +8,9 @@ Ordem de teste dos recursos do software
 			Data de cadastro já deve aparecer com a data atual. -> OK 
 			Colocar o foco na caixa para selecionar o tipo de cadastro -> OK
 			
-#Cadastro de funcionários --Data de cadastro já deve aparecer com a data atual.
-							Busca de atividade dos funcionários não esta funcionando.
-							Permissões dos usuários -> aba Relatórios não esta com as opçãoes Sim e Não.
+#Cadastro de funcionários --Data de cadastro já deve aparecer com a data atual. -> OK
+							Busca de atividade dos funcionários não esta funcionando. -> OK
+							Permissões dos usuários -> aba Relatórios não esta com as opçãoes Sim e Não. -> OK
 							
 			
 #Meios de pagamento -> OK

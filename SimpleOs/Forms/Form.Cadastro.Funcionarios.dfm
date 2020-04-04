@@ -3,7 +3,6 @@ inherited formCadastroDeFuncionarios: TformCadastroDeFuncionarios
   ClientHeight = 610
   ClientWidth = 1049
   OnClose = FormClose
-  ExplicitTop = -56
   ExplicitWidth = 1049
   ExplicitHeight = 610
   PixelsPerInch = 96

@@ -7351,3 +7351,11 @@ O sistema não pode encontrar o caminho especificado.
 01/04/20 15:05:38 - Caption: 
 01/04/20 15:05:38 - Erro:EAccessViolation
 01/04/20 15:05:38 - Erro:Access violation at address 661F7CC0 in module 'SimplesOS.exe'. Read of address 661F7CC0
+04/04/20 14:22:32 - ===========================================
+04/04/20 14:22:32 - Form: formCadastroDeFuncionarios
+04/04/20 14:22:32 - Caption: Cadastro de funcionários
+04/04/20 14:22:32 - Erro:EIBNativeException
+04/04/20 14:22:32 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 53
+=

@@ -386,6 +386,8 @@ begin
 
   FTipoOperacaoForm := 'novo';
 
+  edtDataCadastro.Text := DateToStr(Date);
+
 end;
 
 procedure TformCadastroDeFuncionarios.sbPesquisarCepClick(Sender: TObject);
@@ -431,9 +433,16 @@ end;
 procedure TformCadastroDeFuncionarios.SpeedButton2Click(Sender: TObject);
 begin
   inherited;
-  formLocalizarAtividadeFuncionario :=
-    TformLocalizarAtividadeFuncionario.Create(self);
-  tfactory.new.criarJanela.FormShow(formLocalizarAtividadeFuncionario, '');
+
+ if DataSource1.DataSet.State in [dsInsert, dsEdit] then
+ begin
+   formLocalizarAtividadeFuncionario := tformLocalizarAtividadeFuncionario.Create(self);
+   try
+     formLocalizarAtividadeFuncionario.ShowModal;
+   finally
+      formLocalizarAtividadeFuncionario.Free;
+   end;
+ end;
 
   edtCodigoAtividade.Text := codigoAtividade.ToString;
   edtAtividade.Text := atividadeFuncionario;
