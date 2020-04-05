@@ -7061,7 +7061,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 323
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7224,7 +7223,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
-    ExplicitLeft = 323
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7353,7 +7351,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 6
-    ExplicitLeft = 323
     object CategoryButtons7: TCategoryButtons
       Left = -30
       Top = 3
@@ -7376,6 +7373,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acBackupManual
+            end
+            item
+              Action = acRelatorioLogEventos
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -7402,7 +7402,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-    ExplicitLeft = 323
   end
   object spCaixa: TSplitView
     Left = 150
@@ -7416,7 +7415,6 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 8
-    ExplicitLeft = 323
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -8654,6 +8652,10 @@ object formPrincipal: TformPrincipal
     object acConfigurarAcessoFuncionario: TAction
       Caption = 'Config funcion'#225'rio'
       OnExecute = acConfigurarAcessoFuncionarioExecute
+    end
+    object acRelatorioLogEventos: TAction
+      Caption = 'Log de eventos'
+      OnExecute = acRelatorioLogEventosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

@@ -199,7 +199,9 @@ uses
   Form.Trocar.Usuario in 'Forms\Form.Trocar.Usuario.pas' {formTrocarDeUsuario},
   Form.Alterar.Senha in 'Forms\Form.Alterar.Senha.pas' {Form2},
   Form.Sobre in 'Forms\Form.Sobre.pas' {formSobre},
-  UClasse.Config.Imagem.Logo in 'Classes\Entity\Config\UClasse.Config.Imagem.Logo.pas';
+  UClasse.Config.Imagem.Logo in 'Classes\Entity\Config\UClasse.Config.Imagem.Logo.pas',
+  UClasse.Relatorio.Logs.Eventos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Logs.Eventos.pas',
+  Form.Relatorio.Log.Eventos in 'Forms\Relatorios\Form.Relatorio.Log.Eventos.pas' {formRelatorioLogEventos};
 
 {$R *.res}
 

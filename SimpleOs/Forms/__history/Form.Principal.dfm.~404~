@@ -5307,6 +5307,7 @@ object formPrincipal: TformPrincipal
       CF0C59608BF0C04D9318AED9EFB74E60C43ED29228DF9E8AC207BFBBA06EAA24
       2A5F7FD3AADC42B966A6126099A475FCC3BE1C44229148241289BE2FFDFF478E
       7F0E9760944C0000000049454E44AE426082}
+    PopupMenu = PopupMenuLogo
     Stretch = True
   end
   object Label7: TLabel
@@ -5315,6 +5316,7 @@ object formPrincipal: TformPrincipal
     Width = 31
     Height = 13
     Caption = 'Label7'
+    Visible = False
   end
   object Panel1: TPanel
     Left = 0
@@ -5879,15 +5881,6 @@ object formPrincipal: TformPrincipal
       Font.Style = []
       ParentFont = False
     end
-    object Button1: TButton
-      Left = 567
-      Top = 26
-      Width = 75
-      Height = 25
-      Caption = 'Button1'
-      TabOrder = 0
-      OnClick = Button1Click
-    end
     object pnlFoto: TPanel
       Left = 966
       Top = 0
@@ -5895,7 +5888,7 @@ object formPrincipal: TformPrincipal
       Height = 57
       Anchors = [akTop, akRight, akBottom]
       BevelOuter = bvNone
-      TabOrder = 1
+      TabOrder = 0
       object Image1: TImage
         Left = 0
         Top = 0
@@ -6192,6 +6185,7 @@ object formPrincipal: TformPrincipal
       Top = 384
       Width = 150
       Height = 83
+      Margins.Bottom = 15
       Align = alBottom
       BevelInner = bvNone
       BevelOuter = bvNone
@@ -7053,58 +7047,6 @@ object formPrincipal: TformPrincipal
         0D948C8A68A0645444837F011D41362B786DE3850000000049454E44AE426082}
       OnClick = Image3Click
     end
-    object Label3: TLabel
-      Left = 40
-      Top = 72
-      Width = 171
-      Height = 19
-      Caption = #218'ltima ordem realizada:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 4733753
-      Font.Height = -16
-      Font.Name = 'Roboto'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label4: TLabel
-      Left = 40
-      Top = 102
-      Width = 186
-      Height = 19
-      Caption = #218'ltima ordem cadastrada:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 4733753
-      Font.Height = -16
-      Font.Name = 'Roboto'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label5: TLabel
-      Left = 217
-      Top = 72
-      Width = 110
-      Height = 19
-      Caption = 'Ordem N'#186' 0000'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 4733753
-      Font.Height = -16
-      Font.Name = 'Roboto'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label6: TLabel
-      Left = 232
-      Top = 102
-      Width = 110
-      Height = 19
-      Caption = 'Ordem N'#186' 0000'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 4733753
-      Font.Height = -16
-      Font.Name = 'Roboto'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
   end
   object spvCadastros: TSplitView
     Left = 150
@@ -7119,6 +7061,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 3
+    ExplicitLeft = 323
     object CategoryButtons3: TCategoryButtons
       Left = -6
       Top = -29
@@ -7281,6 +7224,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 203
     Placement = svpLeft
     TabOrder = 5
+    ExplicitLeft = 323
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7409,6 +7353,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 6
+    ExplicitLeft = 323
     object CategoryButtons7: TCategoryButtons
       Left = -30
       Top = 3
@@ -7457,15 +7402,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
-  end
-  object Button2: TButton
-    Left = 824
-    Top = 232
-    Width = 75
-    Height = 25
-    Caption = 'Button2'
-    TabOrder = 8
-    OnClick = Button2Click
+    ExplicitLeft = 323
   end
   object spCaixa: TSplitView
     Left = 150
@@ -7478,7 +7415,8 @@ object formPrincipal: TformPrincipal
     Opened = False
     OpenedWidth = 187
     Placement = svpLeft
-    TabOrder = 9
+    TabOrder = 8
+    ExplicitLeft = 323
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -7526,15 +7464,6 @@ object formPrincipal: TformPrincipal
       SelectedButtonColor = clNone
       TabOrder = 0
     end
-  end
-  object Button3: TButton
-    Left = 800
-    Top = 263
-    Width = 75
-    Height = 25
-    Caption = 'Button3'
-    TabOrder = 10
-    OnClick = Button3Click
   end
   object ImageList1: TImageList
     Height = 24
@@ -8571,7 +8500,7 @@ object formPrincipal: TformPrincipal
       OnExecute = acNumeroDeParcelasExecute
     end
     object acQuitarParcelas: TAction
-      Caption = 'Parcelas vendas'
+      Caption = 'Quitar parcela venda'
       OnExecute = acQuitarParcelasExecute
     end
     object acVisualizarVendas: TAction
@@ -8715,7 +8644,7 @@ object formPrincipal: TformPrincipal
       OnExecute = acRelatorioHistoricoCaixaExecute
     end
     object acQuitarParcelasOS: TAction
-      Caption = 'Parcelas OS'
+      Caption = 'Quitar parcelas OS'
       OnExecute = acQuitarParcelasOSExecute
     end
     object acCaixaMovimentacao: TAction
@@ -8730,17 +8659,37 @@ object formPrincipal: TformPrincipal
   object PopupMenuFuncionario: TPopupMenu
     Left = 872
     Top = 264
-    object Alterarsenha1: TMenuItem
-      Caption = 'Alterar senha'
-    end
     object Sair1: TMenuItem
       Caption = 'Trocar de usu'#225'rio'
       OnClick = Sair1Click
+    end
+    object Sair2: TMenuItem
+      Caption = 'Sair'
+      OnClick = Sair2Click
     end
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
     Left = 864
     Top = 344
+  end
+  object PopupMenuLogo: TPopupMenu
+    Left = 576
+    Top = 288
+    object Definirlogomarca1: TMenuItem
+      Caption = 'Definir logomarca'
+      OnClick = Definirlogomarca1Click
+    end
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    Filter = 
+      'All (*.png_old;*.gif;*.png;*.jpg;*.jpeg;*.bmp;*.ico;*.emf;*.wmf;' +
+      '*.tif;*.tiff)|*.jpg;*.jpeg;|Portable Network Graphics (*.png_old' +
+      ')||GIF Image (*.gif)||Portable Network Graphics (*.png)||JPEG Im' +
+      'age File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg|Bitmaps (' +
+      '*.bmp)||Icons (*.ico)||Enhanced Metafiles (*.emf)||Metafiles (*.' +
+      'wmf)||TIFF Images (*.tif)||TIFF Images (*.tiff)'
+    Left = 656
+    Top = 400
   end
 end

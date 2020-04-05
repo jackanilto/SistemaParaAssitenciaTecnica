@@ -8,7 +8,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.DBGrids,
   Vcl.Forms, Vcl.StdCtrls, jpeg, Vcl.Graphics, Vcl.Mask, Datasnap.DBClient,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, System.Classes, RxToolEdit, RxCurrEdit;
 
 type
   iConexaoQuery = interface
@@ -156,6 +156,7 @@ type
   iCriarJanelas = interface
     ['{BEA3A61C-1058-4F51-B6AB-C488A1B18E1D}']
     function formShow(form: TForm; nomeForm: string): iCriarJanelas;
+    function verificarPermisao(value:string):iCriarJanelas;
   end;
 
   iGerarCodigoBarras = interface
@@ -598,6 +599,7 @@ type
     function abrir: iCadastroFuncionario;
     function inserir: iCadastroFuncionario;
     function gravar: iCadastroFuncionario;
+    function gravarEditando: iCadastroFuncionario;
     function deletar: iCadastroFuncionario;
     function atualizar: iCadastroFuncionario;
     function editar: iCadastroFuncionario;
@@ -974,9 +976,9 @@ type
     function setValorDaParcelas: currency;
     function setDataBaseVencimento: TDate;
 
-    function calcularDesconto(valor, desconto: TEdit): string;
-    function calcularAcrescimo(valor, desconto, acrescimo: TEdit): string;
-    function calularTotalPorNumeroDeParcela(total, qtde: TEdit): string;
+    function calcularDesconto(valor, desconto: TCurrencyEdit): string;
+    function calcularAcrescimo(valor, desconto, acrescimo: TCurrencyEdit): string;
+    function calularTotalPorNumeroDeParcela(total:TCurrencyEdit; qtde:TComboBox): string;
 
     function estadoDaTabela: string;
 
@@ -2904,6 +2906,14 @@ type
 
   end;
 
+  iTrocarDeUsuario = interface
+    ['{BC52F62A-A38D-42D9-923D-ED54BC9F26F2}']
+
+    function resetar:iTrocarDeUsuario;
+    function relogar:iTrocarDeUsuario;
+
+  end;
+
 
 
   iFactoryMovimentacao = interface
@@ -2949,7 +2959,7 @@ type
 
     function getID(value:integer): iNivelAcessoFuncionario;
     function getID_FUNCIONARIO(value:integer): iNivelAcessoFuncionario;
-    function getFUNCIONARIO(value:string = 'Nao'): iNivelAcessoFuncionario;
+    function getFUNCIONARIO(value:string): iNivelAcessoFuncionario;
     function getFORMCADASTROMARCAS(value:string = 'Nao'): iNivelAcessoFuncionario;
     function getFORMCADASTROGRUPOS(value:string = 'Nao'): iNivelAcessoFuncionario;
     function getFORMFORMAPAGAMENTO(value:string = 'Nao'): iNivelAcessoFuncionario;
@@ -3015,6 +3025,7 @@ type
     function getESTORNAR(value:string = 'Nao'): iNivelAcessoFuncionario;
     function getADICIONARPARCELA(value:string = 'Nao'): iNivelAcessoFuncionario;
     function getEXCLUIRPARCELA(value:string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMRELATORIOPARCELASPAGASVENDA(value:string = 'Nao'): iNivelAcessoFuncionario;
 
   end;
 

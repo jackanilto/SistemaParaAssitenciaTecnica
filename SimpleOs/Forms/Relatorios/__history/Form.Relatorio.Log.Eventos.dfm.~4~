@@ -1,0 +1,16 @@
+inherited formRelatorioLogEventos: TformRelatorioLogEventos
+  Caption = 'Relat'#243'rio Log de Eventos'
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
+  PixelsPerInch = 96
+  TextHeight = 17
+  inherited DBGrid1: TDBGrid
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

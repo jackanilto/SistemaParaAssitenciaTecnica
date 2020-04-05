@@ -2906,6 +2906,33 @@ type
 
   end;
 
+  iRelatorioLogEventos = interface
+    ['{CF77244A-7B99-4A75-A7D4-8532CE59998F}']
+
+    function nomeTabela(value: string): iRelatorioLogEventos;
+    function getCampo(value: string): iRelatorioLogEventos;
+    function getValor(value: string): iRelatorioLogEventos;
+    function getDataInicial(value: TDate): iRelatorioLogEventos;
+    function getDataFinal(value: TDate): iRelatorioLogEventos;
+    function open(value: string): iRelatorioLogEventos;
+    function pesquisar: iRelatorioLogEventos;
+    function ExecSql: iRelatorioLogEventos;
+    function sqlPesquisa: iRelatorioLogEventos;
+    function sqlPesquisaData: iRelatorioLogEventos;
+    function sqlPesquisaEstatica: iRelatorioLogEventos;
+
+    function abrir: iRelatorioLogEventos;
+    function atualizar: iRelatorioLogEventos;
+    function cancelar: iRelatorioLogEventos;
+    function fecharQuery: iRelatorioLogEventos;
+    function listarGrid(value: TDataSource): iRelatorioLogEventos;
+    function ordenarGrid(column: TColumn): iRelatorioLogEventos;
+
+    function exportar: iRelatorioLogEventos;
+    function validarData(componet: tmaskEdit):iRelatorioLogEventos;
+
+  end;
+
   iTrocarDeUsuario = interface
     ['{BC52F62A-A38D-42D9-923D-ED54BC9F26F2}']
 

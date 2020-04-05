@@ -1,0 +1,10 @@
+inherited formModeloRelatorio2: TformModeloRelatorio2
+  Caption = 'formModeloRelatorio2'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

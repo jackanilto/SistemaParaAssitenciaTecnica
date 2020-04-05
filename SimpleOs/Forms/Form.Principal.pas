@@ -128,6 +128,7 @@ type
     PopupMenuLogo: TPopupMenu;
     Definirlogomarca1: TMenuItem;
     OpenPictureDialog1: TOpenPictureDialog;
+    acRelatorioLogEventos: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -212,6 +213,7 @@ type
     procedure Sair1Click(Sender: TObject);
     procedure Sair2Click(Sender: TObject);
     procedure Definirlogomarca1Click(Sender: TObject);
+    procedure acRelatorioLogEventosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -259,7 +261,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
   Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup,
   Form.Backup.Manual, Form.Quitar.Parcela.OS, Form.Movimentacao.Caixa,
-  Form.Acesso.Recursos.Fucnionarios, Form.Sobre;
+  Form.Acesso.Recursos.Fucnionarios, Form.Sobre, Form.Relatorio.Log.Eventos;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -669,6 +671,18 @@ procedure TformPrincipal.acRelatorioHistoricoCaixaExecute(Sender: TObject);
 begin
   formRelatorioHistoricoDoCaixa := TformRelatorioHistoricoDoCaixa.Create(self);
   TFactory.new.criarJanela.formShow(formRelatorioHistoricoDoCaixa, 'FORMRELATHISTORICOCAIXA');
+end;
+
+procedure TformPrincipal.acRelatorioLogEventosExecute(Sender: TObject);
+begin
+
+  formRelatorioLogEventos := TformRelatorioLogEventos.Create(self);
+  try
+    formRelatorioLogEventos.ShowModal;
+  finally
+    formRelatorioLogEventos.Free;
+  end;
+
 end;
 
 procedure TformPrincipal.acRelatoriosExecute(Sender: TObject);
