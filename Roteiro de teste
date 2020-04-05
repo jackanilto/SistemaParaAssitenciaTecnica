@@ -31,13 +31,13 @@ Ordem de teste dos recursos do software
  
 
 #Criar Ordem de Serviço-> Número de parcelas deve ser selecionado com base no cadastro
-					  de número de parcelas. O calculo dos valores das parcelas
-					  deve ser feito automaticamente. -> OK
+						  de número de parcelas. -> OK
+					  O calculo dos valores das parcelas deve ser feito automaticamente. -> OK
 					  Formatar os valores monetarios na tela. -> OK
 					  Não permitir digitar os dados sem antes clicar no botão Ordem de Serviço. -> OK
 					  Não permitir que possa ser digitar dados nos campos Cód. Cliente e Cliente. -> OK
 					  Botão excluir não esta funcionando de forma correta, verificar a ordem de execução do botão. -> Encontrar mais
-						destahes sobre este problema ao realizar os teste.
+						detalhes sobre este problema ao realizar os teste.
 					  Se uma OS for estornada não deve ser permitido a edição deste registro. -> OK
 					  Somente gravar a os se todos os campos necessarios estivem preencidos. --> OK
 					  
@@ -59,7 +59,7 @@ Ordem de teste dos recursos do software
 #Relatório do cliente
 #Parcelas  a receber OS
 Parcelas pagas os
-#OS estornadas
+#OS estornadas -> Verificar se a tabela este aberta ao iniciar o formulário.
 #Reparos por período
 #Reparos por técnico
 #OS por situação

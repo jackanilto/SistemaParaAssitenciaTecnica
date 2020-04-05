@@ -60,6 +60,7 @@ inherited formConfigurarParcelas: TformConfigurarParcelas
     inherited cardPanelCadatro: TCard
       Width = 833
       Height = 240
+      ExplicitTop = 1
       ExplicitWidth = 833
       ExplicitHeight = 240
       object Label1: TLabel
@@ -129,12 +130,11 @@ inherited formConfigurarParcelas: TformConfigurarParcelas
         ParentFont = False
         TabOrder = 1
       end
-      object edtMulta: TEdit
+      object edtMulta: TCurrencyEdit
         Left = 32
-        Top = 176
+        Top = 180
         Width = 121
         Height = 25
-        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -142,6 +142,7 @@ inherited formConfigurarParcelas: TformConfigurarParcelas
         Font.Style = []
         ParentFont = False
         TabOrder = 2
+        ZeroEmpty = False
       end
     end
     inherited cardPanelConsulta: TCard

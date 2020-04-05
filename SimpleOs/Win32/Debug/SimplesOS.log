@@ -664,3 +664,8 @@ Problematic key value is ("ID_ORDEM" = 0)
 04/04/20 13:42:00 - Caption: Cadastro de serviços
 04/04/20 13:42:00 - Erro:Exception
 04/04/20 13:42:00 - Erro:Informe um número válido para o Valor do Serviço.
+05/04/20 14:05:11 - ===========================================
+05/04/20 14:05:11 - Form: formCriarConsultarOrdemServico
+05/04/20 14:05:11 - Caption: 
+05/04/20 14:05:11 - Erro:Exception
+05/04/20 14:05:11 - Erro:OPERAÇÃO DE ESTORNO CANCELADA!

@@ -1,0 +1,25 @@
+
+Parcelas inadimplentes OS -> Ao selecionar a parcelasem atraso deve ser possível
+								abrir a janela para quitar
+
+
+
+#Clientes ->OK
+#Cadastro de funcionários ->OK
+#Configurar parcelas -> Campo multa deve estar com a formatação de moeda -> OK
+#Situação ordem de serviço -> OK
+#Cadastro de serviços -> Campo do valor no relatório deve ser formatado com o R$ -> OK
+
+#Ordem de serviços -> Campos Valor OS e Status não estão formatados. -> OK
+
+
+
+#Criar Ordem de Serviço -> Erro a quitar uma parcela (Pede para informar o valor do desconto, Juros e Multa). -> OK
+						   Ao estornar uma OS, na caixa de motivos se for escolhido cancelar deve
+						   ser então cancelado o processo de estorno. -> OK
+						   Se uma os for estornada o botão para gerar as parcelas deve ser desativado. -> OK
+						   Ao clicar no botão estornar OS o botão Editar deve ser desabilitado imediatamente. -> OK
+						   Impressão da OS o campo Situação PGTO deve estar destacado. -> OK
+	Parcelas
+	
+#Parcelas OS -> Ao quitar uma parcela o campo Cód. Funcionário e Nome funcionário não estão sendo gravados -> OK 	

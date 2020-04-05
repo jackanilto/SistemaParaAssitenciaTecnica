@@ -385,7 +385,10 @@ end;
 
 function TEntityCriarOrdemServico.estornarOrdem(value: integer)
   : iCriarOrdemServico;
+  var
+  FMotivo:String;
 begin
+
   result := self;
 
   FQuery.getCampo('ID').getValor(value.ToString).sqlPesquisa(FTabela);
@@ -399,21 +402,34 @@ begin
         ('Deseja realmente estornar esta ordem de serviço?',
         'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
       begin
+
+        FMotivo := InputBox('Informe o motivo do estorno', 'Motivo do estorno', '');
+
+        if FMotivo = EmptyStr then
+          raise Exception.Create('OPERAÇÃO DE ESTORNO CANCELADA!');
+
+
         FQuery.TQuery.Edit;
         FQuery.TQuery.FieldByName('PGTO').AsString := 'Estornada';
         FQuery.TQuery.Post;
 
         estornarParcelas(FQuery.TQuery.FieldByName('ID').AsInteger);
 
-        FEstornarOS.getID_ORDEM(FQuery.TQuery.FieldByName('ID').AsInteger)
-          .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
-          .getVALOR_OS(FQuery.TQuery.FieldByName('VALOR_DA_ORDEM').AsCurrency)
-          .getDATA(datetostr(date)).getHORA(TimeToStr(time)).getMOTIVO('')
-          .inserir.Gravar;
+        FEstornarOS
+                  .getID_ORDEM(FQuery.TQuery.FieldByName('ID').AsInteger)
+                  .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+                  .getVALOR_OS(FQuery.TQuery.FieldByName('VALOR_DA_ORDEM').AsCurrency)
+                  .getDATA(datetostr(date))
+                  .getHORA(TimeToStr(time))
+                  .getMOTIVO(FMotivo)
+                  .inserir
+                  .Gravar;
 
-        FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('EQUIPAMENTO')
-          .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id')
-          .AsInteger).getOperacao('estornado').gravarLog;
+        FGravarLog
+                .getNomeRegistro(FQuery.TQuery.FieldByName('EQUIPAMENTO').AsString)
+                .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+                .getOperacao('estornado')
+                .gravarLog;
 
       end;
     end

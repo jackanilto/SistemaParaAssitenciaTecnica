@@ -220,6 +220,8 @@ begin
     FieldByName('DATA_DE_ENTRADA').DisplayLabel := 'Entrada';
     FieldByName('DATA_SAIDA').DisplayLabel := 'Saida';
     FieldByName('PGTO').DisplayLabel := 'PGTO';
+    FieldByName('VALOR_OS').DisplayLabel := 'Valor da OS';
+    FieldByName('STATUS').DisplayLabel := 'Status';
 
     FieldByName('ID_ORDEM').DisplayWidth := 15;
     FieldByName('NOME_CLIENTE').DisplayWidth := 30;

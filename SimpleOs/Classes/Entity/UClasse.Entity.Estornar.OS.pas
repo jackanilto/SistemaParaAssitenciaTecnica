@@ -243,24 +243,22 @@ begin
 end;
 
 function TEntityEstornarOS.getMOTIVO(value: string): iEstornarOS;
-var
-  motivo: string;
 begin
 
   result := self;
 
-  while motivo = EmptyStr do
-  begin
-    motivo := InputBox('Informe o motivo do estorno', 'Motivo do estorno', '');
+//  while motivo = EmptyStr do
+//  begin
+//    motivo := InputBox('Informe o motivo do estorno', 'Motivo do estorno', '');
+//
+//    if motivo = EmptyStr then
+//    begin
+//      MessageDlg('Você precisa informa um motivo para este estorno', mtWarning,
+//        [mbOK], 0, mbOK);
+//    end;
+//  end;
 
-    if motivo = EmptyStr then
-    begin
-      MessageDlg('Você precisa informa um motivo para este estorno', mtWarning,
-        [mbOK], 0, mbOK);
-    end;
-  end;
-
-  FMOTIVO := motivo;
+  FMOTIVO := value;
 
 end;
 

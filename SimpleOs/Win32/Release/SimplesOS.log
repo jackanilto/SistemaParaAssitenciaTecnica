@@ -7359,3 +7359,18 @@ O sistema não pode encontrar o caminho especificado.
 SQL error code = -104
 Token unknown - line 1, column 53
 =
+05/04/20 13:30:19 - ===========================================
+05/04/20 13:30:19 - Form: formPrincipal
+05/04/20 13:30:19 - Caption: SimpleOS
+05/04/20 13:30:19 - Erro:EAccessViolation
+05/04/20 13:30:19 - Erro:Access violation at address 00BD2BEB in module 'SimplesOS.exe'. Read of address 00000004
+05/04/20 13:32:15 - ===========================================
+05/04/20 13:32:15 - Form: formConfigurarParcelas
+05/04/20 13:32:15 - Caption: Configurar parcelas
+05/04/20 13:32:15 - Erro:Exception
+05/04/20 13:32:15 - Erro:Informe o valor da multa por atraso.
+05/04/20 13:32:24 - ===========================================
+05/04/20 13:32:24 - Form: formConfigurarParcelas
+05/04/20 13:32:24 - Caption: Configurar parcelas
+05/04/20 13:32:24 - Erro:Exception
+05/04/20 13:32:24 - Erro:Informe o valor da multa por atraso.

@@ -55,7 +55,6 @@ inherited formCadastroDeServicos: TformCadastroDeServicos
   inherited CardPanel1: TCardPanel
     Width = 844
     Height = 239
-    ActiveCard = cardPanelCadatro
     ExplicitWidth = 844
     ExplicitHeight = 239
     inherited cardPanelCadatro: TCard
@@ -170,6 +169,7 @@ inherited formCadastroDeServicos: TformCadastroDeServicos
         Font.Style = []
         ParentFont = False
         TabOrder = 2
+        ZeroEmpty = False
       end
     end
     inherited cardPanelConsulta: TCard
@@ -228,7 +228,7 @@ inherited formCadastroDeServicos: TformCadastroDeServicos
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43801.845998784720000000
-    ReportOptions.LastChange = 43801.853316296300000000
+    ReportOptions.LastChange = 43926.566630648150000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -460,6 +460,8 @@ inherited formCadastroDeServicos: TformCadastroDeServicos
           Top = 11.338590000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12

@@ -162,7 +162,7 @@ type
     frx_ImprimirRecibo: TfrxReport;
     PopupMenu1: TPopupMenu;
     Editarparcela1: TMenuItem;
-    SpeedButton1: TSpeedButton;
+    sbGerarParcelas: TSpeedButton;
     edtTotalDeParcelas: TComboBox;
     edtValorOrdem: TCurrencyEdit;
     edtDesconto: TCurrencyEdit;
@@ -212,7 +212,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Editarparcela1Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure sbGerarParcelasClick(Sender: TObject);
     procedure edtValorOrdemExit(Sender: TObject);
   private
     { Private declarations }
@@ -761,7 +761,7 @@ begin
 
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbGerarParcelasClick(Sender: TObject);
 begin
 
   if DataSource1.DataSet.RecordCount >= 1 then
@@ -803,6 +803,7 @@ begin
 
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
+
     FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
       .AsInteger);
 
@@ -811,6 +812,7 @@ begin
     FAtivarBotoes.ativarbotaoEstornar;
 
     lblCaption.Caption := 'Ordem de serviços - OS Estornada';
+
   end;
 
 end;
@@ -1165,6 +1167,7 @@ begin // selecionar a OS ao chamar através do form  Ordem de Servico
     begin
       sbEstornarOS.Enabled := false;
       sbEditar.Enabled := false;
+      sbGerarParcelas.Enabled := false;
     end;
 
 

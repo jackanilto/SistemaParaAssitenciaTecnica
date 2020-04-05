@@ -914,7 +914,6 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
         object Label30: TLabel
           Left = 15
           Top = 9
@@ -1677,6 +1676,7 @@
           Width = 121
           Height = 25
           TabOrder = 10
+          ZeroEmpty = False
         end
         object edtDescontoParcela: TCurrencyEdit
           Left = 335
@@ -1684,6 +1684,7 @@
           Width = 101
           Height = 25
           TabOrder = 11
+          ZeroEmpty = False
         end
         object edtJurosParcelas: TCurrencyEdit
           Left = 442
@@ -1691,6 +1692,7 @@
           Width = 100
           Height = 25
           TabOrder = 12
+          ZeroEmpty = False
         end
         object edtMultaParcela: TCurrencyEdit
           Left = 548
@@ -1698,6 +1700,7 @@
           Width = 100
           Height = 25
           TabOrder = 13
+          ZeroEmpty = False
         end
         object edtTotalParcela: TCurrencyEdit
           Left = 654
@@ -1705,6 +1708,7 @@
           Width = 121
           Height = 25
           TabOrder = 14
+          ZeroEmpty = False
         end
       end
     end
@@ -2293,7 +2297,7 @@
       ShowHint = True
       OnClick = sbImprimirOSClick
     end
-    object SpeedButton1: TSpeedButton
+    object sbGerarParcelas: TSpeedButton
       Left = 689
       Top = 24
       Width = 145
@@ -2370,7 +2374,7 @@
         361A99361AD7}
       Layout = blGlyphRight
       ParentFont = False
-      OnClick = SpeedButton1Click
+      OnClick = sbGerarParcelasClick
     end
   end
   object DataSource1: TDataSource
@@ -2505,8 +2509,8 @@
     CloseDataSource = False
     DataSource = s_imprimirServicosOS
     BCDToCurrency = False
-    Left = 788
-    Top = 133
+    Left = 748
+    Top = 125
   end
   object frxDB_ImprimirParcelasOS: TfrxDBDataset
     UserName = 'frxDB_ImprimirParcelasOS'
@@ -2525,7 +2529,7 @@
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43815.777397349500000000
-    ReportOptions.LastChange = 43821.647114456020000000
+    ReportOptions.LastChange = 43926.594937233790000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -3200,22 +3204,34 @@
         object Memo44: TfrxMemoView
           AllowVectorExport = True
           Left = 473.543600000000000000
-          Top = 597.283860000000000000
-          Width = 102.047310000000000000
+          Top = 596.283860000000000000
+          Width = 49.133890000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Situa'#231#227'o PGTO:')
+            'Status:')
+          ParentFont = False
         end
         object Memo45: TfrxMemoView
           AllowVectorExport = True
-          Left = 579.370440000000000000
-          Top = 597.283860000000000000
-          Width = 120.944960000000000000
+          Left = 530.236550000000000000
+          Top = 596.283860000000000000
+          Width = 166.299320000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirOS."PGTO"]')
+          ParentFont = False
         end
         object Shape13: TfrxShapeView
           AllowVectorExport = True

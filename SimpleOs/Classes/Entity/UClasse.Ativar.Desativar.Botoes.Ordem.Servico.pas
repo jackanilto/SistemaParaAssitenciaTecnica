@@ -119,7 +119,7 @@ begin
   btSalvar.Enabled := true;
   btEditar.Enabled := false;
   btExcluir.Enabled := true;
-  btCancelar.Enabled := true;
+  btCancelar.Enabled := false;
   btImprimir.Enabled := false;
   btEstornar.Enabled := false;
 end;
@@ -128,7 +128,7 @@ procedure TAtivarDesativarBotoesOrdemServico.ativarbotaoEstornar;
 begin
   btNovo.Enabled := true;
   btSalvar.Enabled := false;
-  btEditar.Enabled := true;
+  btEditar.Enabled := false;
   btExcluir.Enabled := true;
   btCancelar.Enabled := true;
   btImprimir.Enabled := true;

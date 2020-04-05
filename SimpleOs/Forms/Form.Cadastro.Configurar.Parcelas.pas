@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces,
-  UClasse.Entity.Configurar.Parcelas;
+  UClasse.Entity.Configurar.Parcelas, Vcl.Mask, RxToolEdit, RxCurrEdit;
 
 type
   TformConfigurarParcelas = class(TformExemploEmbeded)
@@ -17,8 +17,8 @@ type
     edtJuros: TEdit;
     Label1: TLabel;
     Label2: TLabel;
-    edtMulta: TEdit;
     Label3: TLabel;
+    edtMulta: TCurrencyEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -122,8 +122,15 @@ end;
 
 procedure TformConfigurarParcelas.sbSalvarClick(Sender: TObject);
 begin
-  FEntityConfigurarParcelas.getConfigurarParcelaJuros(edtJuros.Text)
-    .getConfigurarParcelaMulta(edtMulta.Text).gravar;
+
+  if edtMulta.Text = EmptyStr then
+    edtMulta.Text := '0';
+
+  FEntityConfigurarParcelas
+                        .getConfigurarParcelaJuros(edtJuros.Text)
+                        .getConfigurarParcelaMulta(edtMulta.Text)
+                        .gravar;
+
   inherited;
 
 end;

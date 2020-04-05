@@ -733,14 +733,12 @@ begin
     FQueryParcelaOS.TQuery.FieldByName('DESCONTO').AsCurrency := FDESCONTO;
     FQueryParcelaOS.TQuery.FieldByName('JUROS').AsCurrency := FJUROS;
     FQueryParcelaOS.TQuery.FieldByName('MULTA').AsCurrency := FMULTA;
-    FQueryParcelaOS.TQuery.FieldByName('VALOR_TOTAL').AsCurrency :=
-      FVALOR_TOTAL;
-    FQueryParcelaOS.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime :=
-      FDATA_PAGAMENTO;
-    FQueryParcelaOS.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime :=
-      FHORA_PAGAMENTO;
-    FQueryParcelaOS.TQuery.FieldByName('FORMA_PAGAMENTO').AsString :=
-      FFORMA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
+    FQueryParcelaOS.TQuery.FieldByName('ID_FUNCIONARIO').AsInteger := funcionarioLogado;
+    FQueryParcelaOS.TQuery.FieldByName('NOME_FUNCIONARIO').AsString := NomeFuncionarioLogado;
+    FQueryParcelaOS.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := FDATA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := FHORA_PAGAMENTO;
+    FQueryParcelaOS.TQuery.FieldByName('FORMA_PAGAMENTO').AsString := FFORMA_PAGAMENTO;
     FQueryParcelaOS.TQuery.FieldByName('PGTO').AsString := FPGTO;
 
     try

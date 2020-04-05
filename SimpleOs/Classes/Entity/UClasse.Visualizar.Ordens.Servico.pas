@@ -152,10 +152,8 @@ begin
     FieldByName('DATA_ENTRADA').DisplayLabel := 'Data de entrada';
     FieldByName('DATA_FINALIZACAO').DisplayLabel := 'Data de saída';
     FieldByName('HORA_SAIDA').DisplayLabel := 'Horário de saída';
-    FieldByName('DATA_BASE_VENCIMENTO').DisplayLabel :=
-      'Data base de vencimento';
-    FieldByName('ID_TECNICO_RESPONSAVEL').DisplayLabel :=
-      'Cód. Técnico responsável';
+    FieldByName('DATA_BASE_VENCIMENTO').DisplayLabel := 'Data base de vencimento';
+    FieldByName('ID_TECNICO_RESPONSAVEL').DisplayLabel := 'Cód. Técnico responsável';
     FieldByName('TECNICO_RESPONSAVEL').DisplayLabel := 'Técnico';
     FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
     FieldByName('STATUS').DisplayLabel := 'Status';

@@ -13,6 +13,9 @@ uses
   Form.Acesso.Recursos.Fucnionarios;
 
 type
+  TEnumPesquisar = (codigo, nome, usuario);
+
+type
   TformCadastroDeFuncionarios = class(TformExemploEmbeded)
     DataSource1: TDataSource;
     edtCodigo: TEdit;
@@ -237,20 +240,31 @@ end;
 procedure TformCadastroDeFuncionarios.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 var
-  campo: string;
+  FCampo: string;
 begin
   inherited;
 
-  if cbPesquisar.Text = 'Código' then
-    campo := 'ID'
-  else if cbPesquisar.Text = 'Nome' then
-    campo := 'NOME'
-  else if cbPesquisar.Text = 'Usuário' then
-    campo := 'USUARIO';
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  codigo:
+  begin
+    FCampo := 'ID'
+  end;
+  nome:
+  begin
+    FCampo := 'NOME'
+  end;
+  usuario:
+  begin
+    FCampo := 'USUARIO';
+  end;
+  end;
 
   if edtPesquisar.Text <> EmptyStr then
-    FEntityFuncionario.getCampo(campo).getValor(edtPesquisar.Text)
-      .sqlPesquisa.listarGrid(DataSource1)
+        FEntityFuncionario
+                        .getCampo(FCampo)
+                        .getValor(edtPesquisar.Text)
+                        .sqlPesquisa
+                        .listarGrid(DataSource1)
 
 end;
 
