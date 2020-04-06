@@ -88,7 +88,12 @@ end;
 procedure TformOSEstornadas.FormShow(Sender: TObject);
 begin
   inherited;
-  FRelatorioEstornos.abrir.listarGrid(DataSource1);
+  FRelatorioEstornos
+                .abrir
+                .getCampo('ID_ESTORNO')
+                .getValor('0')
+                .sqlPesquisa
+                .listarGrid(DataSource1);
 end;
 
 procedure TformOSEstornadas.sbExportarClick(Sender: TObject);

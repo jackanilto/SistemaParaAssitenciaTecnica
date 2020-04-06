@@ -139,7 +139,12 @@ begin
       pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('SITUACAO_DA_ORDEM').AsString;
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('PGTO').AsString;
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('DATA_ENTRADA').AsDateTime;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_FINALIZACAO').AsDateTime;
+
+      if FQuery.TQuery.FieldByName('DATA_FINALIZACAO').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_FINALIZACAO').AsDateTime
+      else
+        pasta.cells[linha, 9] := ' ';
+
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('STATUS').AsString;
 
       linha := linha + 1;

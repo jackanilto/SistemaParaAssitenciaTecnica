@@ -197,7 +197,7 @@ begin
     FieldByName('NOME_CLIENTE').DisplayLabel := 'Nome cliente';
     FieldByName('VALOR').DisplayLabel := 'Valor';
     FieldByName('DATA').DisplayLabel := 'Data';
-    FieldByName('HORA').DisplayLabel := 'Data';
+    FieldByName('HORA').DisplayLabel := 'Horário';
     FieldByName('MOTIVO').DisplayLabel := 'Motivo';
     FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';
     FieldByName('NOME_FUNCIONARIO').DisplayLabel := 'Nome do funcionário';

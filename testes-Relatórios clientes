@@ -7,16 +7,16 @@
 						
  #Parcelas  a receber OS -> OK
  
-#Parcelas pagas os -> A tabela não deve permitir a edição de registros.
+#Parcelas pagas os -> A tabela não deve permitir a edição de registros. -> OK
 
-#OS estornadas -> Não permitir qua a tabela esteja aberta ao iniciar o form.
-				  Alterar a label da caixa de pesquisa entre data para data de estorno.	
+#OS estornadas -> Não permitir qua a tabela esteja aberta ao iniciar o form. -> OK
+				  Alterar a label da caixa de pesquisa entre data para data de estorno.	-> OK
 
-#Reparos por período -> Campo PGTO não esta ajusado devidamente para a palavra estornado(a).
+#Reparos por período -> Campo PGTO não esta ajusado devidamente para a palavra estornado(a). -> OK
 
-#Reparos por técnico -> A tabela não deve estar aberta ao iniciar o form.
-						Não deve ser possivel alterar os registros na tabela.
-						Campo saída ao exportar deve ficar em branco se não houver registro.
+#Reparos por técnico -> A tabela não deve estar aberta ao iniciar o form. -> OK
+						Não deve ser possivel alterar os registros na tabela. -> OK
+						Campo saída ao exportar deve ficar em branco se não houver registro. -> OK
 
 #OS por situação -> Erro ao selecionar a opção Aguradando orçamento na caixa de pesquisa por situação 
 

@@ -2,7 +2,6 @@ inherited formRelatorioOSPorTecnico: TformRelatorioOSPorTecnico
   Caption = 'Reparos por t'#233'cnico'
   ClientHeight = 570
   ClientWidth = 1091
-  OnCreate = FormCreate
   ExplicitWidth = 1091
   ExplicitHeight = 570
   PixelsPerInch = 96
@@ -204,7 +203,9 @@ inherited formRelatorioOSPorTecnico: TformRelatorioOSPorTecnico
     Height = 465
     Font.Height = -13
     Font.Name = 'Segoe UI'
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
+    ReadOnly = True
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]

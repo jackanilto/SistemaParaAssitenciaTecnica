@@ -89,7 +89,13 @@ end;
 procedure TformRelatorioOSPorTecnico.FormShow(Sender: TObject);
 begin
   inherited;
-  FRelatorioOSTecnico.abrir.listarGrid(DataSource1);
+
+  FRelatorioOSTecnico
+                    .abrir
+                    .getCampo('ID_ORDEM')
+                    .getValor('0')
+                    .sqlPesquisa
+                    .listarGrid(DataSource1);
 end;
 
 procedure TformRelatorioOSPorTecnico.sbExportarClick(Sender: TObject);

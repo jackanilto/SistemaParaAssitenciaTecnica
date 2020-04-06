@@ -1,6 +1,5 @@
 inherited formRelatorioReparosPorPeriodo: TformRelatorioReparosPorPeriodo
   Caption = 'Relat'#243'rio de reparos realizados por per'#237'odo'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
@@ -183,7 +182,7 @@ inherited formRelatorioReparosPorPeriodo: TformRelatorioReparosPorPeriodo
   end
   inherited frxReport1: TfrxReport
     ReportOptions.CreateDate = 43852.479963819500000000
-    ReportOptions.LastChange = 43870.655859884300000000
+    ReportOptions.LastChange = 43927.642213402770000000
     ScriptText.Strings = (
       ''
       'begin'
@@ -486,13 +485,13 @@ inherited formRelatorioReparosPorPeriodo: TformRelatorioReparosPorPeriodo
         end
         object Memo14: TfrxMemoView
           AllowVectorExport = True
-          Left = 574.488560000000000000
-          Top = 7.559060000000000000
-          Width = 37.795300000000000000
-          Height = 18.897650000000000000
+          Left = 573.488560000000000000
+          Top = 3.779530000000000000
+          Width = 41.574830000000000000
+          Height = 26.456710000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -12
+          Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = []

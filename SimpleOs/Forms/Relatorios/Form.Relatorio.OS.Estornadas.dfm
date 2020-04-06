@@ -1,6 +1,5 @@
 inherited formOSEstornadas: TformOSEstornadas
   Caption = 'OS Estornadas'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
@@ -15,10 +14,10 @@ inherited formOSEstornadas: TformOSEstornadas
     object Label1: TLabel [4]
       Left = 365
       Top = 8
-      Width = 171
+      Width = 178
       Height = 15
       Anchors = [akRight, akBottom]
-      Caption = 'Pesquisa  data de vencimento'
+      Caption = 'Pesquisa entre data de estorno'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -13

@@ -56,12 +56,18 @@ Ordem de teste dos recursos do software
 
 *******Relatórios
 
-#Relatório do cliente
-#Parcelas  a receber OS
-Parcelas pagas os
+#Relatório do cliente -> CPF do cliente esta faltando números, provalvelmente esta relacionado com cadastro
+							e a tabela do banco de dados.
+#Parcelas  a receber OS -> OK
+
+Parcelas pagas os -> A grid não deve permitir a edição de registros.
+
 #OS estornadas -> Verificar se a tabela este aberta ao iniciar o formulário.
-#Reparos por período
+
+#Reparos por período -> Campo estornada não esta na impressão de reçat
+
 #Reparos por técnico
+
 #OS por situação
 #Relatório OS
 #OS inadimplentes
