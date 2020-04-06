@@ -47,6 +47,8 @@ implementation
 
 {$R *.dfm}
 
+uses Form.Principal;
+
 procedure TformConfigurarConexaoBanco.Button1Click(Sender: TObject);
 begin
   if OpenDialog1.Execute then
@@ -95,6 +97,11 @@ begin
      MessageDlg('ERRO. Informe a localização do banco de dados que irá utilizar', mtError, [mbOk], 0, mbOk);
 
      FConfConexao.inserirDados(edtHost.Text, edtLocalDoBanco.Text);
+
+     showmessage('O sistema será fechado para validar as configurações.' +
+     'Assim que encerrar por favor abra novamente o sistema para prosseguir com o trabalho.');
+     started := 'no';
+     application.Terminate;
 
 end;
 

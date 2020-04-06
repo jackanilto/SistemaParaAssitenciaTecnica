@@ -104,6 +104,7 @@ var
 begin
 
   FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
 
   linha := 2;
   pasta := CreateOleObject('Excel.application');
@@ -141,10 +142,18 @@ begin
       pasta.cells[linha, 2] := FQuery.TQuery.FieldByName
         ('TIPO_CADASTRO').AsString;
       pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('NOME').AsString;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DATA_NASCIMENTO')
-        .AsDateTime;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA_CADASTRO')
-        .AsDateTime;
+
+      if FQuery.TQuery.FieldByName('DATA_NASCIMENTO').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DATA_NASCIMENTO')
+        .AsDateTime
+      else
+        pasta.cells[linha, 4] := ' ';
+
+        if FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime = StrToDate('30/12/1899') then
+          pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime
+        else
+          pasta.cells[linha, 5] := ' ';
+
       pasta.cells[linha, 6] := '"' + FQuery.TQuery.FieldByName('CPF_CNPJ')
         .AsString + '"';
       pasta.cells[linha, 7] := '"' + FQuery.TQuery.FieldByName('DOCUMENTO')

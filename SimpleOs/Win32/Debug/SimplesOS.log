@@ -669,3 +669,231 @@ Problematic key value is ("ID_ORDEM" = 0)
 05/04/20 14:05:11 - Caption: 
 05/04/20 14:05:11 - Erro:Exception
 05/04/20 14:05:11 - Erro:OPERAÇÃO DE ESTORNO CANCELADA!
+06/04/20 14:34:55 - ===========================================
+06/04/20 14:34:55 - Form: formPrincipal
+06/04/20 14:34:55 - Caption: SimpleOS
+06/04/20 14:34:55 - Erro:EIBNativeException
+06/04/20 14:34:55 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+CAIXA_ABER_FECH
+At line 1, column 31
+06/04/20 14:34:56 - ===========================================
+06/04/20 14:34:56 - Form: formPrincipal
+06/04/20 14:34:56 - Caption: SimpleOS
+06/04/20 14:34:56 - Erro:EAccessViolation
+06/04/20 14:34:56 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:34:57 - ===========================================
+06/04/20 14:34:57 - Form: formPrincipal
+06/04/20 14:34:57 - Caption: SimpleOS
+06/04/20 14:34:57 - Erro:EAccessViolation
+06/04/20 14:34:57 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:34:58 - ===========================================
+06/04/20 14:34:58 - Form: formPrincipal
+06/04/20 14:34:58 - Caption: SimpleOS
+06/04/20 14:34:58 - Erro:EAccessViolation
+06/04/20 14:34:58 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:34:59 - ===========================================
+06/04/20 14:34:59 - Form: formPrincipal
+06/04/20 14:34:59 - Caption: SimpleOS
+06/04/20 14:34:59 - Erro:EAccessViolation
+06/04/20 14:34:59 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:00 - ===========================================
+06/04/20 14:35:00 - Form: formPrincipal
+06/04/20 14:35:00 - Caption: SimpleOS
+06/04/20 14:35:00 - Erro:EAccessViolation
+06/04/20 14:35:00 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:01 - ===========================================
+06/04/20 14:35:01 - Form: formPrincipal
+06/04/20 14:35:01 - Caption: SimpleOS
+06/04/20 14:35:01 - Erro:EAccessViolation
+06/04/20 14:35:01 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:02 - ===========================================
+06/04/20 14:35:02 - Form: formPrincipal
+06/04/20 14:35:02 - Caption: SimpleOS
+06/04/20 14:35:02 - Erro:EAccessViolation
+06/04/20 14:35:02 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:03 - ===========================================
+06/04/20 14:35:03 - Form: formPrincipal
+06/04/20 14:35:03 - Caption: SimpleOS
+06/04/20 14:35:03 - Erro:EAccessViolation
+06/04/20 14:35:03 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:04 - ===========================================
+06/04/20 14:35:04 - Form: formPrincipal
+06/04/20 14:35:04 - Caption: SimpleOS
+06/04/20 14:35:04 - Erro:EAccessViolation
+06/04/20 14:35:04 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:05 - ===========================================
+06/04/20 14:35:05 - Form: formPrincipal
+06/04/20 14:35:05 - Caption: SimpleOS
+06/04/20 14:35:05 - Erro:EAccessViolation
+06/04/20 14:35:05 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:06 - ===========================================
+06/04/20 14:35:06 - Form: formPrincipal
+06/04/20 14:35:06 - Caption: SimpleOS
+06/04/20 14:35:06 - Erro:EAccessViolation
+06/04/20 14:35:06 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:07 - ===========================================
+06/04/20 14:35:07 - Form: formPrincipal
+06/04/20 14:35:07 - Caption: SimpleOS
+06/04/20 14:35:07 - Erro:EAccessViolation
+06/04/20 14:35:07 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:08 - ===========================================
+06/04/20 14:35:08 - Form: formPrincipal
+06/04/20 14:35:08 - Caption: SimpleOS
+06/04/20 14:35:08 - Erro:EAccessViolation
+06/04/20 14:35:08 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:09 - ===========================================
+06/04/20 14:35:09 - Form: formPrincipal
+06/04/20 14:35:09 - Caption: SimpleOS
+06/04/20 14:35:09 - Erro:EAccessViolation
+06/04/20 14:35:09 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:10 - ===========================================
+06/04/20 14:35:10 - Form: formPrincipal
+06/04/20 14:35:10 - Caption: SimpleOS
+06/04/20 14:35:10 - Erro:EAccessViolation
+06/04/20 14:35:10 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:11 - ===========================================
+06/04/20 14:35:11 - Form: formPrincipal
+06/04/20 14:35:11 - Caption: SimpleOS
+06/04/20 14:35:11 - Erro:EAccessViolation
+06/04/20 14:35:11 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:12 - ===========================================
+06/04/20 14:35:12 - Form: formPrincipal
+06/04/20 14:35:12 - Caption: SimpleOS
+06/04/20 14:35:12 - Erro:EAccessViolation
+06/04/20 14:35:12 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:13 - ===========================================
+06/04/20 14:35:13 - Form: formPrincipal
+06/04/20 14:35:13 - Caption: SimpleOS
+06/04/20 14:35:13 - Erro:EAccessViolation
+06/04/20 14:35:13 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:14 - ===========================================
+06/04/20 14:35:14 - Form: formPrincipal
+06/04/20 14:35:14 - Caption: SimpleOS
+06/04/20 14:35:14 - Erro:EAccessViolation
+06/04/20 14:35:14 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:15 - ===========================================
+06/04/20 14:35:15 - Form: formPrincipal
+06/04/20 14:35:15 - Caption: SimpleOS
+06/04/20 14:35:15 - Erro:EAccessViolation
+06/04/20 14:35:15 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:16 - ===========================================
+06/04/20 14:35:16 - Form: formPrincipal
+06/04/20 14:35:16 - Caption: SimpleOS
+06/04/20 14:35:16 - Erro:EAccessViolation
+06/04/20 14:35:16 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:17 - ===========================================
+06/04/20 14:35:17 - Form: formPrincipal
+06/04/20 14:35:17 - Caption: SimpleOS
+06/04/20 14:35:17 - Erro:EAccessViolation
+06/04/20 14:35:17 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:18 - ===========================================
+06/04/20 14:35:18 - Form: formPrincipal
+06/04/20 14:35:18 - Caption: SimpleOS
+06/04/20 14:35:18 - Erro:EAccessViolation
+06/04/20 14:35:18 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:35:20 - ===========================================
+06/04/20 14:35:20 - Form: formPrincipal
+06/04/20 14:35:20 - Caption: SimpleOS
+06/04/20 14:35:20 - Erro:EAccessViolation
+06/04/20 14:35:20 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:21 - ===========================================
+06/04/20 14:36:21 - Form: formPrincipal
+06/04/20 14:36:21 - Caption: SimpleOS
+06/04/20 14:36:21 - Erro:EIBNativeException
+06/04/20 14:36:21 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+CAIXA_ABER_FECH
+At line 1, column 31
+06/04/20 14:36:22 - ===========================================
+06/04/20 14:36:22 - Form: formPrincipal
+06/04/20 14:36:22 - Caption: SimpleOS
+06/04/20 14:36:22 - Erro:EAccessViolation
+06/04/20 14:36:22 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:23 - ===========================================
+06/04/20 14:36:23 - Form: formPrincipal
+06/04/20 14:36:23 - Caption: SimpleOS
+06/04/20 14:36:23 - Erro:EAccessViolation
+06/04/20 14:36:23 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:24 - ===========================================
+06/04/20 14:36:24 - Form: formPrincipal
+06/04/20 14:36:24 - Caption: SimpleOS
+06/04/20 14:36:24 - Erro:EAccessViolation
+06/04/20 14:36:24 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:25 - ===========================================
+06/04/20 14:36:25 - Form: formPrincipal
+06/04/20 14:36:25 - Caption: SimpleOS
+06/04/20 14:36:25 - Erro:EAccessViolation
+06/04/20 14:36:25 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:26 - ===========================================
+06/04/20 14:36:26 - Form: formPrincipal
+06/04/20 14:36:26 - Caption: SimpleOS
+06/04/20 14:36:26 - Erro:EAccessViolation
+06/04/20 14:36:26 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:27 - ===========================================
+06/04/20 14:36:27 - Form: formPrincipal
+06/04/20 14:36:27 - Caption: SimpleOS
+06/04/20 14:36:27 - Erro:EAccessViolation
+06/04/20 14:36:27 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:28 - ===========================================
+06/04/20 14:36:28 - Form: formPrincipal
+06/04/20 14:36:28 - Caption: SimpleOS
+06/04/20 14:36:28 - Erro:EAccessViolation
+06/04/20 14:36:28 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:29 - ===========================================
+06/04/20 14:36:29 - Form: formPrincipal
+06/04/20 14:36:29 - Caption: SimpleOS
+06/04/20 14:36:29 - Erro:EAccessViolation
+06/04/20 14:36:29 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:30 - ===========================================
+06/04/20 14:36:30 - Form: formPrincipal
+06/04/20 14:36:30 - Caption: SimpleOS
+06/04/20 14:36:30 - Erro:EAccessViolation
+06/04/20 14:36:30 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:31 - ===========================================
+06/04/20 14:36:31 - Form: formPrincipal
+06/04/20 14:36:31 - Caption: SimpleOS
+06/04/20 14:36:31 - Erro:EAccessViolation
+06/04/20 14:36:31 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:32 - ===========================================
+06/04/20 14:36:32 - Form: formPrincipal
+06/04/20 14:36:32 - Caption: SimpleOS
+06/04/20 14:36:32 - Erro:EAccessViolation
+06/04/20 14:36:32 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:33 - ===========================================
+06/04/20 14:36:33 - Form: formPrincipal
+06/04/20 14:36:33 - Caption: SimpleOS
+06/04/20 14:36:33 - Erro:EAccessViolation
+06/04/20 14:36:33 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:34 - ===========================================
+06/04/20 14:36:34 - Form: formPrincipal
+06/04/20 14:36:34 - Caption: SimpleOS
+06/04/20 14:36:34 - Erro:EAccessViolation
+06/04/20 14:36:34 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:35 - ===========================================
+06/04/20 14:36:35 - Form: formPrincipal
+06/04/20 14:36:35 - Caption: SimpleOS
+06/04/20 14:36:35 - Erro:EAccessViolation
+06/04/20 14:36:35 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:36:37 - ===========================================
+06/04/20 14:36:37 - Form: formPrincipal
+06/04/20 14:36:37 - Caption: SimpleOS
+06/04/20 14:36:37 - Erro:EAccessViolation
+06/04/20 14:36:37 - Erro:Access violation at address 00C28C28 in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:41:44 - ===========================================
+06/04/20 14:41:44 - Form: formPrincipal
+06/04/20 14:41:44 - Caption: SimpleOS
+06/04/20 14:41:44 - Erro:EAccessViolation
+06/04/20 14:41:44 - Erro:Access violation at address 00C02EDF in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:52:05 - ===========================================
+06/04/20 14:52:05 - Form: formPrincipal
+06/04/20 14:52:05 - Caption: SimpleOS
+06/04/20 14:52:05 - Erro:EAccessViolation
+06/04/20 14:52:05 - Erro:Access violation at address 00C0303B in module 'SimplesOS.exe'. Read of address 00000004
+06/04/20 14:53:00 - ===========================================
+06/04/20 14:53:00 - Form: formPrincipal
+06/04/20 14:53:00 - Caption: SimpleOS
+06/04/20 14:53:00 - Erro:EAccessViolation
+06/04/20 14:53:00 - Erro:Access violation at address 00C0303F in module 'SimplesOS.exe'. Read of address 00000004

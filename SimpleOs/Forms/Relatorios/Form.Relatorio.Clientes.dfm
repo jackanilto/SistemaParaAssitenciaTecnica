@@ -1,6 +1,5 @@
 inherited formRelatorioClientes: TformRelatorioClientes
   Caption = 'Relat'#243'rio de clientes'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
