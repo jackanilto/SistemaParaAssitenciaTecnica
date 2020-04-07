@@ -897,3 +897,43 @@ At line 1, column 31
 06/04/20 14:53:00 - Caption: SimpleOS
 06/04/20 14:53:00 - Erro:EAccessViolation
 06/04/20 14:53:00 - Erro:Access violation at address 00C0303F in module 'SimplesOS.exe'. Read of address 00000004
+07/04/20 16:24:57 - ===========================================
+07/04/20 16:24:57 - Form: formRelatorioOSPorStatus
+07/04/20 16:24:57 - Caption: Relatório de OS por Situação
+07/04/20 16:24:57 - Erro:EFDException
+07/04/20 16:24:57 - Erro:[FireDAC][Phys][FB]-345. Data too large for variable [VALOR]. Max len = [20], actual len = [21] Hint: set the TFDParam.Size to a greater value
+07/04/20 16:27:37 - ===========================================
+07/04/20 16:27:37 - Form: formRelatorioOSPorStatus
+07/04/20 16:27:37 - Caption: Relatório de OS por Situação
+07/04/20 16:27:37 - Erro:EFDException
+07/04/20 16:27:37 - Erro:[FireDAC][Phys][FB]-345. Data too large for variable [VALOR]. Max len = [20], actual len = [21] Hint: set the TFDParam.Size to a greater value
+07/04/20 16:31:27 - ===========================================
+07/04/20 16:31:27 - Form: formRelatorioOSPorStatus
+07/04/20 16:31:27 - Caption: Relatório de OS por Situação
+07/04/20 16:31:27 - Erro:EFDException
+07/04/20 16:31:27 - Erro:[FireDAC][Phys][FB]-345. Data too large for variable [VALOR]. Max len = [20], actual len = [21] Hint: set the TFDParam.Size to a greater value
+07/04/20 16:31:39 - ===========================================
+07/04/20 16:31:39 - Form: formRelatorioOSPorStatus
+07/04/20 16:31:39 - Caption: Relatório de OS por Situação
+07/04/20 16:31:39 - Erro:EFDException
+07/04/20 16:31:39 - Erro:[FireDAC][Phys][FB]-345. Data too large for variable [VALOR]. Max len = [20], actual len = [21] Hint: set the TFDParam.Size to a greater value
+07/04/20 16:33:30 - ===========================================
+07/04/20 16:33:30 - Form: formPrincipal
+07/04/20 16:33:30 - Caption: SimpleOS
+07/04/20 16:33:30 - Erro:EAccessViolation
+07/04/20 16:33:30 - Erro:Access violation at address 00C031AB in module 'SimplesOS.exe'. Read of address 00000004
+07/04/20 16:37:38 - ===========================================
+07/04/20 16:37:38 - Form: formRelatorioOrdemDeServico
+07/04/20 16:37:38 - Caption: Relatório Ordem de Serviço
+07/04/20 16:37:38 - Erro:EDatabaseError
+07/04/20 16:37:38 - Erro:Dataset not in edit or insert mode
+07/04/20 16:39:25 - ===========================================
+07/04/20 16:39:25 - Form: formRelatorioOrdemDeServico
+07/04/20 16:39:25 - Caption: Relatório Ordem de Serviço
+07/04/20 16:39:25 - Erro:EDatabaseError
+07/04/20 16:39:25 - Erro:Dataset not in edit or insert mode
+07/04/20 16:43:57 - ===========================================
+07/04/20 16:43:57 - Form: formPrincipal
+07/04/20 16:43:57 - Caption: SimpleOS
+07/04/20 16:43:57 - Erro:EAccessViolation
+07/04/20 16:43:57 - Erro:Access violation at address 00C032DF in module 'SimplesOS.exe'. Read of address 00000004

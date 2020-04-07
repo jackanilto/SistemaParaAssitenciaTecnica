@@ -132,20 +132,19 @@ begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('id').AsInteger;
       pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('nome_peca').AsString;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
-        ('numero_serie').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('numero_serie').AsString;
       pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('Marca').AsString;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('data_fabricacao')
-        .AsDateTime;
-      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('data_cadastro')
-        .AsDateTime;
+
+      if FQuery.TQuery.FieldByName('data_fabricacao').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('data_fabricacao').AsDateTime
+      else
+        pasta.cells[linha, 5] := ' ';
+
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('data_cadastro').AsDateTime;
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('defeito').Text;
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName
-        ('solucao_defeito').Text;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('funcionario')
-        .AsInteger;
-      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('observacao')
-        .AsString;
+       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('solucao_defeito').Text;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('funcionario').AsInteger;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('observacao').AsString;
 
       linha := linha + 1;
 

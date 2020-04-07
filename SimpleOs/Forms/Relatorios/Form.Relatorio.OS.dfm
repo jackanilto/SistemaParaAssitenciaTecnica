@@ -36,7 +36,7 @@ inherited formRelatorioOrdemDeServico: TformRelatorioOrdemDeServico
       ParentFont = False
     end
     object sbPesquisarDatas: TSpeedButton [6]
-      Left = 605
+      Left = 608
       Top = 22
       Width = 31
       Height = 33
@@ -209,8 +209,6 @@ inherited formRelatorioOrdemDeServico: TformRelatorioOrdemDeServico
     Font.Style = []
     ParentFont = False
     TabOrder = 3
-    ExplicitTop = 255
-    ExplicitWidth = 449
     object DBGrid2: TDBGrid
       Left = 2
       Top = 19

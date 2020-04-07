@@ -48,6 +48,8 @@ type
     function listarGridServicos(value:TDataSource):iRelatorioOS;
     function listarGridOcorrencia(value:TDataSource):iRelatorioOS;
 
+    function limparGridServicos(value:TDataSource):iRelatorioOS;
+
     function getSituacao(value: string): iRelatorioOS;
     function selecionarOSPorSituacaoECampo: iRelatorioOS;
     function exportarServicos:iRelatorioOS;
@@ -264,6 +266,19 @@ begin
   FValor := UpperCase(value);
 end;
 
+function TRelatorioOS.limparGridServicos(value: TDataSource): iRelatorioOS;
+begin
+
+  result := self;
+
+  FRelatorioServicosRealizados
+                              .getCampo('ID_ORDEM')
+                              .getValor('0')
+                              .sqlPesquisa
+                              .listarGrid(value);
+
+end;
+
 function TRelatorioOS.listarGrid(value: TDataSource): iRelatorioOS;
 begin
 
@@ -329,6 +344,7 @@ end;
 
 function TRelatorioOS.listarGridServicos(value: TDataSource): iRelatorioOS;
 begin
+
   result := self;
 
   FRelatorioServicosRealizados

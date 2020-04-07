@@ -2126,6 +2126,8 @@ type
     function listarGridServicos(value: TDataSource): iRelatorioOS;
     function listarGridOcorrencia(value: TDataSource): iRelatorioOS;
 
+    function limparGridServicos(value:TDataSource):iRelatorioOS;
+
     function exportar: iRelatorioOS;
     function validarData(componet: tmaskEdit): iRelatorioOS;
 

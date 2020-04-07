@@ -110,6 +110,8 @@ begin
                 .sqlPesquisa
                 .listarGrid(DataSource1);
 
+  FRelatorioOS.limparGridServicos(s_ServicosRealizados);
+
 end;
 
 procedure TformRelatorioOrdemDeServico.Exportar1Click(Sender: TObject);
@@ -198,6 +200,8 @@ begin
               .getDataFinal(StrToDate(edtData2.Text))
               .sqlPesquisaData
               .listarGrid(DataSource1);
+
+  FRelatorioOS.limparGridServicos(s_ServicosRealizados);
 
 end;
 
