@@ -143,7 +143,7 @@ begin
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID_ORDEM').AsInteger;
       pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
       pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('NOME_CLIENTE').AsString;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('CPF_CNPJ').AsString;
+      pasta.cells[linha, 4] := '"'+FQuery.TQuery.FieldByName('CPF_CNPJ').AsString+'"';
       pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('TELEFONE').AsString;
       pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('CELULAR').AsString;
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('EMAIL').AsString;

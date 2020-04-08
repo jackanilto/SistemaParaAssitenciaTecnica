@@ -44,6 +44,7 @@ type
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure sbIniciarCaixaClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     procedure CalcularValoresDosCaixas;
     procedure caixaNaoIniciado;
@@ -81,6 +82,14 @@ begin
 
   end;
 
+end;
+
+procedure TformIniciarCaixa.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = 13 then
+    if sbIniciarCaixa.Enabled = true then
+      sbIniciarCaixa.Click;
 end;
 
 procedure TformIniciarCaixa.FormShow(Sender: TObject);

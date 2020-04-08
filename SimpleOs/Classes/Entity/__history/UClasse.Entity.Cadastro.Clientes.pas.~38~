@@ -151,8 +151,11 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
-        .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+      FGravarLog
+              .getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+              .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+              .getOperacao('Deletar')
+              .gravarLog;
 
       FQuery.TQuery.Delete;
     end;
@@ -172,8 +175,10 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+    FGravarLog
+            .getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+            .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+            .getOperacao('Editando');
 
     FQuery.TQuery.Edit;
 
@@ -227,34 +232,25 @@ begin
     begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
-      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName
-        ('TIPO_CADASTRO').AsString;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('TIPO_CADASTRO').AsString;
       pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('NOME').AsString;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DATA_NASCIMENTO')
-        .AsDateTime;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA_CADASTRO')
-        .AsDateTime;
-      pasta.cells[linha, 6] := '"' + FQuery.TQuery.FieldByName('CPF_CNPJ')
-        .AsString + '"';
-      pasta.cells[linha, 7] := '"' + FQuery.TQuery.FieldByName('DOCUMENTO')
-        .AsString + '"';
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DATA_NASCIMENTO').AsDateTime;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime;
+      pasta.cells[linha, 6] := '"' + FQuery.TQuery.FieldByName('CPF_CNPJ').AsString + '"';
+      pasta.cells[linha, 7] := '"' + FQuery.TQuery.FieldByName('DOCUMENTO').AsString + '"';
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('ENDERECO').AsString;
       pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('BAIRRO').AsString;
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('NUMERO').AsInteger;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName
-        ('COMPLEMENTO').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('COMPLEMENTO').AsString;
       pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('CEP').AsString;
       pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('CIDADE').AsString;
       pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('ESTADO').AsString;
       pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('TELEFONE').AsString;
       pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('CELULAR').AsString;
       pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('EMAIL').AsString;
-      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName
-        ('FUNCIONARIO_CADASTRO').AsInteger;
-      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName
-        ('SITUACAO_CLIENTE').AsString;
-      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('OBSERVACAO')
-        .AsString;
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger;
+      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('SITUACAO_CLIENTE').AsString;
+      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
 
       linha := linha + 1;
 
@@ -489,7 +485,14 @@ begin
     FQuery.TQuery.FieldByName('FOTO').Assign(F_FOTO);
 
   try
+
     FQuery.TQuery.Post;
+
+    FGravarLog
+            .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+            .getNomeRegistro(FQuery.TQuery.FieldByName('NOME').AsString)
+            .gravarLog;
+
   except
     on e: Exception do
     begin
@@ -505,6 +508,9 @@ begin
   result := self;
   FQuery.TQuery.EmptyDataSet;
   FQuery.TQuery.Append;
+
+  FGravarLog.getOperacao('Inserindo')
+
 end;
 
 function TEntityCadastroClientes.listarGrid(value: TDataSource)
@@ -605,12 +611,15 @@ procedure TEntityCadastroClientes.validarData(componet: tmaskEdit);
 var
   d: TDate;
 begin
-  try
-    d := strtodate(componet);
-  except
-    componet.SetFocus;
-    componet.Clear;
-    raise Exception.create('Digite uma data válida.');
+  if componet.Text <> '  /  /    ' then
+  begin
+    try
+      d := strtodate(componet.Text);
+    except
+      componet.SetFocus;
+      componet.Clear;
+      raise Exception.create('Digite uma data válida.');
+    end;
   end;
 end;
 

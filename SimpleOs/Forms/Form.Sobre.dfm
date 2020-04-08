@@ -7616,7 +7616,7 @@ object formSobre: TformSobre
     Top = 250
     Width = 136
     Height = 21
-    Caption = 'Vers'#227'o 0.1.9 ALPHA'
+    Caption = 'Vers'#227'o 0.3.6 ALPHA'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16

@@ -149,7 +149,7 @@ begin
       else
         pasta.cells[linha, 4] := ' ';
 
-        if FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime = StrToDate('30/12/1899') then
+        if FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime <> StrToDate('30/12/1899') then
           pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA_CADASTRO').AsDateTime
         else
           pasta.cells[linha, 5] := ' ';
