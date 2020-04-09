@@ -1,2 +1,67 @@
-#Relatório do cliente -> Data de cadastro ao exportar não esta aparecendo -> OK
-#OS por situação -> Ao exporta, o campo CPF esta bugado -> OK
+#Produtos -> Botão para busca do grupo esta com problmas.
+			 Botão para a busca da marca esta com problemas.
+			 Ao inserir um produto deve ser obrigatório informar o preço e margem de lucro do produto.
+			 Ao inserir também deve ser obrigatório informar a situação do estoque.
+			 Limpar o timage ao inserir um novo produto.
+			 Erro ao gerar o relatório, campo servico_produto não encontrado.
+			 Data de validade e Data de fabricação devem ficar em branco se não houverem valores ao
+				exportar para o excel.
+			Data de alteração deve estar com da data de cadastro por padrão.
+			Resolver o problema com imagens de produtos, erro de vazamento de memoria.			
+
+#Transportadora -> OK
+
+#Fornecedores - Ajustar a tabulação dos campos.
+
+#Marcas -> OK
+
+#Grupos -> Ao gravar retornar todos os registros.
+		   Ao cancelar retornar todos sos registros.	
+
+#Tipo retirada -> Ao gravar retornar todos os registros.
+                  Ao cancelar retornar todos sos registros.
+
+#Atividade funcionários -> Ao cancelar retornar todos sos registros.
+
+#Contas a pagar -> Valores no formulário precisam ser formatados com o R$.
+				   Formatar os valores monetarios no relatório.
+				   Data de pagamento se não tiver nenhum valor deve ficar em branco ao exportar.
+				   Criar um botão para quitar a conta.	
+
+#Dados da empresa -> Ao gravar mostrar todos as empesas cadastradas.
+					 Ao cancelar mostrar todos as empesas cadastradas.
+
+#Entrada de produtos -> Ao abrir a janela os dados não devem ser exibidos.
+						Campo total e valor por item do relatório deve esta com a formatação de moeda.
+						Alterar o nome do campo produto/serviço ao exporta para o excel para Produtos.
+						Corrigir problema ao busca um produto.
+						Opção do campo Tipo de pesquisa deve ser alterado de Produto/Serviço para Produto.
+						
+						
+
+#Saída de produtos -> Corrigir problema ao busca um produto.
+					  Campos no relatório Valor e Total devem estar com a formatação de moeda.
+					  Verificar possíve problema com o campo Cód. Produto, os valores estão iguais.		
+
+
+#Venda de produtos -> Se não houver valores para o campo cliente o campo Código de barras deve ser desbilidado.
+					  A label onde informa o nome do cliente esta por cima do botão Localizar Cliente.
+					  Ao buscar os produtos mostrar todos os produtos cadastrados no sistema.
+					  Ao adicionar um produto verificar se o mesmo não esta adicionaro a lista de itens,
+						se estiver deve ser feita a soma total dos itens e verificar se a quantidade o 
+						suficiente para a venda.
+					  A tabela de itens da venda deve esta como read only = true.
+					  Campo parcela no canhoto da loja não deve estar com a formatação de moeda.
+					  Campos Subtotal, Total, Vlr. Unitário e Total devem estar com a formatação de moeda
+						no comprovante de pagamento.
+					  Campo vencimento esta escrito errado no carnê de pagamento.	
+					  Ao iniciar uma nova venda o TImagem deve esta vazio ou com a imagem padrão.
+					  Na janela para localizar o produtos a grid deve estar ajustada ao formulário.
+					  Campos Valor unitário e Valor R$ devem estar com a formataçaõ de moeda.
+					 
+
+
+
+#Parcelas vendas
+#Visualizar vendas
+#Historico de compras
