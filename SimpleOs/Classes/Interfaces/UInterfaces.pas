@@ -135,6 +135,7 @@ type
     function getJuros(value: real): iCalcularJuros;
     function getCapital(value: real): iCalcularJuros;
     function percentualDeDesconto(valor, percentualACalular: real): real;
+    function calcularDiferencaPercentual(MaiorValor, Menorvalor:Currency):Currency;
   end;
 
   iGravarLogOperacoes = interface

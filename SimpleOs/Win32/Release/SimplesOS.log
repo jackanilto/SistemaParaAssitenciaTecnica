@@ -7379,3 +7379,46 @@ Token unknown - line 1, column 53
 07/04/20 16:59:21 - Caption: SimpleOS
 07/04/20 16:59:21 - Erro:EAccessViolation
 07/04/20 16:59:21 - Erro:Access violation at address 00BD311B in module 'SimplesOS.exe'. Read of address 00000004
+10/04/20 14:34:15 - ===========================================
+10/04/20 14:34:15 - Form: formCadastroProdutos
+10/04/20 14:34:15 - Caption: Cadastro de produtos
+10/04/20 14:34:15 - Erro:EIBNativeException
+10/04/20 14:34:15 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 53
+=
+10/04/20 15:02:37 - ===========================================
+10/04/20 15:02:37 - Form: formPrincipal
+10/04/20 15:02:37 - Caption: SimpleOS
+10/04/20 15:02:37 - Erro:EAccessViolation
+10/04/20 15:02:37 - Erro:Access violation at address 00BD3293 in module 'SimplesOS.exe'. Read of address 00000004
+10/04/20 15:03:12 - ===========================================
+10/04/20 15:03:12 - Form: formPrincipal
+10/04/20 15:03:12 - Caption: SimpleOS
+10/04/20 15:03:12 - Erro:EAccessViolation
+10/04/20 15:03:12 - Erro:Access violation at address 00BD329F in module 'SimplesOS.exe'. Read of address 00000004
+10/04/20 15:06:13 - ===========================================
+10/04/20 15:06:13 - Form: frmCalculadoraMargemLucro
+10/04/20 15:06:13 - Caption: Calculadora - Margem de Lucro
+10/04/20 15:06:13 - Erro:EConvertError
+10/04/20 15:06:13 - Erro:'R$ 50,00' is not a valid floating point value
+10/04/20 15:13:46 - ===========================================
+10/04/20 15:13:46 - Form: formPrincipal
+10/04/20 15:13:46 - Caption: SimpleOS
+10/04/20 15:13:46 - Erro:EAccessViolation
+10/04/20 15:13:46 - Erro:Access violation at address 00BD32A7 in module 'SimplesOS.exe'. Read of address 00000004
+10/04/20 15:37:45 - ===========================================
+10/04/20 15:37:45 - Form: formCadastroProdutos
+10/04/20 15:37:45 - Caption: Cadastro de produtos
+10/04/20 15:37:45 - Erro:Exception
+10/04/20 15:37:45 - Erro:ERRO! Você deve informar um valor maior que zero(0)
+10/04/20 15:43:11 - ===========================================
+10/04/20 15:43:11 - Form: formCadastroProdutos
+10/04/20 15:43:11 - Caption: Cadastro de produtos
+10/04/20 15:43:11 - Erro:Exception
+10/04/20 15:43:11 - Erro:ERRO! Você deve informar um VALOR DE CUSTO maior que zero(0)
+10/04/20 15:43:18 - ===========================================
+10/04/20 15:43:18 - Form: formCadastroProdutos
+10/04/20 15:43:18 - Caption: Cadastro de produtos
+10/04/20 15:43:18 - Erro:Exception
+10/04/20 15:43:18 - Erro:ERRO! Você deve informar uma MARGEM DE LUCRO maior que zero(0)

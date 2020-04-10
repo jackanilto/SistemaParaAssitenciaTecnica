@@ -21,11 +21,18 @@ type
     function getJuros(value: Real): iCalcularJuros;
     function getCapital(value: Real): iCalcularJuros;
     function percentualDeDesconto(valor, percentualACalular: Real): Real;
+    function calcularDiferencaPercentual(MaiorValor, Menorvalor:Currency):Currency;
   end;
 
 implementation
 
 { TModelosProdutos }
+
+function TCalcularJuros.calcularDiferencaPercentual(MaiorValor,
+  Menorvalor: Currency): Currency;
+begin
+  result := ((MaiorValor - Menorvalor)/Menorvalor)*100;
+end;
 
 function TCalcularJuros.CalcularJuros: Real;
 var

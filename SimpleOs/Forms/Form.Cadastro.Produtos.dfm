@@ -63,6 +63,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
     inherited cardPanelCadatro: TCard
       Width = 1084
       Height = 434
+      ExplicitTop = 1
       ExplicitWidth = 1084
       ExplicitHeight = 434
       object Label1: TLabel
@@ -131,7 +132,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         ParentFont = False
       end
       object Label9: TLabel
-        Left = 126
+        Left = 134
         Top = 267
         Width = 121
         Height = 17
@@ -547,7 +548,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
         OnClick = sbPesquisarMarcaClick
       end
       object SpeedButton2: TSpeedButton
-        Left = 250
+        Left = 258
         Top = 291
         Width = 23
         Height = 22
@@ -681,49 +682,6 @@ inherited formCadastroProdutos: TformCadastroProdutos
         Font.Style = []
         ParentFont = False
         TabOrder = 3
-      end
-      object edtValorDeCusto: TEdit
-        Left = 16
-        Top = 290
-        Width = 104
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-      end
-      object edtMargemDeLucro: TEdit
-        Left = 126
-        Top = 290
-        Width = 121
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 5
-        OnExit = edtMargemDeLucroExit
-      end
-      object edtValorDeVenda: TEdit
-        Left = 288
-        Top = 290
-        Width = 128
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
       end
       object edtQuantidadeMinima: TEdit
         Left = 16
@@ -913,6 +871,49 @@ inherited formCadastroProdutos: TformCadastroProdutos
         ParentFont = False
         TabOrder = 15
       end
+      object edtValorDeCusto: TCurrencyEdit
+        Left = 16
+        Top = 290
+        Width = 109
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        ZeroEmpty = False
+      end
+      object edtValorDeVenda: TCurrencyEdit
+        Left = 287
+        Top = 290
+        Width = 128
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+        ZeroEmpty = False
+      end
+      object edtMargemDeLucro: TEdit
+        Left = 131
+        Top = 290
+        Width = 121
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        Text = '0'
+        OnExit = edtMargemDeLucroExit
+      end
     end
     inherited cardPanelConsulta: TCard
       Width = 1084
@@ -954,6 +955,15 @@ inherited formCadastroProdutos: TformCadastroProdutos
     Top = 49
   end
   object OpenPictureDialog1: TOpenPictureDialog
+    Filter = 
+      'All (*.png_old;*.gif;*.png;*.jpg;*.jpeg;*.bmp;*.ico;*.emf;*.wmf;' +
+      '*.tif;*.tiff)|*.png_old;*.gif;*.png;*.jpg;*.jpeg;*.bmp;*.ico;*.e' +
+      'mf;*.wmf;*.tif;*.tiff|Portable Network Graphics (*.png_old)|*.pn' +
+      'g_old|GIF Image (*.gif)|*.gif|Portable Network Graphics (*.png)|' +
+      '*.png|JPEG Image File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.j' +
+      'peg|Bitmaps (*.bmp)|*.bmp|Icons (*.ico)|*.ico|Enhanced Metafiles' +
+      ' (*.emf)|*.emf|Metafiles (*.wmf)|*.wmf|TIFF Images (*.tif)|*.tif' +
+      '|TIFF Images (*.tiff)|*.tiff'
     Left = 784
     Top = 161
   end

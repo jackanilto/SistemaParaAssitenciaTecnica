@@ -390,6 +390,10 @@ function TEntityProdutos.getMargemDeLUcro(value: String): iCadastroProdutos;
 begin
 
   result := self;
+
+  if value = '0' then
+    raise Exception.Create('ERRO! Você deve informar uma MARGEM DE LUCRO maior que zero(0)');
+
   if value = EmptyStr then
     raise Exception.create
       ('Informe a margem de lucro para a venda do produto.');
@@ -477,6 +481,10 @@ end;
 function TEntityProdutos.getValorDeCusto(value: string): iCadastroProdutos;
 begin
   result := self;
+
+  if value = '0' then
+    raise Exception.Create('ERRO! Você deve informar um VALOR DE CUSTO maior que zero(0)');
+
   try
     FVALOR_CUSTO := StrToCurr(value);
   except
@@ -489,6 +497,10 @@ end;
 function TEntityProdutos.getValorDeVenda(value: string): iCadastroProdutos;
 begin
   result := self;
+
+  if value = '0' then
+    raise Exception.Create('ERRO! O VALOR DE VENDA deve ser maior que zero(0)');
+
   try
     FVALOR_VENDA := StrToCurr(value);
   except

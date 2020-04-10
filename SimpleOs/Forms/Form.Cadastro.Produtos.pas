@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Produtos, Vcl.Mask, UFactory,
-  Vcl.ExtDlgs, Vcl.Imaging.jpeg, frxClass, frxDBSet;
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg, frxClass, frxDBSet, RxToolEdit, RxCurrEdit;
 
 type
   TformCadastroProdutos = class(TformExemploEmbeded)
@@ -17,9 +17,6 @@ type
     edtProduto: TEdit;
     edtCodigoDeBarras: TEdit;
     edtDescricao: TEdit;
-    edtValorDeCusto: TEdit;
-    edtMargemDeLucro: TEdit;
-    edtValorDeVenda: TEdit;
     edtQuantidadeMinima: TEdit;
     edtQuantidadeAtual: TEdit;
     edtCodigoGrupo: TEdit;
@@ -62,6 +59,9 @@ type
     SpeedButton3: TSpeedButton;
     frxDB_Produtos: TfrxDBDataset;
     frx_Produtos: TfrxReport;
+    edtValorDeCusto: TCurrencyEdit;
+    edtValorDeVenda: TCurrencyEdit;
+    edtMargemDeLucro: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -268,11 +268,20 @@ begin
 
   if sbNovo.Enabled = false then
   begin
-    formLocalizarGrupo := TFormLocalizarGrupo.Create(self);
-    TFactory.new.criarJanela.FormShow(formLocalizarGrupo, '');
 
-    edtCodigoGrupo.Text := codigoGrupo.ToString;
-    edtGrupo.Text := grupo;
+    formLocalizarGrupo := TFormLocalizarGrupo.Create(self);
+    try
+      formLocalizarGrupo.ShowModal;
+    finally
+      formLocalizarGrupo.Free;
+      edtCodigoGrupo.Text := codigoGrupo.ToString;
+      edtGrupo.Text := grupo;
+    end;
+
+//    formLocalizarGrupo := TFormLocalizarGrupo.Create(self);
+//    TFactory.new.criarJanela.FormShow(formLocalizarGrupo, '');
+
+
   end;
 
 end;
@@ -284,10 +293,18 @@ begin
   if sbNovo.Enabled = false then
   begin
     formLocalizarMarca := TformLocalizarMarca.Create(self);
-    TFactory.new.criarJanela.FormShow(formLocalizarMarca, '');
+    try
+      formLocalizarMarca.ShowModal;
+    finally
+      formLocalizarMarca.Free;
+      edtCodigoDaMarca.Text := codigoMarca.ToString;
+      edtMarca.Text := marca;
+    end;
 
-    edtCodigoDaMarca.Text := codigoMarca.ToString;
-    edtMarca.Text := marca;
+
+//    TFactory.new.criarJanela.FormShow(formLocalizarMarca, '');
+
+
   end;
 
 end;
@@ -334,7 +351,11 @@ procedure TformCadastroProdutos.SpeedButton2Click(Sender: TObject);
 begin
   inherited;
   frmCalculadoraMargemLucro := TfrmCalculadoraMargemLucro.Create(self);
-  TFactory.new.criarJanela.FormShow(frmCalculadoraMargemLucro, '');
+  try
+    frmCalculadoraMargemLucro.ShowModal;
+  finally
+    frmCalculadoraMargemLucro.Free;
+  end;
 end;
 
 procedure TformCadastroProdutos.SpeedButton3Click(Sender: TObject);

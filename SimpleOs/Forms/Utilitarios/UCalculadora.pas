@@ -62,14 +62,29 @@ begin
 end;
 
 procedure TfrmCalculadoraMargemLucro.SpeedButton1Click(Sender: TObject);
+var
+  valorCusto:Currency;
+  valorDesejado:Currency;
 begin
 
-  FValorProcento := TFactory.new.calcularJuros.percentualDeDesconto(FPrecoCusto,
-    StrToFloat(edtValorRS.Text));
+  valorCusto := StrToCurr( TFactory.new.validarDocumento.limparValorRS(edtPrecoCusto.Text));
+  valorDesejado := StrToCurr( TFactory.new.validarDocumento.limparValorRS(edtValorRS.Text));
+
+  FValorProcento := TFactory.new
+                                .calcularJuros
+                                .calcularDiferencaPercentual(valorDesejado, valorCusto);
+
+  showmessage(CurrToStr(FValorProcento));
 
   edtValorPorcento.Text := formatFloat('0.00', FValorProcento);
 
-  FValorDeVenda := StrToFloat(edtValorRS.Text) + FPrecoCusto;
+  FValorDeVenda := TFactory.new
+                              .CalcularJuros
+                              .getJuros(FValorProcento)
+                              .getCapital(valorCusto)
+                              .CalcularJuros;
+
+//  FValorDeVenda := StrToFloat(edtValorRS.Text) + FPrecoCusto;
 
   edtPrecoVenda.Text := formatFloat('R$ ###,##0.00', FValorDeVenda);
 
