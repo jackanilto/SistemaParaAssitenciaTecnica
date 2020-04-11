@@ -11,6 +11,9 @@ uses
   Vcl.ExtDlgs, Vcl.Imaging.jpeg, frxClass, frxDBSet, RxToolEdit, RxCurrEdit;
 
 type
+  TEnumPesquisar = (codigo, cod_barra, produto);
+
+type
   TformCadastroProdutos = class(TformExemploEmbeded)
     DataSource1: TDataSource;
     edtCodigo: TEdit;
@@ -178,25 +181,32 @@ end;
 procedure TformCadastroProdutos.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 var
-  campo: string;
+  FCampo: string;
 begin
   inherited;
 
-  if cbPesquisar.Text = 'Código' then
-    campo := 'ID'
-  else if cbPesquisar.Text = 'Código de barra' then
-    campo := 'CODIGO_BARRAS'
-  else if cbPesquisar.Text = 'Produto' then
-    campo := 'PRODUTO';
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  codigo:
+  begin
+   FCampo := 'ID'
+  end;
+  cod_barra:
+  begin
+    FCampo := 'CODIGO_BARRAS'
+  end;
+  produto:
+  begin
+    FCampo := 'PRODUTO';
+  end;
+  end;
 
   if edtPesquisar.Text <> EmptyStr then
-    FEntityProdutos.getCampo(campo).getValor(edtPesquisar.Text)
-      .sqlPesquisa.listarGrid(DataSource1);
+    FEntityProdutos
+                  .getCampo(FCampo)
+                  .getValor(edtPesquisar.Text)
+                  .sqlPesquisa
+                  .listarGrid(DataSource1);
 
-  { Código
-    Código de barra
-    Produto
-    Tipo de cadastro }
 end;
 
 procedure TformCadastroProdutos.FormClose(Sender: TObject;
@@ -210,6 +220,7 @@ procedure TformCadastroProdutos.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityProdutos := TEntityProdutos.new;
+  imagem := TJPEGImage.Create;
 end;
 
 procedure TformCadastroProdutos.FormShow(Sender: TObject);
@@ -260,6 +271,11 @@ begin
   edtDataDeValidade.Clear;
   edtDataDeAlteracao.Clear;
   edtDataDeFabricacao.Clear;
+
+  Image1.Picture.Graphic.Empty;
+
+  edtDataDeAlteracao.Text := DateToStr(Date);
+
 end;
 
 procedure TformCadastroProdutos.sbPesquisarGrupoClick(Sender: TObject);
@@ -336,7 +352,6 @@ begin
 
   if sbNovo.Enabled = false then
   begin
-    imagem := TJPEGImage.Create;
 
     if OpenPictureDialog1.Execute then
     begin

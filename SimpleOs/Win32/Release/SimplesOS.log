@@ -7422,3 +7422,18 @@ Token unknown - line 1, column 53
 10/04/20 15:43:18 - Caption: Cadastro de produtos
 10/04/20 15:43:18 - Erro:Exception
 10/04/20 15:43:18 - Erro:ERRO! Você deve informar uma MARGEM DE LUCRO maior que zero(0)
+11/04/20 14:09:41 - ===========================================
+11/04/20 14:09:41 - Form: formCadastroGrupos
+11/04/20 14:09:41 - Caption: Cadastro de grupos
+11/04/20 14:09:41 - Erro:EAccessViolation
+11/04/20 14:09:41 - Erro:Access violation at address 00C02E9D in module 'SimplesOS.exe'. Read of address 00000000
+11/04/20 15:06:52 - ===========================================
+11/04/20 15:06:52 - Form: formCadastroContasAPagar
+11/04/20 15:06:52 - Caption: Cadastro de contas a pagar
+11/04/20 15:06:52 - Erro:Exception
+11/04/20 15:06:52 - Erro:ERRO! Informe a data de pagemento.
+11/04/20 15:24:58 - ===========================================
+11/04/20 15:24:58 - Form: formCadastroEmpresa
+11/04/20 15:24:58 - Caption: Dados da empresa
+11/04/20 15:24:58 - Erro:Exception
+11/04/20 15:24:58 - Erro:Informe um CNPJ válido.

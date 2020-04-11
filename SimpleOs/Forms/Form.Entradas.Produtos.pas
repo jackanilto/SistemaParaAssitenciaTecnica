@@ -180,7 +180,13 @@ end;
 procedure TformEntradaDeProdutos.FormShow(Sender: TObject);
 begin
   inherited;
-  FEntityEntradas.abrir.listarGrid(DataSource1);
+
+  FEntityEntradas
+              .abrir
+              .getCampo('ID')
+              .getValor('0')
+              .sqlPesquisa
+              .listarGrid(DataSource1);
 end;
 
 procedure TformEntradaDeProdutos.sbCancelarClick(Sender: TObject);
@@ -222,9 +228,12 @@ begin
   inherited;
   if sbNovo.Enabled = false then
   begin
-    formLocalizarProdutosEntradas :=
-      TformLocalizarProdutosEntradas.Create(self);
-    TFactory.new.criarJanela.FormShow(formLocalizarProdutosEntradas, '');
+    formLocalizarProdutosEntradas := TformLocalizarProdutosEntradas.Create(self);
+    try
+      formLocalizarProdutosEntradas.ShowModal;
+    finally
+      formLocalizarProdutosEntradas.Free;
+    end;
   end;
 end;
 

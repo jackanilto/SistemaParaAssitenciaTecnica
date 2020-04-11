@@ -9,6 +9,9 @@ uses
   Data.DB, Vcl.Grids, Vcl.DBGrids, UDados.Conexao, FireDAC.Comp.Client;
 
 type
+  TEnumPesquisar = (codigo, cod_barras, produto);
+
+type
   TFormLocalizarProdutosSaida = class(TForm)
     Panel1: TPanel;
     sbFechar: TSpeedButton;
@@ -29,6 +32,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     procedure selecionarRegistros;
@@ -50,6 +54,11 @@ implementation
 
 uses Form.Saidas.Produtos;
 
+procedure TFormLocalizarProdutosSaida.cbPesquisarChange(Sender: TObject);
+begin
+  edtPesquisar.SetFocus;
+end;
+
 procedure TFormLocalizarProdutosSaida.DBGrid1DblClick(Sender: TObject);
 begin
   formSaidaDeProdutos.edtCodigoProduto.Text :=
@@ -69,14 +78,27 @@ procedure TFormLocalizarProdutosSaida.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
 
-  if cbPesquisar.Text = 'Código' then
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  codigo:
+  begin
     FCampo := 'ID'
-  else if cbPesquisar.Text = 'Produto/Serviço' then
-    FCampo := 'SERVICO_PRODUTO'
-  else if cbPesquisar.Text = 'Tipo de cadastro' then
-    FCampo := 'TIPO_CADASTROS'
-  else if cbPesquisar.Text = 'Código de barras' then
+  end;
+  cod_barras:
+  begin
     FCampo := 'CODIGO_BARRAS';
+  end;
+  produto:
+  begin
+    FCampo := 'PRODUTO'
+  end;
+  end;
+
+//  if cbPesquisar.Text = 'Código' then
+//    FCampo := 'ID'
+//  else if cbPesquisar.Text = 'PRODUTO' then
+//    FCampo := 'PRODUTO'
+//  else if cbPesquisar.Text = 'Código de barras' then
+//    FCampo := 'CODIGO_BARRAS';
 
   FValor := UpperCase(edtPesquisar.Text);
 

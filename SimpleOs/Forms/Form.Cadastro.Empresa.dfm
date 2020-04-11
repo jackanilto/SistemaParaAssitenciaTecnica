@@ -1,6 +1,7 @@
 inherited formCadastroEmpresa: TformCadastroEmpresa
   Caption = 'Dados da empresa'
   ClientHeight = 585
+  ExplicitTop = -31
   ExplicitHeight = 585
   PixelsPerInch = 96
   TextHeight = 13

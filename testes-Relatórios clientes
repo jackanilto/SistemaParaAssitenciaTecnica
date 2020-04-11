@@ -3,46 +3,48 @@
 			 Correção na calculadore de margem de lucro dos produtos -> OK
 			 Ao inserir um produto deve ser obrigatório informar o preço e margem de lucro do produto. -> OK
 			 Ao inserir também deve ser obrigatório informar a situação do estoque. -> Pode deixa como zero
-			 Limpar o timage ao inserir um novo produto.
-			 Erro ao gerar o relatório, campo servico_produto não encontrado.
+			 Limpar o timage ao inserir um novo produto. -> OK
+			 Erro ao gerar o relatório, campo servico_produto não encontrado. -> OK
 			 Data de validade e Data de fabricação devem ficar em branco se não houverem valores ao
-				exportar para o excel.
-			Data de alteração deve estar com da data de cadastro por padrão.
-			Resolver o problema com imagens de produtos, erro de vazamento de memoria.			
+				exportar para o excel. -> OK
+			Data de alteração deve estar com da data de cadastro por padrão. -> OK
+			Resolver o problema com imagens de produtos, erro de vazamento de memoria. -> OK			
+			Formatar o campos de valores no relatório com o R$. -> OK
 
-#Transportadora -> OK
+#Transportadora -> OK 
 
-#Fornecedores - Ajustar a tabulação dos campos.
+#Fornecedores - Ajustar a tabulação dos campos. -> OKgr
 
 #Marcas -> OK
 
-#Grupos -> Ao gravar retornar todos os registros.
-		   Ao cancelar retornar todos sos registros.	
+#Grupos -> Ao gravar retornar todos os registros. -> OK
+		   Ao cancelar retornar todos os registros. -> OK
 
-#Tipo retirada -> Ao gravar retornar todos os registros.
-                  Ao cancelar retornar todos sos registros.
+#Tipo retirada -> Ao gravar retornar todos os registros. -> OK
+                  Ao cancelar retornar todos sos registros. -> OK
 
-#Atividade funcionários -> Ao cancelar retornar todos sos registros.
+#Atividade funcionários -> Ao cancelar retornar todos sos registros. -> OK
 
-#Contas a pagar -> Valores no formulário precisam ser formatados com o R$.
-				   Formatar os valores monetarios no relatório.
-				   Data de pagamento se não tiver nenhum valor deve ficar em branco ao exportar.
-				   Criar um botão para quitar a conta.	
+#Contas a pagar -> Valores no formulário precisam ser formatados com o R$. -> OK
+				   Formatar os valores monetarios no relatório. -> OK
+				   Data de pagamento se não tiver nenhum valor deve ficar em branco ao exportar. -> OK
+				   Criar um botão para quitar a conta. -> OK	
 
-#Dados da empresa -> Ao gravar mostrar todos as empesas cadastradas.
-					 Ao cancelar mostrar todos as empesas cadastradas.
+#Dados da empresa -> Ao gravar mostrar todos as empesas cadastradas. -> OK
+					 Ao cancelar mostrar todos as empesas cadastradas. -> OK
 
-#Entrada de produtos -> Ao abrir a janela os dados não devem ser exibidos.
-						Campo total e valor por item do relatório deve esta com a formatação de moeda.
+#Entrada de produtos -> Ao abrir a janela os dados não devem ser exibidos. -> OK
+						Campo total e valor por item do relatório deve esta com a formatação de moeda. -> OK
 						Alterar o nome do campo produto/serviço ao exporta para o excel para Produtos.
-						Corrigir problema ao busca um produto.
-						Opção do campo Tipo de pesquisa deve ser alterado de Produto/Serviço para Produto.
+						Corrigir problema ao busca um produto. -> OK
+						**Opção do campo Tipo de pesquisa deve ser alterado de Produto/Serviço para Produto.
+						Ajustar os campos de valores para o formatação de moeda.
 						
 						
-
-#Saída de produtos -> Corrigir problema ao busca um produto.
-					  Campos no relatório Valor e Total devem estar com a formatação de moeda.
-					  Verificar possíve problema com o campo Cód. Produto, os valores estão iguais.		
+#Saída de produtos -> Corrigir problema ao busca um produto. -> OK
+					  Campos no relatório Valor e Total devem estar com a formatação de moeda. -> OK
+					  Verificar possíve problema com o campo Cód. Produto, os valores estão iguais. ->
+							erro não identificado
 
 
 #Venda de produtos -> Se não houver valores para o campo cliente o campo Código de barras deve ser desbilidado.

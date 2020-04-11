@@ -199,6 +199,7 @@ var
 begin
 
   FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
 
   linha := 2;
   pasta := CreateOleObject('Excel.application');
@@ -233,39 +234,40 @@ begin
     begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
-      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName
-        ('PRODUTO').AsString;
-      pasta.cells[linha, 3] := '"' + FQuery.TQuery.FieldByName('CODIGO_BARRAS')
-        .AsString + '"';
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('PRODUTO').AsString;
+      pasta.cells[linha, 3] := '"' + FQuery.TQuery.FieldByName('CODIGO_BARRAS').AsString + '"';
       pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('DESCRICAO').AsString;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('VALOR_CUSTO')
-        .AsCurrency;
-      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName
-        ('MARGEM_LUCRO').AsFloat;
-      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_VENDA')
-        .AsCurrency;
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA')
-        .AsInteger;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL')
-        .AsInteger;
-      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('DATA_VALIDADE')
-        .AsDateTime;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('DATA_ALTERACAO')
-        .AsDateTime;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('VALOR_CUSTO').AsCurrency;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('MARGEM_LUCRO').AsFloat;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA').AsInteger;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger;
+
+
+      if FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime
+      else
+        pasta.cells[linha, 10] := ' ';
+
+      if FQuery.TQuery.FieldByName('DATA_ALTERACAO').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('DATA_ALTERACAO').AsDateTime
+      else
+        pasta.cells[linha, 11] := ' ';
+
       pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('ID_GRUPO').AsInteger;
       pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('GRUPO').AsString;
       pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('ID_MARCA').AsInteger;
       pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('MARCA').AsString;
-      pasta.cells[linha, 16] := '"' + FQuery.TQuery.FieldByName('MODELO')
-        .AsString + '"';
-      pasta.cells[linha, 17] := '"' + FQuery.TQuery.FieldByName('NUMERO_SERIE')
-        .AsString + '"';
-      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('DATA_FABRICACAO')
-        .AsDateTime;
-      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('FUNCIONARIO')
-        .AsInteger;
-      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('OBSERVACAO')
-        .AsString;
+      pasta.cells[linha, 16] := '"' + FQuery.TQuery.FieldByName('MODELO').AsString + '"';
+      pasta.cells[linha, 17] := '"' + FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString + '"';
+
+      if FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime
+      else
+        pasta.cells[linha, 18] := ' ';
+
+      pasta.cells[linha, 19] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
+      pasta.cells[linha, 20] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
 
       linha := linha + 1;
 

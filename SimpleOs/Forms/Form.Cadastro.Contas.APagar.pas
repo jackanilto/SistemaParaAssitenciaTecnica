@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces, UClasse.Entity.Contas.APagar,
-  Vcl.Mask, frxClass, frxDBSet;
+  Vcl.Mask, frxClass, frxDBSet, RxToolEdit, RxCurrEdit;
 
 type
   TformCadastroContasAPagar = class(TformExemploEmbeded)
@@ -16,18 +16,14 @@ type
     edtCodigo: TEdit;
     Label1: TLabel;
     edtConta: TEdit;
-    edtValorConta: TEdit;
     Label2: TLabel;
     edtDataVencimento: TMaskEdit;
     Label3: TLabel;
     Label6: TLabel;
     edtJuros: TEdit;
     Label7: TLabel;
-    edtMulta: TEdit;
     Label8: TLabel;
-    edtDesconto: TEdit;
     Label9: TLabel;
-    edtValorTotal: TEdit;
     Label10: TLabel;
     Label11: TLabel;
     edtDataPagamento: TMaskEdit;
@@ -43,6 +39,11 @@ type
     sbPesquisarDatas: TSpeedButton;
     frxDBDataset1: TfrxDBDataset;
     frxReport1: TfrxReport;
+    edtValorConta: TCurrencyEdit;
+    edtMulta: TCurrencyEdit;
+    edtDesconto: TCurrencyEdit;
+    edtValorTotal: TCurrencyEdit;
+    sbQuitarConta: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
@@ -60,6 +61,8 @@ type
     procedure sbExportarClick(Sender: TObject);
     procedure edtDataVencimentoExit(Sender: TObject);
     procedure edtDataPagamentoExit(Sender: TObject);
+    procedure edtValorContaExit(Sender: TObject);
+    procedure sbQuitarContaClick(Sender: TObject);
   private
     { Private declarations }
     FEntityContaPagar: iCadastroContasAPagar;
@@ -114,12 +117,21 @@ begin
   begin
     sbEditar.Enabled := true;
     sbExcluir.Enabled := true;
+
+    if DataSource1.DataSet.FieldByName('PAGO').AsString <> 'Sim' then
+      sbQuitarConta.Enabled := true
+    else
+      sbQuitarConta.Enabled := false;
+    
+
   end
   else
   begin
     sbEditar.Enabled := false;
     sbExcluir.Enabled := false;
+    sbQuitarConta.Enabled := false;
   end;
+
 end;
 
 procedure TformCadastroContasAPagar.DBGrid1TitleClick(Column: TColumn);
@@ -159,6 +171,12 @@ begin
     Conta }
 end;
 
+procedure TformCadastroContasAPagar.edtValorContaExit(Sender: TObject);
+begin
+  inherited;
+  edtValorTotal.Text := edtValorConta.Text;
+end;
+
 procedure TformCadastroContasAPagar.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -176,6 +194,7 @@ procedure TformCadastroContasAPagar.sbCancelarClick(Sender: TObject);
 begin
   inherited;
   FEntityContaPagar.cancelar;
+  sbQuitarConta.Enabled := false;
 end;
 
 procedure TformCadastroContasAPagar.sbEditarClick(Sender: TObject);
@@ -225,6 +244,38 @@ begin
   FEntityContaPagar.getDataInicial(StrToDate(edtData1.Text))
     .getDataFinal(StrToDate(edtData2.Text)).getCampo('DATA_VENCIMENTO')
     .sqlPesquisaData.listarGrid(DataSource1);
+end;
+
+procedure TformCadastroContasAPagar.sbQuitarContaClick(Sender: TObject);
+begin
+  inherited;
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    FEntityContaPagar
+                    .getJurosConta(edtJuros.Text)
+                    .getMulta(edtMulta.Text)
+                    .getDesconto(edtDesconto.Text)
+                    .getValorTotalConta(edtValorTotal.Text)
+                    .getDataPagamento(edtDataPagamento.Text)
+                    .getObservacao(edtObservacao.Text)
+                    .quitarParcela;
+
+      sbNovo.Enabled := true;
+      sbSalvar.Enabled := false;
+      sbEditar.Enabled := false;
+      sbCancelar.Enabled := false;
+      sbQuitarConta.Enabled := false;
+
+      CardPanel1.ActiveCard := cardPanelConsulta;
+      pnlFocoCadastro.Visible := true;
+      pnlFocoConsulta.Visible := true;
+      lblCadastro.Enabled := true;
+      lblConsulta.Enabled := true;
+
+  end;
+
+
 end;
 
 procedure TformCadastroContasAPagar.sbSalvarClick(Sender: TObject);

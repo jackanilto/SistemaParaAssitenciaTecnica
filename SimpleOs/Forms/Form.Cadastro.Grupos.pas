@@ -105,7 +105,10 @@ end;
 procedure TformCadastroGrupos.sbCancelarClick(Sender: TObject);
 begin
   inherited;
-  FEntityGrupos.cancelar;
+  FEntityGrupos
+//              .cancelar
+              .abrir
+              .listarGrid(DataSource1);
 end;
 
 procedure TformCadastroGrupos.sbEditarClick(Sender: TObject);
@@ -132,7 +135,11 @@ end;
 
 procedure TformCadastroGrupos.sbSalvarClick(Sender: TObject);
 begin
-  FEntityGrupos.getGrupo(edtGrupo.Text).gravar;
+  FEntityGrupos
+              .getGrupo(edtGrupo.Text)
+              .gravar
+              .abrir
+              .listarGrid(DataSource1);
   inherited;
 end;
 

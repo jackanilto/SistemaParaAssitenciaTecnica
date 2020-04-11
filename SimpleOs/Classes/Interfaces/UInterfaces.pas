@@ -397,7 +397,9 @@ type
     function getPGTO(value: string): iCadastroContasAPagar;
     function getFuncionario(value: integer): iCadastroContasAPagar;
     function getObservacao(value: string): iCadastroContasAPagar;
+
     function exportar: iCadastroContasAPagar;
+    function quitarParcela:iCadastroContasAPagar;
 
   end;
 

@@ -245,7 +245,7 @@ begin
 
   pasta.cells[1, 1] := 'Código';
   pasta.cells[1, 2] := 'Código do produto';
-  pasta.cells[1, 3] := 'Produto/Serviço';
+  pasta.cells[1, 3] := 'Produto';
   pasta.cells[1, 4] := 'Valor por item';
   pasta.cells[1, 5] := 'Quantidade';
   pasta.cells[1, 6] := 'Total da entrada';
@@ -260,23 +260,16 @@ begin
     begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
-      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_PRODUTO')
-        .AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_PRODUTO').AsInteger;
       pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('PRODUTO').AsString;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR_POR_ITENS')
-        .AsCurrency;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('QUANTIDADE')
-        .AsInteger;
-      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('TOTAL_DA_ENTRADA')
-        .AsCurrency;
-      pasta.cells[linha, 7] := '"'+FQuery.TQuery.FieldByName('NUMERO_NOTA')
-        .AsString+'"';
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('FUNCIONARIO')
-        .AsInteger;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR_POR_ITENS').AsCurrency;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('QUANTIDADE').AsInteger;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('TOTAL_DA_ENTRADA').AsCurrency;
+      pasta.cells[linha, 7] := '"'+FQuery.TQuery.FieldByName('NUMERO_NOTA').AsString+'"';
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
       pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA').AsDateTime;
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('HORA').AsDateTime;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('OBSERVACAO')
-        .AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
 
       linha := linha + 1;
 

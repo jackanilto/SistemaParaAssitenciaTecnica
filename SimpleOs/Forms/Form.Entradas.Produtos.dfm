@@ -40,7 +40,6 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
   end
   inherited CardPanel1: TCardPanel
     Height = 223
-    ActiveCard = cardPanelCadatro
     ExplicitHeight = 223
     inherited cardPanelCadatro: TCard
       Height = 223
@@ -459,7 +458,7 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43778.646652870370000000
-    ReportOptions.LastChange = 43778.655494189810000000
+    ReportOptions.LastChange = 43932.648017986110000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -656,6 +655,8 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
           Top = 60.472480000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_EntradasProdutos."VALOR_POR_ITENS"]')
@@ -714,6 +715,8 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
           Top = 60.472480000000000000
           Width = 166.299320000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_EntradasProdutos."TOTAL_DA_ENTRADA"]')

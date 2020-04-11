@@ -2,7 +2,6 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
   Caption = 'Cadastro de forncedores'
   ClientHeight = 602
   ClientWidth = 1017
-  ExplicitTop = -48
   ExplicitWidth = 1017
   ExplicitHeight = 602
   PixelsPerInch = 96
@@ -408,7 +407,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object edtCPFCNPJ: TEdit
         Left = 40
-        Top = 210
+        Top = 208
         Width = 222
         Height = 25
         CharCase = ecUpperCase
@@ -423,7 +422,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
       end
       object edtInscricaoEstadual: TEdit
         Left = 268
-        Top = 208
+        Top = 210
         Width = 172
         Height = 25
         CharCase = ecUpperCase
@@ -447,7 +446,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 6
       end
       object edtBairro: TEdit
         Left = 40
@@ -461,7 +460,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 7
       end
       object edtComplemento: TEdit
         Left = 492
@@ -475,7 +474,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 8
       end
       object edtNumero: TEdit
         Left = 787
@@ -489,7 +488,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 9
       end
       object edtCEP: TEdit
         Left = 40
@@ -503,7 +502,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 5
       end
       object edtCidade: TEdit
         Left = 492
@@ -531,7 +530,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 14
       end
       object edtResponsavel: TEdit
         Left = 492
@@ -545,7 +544,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 15
       end
       object edtFuncionario: TEdit
         Left = 492
@@ -559,7 +558,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 16
       end
       object edtObservacao: TEdit
         Left = 492
@@ -573,7 +572,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 17
       end
       object edtTelefone: TMaskEdit
         Left = 492
@@ -588,7 +587,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Style = []
         MaxLength = 13
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 12
         Text = '(  )    -    '
       end
       object edtCelular: TMaskEdit
@@ -604,7 +603,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Style = []
         MaxLength = 14
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 13
         Text = '(  )     -    '
       end
       object edtUF: TComboBox
@@ -618,7 +617,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 17
+        TabOrder = 11
       end
     end
     inherited cardPanelConsulta: TCard

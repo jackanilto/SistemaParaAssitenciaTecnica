@@ -208,7 +208,11 @@ begin
   if sbNovo.Enabled = false then
   begin
     FormLocalizarProdutosSaida := TFormLocalizarProdutosSaida.Create(self);
-    TFactory.new.criarJanela.FormShow(FormLocalizarProdutosSaida, '');
+    try
+      FormLocalizarProdutosSaida.ShowModal;
+    finally
+      FormLocalizarProdutosSaida.Free;
+    end;
   end;
 end;
 

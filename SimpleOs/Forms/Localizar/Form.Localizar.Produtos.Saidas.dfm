@@ -164,7 +164,7 @@ object FormLocalizarProdutosSaida: TFormLocalizarProdutosSaida
       ExplicitLeft = 634
     end
     object cbPesquisar: TComboBox
-      Left = 576
+      Left = 572
       Top = 31
       Width = 129
       Height = 23
@@ -176,11 +176,12 @@ object FormLocalizarProdutosSaida: TFormLocalizarProdutosSaida
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      Text = 'Produto'
+      OnChange = cbPesquisarChange
       Items.Strings = (
         'C'#243'digo'
-        'Produto/Servi'#231'o'
-        'Tipo de cadastro'
-        'C'#243'digo de barras')
+        'C'#243'digo de barras'
+        'Produto')
     end
     object edtPesquisar: TEdit
       Left = 707

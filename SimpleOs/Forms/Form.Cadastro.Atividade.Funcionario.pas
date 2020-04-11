@@ -85,7 +85,10 @@ end;
 procedure TformAtividadeFuncionario.sbCancelarClick(Sender: TObject);
 begin
   inherited;
-  FEntityAtivade.cancelar;
+  FEntityAtivade
+//            .cancelar
+            .abrir
+            .listarGrid(DataSource1);
 end;
 
 procedure TformAtividadeFuncionario.sbEditarClick(Sender: TObject);
@@ -110,8 +113,11 @@ end;
 
 procedure TformAtividadeFuncionario.sbSalvarClick(Sender: TObject);
 begin
-  FEntityAtivade.getAtividadeFuncionario(edtAtividade.Text)
-    .gravar.abrir.listarGrid(DataSource1);
+  FEntityAtivade
+              .getAtividadeFuncionario(edtAtividade.Text)
+              .gravar
+              .abrir
+              .listarGrid(DataSource1);
   inherited;
 end;
 

@@ -87,9 +87,6 @@ begin
 
   FEntityTipoRetiradas.getCampo(campo).getValor(edtPesquisar.Text)
     .sqlPesquisa.listarGrid(DataSource1);
-
-  { Código
-    Tipo retirada }
 end;
 
 procedure TformTipoRetiradas.FormCreate(Sender: TObject);
@@ -132,7 +129,11 @@ end;
 
 procedure TformTipoRetiradas.sbSalvarClick(Sender: TObject);
 begin
-  FEntityTipoRetiradas.getTipoRetirada(edtTipoRetirada.Text).gravar;
+  FEntityTipoRetiradas
+                    .getTipoRetirada(edtTipoRetirada.Text)
+                    .gravar
+                    .abrir
+                    .listarGrid(DataSource1);
   inherited;
 
 end;

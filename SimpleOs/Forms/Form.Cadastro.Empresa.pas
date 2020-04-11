@@ -176,7 +176,10 @@ end;
 procedure TformCadastroEmpresa.sbCancelarClick(Sender: TObject);
 begin
   inherited;
-  FEntityEmpresa.cancelar;
+  FEntityEmpresa
+//              .cancelar
+              .abrir
+              .listarGrid(DataSource1);
 end;
 
 procedure TformCadastroEmpresa.sbEditarClick(Sender: TObject);
@@ -223,14 +226,25 @@ end;
 procedure TformCadastroEmpresa.sbSalvarClick(Sender: TObject);
 begin
 
-  FEntityEmpresa.getNOME_FANTASIA(edtNomeFantasia.Text)
-    .getRAZAO_SOCIAL(edtRazaoSocial.Text).getCNPJ(edtCNPJ.Text)
-    .getINSCRICAO_ESTADUAL(edtInscricaoEstadual.Text)
-    .getEndereco(edtEndereco.Text).getBairro(edtBairro.Text)
-    .getNumero(StrToInt(edtNumero.Text)).getComplemento(edtComplemento.Text)
-    .getCep(edtCEP.Text).getCidade(edtCidade.Text).getEstado(edtEstado.Text)
-    .getTelefone(edtTelefone.Text).getCelular(edtCelular.Text)
-    .getEmail(edtEMail.Text).getResponsavel(edtResponsavel.Text).gravar;
+  FEntityEmpresa
+                .getNOME_FANTASIA(edtNomeFantasia.Text)
+                .getRAZAO_SOCIAL(edtRazaoSocial.Text)
+                .getCNPJ(edtCNPJ.Text)
+                .getINSCRICAO_ESTADUAL(edtInscricaoEstadual.Text)
+                .getEndereco(edtEndereco.Text)
+                .getBairro(edtBairro.Text)
+                .getNumero(StrToInt(edtNumero.Text))
+                .getComplemento(edtComplemento.Text)
+                .getCep(edtCEP.Text)
+                .getCidade(edtCidade.Text)
+                .getEstado(edtEstado.Text)
+                .getTelefone(edtTelefone.Text)
+                .getCelular(edtCelular.Text)
+                .getEmail(edtEMail.Text)
+                .getResponsavel(edtResponsavel.Text)
+                .gravar
+                .abrir
+                .listarGrid(DataSource1);
 
   inherited;
 

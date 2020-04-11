@@ -77,7 +77,9 @@ type
     function getPGTO(value: string): iCadastroContasAPagar;
     function getFuncionario(value: integer): iCadastroContasAPagar;
     function getObservacao(value: string): iCadastroContasAPagar;
+
     function exportar: iCadastroContasAPagar;
+    function quitarParcela:iCadastroContasAPagar;
 
     constructor create;
     destructor destroy; override;
@@ -204,21 +206,21 @@ begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('id').AsInteger;
       pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('conta').AsString;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO')
-        .AsDateTime;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime;
       pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
       pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('JUROS').AsFloat;
       pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('MULTA').AsCurrency;
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_TOTAL')
-        .AsCurrency;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO')
-        .AsDateTime;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency;
+
+      if FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime
+      else
+        pasta.cells[linha, 9] := ' ';
+
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('PAGO').AsString;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName
-        ('FUNCIONARIO_CADASTRO').AsInteger;
-      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('OBSERVACAO')
-        .AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
 
       linha := linha + 1;
 
@@ -523,6 +525,55 @@ end;
 function TEntityContasAPagar.pesquisar: iCadastroContasAPagar;
 begin
   result := self;
+end;
+
+function TEntityContasAPagar.quitarParcela: iCadastroContasAPagar;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsEdit] then
+  begin
+
+    FQuery.TQuery.Edit;
+
+    FQuery.TQuery.FieldByName('VALOR').AsCurrency := FVALORCONTA;
+    FQuery.TQuery.FieldByName('JUROS').AsFloat := FJUROS;
+    FQuery.TQuery.FieldByName('MULTA').AsCurrency := FMULTA;
+    FQuery.TQuery.FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+    FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
+
+    if FDATA_PAGAMENTO <> EmptyStr then
+      FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO)
+    else
+      raise Exception.Create('ERRO! Informe a data de pagemento.');
+
+    FQuery.TQuery.FieldByName('PAGO').AsString := 'Sim';
+    FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger := funcionarioLogado;
+    FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+    FGravarLog
+            .getOperacao('quitar parcela: ')
+            .getNomeRegistro(FQuery.TQuery.FieldByName('conta').AsString)
+            .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+            .gravarLog;
+
+    try
+      FQuery.TQuery.Post;
+      ShowMessage('Operação realizada com sucesso!');
+    except on e:exception do
+    begin
+      MessageDlg('ERRO. Não foi possíve quitar a parcela ' +
+        e.Message, mtError, [mbOk], 0, mbOk);
+      abort;
+    end;
+
+    end;
+
+
+  end;
+
+
 end;
 
 function TEntityContasAPagar.sqlPesquisa: iCadastroContasAPagar;
