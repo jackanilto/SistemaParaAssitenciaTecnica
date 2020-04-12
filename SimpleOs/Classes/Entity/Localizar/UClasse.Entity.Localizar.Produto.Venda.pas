@@ -206,8 +206,12 @@ end;
 function TEntityLocalizarProdutoVenda.setFotoProduto(value: TImage)
   : iLocalizarProdutosVenda;
 begin
+
   result := self;
-  value.Picture.Assign(FQuery.TQuery.FieldByName('FOTO'));
+
+  value.Picture.Assign(TGraphicField(FQuery.TQuery.FieldByName('FOTO')));
+
+
 end;
 
 function TEntityLocalizarProdutoVenda.setNomeDoProduto: string;

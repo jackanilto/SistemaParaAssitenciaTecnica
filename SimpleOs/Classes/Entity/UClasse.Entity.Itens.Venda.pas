@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  Vcl.StdCtrls, Datasnap.DBClient;
+  Vcl.StdCtrls, Datasnap.DBClient, RxToolEdit, RxCurrEdit;
 
 type
 
@@ -36,7 +36,7 @@ type
     FtotalUnitario: Currency;
     FQuantidadeUnitario: integer;
 
-    procedure getValorUnitatio(vlrProduto: TEdit);
+    procedure getValorUnitatio(vlrProduto: TCurrencyEdit);
     procedure totalDeItens(qtdeProduto: TEdit);
     procedure selecionarProdutoDecremento(value: integer);
 
@@ -78,7 +78,7 @@ type
     function gravarItensDaVenda(value: TClientDataSet): iItensVendas;
     function decrementarEstoque(value: TClientDataSet): iItensVendas;
 
-    function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): Currency;
+    function calularTotalXquantidade(qtdeProduto:TEDit ; vlrProduto:TCurrencyEdit): Currency;
 
     function exportar: iItensVendas;
     procedure validarData(componet: tmaskEdit);
@@ -109,8 +109,7 @@ begin
   FQuery.TQuery.Refresh;
 end;
 
-function TEntityItensVenda.calularTotalXquantidade(vlrProduto,
-  qtdeProduto: TEdit): Currency;
+function TEntityItensVenda.calularTotalXquantidade(qtdeProduto:TEDit ; vlrProduto:TCurrencyEdit): Currency;
 begin
 
   result := 0;
@@ -476,7 +475,7 @@ begin
   end;
 end;
 
-procedure TEntityItensVenda.getValorUnitatio(vlrProduto: TEdit);
+procedure TEntityItensVenda.getValorUnitatio(vlrProduto: TCurrencyEdit);
 begin
   if vlrProduto.Text <> EmptyStr then
   begin

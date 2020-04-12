@@ -51,18 +51,20 @@
 					  A label onde informa o nome do cliente esta por cima do botão Localizar Cliente. -> Erro não localizado
 							(Tirar um print do erro e ver a resolução da tela e o nome do cliente)
 					  Ao buscar os produtos mostrar todos os produtos cadastrados no sistema. -> OK
+					  
 					  Ao adicionar um produto verificar se o mesmo não esta adicionaro a lista de itens,
 						se estiver deve ser feita a soma total dos itens e verificar se a quantidade o 
-						suficiente para a venda.
-					  A tabela de itens da venda deve esta como read only = true.
-					  Campo parcela no canhoto da loja não deve estar com a formatação de moeda.
+						suficiente para a venda. -> OK
+						
+					  A tabela de itens da venda deve esta como read only = true. -> OK
+					  Campo parcela no canhoto da loja não deve estar com a formatação de moeda. -> OK
 					  Campos Subtotal, Total, Vlr. Unitário e Total devem estar com a formatação de moeda
-						no comprovante de pagamento.
-					  Campo vencimento esta escrito errado no carnê de pagamento.	
-					  Ao iniciar uma nova venda o TImagem deve esta vazio ou com a imagem padrão.
-					  Na janela para localizar o produtos a grid deve estar ajustada ao formulário.
-					  Campos Valor unitário e Valor R$ devem estar com a formataçaõ de moeda.
-					  Campo total não deve permitir a edição.
+						no comprovante de pagamento. -> OK
+					  Campo vencimento esta escrito errado no carnê de pagamento. -> OK	
+					  Ao iniciar uma nova venda o TImagem deve esta vazio ou com a imagem padrão. -> OK
+					  Na janela para localizar o produtos a grid deve estar ajustada ao formulário. -> OK
+					  Campos Valor unitário e Valor R$ devem estar com a formataçaõ de moeda. -> OK
+					  Campo total não deve permitir a edição. -> OK
 					 
 
 

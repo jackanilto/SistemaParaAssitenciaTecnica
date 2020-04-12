@@ -11,7 +11,7 @@ uses
   UInterfaces, Form.Localizar.Produtos.Venda, Datasnap.DBClient,
   UClasse.Entity.Itens.Venda, UClasse.Entity.Localizar.Produto.Venda,
   UClasse.Venda, Form.Venda.Confirmar.Pagamento, UClasse.Venda.Parcelas,
-  Vcl.Imaging.pngimage, MidasLib;
+  Vcl.Imaging.pngimage, MidasLib, Vcl.Mask, RxToolEdit, RxCurrEdit;
 
 type
   TformVendas = class(TForm)
@@ -34,7 +34,6 @@ type
     sbLocalizarProduto: TSpeedButton;
     lblProduto: TLabel;
     Image1: TImage;
-    edtValorUnitario: TEdit;
     Label6: TLabel;
     edtQuantidade: TEdit;
     Label7: TLabel;
@@ -56,9 +55,10 @@ type
     cds_tem_produtosTotal_do_produto: TCurrencyField;
     S_temp_produtos: TDataSource;
     Label4: TLabel;
-    edtTotalDoProduto: TEdit;
     lblOperador: TLabel;
     Label9: TLabel;
+    edtValorUnitario: TCurrencyEdit;
+    edtTotalDoProduto: TCurrencyEdit;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -82,7 +82,6 @@ type
     procedure sbNovoClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edtLocalizarCPFExit(Sender: TObject);
-
 
   private
     { Private declarations }
@@ -122,10 +121,10 @@ implementation
 procedure TformVendas.edtLocalizarCPFExit(Sender: TObject);
 begin
 
-//  if CodigoCliente = 0 then
-//    edtLocalizarProduto.Enabled := false
-//  else
-//    edtLocalizarProduto.Enabled := true;
+  // if CodigoCliente = 0 then
+  // edtLocalizarProduto.Enabled := false
+  // else
+  // edtLocalizarProduto.Enabled := true;
 
 end;
 
@@ -222,11 +221,13 @@ end;
 procedure TformVendas.calcularTotalPorQuantidade;
 var
   total: Currency;
-  qtdeNalista:integer;
-  qtdeInformada:integer;
+  qtdeNalista: Integer;
+  qtdeInformada: Integer;
 begin
 
   qtdeInformada := StrToInt(edtQuantidade.Text);
+
+  qtdeNalista := 0;
 
   cds_tem_produtos.Open;
   cds_tem_produtos.First;
@@ -235,19 +236,17 @@ begin
   qtdeNalista := cds_tem_produtos.FieldByName('Quantidade').AsInteger;
   cds_tem_produtos.EnableControls;
 
-//  showmessage(qtdeNaLista.ToString);
-
-  qtdeInformada := qtdeInformada + qtdeNalista;
+  if cds_tem_produtos.FieldByName('codigo_produto').AsInteger = CodigoDoProduto then
+    qtdeInformada := qtdeInformada + qtdeNalista;
 
   if qtdeInformada > QuantidadeEmEstoque then
   begin
     edtQuantidade.SetFocus;
     raise Exception.Create
-      ('Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.');
+      ('ERRO! Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.');
   end;
 
-  total := FEntityItensVenda.calularTotalXquantidade(edtValorUnitario,
-    edtQuantidade);
+  total := FEntityItensVenda.calularTotalXquantidade(edtQuantidade, edtValorUnitario);
   valorTotalDoProduto := total;
   edtTotalDoProduto.Text := CurrToStr(total);
   QuantidadeDeProdutos := StrToInt(edtQuantidade.Text);
@@ -443,6 +442,7 @@ procedure TformVendas.sbLocalizarProdutoClick(Sender: TObject);
 begin
   if lblVenda.Caption <> 'Nova venda' then
   begin
+
     formLocalizarProdutoVenda := TformLocalizarProdutoVenda.Create(self);
     try
       formLocalizarProdutoVenda.ShowModal;
@@ -461,14 +461,54 @@ begin
 end;
 
 procedure TformVendas.sbAdicionarProdutoClick(Sender: TObject);
+var
+  qtdeNalista: Integer;
+  vlrNaLista: Currency;
+  codProdutoSelecionado:integer;
 begin
   if CodigoDoProduto <> 0 then
   begin
 
-    {CRIAR O PROCEDIMENTO PARA INCREMENTAR A QUANTIDADE DE PRODUTOS IGUAIS}
-
     calcularTotalPorQuantidade;
 
+    cds_tem_produtos.Open;
+    cds_tem_produtos.First;
+    cds_tem_produtos.DisableControls;
+    cds_tem_produtos.Locate('codigo_produto', CodigoDoProduto, []);
+    qtdeNalista := cds_tem_produtos.FieldByName('Quantidade').AsInteger;
+    vlrNaLista := cds_tem_produtos.FieldByName('Total_do_produto').AsCurrency;
+    codProdutoSelecionado := cds_tem_produtos.FieldByName('codigo_produto').AsInteger;
+    cds_tem_produtos.EnableControls;
+
+    if ((codProdutoSelecionado <> 0) and (codProdutoSelecionado = CodigoDoProduto)) then
+    begin
+      try
+        cds_tem_produtos.Open;
+        cds_tem_produtos.Edit;
+
+        cds_tem_produtosQuantidade.AsInteger := QuantidadeDeProdutos + qtdeNalista;
+        cds_tem_produtosTotal_do_produto.AsCurrency := valorTotalDoProduto + vlrNaLista;
+
+        cds_tem_produtos.Post;
+
+        lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
+          FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+
+        lblTotalItens.Caption :=
+          inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
+
+          showmessage('Produto adiconado aos itens da venda!!!');
+
+      except
+        on e: Exception do
+        begin
+          raise Exception.Create('ERRO! Erro ao tentar adicionar o produto na lista.'
+            + e.Message);
+        end;
+      end;
+    end
+  else
+  begin
     try
       cds_tem_produtos.Open;
       cds_tem_produtos.Append;
@@ -487,16 +527,21 @@ begin
       lblTotalItens.Caption :=
         inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
 
+      showmessage('Produto adiconado aos itens da venda!!!');
+
     except
       on e: Exception do
       begin
-        raise Exception.Create('Erro ao tentar adicionar o produto na lista. ' +
+        raise Exception.Create('ERRO! Erro ao tentar adicionar o produto na lista.' +
           e.Message);
       end;
 
     end;
-
   end;
+  end;
+
+  Image1.Picture.LoadFromFile(ExtractFilePath(Application.ExeName)+'\No_Protuct.png');
+
 end;
 
 procedure TformVendas.sbExcluirItemClick(Sender: TObject);

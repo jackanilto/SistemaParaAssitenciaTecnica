@@ -1435,7 +1435,7 @@ type
     function gravarItensDaVenda(value: TclientDataSet): iItensVendas;
     function decrementarEstoque(value: TclientDataSet): iItensVendas;
 
-    function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): currency;
+    function calularTotalXquantidade(qtdeProduto:TEDit; vlrProduto:TCurrencyEdit): currency;
 
     function exportar: iItensVendas;
     procedure validarData(componet: tmaskEdit);

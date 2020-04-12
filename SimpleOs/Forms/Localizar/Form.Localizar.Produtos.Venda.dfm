@@ -165,10 +165,11 @@ object formLocalizarProdutoVenda: TformLocalizarProdutoVenda
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
-      ItemIndex = 2
+      ItemIndex = 1
       ParentFont = False
       TabOrder = 0
       Text = 'C'#243'digo de barras'
+      OnChange = cbPesquisarChange
       Items.Strings = (
         'C'#243'digo do produto'
         'Produto'
@@ -193,8 +194,8 @@ object formLocalizarProdutoVenda: TformLocalizarProdutoVenda
     Left = 0
     Top = 41
     Width = 868
-    Height = 250
-    Align = alClient
+    Height = 244
+    Align = alTop
     DataSource = DataSource1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

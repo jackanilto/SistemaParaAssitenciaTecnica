@@ -30,6 +30,7 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     FEntityLocalizarProdutoVenda: iLocalizarProdutosVenda;
@@ -46,6 +47,11 @@ implementation
 uses Form.Venda;
 
 {$R *.dfm}
+
+procedure TformLocalizarProdutoVenda.cbPesquisarChange(Sender: TObject);
+begin
+  edtPesquisar.SetFocus;
+end;
 
 procedure TformLocalizarProdutoVenda.DBGrid1DblClick(Sender: TObject);
 begin

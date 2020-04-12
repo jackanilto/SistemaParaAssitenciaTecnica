@@ -714,7 +714,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43836.948932916670000000
-    ReportOptions.LastChange = 43839.869845972220000000
+    ReportOptions.LastChange = 43933.654935798610000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1032,6 +1032,8 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Top = 306.141930000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirRecibo."SUBTOTAL"]')
@@ -1096,6 +1098,8 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Top = 306.141930000000000000
           Width = 219.212740000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -1394,6 +1398,8 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Top = 7.559060000000000000
           Width = 117.165430000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -1426,6 +1432,8 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Top = 9.338590000000000000
           Width = 147.401670000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -1490,7 +1498,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43837.784506805600000000
-    ReportOptions.LastChange = 43837.858305324100000000
+    ReportOptions.LastChange = 43933.651563009260000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1736,7 +1744,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Height = 18.897650000000000000
           Frame.Typ = []
           Memo.UTF8W = (
-            'Vencimetno:')
+            'Vencimento:')
         end
         object Memo15: TfrxMemoView
           AllowVectorExport = True
@@ -2018,8 +2026,8 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
         object Memo32: TfrxMemoView
           AllowVectorExport = True
           Left = 321.260050000000000000
-          Top = 154.960730000000000000
-          Width = 75.590600000000000000
+          Top = 155.960730000000000000
+          Width = 56.692950000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -2028,12 +2036,12 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
-            'Parcela: R$')
+            'Parcela:')
           ParentFont = False
         end
         object Memo33: TfrxMemoView
           AllowVectorExport = True
-          Left = 396.850650000000000000
+          Left = 381.732530000000000000
           Top = 155.960730000000000000
           Width = 109.606370000000000000
           Height = 18.897650000000000000
@@ -2055,7 +2063,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           Height = 18.897650000000000000
           Frame.Typ = []
           Memo.UTF8W = (
-            'Vencimetno:')
+            'Vencimento:')
         end
         object Memo35: TfrxMemoView
           AllowVectorExport = True

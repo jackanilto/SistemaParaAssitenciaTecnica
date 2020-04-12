@@ -7487,3 +7487,143 @@ Token unknown - line 1, column 53
 11/04/20 18:26:35 - Caption: Venda de produtos
 11/04/20 18:26:35 - Erro:EInvalidOperation
 11/04/20 18:26:35 - Erro:Cannot focus a disabled or invisible window
+12/04/20 13:19:42 - ===========================================
+12/04/20 13:19:42 - Form: formVendas
+12/04/20 13:19:42 - Caption: Venda de produtos
+12/04/20 13:19:42 - Erro:Exception
+12/04/20 13:19:42 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+12/04/20 13:19:44 - ===========================================
+12/04/20 13:19:44 - Form: formVendas
+12/04/20 13:19:44 - Caption: Venda de produtos
+12/04/20 13:19:44 - Erro:Exception
+12/04/20 13:19:44 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+12/04/20 13:28:13 - ===========================================
+12/04/20 13:28:13 - Form: formVendas
+12/04/20 13:28:13 - Caption: Venda de produtos
+12/04/20 13:28:13 - Erro:Exception
+12/04/20 13:28:13 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:32:02 - ===========================================
+12/04/20 13:32:02 - Form: formVendas
+12/04/20 13:32:02 - Caption: Venda de produtos
+12/04/20 13:32:02 - Erro:Exception
+12/04/20 13:32:02 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:32:11 - ===========================================
+12/04/20 13:32:11 - Form: formVendas
+12/04/20 13:32:11 - Caption: Venda de produtos
+12/04/20 13:32:11 - Erro:Exception
+12/04/20 13:32:11 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:33:38 - ===========================================
+12/04/20 13:33:38 - Form: formVendas
+12/04/20 13:33:38 - Caption: Venda de produtos
+12/04/20 13:33:38 - Erro:Exception
+12/04/20 13:33:38 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:34:32 - ===========================================
+12/04/20 13:34:32 - Form: formVendas
+12/04/20 13:34:32 - Caption: Venda de produtos
+12/04/20 13:34:32 - Erro:Exception
+12/04/20 13:34:32 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:34:38 - ===========================================
+12/04/20 13:34:38 - Form: formVendas
+12/04/20 13:34:38 - Caption: Venda de produtos
+12/04/20 13:34:38 - Erro:Exception
+12/04/20 13:34:38 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:34:41 - ===========================================
+12/04/20 13:34:41 - Form: formVendas
+12/04/20 13:34:41 - Caption: Venda de produtos
+12/04/20 13:34:41 - Erro:Exception
+12/04/20 13:34:41 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:36:07 - ===========================================
+12/04/20 13:36:07 - Form: formVendas
+12/04/20 13:36:07 - Caption: Venda de produtos
+12/04/20 13:36:07 - Erro:Exception
+12/04/20 13:36:07 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:37:08 - ===========================================
+12/04/20 13:37:08 - Form: formLocalizarProdutoVenda
+12/04/20 13:37:08 - Caption: Localizar produtos - Venda
+12/04/20 13:37:08 - Erro:Exception
+12/04/20 13:37:08 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+12/04/20 13:37:12 - ===========================================
+12/04/20 13:37:12 - Form: formLocalizarProdutoVenda
+12/04/20 13:37:12 - Caption: Localizar produtos - Venda
+12/04/20 13:37:12 - Erro:Exception
+12/04/20 13:37:12 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+12/04/20 13:39:23 - ===========================================
+12/04/20 13:39:23 - Form: formVendas
+12/04/20 13:39:23 - Caption: Venda de produtos
+12/04/20 13:39:23 - Erro:Exception
+12/04/20 13:39:23 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:39:40 - ===========================================
+12/04/20 13:39:40 - Form: formVendas
+12/04/20 13:39:40 - Caption: Venda de produtos
+12/04/20 13:39:40 - Erro:Exception
+12/04/20 13:39:40 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:39:55 - ===========================================
+12/04/20 13:39:55 - Form: formVendas
+12/04/20 13:39:55 - Caption: Venda de produtos
+12/04/20 13:39:55 - Erro:Exception
+12/04/20 13:39:55 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:58:32 - ===========================================
+12/04/20 13:58:32 - Form: formVendas
+12/04/20 13:58:32 - Caption: Venda de produtos
+12/04/20 13:58:32 - Erro:Exception
+12/04/20 13:58:32 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 13:59:37 - ===========================================
+12/04/20 13:59:37 - Form: formVendas
+12/04/20 13:59:37 - Caption: Venda de produtos
+12/04/20 13:59:37 - Erro:Exception
+12/04/20 13:59:37 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 14:00:09 - ===========================================
+12/04/20 14:00:09 - Form: formVendas
+12/04/20 14:00:09 - Caption: Venda de produtos
+12/04/20 14:00:09 - Erro:Exception
+12/04/20 14:00:09 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 14:00:53 - ===========================================
+12/04/20 14:00:53 - Form: formVendas
+12/04/20 14:00:53 - Caption: Venda de produtos
+12/04/20 14:00:53 - Erro:Exception
+12/04/20 14:00:53 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 14:01:18 - ===========================================
+12/04/20 14:01:18 - Form: FormVendaConfirmarPagamento
+12/04/20 14:01:18 - Caption: '
+12/04/20 14:01:18 - Erro:Exception
+12/04/20 14:01:18 - Erro:ERRO! Infome o meio de pagamento do venda
+12/04/20 14:04:46 - ===========================================
+12/04/20 14:04:46 - Form: formCadastroProdutos
+12/04/20 14:04:46 - Caption: Cadastro de produtos
+12/04/20 14:04:46 - Erro:EDatabaseError
+12/04/20 14:04:46 - Erro:Dataset not in edit or insert mode
+12/04/20 14:05:28 - ===========================================
+12/04/20 14:05:28 - Form: formVendas
+12/04/20 14:05:28 - Caption: Venda de produtos
+12/04/20 14:05:28 - Erro:Exception
+12/04/20 14:05:28 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 14:06:16 - ===========================================
+12/04/20 14:06:16 - Form: formVendas
+12/04/20 14:06:16 - Caption: Venda de produtos
+12/04/20 14:06:16 - Erro:Exception
+12/04/20 14:06:16 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 14:09:06 - ===========================================
+12/04/20 14:09:06 - Form: formVendas
+12/04/20 14:09:06 - Caption: Venda de produtos
+12/04/20 14:09:06 - Erro:Exception
+12/04/20 14:09:06 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 14:09:12 - ===========================================
+12/04/20 14:09:12 - Form: formVendas
+12/04/20 14:09:12 - Caption: Venda de produtos
+12/04/20 14:09:12 - Erro:Exception
+12/04/20 14:09:12 - Erro:Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+12/04/20 14:18:17 - ===========================================
+12/04/20 14:18:17 - Form: formLocalizarProdutoVenda
+12/04/20 14:18:17 - Caption: Localizar produtos - Venda
+12/04/20 14:18:17 - Erro:EJPEG
+12/04/20 14:18:17 - Erro:JPEG error #42
+12/04/20 14:18:20 - ===========================================
+12/04/20 14:18:20 - Form: formLocalizarProdutoVenda
+12/04/20 14:18:20 - Caption: Localizar produtos - Venda
+12/04/20 14:18:20 - Erro:EJPEG
+12/04/20 14:18:20 - Erro:JPEG error #42
+12/04/20 14:18:51 - ===========================================
+12/04/20 14:18:51 - Form: formLocalizarProdutoVenda
+12/04/20 14:18:51 - Caption: Localizar produtos - Venda
+12/04/20 14:18:51 - Erro:EJPEG
+12/04/20 14:18:51 - Erro:JPEG error #42

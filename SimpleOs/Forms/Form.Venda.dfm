@@ -30,7 +30,6 @@ object formVendas: TformVendas
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitTop = -4
     DesignSize = (
       1083
       35)
@@ -917,21 +916,6 @@ object formVendas: TformVendas
         TextHint = 'Informe o c'#243'digo de barras do produto'
         OnKeyUp = edtLocalizarProdutoKeyUp
       end
-      object edtValorUnitario: TEdit
-        Left = 16
-        Top = 378
-        Width = 149
-        Height = 25
-        TabStop = False
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 1
-      end
       object edtQuantidade: TEdit
         Left = 171
         Top = 378
@@ -943,22 +927,38 @@ object formVendas: TformVendas
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 1
         OnExit = edtQuantidadeExit
         OnKeyUp = edtQuantidadeKeyUp
       end
-      object edtTotalDoProduto: TEdit
+      object edtValorUnitario: TCurrencyEdit
         Left = 16
-        Top = 442
+        Top = 378
         Width = 149
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
+        TabOrder = 2
+        ZeroEmpty = False
+      end
+      object edtTotalDoProduto: TCurrencyEdit
+        Left = 16
+        Top = 442
+        Width = 167
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
         TabOrder = 3
+        ZeroEmpty = False
       end
     end
     object Panel6: TPanel
@@ -988,8 +988,9 @@ object formVendas: TformVendas
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
-        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         ParentFont = False
+        ReadOnly = True
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
