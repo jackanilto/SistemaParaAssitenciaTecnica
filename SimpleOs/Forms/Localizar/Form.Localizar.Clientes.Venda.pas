@@ -37,6 +37,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure sbCadastrarClientesClick(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     FEntityLocalizarClienteVenda: iLocalizarClienteVenda;
@@ -54,6 +55,11 @@ implementation
 uses Form.Venda;
 
 {$R *.dfm}
+
+procedure TformLocalizarClientesVenda.cbPesquisarChange(Sender: TObject);
+begin
+  edtPesquisar.SetFocus;
+end;
 
 procedure TformLocalizarClientesVenda.DBGrid1DblClick(Sender: TObject);
 begin

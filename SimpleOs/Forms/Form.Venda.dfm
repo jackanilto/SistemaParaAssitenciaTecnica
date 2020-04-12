@@ -30,6 +30,7 @@ object formVendas: TformVendas
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
+    ExplicitTop = -4
     DesignSize = (
       1083
       35)
@@ -400,7 +401,7 @@ object formVendas: TformVendas
         ParentFont = False
       end
       object sbLocalizarCliente: TSpeedButton
-        Left = 365
+        Left = 358
         Top = 18
         Width = 143
         Height = 33
@@ -477,7 +478,7 @@ object formVendas: TformVendas
       object edtLocalizarCPF: TEdit
         Left = 16
         Top = 23
-        Width = 343
+        Width = 336
         Height = 28
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -487,6 +488,7 @@ object formVendas: TformVendas
         ParentFont = False
         TabOrder = 0
         TextHint = 'Informe o CPF OU CNPJ  do cliente e tecle Enter'
+        OnExit = edtLocalizarCPFExit
         OnKeyUp = edtLocalizarCPFKeyUp
       end
     end

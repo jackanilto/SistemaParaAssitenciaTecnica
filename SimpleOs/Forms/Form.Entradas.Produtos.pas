@@ -8,7 +8,10 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Entradas.Produtos, Vcl.Mask,
-  UFactory, frxClass, frxDBSet;
+  UFactory, frxClass, frxDBSet, RxToolEdit, RxCurrEdit;
+
+type
+  TEnumPesquisar = (cod_entrada, cod_produto, produto);
 
 type
   TformEntradaDeProdutos = class(TformExemploEmbeded)
@@ -16,9 +19,7 @@ type
     edtCodigo: TEdit;
     edtCodigoDoProduto: TEdit;
     edtProduto: TEdit;
-    edtValorPorItens: TEdit;
     edtQuantidade: TEdit;
-    edtTotalDaEntrada: TEdit;
     edtNumeroNota: TEdit;
     edtFuncionario: TEdit;
     Label1: TLabel;
@@ -38,6 +39,8 @@ type
     edtHora: TMaskEdit;
     frxDB_EntradasProdutos: TfrxDBDataset;
     frx_EntradasProdutos: TfrxReport;
+    edtValorPorItens: TCurrencyEdit;
+    edtTotalDaEntrada: TCurrencyEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
@@ -126,24 +129,32 @@ end;
 procedure TformEntradaDeProdutos.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 var
-  campo: string;
+  FCampo: string;
 begin
   inherited;
 
-  if cbPesquisar.Text = 'Código da entrada' then
-    campo := 'ID'
-  else if cbPesquisar.Text = 'Código do produto' then
-    campo := 'ID_PRODUTO'
-  else if cbPesquisar.Text = 'Produto/Serviço' then
-    campo := 'PRODUTO';
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  cod_entrada:
+  begin
+    FCampo := 'ID';
+  end;
+  cod_produto:
+  begin
+    FCampo := 'ID_PRODUTO';
+  end;
+  produto:
+  begin
+    FCampo := 'PRODUTO';
+  end;
+  end;
 
   if edtPesquisar.Text <> EmptyStr then
-    FEntityEntradas.getCampo(campo).getValor(edtPesquisar.Text)
-      .sqlPesquisa.listarGrid(DataSource1);
+    FEntityEntradas
+                  .getCampo(FCampo)
+                  .getValor(edtPesquisar.Text)
+                  .sqlPesquisa
+                  .listarGrid(DataSource1);
 
-  { Código da entrada
-    Código do produto
-    Produto/Serviço }
 end;
 
 procedure TformEntradaDeProdutos.edtQuantidadeExit(Sender: TObject);

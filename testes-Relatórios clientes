@@ -37,8 +37,8 @@
 						Campo total e valor por item do relatório deve esta com a formatação de moeda. -> OK
 						Alterar o nome do campo produto/serviço ao exporta para o excel para Produtos.
 						Corrigir problema ao busca um produto. -> OK
-						**Opção do campo Tipo de pesquisa deve ser alterado de Produto/Serviço para Produto.
-						Ajustar os campos de valores para o formatação de moeda.
+						Opção do campo Tipo de pesquisa deve ser alterado de Produto/Serviço para Produto. -> OK
+						Ajustar os campos de valores para o formatação de moeda. -> OK
 						
 						
 #Saída de produtos -> Corrigir problema ao busca um produto. -> OK
@@ -48,8 +48,9 @@
 
 
 #Venda de produtos -> Se não houver valores para o campo cliente o campo Código de barras deve ser desbilidado.
-					  A label onde informa o nome do cliente esta por cima do botão Localizar Cliente.
-					  Ao buscar os produtos mostrar todos os produtos cadastrados no sistema.
+					  A label onde informa o nome do cliente esta por cima do botão Localizar Cliente. -> Erro não localizado
+							(Tirar um print do erro e ver a resolução da tela e o nome do cliente)
+					  Ao buscar os produtos mostrar todos os produtos cadastrados no sistema. -> OK
 					  Ao adicionar um produto verificar se o mesmo não esta adicionaro a lista de itens,
 						se estiver deve ser feita a soma total dos itens e verificar se a quantidade o 
 						suficiente para a venda.

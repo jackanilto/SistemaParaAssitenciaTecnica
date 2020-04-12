@@ -81,6 +81,8 @@ type
     procedure sbCancelarClick(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtLocalizarCPFExit(Sender: TObject);
+
 
   private
     { Private declarations }
@@ -116,6 +118,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformVendas.edtLocalizarCPFExit(Sender: TObject);
+begin
+
+//  if CodigoCliente = 0 then
+//    edtLocalizarProduto.Enabled := false
+//  else
+//    edtLocalizarProduto.Enabled := true;
+
+end;
 
 procedure TformVendas.edtLocalizarCPFKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
@@ -210,9 +222,24 @@ end;
 procedure TformVendas.calcularTotalPorQuantidade;
 var
   total: Currency;
+  qtdeNalista:integer;
+  qtdeInformada:integer;
 begin
 
-  if StrToInt(edtQuantidade.Text) > QuantidadeEmEstoque then
+  qtdeInformada := StrToInt(edtQuantidade.Text);
+
+  cds_tem_produtos.Open;
+  cds_tem_produtos.First;
+  cds_tem_produtos.DisableControls;
+  cds_tem_produtos.Locate('codigo_produto', CodigoDoProduto, []);
+  qtdeNalista := cds_tem_produtos.FieldByName('Quantidade').AsInteger;
+  cds_tem_produtos.EnableControls;
+
+//  showmessage(qtdeNaLista.ToString);
+
+  qtdeInformada := qtdeInformada + qtdeNalista;
+
+  if qtdeInformada > QuantidadeEmEstoque then
   begin
     edtQuantidade.SetFocus;
     raise Exception.Create
@@ -437,6 +464,8 @@ procedure TformVendas.sbAdicionarProdutoClick(Sender: TObject);
 begin
   if CodigoDoProduto <> 0 then
   begin
+
+    {CRIAR O PROCEDIMENTO PARA INCREMENTAR A QUANTIDADE DE PRODUTOS IGUAIS}
 
     calcularTotalPorQuantidade;
 

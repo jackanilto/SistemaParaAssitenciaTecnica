@@ -7437,3 +7437,53 @@ Token unknown - line 1, column 53
 11/04/20 15:24:58 - Caption: Dados da empresa
 11/04/20 15:24:58 - Erro:Exception
 11/04/20 15:24:58 - Erro:Informe um CNPJ válido.
+11/04/20 18:22:18 - ===========================================
+11/04/20 18:22:18 - Form: formVendas
+11/04/20 18:22:18 - Caption: Venda de produtos
+11/04/20 18:22:18 - Erro:EInvalidOperation
+11/04/20 18:22:18 - Erro:Cannot focus a disabled or invisible window
+11/04/20 18:22:21 - ===========================================
+11/04/20 18:22:21 - Form: formVendas
+11/04/20 18:22:21 - Caption: Venda de produtos
+11/04/20 18:22:21 - Erro:EInvalidOperation
+11/04/20 18:22:21 - Erro:Cannot focus a disabled or invisible window
+11/04/20 18:22:38 - ===========================================
+11/04/20 18:22:38 - Form: formVendas
+11/04/20 18:22:38 - Caption: Venda de produtos
+11/04/20 18:22:38 - Erro:Exception
+11/04/20 18:22:38 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/04/20 18:22:39 - ===========================================
+11/04/20 18:22:39 - Form: formVendas
+11/04/20 18:22:39 - Caption: Venda de produtos
+11/04/20 18:22:39 - Erro:Exception
+11/04/20 18:22:39 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/04/20 18:22:53 - ===========================================
+11/04/20 18:22:53 - Form: formVendas
+11/04/20 18:22:53 - Caption: Venda de produtos
+11/04/20 18:22:53 - Erro:Exception
+11/04/20 18:22:53 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/04/20 18:22:54 - ===========================================
+11/04/20 18:22:54 - Form: formVendas
+11/04/20 18:22:54 - Caption: Venda de produtos
+11/04/20 18:22:54 - Erro:Exception
+11/04/20 18:22:54 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+11/04/20 18:23:47 - ===========================================
+11/04/20 18:23:47 - Form: formVendas
+11/04/20 18:23:47 - Caption: Venda de produtos
+11/04/20 18:23:47 - Erro:EInvalidOperation
+11/04/20 18:23:47 - Erro:Cannot focus a disabled or invisible window
+11/04/20 18:23:53 - ===========================================
+11/04/20 18:23:53 - Form: formVendas
+11/04/20 18:23:53 - Caption: Venda de produtos
+11/04/20 18:23:53 - Erro:EInvalidOperation
+11/04/20 18:23:53 - Erro:Cannot focus a disabled or invisible window
+11/04/20 18:24:02 - ===========================================
+11/04/20 18:24:02 - Form: formVendas
+11/04/20 18:24:02 - Caption: Venda de produtos
+11/04/20 18:24:02 - Erro:EInvalidOperation
+11/04/20 18:24:02 - Erro:Cannot focus a disabled or invisible window
+11/04/20 18:26:35 - ===========================================
+11/04/20 18:26:35 - Form: formVendas
+11/04/20 18:26:35 - Caption: Venda de produtos
+11/04/20 18:26:35 - Erro:EInvalidOperation
+11/04/20 18:26:35 - Erro:Cannot focus a disabled or invisible window

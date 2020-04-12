@@ -188,6 +188,7 @@ object formLocalizarClientesVenda: TformLocalizarClientesVenda
       ParentFont = False
       TabOrder = 0
       Text = 'Nome'
+      OnChange = cbPesquisarChange
       Items.Strings = (
         'C'#243'digo do cliente'
         'Nome'
