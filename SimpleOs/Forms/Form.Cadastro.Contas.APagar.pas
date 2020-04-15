@@ -280,12 +280,18 @@ end;
 
 procedure TformCadastroContasAPagar.sbSalvarClick(Sender: TObject);
 begin
-  FEntityContaPagar.getConta(edtConta.Text).getDataVencimento
-    (edtDataVencimento.Text).getValorConta(edtValorConta.Text)
-    .getJurosConta(edtJuros.Text).getMulta(edtMulta.Text)
-    .getDesconto(edtDesconto.Text).getValorTotalConta(edtValorTotal.Text)
-    .getDataPagamento(edtDataPagamento.Text).getPGTO(edtPgto.Text)
-    .getObservacao(edtObservacao.Text).gravar;
+  FEntityContaPagar
+                .getConta(edtConta.Text)
+                .getDataVencimento(edtDataVencimento.Text)
+                .getValorConta(edtValorConta.Text)
+                .getJurosConta(edtJuros.Text)
+                .getMulta(edtMulta.Text)
+                .getDesconto(edtDesconto.Text)
+                .getValorTotalConta(edtValorTotal.Text)
+                .getDataPagamento(edtDataPagamento.Text)
+                .getPGTO(edtPgto.Text)
+                .getObservacao(edtObservacao.Text)
+                .gravar;
   inherited;
 end;
 

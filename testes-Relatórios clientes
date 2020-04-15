@@ -13,7 +13,7 @@
 
 #Transportadora -> OK 
 
-#Fornecedores - Ajustar a tabulação dos campos. -> OKgr
+#Fornecedores - Ajustar a tabulação dos campos. -> OK
 
 #Marcas -> OK
 
@@ -69,24 +69,26 @@
 
 
 
-#Parcelas vendas -> Formatar os valores monetarios com o R$.
-					Parcelas quitadas não podem ser excluidas;
+#Parcelas vendas -> Formatar os valores monetarios com o R$. -> OK
+					Parcelas quitadas não podem ser excluidas. -> OK
 					Botões imprimir parcelas e exportar devem ficar ativos mesmo que a parcelas já esteja
-						quitada ou estornada.
-					Mudar a mensagem de estorno para pagamento da parcela cancelado.	
+						quitada ou estornada. -> OK
+					Mudar a mensagem de estorno para pagamento da parcela cancelado. -> OK	
 
 
-#Visualizar vendas -> Campo Total no relatório deve esta com a formatação de moeda.
-					  Tabela vendas, opção do submenu exportar lista não esta funcionando.
-					  Ver a necessidade do Data de vencimento ao exportar.
+#Visualizar vendas -> Campo Total no relatório deve esta com a formatação de moeda. -> OK
+					  Tabela vendas, opção do submenu exportar lista não esta funcionando. -> OK
+					  Ver a necessidade do Data de vencimento ao exportar. -> OK
 					  Ao selecionar o campo Tipo de pesquisa o foco deve ir para o campo Digite o que
-						deseja pesquisar.
-					  Colocar uma divisão entra a pesquisa por Data e a Pesquisa selecionada.
-					  Processp para estornar um venda, se o usuário clicar no botão estornar e clicar
+						deseja pesquisar. -> OK
+					  Colocar uma divisão entra a pesquisa por Data e a Pesquisa selecionada. -> OK
+					  Processo para estornar um venda, se o usuário clicar no botão estornar e clicar
 						na mensagem informe o motivo do estorno e escolher o botão Cancel, o processo
-						de estorno deve ser cancelado.		
+						de estorno deve ser cancelado. -> OK		
 					  
 
 
 
 #Historico de compras
+
+##Correções extras e melhorias na janela de Quitar OS. -> OK

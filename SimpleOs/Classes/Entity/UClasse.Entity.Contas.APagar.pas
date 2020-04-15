@@ -376,7 +376,7 @@ begin
   result := self;
 
   if value = EmptyStr then
-    FPAGO := 'Não'
+    FPAGO := 'Nao'
   else
     FPAGO := value;
 end;
@@ -438,12 +438,10 @@ begin
   FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
 
   if FDATA_PAGAMENTO <> EmptyStr then
-    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime :=
-      StrToDate(FDATA_PAGAMENTO);
+    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO);
 
   FQuery.TQuery.FieldByName('PAGO').AsString := FPAGO;
-  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger :=
-    funcionarioLogado;
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger := funcionarioLogado;
   FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
 
   FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('conta').AsString)
@@ -454,7 +452,7 @@ begin
   except
     on e: Exception do
     begin
-      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+      raise Exception.create('ERRO! Não foi possíve salvar os dados. ' + e.Message);
     end;
 
   end;
@@ -532,47 +530,50 @@ begin
 
   result := self;
 
-  if FQuery.TQuery.State in [dsEdit] then
+  if FQuery.TQuery.RecordCount >= 1 then
   begin
 
-    FQuery.TQuery.Edit;
-
-    FQuery.TQuery.FieldByName('VALOR').AsCurrency := FVALORCONTA;
-    FQuery.TQuery.FieldByName('JUROS').AsFloat := FJUROS;
-    FQuery.TQuery.FieldByName('MULTA').AsCurrency := FMULTA;
-    FQuery.TQuery.FieldByName('DESCONTO').AsCurrency := FDESCONTO;
-    FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
-
-    if FDATA_PAGAMENTO <> EmptyStr then
-      FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO)
-    else
-      raise Exception.Create('ERRO! Informe a data de pagemento.');
-
-    FQuery.TQuery.FieldByName('PAGO').AsString := 'Sim';
-    FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger := funcionarioLogado;
-    FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
-
-    FGravarLog
-            .getOperacao('quitar parcela: ')
-            .getNomeRegistro(FQuery.TQuery.FieldByName('conta').AsString)
-            .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-            .gravarLog;
-
-    try
-      FQuery.TQuery.Post;
-      ShowMessage('Operação realizada com sucesso!');
-    except on e:exception do
+    if FQuery.TQuery.FieldByName('PAGO').AsString = 'Nao' then
     begin
-      MessageDlg('ERRO. Não foi possíve quitar a parcela ' +
-        e.Message, mtError, [mbOk], 0, mbOk);
-      abort;
-    end;
 
+        FQuery.TQuery.Edit;
+
+        FQuery.TQuery.FieldByName('VALOR').AsCurrency := FVALORCONTA;
+        FQuery.TQuery.FieldByName('JUROS').AsFloat := FJUROS;
+        FQuery.TQuery.FieldByName('MULTA').AsCurrency := FMULTA;
+        FQuery.TQuery.FieldByName('DESCONTO').AsCurrency := FDESCONTO;
+        FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency := FVALOR_TOTAL;
+
+        if FDATA_PAGAMENTO <> EmptyStr then
+          FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO)
+        else
+          raise Exception.Create('ERRO! Informe a data de pagemento.');
+
+        FQuery.TQuery.FieldByName('PAGO').AsString := 'Sim';
+        FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger := funcionarioLogado;
+        FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+        FGravarLog
+                .getOperacao('quitar parcela: ')
+                .getNomeRegistro(FQuery.TQuery.FieldByName('conta').AsString)
+                .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+                .gravarLog;
+
+        try
+          FQuery.TQuery.Post;
+          ShowMessage('Operação realizada com sucesso!');
+        except on e:exception do
+        begin
+          MessageDlg('ERRO. Não foi possíve quitar a parcela ' +
+            e.Message, mtError, [mbOk], 0, mbOk);
+          abort;
+        end;
+
+        end;
     end;
 
 
   end;
-
 
 end;
 

@@ -6,7 +6,7 @@ uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
   UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls, FireDAC.Comp.Client,
-  System.Win.ComObj;
+  System.Win.ComObj, RxCurrEdit;
 
 type
 
@@ -93,8 +93,8 @@ type
     function calcularJuros: string;
     function retornarTotalDeParcelas(value: integer): integer;
 
-    function setJuros(value: TEdit): iQuitarParcelasVenda;
-    function setMulta(value: TEdit): iQuitarParcelasVenda;
+    function setJuros(value: TCurrencyEdit): iQuitarParcelasVenda;
+    function setMulta(value: TCurrencyEdit): iQuitarParcelasVenda;
 
     function exportar: iQuitarParcelasVenda;
     procedure validarData(componet: tmaskEdit);
@@ -206,7 +206,7 @@ function TEntityQuitarParcelaVenda.estornarParcela(value: integer)
 begin
   result := self;
 
-  if application.MessageBox('Deseja realmente estornar esta parcela?',
+  if application.MessageBox('Deseja realmente cancelar o pagamento desta parcela?',
     'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
   begin
     FQueryParcela.getCampo('ID').getValor(value.ToString)
@@ -215,6 +215,8 @@ begin
     if FQueryParcela.TQuery.RecordCount >= 1 then
     begin
 
+
+    try
       FQueryParcela.TQuery.Edit;
 
       FQueryParcela.TQuery.FieldByName('JUROS').AsCurrency := 0;
@@ -228,12 +230,21 @@ begin
 
       FQueryParcela.TQuery.Post;
 
+      showmessage('Pagamento da parcela cancelado com sucesso!');
 
       FGravarLog
               .getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
               .getCodigoRegistro(+FQuery.TQuery.FieldByName('ID_VENDA').AsInteger)
               .getOperacao('estornada')
               .gravarLog;
+
+
+    except on e:exception do
+    begin
+      raise Exception.Create('ERRO! Não foi possível cancelar o pagamento da parcela selecionada. '+e.Message);
+    end;
+
+    end;
 
     end;
   end;
@@ -258,23 +269,31 @@ begin
     F_Query.ParamByName('i').AsInteger := value;
     F_Query.Active := true;
 
-    if F_Query.RecordCount >= 1 then
-    begin
-      if application.MessageBox('Deseja realmente excluir esta parcela?',
-        'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+      if F_Query.RecordCount >= 1 then
       begin
-        F_Query.Delete;
-//        F_Query.Post;
 
-      FGravarLog
-              .getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
-              .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_VENDA').AsInteger)
-              .getOperacao('deletada')
-              .gravarLog;
+        if F_Query.FieldByName('PAGO').AsString <> 'Sim' then
+          begin
+
+            if application.MessageBox('Deseja realmente excluir esta parcela?',
+                'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
+              begin
+                F_Query.Delete;
+
+              FGravarLog
+                      .getNomeRegistro('Parcela: '+FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+                      .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_VENDA').AsInteger)
+                      .getOperacao('deletada')
+                      .gravarLog;
+
+              end;
+          end
+          else
+          begin
+               MessageDlg('ERRO!. Não é possível excluir a parcela pois já esta quitada.', mtError, [mbOk], 0, mbOk);
+           end;
 
       end;
-    end;
-
   finally
     FreeAndNil(F_Query);
   end;
@@ -338,7 +357,12 @@ begin
       pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('MULTA').AsCurrency;
       pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
       pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('TOTAL').AsCurrency;
-      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime;
+
+      if FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime
+      else
+        pasta.cells[linha, 14] := ' ';
+
       pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime;
       pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('FUNCIONARIO_PGTO').AsInteger;
       pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString;
@@ -785,13 +809,13 @@ begin
 
 end;
 
-function TEntityQuitarParcelaVenda.setJuros(value: TEdit): iQuitarParcelasVenda;
+function TEntityQuitarParcelaVenda.setJuros(value: TCurrencyEdit): iQuitarParcelasVenda;
 begin
   result := self;
   value.Text := currtostr(FJurosParcelas);
 end;
 
-function TEntityQuitarParcelaVenda.setMulta(value: TEdit): iQuitarParcelasVenda;
+function TEntityQuitarParcelaVenda.setMulta(value: TCurrencyEdit): iQuitarParcelasVenda;
 begin
   result := self;
   value.Text := currtostr(FMultaParcela);

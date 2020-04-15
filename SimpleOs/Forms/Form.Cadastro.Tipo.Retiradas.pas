@@ -104,7 +104,12 @@ end;
 procedure TformTipoRetiradas.sbCancelarClick(Sender: TObject);
 begin
   inherited;
-  FEntityTipoRetiradas.cancelar;
+
+  FEntityTipoRetiradas
+                      .abrir
+                      .listarGrid(DataSource1);
+//  .cancelar;
+
 end;
 
 procedure TformTipoRetiradas.sbEditarClick(Sender: TObject);

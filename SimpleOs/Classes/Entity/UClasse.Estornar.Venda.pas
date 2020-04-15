@@ -221,17 +221,17 @@ begin
 
   result := self;
 
-  while motivo = EmptyStr do
-  begin
-
-     motivo := InputBox('Informe o motivo do estorno', 'Motivo do estorno', '');
-
-     if motivo = EmptyStr then
-     begin
-       MessageDlg('Você precisa informar o motivo do estorno', mtWarning, [mbOK], 0, mbOK);
-     end;
-
-  end;
+//  while motivo = EmptyStr do
+//  begin
+//
+//     motivo := InputBox('Informe o motivo do estorno', 'Motivo do estorno', '');
+//
+//     if motivo = EmptyStr then
+//     begin
+//       MessageDlg('Você precisa informar o motivo do estorno', mtWarning, [mbOK], 0, mbOK);
+//     end;
+//
+//  end;
 
   FMOTIVO := motivo;
 

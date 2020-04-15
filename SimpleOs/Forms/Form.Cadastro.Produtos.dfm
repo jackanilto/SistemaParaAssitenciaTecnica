@@ -9,6 +9,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 1084
+    ExplicitTop = 2
     ExplicitWidth = 1084
     inherited sbFechar: TSpeedButton
       Left = 1032
@@ -57,6 +58,7 @@ inherited formCadastroProdutos: TformCadastroProdutos
   inherited CardPanel1: TCardPanel
     Width = 1084
     Height = 434
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1084
     ExplicitHeight = 434
     inherited cardPanelCadatro: TCard

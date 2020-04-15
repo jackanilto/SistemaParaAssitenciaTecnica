@@ -1675,8 +1675,8 @@ type
     function CalcularJuros: string;
     function retornarTotalDeParcelas(value: integer): integer;
 
-    function setJuros(value: TEdit): iQuitarParcelasVenda;
-    function setMulta(value: TEdit): iQuitarParcelasVenda;
+    function setJuros(value: TCurrencyEdit): iQuitarParcelasVenda;
+    function setMulta(value: TCurrencyEdit): iQuitarParcelasVenda;
 
     function exportar: iQuitarParcelasVenda;
     procedure validarData(componet: tmaskEdit);
@@ -1705,9 +1705,9 @@ type
     function ordenarGrid(column: TColumn): iQuitarParcelaOS;
 
     function CalularPagamento:iQuitarParcelaOS;
-    function setTotalParcela(value:TEdit):iQuitarParcelaOS;
-    function setTotalJurosParcela(value:TEdit):iQuitarParcelaOS;
-    function setTotalMultaParcela(value:TEdit):iQuitarParcelaOS;
+    function setTotalParcela(value:TCurrencyEdit):iQuitarParcelaOS;
+    function setTotalJurosParcela(value:TCurrencyEdit):iQuitarParcelaOS;
+    function setTotalMultaParcela(value:TCurrencyEdit):iQuitarParcelaOS;
 
     function getDESCONTO(value:string):iQuitarParcelaOS;
     function getJUROS(value:string):iQuitarParcelaOS;

@@ -9,7 +9,8 @@ uses
   Data.DB, Vcl.Grids, Vcl.DBGrids, UInterfaces,
   UClasse.Entity.Quitar.Parcelas.Vendas, Vcl.DBCtrls, Vcl.Mask, UFactory,
   frxClass, frxDBSet, UClasse.Imprimir.Parcelas, Vcl.ComCtrls,
-  UClasse.Imprimir.Recibo, UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas;
+  UClasse.Imprimir.Recibo, UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas,
+  RxToolEdit, RxCurrEdit;
 
 type
   TEnumPesquisar = (Parcela, Venda, codigo_cliente);
@@ -39,14 +40,10 @@ type
     Label1: TLabel;
     edtParcelaSelecionada: TEdit;
     Label2: TLabel;
-    edtValorDaParcela: TEdit;
     Label3: TLabel;
     Label6: TLabel;
-    edtJuros: TEdit;
     Label7: TLabel;
-    edtMulta: TEdit;
     Label8: TLabel;
-    edtDesconto: TEdit;
     Label9: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -68,10 +65,14 @@ type
     frxDB_ImprimirReciboItens: TfrxDBDataset;
     frxDB_ImprimirRecibo: TfrxDBDataset;
     frxDB_ImprimirParcelas: TfrxDBDataset;
-    edtTotalAPagar: TEdit;
     edtDataDePagamento: TDateTimePicker;
     frxDB_RecidoParcela: TfrxDBDataset;
     frx_ReciboParcela: TfrxReport;
+    edtValorDaParcela: TCurrencyEdit;
+    edtJuros: TCurrencyEdit;
+    edtMulta: TCurrencyEdit;
+    edtDesconto: TCurrencyEdit;
+    edtTotalAPagar: TCurrencyEdit;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -493,9 +494,9 @@ begin
   sbAdicionarParcela.Enabled := false;
   sbCancelar.Enabled := false;
   sbExcluir.Enabled := false;
-  sbImprimirParcelas.Enabled := false;
-  sbExportar.Enabled := false;
-  sbImprimir.Enabled := false;
+  sbImprimirParcelas.Enabled := true;
+  sbExportar.Enabled := true;
+  sbImprimir.Enabled := true;
 end;
 
 procedure TformQuitarParcelasVendas.calcularDesconto;

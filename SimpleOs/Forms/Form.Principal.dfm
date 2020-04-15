@@ -6182,9 +6182,9 @@ object formPrincipal: TformPrincipal
     end
     object CategoryButtons2: TCategoryButtons
       Left = 0
-      Top = 384
+      Top = 368
       Width = 150
-      Height = 83
+      Height = 99
       Margins.Bottom = 15
       Align = alBottom
       BevelInner = bvNone
@@ -6199,6 +6199,8 @@ object formPrincipal: TformPrincipal
           Color = clNone
           Collapsed = False
           Items = <
+            item
+            end
             item
               Action = acSair
               ImageIndex = 6
@@ -6216,6 +6218,8 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 1
+      ExplicitLeft = -6
+      ExplicitTop = 376
     end
   end
   object Panel2: TPanel

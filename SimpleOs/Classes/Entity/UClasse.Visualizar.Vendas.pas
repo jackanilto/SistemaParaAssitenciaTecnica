@@ -127,6 +127,7 @@ function TEntityVisuzaliarVendas.estornarVenda(value: integer)
   : iVisualizarVenda;
 var
   F_QueryParcelas: iConexaoQuery;
+  FMotivo:string;
 begin
 
   result := self;
@@ -134,6 +135,10 @@ begin
   if Application.MessageBox('Deseja realmente estornar esta venda?',
     'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
   begin
+
+    FMotivo := InputBox('Informe o motivo do estorno', 'Motivo do estorno', '');
+    if FMotivo = EmptyStr then
+       raise Exception.Create('OPERAÇÃO DE ESTORNO CANCELADA!');
 
     try
 
@@ -167,12 +172,17 @@ begin
         end;
       end;
 
-      FEstornarVenda.getID_VENDA(FQuery.TQuery.FieldByName('ID').AsInteger)
-        .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
-        .getVALOR_VENDA(FQuery.TQuery.FieldByName('TOTAL').AsCurrency)
-        .getDATA(DateToStr(date)).getHORA(TimeToStr(time)).getMOTIVO('')
-        .getFUNCIONARIO(0).getNOME_FUNCIONARIO('').getOBSERVACAO('')
-        .inserir.Gravar;
+      FEstornarVenda
+                  .getID_VENDA(FQuery.TQuery.FieldByName('ID').AsInteger)
+                  .getID_CLIENTE(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+                  .getVALOR_VENDA(FQuery.TQuery.FieldByName('TOTAL').AsCurrency)
+                  .getDATA(DateToStr(date))
+                  .getHORA(TimeToStr(time))
+                  .getMOTIVO(FMotivo)
+                  .getFUNCIONARIO(0)
+                  .getNOME_FUNCIONARIO('')
+                  .getOBSERVACAO('')
+                  .inserir.Gravar;
 
       showmessage('Venda estornada com sucesso!!!');
 
@@ -222,36 +232,25 @@ begin
   pasta.cells[1, 9] := 'Desconto';
   pasta.cells[1, 10] := 'Total';
   pasta.cells[1, 11] := 'QTDE de parcelas';
-  pasta.cells[1, 12] := 'Vencimento';
-  pasta.cells[1, 13] := 'Forma de pagamento';
-  pasta.cells[1, 14] := 'Status';
+  pasta.cells[1, 12] := 'Forma de pagamento';
+  pasta.cells[1, 13] := 'Status';
 
   try
     while not FQuery.TQuery.Eof do
     begin
 
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('id').AsInteger;
-      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_CLIENTE')
-        .AsInteger;
-      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
-        ('NOME_CLIENTE').AsString;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('FUNCIONARIO')
-        .AsInteger;
-      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName
-        ('NOME_FUNCIONARIO').AsString;
-      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('DATA_VENDA')
-        .AsDateTime;
-      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('HORA_VENDA')
-        .AsDateTime;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('NOME_CLIENTE').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('NOME_FUNCIONARIO').AsString;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('DATA_VENDA').AsDateTime;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('HORA_VENDA').AsDateTime;
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('SUBTOTAL').AsCurrency;
       pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('TOTAL').AsCurrency;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('QUANTIDADE_PARCELAS')
-        .AsInteger;
-      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('VENCIMENTO')
-        .AsDateTime;
-      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName
-        ('FORMA_PAGAMENTO').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('QUANTIDADE_PARCELAS').AsInteger;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('FORMA_PAGAMENTO').AsString;
       pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('STATUS').AsString;
 
       linha := linha + 1;

@@ -13,7 +13,7 @@ uses
   UClasse.Entity.Table, UClasse.Visualizar.Ordens.Servico,
   UClasse.Visualizar.Ordens.Servicos.Incluidos,
   UClasse.Visualizar.Ordens.Servico.Parcelas, UClasse.Entity.Dados.Empresa,
-  UClasse.Entity.Configurar.Parcelas;
+  UClasse.Entity.Configurar.Parcelas, RxToolEdit, RxCurrEdit;
 
 type
   TEnumPesquisar = (parcela, os, cod_cliente, cliente);
@@ -52,14 +52,9 @@ type
     Label13: TLabel;
     edtTotalDeParcelas: TEdit;
     edtParcelaSelecionada: TEdit;
-    edtValorDaParcela: TEdit;
-    edtJuros: TEdit;
-    edtMulta: TEdit;
-    edtDesconto: TEdit;
     edtPago: TEdit;
     edtDataDeVencimento: TMaskEdit;
     edtFormaDePagamento: TComboBox;
-    edtTotalAPagar: TEdit;
     edtDataDePagamento: TDateTimePicker;
     DataSource1: TDataSource;
     s_ImprirmirRecibo: TDataSource;
@@ -80,6 +75,11 @@ type
     frxDB_ImprimirServicosOS: TfrxDBDataset;
     frxDB_ImprimirDadosEmpresa: TfrxDBDataset;
     s_ImprimirEmpresa: TDataSource;
+    edtValorDaParcela: TCurrencyEdit;
+    edtJuros: TCurrencyEdit;
+    edtMulta: TCurrencyEdit;
+    edtDesconto: TCurrencyEdit;
+    edtTotalAPagar: TCurrencyEdit;
     procedure FormShow(Sender: TObject);
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -100,6 +100,8 @@ type
       Shift: TShiftState);
     procedure sbImprimirParcelasClick(Sender: TObject);
     procedure cbPesquisarChange(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
     var
@@ -202,6 +204,42 @@ begin
     desativarBotoes;
   end;
 
+end;
+
+procedure TformQuitarParcelaOS.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  if DataSource1.DataSet.FieldByName('PGTO').AsString = 'Sim'
+  then
+  begin
+    DBGrid1.Canvas.Brush.Color := $00BD9111;
+    DBGrid1.Canvas.Font.Color := clwhite;
+  end
+
+  else if ((DataSource1.DataSet.FieldByName('PGTO')
+    .AsString = 'Nao') and (DataSource1.DataSet.FieldByName
+    ('DATA_VENCIMENTO').AsDateTime >= date)) then
+  begin
+    DBGrid1.Canvas.Brush.Color := $0068BD05;
+    DBGrid1.Canvas.Font.Color := clwhite;
+  end
+
+  else if DataSource1.DataSet.FieldByName('PGTO')
+    .AsString = 'Estornada' then
+  begin
+    DBGrid1.Canvas.Brush.Color := $00C4C4C4;
+    DBGrid1.Canvas.Font.Color := clwhite
+  end
+
+  else if ((DataSource1.DataSet.FieldByName('PGTO')
+    .AsString = 'Nao') and (DataSource1.DataSet.FieldByName
+    ('DATA_VENCIMENTO').AsDateTime < date)) then
+  begin
+    DBGrid1.Canvas.Brush.Color := $003444D1;
+    DBGrid1.Canvas.Font.Color := clwhite
+  end;
+
+  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 procedure TformQuitarParcelaOS.ativarBotoes;

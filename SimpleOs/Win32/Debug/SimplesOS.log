@@ -1062,3 +1062,8 @@ At line 1, column 31
 12/04/20 15:46:29 - Caption: Venda de produtos
 12/04/20 15:46:29 - Erro:Exception
 12/04/20 15:46:29 - Erro:ERRO! Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+13/04/20 15:05:22 - ===========================================
+13/04/20 15:05:22 - Form: formVisualizarVendas
+13/04/20 15:05:22 - Caption: Visualizar vendas
+13/04/20 15:05:22 - Erro:Exception
+13/04/20 15:05:22 - Erro:OPERAÇÃO DE ESTORNO CANCELADA!

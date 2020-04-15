@@ -1023,7 +1023,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Segoe UI'
-    Font.Style = []
+    Font.Style = [fsBold]
     Font.Quality = fqDraft
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
@@ -1036,6 +1036,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     TitleFont.Style = [fsBold]
     TitleFont.Quality = fqDraft
     OnCellClick = DBGrid1CellClick
+    OnDrawColumnCell = DBGrid1DrawColumnCell
     OnTitleClick = e
   end
   object DBNavigator1: TDBNavigator
@@ -1062,40 +1063,12 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Height = 25
     TabOrder = 5
   end
-  object edtValorDaParcela: TEdit
-    Left = 264
-    Top = 83
-    Width = 120
-    Height = 25
-    TabOrder = 6
-  end
-  object edtJuros: TEdit
-    Left = 516
-    Top = 83
-    Width = 83
-    Height = 25
-    TabOrder = 7
-  end
-  object edtMulta: TEdit
-    Left = 607
-    Top = 83
-    Width = 92
-    Height = 25
-    TabOrder = 8
-  end
-  object edtDesconto: TEdit
-    Left = 706
-    Top = 83
-    Width = 99
-    Height = 25
-    TabOrder = 9
-  end
   object edtPago: TEdit
     Left = 335
     Top = 142
     Width = 120
     Height = 25
-    TabOrder = 10
+    TabOrder = 6
   end
   object edtDataDeVencimento: TMaskEdit
     Left = 390
@@ -1104,7 +1077,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Height = 25
     EditMask = '00/00/0000'
     MaxLength = 10
-    TabOrder = 11
+    TabOrder = 7
     Text = '  /  /    '
   end
   object edtFormaDePagamento: TComboBox
@@ -1112,14 +1085,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Top = 142
     Width = 179
     Height = 25
-    TabOrder = 12
-  end
-  object edtTotalAPagar: TEdit
-    Left = 812
-    Top = 83
-    Width = 121
-    Height = 25
-    TabOrder = 13
+    TabOrder = 8
   end
   object edtDataDePagamento: TDateTimePicker
     Left = 24
@@ -1128,7 +1094,47 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Height = 25
     Date = 43846.000000000000000000
     Time = 0.526252812502207200
+    TabOrder = 9
+  end
+  object edtValorDaParcela: TCurrencyEdit
+    Left = 264
+    Top = 83
+    Width = 121
+    Height = 25
+    TabOrder = 10
+    ZeroEmpty = False
+  end
+  object edtJuros: TCurrencyEdit
+    Left = 517
+    Top = 83
+    Width = 84
+    Height = 25
+    TabOrder = 11
+    ZeroEmpty = False
+  end
+  object edtMulta: TCurrencyEdit
+    Left = 607
+    Top = 83
+    Width = 93
+    Height = 25
+    TabOrder = 12
+    ZeroEmpty = False
+  end
+  object edtDesconto: TCurrencyEdit
+    Left = 706
+    Top = 83
+    Width = 100
+    Height = 25
+    TabOrder = 13
+    ZeroEmpty = False
+  end
+  object edtTotalAPagar: TCurrencyEdit
+    Left = 812
+    Top = 83
+    Width = 121
+    Height = 25
     TabOrder = 14
+    ZeroEmpty = False
   end
   object DataSource1: TDataSource
     OnDataChange = DataSource1DataChange

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<TfrxReport Version="6.3.3" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="43851,825794375" ReportOptions.Description.Text="" ReportOptions.LastChange="43851,8371109375" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;begin&#13;&#10;&#13;&#10;end.">
+<TfrxReport Version="6.3.3" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="43851,825794375" ReportOptions.Description.Text="" ReportOptions.LastChange="43934,6100811921" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;begin&#13;&#10;&#13;&#10;end.">
   <Datasets>
     <item DataSet="frxDB_ListaVendas" DataSetName="frxDB_ListaVendas"/>
   </Datasets>
@@ -25,7 +25,7 @@
       <TfrxMemoView Name="Memo8" AllowVectorExport="True" Left="4,55906" Top="7,55906" Width="105,82684" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ListaVendas.&#34;ID&#34;]"/>
       <TfrxMemoView Name="Memo9" AllowVectorExport="True" Left="123,50402" Top="7,55906" Width="260,78757" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ListaVendas.&#34;NOME_CLIENTE&#34;]"/>
       <TfrxMemoView Name="Memo10" AllowVectorExport="True" Left="398,07112" Top="6,55906" Width="94,48825" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ListaVendas.&#34;DATA_VENDA&#34;]"/>
-      <TfrxMemoView Name="Memo11" AllowVectorExport="True" Left="504,45702" Top="7,55906" Width="98,26778" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ListaVendas.&#34;TOTAL&#34;]"/>
+      <TfrxMemoView Name="Memo11" AllowVectorExport="True" Left="504,45702" Top="7,55906" Width="98,26778" Height="18,89765" DisplayFormat.FormatStr="%2.2m" DisplayFormat.Kind="fkNumeric" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ListaVendas.&#34;TOTAL&#34;]"/>
       <TfrxMemoView Name="Memo12" AllowVectorExport="True" Left="613,50433" Top="7,55906" Width="98,26778" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDB_ListaVendas.&#34;QUANTIDADE_PARCELAS&#34;]"/>
       <TfrxLineView Name="Line6" AllowVectorExport="True" Left="608,50433" Top="0" Width="0" Height="30,23624" Color="0" Frame.Typ="0" Diagonal="True"/>
       <TfrxLineView Name="Line7" AllowVectorExport="True" Left="498,89796" Top="0" Width="0" Height="30,23624" Color="0" Frame.Typ="0" Diagonal="True"/>

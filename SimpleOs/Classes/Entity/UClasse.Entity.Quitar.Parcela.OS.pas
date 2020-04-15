@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  UClasse.DiasMeses, Vcl.StdCtrls, System.Win.ComObj;
+  UClasse.DiasMeses, Vcl.StdCtrls, System.Win.ComObj, RxCurrEdit;
 
 type
 
@@ -66,9 +66,9 @@ type
     function ordenarGrid(column: TColumn): iQuitarParcelaOS;
 
     function CalularPagamento: iQuitarParcelaOS;
-    function setTotalParcela(value: TEdit): iQuitarParcelaOS;
-    function setTotalJurosParcela(value: TEdit): iQuitarParcelaOS;
-    function setTotalMultaParcela(value: TEdit): iQuitarParcelaOS;
+    function setTotalParcela(value: TCurrencyEdit): iQuitarParcelaOS;
+    function setTotalJurosParcela(value: TCurrencyEdit): iQuitarParcelaOS;
+    function setTotalMultaParcela(value: TCurrencyEdit): iQuitarParcelaOS;
 
     function getDESCONTO(value: string): iQuitarParcelaOS;
     function getJUROS(value: string): iQuitarParcelaOS;
@@ -296,13 +296,21 @@ begin
     FDeletarParcela.TQuery.ParamByName('i').AsInteger := value;
     FDeletarParcela.TQuery.Active := true;
 
-    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString +
-      ' Parcela: ' + FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
-      .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
-      .getOperacao('deletada').gravarLog;
+    if FDeletarParcela.TQuery.FieldByName('PGTO').AsString <> 'Sim' then
+      begin
+        FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('CLIENTE').AsString +
+          ' Parcela: ' + FQuery.TQuery.FieldByName('ID_PARCELA').AsInteger.ToString)
+          .getCodigoRegistro(FQuery.TQuery.FieldByName('ID_CLIENTE').AsInteger)
+          .getOperacao('deletada').gravarLog;
 
-    FDeletarParcela.TQuery.Delete;
-    showmessage('Parcela excluida com sucesso!!!');
+        FDeletarParcela.TQuery.Delete;
+        showmessage('Parcela excluida com sucesso!!!');
+      end
+      else
+      begin
+        MessageDlg('ERRO. Não é possível excluir esta parcela pois a mesma já esta quitada.',
+          mtError, [mbOk], 0, mbOk)
+      end;
 
   end;
 
@@ -762,21 +770,21 @@ begin
 
 end;
 
-function TEntityQuitarParcelaOS.setTotalJurosParcela(value: TEdit)
+function TEntityQuitarParcelaOS.setTotalJurosParcela(value: TCurrencyEdit)
   : iQuitarParcelaOS;
 begin
   result := self;
   value.Text := CurrToStr(FJurosParcela);
 end;
 
-function TEntityQuitarParcelaOS.setTotalMultaParcela(value: TEdit)
+function TEntityQuitarParcelaOS.setTotalMultaParcela(value: TCurrencyEdit)
   : iQuitarParcelaOS;
 begin
   result := self;
   value.Text := CurrToStr(FMultaParcela);
 end;
 
-function TEntityQuitarParcelaOS.setTotalParcela(value: TEdit): iQuitarParcelaOS;
+function TEntityQuitarParcelaOS.setTotalParcela(value: TCurrencyEdit): iQuitarParcelaOS;
 begin
   result := self;
   value.Text := CurrToStr(FtotalAPagar)

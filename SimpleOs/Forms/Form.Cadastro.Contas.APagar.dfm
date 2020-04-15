@@ -8,7 +8,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 1008
-    ExplicitWidth = 907
+    ExplicitWidth = 1008
     inherited sbFechar: TSpeedButton
       Left = 956
       ExplicitLeft = 991
@@ -23,13 +23,13 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
   end
   inherited Panel2: TPanel
     Width = 1008
-    ExplicitWidth = 907
+    ExplicitWidth = 1008
   end
   inherited Panel3: TPanel
     Top = 408
     Width = 1008
     ExplicitTop = 408
-    ExplicitWidth = 907
+    ExplicitWidth = 1008
     inherited Label4: TLabel
       Left = 674
       ExplicitLeft = 709
@@ -120,24 +120,24 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
       Items.Strings = (
         'C'#243'digo'
         'Conta')
-      ExplicitLeft = 573
+      ExplicitLeft = 674
     end
     inherited edtPesquisar: TEdit
       Left = 809
       OnKeyUp = edtPesquisarKeyUp
-      ExplicitLeft = 708
+      ExplicitLeft = 809
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 1008
     Height = 327
-    ExplicitWidth = 907
+    ActiveCard = cardPanelCadatro
+    ExplicitWidth = 1008
     ExplicitHeight = 327
     inherited cardPanelCadatro: TCard
       Width = 1008
       Height = 327
-      ExplicitTop = 1
-      ExplicitWidth = 907
+      ExplicitWidth = 1008
       ExplicitHeight = 327
       object Label1: TLabel
         Left = 32
@@ -325,7 +325,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
       end
       object edtDataVencimento: TMaskEdit
         Left = 32
-        Top = 152
+        Top = 149
         Width = 81
         Height = 25
         EditMask = '00/00/0000'
@@ -352,7 +352,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 4
       end
       object edtDataPagamento: TMaskEdit
         Left = 599
@@ -367,7 +367,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 8
         Text = '  /  /    '
         OnExit = edtDataPagamentoExit
       end
@@ -383,7 +383,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 10
       end
       object edtObservacao: TEdit
         Left = 391
@@ -397,10 +397,10 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 11
       end
       object edtPgto: TComboBox
-        Left = 391
+        Left = 397
         Top = 96
         Width = 75
         Height = 25
@@ -411,7 +411,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Style = []
         ItemIndex = 1
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 9
         Text = 'N'#227'o'
         Items.Strings = (
           'Sim'
@@ -428,7 +428,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 3
         ZeroEmpty = False
         OnExit = edtValorContaExit
       end
@@ -443,7 +443,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 5
         ZeroEmpty = False
       end
       object edtDesconto: TCurrencyEdit
@@ -457,7 +457,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 6
         ZeroEmpty = False
       end
       object edtValorTotal: TCurrencyEdit
@@ -471,21 +471,21 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 7
         ZeroEmpty = False
       end
     end
     inherited cardPanelConsulta: TCard
       Width = 1008
       Height = 327
-      ExplicitWidth = 907
+      ExplicitWidth = 1008
       ExplicitHeight = 327
       inherited Panel4: TPanel
         Top = 264
         Width = 1008
         Height = 63
         ExplicitTop = 264
-        ExplicitWidth = 907
+        ExplicitWidth = 1008
         ExplicitHeight = 63
         inherited sbImprimir: TSpeedButton
           Left = 733

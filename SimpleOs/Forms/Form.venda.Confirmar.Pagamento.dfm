@@ -1498,7 +1498,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43837.784506805600000000
-    ReportOptions.LastChange = 43933.651563009260000000
+    ReportOptions.LastChange = 43936.594276597220000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1666,21 +1666,29 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
           AllowVectorExport = True
           Left = 7.559060000000000000
           Top = 102.047310000000000000
-          Width = 124.724490000000000000
+          Width = 109.606370000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
           Memo.UTF8W = (
-            'Valor da parcela: R$')
+            'Valor da parcela:')
         end
         object Memo9: TfrxMemoView
           AllowVectorExport = True
-          Left = 134.063080000000000000
+          Left = 122.724490000000000000
           Top = 101.047310000000000000
-          Width = 162.519790000000000000
+          Width = 177.637910000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirParcelas."VALOR_DA_PARCELA"]')
+          ParentFont = False
         end
         object Shape7: TfrxShapeView
           AllowVectorExport = True

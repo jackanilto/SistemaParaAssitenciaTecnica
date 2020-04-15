@@ -20,11 +20,15 @@ type
     edtPrecoCusto: TEdit;
     Label4: TLabel;
     Panel1: TPanel;
-    Image1: TImage;
     SpeedButton1: TSpeedButton;
+    Panel2: TPanel;
+    sbFechar: TSpeedButton;
+    lblCaption: TLabel;
+    SpeedButton2: TSpeedButton;
     procedure FormShow(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure sbAplicarAlteracoesClick(Sender: TObject);
+    procedure sbFecharClick(Sender: TObject);
   private
     { Private declarations }
     FPrecoCusto: Currency;
@@ -61,6 +65,11 @@ begin
 
 end;
 
+procedure TfrmCalculadoraMargemLucro.sbFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
 procedure TfrmCalculadoraMargemLucro.SpeedButton1Click(Sender: TObject);
 var
   valorCusto:Currency;
@@ -74,7 +83,7 @@ begin
                                 .calcularJuros
                                 .calcularDiferencaPercentual(valorDesejado, valorCusto);
 
-  showmessage(CurrToStr(FValorProcento));
+//  showmessage(CurrToStr(FValorProcento));
 
   edtValorPorcento.Text := formatFloat('0.00', FValorProcento);
 

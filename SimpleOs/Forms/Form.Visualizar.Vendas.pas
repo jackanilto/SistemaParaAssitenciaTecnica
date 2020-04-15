@@ -40,7 +40,6 @@ type
     Excluirestavenda1: TMenuItem;
     Imprimirparcelasdestavenda1: TMenuItem;
     Imprimircomprovantedavenda1: TMenuItem;
-    Exportalistadasvendas1: TMenuItem;
     PopupMenu2: TPopupMenu;
     Exportaritens1: TMenuItem;
     s_DadosEmpresa: TDataSource;
@@ -62,6 +61,8 @@ type
     frxDBDataset2: TfrxDBDataset;
     frxDB_ListaVendas: TfrxDBDataset;
     frx_ListaVendas: TfrxReport;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -79,6 +80,7 @@ type
     procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure SpeedButton3Click(Sender: TObject);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     FEntityVisualizaVenda: iVisualizarVenda;
@@ -99,6 +101,12 @@ uses
   UClasse.Imprimir.Parcelas;
 
 {$R *.dfm}
+
+procedure TformVisualizarVendas.cbPesquisarChange(Sender: TObject);
+begin
+  if cbPesquisar.Text <> EmptyStr then
+    edtPesquisar.SetFocus;
+end;
 
 procedure TformVisualizarVendas.DBGrid1CellClick(Column: TColumn);
 begin

@@ -497,7 +497,7 @@ begin
         lblTotalItens.Caption :=
           inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
 
-          showmessage('Produto adiconado aos itens da venda!!!');
+          showmessage('Produto adicionado aos itens da venda com sucesso!!!');
 
       except
         on e: Exception do

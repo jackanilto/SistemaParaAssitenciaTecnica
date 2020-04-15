@@ -129,6 +129,8 @@ object formVisualizarVendas: TformVisualizarVendas
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
+    ExplicitLeft = 8
+    ExplicitTop = 487
     DesignSize = (
       1133
       75)
@@ -490,6 +492,20 @@ object formVisualizarVendas: TformVisualizarVendas
       ShowHint = True
       OnClick = SpeedButton3Click
     end
+    object Bevel1: TBevel
+      Left = 759
+      Top = 16
+      Width = 1
+      Height = 50
+      Anchors = [akRight, akBottom]
+    end
+    object Bevel2: TBevel
+      Left = 543
+      Top = 16
+      Width = 1
+      Height = 50
+      Anchors = [akRight, akBottom]
+    end
     object cbPesquisar: TComboBox
       Left = 799
       Top = 32
@@ -503,6 +519,7 @@ object formVisualizarVendas: TformVisualizarVendas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnChange = cbPesquisarChange
       Items.Strings = (
         'Venda'
         'C'#243'd. Cliente'
@@ -657,9 +674,6 @@ object formVisualizarVendas: TformVisualizarVendas
     object Imprimircomprovantedavenda1: TMenuItem
       Caption = 'Imprimir comprovante da venda'
       OnClick = Imprimircomprovantedavenda1Click
-    end
-    object Exportalistadasvendas1: TMenuItem
-      Caption = 'Exporta lista das vendas'
     end
   end
   object PopupMenu2: TPopupMenu
@@ -2989,7 +3003,7 @@ object formVisualizarVendas: TformVisualizarVendas
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43851.825794375000000000
-    ReportOptions.LastChange = 43851.837110937500000000
+    ReportOptions.LastChange = 43934.610106331020000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -3263,6 +3277,8 @@ object formVisualizarVendas: TformVisualizarVendas
           Top = 7.559060000000000000
           Width = 98.267780000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
