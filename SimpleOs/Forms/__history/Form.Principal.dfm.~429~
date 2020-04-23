@@ -4,7 +4,8 @@ object formPrincipal: TformPrincipal
   Caption = 'SimpleOS'
   ClientHeight = 524
   ClientWidth = 1061
-  Color = clBtnFace
+  Color = 10461087
+  Ctl3D = False
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -6228,7 +6229,7 @@ object formPrincipal: TformPrincipal
     Align = alCustom
     Anchors = [akLeft, akTop, akRight]
     BevelOuter = bvNone
-    Color = 15920877
+    Color = 10461087
     ParentBackground = False
     TabOrder = 2
     object Image2: TImage
@@ -7155,13 +7156,14 @@ object formPrincipal: TformPrincipal
     Top = 57
     Width = 0
     Height = 467
-    AnimationDelay = 1
-    AnimationStep = 50
+    AnimationDelay = 0
+    AnimationStep = 0
     Color = 13401438
     Opened = False
     OpenedWidth = 173
     Placement = svpLeft
     TabOrder = 4
+    UseAnimation = False
     object CategoryButtons4: TCategoryButtons
       Left = -24
       Top = 3
@@ -7225,14 +7227,15 @@ object formPrincipal: TformPrincipal
     Top = 57
     Width = 0
     Height = 467
-    AnimationDelay = 1
-    AnimationStep = 50
+    AnimationDelay = 0
+    AnimationStep = 0
     Color = 13401438
     CompactWidth = 0
     Opened = False
     OpenedWidth = 210
     Placement = svpLeft
     TabOrder = 5
+    UseAnimation = False
     object CategoryButtons5: TCategoryButtons
       Left = 0
       Top = 0
@@ -7347,7 +7350,6 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 0
-      ExplicitWidth = 210
     end
   end
   object spvExtras: TSplitView
@@ -7355,8 +7357,8 @@ object formPrincipal: TformPrincipal
     Top = 57
     Width = 0
     Height = 467
-    AnimationDelay = 1
-    AnimationStep = 50
+    AnimationDelay = 0
+    AnimationStep = 0
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
@@ -7364,6 +7366,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 6
+    UseAnimation = False
     object CategoryButtons7: TCategoryButtons
       Left = -30
       Top = 3
@@ -7408,6 +7411,8 @@ object formPrincipal: TformPrincipal
     Top = 57
     Width = 0
     Height = 467
+    AnimationDelay = 0
+    AnimationStep = 0
     CloseStyle = svcCompact
     Color = clOlive
     CompactWidth = 0
@@ -7415,14 +7420,15 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 100
     Placement = svpLeft
     TabOrder = 7
+    UseAnimation = False
   end
   object spCaixa: TSplitView
     Left = 150
     Top = 57
     Width = 0
     Height = 467
-    AnimationDelay = 1
-    AnimationStep = 50
+    AnimationDelay = 0
+    AnimationStep = 0
     CloseStyle = svcCompact
     Color = 13401438
     CompactWidth = 0
@@ -7430,6 +7436,7 @@ object formPrincipal: TformPrincipal
     OpenedWidth = 187
     Placement = svpLeft
     TabOrder = 8
+    UseAnimation = False
     object CategoryButtons6: TCategoryButtons
       Left = -28
       Top = 3
@@ -7452,6 +7459,7 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acReaberturaDoCaixa
+              Caption = 'Abertura do caixa'
             end
             item
               Action = acRetiradaDeValores

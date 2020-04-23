@@ -411,9 +411,19 @@ end;
 
 procedure TformPrincipal.acCriarOrdenServicoExecute(Sender: TObject);
 begin
-  formCriarConsultarOrdemServico :=
-    TformCriarConsultarOrdemServico.Create(self);
-  TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
+
+  if FSituacaoDoCaixa = 'aberto' then
+  begin
+
+    formCriarConsultarOrdemServico :=
+      TformCriarConsultarOrdemServico.Create(self);
+    TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
+
+  end
+  else
+  begin
+    MessageDlg('ERRO! Você precisa iniciar o caixa antes de prosseguir.', mtError, [mbOk], 0, mbOk);
+  end;
 end;
 
 procedure TformPrincipal.acDadosEmpresaExecute(Sender: TObject);
@@ -589,14 +599,34 @@ end;
 
 procedure TformPrincipal.acQuitarParcelasExecute(Sender: TObject);
 begin
-  formQuitarParcelasVendas := TformQuitarParcelasVendas.Create(self);
-  TFactory.new.criarJanela.FormShow(formQuitarParcelasVendas, 'FORMQUITARPARCVENDAS');
+
+  if FSituacaoDoCaixa = 'aberto' then
+  begin
+
+    formQuitarParcelasVendas := TformQuitarParcelasVendas.Create(self);
+    TFactory.new.criarJanela.FormShow(formQuitarParcelasVendas, 'FORMQUITARPARCVENDAS');
+
+  end
+  else
+  begin
+    MessageDlg('ERRO! Você precisa iniciar o caixa antes de prosseguir.', mtError, [mbOk], 0, mbOk);
+  end;
 end;
 
 procedure TformPrincipal.acQuitarParcelasOSExecute(Sender: TObject);
 begin
-  formQuitarParcelaOS := TformQuitarParcelaOS.Create(self);
-  TFactory.new.criarJanela.formShow(formQuitarParcelaOS, 'FORMQUITARPARCELAOS');
+
+  if FSituacaoDoCaixa = 'aberto' then
+  begin
+
+    formQuitarParcelaOS := TformQuitarParcelaOS.Create(self);
+    TFactory.new.criarJanela.formShow(formQuitarParcelaOS, 'FORMQUITARPARCELAOS');
+
+  end
+  else
+  begin
+    MessageDlg('ERRO! Você precisa iniciar o caixa antes de prosseguir.', mtError, [mbOk], 0, mbOk);
+  end;
 end;
 
 procedure TformPrincipal.acReaberturaDoCaixaExecute(Sender: TObject);
@@ -741,8 +771,18 @@ end;
 
 procedure TformPrincipal.acRetiradaDeValoresExecute(Sender: TObject);
 begin
-  formRetiradaDeValores := TformRetiradaDeValores.Create(self);
-  TFactory.new.criarJanela.formShow(formRetiradaDeValores, 'FORMRETIRADADEVALORES');
+
+  if FSituacaoDoCaixa = 'aberto' then
+  begin
+
+    formRetiradaDeValores := TformRetiradaDeValores.Create(self);
+    TFactory.new.criarJanela.formShow(formRetiradaDeValores, 'FORMRETIRADADEVALORES');
+
+  end
+  else
+  begin
+    MessageDlg('ERRO! Você precisa iniciar o caixa antes de prosseguir.', mtError, [mbOk], 0, mbOk);
+  end;
 end;
 
 procedure TformPrincipal.acSaidaProdutosExecute(Sender: TObject);
@@ -774,14 +814,34 @@ end;
 
 procedure TformPrincipal.acVendaExecute(Sender: TObject);
 begin
+
+  if FSituacaoDoCaixa = 'aberto' then
+  begin
+
   formVendas := TformVendas.Create(self);
   TFactory.new.criarJanela.FormShow(formVendas, 'FORMVENDAS');
+
+  end
+  else
+  begin
+    MessageDlg('ERRO! Você precisa iniciar o caixa antes de prosseguir.', mtError, [mbOk], 0, mbOk);
+  end;
 end;
 
 procedure TformPrincipal.acVisualizarVendasExecute(Sender: TObject);
 begin
-  formVisualizarVendas := TformVisualizarVendas.Create(self);
-  TFactory.new.criarJanela.FormShow(formVisualizarVendas, 'FORMVISUALIZARVENDAS');
+
+  if FSituacaoDoCaixa = 'aberto' then
+  begin
+
+    formVisualizarVendas := TformVisualizarVendas.Create(self);
+    TFactory.new.criarJanela.FormShow(formVisualizarVendas, 'FORMVISUALIZARVENDAS');
+
+  end
+  else
+  begin
+    MessageDlg('ERRO! Você precisa iniciar o caixa antes de prosseguir.', mtError, [mbOk], 0, mbOk);
+  end;
 end;
 
 procedure TformPrincipal.arrendondarImagem(value: TPanel);

@@ -21,16 +21,16 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
   object Label1: TLabel
     Left = 24
     Top = 53
-    Width = 161
+    Width = 157
     Height = 21
-    Caption = 'Parcelas recebidas (OS)'
+    Caption = 'Valores recebidos (OS)'
   end
   object Label2: TLabel
     Left = 24
     Top = 125
-    Width = 190
+    Width = 186
     Height = 21
-    Caption = 'Parcelas recebidas (Vendas)'
+    Caption = 'Valores recebidos (Vendas)'
   end
   object Label3: TLabel
     Left = 24
@@ -42,16 +42,16 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
   object Label4: TLabel
     Left = 290
     Top = 53
-    Width = 171
+    Width = 167
     Height = 21
-    Caption = 'Parcelas estornadas (OS)'
+    Caption = 'Valores estornados (OS)'
   end
   object Label5: TLabel
     Left = 290
     Top = 125
-    Width = 200
+    Width = 196
     Height = 21
-    Caption = 'Parcelas estornadas (Vendas)'
+    Caption = 'Valores estornados (Vendas)'
   end
   object Label6: TLabel
     Left = 290
@@ -386,7 +386,7 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
   object edtParcelasEstornadasOS: TEdit
     Left = 290
     Top = 80
-    Width = 190
+    Width = 195
     Height = 29
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 1323998
@@ -400,7 +400,7 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
   object edtParcelasEstornadasVendas: TEdit
     Left = 290
     Top = 152
-    Width = 190
+    Width = 195
     Height = 29
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 1323998
@@ -414,7 +414,7 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
   object edtRetiradas: TEdit
     Left = 290
     Top = 224
-    Width = 190
+    Width = 195
     Height = 29
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 1323998

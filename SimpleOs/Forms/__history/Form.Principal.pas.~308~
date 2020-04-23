@@ -128,6 +128,7 @@ type
     PopupMenuLogo: TPopupMenu;
     Definirlogomarca1: TMenuItem;
     OpenPictureDialog1: TOpenPictureDialog;
+    acRelatorioLogEventos: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -212,6 +213,7 @@ type
     procedure Sair1Click(Sender: TObject);
     procedure Sair2Click(Sender: TObject);
     procedure Definirlogomarca1Click(Sender: TObject);
+    procedure acRelatorioLogEventosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -259,7 +261,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Encerramento.Caixa, Form.Reabertura.Caixa, Form.Retirada.De.Valores,
   Form.Relatorio.Retirada.Valores, Form.Configuracoes.Backup,
   Form.Backup.Manual, Form.Quitar.Parcela.OS, Form.Movimentacao.Caixa,
-  Form.Acesso.Recursos.Fucnionarios, Form.Sobre;
+  Form.Acesso.Recursos.Fucnionarios, Form.Sobre, Form.Relatorio.Log.Eventos;
 
 procedure TformPrincipal.acAtividadeFuncionariosExecute(Sender: TObject);
 begin
@@ -488,9 +490,17 @@ end;
 
 procedure TformPrincipal.acOrdemServicoExecute(Sender: TObject);
 begin
-  formOrdemServico := TformOrdemServico.Create(self);
-  TFactory.new.criarJanela.FormShow(formOrdemServico, 'FORMORDEMSERVICO');
-end;
+//  if FSituacaoDoCaixa = 'aberto' then
+//    begin
+      formOrdemServico := TformOrdemServico.Create(self);
+      TFactory.new.criarJanela.FormShow(formOrdemServico, 'FORMORDEMSERVICO');
+    end;
+//    else
+//    begin
+//      MessageDlg('ERRO. O caixa se encontra fechado. Abra o caixa ou Reabra para continuar. ',
+//        mtError, [mbOk], 0, mbOk);
+//    end;
+//end;
 
 procedure TformPrincipal.acRelatorioOSEstornadasExecute(Sender: TObject);
 begin
@@ -669,6 +679,18 @@ procedure TformPrincipal.acRelatorioHistoricoCaixaExecute(Sender: TObject);
 begin
   formRelatorioHistoricoDoCaixa := TformRelatorioHistoricoDoCaixa.Create(self);
   TFactory.new.criarJanela.formShow(formRelatorioHistoricoDoCaixa, 'FORMRELATHISTORICOCAIXA');
+end;
+
+procedure TformPrincipal.acRelatorioLogEventosExecute(Sender: TObject);
+begin
+
+  formRelatorioLogEventos := TformRelatorioLogEventos.Create(self);
+  try
+    formRelatorioLogEventos.ShowModal;
+  finally
+    formRelatorioLogEventos.Free;
+  end;
+
 end;
 
 procedure TformPrincipal.acRelatoriosExecute(Sender: TObject);
@@ -861,10 +883,6 @@ FConfImagemLogo.getImagemBD(imgLogo);
 
     lblFuncionario.Caption := NomeFuncionarioLogado;
 
-//    if imagemFuncionario.Picture.Graphic.Empty  then
-//    begin
-//      showmessage('sem fotoS');
-//    end;
     Image1.Picture := imagemFuncionario.Picture;
 
     arrendondarImagem(pnlFoto);
@@ -959,6 +977,9 @@ begin
     img.LoadFromFile(OpenPictureDialog1.FileName);
     FConfImagemLogo.salvarImagemBd(img);
   end;
+
+  img.Free;
+
 end;
 
 procedure TformPrincipal.sbMenuClick(Sender: TObject);

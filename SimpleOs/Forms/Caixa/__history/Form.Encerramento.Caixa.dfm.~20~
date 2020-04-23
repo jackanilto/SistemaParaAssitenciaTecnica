@@ -13,21 +13,24 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 21
   object Label1: TLabel
     Left = 24
     Top = 53
-    Width = 161
+    Width = 156
     Height = 21
-    Caption = 'Parcelas recebidas (OS)'
+    Caption = 'Valores recebidas (OS)'
   end
   object Label2: TLabel
     Left = 24
     Top = 125
-    Width = 190
+    Width = 185
     Height = 21
-    Caption = 'Parcelas recebidas (Vendas)'
+    Caption = 'Valores recebidas (Vendas)'
   end
   object Label3: TLabel
     Left = 24
@@ -39,16 +42,16 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
   object Label4: TLabel
     Left = 290
     Top = 53
-    Width = 171
+    Width = 166
     Height = 21
-    Caption = 'Parcelas estornadas (OS)'
+    Caption = 'Valores estornadas (OS)'
   end
   object Label5: TLabel
     Left = 290
     Top = 125
-    Width = 200
+    Width = 195
     Height = 21
-    Caption = 'Parcelas estornadas (Vendas)'
+    Caption = 'Valores estornadas (Vendas)'
   end
   object Label6: TLabel
     Left = 290
@@ -59,10 +62,16 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
   end
   object Label7: TLabel
     Left = 72
-    Top = 277
-    Width = 92
-    Height = 21
+    Top = 267
+    Width = 119
+    Height = 28
     Caption = 'Total do caixa'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
   end
   object Panel1: TPanel
     Left = 0
@@ -75,8 +84,6 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitLeft = -346
-    ExplicitWidth = 809
     DesignSize = (
       708
       41)
@@ -177,7 +184,6 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 217
     object sbIniciarCaixa: TSpeedButton
       Left = 200
       Top = 16
@@ -254,6 +260,7 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
         D7EDDBD6AC5C4599361A99361A99361A99361A99361A99361A99361A99361A99
         361A99361A0F}
       ParentFont = False
+      OnClick = sbIniciarCaixaClick
     end
     object SpeedButton1: TSpeedButton
       Left = 351
@@ -331,61 +338,104 @@ object formEncerramentoCaixa: TformEncerramentoCaixa
         F2F8F1EFF2E6E2E2C6BEC68E7FA8543C99361A99361A99361A99361A99361A99
         361A99361A00}
       ParentFont = False
+      OnClick = SpeedButton1Click
     end
   end
-  object Edit1: TEdit
+  object edtParcelasRecebidasOS: TEdit
     Left = 24
     Top = 80
     Width = 190
     Height = 29
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 13587235
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 2
     Text = 'R$ 0,00'
   end
-  object Edit2: TEdit
+  object edtParcelasRecebidasVendas: TEdit
     Left = 24
     Top = 152
     Width = 190
     Height = 29
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 13587235
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 3
     Text = 'R$ 0,00'
   end
-  object Edit3: TEdit
+  object edtValorDeAbertura: TEdit
     Left = 24
     Top = 224
-    Width = 169
+    Width = 190
     Height = 29
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 13587235
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 4
     Text = 'R$ 0,00'
   end
-  object Edit4: TEdit
+  object edtParcelasEstornadasOS: TEdit
     Left = 290
     Top = 80
-    Width = 190
+    Width = 195
     Height = 29
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 1323998
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 5
     Text = 'R$ 0,00'
   end
-  object Edit5: TEdit
+  object edtParcelasEstornadasVendas: TEdit
     Left = 290
     Top = 152
-    Width = 190
+    Width = 195
     Height = 29
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 1323998
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 6
     Text = 'R$ 0,00'
   end
-  object Edit6: TEdit
+  object edtRetiradas: TEdit
     Left = 290
     Top = 224
-    Width = 169
+    Width = 195
     Height = 29
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 1323998
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 7
     Text = 'R$ 0,00'
   end
-  object Edit7: TEdit
+  object edtTotalDoCaixa: TEdit
     Left = 72
-    Top = 304
+    Top = 300
     Width = 305
-    Height = 29
+    Height = 36
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 3050003
+    Font.Height = -20
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 8
     Text = 'R$ 0,00'
   end

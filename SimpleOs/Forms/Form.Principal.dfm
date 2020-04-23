@@ -7459,6 +7459,7 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acReaberturaDoCaixa
+              Caption = 'Abertura do caixa'
             end
             item
               Action = acRetiradaDeValores

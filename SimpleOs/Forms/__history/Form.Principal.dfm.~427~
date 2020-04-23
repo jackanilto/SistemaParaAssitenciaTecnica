@@ -4,7 +4,8 @@ object formPrincipal: TformPrincipal
   Caption = 'SimpleOS'
   ClientHeight = 524
   ClientWidth = 1061
-  Color = 6908265
+  Color = 10461087
+  Ctl3D = False
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -6228,7 +6229,7 @@ object formPrincipal: TformPrincipal
     Align = alCustom
     Anchors = [akLeft, akTop, akRight]
     BevelOuter = bvNone
-    Color = 15920877
+    Color = 10461087
     ParentBackground = False
     TabOrder = 2
     object Image2: TImage
@@ -7458,6 +7459,7 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acReaberturaDoCaixa
+              Caption = 'Abertura do caixa'
             end
             item
               Action = acRetiradaDeValores
