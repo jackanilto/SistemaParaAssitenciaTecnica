@@ -106,8 +106,6 @@ object formBackUpManual: TformBackUpManual
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitLeft = -290
-    ExplicitWidth = 753
     DesignSize = (
       761
       41)
@@ -209,7 +207,6 @@ object formBackUpManual: TformBackUpManual
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 248
     object sbIniciarBackup: TSpeedButton
       Left = 159
       Top = 14

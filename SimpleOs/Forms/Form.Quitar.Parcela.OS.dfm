@@ -985,8 +985,10 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Font.Name = 'Roboto'
       Font.Style = []
       Font.Quality = fqDraft
+      ItemIndex = 0
       ParentFont = False
       TabOrder = 0
+      Text = 'C'#243'digo da parcela'
       OnChange = cbPesquisarChange
       Items.Strings = (
         'C'#243'digo da parcela'

@@ -173,6 +173,8 @@ begin
       edtTotalAPagar.Text := FentityVisulizarParcelasVenda.CalcularJuros;
       FentityVisulizarParcelasVenda.setJuros(edtJuros).setMulta(edtMulta);
 
+      edtDataDePagamento.DateTime := Date;
+
     end
     else
     begin
@@ -340,20 +342,28 @@ var
   totalDeParcelas: Integer;
 begin
 
-  TFactory.new.criarJanela.verificarPermisao('ADICIONARPARCELA');
+  if DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger <> 0 then
+  begin
 
-  totalDeParcelas := FentityVisulizarParcelasVenda.retornarTotalDeParcelas
-    (DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger) + 1;
+      TFactory.new.criarJanela.verificarPermisao('ADICIONARPARCELA');
 
-  FCodigoVenda := DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger;
-  FCodigoCliente := DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger;
-  FQuantidadeParcelas := totalDeParcelas;
-  FParcela := totalDeParcelas;
-  FvalorVenda := DataSource1.DataSet.FieldByName('VALOR_VENDA').AsCurrency;
+      totalDeParcelas := FentityVisulizarParcelasVenda.retornarTotalDeParcelas
+        (DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger) + 1;
 
-  lblCaption.Caption := lblCaption.Caption + ' - Inserindo parcela';
+      FCodigoVenda := DataSource1.DataSet.FieldByName('ID_VENDA').AsInteger;
+      FCodigoCliente := DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger;
+      FQuantidadeParcelas := totalDeParcelas;
+      FParcela := totalDeParcelas;
+      FvalorVenda := DataSource1.DataSet.FieldByName('VALOR_VENDA').AsCurrency;
 
-  FAtivarDesativarBotoes.btAdicionarParcela;
+      lblCaption.Caption := lblCaption.Caption + ' - Inserindo parcela';
+
+      FAtivarDesativarBotoes.btAdicionarParcela;
+  end
+  else
+  begin
+     raise Exception.Create('ERRO! Não é possível adicionar parcela neste tipo de venda');
+  end;
 
 end;
 
@@ -387,10 +397,19 @@ begin
 
   if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Sim' then
   begin
-    FentityVisulizarParcelasVenda.estornarParcela
-      (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
 
-      FAtivarDesativarBotoes.btEstornarParcela;
+    if DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger <> 0 then
+      begin
+        FentityVisulizarParcelasVenda.estornarParcela
+          (DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger).atualizar;
+
+        FAtivarDesativarBotoes.btEstornarParcela;
+
+      end
+      else
+      begin
+        raise Exception.Create('ERRO! Você não pode cancelar o pagamento deste tipo de parcela');
+      end;
 
   end;
 end;

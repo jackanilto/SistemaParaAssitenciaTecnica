@@ -115,7 +115,12 @@ end;
 procedure TformRelatorioContasAReceberVenda.FormShow(Sender: TObject);
 begin
   inherited;
-  FContasAReceberVenda.abrir.listarGrid(DataSource1);
+  FContasAReceberVenda
+                    .abrir
+                    .getCampo('ID_PARCELA')
+                    .getValor('0')
+                    .sqlPesquisa
+                    .listarGrid(DataSource1);
 end;
 
 procedure TformRelatorioContasAReceberVenda.sbExportarClick(Sender: TObject);

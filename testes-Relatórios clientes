@@ -1,94 +1,34 @@
-#Produtos -> Botão para busca do grupo esta com problmas. -> OK
-			 Botão para a busca da marca esta com problemas. -> OK
-			 Correção na calculadore de margem de lucro dos produtos -> OK
-			 Ao inserir um produto deve ser obrigatório informar o preço e margem de lucro do produto. -> OK
-			 Ao inserir também deve ser obrigatório informar a situação do estoque. -> Pode deixa como zero
-			 Limpar o timage ao inserir um novo produto. -> OK
-			 Erro ao gerar o relatório, campo servico_produto não encontrado. -> OK
-			 Data de validade e Data de fabricação devem ficar em branco se não houverem valores ao
-				exportar para o excel. -> OK
-			Data de alteração deve estar com da data de cadastro por padrão. -> OK
-			Resolver o problema com imagens de produtos, erro de vazamento de memoria. -> OK			
-			Formatar o campos de valores no relatório com o R$. -> OK
 
-#Transportadora -> OK 
+###Criar Ordem -> Campo Situação e Prioridade devem ser obrigatorios. -> OK
+				  Erro ao efetuar a gravação da Ordem -> Se o valor da mão de obra estiver zerado não deve aparesentar
+				   a mensagem de erro. -> OK
+				  Ao clicar no botão CALCULAR na aba Serviços e Faturamento, o valor Total da OS esta recebendo o valor
+				   o valor da Mão de obra. -> OK
+				   
+###Quitar parcelas venda -> Ao selecionar uma parcela para pagamento o campo Data de pagamento de selecionar a data atual. -> OK
+###Quitar parcelas OS -> Ao selecionar uma parcela para pagamento o campo Data de pagamento de selecionar a data atual. -> OK
+###Relatório OS -> O titulo na tabela de Serviços realizados esta com escrito errado. -> OK
 
-#Fornecedores - Ajustar a tabulação dos campos. -> OK
+###Criação de OS não deve ser permitida se o caixa não estiver aberto.
+###Vendas de produtos não devem ser permitida se o caixa não estive aberto.
+###Quitar parcela OS não deve ser permitido se o caixa não estiver aberto.
+###Quitar parcela Venda não deve ser permitida se o caixa não estiver aberto.
+###Visualizar venda também não deve ser aberto se o caixa não for iniciado.
+###Retirada de valores so deve ser permitida se o caixa estiver iniciado.
+				   
 
-#Marcas -> OK
+//******Caixa******///
 
-#Grupos -> Ao gravar retornar todos os registros. -> OK
-		   Ao cancelar retornar todos os registros. -> OK
-
-#Tipo retirada -> Ao gravar retornar todos os registros. -> OK
-                  Ao cancelar retornar todos sos registros. -> OK
-
-#Atividade funcionários -> Ao cancelar retornar todos sos registros. -> OK
-
-#Contas a pagar -> Valores no formulário precisam ser formatados com o R$. -> OK
-				   Formatar os valores monetarios no relatório. -> OK
-				   Data de pagamento se não tiver nenhum valor deve ficar em branco ao exportar. -> OK
-				   Criar um botão para quitar a conta. -> OK	
-
-#Dados da empresa -> Ao gravar mostrar todos as empesas cadastradas. -> OK
-					 Ao cancelar mostrar todos as empesas cadastradas. -> OK
-
-#Entrada de produtos -> Ao abrir a janela os dados não devem ser exibidos. -> OK
-						Campo total e valor por item do relatório deve esta com a formatação de moeda. -> OK
-						Alterar o nome do campo produto/serviço ao exporta para o excel para Produtos.
-						Corrigir problema ao busca um produto. -> OK
-						Opção do campo Tipo de pesquisa deve ser alterado de Produto/Serviço para Produto. -> OK
-						Ajustar os campos de valores para o formatação de moeda. -> OK
-						
-						
-#Saída de produtos -> Corrigir problema ao busca um produto. -> OK
-					  Campos no relatório Valor e Total devem estar com a formatação de moeda. -> OK
-					  Verificar possíve problema com o campo Cód. Produto, os valores estão iguais. ->
-							erro não identificado
+#Encerramento de caixa -> O campo Parcelas Estornadas (OS) deve ter a label alterada para valores das OS estornadas
+						  O campo Parcelas Estornadas (Vendas) deve ter a label alterada para valores das Vendas estornadas	
+#Reabertura de caixa
+#Retirada de valores
+#Comissões dos técnicos
 
 
-#Venda de produtos -> Se não houver valores para o campo cliente o campo Código de barras deve ser desbilidado.
-					  A label onde informa o nome do cliente esta por cima do botão Localizar Cliente. -> Erro não localizado
-							(Tirar um print do erro e ver a resolução da tela e o nome do cliente)
-					  Ao buscar os produtos mostrar todos os produtos cadastrados no sistema. -> OK
-					  
-					  Ao adicionar um produto verificar se o mesmo não esta adicionaro a lista de itens,
-						se estiver deve ser feita a soma total dos itens e verificar se a quantidade o 
-						suficiente para a venda. -> OK
-						
-					  A tabela de itens da venda deve esta como read only = true. -> OK
-					  Campo parcela no canhoto da loja não deve estar com a formatação de moeda. -> OK
-					  Campos Subtotal, Total, Vlr. Unitário e Total devem estar com a formatação de moeda
-						no comprovante de pagamento. -> OK
-					  Campo vencimento esta escrito errado no carnê de pagamento. -> OK	
-					  Ao iniciar uma nova venda o TImagem deve esta vazio ou com a imagem padrão. -> OK
-					  Na janela para localizar o produtos a grid deve estar ajustada ao formulário. -> OK
-					  Campos Valor unitário e Valor R$ devem estar com a formataçaõ de moeda. -> OK
-					  Campo total não deve permitir a edição. -> OK
-					 
+#Movimentação do caixa
 
+##Abertura de caixa não deve incluir os valores estornados. -> OK
 
+caixa de teste esta em R$ 232,60 
 
-#Parcelas vendas -> Formatar os valores monetarios com o R$. -> OK
-					Parcelas quitadas não podem ser excluidas. -> OK
-					Botões imprimir parcelas e exportar devem ficar ativos mesmo que a parcelas já esteja
-						quitada ou estornada. -> OK
-					Mudar a mensagem de estorno para pagamento da parcela cancelado. -> OK	
-
-
-#Visualizar vendas -> Campo Total no relatório deve esta com a formatação de moeda. -> OK
-					  Tabela vendas, opção do submenu exportar lista não esta funcionando. -> OK
-					  Ver a necessidade do Data de vencimento ao exportar. -> OK
-					  Ao selecionar o campo Tipo de pesquisa o foco deve ir para o campo Digite o que
-						deseja pesquisar. -> OK
-					  Colocar uma divisão entra a pesquisa por Data e a Pesquisa selecionada. -> OK
-					  Processo para estornar um venda, se o usuário clicar no botão estornar e clicar
-						na mensagem informe o motivo do estorno e escolher o botão Cancel, o processo
-						de estorno deve ser cancelado. -> OK		
-					  
-
-
-
-#Historico de compras
-
-##Correções extras e melhorias na janela de Quitar OS. -> OK

@@ -41,6 +41,8 @@ object formReaberturaDeCaixa: TformReaberturaDeCaixa
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = 190
+    ExplicitTop = 138
     DesignSize = (
       700
       41)

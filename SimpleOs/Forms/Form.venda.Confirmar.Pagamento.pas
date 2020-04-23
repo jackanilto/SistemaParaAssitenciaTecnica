@@ -248,14 +248,19 @@ end;
 procedure TFormVendaConfirmarPagamento.parcelamentoAVista(desconto_atual
   : string; Parcelas: Integer);
 begin
-  FentityParcelas.getID_CLIENTE(CodigoCliente)
-    .getID_VENDA(FEntityVenda.setCodigoVenda)
-    .getVALOR_VENDA(CurrToStr(TotalDaVenda)).getQUANTIDADE_PARCELAS(Parcelas)
-    .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
-    .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
-    .getDesconto(desconto_atual).getTOTAL(CurrToStr(totalDaVendaCalulado))
-    .getFormaPagamento(edtConfirmarFormaPagamento.Text)
-    .gerarParcelaAvista;
+
+  FentityParcelas
+              .getID_CLIENTE(CodigoCliente)
+              .getID_VENDA(FEntityVenda.setCodigoVenda)
+              .getVALOR_VENDA(CurrToStr(TotalDaVenda))
+              .getQUANTIDADE_PARCELAS(Parcelas)
+              .getVALOR_DA_PARCELA(CurrToStr(totalDaVendaCalulado))
+              .getDATA_VENCIMENTO(DateToStr(edtDataVencimento.Date))
+              .getDesconto(desconto_atual)
+              .getTOTAL(CurrToStr(totalDaVendaCalulado))
+              .getFormaPagamento(edtConfirmarFormaPagamento.Text)
+              .gerarParcelaAvista;
+
 end;
 
 procedure TFormVendaConfirmarPagamento.parcelamentoNaoAvista(Parcelas: Integer);
@@ -388,12 +393,18 @@ begin
 
   end;
 
-  FEntityVenda.getID_CLIENTE(CodigoCliente).getNOME_CLIENTE(NomeCliente)
-    .getDATA_VENDA(DateToStr(Date)).getHORA_VENDA(TimeToStr(time))
-    .getSUBTOTAL(CurrToStr(TotalDaVenda)).getDesconto(desconto_atual)
-    .getTOTAL(CurrToStr(totalDaVendaCalulado)).getQUANTIDADE_PARCELAS(Parcelas)
-    .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text)
-    .getVENCIMENTO(DateToStr(edtDataVencimento.Date)).gravar;
+  FEntityVenda
+             .getID_CLIENTE(CodigoCliente)
+             .getNOME_CLIENTE(NomeCliente)
+             .getDATA_VENDA(DateToStr(Date))
+             .getHORA_VENDA(TimeToStr(time))
+             .getSUBTOTAL(CurrToStr(TotalDaVenda))
+             .getDesconto(desconto_atual)
+             .getTOTAL(CurrToStr(totalDaVendaCalulado))
+             .getQUANTIDADE_PARCELAS(Parcelas)
+             .getFORMA_PAGAMENTO(edtConfirmarFormaPagamento.Text)
+             .getVENCIMENTO(DateToStr(edtDataVencimento.Date))
+             .gravar;
 
   if edtParcelado.Text = 'À vista' then
   begin
@@ -418,12 +429,18 @@ begin
   formVendas.lblVenda.Caption := 'Venda Finalizada - Código da venda: ' +
     IntToStr(FEntityVenda.setCodigoVenda);
 
-  FImprimirRecibo.selecionarVenda(FEntityVenda.setCodigoVenda)
-    .retornarDataSet(s_ImprimirRecibo).selecionarItens
-    (FEntityVenda.setCodigoVenda).retornarDataSetItens(s_ImprimirReciboItens);
+  FImprimirRecibo
+                .selecionarVenda(FEntityVenda.setCodigoVenda)
+                .retornarDataSet(s_ImprimirRecibo)
+                .selecionarItens(FEntityVenda.setCodigoVenda)
+                .retornarDataSetItens(s_ImprimirReciboItens);
 
-  FImprimirParcelas.selecionarParcelas(FEntityVenda.setCodigoVenda)
-    .retornarDataSet(s_ImprimirParcelas).retonarJurosMultaAtraso(s_jurosMulta);
+  FImprimirParcelas
+                  .selecionarParcelas(FEntityVenda.setCodigoVenda)
+                  .retornarDataSet(s_ImprimirParcelas)
+                  .retonarJurosMultaAtraso(s_jurosMulta);
+
+//  showmessage(FEntityVenda.setCodigoVenda.ToString);
 
   // close;
 
@@ -436,9 +453,15 @@ end;
 
 procedure TFormVendaConfirmarPagamento.sbImprimirClick(Sender: TObject);
 begin
+
   frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/carne_pagamento.fr3');
   frx_ImprimirParcelas.ShowReport();
+
+//  frx_ImprimirParcelas.LoadFromFile(ExtractFilePath(application.ExeName) +
+//    'relatórios/carne_pagamento.fr3');
+//  frx_ImprimirParcelas.ShowReport();
+
 end;
 
 procedure TFormVendaConfirmarPagamento.sbImprimirReciboClick(Sender: TObject);

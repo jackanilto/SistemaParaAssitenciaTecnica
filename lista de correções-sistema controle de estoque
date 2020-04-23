@@ -1,17 +1,11 @@
 
 
-#Contas a pagar -> Aba de cadastro -> Campo Pgto deve estar como os valores Sim e Nao sem acentuação 
+#Contas a pagar -> Aba de cadastro -> Campo Pgto deve estar como os valores Sim e Nao sem acentuação -> OK 
 
-#Dados da empresa -> Ver se o campo cnpj esta com a quantidade de caracteres necessário para um CNPJ no banco. -> OK
-
-#Vendas -> Ao adicionar um produto na lista de vendas a mensagem de aviso de item incluindo esta com escrita errada. -> OK
-		   Na impressão da parcela o campo valor da parcela deve estar com destaque. -OK
-
-#Parcelas vendas-> Ao exporta o campo data de pagamento deve ficar em branco caso não haja registros. -> OK
-
-
-
-###Janela Quitar OS -> As informações da grid devem ficar em negrito. -> OK
+#Vendas -> Mensagem de produtos adicionado com sucesso são diferentes ao adicionar o segundo.-> OK
+		   Ao finalizar uma venda as parcelas não estão sendo impressas, apenas uma folha em branco. -> OK
+		   
+(Correções no sistema de parcelas de vendas, e habilitação da impressão de carnês por venda do cliente não informado)		   
 
 
 

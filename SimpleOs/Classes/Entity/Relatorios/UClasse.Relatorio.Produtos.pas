@@ -148,13 +148,27 @@ begin
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency;
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA').AsInteger;
       pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger;
-      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime;
-      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('DATA_ALTERACAO').AsDateTime;
+
+      if FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime
+      else
+        pasta.cells[linha, 10] := ' ';
+
+      if FQuery.TQuery.FieldByName('DATA_ALTERACAO').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('DATA_ALTERACAO').AsDateTime
+      else
+        pasta.cells[linha, 11] := ' ';
+
       pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('GRUPO').AsString;
       pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('MARCA').AsString;
       pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('MODELO').AsString;
       pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString;
-      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsString;
+
+      if FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime <> StrToDate('30/12/1899')  then
+        pasta.cells[linha, 16] := FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime
+      else
+        pasta.cells[linha, 16] := ' ';
+
       pasta.cells[linha, 17] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
       pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
 
@@ -221,7 +235,7 @@ begin
     FieldByName('GRUPO').DisplayLabel := 'Grupo';
     FieldByName('ID_MARCA').Visible := false;
     FieldByName('MARCA').DisplayLabel := 'Marca';
-    FieldByName('MODELO').DisplayLabel := 'MOdelo';
+    FieldByName('MODELO').DisplayLabel := 'Modelo';
     FieldByName('NUMERO_SERIE').DisplayLabel := 'Número de serie';
     FieldByName('DATA_FABRICACAO').DisplayLabel := 'Data de fabricação';
     FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';

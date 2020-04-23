@@ -14,6 +14,7 @@ type
 
     FQuery: iConexaoQuery;
     FQueryItens: iConexaoQuery;
+    FQueryProdutos:iConexaoQuery;
     FGravarLog: iGravarLogOperacoes;
     FEstornarVenda: iEstonarVenda;
     FTabela: string;
@@ -54,6 +55,8 @@ type
     function exportar: iVisualizarVenda;
     function exportarItens: iVisualizarVenda;
 
+    function selecionarProdutos(value:integer):iVisualizarVenda;
+
     constructor create;
     destructor destroy; override;
     class function new: iVisualizarVenda;
@@ -89,6 +92,8 @@ begin
   FQuery := TConexaoQuery.new.Query(FTabela);
 
   FQueryItens := TConexaoQuery.new.Query('ITENS_VENDA');
+
+  FQueryProdutos := TConexaoQuery.new.Query('PRODUTOS');
 
   FEstornarVenda := TEntityVendasEstornadas.new;
 
@@ -179,12 +184,19 @@ begin
                   .getDATA(DateToStr(date))
                   .getHORA(TimeToStr(time))
                   .getMOTIVO(FMotivo)
-                  .getFUNCIONARIO(0)
-                  .getNOME_FUNCIONARIO('')
+                  .getFUNCIONARIO(funcionarioLogado)
+                  .getNOME_FUNCIONARIO(NomeFuncionarioLogado)
                   .getOBSERVACAO('')
                   .inserir.Gravar;
 
       showmessage('Venda estornada com sucesso!!!');
+
+//      if application.MessageBox('Deseja readicionar os produtos da venda estornada no estoque?',
+//       'Pergunta do sistema', MB_YESNO+MB_ICONWARNING)=mryes then
+//       begin
+//         selecionarProdutos(0);
+//       end;
+
 
       FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_CLIENTE')
         .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('ID')
@@ -453,6 +465,75 @@ begin
   end;
 
 end;
+
+function TEntityVisuzaliarVendas.selecionarProdutos(
+  value: integer): iVisualizarVenda;
+  var
+     qtdeAtualProdutos:integer;
+     idProdutos:integer;
+     nomeProduto:string;
+begin
+
+  result := self;
+
+  FQueryItens
+            .getCampo('ID_VENDA')
+            .getValor(FQuery.TQuery.FieldByName('id').AsInteger.ToString)
+            .sqlPesquisaEstatica('ITENS_VENDA');
+
+   showmessage(FQueryItens.TQuery.RecordCount.ToString);
+
+  FQueryItens.TQuery.First;
+
+  while not FQueryItens.TQuery.Eof do
+  begin
+
+      FQueryProdutos
+                .getCampo('ID')
+                .getValor(FQueryItens.TQuery.FieldByName('ID_VENDA').AsInteger.ToString)
+                .sqlPesquisaEstatica('PRODUTOS');
+
+    idProdutos := FQueryProdutos.TQuery.FieldByName('ID').AsInteger;
+
+    FQueryProdutos.TQuery.ExecSQL('update produtos set produtos.QUANTIDADE_ATUAL =:qtde where produtos.id =:i');
+    FQueryProdutos.TQuery.ParamByName('qtde').AsInteger :=
+                      FQueryProdutos.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger +
+                      FQueryItens.TQuery.FieldByName('QUANTIDADE').AsInteger;
+    FQueryProdutos.TQuery.ParamByName('i').AsInteger := idProdutos;
+
+//    FQueryProdutos
+//                .getCampo('ID')
+//                .getValor(FQueryItens.TQuery.FieldByName('ID_VENDA').AsInteger.ToString)
+//                .sqlPesquisaEstatica('PRODUTOS');
+//
+//    ShowMessage(FQuery.TQuery.RecordCount.ToString);
+//
+//    qtdeAtualProdutos := FQueryProdutos.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger;
+//
+//    idProdutos := FQueryProdutos.TQuery.FieldByName('ID').AsInteger;
+//    nomeProduto := FQueryProdutos.TQuery.FieldByName('PRODUTO').AsString;
+//
+//    FQueryProdutos.TQuery.Edit;
+//    FQueryProdutos.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger := qtdeAtualProdutos +
+//                            FQueryItens.TQuery.FieldByName('QUANTIDADE').AsInteger;
+//
+//    FQueryProdutos.TQuery.FieldByName('ID').AsInteger := idProdutos;
+//    FQueryProdutos.TQuery.FieldByName('PRODUTO').AsString := nomeProduto;
+//
+//    try
+//      FQueryProdutos.TQuery.Post;
+//    except on e:exception do
+//    begin
+//      raise Exception.Create('ERRO! Não foi possível atualizar o estoque. '
+//        + e.Message);
+//    end;
+
+    end;
+
+
+    FQueryItens.TQuery.Next;
+
+  end;
 
 function TEntityVisuzaliarVendas.sqlPesquisa: iVisualizarVenda;
 begin

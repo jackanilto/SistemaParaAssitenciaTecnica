@@ -1,6 +1,5 @@
 inherited formRelatorioVendasEstornadas: TformRelatorioVendasEstornadas
   Caption = 'Vendas Estornadas'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
@@ -159,7 +158,7 @@ inherited formRelatorioVendasEstornadas: TformRelatorioVendasEstornadas
   end
   inherited frxReport1: TfrxReport
     ReportOptions.CreateDate = 43869.648371041670000000
-    ReportOptions.LastChange = 43869.655337488420000000
+    ReportOptions.LastChange = 43938.560594699080000000
     ScriptText.Strings = (
       ''
       'begin'
@@ -426,10 +425,12 @@ inherited formRelatorioVendasEstornadas: TformRelatorioVendasEstornadas
         end
         object Memo11: TfrxMemoView
           AllowVectorExport = True
-          Left = 291.023810000000000000
+          Left = 289.023810000000000000
           Top = 3.779530000000000000
-          Width = 94.488250000000000000
+          Width = 98.267780000000000000
           Height = 26.456710000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11

@@ -134,9 +134,9 @@ object formConfiguracoesBackUp: TformConfiguracoesBackUp
   end
   object Panel2: TPanel
     Left = 0
-    Top = 290
+    Top = 296
     Width = 753
-    Height = 80
+    Height = 74
     Align = alBottom
     BevelOuter = bvNone
     Color = 8406532
@@ -555,7 +555,7 @@ object formConfiguracoesBackUp: TformConfiguracoesBackUp
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 153
+    Top = 159
     Width = 753
     Height = 137
     TabStop = False
@@ -575,6 +575,7 @@ object formConfiguracoesBackUp: TformConfiguracoesBackUp
     TitleFont.Height = -13
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = [fsBold]
+    OnCellClick = DBGrid1CellClick
   end
   object MaskEdit1: TMaskEdit
     Left = 36

@@ -35,6 +35,7 @@ type
     procedure sbCancelarClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure DBGrid1CellClick(Column: TColumn);
   private
     { Private declarations }
   var
@@ -57,6 +58,28 @@ begin
     .AsDateTime);
 end;
 
+procedure TformConfiguracoesBackUp.DBGrid1CellClick(Column: TColumn);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+    sbNovo.Enabled := true;
+    sbSalvar.Enabled := false;
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+    sbCancelar.Enabled := true;
+  end
+  else
+  begin
+    sbNovo.Enabled := true;
+    sbSalvar.Enabled := false;
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+    sbCancelar.Enabled := false;
+  end;
+
+end;
+
 procedure TformConfiguracoesBackUp.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -70,8 +93,16 @@ end;
 
 procedure TformConfiguracoesBackUp.FormShow(Sender: TObject);
 begin
+
   FConfigBackup.retornarDados(DataSource1);
   lblCaption.Caption := formConfiguracoesBackUp.Caption;
+
+  sbNovo.Enabled := true;
+  sbSalvar.Enabled := false;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbCancelar.Enabled := false;
+
 end;
 
 procedure TformConfiguracoesBackUp.Panel1MouseDown(Sender: TObject;
@@ -88,7 +119,15 @@ end;
 
 procedure TformConfiguracoesBackUp.sbCancelarClick(Sender: TObject);
 begin
+
   FConfigBackup.cancelar;
+
+  sbNovo.Enabled := true;
+  sbSalvar.Enabled := false;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbCancelar.Enabled := false;
+
 end;
 
 procedure TformConfiguracoesBackUp.sbEditarClick(Sender: TObject);
@@ -96,6 +135,13 @@ begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
     FConfigBackup.editar;
+
+    sbNovo.Enabled := false;
+    sbSalvar.Enabled := true;
+    sbEditar.Enabled := false;
+    sbExcluir.Enabled := false;
+    sbCancelar.Enabled := true;
+
   end;
 end;
 
@@ -107,6 +153,13 @@ begin
       'Pergunta do sistema', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
       FConfigBackup.excluir;
+
+      sbNovo.Enabled := true;
+      sbSalvar.Enabled := false;
+      sbEditar.Enabled := false;
+      sbExcluir.Enabled := true;
+      sbCancelar.Enabled := false;
+
     end;
 
   end;
@@ -121,6 +174,14 @@ procedure TformConfiguracoesBackUp.sbNovoClick(Sender: TObject);
 begin
   MaskEdit1.SetFocus;
   FConfigBackup.inserir;
+
+  sbNovo.Enabled := false;
+  sbSalvar.Enabled := true;
+  sbEditar.Enabled := false;
+  sbExcluir.Enabled := false;
+  sbCancelar.Enabled := true;
+
+
 end;
 
 procedure TformConfiguracoesBackUp.sbSalvarClick(Sender: TObject);
@@ -129,6 +190,13 @@ begin
   if MaskEdit1.Text <> '00:00:00' then
   begin
     FConfigBackup.gravar(MaskEdit1.Text);
+
+    sbNovo.Enabled := true;
+    sbSalvar.Enabled := false;
+    sbEditar.Enabled := true;
+    sbExcluir.Enabled := true;
+    sbCancelar.Enabled := false;
+
   end
   else
   begin

@@ -88,14 +88,25 @@ begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
 
-    codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+    if FSituacaoDoCaixa = 'aberto' then
+    begin
 
-    try
-      formCriarConsultarOrdemServico :=
-        TformCriarConsultarOrdemServico.Create(self);
-      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
-    finally
-      FEntityOrdensServico.atualizar;
+      codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+
+      try
+        formCriarConsultarOrdemServico :=
+          TformCriarConsultarOrdemServico.Create(self);
+        TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico,
+          'FORMCCONSORDEMSERVICO');
+      finally
+        FEntityOrdensServico.atualizar;
+      end;
+    end
+    else
+    begin
+      MessageDlg('ERRO. Antes de abrir as OS você precisa inciar o caixa. ' +
+        ' Para abrir, vá para a tela principal do sistema, clique na opção caixa no menu principal '
+        + ' e selecione a opção Reabrir caixa ', mtError, [mbOk], 0, mbOk);
     end;
 
   end;
@@ -145,12 +156,9 @@ end;
 
 procedure TformOrdemServico.FormShow(Sender: TObject);
 begin
-//  FEntityOrdensServico.abrir.getCampo('ID_ORDEM').getValor('0')
-//    .sqlPesquisa.listarGrid(DataSource1);
 
-  FEntityOrdensServico.getDataInicial(Date)
-    .getDataFinal(Date).getCampo('DATA_DE_ENTRADA')
-    .sqlPesquisaData.listarGrid(DataSource1);
+  FEntityOrdensServico.getDataInicial(Date).getDataFinal(Date)
+    .getCampo('DATA_DE_ENTRADA').sqlPesquisaData.listarGrid(DataSource1);
 
 end;
 
@@ -168,8 +176,23 @@ end;
 
 procedure TformOrdemServico.sbCriarOSClick(Sender: TObject);
 begin
-  formCriarConsultarOrdemServico := TformCriarConsultarOrdemServico.Create(self);
-  TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
+
+  if FSituacaoDoCaixa = 'aberto' then
+  begin
+
+    formCriarConsultarOrdemServico :=
+      TformCriarConsultarOrdemServico.Create(self);
+    TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico,
+      'FORMCCONSORDEMSERVICO');
+
+  end
+  else
+  begin
+    MessageDlg('ERRO. Antes de abrir as OS você precisa inciar o caixa. ' +
+      ' Para abrir, vá para a tela principal do sistema, clique na opção caixa no menu principal '
+      + ' e selecione a opção Reabrir caixa ', mtError, [mbOk], 0, mbOk);
+  end;
+
 end;
 
 procedure TformOrdemServico.sbExportarClick(Sender: TObject);
@@ -196,14 +219,28 @@ begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
 
-    codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+    if FSituacaoDoCaixa = 'aberto' then
+    begin
 
-    try
-      formCriarConsultarOrdemServico :=
-        TformCriarConsultarOrdemServico.Create(self);
-      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
-    finally
-      FEntityOrdensServico.atualizar;
+      codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+
+      try
+        formCriarConsultarOrdemServico :=
+          TformCriarConsultarOrdemServico.Create(self);
+        TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico,
+          'FORMCCONSORDEMSERVICO');
+      finally
+        FEntityOrdensServico.atualizar;
+      end;
+
+    end
+    else
+    begin
+
+      MessageDlg('ERRO. Antes de abrir as OS você precisa inciar o caixa.' +
+        ' Para abrir, vá para a tela principal do sistema, clique na opção caixa no menu principal '
+        + ' e selecione a opção Reabrir caixa ', mtError, [mbOk], 0, mbOk);
+
     end;
 
   end;
@@ -224,7 +261,8 @@ begin
     codigoDocliente := DataSource1.DataSet.FieldByName('ID_CLIENTE').AsInteger;
 
     formCadastroDeClientes := TformCadastroDeClientes.Create(self);
-    TFactory.new.criarJanela.FormShow(formCadastroDeClientes, 'FORMCADDECLIENTES');
+    TFactory.new.criarJanela.FormShow(formCadastroDeClientes,
+      'FORMCADDECLIENTES');
   end;
 end;
 
@@ -238,7 +276,8 @@ begin
     try
       formCriarConsultarOrdemServico :=
         TformCriarConsultarOrdemServico.Create(self);
-      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
+      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico,
+        'FORMCCONSORDEMSERVICO');
     finally
       FEntityOrdensServico.atualizar;
     end;

@@ -61,7 +61,7 @@ begin
   FEstornosVendas := FCaixa.calcularEstornoVendas;
   FRetiradas := FCaixa.calcularRetiradas;
   FTotalDeAbertura := FCaixa.valorCaixaEmAberto;
-  FTotal := (FParcelasOS + FParcelasVendas) - (FEstornosOS + FEstornosVendas);
+  FTotal := (FParcelasOS + FParcelasVendas);// - (FEstornosOS + FEstornosVendas);
   FTotal := (FTotal + FTotalDeAbertura) - FRetiradas;
 
   FTotalCaixa := FTotal;

@@ -87,6 +87,7 @@ procedure TformEncerramentoCaixa.calcularValorCaixaEncerramento;
 var
   FTotal: Currency;
 begin
+
   FParcelasOS := FCaixa.calcularParcelasOS;
   FParcelasVendas := FCaixa.calcularParcelasVendas;
   FEstornosOS := FCaixa.calcularEstornosOS;
@@ -99,7 +100,7 @@ begin
   edtParcelasEstornadasVendas.Text := FormatFloat('R$ #,##0.00', FEstornosVendas);
   edtRetiradas.Text := FormatFloat('R$ #,##0.00', FRetiradas);
   edtValorDeAbertura.Text := FormatFloat('R$ #,##0.00', FTotalDeAbertura);
-  FTotal := (FParcelasOS + FParcelasVendas) - (FEstornosOS + FEstornosVendas);
+  FTotal := (FParcelasOS + FParcelasVendas);// - (FEstornosOS + FEstornosVendas);
   FTotal := (FTotal + FTotalDeAbertura) - FRetiradas;
   edtTotalDoCaixa.Text := FormatFloat('R$ #,##0.00', FTotal);
 

@@ -7657,3 +7657,64 @@ Token unknown - line 1, column 53
 15/04/20 14:14:33 - Caption: Localizar produtos - Venda
 15/04/20 14:14:33 - Erro:Exception
 15/04/20 14:14:33 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+16/04/20 11:13:07 - ===========================================
+16/04/20 11:13:07 - Form: formPrincipal
+16/04/20 11:13:07 - Caption: SimpleOS
+16/04/20 11:13:07 - Erro:EAccessViolation
+16/04/20 11:13:07 - Erro:Access violation at address 00BD31FF in module 'SimplesOS.exe'. Read of address 00000004
+17/04/20 13:10:10 - ===========================================
+17/04/20 13:10:10 - Form: formVisualizarVendas
+17/04/20 13:10:10 - Caption: Visualizar vendas
+17/04/20 13:10:10 - Erro:Exception
+17/04/20 13:10:10 - Erro:OPERAÇÃO DE ESTORNO CANCELADA!
+17/04/20 13:10:49 - ===========================================
+17/04/20 13:10:49 - Form: formLocalizarProdutoVenda
+17/04/20 13:10:49 - Caption: Localizar produtos - Venda
+17/04/20 13:10:49 - Erro:Exception
+17/04/20 13:10:49 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+20/04/20 17:21:49 - ===========================================
+20/04/20 17:21:49 - Form: formLocalizarProdutoVenda
+20/04/20 17:21:49 - Caption: Localizar produtos - Venda
+20/04/20 17:21:49 - Erro:Exception
+20/04/20 17:21:49 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+20/04/20 14:46:12 - ===========================================
+20/04/20 14:46:12 - Form: formVisualizarVendas
+20/04/20 14:46:12 - Caption: Visualizar vendas
+20/04/20 14:46:12 - Erro:Exception
+20/04/20 14:46:12 - Erro:Informe por qual campo deseja pequisar.
+20/04/20 14:46:14 - ===========================================
+20/04/20 14:46:14 - Form: formVisualizarVendas
+20/04/20 14:46:14 - Caption: Visualizar vendas
+20/04/20 14:46:14 - Erro:Exception
+20/04/20 14:46:14 - Erro:Informe por qual campo deseja pequisar.
+20/04/20 14:55:05 - ===========================================
+20/04/20 14:55:05 - Form: formVisualizarVendas
+20/04/20 14:55:05 - Caption: Visualizar vendas
+20/04/20 14:55:05 - Erro:Exception
+20/04/20 14:55:05 - Erro:Houve um erro ao tentar estornar esta venda. ERRO! Não foi possível atualizar o estoque. Field 'ID' must have a value
+20/04/20 14:59:45 - ===========================================
+20/04/20 14:59:45 - Form: formVisualizarVendas
+20/04/20 14:59:45 - Caption: Visualizar vendas
+20/04/20 14:59:45 - Erro:Exception
+20/04/20 14:59:45 - Erro:Houve um erro ao tentar estornar esta venda. ERRO! Não foi possível atualizar o estoque. Field 'PRODUTO' must have a value
+20/04/20 15:04:29 - ===========================================
+20/04/20 15:04:29 - Form: formVisualizarVendas
+20/04/20 15:04:29 - Caption: Visualizar vendas
+20/04/20 15:04:29 - Erro:Exception
+20/04/20 15:04:29 - Erro:Houve um erro ao tentar estornar esta venda. ERRO! Não foi possível atualizar o estoque. Field 'PRODUTO' must have a value
+20/04/20 15:08:56 - ===========================================
+20/04/20 15:08:56 - Form: formVisualizarVendas
+20/04/20 15:08:56 - Caption: Visualizar vendas
+20/04/20 15:08:56 - Erro:Exception
+20/04/20 15:08:56 - Erro:Houve um erro ao tentar estornar esta venda. ERRO! Não foi possível atualizar o estoque. [FireDAC][Phys][FB]violation of PRIMARY or UNIQUE KEY constraint "PK_PRODUTOS" on table "PRODUTOS"
+Problematic key value is ("ID" = 0)
+20/04/20 20:02:14 - ===========================================
+20/04/20 20:02:14 - Form: formPrincipal
+20/04/20 20:02:14 - Caption: SimpleOS
+20/04/20 20:02:14 - Erro:EAccessViolation
+20/04/20 20:02:14 - Erro:Access violation at address 00BD38B3 in module 'SimplesOS.exe'. Read of address 00000004
+22/04/20 15:02:28 - ===========================================
+22/04/20 15:02:28 - Form: formCriarConsultarOrdemServico
+22/04/20 15:02:28 - Caption: 
+22/04/20 15:02:28 - Erro:Exception
+22/04/20 15:02:28 - Erro:ERRO! Informe a situação da Ordem de Serviço

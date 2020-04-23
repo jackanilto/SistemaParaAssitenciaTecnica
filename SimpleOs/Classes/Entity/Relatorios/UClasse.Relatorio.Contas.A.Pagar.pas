@@ -110,6 +110,7 @@ var
   linha: integer;
 begin
   FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
 
   linha := 2;
   pasta := CreateOleObject('Excel.application');
@@ -144,7 +145,13 @@ begin
       pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('MULTA').AsCurrency;
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
       pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('VALOR_TOTAL').AsCurrency;
-      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime;
+
+      if FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime <> StrToDate('30/12/1899') then
+        pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime
+      else
+        pasta.cells[linha, 9] := ' ';
+
+
       pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('PAGO').AsString;
       pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger;
       pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;

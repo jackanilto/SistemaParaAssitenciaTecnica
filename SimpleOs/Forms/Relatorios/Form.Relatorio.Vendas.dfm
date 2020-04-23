@@ -110,7 +110,7 @@ inherited formRelatorioVendas: TformRelatorioVendas
     inherited cbPesquisar: TComboBox
       Items.Strings = (
         'Venda'
-        'C'#243'd. Venda'
+        'C'#243'd. Cliente'
         'Cliente')
     end
     inherited edtPesquisar: TEdit

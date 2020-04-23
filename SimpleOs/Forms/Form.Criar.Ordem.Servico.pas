@@ -629,6 +629,12 @@ var
   estado: string;
 begin
 
+  if DataSource1.DataSet.State in [dsInsert] then
+  begin
+    edtValorOrdemParcelado.SetFocus;
+    caluclarValorDoParcelamento;
+  end;
+
   if edtValorOrdem.Text = EmptyStr then
     raise Exception.Create('ERRO! Infome o valor da mão de obra da OS');
 
@@ -1431,13 +1437,10 @@ begin
   totalDaOS := StrToCurr(edtTotalDaOS.Text);
 
   qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
-  edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) - valorDoDesconto);
+  edtTotalDaOS.Text := CurrToStr(totalDaOS);
 
   edtValorOrdemParcelado.Text := CurrToStr(TFactory.new.calcularParcela.getValor(totalDaOS)
                                 .getNumeroParcelas(qtdeParcelas).valorDeCadaParcela);
-
-
-//  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
 
 end;
 

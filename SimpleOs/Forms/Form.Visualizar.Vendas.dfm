@@ -129,8 +129,6 @@ object formVisualizarVendas: TformVisualizarVendas
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 487
     DesignSize = (
       1133
       75)

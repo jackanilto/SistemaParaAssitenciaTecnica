@@ -181,6 +181,8 @@ begin
       ativarBotoes;
       sbImprimirParcelas.Enabled := true;
 
+      edtDataDePagamento.DateTime := Date;
+
     end
     else
     begin

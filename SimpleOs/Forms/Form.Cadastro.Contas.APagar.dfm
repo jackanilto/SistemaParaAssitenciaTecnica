@@ -137,6 +137,7 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
     inherited cardPanelCadatro: TCard
       Width = 1008
       Height = 327
+      ExplicitTop = 1
       ExplicitWidth = 1008
       ExplicitHeight = 327
       object Label1: TLabel
@@ -412,10 +413,10 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
         ItemIndex = 1
         ParentFont = False
         TabOrder = 9
-        Text = 'N'#227'o'
+        Text = 'Nao'
         Items.Strings = (
           'Sim'
-          'N'#227'o')
+          'Nao')
       end
       object edtValorConta: TCurrencyEdit
         Left = 119

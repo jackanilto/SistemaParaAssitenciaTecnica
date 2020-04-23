@@ -3,8 +3,6 @@ inherited formRelatorioRetiradaDeValores: TformRelatorioRetiradaDeValores
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
-    ExplicitLeft = 8
-    ExplicitTop = 494
     inherited sbImprimir: TSpeedButton
       Left = 30
       OnClick = sbImprimirClick
@@ -165,7 +163,7 @@ inherited formRelatorioRetiradaDeValores: TformRelatorioRetiradaDeValores
   end
   inherited frxReport1: TfrxReport
     ReportOptions.CreateDate = 43892.891929236110000000
-    ReportOptions.LastChange = 43892.897750081020000000
+    ReportOptions.LastChange = 43938.595073796300000000
     ScriptText.Strings = (
       ''
       'begin'
@@ -388,8 +386,10 @@ inherited formRelatorioRetiradaDeValores: TformRelatorioRetiradaDeValores
           AllowVectorExport = True
           Left = 452.543600000000000000
           Top = 2.779530000000000000
-          Width = 128.504020000000000000
+          Width = 136.063080000000000000
           Height = 26.456710000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11

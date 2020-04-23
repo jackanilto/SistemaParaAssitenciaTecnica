@@ -490,9 +490,17 @@ end;
 
 procedure TformPrincipal.acOrdemServicoExecute(Sender: TObject);
 begin
-  formOrdemServico := TformOrdemServico.Create(self);
-  TFactory.new.criarJanela.FormShow(formOrdemServico, 'FORMORDEMSERVICO');
-end;
+//  if FSituacaoDoCaixa = 'aberto' then
+//    begin
+      formOrdemServico := TformOrdemServico.Create(self);
+      TFactory.new.criarJanela.FormShow(formOrdemServico, 'FORMORDEMSERVICO');
+    end;
+//    else
+//    begin
+//      MessageDlg('ERRO. O caixa se encontra fechado. Abra o caixa ou Reabra para continuar. ',
+//        mtError, [mbOk], 0, mbOk);
+//    end;
+//end;
 
 procedure TformPrincipal.acRelatorioOSEstornadasExecute(Sender: TObject);
 begin
@@ -875,10 +883,6 @@ FConfImagemLogo.getImagemBD(imgLogo);
 
     lblFuncionario.Caption := NomeFuncionarioLogado;
 
-//    if imagemFuncionario.Picture.Graphic.Empty  then
-//    begin
-//      showmessage('sem fotoS');
-//    end;
     Image1.Picture := imagemFuncionario.Picture;
 
     arrendondarImagem(pnlFoto);

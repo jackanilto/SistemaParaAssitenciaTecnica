@@ -1,6 +1,5 @@
 inherited formRelatorioDeProdutos: TformRelatorioDeProdutos
   Caption = 'Relat'#243'rio de produtos'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
@@ -36,7 +35,7 @@ inherited formRelatorioDeProdutos: TformRelatorioDeProdutos
   end
   inherited frxReport1: TfrxReport
     ReportOptions.CreateDate = 43880.815469942100000000
-    ReportOptions.LastChange = 43880.823045370370000000
+    ReportOptions.LastChange = 43938.582167546290000000
     ScriptText.Strings = (
       ''
       'begin'

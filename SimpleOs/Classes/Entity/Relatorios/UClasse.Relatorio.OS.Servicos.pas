@@ -74,7 +74,6 @@ end;
 function TRelatorioOSServicos.cancelar: iRelatoriOSServicosRealiados;
 begin
   FQuery.TQuery.Cancel;
-  // FQuery.TQuery.close;
 end;
 
 constructor TRelatorioOSServicos.create;
@@ -85,7 +84,6 @@ begin
   FGravarLog := TGravarLogSistema.new;
   FGravarLog.getJanela('Relatório OS - Serviços realizados').getCodigoFuncionario
     (funcionarioLogado);
-  // (0 { definir o usuário quando construir a aplicação } );
 
 end;
 
@@ -154,14 +152,12 @@ function TRelatorioOSServicos.getDataFinal(value: TDate): iRelatoriOSServicosRea
 begin
   result := self;
   FDataFinal := value;
-  // FQuery.getDataFinal(value);
 end;
 
 function TRelatorioOSServicos.getDataInicial(value: TDate): iRelatoriOSServicosRealiados;
 begin
   result := self;
   FDataInicial := value;
-  // FQuery.getDataInicial(value);
 end;
 
 function TRelatorioOSServicos.getValor(value: string): iRelatoriOSServicosRealiados;
@@ -180,7 +176,7 @@ begin
     FieldByName('ID').Visible := false;
     FieldByName('ID_ORDEM').visible := false;
     FieldByName('ID_SERVICO').Visible := false;
-    FieldByName('SERVICO').DisplayLabel := 'Seriço';
+    FieldByName('SERVICO').DisplayLabel := 'Serviços';
     FieldByName('VALOR').DisplayLabel := 'Valor';
 
     FieldByName('SERVICO').DisplayWidth := 45;

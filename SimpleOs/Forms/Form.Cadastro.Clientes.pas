@@ -261,6 +261,7 @@ begin
   inherited;
   FEntityClientes := TEntityCadastroClientes.new;
   FEntityTableUF := TEntityTable.new;
+  imagem := TJPEGImage.Create;
 end;
 
 procedure TformCadastroDeClientes.FormShow(Sender: TObject);
@@ -337,6 +338,11 @@ end;
 procedure TformCadastroDeClientes.sbSalvarClick(Sender: TObject);
 begin
 
+  if not Image1.Picture.Graphic.Empty then
+    begin
+      imagem.Assign(Image1.Picture);
+    end;
+
   FEntityClientes
             .getTIPO_CADASTRO(edtTipoCadastro.Text)
             .getNOME(edtNome.Text).getDATA_NASCIMENTO(edtDataNascimento.Text)
@@ -358,8 +364,6 @@ begin
             .getFoto(imagem)
             .gravar;
 
-            FreeAndNil(imagem);
-
   inherited;
 
 end;
@@ -369,11 +373,6 @@ begin
   inherited;
   if sbNovo.Enabled = false then
   begin
-
-    if Assigned(imagem) then
-      FreeAndNil(imagem);
-
-    imagem := TJPEGImage.Create;
 
     if OpenPictureDialog1.Execute then
     begin

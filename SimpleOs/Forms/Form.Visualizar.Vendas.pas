@@ -269,6 +269,7 @@ end;
 
 procedure TformVisualizarVendas.SpeedButton3Click(Sender: TObject);
 begin
+
   FEntityVisualizaVenda
                      .getCampo('DATA_VENDA')
                      .getDataInicial(StrToDate(edtData1.Text))
@@ -277,6 +278,7 @@ begin
                      .listarGrid(DataSource_Vendas)
                      .selecionarItens(DataSource_Vendas.DataSet.FieldByName('ID').AsInteger)
                      .listarGridItens(DataSource_Itens);
+
 end;
 
 procedure TformVisualizarVendas.EstornarVenda;

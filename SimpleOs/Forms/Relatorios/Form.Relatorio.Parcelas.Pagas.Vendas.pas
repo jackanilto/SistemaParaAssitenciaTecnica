@@ -32,6 +32,7 @@ type
     procedure sbPesquisarDatasClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure cbPesquisarDataChange(Sender: TObject);
   private
     { Private declarations }
     var
@@ -46,6 +47,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TformRelatorioParcelasPagasVendas.cbPesquisarDataChange(
+  Sender: TObject);
+begin
+  inherited;
+
+  if cbPesquisarData.Text <> EmptyStr then
+    edtData1.SetFocus;
+
+end;
 
 procedure TformRelatorioParcelasPagasVendas.DBGrid1TitleClick(Column: TColumn);
 begin

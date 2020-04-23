@@ -1067,3 +1067,139 @@ At line 1, column 31
 13/04/20 15:05:22 - Caption: Visualizar vendas
 13/04/20 15:05:22 - Erro:Exception
 13/04/20 15:05:22 - Erro:OPERAÇÃO DE ESTORNO CANCELADA!
+16/04/20 10:30:48 - ===========================================
+16/04/20 10:30:48 - Form: FormVendaConfirmarPagamento
+16/04/20 10:30:48 - Caption: '
+16/04/20 10:30:48 - Erro:Exception
+16/04/20 10:30:48 - Erro:ERRO! Infome o meio de pagamento do venda
+16/04/20 10:43:39 - ===========================================
+16/04/20 10:43:39 - Form: formLocalizarProdutoVenda
+16/04/20 10:43:39 - Caption: Localizar produtos - Venda
+16/04/20 10:43:39 - Erro:Exception
+16/04/20 10:43:39 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+16/04/20 11:04:06 - ===========================================
+16/04/20 11:04:06 - Form: formQuitarParcelasVendas
+16/04/20 11:04:06 - Caption: Ver parcelas das vendas realizadas
+16/04/20 11:04:06 - Erro:Exception
+16/04/20 11:04:06 - Erro:ERRO! Você não pode concelar o pagamenento deste tipo de parcela
+16/04/20 11:05:23 - ===========================================
+16/04/20 11:05:23 - Form: formQuitarParcelasVendas
+16/04/20 11:05:23 - Caption: Ver parcelas das vendas realizadas
+16/04/20 11:05:23 - Erro:Exception
+16/04/20 11:05:23 - Erro:ERRO! Você não pode cancelar o pagamento deste tipo de parcela
+16/04/20 11:08:30 - ===========================================
+16/04/20 11:08:30 - Form: formQuitarParcelasVendas
+16/04/20 11:08:30 - Caption: Ver parcelas das vendas realizadas
+16/04/20 11:08:30 - Erro:Exception
+16/04/20 11:08:30 - Erro:ERRO! Não é possível adicionar parcela neste tipo de venda
+17/04/20 13:13:57 - ===========================================
+17/04/20 13:13:57 - Form: formVisualizarVendas
+17/04/20 13:13:57 - Caption: Visualizar vendas
+17/04/20 13:13:57 - Erro:Exception
+17/04/20 13:13:57 - Erro:OPERAÇÃO DE ESTORNO CANCELADA!
+17/04/20 13:24:31 - ===========================================
+17/04/20 13:24:31 - Form: formPrincipal
+17/04/20 13:24:31 - Caption: SimpleOS
+17/04/20 13:24:31 - Erro:Exception
+17/04/20 13:24:31 - Erro:Você não possui acesso a este recurso.
+17/04/20 13:37:15 - ===========================================
+17/04/20 13:37:15 - Form: formRelatorioContasAPagar
+17/04/20 13:37:15 - Caption: Relatório de contas a pagar
+17/04/20 13:37:15 - Erro:EDBEditError
+17/04/20 13:37:15 - Erro:Invalid input value.  Use escape key to abandon changes
+17/04/20 14:23:48 - ===========================================
+17/04/20 14:23:48 - Form: formPrincipal
+17/04/20 14:23:48 - Caption: SimpleOS
+17/04/20 14:23:48 - Erro:EAccessViolation
+17/04/20 14:23:48 - Erro:Access violation at address 00C03593 in module 'SimplesOS.exe'. Read of address 00000004
+20/04/20 15:13:13 - ===========================================
+20/04/20 15:13:13 - Form: formVisualizarVendas
+20/04/20 15:13:13 - Caption: Visualizar vendas
+20/04/20 15:13:13 - Erro:Exception
+20/04/20 15:13:13 - Erro:Houve um erro ao tentar estornar esta venda. ERRO! Não foi possível atualizar o estoque. [FireDAC][Phys][FB]violation of PRIMARY or UNIQUE KEY constraint "PK_PRODUTOS" on table "PRODUTOS"
+Problematic key value is ("ID" = 0)
+20/04/20 15:21:54 - ===========================================
+20/04/20 15:21:54 - Form: formVisualizarVendas
+20/04/20 15:21:54 - Caption: Visualizar vendas
+20/04/20 15:21:54 - Erro:EDBEditError
+20/04/20 15:21:54 - Erro:Invalid input value.  Use escape key to abandon changes
+20/04/20 15:22:40 - ===========================================
+20/04/20 15:22:40 - Form: formVisualizarVendas
+20/04/20 15:22:40 - Caption: Visualizar vendas
+20/04/20 15:22:40 - Erro:Exception
+20/04/20 15:22:40 - Erro:Houve um erro ao tentar estornar esta venda. ERRO! Não foi possível atualizar o estoque. [FireDAC][Phys][FB]violation of PRIMARY or UNIQUE KEY constraint "PK_PRODUTOS" on table "PRODUTOS"
+Problematic key value is ("ID" = 0)
+20/04/20 15:33:04 - ===========================================
+20/04/20 15:33:04 - Form: formCadastroDeClientes
+20/04/20 15:33:04 - Caption: Cadastro de clientes
+20/04/20 15:33:04 - Erro:EAccessViolation
+20/04/20 15:33:04 - Erro:Access violation at address 00BD4D4B in module 'SimplesOS.exe'. Read of address 00000000
+20/04/20 15:33:08 - ===========================================
+20/04/20 15:33:08 - Form: formCadastroDeClientes
+20/04/20 15:33:08 - Caption: Cadastro de clientes
+20/04/20 15:33:08 - Erro:EAccessViolation
+20/04/20 15:33:08 - Erro:Access violation at address 00BD4D4B in module 'SimplesOS.exe'. Read of address 00000000
+20/04/20 15:33:16 - ===========================================
+20/04/20 15:33:16 - Form: formCadastroDeClientes
+20/04/20 15:33:16 - Caption: Cadastro de clientes
+20/04/20 15:33:16 - Erro:EAccessViolation
+20/04/20 15:33:16 - Erro:Access violation at address 00BD4D4B in module 'SimplesOS.exe'. Read of address 00000000
+20/04/20 16:01:38 - ===========================================
+20/04/20 16:01:38 - Form: formVisualizarVendas
+20/04/20 16:01:38 - Caption: Visualizar vendas
+20/04/20 16:01:38 - Erro:Exception
+20/04/20 16:01:38 - Erro:Houve um erro ao tentar estornar esta venda. [FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+PRODUTO
+At line 1, column 16
+20/04/20 16:03:03 - ===========================================
+20/04/20 16:03:03 - Form: formVisualizarVendas
+20/04/20 16:03:03 - Caption: Visualizar vendas
+20/04/20 16:03:03 - Erro:Exception
+20/04/20 16:03:03 - Erro:Houve um erro ao tentar estornar esta venda. Field 'QUANTIDADE_ATUAL' not found
+20/04/20 18:04:01 - ===========================================
+20/04/20 18:04:01 - Form: formVisualizarVendas
+20/04/20 18:04:01 - Caption: Visualizar vendas
+20/04/20 18:04:01 - Erro:Exception
+20/04/20 18:04:01 - Erro:Houve um erro ao tentar estornar esta venda. Field 'QUANTIDADE_ATUAL' not found
+22/04/20 18:14:31 - ===========================================
+22/04/20 18:14:31 - Form: FormVendaConfirmarPagamento
+22/04/20 18:14:31 - Caption: '
+22/04/20 18:14:31 - Erro:Exception
+22/04/20 18:14:31 - Erro:ERRO! Infome o meio de pagamento do venda
+22/04/20 18:15:24 - ===========================================
+22/04/20 18:15:24 - Form: formQuitarParcelasVendas
+22/04/20 18:15:24 - Caption: Ver parcelas das vendas realizadas
+22/04/20 18:15:24 - Erro:Exception
+22/04/20 18:15:24 - Erro:ERRO! Informe o meio de pagamento da parcela.
+22/04/20 18:18:00 - ===========================================
+22/04/20 18:18:00 - Form: formCriarConsultarOrdemServico
+22/04/20 18:18:00 - Caption: 
+22/04/20 18:18:00 - Erro:Exception
+22/04/20 18:18:00 - Erro:informe um valor deferente de 0(Zero) para o valor da parcela.
+22/04/20 18:18:07 - ===========================================
+22/04/20 18:18:07 - Form: formCriarConsultarOrdemServico
+22/04/20 18:18:07 - Caption: 
+22/04/20 18:18:07 - Erro:EDatabaseError
+22/04/20 18:18:07 - Erro:Dataset not in edit or insert mode
+22/04/20 18:38:15 - ===========================================
+22/04/20 18:38:15 - Form: formCriarConsultarOrdemServico
+22/04/20 18:38:15 - Caption: 
+22/04/20 18:38:15 - Erro:EInvalidOperation
+22/04/20 18:38:15 - Erro:Cannot focus a disabled or invisible window
+22/04/20 18:38:18 - ===========================================
+22/04/20 18:38:18 - Form: formCriarConsultarOrdemServico
+22/04/20 18:38:18 - Caption: 
+22/04/20 18:38:18 - Erro:EInvalidOperation
+22/04/20 18:38:18 - Erro:Cannot focus a disabled or invisible window
+22/04/20 18:38:23 - ===========================================
+22/04/20 18:38:23 - Form: formCriarConsultarOrdemServico
+22/04/20 18:38:23 - Caption: 
+22/04/20 18:38:23 - Erro:EInvalidOperation
+22/04/20 18:38:23 - Erro:Cannot focus a disabled or invisible window
+22/04/20 18:38:48 - ===========================================
+22/04/20 18:38:48 - Form: formCriarConsultarOrdemServico
+22/04/20 18:38:48 - Caption: 
+22/04/20 18:38:48 - Erro:EInvalidOperation
+22/04/20 18:38:48 - Erro:Cannot focus a disabled or invisible window

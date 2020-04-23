@@ -2,7 +2,6 @@ inherited formRelatorioParcelasPagasVendas: TformRelatorioParcelasPagasVendas
   Caption = 'Parcelas recebidas vendas'
   ClientHeight = 557
   ClientWidth = 1044
-  OnCreate = FormCreate
   ExplicitWidth = 1044
   ExplicitHeight = 557
   PixelsPerInch = 96
@@ -205,6 +204,7 @@ inherited formRelatorioParcelasPagasVendas: TformRelatorioParcelasPagasVendas
       Font.Style = []
       ParentFont = False
       TabOrder = 4
+      OnChange = cbPesquisarDataChange
       Items.Strings = (
         'Vencimento'
         'Pagamento')

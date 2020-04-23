@@ -1498,7 +1498,7 @@ object FormVendaConfirmarPagamento: TFormVendaConfirmarPagamento
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43837.784506805600000000
-    ReportOptions.LastChange = 43936.594276597220000000
+    ReportOptions.LastChange = 43937.440329432870000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''

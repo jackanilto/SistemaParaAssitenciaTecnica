@@ -108,6 +108,7 @@ var
 begin
 
   FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
 
   linha := 2;
   pasta := CreateOleObject('Excel.application');

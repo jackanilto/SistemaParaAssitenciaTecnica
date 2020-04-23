@@ -3,7 +3,6 @@ inherited formRelatorioContasAPagar: TformRelatorioContasAPagar
   ClientWidth = 1116
   Font.Height = -13
   Font.Name = 'Segoe UI'
-  OnCreate = FormCreate
   ExplicitWidth = 1116
   PixelsPerInch = 96
   TextHeight = 17
@@ -210,6 +209,7 @@ inherited formRelatorioContasAPagar: TformRelatorioContasAPagar
       ItemIndex = 0
       TabOrder = 4
       Text = 'Vencimento'
+      OnChange = cbPesquisarDatasChange
       Items.Strings = (
         'Vencimento'
         'Pagamento')

@@ -328,19 +328,32 @@ end;
 procedure TformCadastroProdutos.sbSalvarClick(Sender: TObject);
 begin
 
+  if not Image1.Picture.Graphic.Empty then
+    begin
+      imagem.Assign(Image1.Picture);
+    end;
+
   FEntityProdutos
-    .getServicoProdutos(edtProduto.Text).getCodigoBarras(edtCodigoDeBarras.Text)
-    .getDescricao(edtDescricao.Text).getValorDeCusto(edtValorDeCusto.Text)
-    .getMargemDeLUcro(edtMargemDeLucro.Text)
-    .getValorDeVenda(edtValorDeVenda.Text).getQuantidadeMinima
-    (edtQuantidadeMinima.Text).getQuantidadeAtual(edtQuantidadeAtual.Text)
-    .getDataDeValidade(edtDataDeValidade.Text)
-    .getDataAlteracao(edtDataDeAlteracao.Text).getGrupo(edtGrupo.Text)
-    .getCodigoGrupo(edtCodigoGrupo.Text).getCodigoMarca(edtCodigoDaMarca.Text)
-    .getMarca(edtMarca.Text).getModelo(edtModelo.Text)
-    .getNumeroDeSerie(edtNumeroDeSerie.Text).getDataFabricacao
-    (edtDataDeFabricacao.Text).getObservacao(edtObservacao.Text)
-    .getFoto(imagem).gravar;
+              .getServicoProdutos(edtProduto.Text)
+              .getCodigoBarras(edtCodigoDeBarras.Text)
+              .getDescricao(edtDescricao.Text)
+              .getValorDeCusto(edtValorDeCusto.Text)
+              .getMargemDeLUcro(edtMargemDeLucro.Text)
+              .getValorDeVenda(edtValorDeVenda.Text)
+              .getQuantidadeMinima(edtQuantidadeMinima.Text)
+              .getQuantidadeAtual(edtQuantidadeAtual.Text)
+              .getDataDeValidade(edtDataDeValidade.Text)
+              .getDataAlteracao(edtDataDeAlteracao.Text)
+              .getGrupo(edtGrupo.Text)
+              .getCodigoGrupo(edtCodigoGrupo.Text)
+              .getCodigoMarca(edtCodigoDaMarca.Text)
+              .getMarca(edtMarca.Text)
+              .getModelo(edtModelo.Text)
+              .getNumeroDeSerie(edtNumeroDeSerie.Text)
+              .getDataFabricacao(edtDataDeFabricacao.Text)
+              .getObservacao(edtObservacao.Text)
+              .getFoto(imagem)
+              .gravar;
 
   inherited;
 

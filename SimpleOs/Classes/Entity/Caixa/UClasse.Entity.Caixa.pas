@@ -255,8 +255,8 @@ begin
 
   result := 0;
 
-  totalVendasOS := (FTotalParcelasOS + FTotalParcelasVendas) -
-    (FTotalParcelasOSEstornadas + FTotalParcelasVendasEstornadas);
+  totalVendasOS := (FTotalParcelasOS + FTotalParcelasVendas);
+   //-(FTotalParcelasOSEstornadas + FTotalParcelasVendasEstornadas);
 
   totalEmCaixa := (totalVendasOS + FValorUltimoCaixa) - FTotalRetiradas;
 

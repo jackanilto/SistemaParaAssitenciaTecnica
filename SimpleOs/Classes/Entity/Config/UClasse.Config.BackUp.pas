@@ -109,6 +109,7 @@ begin
   try
     FQuery.retornarQuery.FieldByName('horario').AsDateTime := StrToTime(Value);
     FQuery.retornarQuery.Post;
+    ShowMessage('Operação realizada com sucesso!!!');
   except
     on e: Exception do
     begin

@@ -675,7 +675,12 @@ function TEntityCriarOrdemServico.getPRIORIDADE(value: string)
   : iCriarOrdemServico;
 begin
   result := self;
-  FPRIORIDADE := value;
+
+  if value = EmptyStr then
+    FPRIORIDADE := 'Não'
+  else
+    FPRIORIDADE := value;
+
 end;
 
 function TEntityCriarOrdemServico.getRETORNO(value: string): iCriarOrdemServico;
@@ -687,8 +692,14 @@ end;
 function TEntityCriarOrdemServico.getSITUACAO_DA_ORDEM(value: string)
   : iCriarOrdemServico;
 begin
+
   result := self;
+
+  if value = EmptyStr then
+    raise Exception.Create('ERRO! Informe a situação da Ordem de Serviço');
+
   FSITUACAO_DA_ORDEM := value;
+
 end;
 
 function TEntityCriarOrdemServico.getSOLUCAO_DO_PROBLEMA(value: string)
