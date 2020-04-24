@@ -1203,3 +1203,18 @@ At line 1, column 16
 22/04/20 18:38:48 - Caption: 
 22/04/20 18:38:48 - Erro:EInvalidOperation
 22/04/20 18:38:48 - Erro:Cannot focus a disabled or invisible window
+24/04/20 15:41:03 - ===========================================
+24/04/20 15:41:03 - Form: formPrincipal
+24/04/20 15:41:03 - Caption: SimpleOS
+24/04/20 15:41:03 - Erro:EAccessViolation
+24/04/20 15:41:03 - Erro:Access violation at address 00C0411F in module 'SimplesOS.exe'. Read of address 00000004
+24/04/20 15:43:51 - ===========================================
+24/04/20 15:43:51 - Form: formCriarConsultarOrdemServico
+24/04/20 15:43:51 - Caption: 
+24/04/20 15:43:51 - Erro:Exception
+24/04/20 15:43:51 - Erro:informe um valor deferente de 0(Zero) para o valor da parcela.
+24/04/20 15:45:23 - ===========================================
+24/04/20 15:45:23 - Form: formCriarConsultarOrdemServico
+24/04/20 15:45:23 - Caption: 
+24/04/20 15:45:23 - Erro:Exception
+24/04/20 15:45:23 - Erro:ERRO! Informe a situação da Ordem de Serviço

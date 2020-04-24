@@ -959,7 +959,7 @@ FConfImagemLogo.getImagemBD(imgLogo);
   begin
     formIniciarCaixa := TformIniciarCaixa.Create(self);
     TFactory.new.criarJanela.FormShow(formIniciarCaixa, 'FORMINICIARCAIXA');
-    FSituacaoDoCaixa := 'fechado';
+    FSituacaoDoCaixa := 'aberto';
   end
   else if FProcessoCaixa.verificarSituacaoCaixa = 'iniciar novo caixa' then
   begin

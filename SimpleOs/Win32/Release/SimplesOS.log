@@ -7718,3 +7718,13 @@ Problematic key value is ("ID" = 0)
 22/04/20 15:02:28 - Caption: 
 22/04/20 15:02:28 - Erro:Exception
 22/04/20 15:02:28 - Erro:ERRO! Informe a situação da Ordem de Serviço
+24/04/20 16:54:33 - ===========================================
+24/04/20 16:54:33 - Form: formPrincipal
+24/04/20 16:54:33 - Caption: SimpleOS
+24/04/20 16:54:33 - Erro:EAccessViolation
+24/04/20 16:54:33 - Erro:Access violation at address 00BD3E83 in module 'SimplesOS.exe'. Read of address 00000004
+24/04/20 16:57:12 - ===========================================
+24/04/20 16:57:12 - Form: formPrincipal
+24/04/20 16:57:12 - Caption: SimpleOS
+24/04/20 16:57:12 - Erro:EAccessViolation
+24/04/20 16:57:12 - Erro:Access violation at address 00BD3E83 in module 'SimplesOS.exe'. Read of address 00000004

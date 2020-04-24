@@ -201,15 +201,24 @@ uses
   Form.Sobre in 'Forms\Form.Sobre.pas' {formSobre},
   UClasse.Config.Imagem.Logo in 'Classes\Entity\Config\UClasse.Config.Imagem.Logo.pas',
   UClasse.Relatorio.Logs.Eventos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Logs.Eventos.pas',
-  Form.Relatorio.Log.Eventos in 'Forms\Relatorios\Form.Relatorio.Log.Eventos.pas' {formRelatorioLogEventos};
+  Form.Relatorio.Log.Eventos in 'Forms\Relatorios\Form.Relatorio.Log.Eventos.pas' {formRelatorioLogEventos},
+  Form.Splash in 'Forms\Form.Splash.pas' {formSplash};
 
 {$R *.res}
 
 begin
   Application.Initialize;
+
+  formSplash := TformSplash.Create(application);
+  formSplash.Show;
+  formSplash.Update;
+
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TForm2, Form2);
+
+  FormSplash.Free;
+  formSplash.Hide;
+
   Application.Run;
 end.

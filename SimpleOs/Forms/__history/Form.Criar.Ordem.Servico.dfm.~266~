@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbParcelas
+    ActivePage = tbServicosEFaturamento
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -656,6 +656,7 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
+          ExplicitTop = 7
           object Label21: TLabel
             Left = 16
             Top = 25
@@ -795,6 +796,7 @@
             Width = 249
             Height = 25
             TabOrder = 0
+            ZeroEmpty = False
             OnExit = edtValorOrdemExit
           end
           object edtDesconto: TCurrencyEdit
@@ -803,6 +805,7 @@
             Width = 121
             Height = 25
             TabOrder = 1
+            ZeroEmpty = False
             OnExit = edtDescontoExit
           end
           object edtAcrescimo: TCurrencyEdit
@@ -811,6 +814,7 @@
             Width = 122
             Height = 25
             TabOrder = 2
+            ZeroEmpty = False
             OnExit = edtAcrescimoExit
           end
           object edtTotalDaOS: TCurrencyEdit
@@ -819,6 +823,7 @@
             Width = 249
             Height = 25
             TabOrder = 3
+            ZeroEmpty = False
             OnExit = edtTotalDaOSExit
           end
           object edtValorOrdemParcelado: TCurrencyEdit
@@ -827,19 +832,20 @@
             Width = 173
             Height = 25
             TabOrder = 5
+            ZeroEmpty = False
           end
         end
         object GroupBox2: TGroupBox
-          Left = 7
-          Top = 200
-          Width = 431
+          Left = 3
+          Top = 195
+          Width = 436
           Height = 225
           Caption = 'Servi'#231'os inclusos'
           TabOrder = 1
           object DBGrid1: TDBGrid
             Left = 2
             Top = 19
-            Width = 427
+            Width = 432
             Height = 204
             Align = alClient
             DataSource = s_tem_servicos_adicionados
@@ -2297,7 +2303,7 @@
       ShowHint = True
       OnClick = sbImprimirOSClick
     end
-    object SpeedButton1: TSpeedButton
+    object sbGerarParcelas: TSpeedButton
       Left = 689
       Top = 24
       Width = 145
@@ -2374,7 +2380,7 @@
         361A99361AD7}
       Layout = blGlyphRight
       ParentFont = False
-      OnClick = SpeedButton1Click
+      OnClick = sbGerarParcelasClick
     end
   end
   object DataSource1: TDataSource
@@ -2459,7 +2465,7 @@
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 420
+    Left = 364
     Top = 349
     object cds_AdicionarParcelaid_ordem: TIntegerField
       FieldName = 'id_ordem'
@@ -2509,8 +2515,8 @@
     CloseDataSource = False
     DataSource = s_imprimirServicosOS
     BCDToCurrency = False
-    Left = 788
-    Top = 133
+    Left = 748
+    Top = 125
   end
   object frxDB_ImprimirParcelasOS: TfrxDBDataset
     UserName = 'frxDB_ImprimirParcelasOS'
@@ -2529,7 +2535,7 @@
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43815.777397349500000000
-    ReportOptions.LastChange = 43821.647114456020000000
+    ReportOptions.LastChange = 43926.594937233790000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -3204,22 +3210,34 @@
         object Memo44: TfrxMemoView
           AllowVectorExport = True
           Left = 473.543600000000000000
-          Top = 597.283860000000000000
-          Width = 102.047310000000000000
+          Top = 596.283860000000000000
+          Width = 49.133890000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Situa'#231#227'o PGTO:')
+            'Status:')
+          ParentFont = False
         end
         object Memo45: TfrxMemoView
           AllowVectorExport = True
-          Left = 579.370440000000000000
-          Top = 597.283860000000000000
-          Width = 120.944960000000000000
+          Left = 530.236550000000000000
+          Top = 596.283860000000000000
+          Width = 166.299320000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDB_ImprimirOS."PGTO"]')
+          ParentFont = False
         end
         object Shape13: TfrxShapeView
           AllowVectorExport = True
@@ -3508,7 +3526,7 @@
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43817.548792488400000000
-    ReportOptions.LastChange = 43924.603155451390000000
+    ReportOptions.LastChange = 43943.628152210650000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''

@@ -397,7 +397,12 @@ end;
 
 procedure TformCriarConsultarOrdemServico.edtTotalDaOSExit(Sender: TObject);
 begin
-  edtValorOrdemParcelado.Text := edtTotalDaOS.Text;
+//  edtValorOrdemParcelado.Text := edtTotalDaOS.Text;
+
+    edtValorOrdemParcelado.SetFocus;
+
+    caluclarValorDoParcelamento;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.edtTotalDeParcelasExit
@@ -406,9 +411,14 @@ begin
 
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
-    edtValorOrdemParcelado.Text :=
-      FEntityCriarOrdem.calularTotalPorNumeroDeParcela(edtTotalDaOS,
-      edtTotalDeParcelas);
+//    edtValorOrdemParcelado.Text :=
+//      FEntityCriarOrdem.calularTotalPorNumeroDeParcela(edtTotalDaOS,
+//      edtTotalDeParcelas);
+
+    edtValorOrdemParcelado.SetFocus;
+
+    caluclarValorDoParcelamento;
+
   end;
 
 end;
@@ -628,6 +638,8 @@ procedure TformCriarConsultarOrdemServico.sbSalvarClick(Sender: TObject);
 var
   estado: string;
 begin
+
+  PageControl1.ActivePageIndex := 1;
 
   if DataSource1.DataSet.State in [dsInsert] then
   begin

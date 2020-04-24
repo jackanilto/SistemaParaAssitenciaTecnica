@@ -119,13 +119,9 @@ type
     Label31: TLabel;
     edtVencimentoParcela: TEdit;
     Label32: TLabel;
-    edtDescontoParcela: TEdit;
     Label33: TLabel;
-    edtJurosParcelas: TEdit;
     Label34: TLabel;
-    edtMultaParcela: TEdit;
     Label35: TLabel;
-    edtTotalParcela: TEdit;
     Label36: TLabel;
     edtDataPagamentoParcela: TDateTimePicker;
     Label37: TLabel;
@@ -166,7 +162,7 @@ type
     frx_ImprimirRecibo: TfrxReport;
     PopupMenu1: TPopupMenu;
     Editarparcela1: TMenuItem;
-    SpeedButton1: TSpeedButton;
+    sbGerarParcelas: TSpeedButton;
     edtTotalDeParcelas: TComboBox;
     edtValorOrdem: TCurrencyEdit;
     edtDesconto: TCurrencyEdit;
@@ -175,6 +171,10 @@ type
     edtValorOrdemParcelado: TCurrencyEdit;
     sbSalvar: TSpeedButton;
     edtValorParcela: TCurrencyEdit;
+    edtDescontoParcela: TCurrencyEdit;
+    edtJurosParcelas: TCurrencyEdit;
+    edtMultaParcela: TCurrencyEdit;
+    edtTotalParcela: TCurrencyEdit;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -212,7 +212,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Editarparcela1Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure sbGerarParcelasClick(Sender: TObject);
     procedure edtValorOrdemExit(Sender: TObject);
   private
     { Private declarations }
@@ -629,6 +629,12 @@ var
   estado: string;
 begin
 
+  if DataSource1.DataSet.State in [dsInsert] then
+  begin
+    edtValorOrdemParcelado.SetFocus;
+    caluclarValorDoParcelamento;
+  end;
+
   if edtValorOrdem.Text = EmptyStr then
     raise Exception.Create('ERRO! Infome o valor da mão de obra da OS');
 
@@ -740,6 +746,16 @@ procedure TformCriarConsultarOrdemServico.sbCancelarOperacaoParcelaClick
 begin
   FEntityParcelasOrdem.cancelar;
   FAtivarBotoes.ativarBotaoCancelar;
+
+  sbQuitarParcela.Enabled := false;
+  sbSalvarParcela.Enabled := false;
+  sbExcluirParcela.Enabled := false;
+  sbCancelar.Enabled := true;
+
+  sbEstornarParcela.Enabled := false;
+  sbImprimirParcelas.Enabled := false;
+  sbAdicionarParcela.Enabled := false;
+
 end;
 
 procedure TformCriarConsultarOrdemServico.SpeedButton13Click(Sender: TObject);
@@ -751,7 +767,7 @@ begin
 
 end;
 
-procedure TformCriarConsultarOrdemServico.SpeedButton1Click(Sender: TObject);
+procedure TformCriarConsultarOrdemServico.sbGerarParcelasClick(Sender: TObject);
 begin
 
   if DataSource1.DataSet.RecordCount >= 1 then
@@ -793,6 +809,7 @@ begin
 
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
+
     FEntityCriarOrdem.estornarOrdem(DataSource1.DataSet.FieldByName('ID')
       .AsInteger);
 
@@ -801,6 +818,7 @@ begin
     FAtivarBotoes.ativarbotaoEstornar;
 
     lblCaption.Caption := 'Ordem de serviços - OS Estornada';
+
   end;
 
 end;
@@ -1155,6 +1173,7 @@ begin // selecionar a OS ao chamar através do form  Ordem de Servico
     begin
       sbEstornarOS.Enabled := false;
       sbEditar.Enabled := false;
+      sbGerarParcelas.Enabled := false;
     end;
 
 
@@ -1249,6 +1268,7 @@ begin
     begin
       FEntityParcelasOrdem.editar;
       sbSalvarParcela.Enabled := true;
+      sbCancelarOperacaoParcela.Enabled := true;
     end;
 
   end;
@@ -1417,13 +1437,10 @@ begin
   totalDaOS := StrToCurr(edtTotalDaOS.Text);
 
   qtdeParcelas := StrToInt(edtTotalDeParcelas.Text);
-  edtTotalDaOS.Text := CurrToStr((valorMaoDeObra + valorDoAcrescimo) - valorDoDesconto);
+  edtTotalDaOS.Text := CurrToStr(totalDaOS);
 
   edtValorOrdemParcelado.Text := CurrToStr(TFactory.new.calcularParcela.getValor(totalDaOS)
                                 .getNumeroParcelas(qtdeParcelas).valorDeCadaParcela);
-
-
-//  edtValorOrdemParcelado.Text := CurrToStr(totalDaOS / qtdeParcelas);
 
 end;
 

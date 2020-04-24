@@ -656,7 +656,6 @@
           Align = alTop
           Caption = 'Faturamento'
           TabOrder = 0
-          ExplicitTop = 7
           object Label21: TLabel
             Left = 16
             Top = 25

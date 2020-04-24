@@ -199,15 +199,19 @@ uses
   Form.Trocar.Usuario in 'Forms\Form.Trocar.Usuario.pas' {formTrocarDeUsuario},
   Form.Alterar.Senha in 'Forms\Form.Alterar.Senha.pas' {Form2},
   Form.Sobre in 'Forms\Form.Sobre.pas' {formSobre},
-  UClasse.Config.Imagem.Logo in 'Classes\Entity\Config\UClasse.Config.Imagem.Logo.pas';
+  UClasse.Config.Imagem.Logo in 'Classes\Entity\Config\UClasse.Config.Imagem.Logo.pas',
+  UClasse.Relatorio.Logs.Eventos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Logs.Eventos.pas',
+  Form.Relatorio.Log.Eventos in 'Forms\Relatorios\Form.Relatorio.Log.Eventos.pas' {formRelatorioLogEventos},
+  Form.Splash in 'Forms\Form.Splash.pas' {formSplash};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  AApplication.CreateForm(TDataModule1, DataModule1);
+  AApplication.CreateForm(TformSplash, formSplash);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TForm2, Form2);
-  Application.Run;
+  plication.Run;
 end.

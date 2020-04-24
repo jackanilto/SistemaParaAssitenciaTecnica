@@ -1,9 +1,9 @@
 
-###Criar Ordem -> Campo Situação e Prioridade devem ser obrigatorios. -> OK
-				  Erro ao efetuar a gravação da Ordem -> Se o valor da mão de obra estiver zerado não deve aparesentar
-				   a mensagem de erro. -> OK
-				  Ao clicar no botão CALCULAR na aba Serviços e Faturamento, o valor Total da OS esta recebendo o valor
-				   o valor da Mão de obra. -> OK
+###Ao iniciar a aplicação, a variavel  para receber o status da caixa para não estar funcionando
+###Ordem de Serviços -> Ao clicar sobre o botão gravar o foco da janela deve ir para a aba Serviços e Faturamento.
+						Ao passar pelo campo total de parcelas as parcelas devem ser calculadas com 
+							juros como no botão calcular
+
 				   
 ###Quitar parcelas venda -> Ao selecionar uma parcela para pagamento o campo Data de pagamento de selecionar a data atual. -> OK
 ###Quitar parcelas OS -> Ao selecionar uma parcela para pagamento o campo Data de pagamento de selecionar a data atual. -> OK
