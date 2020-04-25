@@ -35,6 +35,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioTransportadora.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -84,6 +86,7 @@ procedure TformRelatorioTransportadora.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioTransportadora := TRelatorioTransportadoras.new;
+  dllSoftMeter.sendEvent('relatorio transportadora', 'rel transp', 0);
 end;
 
 procedure TformRelatorioTransportadora.FormShow(Sender: TObject);

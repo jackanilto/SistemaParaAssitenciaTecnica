@@ -35,6 +35,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 
 procedure TformRelatorioFornecedores.DBGrid1TitleClick(Column: TColumn);
 begin
@@ -81,6 +83,7 @@ procedure TformRelatorioFornecedores.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioFornecedores := TRelatorioFornecedores.new;
+  dllSoftMeter.sendEvent('relatorio fornecedores', 'relatorio fornecedores', 0);
 end;
 
 procedure TformRelatorioFornecedores.FormShow(Sender: TObject);

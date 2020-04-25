@@ -48,6 +48,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioParcelasPagasVendas.cbPesquisarDataChange(
   Sender: TObject);
 begin
@@ -103,6 +105,7 @@ procedure TformRelatorioParcelasPagasVendas.FormCreate(Sender: TObject);
 begin
   inherited;
   FParcelasPagasVendas := TRelatorioParcelasPagasVendas.new;
+  dllSoftMeter.sendEvent('relatorio parcelas pagas vendas', 'rel parcelas pagas vendas', 0);
 end;
 
 procedure TformRelatorioParcelasPagasVendas.FormShow(Sender: TObject);

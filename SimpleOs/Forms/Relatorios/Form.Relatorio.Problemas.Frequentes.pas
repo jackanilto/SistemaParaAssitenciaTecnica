@@ -34,6 +34,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioProblemasFrequentes.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -84,6 +86,7 @@ procedure TformRelatorioProblemasFrequentes.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorio := TRelatorioProblemasFrequentes.new;
+  dllSoftMeter.sendEvent('relatorio de problemas frequentes', 'rel prob frequentes', 0);
 end;
 
 procedure TformRelatorioProblemasFrequentes.FormShow(Sender: TObject);

@@ -36,6 +36,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioSituacaoDoEstoque.cbPesquisarSituacaoChange(
   Sender: TObject);
 begin
@@ -66,6 +68,7 @@ procedure TformRelatorioSituacaoDoEstoque.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioSituacaoEstoque := TRelatorioSituacaoEstoque.new;
+  dllSoftMeter.sendEvent('relatorio situacao do estoque', 'rel sit estoque', 0);
 end;
 
 procedure TformRelatorioSituacaoDoEstoque.FormShow(Sender: TObject);

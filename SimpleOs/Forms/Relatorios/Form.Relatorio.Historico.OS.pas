@@ -67,6 +67,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioHistoricoOS.cbPesquisarSituacaoChange(Sender: TObject);
 begin
   inherited;
@@ -162,6 +164,8 @@ begin
   TFactory.new.ftTable.FD_Table('SITUACAO_ORDEM')
     .getCampoTabela('SITUACAO_ORDEM').popularComponenteComboBox
     (cbPesquisarSituacao);
+
+  dllSoftMeter.sendEvent('relatorio historio das os', 'rel historio os', 0);
 
 end;
 

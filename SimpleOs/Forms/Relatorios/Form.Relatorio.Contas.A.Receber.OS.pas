@@ -46,6 +46,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioContasAReceberOS.cbPesquisarChange(Sender: TObject);
 begin
   inherited;
@@ -116,6 +118,7 @@ procedure TformRelatorioContasAReceberOS.FormCreate(Sender: TObject);
 begin
   inherited;
   FContasAReceberOS := TEntityRelatorioContasAReceber.new;
+  dllSoftMeter.sendEvent('relatorio de contas a receber OS', 'relatorio contas a receber os', 0);
 end;
 
 procedure TformRelatorioContasAReceberOS.FormShow(Sender: TObject);

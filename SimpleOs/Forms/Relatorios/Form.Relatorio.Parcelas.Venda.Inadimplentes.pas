@@ -42,6 +42,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioVendasInadimplentes.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -87,6 +89,7 @@ procedure TformRelatorioVendasInadimplentes.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioInadimplentes := TRelatorioVendasInadimplentes.new;
+  dllSoftMeter.sendEvent('relatorio parcelas vendas inadim', 'rel parc venda inad', 0);
 end;
 
 procedure TformRelatorioVendasInadimplentes.FormShow(Sender: TObject);

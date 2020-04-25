@@ -33,10 +33,13 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioProdutosMaisVendidos.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioProdutos := TRelatorioProdutosMaisVendidos.new;
+  dllSoftMeter.sendEvent('relatorio produtos mais vendidos', 'rel prod mais vendidos', 0);
 end;
 
 procedure TformRelatorioProdutosMaisVendidos.FormShow(Sender: TObject);

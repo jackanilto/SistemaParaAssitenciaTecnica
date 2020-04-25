@@ -46,6 +46,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioOSPorStatus.cbPesquisarSituacaoChange(Sender: TObject);
 begin
   inherited;
@@ -78,8 +80,7 @@ begin
         .getCampoTabela('SITUACAO_ORDEM')
         .popularComponenteComboBox(cbPesquisarSituacaoPersonalizado);
 
-
-
+  dllSoftMeter.sendEvent('relatorio OS por status', 'rel os status', 0);
 
 end;
 

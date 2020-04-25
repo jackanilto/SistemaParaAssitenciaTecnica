@@ -1,6 +1,5 @@
 inherited formRelatorioContasAReceberOS: TformRelatorioContasAReceberOS
   Caption = 'Relat'#243'rio de contas a receber - OS'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel
@@ -102,7 +101,6 @@ inherited formRelatorioContasAReceberOS: TformRelatorioContasAReceberOS
       OnClick = sbPesquisarDatasClick
     end
     inherited cbPesquisar: TComboBox
-      OnChange = cbPesquisarChange
       Items.Strings = (
         'Parcela'
         'OS'

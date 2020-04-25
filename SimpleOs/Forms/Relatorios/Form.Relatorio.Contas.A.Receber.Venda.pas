@@ -44,6 +44,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioContasAReceberVenda.DBGrid1DrawColumnCell(
   Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn;
   State: TGridDrawState);
@@ -110,6 +112,7 @@ procedure TformRelatorioContasAReceberVenda.FormCreate(Sender: TObject);
 begin
   inherited;
   FContasAReceberVenda := TEntityRelatorioContasAReceberVenda.new;
+  dllSoftMeter.sendEvent('relatorio de contas a receber venda', 'relatorio contas a receber venda', 0);
 end;
 
 procedure TformRelatorioContasAReceberVenda.FormShow(Sender: TObject);

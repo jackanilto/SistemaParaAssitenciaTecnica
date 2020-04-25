@@ -40,6 +40,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioReparosPorPeriodo.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -50,6 +52,7 @@ procedure TformRelatorioReparosPorPeriodo.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioReparos := TRelatorioReparosPeriodo.new;
+  dllSoftMeter.sendEvent('relatorio reparos por periodo', 'rel rep periodos', 0);
 end;
 
 procedure TformRelatorioReparosPorPeriodo.FormShow(Sender: TObject);

@@ -42,6 +42,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioOSInadimplentes.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -86,6 +88,7 @@ procedure TformRelatorioOSInadimplentes.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioInadimplentes := TRelatorioOSInadimplentes.new;
+  dllSoftMeter.sendEvent('relatorio OS inadimplentes', 'rel os inadimplentes', 0);
 end;
 
 procedure TformRelatorioOSInadimplentes.FormShow(Sender: TObject);

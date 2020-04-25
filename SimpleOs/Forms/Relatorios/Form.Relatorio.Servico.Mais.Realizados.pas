@@ -33,10 +33,13 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioServicosMaisRealizados.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioServicos := TRelatorioServicosMaisRealizados.new;
+  dllSoftMeter.sendEvent('relatorio de servicos mais realizados', 'rel serv mais real', 0);
 end;
 
 procedure TformRelatorioServicosMaisRealizados.FormShow(Sender: TObject);

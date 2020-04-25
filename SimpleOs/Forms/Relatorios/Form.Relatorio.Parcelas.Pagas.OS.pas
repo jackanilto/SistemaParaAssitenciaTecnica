@@ -48,6 +48,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioParcelasPagasOS.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -94,6 +96,7 @@ procedure TformRelatorioParcelasPagasOS.FormCreate(Sender: TObject);
 begin
   inherited;
   FParcelasPagas := TEntityRelatorioParcelasPagasOS.new;
+  dllSoftMeter.sendEvent('relatorio de parcelas pagas OS', 'rel parcelas pagas os', 0);
 end;
 
 procedure TformRelatorioParcelasPagasOS.FormShow(Sender: TObject);

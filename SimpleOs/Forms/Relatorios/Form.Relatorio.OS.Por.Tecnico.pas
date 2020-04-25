@@ -47,6 +47,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioOSPorTecnico.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -84,6 +86,7 @@ procedure TformRelatorioOSPorTecnico.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioOSTecnico := TRelatorioOSPorTecnico.new;
+  dllSoftMeter.sendEvent('relatorio OS por tecnico', 'rel os tecnico', 0);
 end;
 
 procedure TformRelatorioOSPorTecnico.FormShow(Sender: TObject);

@@ -45,6 +45,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioHistoricoDoCaixa.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
   var
@@ -76,6 +78,7 @@ procedure TformRelatorioHistoricoDoCaixa.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorio := TRelatrioHistoricoCaixa.new;
+  dllSoftMeter.sendEvent('relatorio historico caixa', 'rel historico caixa', 0);
 end;
 
 procedure TformRelatorioHistoricoDoCaixa.FormShow(Sender: TObject);

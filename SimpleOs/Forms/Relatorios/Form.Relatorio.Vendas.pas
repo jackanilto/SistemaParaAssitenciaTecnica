@@ -58,6 +58,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioVendas.DBGrid1CellClick(Column: TColumn);
 begin
   inherited;
@@ -126,6 +128,7 @@ procedure TformRelatorioVendas.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioVenda := TRelatorioVendas.new;
+  dllSoftMeter.sendEvent('relatorio vendas', 'rel vendas', 0);
 end;
 
 procedure TformRelatorioVendas.FormShow(Sender: TObject);

@@ -66,6 +66,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioOrdemDeServico.DBGrid1CellClick(Column: TColumn);
 begin
   inherited;
@@ -130,6 +132,7 @@ procedure TformRelatorioOrdemDeServico.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioOS := TRelatorioOS.new;
+  dllSoftMeter.sendEvent('relatorio OS', 'relatorio os', 0);
 end;
 
 procedure TformRelatorioOrdemDeServico.FormShow(Sender: TObject);

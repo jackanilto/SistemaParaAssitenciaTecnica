@@ -7758,3 +7758,8 @@ Problematic key value is ("ID" = 0)
 25/04/20 11:54:59 - Caption: Localizar produtos - Venda
 25/04/20 11:54:59 - Erro:Exception
 25/04/20 11:54:59 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.
+25/04/20 14:14:34 - ===========================================
+25/04/20 14:14:34 - Form: formPrincipal
+25/04/20 14:14:34 - Caption: SimpleOS
+25/04/20 14:14:34 - Erro:EAccessViolation
+25/04/20 14:14:34 - Erro:Access violation at address 00BD5527 in module 'SimplesOS.exe'. Read of address 00000004

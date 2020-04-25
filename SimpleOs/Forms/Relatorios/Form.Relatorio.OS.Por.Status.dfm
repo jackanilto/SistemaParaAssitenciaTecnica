@@ -1,6 +1,5 @@
 inherited formRelatorioOSPorStatus: TformRelatorioOSPorStatus
   Caption = 'Relat'#243'rio de OS por Situa'#231#227'o'
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel3: TPanel

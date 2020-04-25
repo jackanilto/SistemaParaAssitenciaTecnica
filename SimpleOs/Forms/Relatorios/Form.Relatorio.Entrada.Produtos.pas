@@ -41,6 +41,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioEntradasDeProdutos.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
   var
@@ -80,6 +82,7 @@ procedure TformRelatorioEntradasDeProdutos.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioEntradaProdutos := TRelatorioEntradaprodutos.new;
+  dllSoftMeter.sendEvent('relatorio de entradas de produtos', 'rel entrada produtos', 0);
 end;
 
 procedure TformRelatorioEntradasDeProdutos.FormShow(Sender: TObject);

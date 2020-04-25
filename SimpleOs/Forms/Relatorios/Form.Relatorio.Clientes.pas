@@ -44,6 +44,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioClientes.cbPesquisarChange(Sender: TObject);
 begin
   inherited;
@@ -92,6 +94,7 @@ procedure TformRelatorioClientes.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityRelatorioClientes := TEntityModeloRelatorio.new;
+  dllSoftMeter.sendEvent('relatorio dos clientes', 'relatorio clientes', 0);
 end;
 
 procedure TformRelatorioClientes.FormShow(Sender: TObject);

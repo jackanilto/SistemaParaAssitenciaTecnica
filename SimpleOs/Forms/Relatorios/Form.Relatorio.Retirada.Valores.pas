@@ -41,6 +41,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioRetiradaDeValores.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
   var
@@ -80,6 +82,7 @@ procedure TformRelatorioRetiradaDeValores.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorio := TRelatorioRetiradaValores.new;
+  dllSoftMeter.sendEvent('relatorio retirada de valores', 'rel retirada valores', 0);
 end;
 
 procedure TformRelatorioRetiradaDeValores.FormShow(Sender: TObject);

@@ -40,10 +40,13 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformComissoesTecnicos.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorio := TRelatorioComissoes.new;
+  dllSoftMeter.sendEvent('relatorio das comissoes', 'comissoes', 0);
 end;
 
 procedure TformComissoesTecnicos.FormShow(Sender: TObject);

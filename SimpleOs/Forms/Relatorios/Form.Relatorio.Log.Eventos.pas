@@ -41,6 +41,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioLogEventos.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -79,6 +81,7 @@ procedure TformRelatorioLogEventos.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioLog := TRelatorioLogEventos.new;
+  dllSoftMeter.sendEvent('relatorio log dos eventos', 'rel log eventos', 0);
 end;
 
 procedure TformRelatorioLogEventos.FormShow(Sender: TObject);

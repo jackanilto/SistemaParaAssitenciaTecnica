@@ -38,6 +38,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRelatorioVendasPorFuncionario.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
   var
@@ -69,6 +71,7 @@ procedure TformRelatorioVendasPorFuncionario.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioVendas := TRelatorioVendasPorFuncionarios.new;
+  dllSoftMeter.sendEvent('relatorio venda por funcionario', 'rel venda func', 0);
 end;
 
 procedure TformRelatorioVendasPorFuncionario.FormShow(Sender: TObject);

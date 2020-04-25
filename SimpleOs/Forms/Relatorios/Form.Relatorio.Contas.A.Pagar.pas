@@ -58,6 +58,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 
 procedure TformRelatorioContasAPagar.cbPesquisarDatasChange(Sender: TObject);
 begin
@@ -159,6 +161,7 @@ procedure TformRelatorioContasAPagar.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioContasAPagar := TRelatorioContasAPagar.new;
+  dllSoftMeter.sendEvent('relatroio de contas a pagar', 'relatorio contas a pagar', 0);
 end;
 
 procedure TformRelatorioContasAPagar.FormShow(Sender: TObject);

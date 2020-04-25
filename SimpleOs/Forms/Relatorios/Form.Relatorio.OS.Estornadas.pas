@@ -42,6 +42,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformOSEstornadas.DBGrid1TitleClick(Column: TColumn);
 begin
   inherited;
@@ -83,6 +85,7 @@ procedure TformOSEstornadas.FormCreate(Sender: TObject);
 begin
   inherited;
   FRelatorioEstornos := TRelatorioOSEstornadas.new;
+  dllSoftMeter.sendEvent('relatorio OS estornadas', 'rel os estornadas', 0);
 end;
 
 procedure TformOSEstornadas.FormShow(Sender: TObject);
