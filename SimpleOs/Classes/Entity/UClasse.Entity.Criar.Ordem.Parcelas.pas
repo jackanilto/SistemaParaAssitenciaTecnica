@@ -599,9 +599,9 @@ end;
 function TEntityGerarParcelas.getVALOR_PARCELA(value: Currency): iParcelaOrdem;
 begin
   result := self;
-  if value = 0 then
-    raise exception.create
-      ('informe um valor deferente de 0(Zero) para o valor da parcela.');
+//  if value = 0 then
+//    raise exception.create
+//      ('informe um valor deferente de 0(Zero) para o valor da parcela.');
   FVALOR_PARCELA := value;
 end;
 

@@ -7597,7 +7597,7 @@ object formSplash: TformSplash
     Top = 25
     Width = 77
     Height = 21
-    Caption = 'Alpha 0.8.9'
+    Caption = 'Alpha 0.9.0'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16
@@ -7625,6 +7625,5 @@ object formSplash: TformSplash
     Height = 16
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 0
-    ExplicitWidth = 750
   end
 end

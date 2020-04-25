@@ -1218,3 +1218,18 @@ At line 1, column 16
 24/04/20 15:45:23 - Caption: 
 24/04/20 15:45:23 - Erro:Exception
 24/04/20 15:45:23 - Erro:ERRO! Informe a situação da Ordem de Serviço
+25/04/20 14:37:17 - ===========================================
+25/04/20 14:37:17 - Form: formCriarConsultarOrdemServico
+25/04/20 14:37:17 - Caption: 
+25/04/20 14:37:17 - Erro:Exception
+25/04/20 14:37:17 - Erro:informe um valor deferente de 0(Zero) para o valor da parcela.
+25/04/20 14:38:51 - ===========================================
+25/04/20 14:38:51 - Form: formCriarConsultarOrdemServico
+25/04/20 14:38:51 - Caption: 
+25/04/20 14:38:51 - Erro:Exception
+25/04/20 14:38:51 - Erro:informe um valor deferente de 0(Zero) para o valor da parcela.
+25/04/20 14:43:02 - ===========================================
+25/04/20 14:43:02 - Form: formPrincipal
+25/04/20 14:43:02 - Caption: SimpleOS
+25/04/20 14:43:02 - Erro:EAccessViolation
+25/04/20 14:43:02 - Erro:Access violation at address 00C0598B in module 'SimplesOS.exe'. Read of address 00000004

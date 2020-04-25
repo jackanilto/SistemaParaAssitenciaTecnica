@@ -694,12 +694,12 @@ begin
                   .gravar;
 
   if estado = 'insert' then
-    FEntityServicosOrdem.gravarServicosAdicionadosInsert
-      (cds_tem_servicos_adicionados, FEntityCriarOrdem.setId)
+    FEntityServicosOrdem
+                      .gravarServicosAdicionadosInsert(cds_tem_servicos_adicionados, FEntityCriarOrdem.setId)
 
   else if estado = 'edit' then
-    FEntityServicosOrdem.gravarServicosAdicionadosEdit
-      (cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
+    FEntityServicosOrdem
+                      .gravarServicosAdicionadosEdit(cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
 
   if estado = 'insert' then
 
@@ -708,12 +708,13 @@ begin
       'Pergutna do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FEntityParcelasOrdem.getID_ORDEM(FEntityCriarOrdem.setId)
-        .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
-        .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
-        .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
-        .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
-        .gerarParcelas;
+      FEntityParcelasOrdem
+                        .getID_ORDEM(FEntityCriarOrdem.setId)
+                        .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
+                        .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
+                        .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
+                        .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
+                        .gerarParcelas;
 
 
     end;

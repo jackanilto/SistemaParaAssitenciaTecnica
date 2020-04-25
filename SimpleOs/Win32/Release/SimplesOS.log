@@ -7763,3 +7763,8 @@ Problematic key value is ("ID" = 0)
 25/04/20 14:14:34 - Caption: SimpleOS
 25/04/20 14:14:34 - Erro:EAccessViolation
 25/04/20 14:14:34 - Erro:Access violation at address 00BD5527 in module 'SimplesOS.exe'. Read of address 00000004
+25/04/20 14:43:39 - ===========================================
+25/04/20 14:43:39 - Form: formPrincipal
+25/04/20 14:43:39 - Caption: SimpleOS
+25/04/20 14:43:39 - Erro:EAccessViolation
+25/04/20 14:43:39 - Erro:Access violation at address 00BD5583 in module 'SimplesOS.exe'. Read of address 00000004
