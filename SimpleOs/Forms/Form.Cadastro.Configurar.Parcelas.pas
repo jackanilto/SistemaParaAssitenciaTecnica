@@ -43,6 +43,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformConfigurarParcelas.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -78,6 +80,7 @@ procedure TformConfigurarParcelas.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityConfigurarParcelas := TEntityConfigurarParcelas.new;
+  dllSoftMeter.sendEvent('confiurar parcelas', 'confir parcelas', 0);
 end;
 
 procedure TformConfigurarParcelas.FormShow(Sender: TObject);

@@ -51,6 +51,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformConfiguracoesBackUp.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -89,6 +91,7 @@ end;
 procedure TformConfiguracoesBackUp.FormCreate(Sender: TObject);
 begin
   FConfigBackup := TClasseConfigBackUp.create;
+  dllSoftMeter.sendEvent('configuracoes de backup', 'config backup', 0);
 end;
 
 procedure TformConfiguracoesBackUp.FormShow(Sender: TObject);

@@ -202,7 +202,8 @@ uses
   UClasse.Config.Imagem.Logo in 'Classes\Entity\Config\UClasse.Config.Imagem.Logo.pas',
   UClasse.Relatorio.Logs.Eventos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Logs.Eventos.pas',
   Form.Relatorio.Log.Eventos in 'Forms\Relatorios\Form.Relatorio.Log.Eventos.pas' {formRelatorioLogEventos},
-  Form.Splash in 'Forms\Form.Splash.pas' {formSplash};
+  Form.Splash in 'Forms\Form.Splash.pas' {formSplash},
+  softMeter_globalVar in 'softMeter_globalVar.pas';
 
 {$R *.res}
 
@@ -216,7 +217,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-
   FormSplash.Free;
   formSplash.Hide;
 

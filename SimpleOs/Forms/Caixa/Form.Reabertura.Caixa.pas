@@ -48,7 +48,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Principal;
+uses Form.Principal, softMeter_globalVar;
 
 procedure TformReaberturaDeCaixa.calcularValorReabertura;
 var
@@ -79,6 +79,8 @@ end;
 procedure TformReaberturaDeCaixa.FormCreate(Sender: TObject);
 begin
   FCaixa := TEntityCaixa.create;
+  dllSoftMeter.sendEvent('reabertura do caixa', 'reabertura caixa', 0);
+  ReportMemoryLeaksOnShutdown := true;
 end;
 
 procedure TformReaberturaDeCaixa.FormShow(Sender: TObject);

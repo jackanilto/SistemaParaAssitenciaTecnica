@@ -43,6 +43,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformCadastroMarcas.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -93,6 +95,7 @@ procedure TformCadastroMarcas.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityMarcas := TEntityMarcas.new;
+  dllSoftMeter.sendEvent('cadastros de marcas', 'Marcas', 0);
 end;
 
 procedure TformCadastroMarcas.FormShow(Sender: TObject);

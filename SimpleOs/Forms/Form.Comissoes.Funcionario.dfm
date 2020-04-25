@@ -71,7 +71,6 @@ inherited formComissoesFuncionarios: TformComissoesFuncionarios
     ExplicitHeight = 212
     inherited cardPanelCadatro: TCard
       Height = 212
-      ExplicitTop = 6
       ExplicitHeight = 212
       object Label1: TLabel
         Left = 14

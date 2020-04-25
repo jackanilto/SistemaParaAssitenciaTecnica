@@ -128,7 +128,7 @@ var
 implementation
 
 uses
-  UClasse.Entity.Dados.Empresa;
+  UClasse.Entity.Dados.Empresa, softMeter_globalVar;
 
 {$R *.dfm}
 
@@ -288,6 +288,8 @@ begin
   FVisualizarDadosEmpresa.abrir.listarGrid(s_DadosEmpresa);
 
   FAtivarDesativarBotoes := TClasseBotoesQuitarParcelas.create;
+
+  dllSoftMeter.sendEvent('quitar parcelas das vendas', 'parcela venda', 0);
 
   ReportMemoryLeaksOnShutdown := true;
 

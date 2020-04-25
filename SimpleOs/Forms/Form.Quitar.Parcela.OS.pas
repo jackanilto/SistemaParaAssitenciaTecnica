@@ -135,6 +135,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformQuitarParcelaOS.cbPesquisarChange(Sender: TObject);
 begin
   edtPesquisar.SetFocus;
@@ -347,6 +349,8 @@ begin
   FEntityVisualizarEmpresa := TEntityCadastroDadosEmpresa.new;
   FEntityVisualizarJuros := TEntityConfigurarParcelas.new;
 //  FEntityImprimirRecibo := TEntityPrepararRecibo.new;
+
+  dllSoftMeter.sendEvent('quitar parcelas das OS', 'Quitar os', 0);
 
 end;
 

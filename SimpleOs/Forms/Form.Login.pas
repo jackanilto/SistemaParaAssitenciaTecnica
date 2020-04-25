@@ -41,7 +41,7 @@ var
 implementation
 
 uses
-  Form.Principal, UFactory.Query;
+  Form.Principal, UFactory.Query, softMeter_globalVar;
 
 {$R *.dfm}
 
@@ -73,6 +73,7 @@ procedure TformLogin.FormCreate(Sender: TObject);
 begin
   FLogin := TRealizarLogin.new;
   Application.OnMessage := AppMessage;
+  dllSoftMeter.sendEvent('login no sistema', 'login', 0);
 end;
 
 procedure TformLogin.sbConfiguracoesClick(Sender: TObject);

@@ -118,6 +118,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformVendas.edtLocalizarCPFExit(Sender: TObject);
 begin
 
@@ -281,6 +283,8 @@ begin
 
   CodigoCliente := 0;
   NomeCliente := 'Cliente não informado';
+
+  dllSoftMeter.sendEvent('vendas de produtos', 'venda', 0);
 
 end;
 

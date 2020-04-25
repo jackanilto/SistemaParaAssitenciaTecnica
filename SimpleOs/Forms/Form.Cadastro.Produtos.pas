@@ -107,7 +107,8 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Localizar.grupo, Form.Localizar.marca, UCalculadora;
+uses Form.Localizar.grupo, Form.Localizar.marca, UCalculadora,
+  softMeter_globalVar;
 
 procedure TformCadastroProdutos.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -221,6 +222,7 @@ begin
   inherited;
   FEntityProdutos := TEntityProdutos.new;
   imagem := TJPEGImage.Create;
+  dllSoftMeter.sendEvent('cadastros de produtos', 'produtos', 0);
 end;
 
 procedure TformCadastroProdutos.FormShow(Sender: TObject);

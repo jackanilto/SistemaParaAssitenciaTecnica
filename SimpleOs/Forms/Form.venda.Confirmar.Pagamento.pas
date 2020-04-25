@@ -99,7 +99,7 @@ var
 
 implementation
 
-uses Form.venda;
+uses Form.venda, softMeter_globalVar;
 
 {$R *.dfm}
 
@@ -284,16 +284,26 @@ end;
 
 procedure TFormVendaConfirmarPagamento.FormCreate(Sender: TObject);
 begin
-  TFactory.new.ftTable.FD_Table('FORMAS_PAGAMENTO')
-    .getCampoTabela('FORMA_PAGAMENTO').popularComponenteComboBox
-    (edtConfirmarFormaPagamento);
 
-  TFactory.new.ftTable.FD_Table('NUMERO_PARCELAS')
-    .getCampoTabela('NUM_PARCELAS').popularComponenteComboBox(edtParcelado);
+  TFactory.new
+            .ftTable
+            .FD_Table('FORMAS_PAGAMENTO')
+            .getCampoTabela('FORMA_PAGAMENTO')
+            .popularComponenteComboBox(edtConfirmarFormaPagamento);
+
+  TFactory.new
+            .ftTable
+            .FD_Table('NUMERO_PARCELAS')
+            .getCampoTabela('NUM_PARCELAS')
+            .popularComponenteComboBox(edtParcelado);
 
   FImprimirRecibo := TImprimirRecibo.new;
   FVisualizarDadosEmpresa := TEntityCadastroDadosEmpresa.new;
   FImprimirParcelas := TImprimirParcelasVenda.new;
+
+  dllSoftMeter.sendEvent('confirmar venda', 'finalziar venda', 0);
+
+  ReportMemoryLeaksOnShutdown := true;
 
 end;
 

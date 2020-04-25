@@ -67,6 +67,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformSaidaDeProdutos.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -159,6 +161,7 @@ procedure TformSaidaDeProdutos.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntitySaida := TEntitySaidasProdutos.new;
+  dllSoftMeter.sendEvent('saidas de produtos', 'saidas produtos', 0);
 end;
 
 procedure TformSaidaDeProdutos.FormShow(Sender: TObject);

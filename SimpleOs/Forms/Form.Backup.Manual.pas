@@ -46,6 +46,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformBackUpManual.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -55,6 +57,7 @@ end;
 procedure TformBackUpManual.FormCreate(Sender: TObject);
 begin
   FBackup := TClasseConfigBackUp.create;
+  dllSoftMeter.sendEvent('backup manual do sistema', 'backup manual', 0);
 end;
 
 procedure TformBackUpManual.FormShow(Sender: TObject);

@@ -128,7 +128,7 @@ implementation
 {$R *.dfm}
 
 uses Form.Cadastro.Atividade.Funcionario, Form.Localizar.Atividade.Funcionario,
-  Form.Comissoes.Funcionario;
+  Form.Comissoes.Funcionario, softMeter_globalVar;
 
 procedure TformCadastroDeFuncionarios.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
@@ -280,6 +280,7 @@ begin
   inherited;
   FEntityFuncionario := TEntityCadastroFuncionario.new;
   FEntityTableUF := TEntityTable.new;
+  dllSoftMeter.sendEvent('cadastros de funcionarios', 'funcionarios', 0);
 end;
 
 procedure TformCadastroDeFuncionarios.FormShow(Sender: TObject);

@@ -47,7 +47,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Principal;
+uses Form.Principal, softMeter_globalVar;
 
 procedure TformConfigurarConexaoBanco.Button1Click(Sender: TObject);
 begin
@@ -74,6 +74,7 @@ end;
 procedure TformConfigurarConexaoBanco.FormCreate(Sender: TObject);
 begin
   FConfConexao := TConfigConexaoBanco.create;
+  dllSoftMeter.sendEvent('Acesso as configuracoes de conexao do bd', 'conexao config', 0);
 end;
 
 procedure TformConfigurarConexaoBanco.FormShow(Sender: TObject);

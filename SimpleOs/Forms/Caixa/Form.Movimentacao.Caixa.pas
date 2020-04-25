@@ -77,6 +77,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformMovimentacaoCaixa.calcularValores;
 var
   os:Currency;
@@ -114,6 +116,8 @@ begin
   FMovimentacaoRetiradas := TRelatorioMovimentacaoRetiradas.new;
   FMovimentacaoContas := TRelatorioMovimentacaoContas.new;
   FMovimentacaoCaixa := TRelatorioMovimentacaoCaixa.new;
+  dllSoftMeter.sendEvent('movimentacao do caixa', 'movimentacao caixa', 0);
+  ReportMemoryLeaksOnShutdown := true;
 end;
 
 procedure TformMovimentacaoCaixa.FormShow(Sender: TObject);

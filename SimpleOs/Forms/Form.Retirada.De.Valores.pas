@@ -62,6 +62,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformRetiradaDeValores.cbMotivoRetiradaChange(Sender: TObject);
 begin
   inherited;
@@ -149,6 +151,7 @@ procedure TformRetiradaDeValores.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityRetirada := TEntityRetiradaValores.new;
+  dllSoftMeter.sendEvent('retiradas de valores do caixa', 'retirada valores', 0);
 end;
 
 procedure TformRetiradaDeValores.FormShow(Sender: TObject);

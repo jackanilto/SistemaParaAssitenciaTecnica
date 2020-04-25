@@ -2,7 +2,6 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
   Caption = 'Problemas frequentes'
   ClientHeight = 596
   ClientWidth = 980
-  ExplicitTop = -42
   ExplicitWidth = 980
   ExplicitHeight = 596
   PixelsPerInch = 96

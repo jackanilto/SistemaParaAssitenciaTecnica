@@ -43,6 +43,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformFormaPagamento.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -98,6 +100,7 @@ procedure TformFormaPagamento.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityFormaPagamento := TEntityFormaPagamento.new;
+  dllSoftMeter.sendEvent('cadastros formas de pagamento', 'formas de pagamento', 0);
 end;
 
 procedure TformFormaPagamento.FormShow(Sender: TObject);

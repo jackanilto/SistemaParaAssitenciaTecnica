@@ -45,7 +45,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Cadastro.Funcionarios;
+uses Form.Cadastro.Funcionarios, softMeter_globalVar;
 
 procedure TformComissoesFuncionarios.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -82,6 +82,7 @@ procedure TformComissoesFuncionarios.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityComissoes := TEntityComissoesFuncionarios.new;
+  dllSoftMeter.sendEvent('config comissoes funcionarios', 'comissoes', 0);
 end;
 
 procedure TformComissoesFuncionarios.FormShow(Sender: TObject);

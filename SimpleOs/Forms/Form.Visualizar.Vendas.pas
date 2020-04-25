@@ -98,7 +98,7 @@ var
 implementation
 
 uses
-  UClasse.Imprimir.Parcelas;
+  UClasse.Imprimir.Parcelas, softMeter_globalVar;
 
 {$R *.dfm}
 
@@ -176,10 +176,12 @@ procedure TformVisualizarVendas.FormCreate(Sender: TObject);
 begin
   FEntityVisualizaVenda := TEntityVisuzaliarVendas.new;
   FImprimirRecibo := TImprimirRecibo.new;
+  dllSoftMeter.sendEvent('visualizar vendas', 'visualizar vendas', 0);
 end;
 
 procedure TformVisualizarVendas.FormShow(Sender: TObject);
 begin
+
   FEntityVisualizaVenda.abrir.getCampo('ID').getValor('0').sqlPesquisa.listarGrid(DataSource_Vendas);
   FEntityVisualizaVenda.selecionarItens(0).listarGridItens(DataSource_Itens);
 
@@ -187,15 +189,18 @@ begin
   FImprimirParcelas := TImprimirParcelasVenda.new;
   FVisualizarDadosEmpresa.abrir.listarGrid(s_DadosEmpresa);
 
+  ReportMemoryLeaksOnShutdown := true;
+
 end;
 
 procedure TformVisualizarVendas.Imprimircomprovantedavenda1Click
   (Sender: TObject);
 begin
-  FImprimirRecibo.selecionarVenda(DataSource_Vendas.DataSet.FieldByName('ID')
-    .AsInteger).retornarDataSet(s_ImprimirRecibo)
-    .selecionarItens(DataSource_Vendas.DataSet.FieldByName('ID').AsInteger)
-    .retornarDataSetItens(s_ImprimirReciboItens);
+  FImprimirRecibo
+                .selecionarVenda(DataSource_Vendas.DataSet.FieldByName('ID').AsInteger)
+                .retornarDataSet(s_ImprimirRecibo)
+                .selecionarItens(DataSource_Vendas.DataSet.FieldByName('ID').AsInteger)
+                .retornarDataSetItens(s_ImprimirReciboItens);
 
   frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/comprovante_pagamento_venda.fr3');

@@ -42,6 +42,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformCadastroGrupos.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -93,6 +95,7 @@ begin
   inherited;
 
   FEntityGrupos := TEntityGrupos.new;
+  dllSoftMeter.sendEvent('cadastros de grupos', 'grupos', 0);
 
 end;
 

@@ -85,7 +85,7 @@ var
 implementation
 
 uses
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, softMeter_globalVar;
 
 {$R *.dfm}
 
@@ -201,6 +201,7 @@ begin
   inherited;
   FEntityForncedores := TEntityCadastroFornecedores.new;
   FEntityTableUF := TEntityTable.new;
+  dllSoftMeter.sendEvent('cadastros de fornecedores', 'fornecedores', 0);
 end;
 
 procedure TformCadastroFornecedores.FormShow(Sender: TObject);

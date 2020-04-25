@@ -86,6 +86,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformCadastroTransportadora.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
   i: integer;
@@ -201,6 +203,7 @@ begin
   inherited;
   FEntityTranspostadora := TEntityCadastroTransportadora.new;
   FEntityTableUF := TEntityTable.new;
+  dllSoftMeter.sendEvent('cadastros de transportadores', 'transportadora', 0);
 end;
 
 procedure TformCadastroTransportadora.FormShow(Sender: TObject);

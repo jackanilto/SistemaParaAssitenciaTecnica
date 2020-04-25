@@ -70,7 +70,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Localizar.Produtos.Entrada;
+uses Form.Localizar.Produtos.Entrada, softMeter_globalVar;
 
 procedure TformEntradaDeProdutos.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -186,6 +186,7 @@ procedure TformEntradaDeProdutos.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityEntradas := TEntityEntradasProdutos.new;
+  dllSoftMeter.sendEvent('entradas de produtos', 'entrada', 0);
 end;
 
 procedure TformEntradaDeProdutos.FormShow(Sender: TObject);

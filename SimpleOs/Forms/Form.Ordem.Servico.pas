@@ -73,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Cadastro.Clientes, Form.Criar.Ordem.Servico;
+uses Form.Cadastro.Clientes, Form.Criar.Ordem.Servico, softMeter_globalVar;
 
 procedure TformOrdemServico.cbPesquisarChange(Sender: TObject);
 begin
@@ -150,8 +150,11 @@ end;
 
 procedure TformOrdemServico.FormCreate(Sender: TObject);
 begin
+
   FEntityOrdensServico := TEntityListarOrdensServico.new;
+  dllSoftMeter.sendEvent('visualizar ordem de servico', 'Ordem de servico', 0);
   ReportMemoryLeaksOnShutdown := true;
+
 end;
 
 procedure TformOrdemServico.FormShow(Sender: TObject);

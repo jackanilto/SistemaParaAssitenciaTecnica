@@ -19,7 +19,7 @@ uses
   Form.Comissoes.Funcionario, Form.Relatorio.Comissoes, UClasse.Config.BackUp,
   UClasse.Config.Acesso.Banco, Form.Relatorio.Problemas.Frequentes,
   Form.Relatorio.Historico.Caixa, Form.Trocar.Usuario, UClasse.Config.Imagem.Logo,
-  Vcl.ExtDlgs, Vcl.Imaging.jpeg;
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar;
 
 type
   TformPrincipal = class(TForm)
@@ -897,6 +897,9 @@ end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
+
+  dllSoftMeter.sendScreenView('SimplesOS Alphi 0.8.9');
+  dllSoftMeter.sendEvent('Iniciou a aplicação', 'SimpleOS',  0);
 
   codigoDaOS := 0;
   codigoDocliente := 0;

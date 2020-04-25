@@ -77,6 +77,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformCadastroContasAPagar.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -181,6 +183,7 @@ procedure TformCadastroContasAPagar.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityContaPagar := TEntityContasAPagar.new;
+  dllSoftMeter.sendEvent('cadastro de contas a pagar', 'contas a pagar', 0);
 end;
 
 procedure TformCadastroContasAPagar.FormShow(Sender: TObject);

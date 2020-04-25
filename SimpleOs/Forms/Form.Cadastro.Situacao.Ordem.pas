@@ -40,6 +40,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformCadastroSituacoesOrdem.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -75,6 +77,7 @@ procedure TformCadastroSituacoesOrdem.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityCadastroSituacaoOrdem := TEntityCadastroSituacoesOrdem.new;
+  dllSoftMeter.sendEvent('cadastros de Situacao OS', 'cadastro sistuacao OS', 0);
 end;
 
 procedure TformCadastroSituacoesOrdem.FormShow(Sender: TObject);

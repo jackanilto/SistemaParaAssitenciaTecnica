@@ -78,6 +78,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformCadastroEmpresa.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
   i: integer;
@@ -163,6 +165,7 @@ procedure TformCadastroEmpresa.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityEmpresa := TEntityCadastroDadosEmpresa.new;
+  dllSoftMeter.sendEvent('Dados da empresa', 'empresa', 0);
 end;
 
 procedure TformCadastroEmpresa.FormShow(Sender: TObject);

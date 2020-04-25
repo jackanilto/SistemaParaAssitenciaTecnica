@@ -258,7 +258,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Localizar.Tecnico.Ordem, UClasse.Entity.Table;
+uses Form.Localizar.Tecnico.Ordem, UClasse.Entity.Table, softMeter_globalVar;
 
 procedure TformCriarConsultarOrdemServico.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -471,6 +471,8 @@ begin
     botaoImprimirParcelas(sbImprimirParcelas);
 
   end;
+
+  dllSoftMeter.sendEvent('processo para criacao de uma OS', 'criar os', 0);
 
   ReportMemoryLeaksOnShutdown := true;
 

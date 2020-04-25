@@ -43,6 +43,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformTipoRetiradas.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -93,6 +95,7 @@ procedure TformTipoRetiradas.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityTipoRetiradas := TEntityTipoPagamento.new;
+  dllSoftMeter.sendEvent('cadastros de tipos de retiradas', 'tipo retiradas', 0);
 end;
 
 procedure TformTipoRetiradas.FormShow(Sender: TObject);

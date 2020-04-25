@@ -176,7 +176,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Cadastro.Funcionarios;
+uses Form.Cadastro.Funcionarios, softMeter_globalVar;
 
 procedure TformConfigurarAcessoFuncionario.atribuirValores(value: string);
 var
@@ -307,6 +307,7 @@ procedure TformConfigurarAcessoFuncionario.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityAcesso := TEntityConfigAcessoFuncionario.new;
+  dllSoftMeter.sendEvent('Config acesso recursos funcionarios', 'config acesso recursos funcionarios', 0);
 end;
 
 procedure TformConfigurarAcessoFuncionario.FormShow(Sender: TObject);

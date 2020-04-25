@@ -135,7 +135,6 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
     ParentBackground = False
     ParentFont = False
     TabOrder = 1
-    ExplicitTop = 450
     object Label1: TLabel
       Left = 320
       Top = 17
@@ -402,6 +401,10 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
     TabOrder = 2
     object tsParcelasOS: TTabSheet
       Caption = 'OS'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
@@ -429,6 +432,10 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
     object tsVenda: TTabSheet
       Caption = 'Vendas'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object DBGrid2: TDBGrid
         Left = 0
         Top = 0
@@ -456,6 +463,10 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
     object tsRetiradas: TTabSheet
       Caption = 'Retiradas'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object DBGrid3: TDBGrid
         Left = 0
         Top = 0
@@ -485,6 +496,8 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
       ImageIndex = 3
       ExplicitLeft = 0
       ExplicitTop = 26
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object DBGrid4: TDBGrid
         Left = 0
         Top = 0

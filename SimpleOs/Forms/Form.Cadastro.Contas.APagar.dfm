@@ -137,7 +137,6 @@ inherited formCadastroContasAPagar: TformCadastroContasAPagar
     inherited cardPanelCadatro: TCard
       Width = 1008
       Height = 327
-      ExplicitTop = 1
       ExplicitWidth = 1008
       ExplicitHeight = 327
       object Label1: TLabel

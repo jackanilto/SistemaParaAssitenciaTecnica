@@ -38,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Principal, UDados.Conexao;
+uses Form.Principal, UDados.Conexao, softMeter_globalVar;
 
 procedure TformTrocarDeUsuario.edtSenhaKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
@@ -57,6 +57,7 @@ end;
 procedure TformTrocarDeUsuario.FormCreate(Sender: TObject);
 begin
   FLogin := TRealizarLogin.new;
+  dllSoftMeter.sendEvent('form trocar de usuario', 'trocar usuario', 0);
 end;
 
 procedure TformTrocarDeUsuario.sbEntrarClick(Sender: TObject);

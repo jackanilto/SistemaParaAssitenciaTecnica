@@ -103,7 +103,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Localizar.Clientes.Ordem, Form.Principal;
+uses Form.Localizar.Clientes.Ordem, Form.Principal, softMeter_globalVar;
 
 procedure TformCadastroDeClientes.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
@@ -262,6 +262,9 @@ begin
   FEntityClientes := TEntityCadastroClientes.new;
   FEntityTableUF := TEntityTable.new;
   imagem := TJPEGImage.Create;
+
+  dllSoftMeter.sendEvent('cadastros de clientes', 'clientes', 0);
+
 end;
 
 procedure TformCadastroDeClientes.FormShow(Sender: TObject);

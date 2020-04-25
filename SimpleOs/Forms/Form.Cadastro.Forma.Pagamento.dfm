@@ -8,8 +8,10 @@ inherited formFormaPagamento: TformFormaPagamento
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 872
+    ExplicitWidth = 872
     inherited sbFechar: TSpeedButton
       Left = 820
+      ExplicitLeft = 820
     end
     inherited lblCaption: TLabel
       Left = 150
@@ -21,30 +23,39 @@ inherited formFormaPagamento: TformFormaPagamento
   end
   inherited Panel2: TPanel
     Width = 872
+    ExplicitWidth = 872
   end
   inherited Panel3: TPanel
     Top = 333
     Width = 872
+    ExplicitTop = 333
+    ExplicitWidth = 872
     inherited Label4: TLabel
       Left = 538
+      ExplicitLeft = 538
     end
     inherited Label5: TLabel
       Left = 673
+      ExplicitLeft = 673
     end
     inherited cbPesquisar: TComboBox
       Left = 538
       Items.Strings = (
         'C'#243'digo'
         'Forma pagamento')
+      ExplicitLeft = 538
     end
     inherited edtPesquisar: TEdit
       Left = 673
       OnKeyUp = edtPesquisarKeyUp
+      ExplicitLeft = 673
     end
   end
   inherited CardPanel1: TCardPanel
     Width = 872
     Height = 252
+    ExplicitWidth = 872
+    ExplicitHeight = 252
     inherited cardPanelCadatro: TCard
       Width = 872
       Height = 252
@@ -109,16 +120,22 @@ inherited formFormaPagamento: TformFormaPagamento
     inherited cardPanelConsulta: TCard
       Width = 872
       Height = 252
+      ExplicitWidth = 872
+      ExplicitHeight = 252
       inherited Panel4: TPanel
         Top = 207
         Width = 872
+        ExplicitTop = 207
+        ExplicitWidth = 872
         inherited sbImprimir: TSpeedButton
           Left = 597
           Visible = False
+          ExplicitLeft = 597
         end
         inherited sbExportar: TSpeedButton
           Left = 708
           Visible = False
+          ExplicitLeft = 708
         end
       end
       inherited DBGrid1: TDBGrid

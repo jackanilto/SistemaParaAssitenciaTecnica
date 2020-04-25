@@ -64,6 +64,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformCadastroProblemasFrequentes.DataSource1DataChange
   (Sender: TObject; Field: TField);
 begin
@@ -149,6 +151,7 @@ procedure TformCadastroProblemasFrequentes.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityProblemasFrequentes := TEntityProblemasFrequentes.new;
+  dllSoftMeter.sendEvent('cadastros de problemas frequentes', 'problemas frequentes', 0);
 end;
 
 procedure TformCadastroProblemasFrequentes.FormShow(Sender: TObject);

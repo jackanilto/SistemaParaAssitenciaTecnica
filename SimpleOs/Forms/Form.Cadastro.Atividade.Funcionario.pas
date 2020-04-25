@@ -41,6 +41,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformAtividadeFuncionario.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -74,6 +76,7 @@ procedure TformAtividadeFuncionario.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityAtivade := TEntityAtividadeFuncionario.new;
+  dllSoftMeter.sendEvent('cadastros ativiades funcionarios', 'cadastro atividades', 0);
 end;
 
 procedure TformAtividadeFuncionario.FormShow(Sender: TObject);

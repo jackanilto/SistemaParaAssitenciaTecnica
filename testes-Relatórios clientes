@@ -1,33 +1,4 @@
-
-###Ao iniciar a aplicação, a variavel  para receber o status da caixa para não estar funcionando
-###Ordem de Serviços -> Ao clicar sobre o botão gravar o foco da janela deve ir para a aba Serviços e Faturamento.
-						Ao passar pelo campo total de parcelas as parcelas devem ser calculadas com 
-							juros como no botão calcular
-
-				   
-###Quitar parcelas venda -> Ao selecionar uma parcela para pagamento o campo Data de pagamento de selecionar a data atual. -> OK
-###Quitar parcelas OS -> Ao selecionar uma parcela para pagamento o campo Data de pagamento de selecionar a data atual. -> OK
-###Relatório OS -> O titulo na tabela de Serviços realizados esta com escrito errado. -> OK
-
-###Criação de OS não deve ser permitida se o caixa não estiver aberto. -> OK
-###Vendas de produtos não devem ser permitida se o caixa não estive aberto. -> OK
-###Quitar parcela OS não deve ser permitido se o caixa não estiver aberto. -> OK
-###Quitar parcela Venda não deve ser permitida se o caixa não estiver aberto. -> OK
-###Visualizar venda também não deve ser aberto se o caixa não for iniciado. -> OK
-###Retirada de valores so deve ser permitida se o caixa estiver iniciado. -> OK
-				   
-
-//******Caixa******///
-
-#Encerramento de caixa -> O campo Parcelas Estornadas (OS) deve ter a label alterada para valores das OS estornadas -> OK
-						  O campo Parcelas Estornadas (Vendas) deve ter a label alterada para valores das Vendas estornadas -> OK	
-#Reabertura de caixa
-#Retirada de valores
-#Comissões dos técnicos
-
-
-#Movimentação do caixa
-
-##Abertura de caixa não deve incluir os valores estornados. -> OK
+###Criar OS -> Resolver o problema ao gerar as parcelas da os quando o valor da parcela for zero.
+			   Corrigir a mensagem que é apresentada.	
 
 

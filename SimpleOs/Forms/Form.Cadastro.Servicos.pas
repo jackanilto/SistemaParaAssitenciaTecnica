@@ -54,6 +54,8 @@ implementation
 
 {$R *.dfm}
 
+uses softMeter_globalVar;
+
 procedure TformCadastroDeServicos.DataSource1DataChange(Sender: TObject;
   Field: TField);
 begin
@@ -119,6 +121,7 @@ procedure TformCadastroDeServicos.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityCadastroServico := TEntityCadastroServicos.new;
+  dllSoftMeter.sendEvent('cadastros de servicos', 'cadastro servicos', 0);
 end;
 
 procedure TformCadastroDeServicos.FormShow(Sender: TObject);

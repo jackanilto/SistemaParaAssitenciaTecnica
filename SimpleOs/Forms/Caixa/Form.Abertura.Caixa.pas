@@ -45,6 +45,7 @@ type
     procedure sbIniciarCaixaClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
   private
     procedure CalcularValoresDosCaixas;
     procedure caixaNaoIniciado;
@@ -58,7 +59,7 @@ var
 
 implementation
 
-uses Form.Principal;
+uses Form.Principal, softMeter_globalVar;
 
 {$R *.dfm}
 
@@ -82,6 +83,11 @@ begin
 
   end;
 
+end;
+
+procedure TformIniciarCaixa.FormCreate(Sender: TObject);
+begin
+  dllSoftMeter.sendEvent('abertura do caixa inicial', 'abertura caixa', 0);
 end;
 
 procedure TformIniciarCaixa.FormKeyDown(Sender: TObject; var Key: Word;

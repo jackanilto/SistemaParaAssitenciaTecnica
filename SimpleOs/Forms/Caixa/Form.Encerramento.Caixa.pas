@@ -61,7 +61,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Principal;
+uses Form.Principal, softMeter_globalVar;
 
 procedure TformEncerramentoCaixa.FormClose(Sender: TObject;
   var Action: TCloseAction);
@@ -72,6 +72,7 @@ end;
 procedure TformEncerramentoCaixa.FormCreate(Sender: TObject);
 begin
   FCaixa := TEntityCaixa.create;
+  dllSoftMeter.sendEvent('encerramento do caixa', 'encerramento caixa', 0);
   ReportMemoryLeaksOnShutdown := true;
 end;
 
