@@ -80,6 +80,7 @@ procedure TformEncerramentoCaixa.FormShow(Sender: TObject);
 begin
 
   FCaixa.infomarUltimaData(date);
+
   calcularValorCaixaEncerramento;
 
 end;

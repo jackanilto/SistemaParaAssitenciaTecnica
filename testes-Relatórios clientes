@@ -1,7 +1,8 @@
-###Criar OS -> Resolver o problema ao gerar as parcelas da os quando o valor da parcela for zero.
-			   Corrigir a mensagem que é apresentada.	
 
-###**Testar o processo de estornor da OS, ver se os dados estão sendo gravadsa no banco de dados
+
+###Ao iniciar o form capturar o status atual do caixa -> OK
+###Venda de produtos não deve abrir se o caixa estiver fechado -> OK
+###Criar procedimento para abertura do caixa -> OK
 
   
 

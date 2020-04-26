@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.Mask, Data.DB;
+  Vcl.Mask, Data.DB, RxToolEdit, RxCurrEdit;
 
 type
   TformIniciarCaixa = class(TForm)
@@ -30,13 +30,13 @@ type
     edtDataAbertura: TMaskEdit;
     edtHorarioAbertura: TMaskEdit;
     edtValorAnterior: TEdit;
-    edtValorInformado: TEdit;
     edtFuncionario: TEdit;
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
+    edtValorInformado: TCurrencyEdit;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -137,6 +137,19 @@ begin
 
 
   end
+  else if FProcessoCaixa.verificarSituacaoCaixa = 'fechado' then
+  begin
+
+    caixaNaoIniciado;
+
+    FProcessoCaixa.obertUltimoValorDoCaixaFechado(DataSource1);
+    edtDataAbertura.Text := DateToStr(Date);
+    edtHorarioAbertura.Text := TimeToStr(Time);
+    edtValorAnterior.Text := FormatFloat('R$ #,##0.00', DataSource1.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
+    edtValorInformado.Text := CurrToStr(DataSource1.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
+    edtFuncionario.Text := FProcessoCaixa.retornarNomeFuncionario;
+
+  end;
 
 
 end;

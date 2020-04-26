@@ -203,7 +203,8 @@ uses
   UClasse.Relatorio.Logs.Eventos in 'Classes\Entity\Relatorios\UClasse.Relatorio.Logs.Eventos.pas',
   Form.Relatorio.Log.Eventos in 'Forms\Relatorios\Form.Relatorio.Log.Eventos.pas' {formRelatorioLogEventos},
   Form.Splash in 'Forms\Form.Splash.pas' {formSplash},
-  softMeter_globalVar in 'softMeter_globalVar.pas';
+  softMeter_globalVar in 'softMeter_globalVar.pas',
+  Form.Abertura.Caixa.Manual in 'Forms\Caixa\Form.Abertura.Caixa.Manual.pas' {formAberturaDeCaixaManual};
 
 {$R *.res}
 

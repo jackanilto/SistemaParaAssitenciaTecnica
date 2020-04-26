@@ -199,20 +199,21 @@ object formIniciarCaixa: TformIniciarCaixa
       ReadOnly = True
       TabOrder = 2
     end
-    object edtValorInformado: TEdit
-      Left = 410
-      Top = 64
-      Width = 133
-      Height = 25
-      TabOrder = 3
-    end
     object edtFuncionario: TEdit
       Left = 549
       Top = 64
       Width = 236
       Height = 25
       ReadOnly = True
+      TabOrder = 3
+    end
+    object edtValorInformado: TCurrencyEdit
+      Left = 410
+      Top = 64
+      Width = 121
+      Height = 25
       TabOrder = 4
+      ZeroEmpty = False
     end
   end
   object GroupBox2: TGroupBox

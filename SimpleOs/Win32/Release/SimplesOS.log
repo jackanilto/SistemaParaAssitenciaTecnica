@@ -7768,3 +7768,13 @@ Problematic key value is ("ID" = 0)
 25/04/20 14:43:39 - Caption: SimpleOS
 25/04/20 14:43:39 - Erro:EAccessViolation
 25/04/20 14:43:39 - Erro:Access violation at address 00BD5583 in module 'SimplesOS.exe'. Read of address 00000004
+26/04/20 14:10:06 - ===========================================
+26/04/20 14:10:06 - Form: formIniciarCaixa
+26/04/20 14:10:06 - Caption: Iniciar caixa
+26/04/20 14:10:06 - Erro:EConvertError
+26/04/20 14:10:06 - Erro:'' is not a valid floating point value
+26/04/20 14:48:50 - ===========================================
+26/04/20 14:48:50 - Form: formPrincipal
+26/04/20 14:48:50 - Caption: SimpleOS
+26/04/20 14:48:50 - Erro:EAccessViolation
+26/04/20 14:48:50 - Erro:Access violation at address 00BD560B in module 'SimplesOS.exe'. Read of address 00000004
