@@ -294,6 +294,9 @@ begin
     (edtEstado);
 
   FTipoOperacaoForm := '';
+
+  imagem := TJPEGImage.Create;
+
 end;
 
 procedure TformCadastroDeFuncionarios.localizarAtividade;
@@ -435,7 +438,6 @@ begin
   inherited;
   if sbNovo.Enabled = false then
   begin
-    imagem := TJPEGImage.Create;
 
     if OpenPictureDialog1.Execute then
     begin

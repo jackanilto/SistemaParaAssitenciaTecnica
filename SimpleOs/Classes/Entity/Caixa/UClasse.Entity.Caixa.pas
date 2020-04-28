@@ -67,6 +67,7 @@ type
     procedure iniciarCaixaManulamente(valor_anterior, valor_informado:string);
 
     function retornarNomeFuncionarioLogado:string;
+    function retornarEstadoCaixa:string;
 
     constructor create;
     destructor destroy; override;
@@ -335,7 +336,7 @@ begin
   FQueryEncerramento.Active := true;
 
   if application.MessageBox('Deseja realmente encerrar o caixa atual? ' +
-    'Você não poderá inicar Quitar OS, ralizar vendas e retirada de valores.',
+    'Você não poderá Criar novas OS, Quitar OS, ralizar vendas e retirada de valores. ',
     'Perguna do sistema', MB_YESNO + MB_ICONQUESTION) = mrYes then
   begin
     try
@@ -576,6 +577,18 @@ begin
 
     end;
   end;
+
+end;
+
+function TEntityCaixa.retornarEstadoCaixa: string;
+begin
+
+  FQuery.Active := false;
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add('select * from CAIXA_ABER_FECH order by id desc');
+  FQuery.Active := true;
+
+  result := FQuery.FieldByName('STATUS').AsString;
 
 end;
 

@@ -281,6 +281,7 @@ begin
       TFactory.new.criarJanela.FormShow(formAberturaDeCaixaManual, 'FORMINICIARCAIXA')
     end;
   finally
+    FSituacaoDoCaixa := FCaixa.retornarEstadoCaixa;
     FreeAndNil(FCaixa);
   end;
 end;

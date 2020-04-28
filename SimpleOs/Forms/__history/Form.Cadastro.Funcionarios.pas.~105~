@@ -13,6 +13,9 @@ uses
   Form.Acesso.Recursos.Fucnionarios;
 
 type
+  TEnumPesquisar = (codigo, nome, usuario);
+
+type
   TformCadastroDeFuncionarios = class(TformExemploEmbeded)
     DataSource1: TDataSource;
     edtCodigo: TEdit;
@@ -107,6 +110,8 @@ type
     FTipoOperacaoForm: string;
     procedure validacaoCamposUsuarioSenha;
     procedure localizarAtividade;
+    procedure inserindo;
+    procedure editando;
   public
     { Public declarations }
   end;
@@ -123,7 +128,7 @@ implementation
 {$R *.dfm}
 
 uses Form.Cadastro.Atividade.Funcionario, Form.Localizar.Atividade.Funcionario,
-  Form.Comissoes.Funcionario;
+  Form.Comissoes.Funcionario, softMeter_globalVar;
 
 procedure TformCadastroDeFuncionarios.ACBrCEP1BuscaEfetuada(Sender: TObject);
 var
@@ -235,20 +240,31 @@ end;
 procedure TformCadastroDeFuncionarios.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 var
-  campo: string;
+  FCampo: string;
 begin
   inherited;
 
-  if cbPesquisar.Text = 'Código' then
-    campo := 'ID'
-  else if cbPesquisar.Text = 'Nome' then
-    campo := 'NOME'
-  else if cbPesquisar.Text = 'Usuário' then
-    campo := 'USUARIO';
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  codigo:
+  begin
+    FCampo := 'ID'
+  end;
+  nome:
+  begin
+    FCampo := 'NOME'
+  end;
+  usuario:
+  begin
+    FCampo := 'USUARIO';
+  end;
+  end;
 
   if edtPesquisar.Text <> EmptyStr then
-    FEntityFuncionario.getCampo(campo).getValor(edtPesquisar.Text)
-      .sqlPesquisa.listarGrid(DataSource1)
+        FEntityFuncionario
+                        .getCampo(FCampo)
+                        .getValor(edtPesquisar.Text)
+                        .sqlPesquisa
+                        .listarGrid(DataSource1)
 
 end;
 
@@ -264,6 +280,7 @@ begin
   inherited;
   FEntityFuncionario := TEntityCadastroFuncionario.new;
   FEntityTableUF := TEntityTable.new;
+  dllSoftMeter.sendEvent('cadastros de funcionarios', 'funcionarios', 0);
 end;
 
 procedure TformCadastroDeFuncionarios.FormShow(Sender: TObject);
@@ -286,6 +303,43 @@ begin
     .localizarRegistro(intTostr(DataSource1.DataSet.FieldByName('ATIVIDADE')
     .AsInteger), 'ID');
 
+end;
+
+procedure TformCadastroDeFuncionarios.inserindo;
+begin
+  FEntityFuncionario.getNome(edtNome.Text).getDATA_NASCIMENTO
+    (edtDataNascimento.Text).getDocumento(edtDocumento.Text).getCPF(edtCPF.Text)
+    .getCep(edtCEP.Text).getEndereco(edtEndereco.Text).getBairro(edtBairro.Text)
+    .getNumero(StrToInt(edtNumero.Text)).getComplemento(edtComplemento.Text)
+    .getCidade(edtCidade.Text).getUF(edtEstado.Text)
+    .getDATA_CADASTRO(edtDataCadastro.Text)
+    .getDATA_DEMISSAO(edtDataDemissao.Text).getTelefone(edtTelefone.Text)
+    .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
+    .getUSUARIO(edtUsuario.Text)
+    .getSENHA(tfactory.new.criptPass.md5(edtSenha.Text))
+    .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
+    .getNomeAtividade(edtAtividade.Text).getFoto(imagem).gravar;
+end;
+
+procedure TformCadastroDeFuncionarios.editando;
+begin
+  if edtSenha.Text <> EmptyStr then
+  begin
+    FEntityFuncionario.getSENHA(tfactory.new.criptPass.md5(edtSenha.Text));
+  end;
+  FEntityFuncionario.getNome(edtNome.Text).getDATA_NASCIMENTO
+    (edtDataNascimento.Text).getDocumento(edtDocumento.Text).getCPF(edtCPF.Text)
+    .getCep(edtCEP.Text).getEndereco(edtEndereco.Text).getBairro(edtBairro.Text)
+    .getNumero(StrToInt(edtNumero.Text)).getComplemento(edtComplemento.Text)
+    .getCidade(edtCidade.Text).getUF(edtEstado.Text)
+    .getDATA_CADASTRO(edtDataCadastro.Text)
+    .getDATA_DEMISSAO(edtDataDemissao.Text).getTelefone(edtTelefone.Text)
+    .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
+    .getUSUARIO(edtUsuario.Text).getSTATUS(edtStatus.Text)
+    .getObservacao(edtObservacao.Text)
+    .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
+    .getNomeAtividade(edtAtividade.Text).getFoto(imagem).gravarEditando;
 end;
 
 procedure TformCadastroDeFuncionarios.sbCancelarClick(Sender: TObject);
@@ -347,6 +401,8 @@ begin
 
   FTipoOperacaoForm := 'novo';
 
+  edtDataCadastro.Text := DateToStr(Date);
+
 end;
 
 procedure TformCadastroDeFuncionarios.sbPesquisarCepClick(Sender: TObject);
@@ -363,32 +419,12 @@ begin
 
   if DataSource1.DataSet.State in [dsInsert] then
   begin
-
-    FEntityFuncionario.getNome(edtNome.Text).getDATA_NASCIMENTO
-      (edtDataNascimento.Text).getDocumento(edtDocumento.Text)
-      .getCPF(edtCPF.Text).getCep(edtCEP.Text).getEndereco(edtEndereco.Text)
-      .getBairro(edtBairro.Text).getNumero(StrToInt(edtNumero.Text))
-      .getComplemento(edtComplemento.Text).getCidade(edtCidade.Text)
-      .getUF(edtEstado.Text).getDATA_CADASTRO(edtDataCadastro.Text)
-      .getDATA_DEMISSAO(edtDataDemissao.Text).getTelefone(edtTelefone.Text)
-      .getCelular(edtCelular.Text).getEmail(edtEMail.Text)
-      .getUSUARIO(edtUsuario.Text)
-      .getSENHA(tfactory.new.criptPass.md5(edtSenha.Text))
-      .getSTATUS(edtStatus.Text).getObservacao(edtObservacao.Text)
-      .getATIVIDADE(StrToInt(edtCodigoAtividade.Text))
-      .getNomeAtividade(edtAtividade.Text).getFoto(imagem).gravar;
-
+    inserindo;
     FTipoOperacaoForm := '';
   end
   else if DataSource1.DataSet.State in [dsEdit] then
   begin
-
-    if edtSenha.Text <> EmptyStr then
-    begin
-      FEntityFuncionario.getSENHA(tfactory.new.criptPass.md5(edtSenha.Text));
-    end;
-
-
+    editando;
   end;
 
   inherited;
@@ -412,9 +448,16 @@ end;
 procedure TformCadastroDeFuncionarios.SpeedButton2Click(Sender: TObject);
 begin
   inherited;
-  formLocalizarAtividadeFuncionario :=
-    TformLocalizarAtividadeFuncionario.Create(self);
-  tfactory.new.criarJanela.FormShow(formLocalizarAtividadeFuncionario, '');
+
+ if DataSource1.DataSet.State in [dsInsert, dsEdit] then
+ begin
+   formLocalizarAtividadeFuncionario := tformLocalizarAtividadeFuncionario.Create(self);
+   try
+     formLocalizarAtividadeFuncionario.ShowModal;
+   finally
+      formLocalizarAtividadeFuncionario.Free;
+   end;
+ end;
 
   edtCodigoAtividade.Text := codigoAtividade.ToString;
   edtAtividade.Text := atividadeFuncionario;

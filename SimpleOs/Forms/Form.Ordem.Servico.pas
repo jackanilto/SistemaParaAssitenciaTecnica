@@ -104,9 +104,7 @@ begin
     end
     else
     begin
-      MessageDlg('ERRO. Antes de abrir as OS você precisa inciar o caixa. ' +
-        ' Para abrir, vá para a tela principal do sistema, clique na opção caixa no menu principal '
-        + ' e selecione a opção Reabrir caixa ', mtError, [mbOk], 0, mbOk);
+      MessageDlg('O caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço', mtError, [mbOk], 0, mbOk);
     end;
 
   end;
@@ -191,9 +189,7 @@ begin
   end
   else
   begin
-    MessageDlg('ERRO. Antes de abrir as OS você precisa inciar o caixa. ' +
-      ' Para abrir, vá para a tela principal do sistema, clique na opção caixa no menu principal '
-      + ' e selecione a opção Reabrir caixa ', mtError, [mbOk], 0, mbOk);
+    MessageDlg('O caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço. ', mtError, [mbOk], 0, mbOk);
   end;
 
 end;
@@ -240,9 +236,7 @@ begin
     else
     begin
 
-      MessageDlg('ERRO. Antes de abrir as OS você precisa inciar o caixa.' +
-        ' Para abrir, vá para a tela principal do sistema, clique na opção caixa no menu principal '
-        + ' e selecione a opção Reabrir caixa ', mtError, [mbOk], 0, mbOk);
+      MessageDlg('O caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço', mtError, [mbOk], 0, mbOk);
 
     end;
 

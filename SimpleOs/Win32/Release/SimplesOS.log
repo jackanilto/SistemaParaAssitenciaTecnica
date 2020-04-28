@@ -7778,3 +7778,18 @@ Problematic key value is ("ID" = 0)
 26/04/20 14:48:50 - Caption: SimpleOS
 26/04/20 14:48:50 - Erro:EAccessViolation
 26/04/20 14:48:50 - Erro:Access violation at address 00BD560B in module 'SimplesOS.exe'. Read of address 00000004
+28/04/20 11:05:15 - ===========================================
+28/04/20 11:05:15 - Form: formCadastroDeFuncionarios
+28/04/20 11:05:15 - Caption: Cadastro de funcionários
+28/04/20 11:05:15 - Erro:EDBEditError
+28/04/20 11:05:15 - Erro:Invalid input value.  Use escape key to abandon changes
+28/04/20 11:05:18 - ===========================================
+28/04/20 11:05:18 - Form: formCadastroDeFuncionarios
+28/04/20 11:05:18 - Caption: Cadastro de funcionários
+28/04/20 11:05:18 - Erro:EDBEditError
+28/04/20 11:05:18 - Erro:Invalid input value.  Use escape key to abandon changes
+28/04/20 11:05:19 - ===========================================
+28/04/20 11:05:19 - Form: formCadastroDeFuncionarios
+28/04/20 11:05:19 - Caption: Cadastro de funcionários
+28/04/20 11:05:19 - Erro:EDBEditError
+28/04/20 11:05:19 - Erro:Invalid input value.  Use escape key to abandon changes

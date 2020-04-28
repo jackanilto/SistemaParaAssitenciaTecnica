@@ -63,6 +63,11 @@ type
 
     procedure reabrirCaixa(value:Currency);
 
+    procedure aberturaCaixaManualSelecao(fechamento, abertura:TDataSource);
+    procedure iniciarCaixaManulamente(valor_anterior, valor_informado:string);
+
+    function retornarNomeFuncionarioLogado:string;
+
     constructor create;
     destructor destroy; override;
 
@@ -71,6 +76,28 @@ type
 implementation
 
 { TEntityCaixa }
+
+procedure TEntityCaixa.aberturaCaixaManualSelecao(fechamento, abertura: TDataSource);
+begin
+
+  FQuery.Active := false;
+
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add('select * from CAIXA_ABER_FECH order by id desc');
+
+  FQuery.Active := true;
+
+  if ((FQuery.FieldByName('STATUS').AsString = 'fechado') and
+      (FQuery.FieldByName('DATA_ENCERRAMENTO').AsDateTime = date)) then
+  begin
+
+    fechamento.DataSet := FQuery;
+    abertura.DataSet := FQuery;
+
+  end;
+
+
+end;
 
 function TEntityCaixa.calcularEstornosOS: Currency;
 var
@@ -255,8 +282,8 @@ begin
 
   result := 0;
 
-  totalVendasOS := (FTotalParcelasOS + FTotalParcelasVendas) -
-    (FTotalParcelasOSEstornadas + FTotalParcelasVendasEstornadas);
+  totalVendasOS := (FTotalParcelasOS + FTotalParcelasVendas);
+   //-(FTotalParcelasOSEstornadas + FTotalParcelasVendasEstornadas);
 
   totalEmCaixa := (totalVendasOS + FValorUltimoCaixa) - FTotalRetiradas;
 
@@ -274,10 +301,10 @@ begin
   FQuery.SQL.Add('select * from CAIXA_ABER_FECH order by id desc');
   FQuery.Active := true;
 
-  FGravarLog := TGravarLogSistema.new;
-
-  FGravarLog.getJanela('Caixa')
-    .getCodigoFuncionario(funcionarioLogado);
+//  FGravarLog := TGravarLogSistema.new;
+//
+//  FGravarLog.getJanela('Caixa')
+//    .getCodigoFuncionario(funcionarioLogado);
 
 end;
 
@@ -302,8 +329,9 @@ begin
   FQueryEncerramento.Active := false;
   FQueryEncerramento.SQL.Clear;
   FQueryEncerramento.SQL.Add
-    ('select * from CAIXA_ABER_FECH where DATA_ABERTURA =:d');
+    ('select * from CAIXA_ABER_FECH where DATA_ABERTURA =:d and STATUS =:s');
   FQueryEncerramento.ParamByName('d').AsDateTime := date;
+  FQueryEncerramento.ParamByName('s').AsString := 'aberto';
   FQueryEncerramento.Active := true;
 
   if application.MessageBox('Deseja realmente encerrar o caixa atual? ' +
@@ -462,6 +490,34 @@ begin
 
 end;
 
+procedure TEntityCaixa.iniciarCaixaManulamente(valor_anterior, valor_informado:string);
+begin
+
+  FQuery.Active := true;
+  FQuery.Append;
+
+  FQuery.FieldByName('ID').AsInteger := gerarCodigo;
+  FQuery.FieldByName('DATA_ABERTURA').AsDateTime := date;
+  FQuery.FieldByName('HORA_ABERTURA').AsDateTime := Time;
+  FQuery.FieldByName('FUNCIONARIO_ABERTURA').AsInteger := funcionarioLogado;
+  FQuery.FieldByName('NOME_FUNCIONARIO_ABERTURA').AsString := NomeFuncionarioLogado;
+  FQuery.FieldByName('VALOR_ANTERIRO').AsCurrency := StrToCurr(valor_anterior);
+  FQuery.FieldByName('VALOR_INFORMADO').AsCurrency := StrToCurr(valor_informado);
+  FQuery.FieldByName('STATUS').AsString := 'aberto';
+
+  try
+    FQuery.Post;
+    ShowMessage('Caixa aberto com sucesso!');
+  except on e:exception do
+  begin
+    raise Exception.Create('ERRO! Não foi possível abrir o caixa. Erro: '+e.Message);
+  end;
+
+  end;
+
+
+end;
+
 function TEntityCaixa.obertUltimoValorDoCaixaFechado(value: TDataSource)
   : Currency;
 begin
@@ -488,7 +544,7 @@ begin
 
   FQueryAbertura.Active := false;
   FQueryAbertura.SQL.Clear;
-  FQueryAbertura.SQL.Add   ('select * from CAIXA_ABER_FECH where DATA_ABERTURA =:d');
+  FQueryAbertura.SQL.Add   ('select * from CAIXA_ABER_FECH where DATA_ABERTURA =:d order by id desc');
   FQueryAbertura.ParamByName('d').AsDateTime := date;
   FQueryAbertura.Active := true;
 
@@ -509,7 +565,7 @@ begin
       FQueryAbertura.Post;
       showmessage('O caixa foi Reaberto com sucesso!!!.');
 
-      FGravarLog.getNomeRegistro(' ').getCodigoRegistro(0).getOperacao('reabertura do caixa').gravarLog;
+//      FGravarLog.getNomeRegistro(' ').getCodigoRegistro(0).getOperacao('reabertura do caixa').gravarLog;
 
     except
       on e: exception do
@@ -524,6 +580,11 @@ begin
 end;
 
 function TEntityCaixa.retornarNomeFuncionario: string;
+begin
+  result := NomeFuncionarioLogado;
+end;
+
+function TEntityCaixa.retornarNomeFuncionarioLogado: string;
 begin
   result := NomeFuncionarioLogado;
 end;

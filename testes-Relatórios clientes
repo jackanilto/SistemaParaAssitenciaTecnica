@@ -1,8 +1,12 @@
 
 
-###Ao iniciar o form capturar o status atual do caixa -> OK
-###Venda de produtos não deve abrir se o caixa estiver fechado -> OK
-###Criar procedimento para abertura do caixa -> OK
+###Form visualizar OS -> Mudar a mensagem que aparece al clicar no botão criar OS quando o caixa estiver fechado. -> OK
+
+###Ao reabrir  o caixa a variavel do form principal deve ser atualizada para o status do caixa atual. -> OK
+		
+###Form Encerramento de caixa -> Mudar a mensagem ao clicar no botão Encerrar Caixa. -> OK
+
 
   
 
+aberto
