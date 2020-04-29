@@ -104,7 +104,7 @@ begin
     end
     else
     begin
-      MessageDlg('O caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço', mtError, [mbOk], 0, mbOk);
+      MessageDlg('O Caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço', mtError, [mbOk], 0, mbOk);
     end;
 
   end;
@@ -189,7 +189,7 @@ begin
   end
   else
   begin
-    MessageDlg('O caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço. ', mtError, [mbOk], 0, mbOk);
+    MessageDlg('O Caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço. ', mtError, [mbOk], 0, mbOk);
   end;
 
 end;
@@ -236,7 +236,7 @@ begin
     else
     begin
 
-      MessageDlg('O caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço', mtError, [mbOk], 0, mbOk);
+      MessageDlg('O Caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço', mtError, [mbOk], 0, mbOk);
 
     end;
 
@@ -268,18 +268,27 @@ begin
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
 
-    codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+    if FSituacaoDoCaixa = 'aberto' then
+    begin
 
-    try
-      formCriarConsultarOrdemServico :=
-        TformCriarConsultarOrdemServico.Create(self);
-      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico,
-        'FORMCCONSORDEMSERVICO');
-    finally
-      FEntityOrdensServico.atualizar;
+      codigoDaOs := DataSource1.DataSet.FieldByName('ID_ORDEM').AsInteger;
+
+      try
+        formCriarConsultarOrdemServico :=
+          TformCriarConsultarOrdemServico.Create(self);
+        TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico,
+          'FORMCCONSORDEMSERVICO');
+      finally
+        FEntityOrdensServico.atualizar;
+      end;
+    end
+    else
+    begin
+      MessageDlg('O Caixa se encontra fechado e por isso não é possível criar novas Ordens de Serviço', mtError, [mbOk], 0, mbOk);
     end;
 
   end;
+
 end;
 
 end.
