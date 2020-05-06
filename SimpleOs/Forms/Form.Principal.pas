@@ -20,7 +20,7 @@ uses
   UClasse.Config.Acesso.Banco, Form.Relatorio.Problemas.Frequentes,
   Form.Relatorio.Historico.Caixa, Form.Trocar.Usuario,
   UClasse.Config.Imagem.Logo,
-  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar;
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar, MidasLib;
 
 type
   TformPrincipal = class(TForm)

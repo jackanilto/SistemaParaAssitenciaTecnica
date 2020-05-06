@@ -158,8 +158,12 @@ end;
 procedure TformOrdemServico.FormShow(Sender: TObject);
 begin
 
-  FEntityOrdensServico.getDataInicial(Date).getDataFinal(Date)
-    .getCampo('DATA_DE_ENTRADA').sqlPesquisaData.listarGrid(DataSource1);
+  FEntityOrdensServico
+                    .getDataInicial(Date)
+                    .getDataFinal(Date)
+                    .getCampo('DATA_DE_ENTRADA')
+                    .sqlPesquisaData
+                    .listarGrid(DataSource1);
 
 end;
 
@@ -181,10 +185,20 @@ begin
   if FSituacaoDoCaixa = 'aberto' then
   begin
 
-    formCriarConsultarOrdemServico :=
-      TformCriarConsultarOrdemServico.Create(self);
-    TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico,
-      'FORMCCONSORDEMSERVICO');
+    try
+
+      formCriarConsultarOrdemServico :=  TformCriarConsultarOrdemServico.Create(self);
+      TFactory.new.criarJanela.FormShow(formCriarConsultarOrdemServico, 'FORMCCONSORDEMSERVICO');
+
+      finally
+
+        FEntityOrdensServico
+                    .getDataInicial(Date)
+                    .getDataFinal(Date)
+                    .getCampo('DATA_DE_ENTRADA')
+                    .sqlPesquisaData
+                    .listarGrid(DataSource1);
+    end;
 
   end
   else

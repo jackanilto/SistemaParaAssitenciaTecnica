@@ -7798,3 +7798,33 @@ Problematic key value is ("ID" = 0)
 28/04/20 11:35:16 - Caption: SimpleOS
 28/04/20 11:35:16 - Erro:EAccessViolation
 28/04/20 11:35:16 - Erro:Access violation at address 00BD5D13 in module 'SimplesOS.exe'. Read of address 00000004
+02/05/20 14:47:44 - ===========================================
+02/05/20 14:47:44 - Form: formPrincipal
+02/05/20 14:47:44 - Caption: SimpleOS
+02/05/20 14:47:44 - Erro:EAccessViolation
+02/05/20 14:47:44 - Erro:Access violation at address 00BD5D33 in module 'SimplesOS.exe'. Read of address 00000004
+06/05/20 18:10:11 - ===========================================
+06/05/20 18:10:11 - Form: formConfigurarParcelas
+06/05/20 18:10:11 - Caption: Configurar parcelas
+06/05/20 18:10:11 - Erro:Exception
+06/05/20 18:10:11 - Erro:Não é possível inserir mais de um registro neste tabela.
+06/05/20 18:11:46 - ===========================================
+06/05/20 18:11:46 - Form: formCadastroDeClientes
+06/05/20 18:11:46 - Caption: Cadastro de clientes
+06/05/20 18:11:46 - Erro:EJPEG
+06/05/20 18:11:46 - Erro:JPEG error #53
+06/05/20 18:11:48 - ===========================================
+06/05/20 18:11:48 - Form: formCadastroDeClientes
+06/05/20 18:11:48 - Caption: Cadastro de clientes
+06/05/20 18:11:48 - Erro:EConvertError
+06/05/20 18:11:48 - Erro:Cannot assign a TPicture to a TJPEGImage
+06/05/20 18:11:56 - ===========================================
+06/05/20 18:11:56 - Form: formCadastroDeClientes
+06/05/20 18:11:56 - Caption: Cadastro de clientes
+06/05/20 18:11:56 - Erro:EConvertError
+06/05/20 18:11:56 - Erro:Cannot assign a TPicture to a TJPEGImage
+06/05/20 18:35:42 - ===========================================
+06/05/20 18:35:42 - Form: formPrincipal
+06/05/20 18:35:42 - Caption: SimpleOS
+06/05/20 18:35:42 - Erro:EAccessViolation
+06/05/20 18:35:42 - Erro:Access violation at address 00BD5DDF in module 'SimplesOS.exe'. Read of address 00000004

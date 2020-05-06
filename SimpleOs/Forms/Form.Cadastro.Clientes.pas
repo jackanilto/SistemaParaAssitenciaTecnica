@@ -87,6 +87,7 @@ type
     procedure sbImprimirClick(Sender: TObject);
     procedure edtDataNascimentoExit(Sender: TObject);
     procedure edtDataCadastroExit(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
     FEntityClientes: iCadastroClientes;
@@ -259,6 +260,7 @@ end;
 procedure TformCadastroDeClientes.FormCreate(Sender: TObject);
 begin
   inherited;
+
   FEntityClientes := TEntityCadastroClientes.new;
   FEntityTableUF := TEntityTable.new;
   imagem := TJPEGImage.Create;
@@ -273,8 +275,11 @@ begin
 
   if codigoDocliente <> 0 then
   begin
-    FEntityClientes.getCampo('ID').getValor(codigoDocliente.ToString)
-      .sqlPesquisa.listarGrid(DataSource1);
+    FEntityClientes
+                  .getCampo('ID')
+                  .getValor(codigoDocliente.ToString)
+                  .sqlPesquisaEstatica
+                  .listarGrid(DataSource1);
   end
   else
   begin
@@ -325,6 +330,7 @@ end;
 procedure TformCadastroDeClientes.sbNovoClick(Sender: TObject);
 begin
   inherited;
+  Image1.Picture := nil;
   FEntityClientes.inserir;
   edtNome.SetFocus;
   DataSource1.DataSet.FieldByName('TIPO_CADASTRO').AsString := 'PF';
@@ -383,6 +389,12 @@ begin
       imagem.LoadFromFile(OpenPictureDialog1.FileName);
     end;
   end;
+end;
+
+procedure TformCadastroDeClientes.SpeedButton2Click(Sender: TObject);
+begin
+  inherited;
+  Image1.Picture := nil;
 end;
 
 end.

@@ -104,7 +104,7 @@ end;
 procedure TformNumeroParcelas.sbCancelarClick(Sender: TObject);
 begin
   inherited;
-  FEntityNumeroParcelas.cancelar;
+  FEntityNumeroParcelas.abrir.listarGrid(DataSource1);
 end;
 
 procedure TformNumeroParcelas.sbEditarClick(Sender: TObject);

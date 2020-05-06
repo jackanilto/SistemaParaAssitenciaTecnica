@@ -278,7 +278,7 @@ begin
   begin
     FieldByName('id').DisplayLabel := 'Código';
     FieldByName('NUM_PARCELAS').DisplayLabel := 'Número de parcelas';
-    FieldByName('JUROS').DisplayLabel := 'Juros';
+    FieldByName('JUROS').DisplayLabel := 'Juros (%)';
     FieldByName('APLICAR_NA_OS').DisplayLabel := 'Aplicar nas OS';
 
   end;

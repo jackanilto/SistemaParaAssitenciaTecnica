@@ -245,7 +245,7 @@ begin
   result := self;
 
   FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
-  FQuery.TQuery.FieldByName('juros').DisplayLabel := 'Juros';
+  FQuery.TQuery.FieldByName('juros').DisplayLabel := 'Juros (%)';
   FQuery.TQuery.FieldByName('multa').DisplayLabel := 'Multa';
   FQuery.TQuery.FieldByName('juros').DisplayWidth := 50;
   FQuery.TQuery.FieldByName('multa').DisplayWidth := 50;

@@ -60,6 +60,7 @@ inherited formConfigurarParcelas: TformConfigurarParcelas
     inherited cardPanelCadatro: TCard
       Width = 833
       Height = 240
+      ExplicitTop = 1
       ExplicitWidth = 833
       ExplicitHeight = 240
       object Label1: TLabel
@@ -78,9 +79,9 @@ inherited formConfigurarParcelas: TformConfigurarParcelas
       object Label2: TLabel
         Left = 32
         Top = 93
-        Width = 31
+        Width = 54
         Height = 17
-        Caption = 'Juros'
+        Caption = 'Juros (%)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13

@@ -80,7 +80,7 @@ begin
 
       Conexao.Connected := false;
 
-      MessageDlg('Erro com a conexão do banco de dados', mtError,
+      MessageDlg('Erro com a conexão do banco de dados. ERRO: '+e.Message, mtError,
         [mbOk], 0, mbOk);
 
       formConfigurarConexaoBanco := TformConfigurarConexaoBanco.create(self);

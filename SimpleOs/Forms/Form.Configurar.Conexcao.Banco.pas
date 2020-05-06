@@ -114,7 +114,8 @@ end;
 procedure TformConfigurarConexaoBanco.sbRestaurarClick(Sender: TObject);
 begin
   FConfConexao.restaurarConexao;
-  close;
+  started := 'no';
+  application.Terminate;
 end;
 
 end.

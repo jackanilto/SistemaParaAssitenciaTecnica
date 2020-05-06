@@ -246,6 +246,8 @@ type
     procedure atualizarValores;
     procedure caluclarValorDoParcelamento;
     procedure habilitarDesabilitarEdits(value:string);
+    procedure gravarInformacoesOS;
+    procedure gerarInformacoesPagamentoOS;
   public
     { Public declarations }
   end;
@@ -659,39 +661,9 @@ begin
   if edtValorOrdemParcelado.Text = EmptyStr then
     raise Exception.Create('ERRO! Infome o valor da(s) parcela(s)');
 
-
-
-
   estado := FEntityCriarOrdem.estadoDaTabela;
 
-  FEntityCriarOrdem
-                  .getID_CLIENTE(edtCodigoCliente.Text)
-                  .getEQUIPAMENTO(edtEquipamento.Text)
-                  .getMarca(edtMarca.Text)
-                  .getModelo(edtModelo.Text)
-                  .getNUMERO_SERIE(edtNumeroDeSerie.Text)
-                  .getDATA_FABRICACAO(edtDataFabricacao.Text)
-                  .getDEFEITO_RELATADO(edtDefeitoRelatado.Text)
-                  .getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
-                  .getSOLUCAO_DO_PROBLEMA(edtSolucaoDoProblema.Text)
-                  .getSITUACAO_DA_ORDEM(edtSituacaoOrdem.Text)
-                  .getPRIORIDADE(edtPrioridade.Text)
-                  .getDataCadastro(edtDataEntrada.Text)
-                  .getDataFinalizacao(edtDataDeSaida.Text)
-                  .getHoraFinalizacao(edtHoraSaida.Text)
-                  .getIdTecnico(FIdTecnico.ToString)
-                  .getTecnico(edtTecnicoResponsavel.Text)
-                  .getRETORNO(edtRetorno.Text)
-                  .getDATA_RETORNO(edtDataRetorno.Text)
-                  .getObservacao(edtObservacao.Text)
-                  .getVALOR_DA_ORDEM(edtValorOrdem.Text)
-                  .getDesconto(edtDesconto.Text)
-                  .getACRESCIMO(edtAcrescimo.Text)
-                  .getTotalDoOrcamento(edtTotalDaOS.Text)
-                  .getTOTAL_PARCELAS(edtTotalDeParcelas.Text)
-                  .getDataBaseVencimento(edtDataBaseVencimento.Text)
-                  .getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text)
-                  .gravar;
+  gravarInformacoesOS;
 
   if estado = 'insert' then
     FEntityServicosOrdem
@@ -703,27 +675,13 @@ begin
 
   if estado = 'insert' then
 
-    if application.MessageBox
-      ('Deseja gerar as informações para pagamento ou parcelamento agora?',
-      'Pergutna do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
-    begin
-
-      FEntityParcelasOrdem
-                        .getID_ORDEM(FEntityCriarOrdem.setId)
-                        .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
-                        .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
-                        .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
-                        .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
-                        .gerarParcelas;
-
-
-    end;
-
   showmessage('Ordem de Serviço inserida com sucesso');
 
   FAtivarBotoes.ativarBotaoSalvar;
 
   lblCaption.Caption := 'Ordem de serviços';
+
+  gerarInformacoesPagamentoOS;
 
   habilitarDesabilitarEdits('desativar');
 
@@ -800,7 +758,7 @@ begin
           .getDATA_VENCIMENTO(edtDataBaseVencimento.Text).gerarParcelas;
 
         showmessage
-          ('Parcelas / Informações para pagamento foram geradas com sucesso');
+          ('Parcelas / Informações para pagamento foram geradas com sucesso!');
 
       except
         on e: Exception do
@@ -1367,6 +1325,59 @@ begin
 
    end;
 
+end;
+
+
+
+procedure TformCriarConsultarOrdemServico.gravarInformacoesOS;
+begin
+  FEntityCriarOrdem
+                  .getID_CLIENTE(edtCodigoCliente.Text)
+                  .getEQUIPAMENTO(edtEquipamento.Text)
+                  .getMarca(edtMarca.Text)
+                  .getModelo(edtModelo.Text)
+                  .getNUMERO_SERIE(edtNumeroDeSerie.Text)
+                  .getDATA_FABRICACAO(edtDataFabricacao.Text)
+                  .getDEFEITO_RELATADO(edtDefeitoRelatado.Text)
+                  .getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
+                  .getSOLUCAO_DO_PROBLEMA(edtSolucaoDoProblema.Text)
+                  .getSITUACAO_DA_ORDEM(edtSituacaoOrdem.Text)
+                  .getPRIORIDADE(edtPrioridade.Text)
+                  .getDataCadastro(edtDataEntrada.Text)
+                  .getDataFinalizacao(edtDataDeSaida.Text)
+                  .getHoraFinalizacao(edtHoraSaida.Text)
+                  .getIdTecnico(FIdTecnico.ToString)
+                  .getTecnico(edtTecnicoResponsavel.Text)
+                  .getRETORNO(edtRetorno.Text)
+                  .getDATA_RETORNO(edtDataRetorno.Text)
+                  .getObservacao(edtObservacao.Text)
+                  .getVALOR_DA_ORDEM(edtValorOrdem.Text)
+                  .getDesconto(edtDesconto.Text)
+                  .getACRESCIMO(edtAcrescimo.Text)
+                  .getTotalDoOrcamento(edtTotalDaOS.Text)
+                  .getTOTAL_PARCELAS(edtTotalDeParcelas.Text)
+                  .getDataBaseVencimento(edtDataBaseVencimento.Text)
+                  .getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text)
+                  .gravar;
+end;
+
+procedure TformCriarConsultarOrdemServico.gerarInformacoesPagamentoOS;
+begin
+
+  if application.MessageBox('Deseja gerar as informações para pagamento ou parcelamento agora?',
+       'Pergutna do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+  begin
+    FEntityParcelasOrdem
+                      .getID_ORDEM(FEntityCriarOrdem.setId)
+                      .getID_CLIENTE(FEntityCriarOrdem.setId_Cliente)
+                      .getTOTAL_PARCELAS(FEntityCriarOrdem.setTotalDeParcelas)
+                      .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
+                      .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
+                      .gerarParcelas;
+
+    showmessage('Parcelas / Informações para pagamento foram geradas com sucesso!');
+
+  end;
 end;
 
 procedure TformCriarConsultarOrdemServico.atualizarValores;
