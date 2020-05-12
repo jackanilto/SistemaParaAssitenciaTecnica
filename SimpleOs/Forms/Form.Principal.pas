@@ -131,6 +131,7 @@ type
     OpenPictureDialog1: TOpenPictureDialog;
     acRelatorioLogEventos: TAction;
     acAberturaCaixa: TAction;
+    acRelatorioAniversariantes: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -217,6 +218,7 @@ type
     procedure Definirlogomarca1Click(Sender: TObject);
     procedure acRelatorioLogEventosExecute(Sender: TObject);
     procedure acAberturaCaixaExecute(Sender: TObject);
+    procedure acRelatorioAniversariantesExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -265,7 +267,7 @@ uses UForm.Exemplo.Embeded, Form.Cadastro.Marcas, Form.Cadastro.Grupos,
   Form.Relatorio.Retirada.Valores, Form.Configuracoes.BackUp,
   Form.BackUp.Manual, Form.Quitar.Parcela.OS, Form.Movimentacao.Caixa,
   Form.Acesso.Recursos.Fucnionarios, Form.Sobre, Form.Relatorio.Log.Eventos,
-  Form.Abertura.Caixa.Manual;
+  Form.Abertura.Caixa.Manual, Form.Relatorio.Aniversariantes;
 
 procedure TformPrincipal.acAberturaCaixaExecute(Sender: TObject);
 var
@@ -711,6 +713,16 @@ begin
   formRelatorioVendasEstornadas := tformRelatorioVendasEstornadas.create(self);
   TFactory.new.criarJanela.FormShow(formRelatorioVendasEstornadas,
     'FORMRELVENDASESTORNADAS');
+end;
+
+procedure TformPrincipal.acRelatorioAniversariantesExecute(Sender: TObject);
+begin
+  formRelatorioClientesAniversariantes := TformRelatorioClientesAniversariantes.Create(self);
+  try
+    formRelatorioClientesAniversariantes.ShowModal;
+  finally
+    formRelatorioClientesAniversariantes.Free;
+  end;
 end;
 
 procedure TformPrincipal.acRelatorioClientesExecute(Sender: TObject);

@@ -1,35 +1,6 @@
-O que já foi feito
+###O usuário OLiver e o usuário ADM possuíem o mesmo código de registro, o erro é apresentado na tela de "Reparos por técnicos" ->
+	O erro só se apresenta quando é feito a pesquisar por "Cód. Técnico". -> Problema não identificado
+	
+###Relatório OS Cliente Inadimplentes -> A tabela deve esta como readonly = true; -> OK
 
-#Cadastros no tela de Cadastros de Serviços.
-#Cadastros na tela de Situação da OS.
-#Cadastros na tela Número de Parcelas. (OBS -> Ao cancelar todos os registros devem ser exibidos na tela) -> OK
-#Cadastros na tela Configurar Parcelas. (OBS -> Mudar a label do juros para conter a label Juros (%)) -> OK
-#Cadastros na tela Tipo de Retiradas.
-#Cadastros na tela Atividade dos Funcionários.
-#Dados da empresa.
-#Cadastro de funcionários.
-#Cadastro de grupos.
-#Cadastro de marcas.
-
-##Continuar cadastrando clientes.
-	-> Verificar vazamento de memoria no form de cadastro de clientes. -> Não identificado
-	-> Erro no cadastro "Unsupported stream format" -> Não identificado
-	-> Erro em alguns tipos de imagens ao realizar os cadastros. -> OK
-	-> Ao pedir uma novo cadastro o timage deve ser limpo. -> OK
-
-#Login -> Janela de configurações -> Ao restaurar a conexão com o banco de dados o sistema deve ser encerrado. -> OK
-
-#Visualizar OS -> Reltório -> Campo Situação OS deve ter o da fonte reajustada para menos. -> OK
-			   -> Ao criar novas OS e ao retornar para a janela visualizar OS, os registros devem ser atualizados. -> OK
-			   -> Ao selecionar uma OS do cliente e visualizar o cadastro deve ser retornado apenas o registro do clientes
-				    (usar a pesquisa estatica). -> OK
-
-#Criar OS -> Ver uma maneira mais efeciente de perguntar se deseja gerar as parcelas, pode ser interessante ser
-					exibida após confirmar que a os foi inserida. -> OK
-			   -> Ao criar uma nova OS certificar de que o foco esta na aba Ordem de Serviços. -> Problema não identificado	
-
-#Visualizar parcelas OS -> Criar os procedimentos das teclas de atalho.
-
-#Reltório OS -> Campo número de serie pode ficar bugado se tiver muitos números.
-
-###Ver se esta incluso o relatorio de aniversariantes.			   
+###Investigar possível problema com a pesquisa do relatório de Problemas frequentes -> Pesquisa por "Defeito".	-> OK

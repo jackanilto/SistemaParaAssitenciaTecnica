@@ -7828,3 +7828,23 @@ Problematic key value is ("ID" = 0)
 06/05/20 18:35:42 - Caption: SimpleOS
 06/05/20 18:35:42 - Erro:EAccessViolation
 06/05/20 18:35:42 - Erro:Access violation at address 00BD5DDF in module 'SimplesOS.exe'. Read of address 00000004
+07/05/20 19:54:25 - ===========================================
+07/05/20 19:54:25 - Form: formPrincipal
+07/05/20 19:54:25 - Caption: SimpleOS
+07/05/20 19:54:25 - Erro:EAccessViolation
+07/05/20 19:54:25 - Erro:Access violation at address 00BD5F63 in module 'SimplesOS.exe'. Read of address 00000004
+07/05/20 20:36:22 - ===========================================
+07/05/20 20:36:22 - Form: formPrincipal
+07/05/20 20:36:22 - Caption: SimpleOS
+07/05/20 20:36:22 - Erro:EAccessViolation
+07/05/20 20:36:22 - Erro:Access violation at address 00BD6E93 in module 'SimplesOS.exe'. Read of address 00000004
+09/05/20 14:45:28 - ===========================================
+09/05/20 14:45:28 - Form: formPrincipal
+09/05/20 14:45:28 - Caption: SimpleOS
+09/05/20 14:45:28 - Erro:EAccessViolation
+09/05/20 14:45:28 - Erro:Access violation at address 00BD6E93 in module 'SimplesOS.exe'. Read of address 00000004
+12/05/20 20:16:56 - ===========================================
+12/05/20 20:16:56 - Form: formPrincipal
+12/05/20 20:16:56 - Caption: SimpleOS
+12/05/20 20:16:56 - Erro:EAccessViolation
+12/05/20 20:16:56 - Erro:Access violation at address 00BD6E93 in module 'SimplesOS.exe'. Read of address 00000004

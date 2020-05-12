@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbServicosEFaturamento
+    ActivePage = tbOrdemServiço
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -297,14 +297,14 @@
           Caption = 'Situa'#231#227'o da ordem'
         end
         object Label13: TLabel
-          Left = 615
+          Left = 663
           Top = 203
           Width = 61
           Height = 17
           Caption = 'Prioridade'
         end
         object Label14: TLabel
-          Left = 724
+          Left = 774
           Top = 203
           Width = 95
           Height = 17
@@ -520,7 +520,7 @@
         object edtSituacaoOrdem: TComboBox
           Left = 464
           Top = 226
-          Width = 145
+          Width = 193
           Height = 25
           CharCase = ecUpperCase
           Ctl3D = False
@@ -528,7 +528,7 @@
           TabOrder = 11
         end
         object edtPrioridade: TComboBox
-          Left = 615
+          Left = 663
           Top = 226
           Width = 103
           Height = 25
@@ -540,9 +540,9 @@
             'SIM')
         end
         object edtDataEntrada: TMaskEdit
-          Left = 724
+          Left = 772
           Top = 226
-          Width = 144
+          Width = 95
           Height = 25
           EditMask = '00/00/0000'
           MaxLength = 10
@@ -2429,8 +2429,8 @@
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 828
-    Top = 277
+    Left = 948
+    Top = 221
     object cds_tem_servicos_adicionados_editid: TIntegerField
       FieldName = 'id'
     end
@@ -2444,8 +2444,8 @@
   end
   object s_tem_servicos_adicionados_edit: TDataSource
     DataSet = cds_tem_servicos_adicionados_edit
-    Left = 940
-    Top = 253
+    Left = 948
+    Top = 165
   end
   object s_ParcelasOS: TDataSource
     OnDataChange = s_ParcelasOSDataChange

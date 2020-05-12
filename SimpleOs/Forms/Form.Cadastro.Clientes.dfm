@@ -57,7 +57,6 @@ inherited formCadastroDeClientes: TformCadastroDeClientes
   inherited CardPanel1: TCardPanel
     Width = 1031
     Height = 451
-    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1031
     ExplicitHeight = 451
     inherited cardPanelCadatro: TCard

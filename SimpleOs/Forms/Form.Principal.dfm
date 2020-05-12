@@ -7392,6 +7392,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioLogEventos
+            end
+            item
+              Action = acRelatorioAniversariantes
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -8619,10 +8622,6 @@ object formPrincipal: TformPrincipal
       Caption = 'Sa'#237'da de produtos'
       OnExecute = acRelatorioSaidaDeProdutosExecute
     end
-    object acRelatorioEntradasDeProdutos: TAction
-      Caption = 'Entrada de Produtos'
-      OnExecute = acRelatorioEntradasDeProdutosExecute
-    end
     object acRelatorioVendasPorFuncionarios: TAction
       Caption = 'Vendas por funcion'#225'rio'
       OnExecute = acRelatorioVendasPorFuncionariosExecute
@@ -8643,12 +8642,16 @@ object formPrincipal: TformPrincipal
       Caption = 'Retirada de valores'
       OnExecute = acRetiradaDeValoresExecute
     end
+    object acRelatorioEntradasDeProdutos: TAction
+      Caption = 'Entrada de Produtos'
+      OnExecute = acRelatorioEntradasDeProdutosExecute
+    end
     object acRelatorioRetiradaDeValores: TAction
       Caption = 'Retirada de valores'
       OnExecute = acRelatorioRetiradaDeValoresExecute
     end
     object acRelatorioComissoesTecnicos: TAction
-      Caption = 'Comissoes dos t'#233'cnicos'
+      Caption = 'Comiss'#245'es dos t'#233'cnicos'
       OnExecute = acRelatorioComissoesTecnicosExecute
     end
     object acConfigurarBackUp: TAction
@@ -8686,6 +8689,10 @@ object formPrincipal: TformPrincipal
     object acAberturaCaixa: TAction
       Caption = 'Abertura do caixa'
       OnExecute = acAberturaCaixaExecute
+    end
+    object acRelatorioAniversariantes: TAction
+      Caption = 'Relat'#243'rio aniversariantes'
+      OnExecute = acRelatorioAniversariantesExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

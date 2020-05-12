@@ -11,9 +11,11 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
   Font.Height = -13
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
@@ -214,7 +216,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Top = 24
       Width = 81
       Height = 35
-      Hint = 'Inserir um novo registro'
+      Hint = 'Quitar parcela - Tecla de ataho F2'
       Caption = 'Quitar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -291,7 +293,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Top = 24
       Width = 111
       Height = 35
-      Hint = 'Salva a opera'#231#227'o em andamento'
+      Hint = 'Cancelar o pagamento da parcela - Tecla de atalho F7'
       Caption = 'Estornar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -374,7 +376,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Top = 24
       Width = 164
       Height = 35
-      Hint = 'Edita o registro selecionado'
+      Hint = 'Adiconar parcela - Tecla de atalho F4'
       Caption = 'Adicionar parcela'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -451,7 +453,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Top = 24
       Width = 97
       Height = 35
-      Hint = 'Exclui o registro selecionado'
+      Hint = 'Salvar altera'#231#245'es na parcela - Tecla de atalho F3'
       Caption = 'Salvar'
       Enabled = False
       Flat = True
@@ -535,7 +537,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Top = 24
       Width = 114
       Height = 35
-      Hint = 'Cancela a opera'#231#227'o em andamento'
+      Hint = 'Excluir parcela selecionada - Tecla de atalho F5'
       Caption = 'Excluir'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -652,7 +654,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
       Top = 80
       Width = 114
       Height = 35
-      Hint = 'Cancela a opera'#231#227'o em andamento'
+      Hint = 'Cancela a opera'#231#227'o em andamento - Tecla de aalho F6'
       Caption = 'Cancelar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET

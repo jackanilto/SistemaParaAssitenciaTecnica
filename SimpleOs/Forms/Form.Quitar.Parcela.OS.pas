@@ -102,6 +102,7 @@ type
     procedure cbPesquisarChange(Sender: TObject);
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
     var
@@ -352,6 +353,46 @@ begin
 
   dllSoftMeter.sendEvent('quitar parcelas das OS', 'Quitar os', 0);
 
+end;
+
+procedure TformQuitarParcelaOS.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+   if Key = 113 then
+  begin
+    if sbQuitarParela.Enabled = true then
+      sbQuitarParela.Click;
+  end;
+
+  if key = 114 then
+  begin
+    if sbSalvar.Enabled = true then
+      sbSalvar.Click;
+  end;
+
+  if Key = 118 then
+  begin
+    if sbEstornar.Enabled = true then
+      sbEstornar.Click;
+  end;
+
+  if Key = 115 then
+  begin
+    if sbAdicionarParcela.Enabled = true then
+      sbAdicionarParcela.Click;
+  end;
+
+  if Key = 116 then
+  begin
+    if sbExcluir.Enabled = true then
+      sbExcluir.Click;
+  end;
+
+  if Key = 117 then
+  begin
+    if sbCancelar.Enabled = true then
+      sbCancelar.Click;
+  end;
 end;
 
 procedure TformQuitarParcelaOS.FormShow(Sender: TObject);

@@ -204,7 +204,9 @@ uses
   Form.Relatorio.Log.Eventos in 'Forms\Relatorios\Form.Relatorio.Log.Eventos.pas' {formRelatorioLogEventos},
   Form.Splash in 'Forms\Form.Splash.pas' {formSplash},
   softMeter_globalVar in 'softMeter_globalVar.pas',
-  Form.Abertura.Caixa.Manual in 'Forms\Caixa\Form.Abertura.Caixa.Manual.pas' {formAberturaDeCaixaManual};
+  Form.Abertura.Caixa.Manual in 'Forms\Caixa\Form.Abertura.Caixa.Manual.pas' {formAberturaDeCaixaManual},
+  Form.Relatorio.Aniversariantes in 'Forms\Relatorios\Form.Relatorio.Aniversariantes.pas' {formRelatorioClientesAniversariantes},
+  UClasse.Relatorio.Aniversariantes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Aniversariantes.pas';
 
 {$R *.res}
 
@@ -218,7 +220,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TformPrincipal, formPrincipal);
-  FormSplash.Free;
+  formSplash.Free;
   formSplash.Hide;
 
   Application.Run;

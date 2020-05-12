@@ -299,6 +299,7 @@ inherited formCadastroProblemasFrequentes: TformCadastroProblemasFrequentes
         Width = 401
         Height = 139
         Anchors = [akRight, akBottom]
+        CharCase = ecUpperCase
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13

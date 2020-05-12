@@ -198,6 +198,7 @@ var
 begin
 
   FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
 
   linha := 2;
   pasta := CreateOleObject('Excel.application');
@@ -527,8 +528,7 @@ begin
   FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
   FQuery.TQuery.FieldByName('NOME').DisplayLabel := 'Nome';
   FQuery.TQuery.FieldByName('TIPO_CADASTRO').DisplayLabel := 'Tipo de cadastro';
-  FQuery.TQuery.FieldByName('DATA_NASCIMENTO').DisplayLabel :=
-    'Data de nascimeto';
+  FQuery.TQuery.FieldByName('DATA_NASCIMENTO').DisplayLabel := 'Data de nascimeto';
   FQuery.TQuery.FieldByName('DATA_CADASTRO').DisplayLabel := 'Data de cadastro';
   FQuery.TQuery.FieldByName('CPF_CNPJ').DisplayLabel := 'CPF ou CNPJ';
   FQuery.TQuery.FieldByName('DOCUMENTO').DisplayLabel := 'Documento';
@@ -542,10 +542,8 @@ begin
   FQuery.TQuery.FieldByName('TELEFONE').DisplayLabel := 'Telefone';
   FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'Celular';
   FQuery.TQuery.FieldByName('EMAIL').DisplayLabel := 'E-Mail';
-  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').DisplayLabel :=
-    'Funcionário';
-  FQuery.TQuery.FieldByName('SITUACAO_CLIENTE').DisplayLabel :=
-    'Situação do cliente';
+  FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').DisplayLabel := 'Funcionário';
+  FQuery.TQuery.FieldByName('SITUACAO_CLIENTE').DisplayLabel := 'Situação do cliente';
   FQuery.TQuery.FieldByName('FOTO').visible := false;
   FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
 

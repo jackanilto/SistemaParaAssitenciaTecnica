@@ -673,15 +673,12 @@ begin
     FEntityServicosOrdem
                       .gravarServicosAdicionadosEdit(cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
 
-  if estado = 'insert' then
-
-  showmessage('Ordem de Serviço inserida com sucesso');
-
   FAtivarBotoes.ativarBotaoSalvar;
 
   lblCaption.Caption := 'Ordem de serviços';
 
-  gerarInformacoesPagamentoOS;
+  if estado = 'insert' then
+    gerarInformacoesPagamentoOS;
 
   habilitarDesabilitarEdits('desativar');
 
@@ -1359,6 +1356,9 @@ begin
                   .getDataBaseVencimento(edtDataBaseVencimento.Text)
                   .getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text)
                   .gravar;
+
+    showmessage('Ordem de Serviço inserida com sucesso');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.gerarInformacoesPagamentoOS;

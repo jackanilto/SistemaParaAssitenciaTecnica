@@ -172,7 +172,7 @@ begin
       pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DEFEITO_RELATADO').AsString;
       pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('MARCAS').AsString;
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('MODELO').AsString;
-      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString;
+      pasta.cells[linha, 8] := '"'+FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString+'"';
 
       if FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime <> StrToDate('30/12/1899') then
         pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime;
