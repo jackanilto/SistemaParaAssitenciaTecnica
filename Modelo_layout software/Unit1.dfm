@@ -71,7 +71,7 @@ object Form1: TForm1
   object SplitView1: TSplitView
     Left = 0
     Top = 65
-    Width = 143
+    Width = 155
     Height = 399
     Color = 7495766
     OpenedWidth = 155
@@ -80,7 +80,7 @@ object Form1: TForm1
     object CategoryButtons1: TCategoryButtons
       AlignWithMargins = True
       Left = 0
-      Top = 3
+      Top = 6
       Width = 152
       Height = 158
       Margins.Left = 0
@@ -107,7 +107,6 @@ object Form1: TForm1
             end>
           TextColor = clNone
         end>
-      Color = 7495766
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 14934239
       Font.Height = -13
@@ -118,14 +117,13 @@ object Form1: TForm1
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 0
-      ExplicitTop = 0
     end
   end
   object Panel2: TPanel
     AlignWithMargins = True
-    Left = 546
+    Left = 158
     Top = 68
-    Width = 204
+    Width = 592
     Height = 393
     Align = alClient
     BevelOuter = bvNone
@@ -134,43 +132,40 @@ object Form1: TForm1
     Padding.Right = 10
     Padding.Bottom = 10
     TabOrder = 2
-    ExplicitLeft = 158
-    ExplicitWidth = 592
+    ExplicitLeft = 558
+    ExplicitWidth = 192
     object Panel3: TPanel
       Left = 10
       Top = 10
-      Width = 184
+      Width = 572
       Height = 373
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 3
-      ExplicitTop = 3
       ExplicitWidth = 172
     end
   end
   object SplitView2: TSplitView
-    Left = 143
+    Left = 155
     Top = 65
-    Width = 200
+    Width = 0
     Height = 399
     Color = 11441030
+    Opened = False
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 158
-    ExplicitTop = 71
   end
   object SplitView3: TSplitView
-    Left = 343
+    Left = 155
     Top = 65
-    Width = 200
+    Width = 0
     Height = 399
     Color = 14848074
+    Opened = False
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 4
-    ExplicitLeft = 163
   end
   object ImageList1: TImageList
     Left = 502

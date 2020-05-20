@@ -32,6 +32,7 @@ type
     procedure DBGrid1DblClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure cbPesquisarChange(Sender: TObject);
   private
     { Private declarations }
     procedure selecionarRegistros;
@@ -52,6 +53,14 @@ implementation
 {$R *.dfm}
 
 uses Form.Entradas.Produtos;
+
+procedure TformLocalizarProdutosEntradas.cbPesquisarChange(Sender: TObject);
+begin
+  if cbPesquisar.Text <> EmptyStr then
+  begin
+    edtPesquisar.SetFocus;
+  end;
+end;
 
 procedure TformLocalizarProdutosEntradas.DBGrid1DblClick(Sender: TObject);
 begin
@@ -83,7 +92,8 @@ begin
 
   FValor := UpperCase(edtPesquisar.text);
 
-  selecionarRegistros;
+  if edtPesquisar.Text <> EmptyStr then
+    selecionarRegistros;
 
 end;
 
@@ -104,6 +114,7 @@ begin
   FCampo := 'ID';
   FValor := '0';
   selecionarRegistros;
+  edtPesquisar.SetFocus;
 end;
 
 procedure TformLocalizarProdutosEntradas.Panel1MouseDown(Sender: TObject;

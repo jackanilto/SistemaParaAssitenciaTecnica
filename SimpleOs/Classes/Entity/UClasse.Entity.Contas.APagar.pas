@@ -415,7 +415,7 @@ begin
     FVALOR_TOTAL := StrToCurr(value);
   except
     on e: Exception do
-      raise Exception.create('Informe um valor válido para o tatal da conta.');
+      raise Exception.create('Informe um valor válido para o total da conta.');
   end;
 
 end;
@@ -547,7 +547,7 @@ begin
         if FDATA_PAGAMENTO <> EmptyStr then
           FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := StrToDate(FDATA_PAGAMENTO)
         else
-          raise Exception.Create('ERRO! Informe a data de pagemento.');
+          raise Exception.Create('ERRO! Informe a data de pagamento.');
 
         FQuery.TQuery.FieldByName('PAGO').AsString := 'Sim';
         FQuery.TQuery.FieldByName('FUNCIONARIO_CADASTRO').AsInteger := funcionarioLogado;
@@ -564,7 +564,7 @@ begin
           ShowMessage('Operação realizada com sucesso!');
         except on e:exception do
         begin
-          MessageDlg('ERRO. Não foi possíve quitar a parcela ' +
+          MessageDlg('ERRO. Não foi possível quitar a parcela ' +
             e.Message, mtError, [mbOk], 0, mbOk);
           abort;
         end;

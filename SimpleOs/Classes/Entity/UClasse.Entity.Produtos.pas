@@ -526,10 +526,8 @@ begin
   FQuery.TQuery.FieldByName('VALOR_CUSTO').AsCurrency := FVALOR_CUSTO;
   FQuery.TQuery.FieldByName('MARGEM_LUCRO').AsFloat := FMARGEM_LUCRO;
   FQuery.TQuery.FieldByName('VALOR_VENDA').AsCurrency := FVALOR_VENDA;
-  FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA').AsInteger :=
-    StrToInt(FQUANTIDADE_MINIMA);
-  FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger :=
-    StrToInt(FQUANTIDADE_ATUAL);
+  FQuery.TQuery.FieldByName('QUANTIDADE_MINIMA').AsInteger := StrToInt(FQUANTIDADE_MINIMA);
+  FQuery.TQuery.FieldByName('QUANTIDADE_ATUAL').AsInteger := StrToInt(FQUANTIDADE_ATUAL);
   FQuery.TQuery.FieldByName('MODELO').AsString := FMODELO;
   FQuery.TQuery.FieldByName('NUMERO_SERIE').AsString := FNUMERO_SERIE;
   FQuery.TQuery.FieldByName('GRUPO').AsString := FGRUPO;
@@ -544,16 +542,13 @@ begin
     FQuery.TQuery.FieldByName('ID_MARCA').AsInteger := StrToInt(FID_MARCA);
 
   if FDATA_VALIDADE <> EmptyStr then
-    FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime :=
-      strtodate(FDATA_VALIDADE);
+    FQuery.TQuery.FieldByName('DATA_VALIDADE').AsDateTime := strtodate(FDATA_VALIDADE);
 
   if FDATA_ALTERACAO <> EmptyStr then
-    FQuery.TQuery.FieldByName('DATA_ALTERACAO').AsDateTime :=
-      strtodate(FDATA_ALTERACAO);
+    FQuery.TQuery.FieldByName('DATA_ALTERACAO').AsDateTime := strtodate(FDATA_ALTERACAO);
 
   if FDATA_FABRICACAO <> EmptyStr then
-    FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime :=
-      strtodate(FDATA_FABRICACAO);
+    FQuery.TQuery.FieldByName('DATA_FABRICACAO').AsDateTime := strtodate(FDATA_FABRICACAO);
 
   if Assigned(F_FOTO) then
   begin

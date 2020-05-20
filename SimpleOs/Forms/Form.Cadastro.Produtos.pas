@@ -90,6 +90,7 @@ type
     { Private declarations }
     FEntityProdutos: iCadastroProdutos;
     imagem: TJPEGImage;
+    procedure limparEdits;
   public
     { Public declarations }
   end;
@@ -265,16 +266,28 @@ begin
   frx_Produtos.ShowReport();
 end;
 
-procedure TformCadastroProdutos.sbNovoClick(Sender: TObject);
+
+procedure TformCadastroProdutos.limparEdits;
 begin
-  inherited;
-  FEntityProdutos.inserir;
   edtProduto.SetFocus;
   edtDataDeValidade.Clear;
   edtDataDeAlteracao.Clear;
   edtDataDeFabricacao.Clear;
+  edtCodigoGrupo.Clear;
+  edtGrupo.Clear;
+  edtModelo.Clear;
+  edtNumeroDeSerie.Clear;
+  edtDataDeAlteracao.Clear;
+  edtObservacao.Clear;
+  edtCodigoDaMarca.Clear;
+  edtMarca.Clear;
+end;
+procedure TformCadastroProdutos.sbNovoClick(Sender: TObject);
+begin
+  inherited;
+  FEntityProdutos.inserir;
 
-  Image1.Picture.Graphic.Empty;
+  limparEdits;   Image1.Picture.Graphic.Empty;
 
   edtDataDeAlteracao.Text := DateToStr(Date);
 

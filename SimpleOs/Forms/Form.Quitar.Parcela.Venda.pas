@@ -541,7 +541,7 @@ begin
 
   F_EntityImprimirRecibo.getCampo('ID_PARCELA')
     .getValor(IntToStr(DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger))
-    .sqlPesquisa.listarGrid(s_ImprimirRecibo);
+    .sqlPesquisaEstatica.listarGrid(s_ImprimirRecibo);
 
   frx_ImprimirRecibo.LoadFromFile(ExtractFilePath(application.ExeName) +
     'relatórios/recibo_parcelas.fr3');

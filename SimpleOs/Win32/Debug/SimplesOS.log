@@ -1233,3 +1233,13 @@ At line 1, column 16
 25/04/20 14:43:02 - Caption: SimpleOS
 25/04/20 14:43:02 - Erro:EAccessViolation
 25/04/20 14:43:02 - Erro:Access violation at address 00C0598B in module 'SimplesOS.exe'. Read of address 00000004
+18/05/20 19:37:08 - ===========================================
+18/05/20 19:37:08 - Form: formCadastroContasAPagar
+18/05/20 19:37:08 - Caption: Cadastro de contas a pagar
+18/05/20 19:37:08 - Erro:Exception
+18/05/20 19:37:08 - Erro:ERRO! Informe a data de pagamento.
+18/05/20 19:37:12 - ===========================================
+18/05/20 19:37:12 - Form: formCadastroContasAPagar
+18/05/20 19:37:12 - Caption: Cadastro de contas a pagar
+18/05/20 19:37:12 - Erro:Exception
+18/05/20 19:37:12 - Erro:ERRO! Informe a data de pagamento.

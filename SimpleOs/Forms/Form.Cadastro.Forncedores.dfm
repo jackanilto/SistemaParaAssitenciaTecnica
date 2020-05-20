@@ -558,6 +558,7 @@ inherited formCadastroFornecedores: TformCadastroFornecedores
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 16
       end
       object edtObservacao: TEdit

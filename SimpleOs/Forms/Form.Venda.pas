@@ -355,6 +355,7 @@ begin
   cds_tem_produtos.Open;
   cds_tem_produtos.EmptyDataSet;
   cds_tem_produtos.Close;
+  cds_tem_produtos.Open;
 
   lblVenda.Caption := 'Nova venda';
   lblNomeDoCliente.Caption := '';
@@ -554,13 +555,33 @@ begin
   if cds_tem_produtos.RecordCount >= 1 then
   begin
 
-    cds_tem_produtos.Delete;
+    if cds_tem_produtosQuantidade.AsInteger = 1 then
+    begin
 
-    lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
-      FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+      cds_tem_produtos.Delete;
 
-    lblTotalItens.Caption :=
-      inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
+      lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
+        FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+
+      lblTotalItens.Caption :=
+        inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
+
+    end
+    else if cds_tem_produtosQuantidade.AsInteger > 1 then
+    begin
+
+      cds_tem_produtos.Edit;
+      cds_tem_produtosQuantidade.AsInteger := cds_tem_produtosQuantidade.AsInteger -1;
+      cds_tem_produtos.Post;
+
+      lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
+        FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+
+      lblTotalItens.Caption :=
+        inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
+
+    end;
+
   end;
 
 end;

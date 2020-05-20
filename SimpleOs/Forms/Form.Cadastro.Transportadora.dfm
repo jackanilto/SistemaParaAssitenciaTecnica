@@ -60,6 +60,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
   inherited CardPanel1: TCardPanel
     Width = 1057
     Height = 423
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1057
     ExplicitHeight = 423
     inherited cardPanelCadatro: TCard
@@ -532,6 +533,7 @@ inherited formCadastroTransportadora: TformCadastroTransportadora
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 15
       end
       object edtObservacao: TEdit

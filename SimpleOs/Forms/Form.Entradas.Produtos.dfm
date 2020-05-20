@@ -338,6 +338,7 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 7
       end
       object edtObsrvacao: TEdit
@@ -449,8 +450,8 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     CloseDataSource = False
     DataSource = DataSource1
     BCDToCurrency = False
-    Left = 688
-    Top = 129
+    Left = 712
+    Top = 89
   end
   object frx_EntradasProdutos: TfrxReport
     Version = '6.3.3'
@@ -468,8 +469,8 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
       'begin'
       ''
       'end.')
-    Left = 576
-    Top = 129
+    Left = 616
+    Top = 81
     Datasets = <
       item
         DataSet = frxDB_EntradasProdutos

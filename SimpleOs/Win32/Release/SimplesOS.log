@@ -7848,3 +7848,73 @@ Problematic key value is ("ID" = 0)
 12/05/20 20:16:56 - Caption: SimpleOS
 12/05/20 20:16:56 - Erro:EAccessViolation
 12/05/20 20:16:56 - Erro:Access violation at address 00BD6E93 in module 'SimplesOS.exe'. Read of address 00000004
+15/05/20 18:25:43 - ===========================================
+15/05/20 18:25:43 - Form: formCadastroContasAPagar
+15/05/20 18:25:43 - Caption: Cadastro de contas a pagar
+15/05/20 18:25:43 - Erro:Exception
+15/05/20 18:25:43 - Erro:ERRO! Informe a data de pagemento.
+15/05/20 18:25:57 - ===========================================
+15/05/20 18:25:57 - Form: formCadastroContasAPagar
+15/05/20 18:25:57 - Caption: Cadastro de contas a pagar
+15/05/20 18:25:57 - Erro:Exception
+15/05/20 18:25:57 - Erro:ERRO! Informe a data de pagemento.
+15/05/20 18:25:57 - ===========================================
+15/05/20 18:25:57 - Form: formCadastroContasAPagar
+15/05/20 18:25:57 - Caption: Cadastro de contas a pagar
+15/05/20 18:25:57 - Erro:Exception
+15/05/20 18:25:57 - Erro:ERRO! Informe a data de pagemento.
+15/05/20 18:32:21 - ===========================================
+15/05/20 18:32:21 - Form: formCadastroContasAPagar
+15/05/20 18:32:21 - Caption: Cadastro de contas a pagar
+15/05/20 18:32:21 - Erro:Exception
+15/05/20 18:32:21 - Erro:ERRO! Informe a data de pagemento.
+15/05/20 18:33:14 - ===========================================
+15/05/20 18:33:14 - Form: formCadastroContasAPagar
+15/05/20 18:33:14 - Caption: Cadastro de contas a pagar
+15/05/20 18:33:14 - Erro:Exception
+15/05/20 18:33:14 - Erro:ERRO! Informe a data de pagemento.
+15/05/20 19:50:29 - ===========================================
+15/05/20 19:50:29 - Form: formVendas
+15/05/20 19:50:29 - Caption: Venda de produtos
+15/05/20 19:50:29 - Erro:Exception
+15/05/20 19:50:29 - Erro:ERRO! Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+15/05/20 19:50:31 - ===========================================
+15/05/20 19:50:31 - Form: formVendas
+15/05/20 19:50:31 - Caption: Venda de produtos
+15/05/20 19:50:31 - Erro:Exception
+15/05/20 19:50:31 - Erro:ERRO! Não há produtos no estoque suficiente para esta venda. Escolha uma quantidade menor.
+15/05/20 19:50:39 - ===========================================
+15/05/20 19:50:39 - Form: FormVendaConfirmarPagamento
+15/05/20 19:50:39 - Caption: '
+15/05/20 19:50:39 - Erro:Exception
+15/05/20 19:50:39 - Erro:ERRO! Infome o meio de pagamento do venda
+15/05/20 19:52:10 - ===========================================
+15/05/20 19:52:10 - Form: formVendas
+15/05/20 19:52:10 - Caption: Venda de produtos
+15/05/20 19:52:10 - Erro:EConvertError
+15/05/20 19:52:10 - Erro:'' is not a valid integer value
+15/05/20 19:52:23 - ===========================================
+15/05/20 19:52:23 - Form: formVendas
+15/05/20 19:52:23 - Caption: Venda de produtos
+15/05/20 19:52:23 - Erro:EConvertError
+15/05/20 19:52:23 - Erro:'' is not a valid integer value
+15/05/20 20:03:28 - ===========================================
+15/05/20 20:03:28 - Form: formQuitarParcelasVendas
+15/05/20 20:03:28 - Caption: Ver parcelas das vendas realizadas
+15/05/20 20:03:28 - Erro:Exception
+15/05/20 20:03:28 - Erro:ERRO! Informe o meio de pagamento da parcela.
+15/05/20 20:11:43 - ===========================================
+15/05/20 20:11:43 - Form: formQuitarParcelasVendas
+15/05/20 20:11:43 - Caption: Ver parcelas das vendas realizadas
+15/05/20 20:11:43 - Erro:Exception
+15/05/20 20:11:43 - Erro:ERRO! Informe o meio de pagamento da parcela.
+18/05/20 19:44:32 - ===========================================
+18/05/20 19:44:32 - Form: formPrincipal
+18/05/20 19:44:32 - Caption: SimpleOS
+18/05/20 19:44:32 - Erro:EAccessViolation
+18/05/20 19:44:32 - Erro:Access violation at address 00BD6F93 in module 'SimplesOS.exe'. Read of address 00000004
+18/05/20 19:47:25 - ===========================================
+18/05/20 19:47:25 - Form: formPrincipal
+18/05/20 19:47:25 - Caption: SimpleOS
+18/05/20 19:47:25 - Erro:EAccessViolation
+18/05/20 19:47:25 - Erro:Access violation at address 00BD6F93 in module 'SimplesOS.exe'. Read of address 00000004

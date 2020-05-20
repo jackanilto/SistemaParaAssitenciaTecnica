@@ -121,11 +121,15 @@ begin
     sbExcluir.Enabled := true;
 
     if DataSource1.DataSet.FieldByName('PAGO').AsString <> 'Sim' then
-      sbQuitarConta.Enabled := true
+    begin
+      sbQuitarConta.Enabled := true;
+      sbEditar.Enabled := true;
+    end
     else
+    begin
       sbQuitarConta.Enabled := false;
-    
-
+      sbEditar.Enabled := false;
+    end;
   end
   else
   begin
@@ -255,27 +259,30 @@ begin
 
   if DataSource1.DataSet.RecordCount >= 1 then
   begin
-    FEntityContaPagar
-                    .getJurosConta(edtJuros.Text)
-                    .getMulta(edtMulta.Text)
-                    .getDesconto(edtDesconto.Text)
-                    .getValorTotalConta(edtValorTotal.Text)
-                    .getDataPagamento(edtDataPagamento.Text)
-                    .getObservacao(edtObservacao.Text)
-                    .quitarParcela;
+    if DataSource1.DataSet.FieldByName('PAGO').AsString = 'Nao' then
+     begin
+      FEntityContaPagar
+                      .getJurosConta(edtJuros.Text)
+                      .getMulta(edtMulta.Text)
+                      .getDesconto(edtDesconto.Text)
+                      .getValorTotalConta(edtValorTotal.Text)
+                      .getDataPagamento(edtDataPagamento.Text)
+                      .getObservacao(edtObservacao.Text)
+                      .quitarParcela;
 
-      sbNovo.Enabled := true;
-      sbSalvar.Enabled := false;
-      sbEditar.Enabled := false;
-      sbCancelar.Enabled := false;
-      sbQuitarConta.Enabled := false;
+        sbNovo.Enabled := true;
+        sbSalvar.Enabled := false;
+        sbEditar.Enabled := false;
+        sbCancelar.Enabled := false;
+        sbQuitarConta.Enabled := false;
 
-      CardPanel1.ActiveCard := cardPanelConsulta;
-      pnlFocoCadastro.Visible := true;
-      pnlFocoConsulta.Visible := true;
-      lblCadastro.Enabled := true;
-      lblConsulta.Enabled := true;
+        CardPanel1.ActiveCard := cardPanelConsulta;
+        pnlFocoCadastro.Visible := true;
+        pnlFocoConsulta.Visible := true;
+        lblCadastro.Enabled := true;
+        lblConsulta.Enabled := true;
 
+  end;
   end;
 
 
