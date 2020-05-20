@@ -140,7 +140,7 @@ begin
       pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
       pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('CONTA').AsString;
       pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime;
-      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsFloat;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
       pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('JUROS').AsCurrency;
       pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('MULTA').AsCurrency;
       pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('DESCONTO').AsCurrency;
@@ -269,7 +269,7 @@ begin
     TQuery.Active := false;
     TQuery.SQL.Clear;
     TQuery.SQL.Add('select * from CONTAS_A_PAGAR where PAGO =:p and DATA_VENCIMENTO <:d');
-    TQuery.ParamByName('p').AsString := 'Não';
+    TQuery.ParamByName('p').AsString := 'Nao';
     TQuery.ParamByName('d').AsDate := Date;
     TQuery.Active := true;
   end;
@@ -287,7 +287,7 @@ begin
     TQuery.Active := false;
     TQuery.SQL.Clear;
     TQuery.SQL.Add('select * from CONTAS_A_PAGAR where PAGO =:p and DATA_VENCIMENTO >:d');
-    TQuery.ParamByName('p').AsString := 'Não';
+    TQuery.ParamByName('p').AsString := 'Nao';
     TQuery.ParamByName('d').AsDate := Date;
     TQuery.Active := true;
   end;

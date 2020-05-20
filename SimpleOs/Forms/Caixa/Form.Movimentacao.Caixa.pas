@@ -54,6 +54,11 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure sbPesquisarDataClick(Sender: TObject);
+    procedure DBGrid5TitleClick(Column: TColumn);
+    procedure DBGrid4TitleClick(Column: TColumn);
+    procedure DBGrid3TitleClick(Column: TColumn);
+    procedure DBGrid2TitleClick(Column: TColumn);
+    procedure DBGrid1TitleClick(Column: TColumn);
   private
     { Private declarations }
 
@@ -105,8 +110,31 @@ begin
 
   lblTotalCaixa.Caption := FormatFloat('R$ #,##0.00', totalCalculado);
 
+end;
 
+procedure TformMovimentacaoCaixa.DBGrid1TitleClick(Column: TColumn);
+begin
+  FMovimentacaoOS.ordenarGrid(Column);
+end;
 
+procedure TformMovimentacaoCaixa.DBGrid2TitleClick(Column: TColumn);
+begin
+  FMovimentacaoVenda.ordenarGrid(Column);
+end;
+
+procedure TformMovimentacaoCaixa.DBGrid3TitleClick(Column: TColumn);
+begin
+  FMovimentacaoRetiradas.ordenarGrid(Column);
+end;
+
+procedure TformMovimentacaoCaixa.DBGrid4TitleClick(Column: TColumn);
+begin
+  FMovimentacaoContas.ordenarGrid(Column);
+end;
+
+procedure TformMovimentacaoCaixa.DBGrid5TitleClick(Column: TColumn);
+begin
+ FMovimentacaoCaixa.ordenarGrid(Column);
 end;
 
 procedure TformMovimentacaoCaixa.FormCreate(Sender: TObject);

@@ -26,7 +26,8 @@ type
       Shift: TShiftState);
     procedure sbPesquisarDataClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
-    procedure sbImprimirClick(Sender: TObject);  private
+    procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);  private
     { Private declarations }
     var
       FRelatorioEntradaProdutos : iRelatorioEntradaDeProdutos;
@@ -42,6 +43,12 @@ implementation
 {$R *.dfm}
 
 uses softMeter_globalVar;
+
+procedure TformRelatorioEntradasDeProdutos.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FRelatorioEntradaProdutos.ordenarGrid(Column);
+end;
 
 procedure TformRelatorioEntradasDeProdutos.edtPesquisarKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);

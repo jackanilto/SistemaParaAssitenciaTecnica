@@ -79,15 +79,15 @@ begin
   case TEnumPesquisarStatus(cbPesquisarStatus.ItemIndex) of
   pagas:
   begin
-    FRelatorioContasAPagar.selecionarContasPagas;
+    FRelatorioContasAPagar.selecionarContasPagas.listarGrid(DataSource1);
   end;
   avencer:
   begin
-    FRelatorioContasAPagar.selecionarContasAVencer;
+    FRelatorioContasAPagar.selecionarContasAVencer.listarGrid(DataSource1);
   end;
   atrasadas:
   begin
-    FRelatorioContasAPagar.selecionarContasAtrasadas;
+    FRelatorioContasAPagar.selecionarContasAtrasadas.listarGrid(DataSource1);
   end;
   end;
 
@@ -106,12 +106,12 @@ begin
       DBGrid1.Canvas.Brush.Color := $00FF8A4F;
       DBGrid1.Canvas.Font.Color := clwhite
     end
-    else if ((FieldByName('PAGO').AsString = 'Não') and (FieldByName('DATA_VENCIMENTO').AsDateTime < date)) then
+    else if ((FieldByName('PAGO').AsString = 'Nao') and (FieldByName('DATA_VENCIMENTO').AsDateTime < date)) then
     begin
       DBGrid1.Canvas.Brush.Color := $003C60DD;
       DBGrid1.Canvas.Font.Color := clwhite
     end
-    else if FieldByName('PAGO').AsString = 'Não'  then
+    else if FieldByName('PAGO').AsString = 'Nao'  then
     begin
       DBGrid1.Canvas.Brush.Color := $0053C124;
       DBGrid1.Canvas.Font.Color := clwhite

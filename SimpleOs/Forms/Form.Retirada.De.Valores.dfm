@@ -2,6 +2,7 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
   Caption = 'Retirada de valores'
   ClientHeight = 443
   ClientWidth = 957
+  OnClose = FormClose
   ExplicitWidth = 957
   ExplicitHeight = 443
   PixelsPerInch = 96
@@ -64,6 +65,8 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
     end
     inherited cbPesquisar: TComboBox
       Left = 623
+      ItemIndex = 0
+      Text = 'C'#243'digo da retirada'
       Items.Strings = (
         'C'#243'digo da retirada'
         'C'#243'digo do motivo'
@@ -79,6 +82,7 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
   inherited CardPanel1: TCardPanel
     Width = 957
     Height = 287
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 957
     ExplicitHeight = 287
     inherited cardPanelCadatro: TCard
@@ -87,7 +91,6 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
       Font.Height = -13
       Font.Name = 'Segoe UI'
       ParentFont = False
-      ExplicitTop = -1
       ExplicitWidth = 957
       ExplicitHeight = 287
       object Label1: TLabel
@@ -184,6 +187,7 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
         Height = 25
         EditMask = '00/00/0000'
         MaxLength = 10
+        ReadOnly = True
         TabOrder = 4
         Text = '  /  /    '
       end
@@ -194,6 +198,7 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
         Height = 25
         EditMask = '00:00:00'
         MaxLength = 8
+        ReadOnly = True
         TabOrder = 5
         Text = '  :  :  '
       end
@@ -202,6 +207,7 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
         Top = 138
         Width = 382
         Height = 25
+        ReadOnly = True
         TabOrder = 6
       end
       object edtObservacao: TEdit
@@ -232,6 +238,32 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
           OnClick = sbExportarClick
           ExplicitLeft = 793
         end
+        object Label11: TLabel
+          Left = 496
+          Top = 16
+          Width = 57
+          Height = 17
+          Caption = 'Label11'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label12: TLabel
+          Left = 401
+          Top = 16
+          Width = 88
+          Height = 17
+          Caption = 'Valor em caixa:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
       end
       inherited DBGrid1: TDBGrid
         Width = 957
@@ -255,8 +287,8 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
     CloseDataSource = False
     DataSource = DataSource1
     BCDToCurrency = False
-    Left = 672
-    Top = 145
+    Left = 560
+    Top = 81
   end
   object frx_Retirada: TfrxReport
     Version = '6.3.3'
@@ -274,8 +306,8 @@ inherited formRetiradaDeValores: TformRetiradaDeValores
       'begin'
       ''
       'end.')
-    Left = 560
-    Top = 145
+    Left = 464
+    Top = 81
     Datasets = <
       item
         DataSet = frxDB_Retirada

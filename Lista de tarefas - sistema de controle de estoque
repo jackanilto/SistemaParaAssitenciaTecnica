@@ -1,38 +1,5 @@
-#Cadastro de produtos -> Campo funcionário não deve permitir a entrada de valores. -> OK
-					  -> Campos Cod. Grupo, Modelo, Número serie, Alteração, Observação não estão sendo limpos
-							ao iniciar um novo serviço. -> OK
-					  -> Ver possível problema ao cadastrar um produto, erro de " [FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_PRODUTOS_2" on table "PRODUTOS"
-Foreign key reference target does not exist" -> Erro não localizado	
-	
-#Cadatro de transportadora -> Campo funcionário não deve permitir a entrada de valores. -> OK
 
-#Cadatro de forncecedores -> Campo funcionário não deve permitir a entrada de valores. -> OK
-
-#Cadatro de marcas -> OK
-#Cadastro de grupos -> OK
-
-#Cadastro de contas a pagar -> Mensagem de erro ao clicar no borão "Quitar parcela" esta escrito de forma incorreta. -> OK
-							-> Se um conta estiver como "Quitada", não deve ser possível editar o registro. -> OK
-							-> Se uma conta estiver como "Quitada", não deve ser possível editar a conta. -> OK
-
-#Entradas de produtos  -> Campo funcionário não deve permitir a entrada de valores. -> OK
-					   -> Janela "Localizar produto", ao selecionar o "Tipo de pesquisa", o foco deve ir para o campo 
-							"Digite o que deseja pesquisar". -> OK
-
-#Saidas de produtos -> OK.
-
-#Venda de produtos -> Ver uma maneira de excluir apenas um item por vez nos itens da vendas que tiverem mais de um itens. -> OK
-				   -> Não executar os cliques nos botões "Excluir item selecionado" e "Finalziar venda" se não houverem
-						itens na venda. -> PROBLEMA NÃO IDENTIFICADO
-				   -> Ao finalizar um venda o dataset dos itens da venda devem ser abertos. -> OK		
-
-#Quitar parcela venda -> Verificar possível problema ao imprimir o comprovante de pagamento, estão saido varios comprovantes
-							de pagemento da venda. (Possível solução pode ser realizar a pesquisa estatica antes de imprimir,
-								ou criar um dataset separado para a impressão de recibos) -> OK
-
-#Visualizar venda -> OK.
-
-###Cadastro de funcionário -> Ao iniciar um novo cadastro o campo foto deve ser limpo.
+###Cadastro de funcionário -> Ao iniciar um novo cadastro o campo foto deve ser limpo. -> OK
 
 #Relatório de vendas -> OK
 #Parcelas a receber vendas -> OK
@@ -42,15 +9,15 @@ Foreign key reference target does not exist" -> Erro não localizado
 #Vendas inadimplentes -> OK
 #Vendas por funcionários -> OK
 #Relatório de produtos -> OK
-#Entrada de produtos -> Processo para ordenar os registros na grid não esta funcionando.
+#Entrada de produtos -> Processo para ordenar os registros na grid não esta funcionando. -> OK
 #Saida de produtos -> OK
 #Situação do estoque -> OK
 
-#Relatório de contas a pagar -> Ao exporta para o excel o campo "Valor", não esta com o formatação de moeda.
-							 -> Verificar o cores da grid para contas que estão em atraso.
+#Relatório de contas a pagar -> Ao exporta para o excel o campo "Valor", não esta com o formatação de moeda. -> OK
+							 -> Verificar o cores da grid para contas que estão em atraso. -> OK
 							 -> Campos de pesquisa "Pesquisa por situação", não esta funcionando nas contas atrasadas
-									e a vencer.
-							 -> A grid deve esta formatada (chamar o função listargrif).		
+									e a vencer. -> OK
+							 -> A grid deve esta formatada (chamar o função listargrid). -> OK 		
 
 #Relatório de forncecedores -> OK
 #Relatório de transportadora -> OK
@@ -58,18 +25,20 @@ Foreign key reference target does not exist" -> Erro não localizado
 
 #Encerramento de caixa -> OK
 #Reabertura de caixa -> OK
-#Retirada de valores -> Não deve ser possível a retirada de valores maiores dos que estão contidos no caixa.
-					 -> O botão excluir pode ser usado neste janela?
+#Retirada de valores -> Não deve ser possível a retirada de valores maiores dos que estão contidos no caixa. -> OK
+					 -> Só deve ser possível excluir retiradas do mesmo dia. -> OK
 
-#Comissões por técnicos -> O processo de ordenar da grid não esta funcionando.
+#Comissões por técnicos -> O processo de ordenar da grid não esta funcionando. -> OK
 
 #Historico do caixa -> OK
 
-#Movimentação do caixa -> O processo de ordenação das grids não esta funcionando. Ver se é necessario.
+#Movimentação do caixa -> O processo de ordenação das grids não esta funcionando. -> OK
 
-#Abertura do caixa -> A abertura de caixa manual não esta levando em conta o valor de fechamento do caixa anterior.
+#Abertura do caixa -> A abertura de caixa manual não esta levando em conta o valor de fechamento do caixa anterior. -> OKS
 
 #Relatório aniversariantes -> OK
+
+###Testar o sistema de caixa mais detalhadamente.
 
 
 Cadastro de clientes

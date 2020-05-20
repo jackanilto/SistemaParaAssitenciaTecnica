@@ -390,7 +390,7 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
     Top = 41
     Width = 1060
     Height = 407
-    ActivePage = tsCaixa
+    ActivePage = tsParcelasOS
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -401,10 +401,6 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
     TabOrder = 2
     object tsParcelasOS: TTabSheet
       Caption = 'OS'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
@@ -427,15 +423,12 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = [fsBold]
+        OnTitleClick = DBGrid1TitleClick
       end
     end
     object tsVenda: TTabSheet
       Caption = 'Vendas'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object DBGrid2: TDBGrid
         Left = 0
         Top = 0
@@ -458,15 +451,12 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = [fsBold]
+        OnTitleClick = DBGrid2TitleClick
       end
     end
     object tsRetiradas: TTabSheet
       Caption = 'Retiradas'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object DBGrid3: TDBGrid
         Left = 0
         Top = 0
@@ -489,15 +479,12 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = [fsBold]
+        OnTitleClick = DBGrid3TitleClick
       end
     end
     object tsContas: TTabSheet
       Caption = 'Contas'
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 26
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object DBGrid4: TDBGrid
         Left = 0
         Top = 0
@@ -520,6 +507,7 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = [fsBold]
+        OnTitleClick = DBGrid4TitleClick
       end
     end
     object tsCaixa: TTabSheet
@@ -547,6 +535,7 @@ object formMovimentacaoCaixa: TformMovimentacaoCaixa
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = [fsBold]
+        OnTitleClick = DBGrid5TitleClick
       end
     end
   end

@@ -7918,3 +7918,28 @@ Problematic key value is ("ID" = 0)
 18/05/20 19:47:25 - Caption: SimpleOS
 18/05/20 19:47:25 - Erro:EAccessViolation
 18/05/20 19:47:25 - Erro:Access violation at address 00BD6F93 in module 'SimplesOS.exe'. Read of address 00000004
+20/05/20 20:07:27 - ===========================================
+20/05/20 20:07:27 - Form: formRetiradaDeValores
+20/05/20 20:07:27 - Caption: Retirada de valores
+20/05/20 20:07:27 - Erro:Exception
+20/05/20 20:07:27 - Erro:ERRO! A valor da retirada e superior ao valor em caixa no momento
+20/05/20 20:19:56 - ===========================================
+20/05/20 20:19:56 - Form: formRetiradaDeValores
+20/05/20 20:19:56 - Caption: Retirada de valores
+20/05/20 20:19:56 - Erro:Exception
+20/05/20 20:19:56 - Erro:ERRO!. Só é possível excluir a retirada que foram feitos no dia atual.
+20/05/20 20:26:07 - ===========================================
+20/05/20 20:26:07 - Form: formPrincipal
+20/05/20 20:26:07 - Caption: SimpleOS
+20/05/20 20:26:07 - Erro:EAccessViolation
+20/05/20 20:26:07 - Erro:Access violation at address 00BD6F93 in module 'SimplesOS.exe'. Read of address 00000004
+20/05/20 20:26:34 - ===========================================
+20/05/20 20:26:34 - Form: formComissoesTecnicos
+20/05/20 20:26:34 - Caption: Comissões dos técnicos
+20/05/20 20:26:34 - Erro:Exception
+20/05/20 20:26:34 - Erro:Informe por qual campo deseja pequisar.
+20/05/20 20:34:44 - ===========================================
+20/05/20 20:34:44 - Form: formLocalizarProdutoVenda
+20/05/20 20:34:44 - Caption: Localizar produtos - Venda
+20/05/20 20:34:44 - Erro:Exception
+20/05/20 20:34:44 - Erro:O estoque deste produto está zerado. Não é possível realizar vendas até normalizar este produto.

@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Retirada.Valores, Vcl.Mask, UFactory,
-  frxClass, frxDBSet;
+  frxClass, frxDBSet, UClasse.Entity.Caixa;
 
 type
   TEnumPesquisar = (codigo, codigo_motivo, motivo);
@@ -33,6 +33,8 @@ type
     Label10: TLabel;
     frxDB_Retirada: TfrxDBDataset;
     frx_Retirada: TfrxReport;
+    Label11: TLabel;
+    Label12: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure sbNovoClick(Sender: TObject);
@@ -47,10 +49,21 @@ type
       Shift: TShiftState);
     procedure cbPesquisarChange(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
-    procedure sbImprimirClick(Sender: TObject);  private
+    procedure sbImprimirClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);  private
     { Private declarations }
     var
       FEntityRetirada:iRetiradaDeValores;
+      FCaixa: TEntityCaixa;
+
+      FParcelasOS : Currency;
+      FParcelasVendas : Currency;
+      FEstornosOS : Currency;
+      FEstornosVendas : Currency;
+      FRetiradas  : Currency;
+      FTotalDeAbertura  : Currency;
+      FTotalCaixa:Currency;
+
   public
     { Public declarations }
   end;
@@ -147,14 +160,25 @@ begin
 
 end;
 
+procedure TformRetiradaDeValores.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+ FreeAndNil(FCaixa);
+end;
+
 procedure TformRetiradaDeValores.FormCreate(Sender: TObject);
 begin
   inherited;
   FEntityRetirada := TEntityRetiradaValores.new;
+  FCaixa := TEntityCaixa.create;
   dllSoftMeter.sendEvent('retiradas de valores do caixa', 'retirada valores', 0);
+  ReportMemoryLeaksOnShutdown := true;
 end;
 
 procedure TformRetiradaDeValores.FormShow(Sender: TObject);
+var
+  FTotal: Currency;
 begin
   inherited;
 
@@ -169,7 +193,22 @@ begin
             .ftTable
             .FD_Table('TIPO_RETIRADAS')
             .getCampoTabela('TIPO_SAIDA')
-            .popularComponenteComboBox(cbMotivoRetirada)
+            .popularComponenteComboBox(cbMotivoRetirada);
+
+
+  FParcelasOS := FCaixa.calcularParcelasOS;
+  FParcelasVendas := FCaixa.calcularParcelasVendas;
+  FEstornosOS := FCaixa.calcularEstornosOS;
+  FEstornosVendas := FCaixa.calcularEstornoVendas;
+  FRetiradas := FCaixa.calcularRetiradas;
+  FTotalDeAbertura := FCaixa.valorCaixaEmAberto;
+
+  FTotal := (FParcelasOS + FParcelasVendas);
+  FTotal := (FTotal + FTotalDeAbertura) - FRetiradas;
+
+  FTotalCaixa := FTotal;
+
+  label11.Caption := FormatFloat('R$ #,##0.00', FTotal);
 
 end;
 
@@ -211,9 +250,15 @@ end;
 procedure TformRetiradaDeValores.sbSalvarClick(Sender: TObject);
 var
   valor:string;
+  vlrRetirada:Currency;
 begin
 
   valor := TFactory.new.validarDocumento.limparValorRS(edtValor.Text);
+
+  vlrRetirada := StrToCurr(valor);
+
+  if vlrRetirada > FTotalCaixa then
+    raise Exception.Create('ERRO! A valor da retirada e superior ao valor em caixa no momento');
 
   FEntityRetirada
                 .getID_MOTIVO(edtCodRetirada.Text)

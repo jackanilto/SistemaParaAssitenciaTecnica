@@ -340,6 +340,7 @@ begin
     'Perguna do sistema', MB_YESNO + MB_ICONQUESTION) = mrYes then
   begin
     try
+
       FQueryEncerramento.Edit;
 
       FQueryEncerramento.FieldByName('DATA_ENCERRAMENTO').AsDateTime := date;

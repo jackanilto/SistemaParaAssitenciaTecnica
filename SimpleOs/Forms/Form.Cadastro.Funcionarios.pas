@@ -406,6 +406,8 @@ begin
 
   edtDataCadastro.Text := DateToStr(Date);
 
+  Image1.Picture := nil;
+
 end;
 
 procedure TformCadastroDeFuncionarios.sbPesquisarCepClick(Sender: TObject);

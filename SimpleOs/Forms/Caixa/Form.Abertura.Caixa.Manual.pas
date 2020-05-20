@@ -107,8 +107,8 @@ begin
 
   edtDataAbertura.Text := DateToStr(Date);
   edtHorarioAbertura.Text := TimeToStr(Time);
-  edtValorAnterior.Text := CurrToStr(s_Abertura.DataSet.FieldByName('VALOR_ANTERIRO').AsCurrency);
-  edtValorInformado.Text := CurrToStr(s_Abertura.DataSet.FieldByName('VALOR_ANTERIRO').AsCurrency);
+  edtValorAnterior.Text := CurrToStr(s_Fechamento.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
+  edtValorInformado.Text := CurrToStr(s_Fechamento.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
   edtFuncionario.Text := FCaixa.retornarNomeFuncionarioLogado;
 
 end;
@@ -116,10 +116,12 @@ end;
 procedure TformAberturaDeCaixaManual.s_FechamentoDataChange(Sender: TObject;
   Field: TField);
 begin
+
   edtdataEncerramento.Text := DateToStr(s_Fechamento.DataSet.FieldByName('DATA_ENCERRAMENTO').AsDateTime);
   edtHorarioEncerramento.Text := TimeToStr(s_Fechamento.DataSet.FieldByName('HORA_ENCERRAMENTO').AsDateTime);
   edtValorDeEncerramento.Text := CurrToStr(s_Fechamento.DataSet.FieldByName('VALOR_ENCERRAMENTO').AsCurrency);
   edtFuncionarioEncerramento.Text := s_Fechamento.DataSet.FieldByName('NOME_FUNCIONARIO_ENCERRAMENTO').AsString;
+
 end;
 
 end.

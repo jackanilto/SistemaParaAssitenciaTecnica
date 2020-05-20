@@ -127,11 +127,21 @@ begin
       'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
     begin
 
-      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('MOTIVO')
-        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
-        .getOperacao('deletado').gravarLog;
+      if FQuery.TQuery.FieldByName('DATA').AsDateTime = date then
+        begin
 
-      FQuery.TQuery.Delete;
+          FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('MOTIVO')
+            .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+            .getOperacao('deletado').gravarLog;
+
+          FQuery.TQuery.Delete;
+
+        end
+        else
+        begin
+          raise Exception.Create(
+            'ERRO!. Só é possível excluir as retiradas que foram feitas no mesmo dia.');
+        end;
     end;
   end;
 

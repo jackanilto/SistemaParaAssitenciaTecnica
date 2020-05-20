@@ -25,6 +25,7 @@ type
     procedure sbPesquisarDataClick(Sender: TObject);
     procedure sbExportarClick(Sender: TObject);
     procedure sbImprimirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
   private
     { Private declarations }
     var
@@ -41,6 +42,12 @@ implementation
 {$R *.dfm}
 
 uses softMeter_globalVar;
+
+procedure TformComissoesTecnicos.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FRelatorio.ordenarGrid(Column);
+end;
 
 procedure TformComissoesTecnicos.FormCreate(Sender: TObject);
 begin

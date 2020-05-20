@@ -29,8 +29,6 @@ object formAberturaDeCaixaManual: TformAberturaDeCaixaManual
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitLeft = -346
-    ExplicitWidth = 809
     DesignSize = (
       841
       41)
@@ -136,8 +134,6 @@ object formAberturaDeCaixaManual: TformAberturaDeCaixaManual
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitLeft = -346
-    ExplicitWidth = 809
     object Label1: TLabel
       Left = 24
       Top = 49
@@ -220,9 +216,6 @@ object formAberturaDeCaixaManual: TformAberturaDeCaixaManual
     Font.Style = []
     ParentFont = False
     TabOrder = 2
-    ExplicitLeft = -346
-    ExplicitTop = 88
-    ExplicitWidth = 809
     object Label5: TLabel
       Left = 24
       Top = 41
@@ -316,9 +309,6 @@ object formAberturaDeCaixaManual: TformAberturaDeCaixaManual
     Color = 8406532
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = -346
-    ExplicitTop = 168
-    ExplicitWidth = 809
     object sbIniciarCaixa: TSpeedButton
       Left = 200
       Top = 8
