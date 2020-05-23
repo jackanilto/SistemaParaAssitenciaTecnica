@@ -5,7 +5,7 @@ interface
 uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
   System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
   UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
-  UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls;
+  UClasse.Calcular.Juros, UClasse.DiasMeses, Vcl.StdCtrls, RxCurrEdit;
 
 type
 
@@ -45,6 +45,10 @@ type
 
     F_JurosAtraso: Real;
     F_MultaAtraso: Currency;
+
+    //****
+     totalJuros: Currency;
+    //****
 
     FCodigo: integer;
     FNome: string;
@@ -106,6 +110,12 @@ type
     function adicionarParcela: iParcelaOrdem;
     function gravarEdicaoParcelas:iParcelaOrdem;
     function estadoDaTabela(value: string): iParcelaOrdem;
+
+    function setJuros(value:TCurrencyEdit):iParcelaOrdem;
+    function setMulta(value:TCurrencyEdit):iParcelaOrdem;
+    function setDatapagamento(value:TMaskEdit):iParcelaOrdem;
+    function setHoraPagamento(value:TMaskEdit):iParcelaOrdem;
+
 
     constructor create;
     destructor destroy; override;
@@ -178,7 +188,6 @@ var
   periodo: integer;
   total: Currency;
   valorParcela: Currency;
-  totalJuros: Currency;
 begin
 
   result := '0';
@@ -204,10 +213,10 @@ begin
       totalJuros := total - valorParcela;
     end;
 
-    FQuery.TQuery.FieldByName('JUROS').AsFloat := totalJuros;
-    FQuery.TQuery.FieldByName('MULTA').AsCurrency := F_MultaAtraso;
-    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
-    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+//    FQuery.TQuery.FieldByName('JUROS').AsFloat := totalJuros;
+//    FQuery.TQuery.FieldByName('MULTA').AsCurrency := F_MultaAtraso;
+//    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+//    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
 
     result := currtostr(totalJuros + F_MultaAtraso + valorParcela);
 
@@ -215,10 +224,10 @@ begin
   else
   begin
 
-    FQuery.TQuery.FieldByName('JUROS').AsFloat := 0;
-    FQuery.TQuery.FieldByName('MULTA').AsCurrency := 0;
-    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
-    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+//    FQuery.TQuery.FieldByName('JUROS').AsFloat := 0;
+//    FQuery.TQuery.FieldByName('MULTA').AsCurrency := 0;
+//    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+//    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
 
     result := currtostr(valorParcela);
 
@@ -229,7 +238,6 @@ end;
 function TEntityGerarParcelas.cancelar: iParcelaOrdem;
 begin
   FQuery.TQuery.Cancel;
-  // FQuery.TQuery.close;
 end;
 
 function TEntityGerarParcelas.codigoCadastro(sp: string): integer;
@@ -289,6 +297,12 @@ begin
   result := self;
   if FQuery.TQuery.RecordCount >= 1 then
   begin
+
+    if FQuery.TQuery.State in [dsEdit] then
+      begin
+        FQuery.TQuery.Cancel;
+        showmessage('Entrou no metodo');
+      end;
 
     FGravarLog.getNomeRegistro('Editando a parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
       .getOperacao('editando');
@@ -771,6 +785,27 @@ begin
 end;
 
 function TEntityGerarParcelas.pesquisar: iParcelaOrdem;
+begin
+  result := self;
+end;
+
+function TEntityGerarParcelas.setDatapagamento(value: TMaskEdit): iParcelaOrdem;
+begin
+  result := self;
+end;
+
+function TEntityGerarParcelas.setHoraPagamento(value: TMaskEdit): iParcelaOrdem;
+begin
+  result := self;
+end;
+
+function TEntityGerarParcelas.setJuros(value: TCurrencyEdit): iParcelaOrdem;
+begin
+
+  result := self;
+  end;
+
+function TEntityGerarParcelas.setMulta(value: TCurrencyEdit): iParcelaOrdem;
 begin
   result := self;
 end;

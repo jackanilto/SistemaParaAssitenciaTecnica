@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbParcelas
+    ActivePage = tbOrdemServiço
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -297,14 +297,14 @@
           Caption = 'Situa'#231#227'o da ordem'
         end
         object Label13: TLabel
-          Left = 615
+          Left = 663
           Top = 203
           Width = 61
           Height = 17
           Caption = 'Prioridade'
         end
         object Label14: TLabel
-          Left = 724
+          Left = 774
           Top = 203
           Width = 95
           Height = 17
@@ -520,7 +520,7 @@
         object edtSituacaoOrdem: TComboBox
           Left = 464
           Top = 226
-          Width = 145
+          Width = 193
           Height = 25
           CharCase = ecUpperCase
           Ctl3D = False
@@ -528,7 +528,7 @@
           TabOrder = 11
         end
         object edtPrioridade: TComboBox
-          Left = 615
+          Left = 663
           Top = 226
           Width = 103
           Height = 25
@@ -540,9 +540,9 @@
             'SIM')
         end
         object edtDataEntrada: TMaskEdit
-          Left = 724
+          Left = 772
           Top = 226
-          Width = 144
+          Width = 95
           Height = 25
           EditMask = '00/00/0000'
           MaxLength = 10
@@ -795,6 +795,7 @@
             Width = 249
             Height = 25
             TabOrder = 0
+            ZeroEmpty = False
             OnExit = edtValorOrdemExit
           end
           object edtDesconto: TCurrencyEdit
@@ -803,6 +804,7 @@
             Width = 121
             Height = 25
             TabOrder = 1
+            ZeroEmpty = False
             OnExit = edtDescontoExit
           end
           object edtAcrescimo: TCurrencyEdit
@@ -811,6 +813,7 @@
             Width = 122
             Height = 25
             TabOrder = 2
+            ZeroEmpty = False
             OnExit = edtAcrescimoExit
           end
           object edtTotalDaOS: TCurrencyEdit
@@ -819,6 +822,7 @@
             Width = 249
             Height = 25
             TabOrder = 3
+            ZeroEmpty = False
             OnExit = edtTotalDaOSExit
           end
           object edtValorOrdemParcelado: TCurrencyEdit
@@ -827,19 +831,20 @@
             Width = 173
             Height = 25
             TabOrder = 5
+            ZeroEmpty = False
           end
         end
         object GroupBox2: TGroupBox
-          Left = 7
-          Top = 200
-          Width = 431
+          Left = 3
+          Top = 195
+          Width = 436
           Height = 225
           Caption = 'Servi'#231'os inclusos'
           TabOrder = 1
           object DBGrid1: TDBGrid
             Left = 2
             Top = 19
-            Width = 427
+            Width = 432
             Height = 204
             Align = alClient
             DataSource = s_tem_servicos_adicionados
@@ -2424,8 +2429,8 @@
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 828
-    Top = 277
+    Left = 948
+    Top = 221
     object cds_tem_servicos_adicionados_editid: TIntegerField
       FieldName = 'id'
     end
@@ -2439,8 +2444,8 @@
   end
   object s_tem_servicos_adicionados_edit: TDataSource
     DataSet = cds_tem_servicos_adicionados_edit
-    Left = 940
-    Top = 253
+    Left = 948
+    Top = 165
   end
   object s_ParcelasOS: TDataSource
     OnDataChange = s_ParcelasOSDataChange
@@ -2459,7 +2464,7 @@
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 420
+    Left = 364
     Top = 349
     object cds_AdicionarParcelaid_ordem: TIntegerField
       FieldName = 'id_ordem'
@@ -3520,7 +3525,7 @@
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43817.548792488400000000
-    ReportOptions.LastChange = 43924.603155451390000000
+    ReportOptions.LastChange = 43943.628152210650000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''

@@ -104,6 +104,7 @@ type
 
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
     function adicionarParcela: iParcelaOrdem;
+    function gravarEdicaoParcelas:iParcelaOrdem;
     function estadoDaTabela(value: string): iParcelaOrdem;
 
     constructor create;
@@ -203,10 +204,10 @@ begin
       totalJuros := total - valorParcela;
     end;
 
-    FQuery.TQuery.FieldByName('JUROS').AsFloat := totalJuros;
-    FQuery.TQuery.FieldByName('MULTA').AsCurrency := F_MultaAtraso;
-    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
-    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
+//    FQuery.TQuery.FieldByName('JUROS').AsFloat := totalJuros;
+//    FQuery.TQuery.FieldByName('MULTA').AsCurrency := F_MultaAtraso;
+//    FQuery.TQuery.FieldByName('DATA_PAGAMENTO').AsDateTime := date;
+//    FQuery.TQuery.FieldByName('HORA_PAGAMENTO').AsDateTime := time;
 
     result := currtostr(totalJuros + F_MultaAtraso + valorParcela);
 
@@ -228,7 +229,6 @@ end;
 function TEntityGerarParcelas.cancelar: iParcelaOrdem;
 begin
   FQuery.TQuery.Cancel;
-  // FQuery.TQuery.close;
 end;
 
 function TEntityGerarParcelas.codigoCadastro(sp: string): integer;
@@ -289,8 +289,14 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
+    if FQuery.TQuery.State in [dsEdit] then
+      begin
+        FQuery.TQuery.Cancel;
+        showmessage('Entrou no metodo');
+      end;
+
     FGravarLog.getNomeRegistro('Editando a parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
-      .getOperacao('editando').gravarLog;
+      .getOperacao('editando');
 
     FQuery.TQuery.Edit;
 
@@ -598,9 +604,9 @@ end;
 function TEntityGerarParcelas.getVALOR_PARCELA(value: Currency): iParcelaOrdem;
 begin
   result := self;
-  if value = 0 then
-    raise exception.create
-      ('informe um valor deferente de 0(Zero) para o valor da parcela.');
+//  if value = 0 then
+//    raise exception.create
+//      ('informe um valor deferente de 0(Zero) para o valor da parcela.');
   FVALOR_PARCELA := value;
 end;
 
@@ -658,8 +664,8 @@ begin
 
   end;
 
-  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('ID').AsString)
-    .gravarLog;
+  FGravarLog.getNomeRegistro('Quitando esta parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
+    .getOperacao('quitar').gravarLog;
 
   try
     FQuery.TQuery.Post;
@@ -669,6 +675,30 @@ begin
     begin
       raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
     end;
+
+  end;
+
+end;
+
+function TEntityGerarParcelas.gravarEdicaoParcelas: iParcelaOrdem;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('VALOR_PARCELA').AsCurrency :=  FVALOR_PARCELA;
+  FQuery.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime := StrToDate(FDATA_VENCIMENTO);
+
+  try
+  FQuery.TQuery.Post;
+  showmessage('Operação realizada com sucesso!!!');
+
+
+  FGravarLog.gravarLog;
+
+  except on e:exception do
+  begin
+    raise Exception.Create('ERRO! Erro ao tentar gravar as alerações da parcela. '+e.Message);
+  end;
 
   end;
 

@@ -348,8 +348,8 @@ begin
     else if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString = 'Nao' then
     begin
 
-        FEntityParcelasOrdem.editar;
-        edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+      FEntityParcelasOrdem.editar;
+      edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
 
       sbQuitarParcela.Enabled := true;
       sbSalvarParcela.Enabled := false;
@@ -673,15 +673,12 @@ begin
     FEntityServicosOrdem
                       .gravarServicosAdicionadosEdit(cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
 
-  if estado = 'insert' then
-
-    gerarInformacoesPagamentoOS;
-
-  showmessage('Ordem de Serviço inserida com sucesso');
-
   FAtivarBotoes.ativarBotaoSalvar;
 
   lblCaption.Caption := 'Ordem de serviços';
+
+  if estado = 'insert' then
+    gerarInformacoesPagamentoOS;
 
   habilitarDesabilitarEdits('desativar');
 
@@ -758,7 +755,7 @@ begin
           .getDATA_VENCIMENTO(edtDataBaseVencimento.Text).gerarParcelas;
 
         showmessage
-          ('Parcelas / Informações para pagamento foram geradas com sucesso');
+          ('Parcelas / Informações para pagamento foram geradas com sucesso!');
 
       except
         on e: Exception do
@@ -1331,7 +1328,37 @@ end;
 
 procedure TformCriarConsultarOrdemServico.gravarInformacoesOS;
 begin
-  FEntityCriarOrdem.getID_CLIENTE(edtCodigoCliente.Text).getEQUIPAMENTO(edtEquipamento.Text).getMarca(edtMarca.Text).getModelo(edtModelo.Text).getNUMERO_SERIE(edtNumeroDeSerie.Text).getDATA_FABRICACAO(edtDataFabricacao.Text).getDEFEITO_RELATADO(edtDefeitoRelatado.Text).getLAUDO_DO_TECNICO(edtLaudoTecnico.Text).getSOLUCAO_DO_PROBLEMA(edtSolucaoDoProblema.Text).getSITUACAO_DA_ORDEM(edtSituacaoOrdem.Text).getPRIORIDADE(edtPrioridade.Text).getDataCadastro(edtDataEntrada.Text).getDataFinalizacao(edtDataDeSaida.Text).getHoraFinalizacao(edtHoraSaida.Text).getIdTecnico(FIdTecnico.ToString).getTecnico(edtTecnicoResponsavel.Text).getRETORNO(edtRetorno.Text).getDATA_RETORNO(edtDataRetorno.Text).getObservacao(edtObservacao.Text).getVALOR_DA_ORDEM(edtValorOrdem.Text).getDesconto(edtDesconto.Text).getACRESCIMO(edtAcrescimo.Text).getTotalDoOrcamento(edtTotalDaOS.Text).getTOTAL_PARCELAS(edtTotalDeParcelas.Text).getDataBaseVencimento(edtDataBaseVencimento.Text).getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text).gravar;
+  FEntityCriarOrdem
+                  .getID_CLIENTE(edtCodigoCliente.Text)
+                  .getEQUIPAMENTO(edtEquipamento.Text)
+                  .getMarca(edtMarca.Text)
+                  .getModelo(edtModelo.Text)
+                  .getNUMERO_SERIE(edtNumeroDeSerie.Text)
+                  .getDATA_FABRICACAO(edtDataFabricacao.Text)
+                  .getDEFEITO_RELATADO(edtDefeitoRelatado.Text)
+                  .getLAUDO_DO_TECNICO(edtLaudoTecnico.Text)
+                  .getSOLUCAO_DO_PROBLEMA(edtSolucaoDoProblema.Text)
+                  .getSITUACAO_DA_ORDEM(edtSituacaoOrdem.Text)
+                  .getPRIORIDADE(edtPrioridade.Text)
+                  .getDataCadastro(edtDataEntrada.Text)
+                  .getDataFinalizacao(edtDataDeSaida.Text)
+                  .getHoraFinalizacao(edtHoraSaida.Text)
+                  .getIdTecnico(FIdTecnico.ToString)
+                  .getTecnico(edtTecnicoResponsavel.Text)
+                  .getRETORNO(edtRetorno.Text)
+                  .getDATA_RETORNO(edtDataRetorno.Text)
+                  .getObservacao(edtObservacao.Text)
+                  .getVALOR_DA_ORDEM(edtValorOrdem.Text)
+                  .getDesconto(edtDesconto.Text)
+                  .getACRESCIMO(edtAcrescimo.Text)
+                  .getTotalDoOrcamento(edtTotalDaOS.Text)
+                  .getTOTAL_PARCELAS(edtTotalDeParcelas.Text)
+                  .getDataBaseVencimento(edtDataBaseVencimento.Text)
+                  .getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text)
+                  .gravar;
+
+    showmessage('Ordem de Serviço inserida com sucesso');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.gerarInformacoesPagamentoOS;
@@ -1347,6 +1374,9 @@ begin
                       .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
                       .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
                       .gerarParcelas;
+
+    showmessage('Parcelas / Informações para pagamento foram geradas com sucesso!');
+
   end;
 end;
 

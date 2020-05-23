@@ -113,7 +113,6 @@ type
     sbImprimirParcelas: TSpeedButton;
     DBGrid3: TDBGrid;
     s_ParcelasOS: TDataSource;
-    DBNavigator1: TDBNavigator;
     edtNumeroParcela: TEdit;
     Label30: TLabel;
     Label31: TLabel;
@@ -348,8 +347,8 @@ begin
     else if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString = 'Nao' then
     begin
 
-        FEntityParcelasOrdem.editar;
-        edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+      FEntityParcelasOrdem.editar;
+      edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
 
       sbQuitarParcela.Enabled := true;
       sbSalvarParcela.Enabled := false;
@@ -1008,6 +1007,7 @@ procedure TformCriarConsultarOrdemServico.s_ParcelasOSDataChange
 begin
   with s_ParcelasOS.DataSet do
   begin
+
 
     edtNumeroParcela.Text := IntToStr(FieldByName('PARCELA').AsInteger);
     edtValorParcela.Text := CurrToStr(FieldByName('VALOR_PARCELA').AsCurrency);

@@ -1099,6 +1099,11 @@ type
     function gravarEdicaoParcelas: iParcelaOrdem;
     function estadoDaTabela(value: string): iParcelaOrdem;
 
+    function setJuros(value:TCurrencyEdit):iParcelaOrdem;
+    function setMulta(value:TCurrencyEdit):iParcelaOrdem;
+    function setDatapagamento(value:TMaskEdit):iParcelaOrdem;
+    function setHoraPagamento(value:TMaskEdit):iParcelaOrdem;
+
   end;
 
   iEstornarOS = interface

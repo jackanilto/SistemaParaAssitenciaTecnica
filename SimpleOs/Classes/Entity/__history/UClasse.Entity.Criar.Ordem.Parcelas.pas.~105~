@@ -290,6 +290,12 @@ begin
   if FQuery.TQuery.RecordCount >= 1 then
   begin
 
+    if FQuery.TQuery.State in [dsEdit] then
+      begin
+        FQuery.TQuery.Cancel;
+        showmessage('Entrou no metodo')
+      end;
+
     FGravarLog.getNomeRegistro('Editando a parcela: '+FQuery.TQuery.FieldByName('ID').AsString)
       .getOperacao('editando');
 
@@ -599,9 +605,9 @@ end;
 function TEntityGerarParcelas.getVALOR_PARCELA(value: Currency): iParcelaOrdem;
 begin
   result := self;
-  if value = 0 then
-    raise exception.create
-      ('informe um valor deferente de 0(Zero) para o valor da parcela.');
+//  if value = 0 then
+//    raise exception.create
+//      ('informe um valor deferente de 0(Zero) para o valor da parcela.');
   FVALOR_PARCELA := value;
 end;
 
@@ -686,6 +692,10 @@ begin
   try
   FQuery.TQuery.Post;
   showmessage('Operação realizada com sucesso!!!');
+
+
+  FGravarLog.gravarLog;
+
   except on e:exception do
   begin
     raise Exception.Create('ERRO! Erro ao tentar gravar as alerações da parcela. '+e.Message);

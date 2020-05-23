@@ -135,7 +135,8 @@ type
     function getJuros(value: real): iCalcularJuros;
     function getCapital(value: real): iCalcularJuros;
     function percentualDeDesconto(valor, percentualACalular: real): real;
-    function calcularDiferencaPercentual(MaiorValor, Menorvalor:Currency):Currency;
+    function calcularDiferencaPercentual(MaiorValor, Menorvalor: Currency)
+      : Currency;
   end;
 
   iGravarLogOperacoes = interface
@@ -157,7 +158,7 @@ type
   iCriarJanelas = interface
     ['{BEA3A61C-1058-4F51-B6AB-C488A1B18E1D}']
     function formShow(form: TForm; nomeForm: string): iCriarJanelas;
-    function verificarPermisao(value:string):iCriarJanelas;
+    function verificarPermisao(value: string): iCriarJanelas;
   end;
 
   iGerarCodigoBarras = interface
@@ -399,7 +400,7 @@ type
     function getObservacao(value: string): iCadastroContasAPagar;
 
     function exportar: iCadastroContasAPagar;
-    function quitarParcela:iCadastroContasAPagar;
+    function quitarParcela: iCadastroContasAPagar;
 
   end;
 
@@ -640,7 +641,8 @@ type
     function exportar: iCadastroFuncionario;
 
     function validarUsuario(value: string): iCadastroFuncionario;
-    function validarUsuarioEditando(codigo: integer; usuario: string): iCadastroFuncionario;
+    function validarUsuarioEditando(codigo: integer; usuario: string)
+      : iCadastroFuncionario;
     function validarSenha(value1, value2: string): iCadastroFuncionario;
     function validarSenhaEditando(value1, value2: string): iCadastroFuncionario;
 
@@ -789,9 +791,9 @@ type
     function getID(value: integer): iEntradaProdutos;
     function getID_PRODUTO(value: integer): iEntradaProdutos;
     function getProduto(value: string): iEntradaProdutos;
-    function getVALOR_POR_ITENS(value: currency): iEntradaProdutos;
+    function getVALOR_POR_ITENS(value: Currency): iEntradaProdutos;
     function getQUANTIDADE(value: integer): iEntradaProdutos;
-    function getTOTAL_DA_ENTRADA(value: currency): iEntradaProdutos;
+    function getTOTAL_DA_ENTRADA(value: Currency): iEntradaProdutos;
     function getNUMERO_NOTA(value: string): iEntradaProdutos;
     function getFuncionario(value: integer): iEntradaProdutos;
     function getDATA(value: string): iEntradaProdutos;
@@ -802,8 +804,8 @@ type
     function atualizarEstoque: iEntradaProdutos;
     function getCodigoProdutoAtualizar(value: integer): iEntradaProdutos;
     function getQuantidadeProdutoAtualizar(value: integer): iEntradaProdutos;
-    function getvalorEntradaProdutoAtualizar(value: currency): iEntradaProdutos;
-    function getValorTotalEntradaProdutoAtualizar(value: currency)
+    function getvalorEntradaProdutoAtualizar(value: Currency): iEntradaProdutos;
+    function getValorTotalEntradaProdutoAtualizar(value: Currency)
       : iEntradaProdutos;
     procedure validarData(componet: tmaskEdit);
 
@@ -839,9 +841,9 @@ type
     function getID(value: integer): iSaidaDeProdutos;
     function getID_PRODUTO(value: integer): iSaidaDeProdutos;
     function getPRODUTOS(value: string): iSaidaDeProdutos;
-    function getVALORPRODUTO(value: currency): iSaidaDeProdutos;
+    function getVALORPRODUTO(value: Currency): iSaidaDeProdutos;
     function getQUANTIDADE(value: integer): iSaidaDeProdutos;
-    function getTOTAL(value: currency): iSaidaDeProdutos;
+    function getTOTAL(value: Currency): iSaidaDeProdutos;
     function getDATA(value: string): iSaidaDeProdutos;
     function getHORA(value: string): iSaidaDeProdutos;
     function getMotivo(value: string): iSaidaDeProdutos;
@@ -976,12 +978,14 @@ type
     function setId: integer;
     function setId_Cliente: integer;
     function setTotalDeParcelas: integer;
-    function setValorDaParcelas: currency;
+    function setValorDaParcelas: Currency;
     function setDataBaseVencimento: TDate;
 
     function calcularDesconto(valor, desconto: TCurrencyEdit): string;
-    function calcularAcrescimo(valor, desconto, acrescimo: TCurrencyEdit): string;
-    function calularTotalPorNumeroDeParcela(total:TCurrencyEdit; qtde:TComboBox): string;
+    function calcularAcrescimo(valor, desconto,
+      acrescimo: TCurrencyEdit): string;
+    function calularTotalPorNumeroDeParcela(total: TCurrencyEdit;
+      qtde: TcomboBox): string;
 
     function estadoDaTabela: string;
 
@@ -1020,7 +1024,7 @@ type
       : iAdicionarServicosOrdem;
     function adicionarItemsTemporariamenteServico(value: string)
       : iAdicionarServicosOrdem;
-    function adicionarItemTemporariamenteValor(value: currency)
+    function adicionarItemTemporariamenteValor(value: Currency)
       : iAdicionarServicosOrdem;
     function adicionarItemsTemporariamente(value: TDataSource)
       : iAdicionarServicosOrdem;
@@ -1073,7 +1077,7 @@ type
     function getID_CLIENTE(value: integer): iParcelaOrdem;
     function getTOTAL_PARCELAS(value: integer): iParcelaOrdem;
     function getPARCELA(value: integer): iParcelaOrdem;
-    function getVALOR_PARCELA(value: currency): iParcelaOrdem;
+    function getVALOR_PARCELA(value: Currency): iParcelaOrdem;
     function getDATA_VENCIMENTO(value: string): iParcelaOrdem;
     function getDesconto(value: string): iParcelaOrdem;
     function getJuros(value: string): iParcelaOrdem;
@@ -1092,7 +1096,7 @@ type
     function calularJuros: string;
     function extornarParcelaSelecionada(value: integer): iParcelaOrdem;
     function adicionarParcela: iParcelaOrdem;
-    function gravarEdicaoParcelas:iParcelaOrdem;
+    function gravarEdicaoParcelas: iParcelaOrdem;
     function estadoDaTabela(value: string): iParcelaOrdem;
 
   end;
@@ -1124,7 +1128,7 @@ type
     function getID(value: integer): iEstornarOS;
     function getID_ORDEM(value: integer): iEstornarOS;
     function getID_CLIENTE(value: integer): iEstornarOS;
-    function getVALOR_OS(value: currency): iEstornarOS;
+    function getVALOR_OS(value: Currency): iEstornarOS;
     function getDATA(value: string): iEstornarOS;
     function getHORA(value: string): iEstornarOS;
     function getMotivo(value: string): iEstornarOS;
@@ -1167,7 +1171,7 @@ type
     function getID(value: integer): iEstonarVenda;
     function getID_VENDA(value: integer): iEstonarVenda;
     function getID_CLIENTE(value: integer): iEstonarVenda;
-    function getVALOR_VENDA(value: currency): iEstonarVenda;
+    function getVALOR_VENDA(value: Currency): iEstonarVenda;
     function getDATA(value: string): iEstonarVenda;
     function getHORA(value: string): iEstonarVenda;
     function getMotivo(value: string): iEstonarVenda;
@@ -1382,7 +1386,7 @@ type
     function calularDesconto: string;
     function calularAcrescimo: string;
     function contarTotalItens(value: TclientDataSet): integer;
-    function somarItensDaVenda(value: TclientDataSet): currency;
+    function somarItensDaVenda(value: TclientDataSet): Currency;
     function setNomeFuncionario: string;
     function setCodigoVenda: integer;
 
@@ -1435,7 +1439,8 @@ type
     function gravarItensDaVenda(value: TclientDataSet): iItensVendas;
     function decrementarEstoque(value: TclientDataSet): iItensVendas;
 
-    function calularTotalXquantidade(vlrProduto, qtdeProduto: TEdit): currency;
+    function calularTotalXquantidade(qtdeProduto: TEdit;
+      vlrProduto: TCurrencyEdit): Currency;
 
     function exportar: iItensVendas;
     procedure validarData(componet: tmaskEdit);
@@ -1557,7 +1562,7 @@ type
     function setSituacaoDoEstoque: string;
     function setCodigoDeBarras: string;
     function setFotoProduto(value: TImage): iLocalizarProdutosVenda;
-    function setValorUnitarioProduto: currency;
+    function setValorUnitarioProduto: Currency;
 
   end;
 
@@ -1604,9 +1609,9 @@ type
   iCalcularParcelas = interface
     ['{A036FFF1-4FC1-4314-935E-7FE13D5679C1}']
 
-    function getValor(value: currency): iCalcularParcelas;
+    function getValor(value: Currency): iCalcularParcelas;
     function getNumeroParcelas(value: integer): iCalcularParcelas;
-    function valorDeCadaParcela: currency;
+    function valorDeCadaParcela: Currency;
 
   end;
 
@@ -1675,8 +1680,8 @@ type
     function CalcularJuros: string;
     function retornarTotalDeParcelas(value: integer): integer;
 
-    function setJuros(value: TEdit): iQuitarParcelasVenda;
-    function setMulta(value: TEdit): iQuitarParcelasVenda;
+    function setJuros(value: TCurrencyEdit): iQuitarParcelasVenda;
+    function setMulta(value: TCurrencyEdit): iQuitarParcelasVenda;
 
     function exportar: iQuitarParcelasVenda;
     procedure validarData(componet: tmaskEdit);
@@ -1704,31 +1709,31 @@ type
     function listarGrid(value: TDataSource): iQuitarParcelaOS;
     function ordenarGrid(column: TColumn): iQuitarParcelaOS;
 
-    function CalularPagamento:iQuitarParcelaOS;
-    function setTotalParcela(value:TEdit):iQuitarParcelaOS;
-    function setTotalJurosParcela(value:TEdit):iQuitarParcelaOS;
-    function setTotalMultaParcela(value:TEdit):iQuitarParcelaOS;
+    function CalularPagamento: iQuitarParcelaOS;
+    function setTotalParcela(value: TCurrencyEdit): iQuitarParcelaOS;
+    function setTotalJurosParcela(value: TCurrencyEdit): iQuitarParcelaOS;
+    function setTotalMultaParcela(value: TCurrencyEdit): iQuitarParcelaOS;
 
-    function getDESCONTO(value:string):iQuitarParcelaOS;
-    function getJUROS(value:string):iQuitarParcelaOS;
-    function getMULTA(value:string):iQuitarParcelaOS;
-    function getVALOR_TOTAL(value:string):iQuitarParcelaOS;
-    function getDATA_PAGAMENTO(value:string):iQuitarParcelaOS;
-    function getHORA_PAGAMENTO(value:string):iQuitarParcelaOS;
-    function getFORMA_PAGAMENTO(value:string):iQuitarParcelaOS;
-    function getPGTO(value:string):iQuitarParcelaOS;
+    function getDesconto(value: string): iQuitarParcelaOS;
+    function getJuros(value: string): iQuitarParcelaOS;
+    function getMulta(value: string): iQuitarParcelaOS;
+    function getVALOR_TOTAL(value: string): iQuitarParcelaOS;
+    function getDATA_PAGAMENTO(value: string): iQuitarParcelaOS;
+    function getHORA_PAGAMENTO(value: string): iQuitarParcelaOS;
+    function getFORMA_PAGAMENTO(value: string): iQuitarParcelaOS;
+    function getPGTO(value: string): iQuitarParcelaOS;
 
-    function selecionarParcelaQuitar(value:integer):iquitarParcelaOS;
-    function estornarParcela(value:integer):iquitarParcelaOS;
+    function selecionarParcelaQuitar(value: integer): iQuitarParcelaOS;
+    function estornarParcela(value: integer): iQuitarParcelaOS;
 
-    function adicionarParcela:iQuitarParcelaOS;
-    function getValorParcela(value:string):iQuitarParcelaOS;
-    function getDataVencimento(value:string):iQuitarParcelaOS;
+    function adicionarParcela: iQuitarParcelaOS;
+    function getValorParcela(value: string): iQuitarParcelaOS;
+    function getDataVencimento(value: string): iQuitarParcelaOS;
 
-    function excluir(value:integer):iQuitarParcelaOS;
+    function excluir(value: integer): iQuitarParcelaOS;
 
     function exportar: iQuitarParcelaOS;
-    function validarData(componet: tmaskEdit):iQuitarParcelaOS;
+    function validarData(componet: tmaskEdit): iQuitarParcelaOS;
 
   end;
 
@@ -2124,12 +2129,12 @@ type
 
     function getSituacao(value: string): iRelatorioOS;
     function selecionarOSPorSituacaoECampo: iRelatorioOS;
-    function exportarServicos:iRelatorioOS;
+    function exportarServicos: iRelatorioOS;
 
     function listarGridServicos(value: TDataSource): iRelatorioOS;
     function listarGridOcorrencia(value: TDataSource): iRelatorioOS;
 
-    function limparGridServicos(value:TDataSource):iRelatorioOS;
+    function limparGridServicos(value: TDataSource): iRelatorioOS;
 
     function exportar: iRelatorioOS;
     function validarData(componet: tmaskEdit): iRelatorioOS;
@@ -2216,8 +2221,10 @@ type
     function listarGrid(value: TDataSource): iRelatorioOSInadimpelentes;
     function ordenarGrid(column: TColumn): iRelatorioOSInadimpelentes;
 
-    function retornarPesquisaInadimplentes(value:string):iRelatorioOSInadimpelentes; overload;
-    function retornarPesquisaInadimplentes(data1, data2:string):iRelatorioOSInadimpelentes; overload;
+    function retornarPesquisaInadimplentes(value: string)
+      : iRelatorioOSInadimpelentes; overload;
+    function retornarPesquisaInadimplentes(data1, data2: string)
+      : iRelatorioOSInadimpelentes; overload;
 
     function exportar: iRelatorioOSInadimpelentes;
     function validarData(componet: tmaskEdit): iRelatorioOSInadimpelentes;
@@ -2273,10 +2280,10 @@ type
     function listarGrid(value: TDataSource): iRelatorioSituacaoEstoque;
     function ordenarGrid(column: TColumn): iRelatorioSituacaoEstoque;
 
-    function selecionarEStoqueAtencao:iRelatorioSituacaoEstoque;
-    function selecionarEStoqueBaixo:iRelatorioSituacaoEstoque;
-    function selecionarEStoqueNorma:iRelatorioSituacaoEstoque;
-    function selecionarEStoqueTodos:iRelatorioSituacaoEstoque;
+    function selecionarEStoqueAtencao: iRelatorioSituacaoEstoque;
+    function selecionarEStoqueBaixo: iRelatorioSituacaoEstoque;
+    function selecionarEStoqueNorma: iRelatorioSituacaoEstoque;
+    function selecionarEStoqueTodos: iRelatorioSituacaoEstoque;
 
     function exportar: iRelatorioSituacaoEstoque;
     function validarData(componet: tmaskEdit): iRelatorioSituacaoEstoque;
@@ -2305,8 +2312,8 @@ type
     function listarGrid(value: TDataSource): iRealatorioProdutosMaisVendidos;
     function ordenarGrid(column: TColumn): iRealatorioProdutosMaisVendidos;
 
-    function produtosMaisVendidos:iRealatorioProdutosMaisVendidos;
-    function produtosMenosVendidos:iRealatorioProdutosMaisVendidos;
+    function produtosMaisVendidos: iRealatorioProdutosMaisVendidos;
+    function produtosMenosVendidos: iRealatorioProdutosMaisVendidos;
 
     function exportar: iRealatorioProdutosMaisVendidos;
     function validarData(componet: tmaskEdit): iRealatorioProdutosMaisVendidos;
@@ -2335,9 +2342,9 @@ type
     function listarGrid(value: TDataSource): iRelatorioVendas;
     function ordenarGrid(column: TColumn): iRelatorioVendas;
 
-    function selecionarItensVenda(value:integer):iRelatorioVendas;
-    function listarItens(value:TDataSource):iRelatorioVendas;
-    function exportarItens:iRelatorioVendas;
+    function selecionarItensVenda(value: integer): iRelatorioVendas;
+    function listarItens(value: TDataSource): iRelatorioVendas;
+    function exportarItens: iRelatorioVendas;
 
     function exportar: iRelatorioVendas;
     function validarData(componet: tmaskEdit): iRelatorioVendas;
@@ -2366,8 +2373,8 @@ type
     function listarGrid(value: TDataSource): iRelatorioVendaInadimplentes;
     function ordenarGrid(column: TColumn): iRelatorioVendaInadimplentes;
 
-    function selecionarVendas:iRelatorioVendaInadimplentes;
-    function selecionarVendaData:iRelatorioVendaInadimplentes;
+    function selecionarVendas: iRelatorioVendaInadimplentes;
+    function selecionarVendaData: iRelatorioVendaInadimplentes;
 
     function exportar: iRelatorioVendaInadimplentes;
     function validarData(componet: tmaskEdit): iRelatorioVendaInadimplentes;
@@ -2396,8 +2403,8 @@ type
     function listarGrid(value: TDataSource): iRelatorioServicosMaisRealizados;
     function ordenarGrid(column: TColumn): iRelatorioServicosMaisRealizados;
 
-    function servicosMaisRealizados:iRelatorioServicosMaisRealizados;
-    function servicosMenosRealizados:iRelatorioServicosMaisRealizados;
+    function servicosMaisRealizados: iRelatorioServicosMaisRealizados;
+    function servicosMenosRealizados: iRelatorioServicosMaisRealizados;
 
     function exportar: iRelatorioServicosMaisRealizados;
     function validarData(componet: tmaskEdit): iRelatorioServicosMaisRealizados;
@@ -2480,8 +2487,8 @@ type
     function listarGrid(value: TDataSource): iRelatorioVendasPorFucnionario;
     function ordenarGrid(column: TColumn): iRelatorioVendasPorFucnionario;
 
-    function maiorNumeroDeVendas:iRelatorioVendasPorFucnionario;
-    function menorNumeroDeVendas:iRelatorioVendasPorFucnionario;
+    function maiorNumeroDeVendas: iRelatorioVendasPorFucnionario;
+    function menorNumeroDeVendas: iRelatorioVendasPorFucnionario;
 
     function exportar: iRelatorioVendasPorFucnionario;
     function validarData(componet: tmaskEdit): iRelatorioVendasPorFucnionario;
@@ -2557,16 +2564,16 @@ type
     function listarGrid(value: TDataSource): iRetiradaDeValores;
     function ordenarGrid(column: TColumn): iRetiradaDeValores;
 
-    function getID_MOTIVO(value:string): iRetiradaDeValores;
-    function getMOTIVO(value:String): iRetiradaDeValores;
-    function getVALOR_RETIRADA(value:string): iRetiradaDeValores;
-    function getDATA(value:string): iRetiradaDeValores;
-    function getHORA(Value:string): iRetiradaDeValores;
-    function getFUNCIONARIO(value:integer): iRetiradaDeValores;
-    function getOBSERVACAO (value:string): iRetiradaDeValores;
+    function getID_MOTIVO(value: string): iRetiradaDeValores;
+    function getMotivo(value: String): iRetiradaDeValores;
+    function getVALOR_RETIRADA(value: string): iRetiradaDeValores;
+    function getDATA(value: string): iRetiradaDeValores;
+    function getHORA(value: string): iRetiradaDeValores;
+    function getFuncionario(value: integer): iRetiradaDeValores;
+    function getObservacao(value: string): iRetiradaDeValores;
 
     function exportar: iRetiradaDeValores;
-    function validarData(componet: tmaskEdit):iRetiradaDeValores;
+    function validarData(componet: tmaskEdit): iRetiradaDeValores;
 
     function getCodigo(value: integer): iRetiradaDeValores;
     function getNome(value: string): iRetiradaDeValores;
@@ -2596,17 +2603,17 @@ type
     function ordenarGrid(column: TColumn): iRelatorioRetiradaDeValores;
 
     function exportar: iRelatorioRetiradaDeValores;
-    function validarData(componet: tmaskEdit):iRelatorioRetiradaDeValores;
+    function validarData(componet: tmaskEdit): iRelatorioRetiradaDeValores;
 
   end;
 
   iLogin = interface
     ['{29F71EA2-066A-4873-94D2-7BD9EF43B992}']
 
-    function verificarUsuario(value:TEdit):iLogin;
-    function verificarSenha(value:TEDit):iLogin;
+    function verificarUsuario(value: TEdit): iLogin;
+    function verificarSenha(value: TEdit): iLogin;
 
-    function realizarLogin:boolean;
+    function realizarLogin: boolean;
 
   end;
 
@@ -2632,10 +2639,10 @@ type
     function listarGrid(value: TDataSource): iRelatorioComissoesTecnico;
     function ordenarGrid(column: TColumn): iRelatorioComissoesTecnico;
 
-    function obterValorComissao:Currency;
+    function obterValorComissao: Currency;
 
     function exportar: iRelatorioComissoesTecnico;
-    function validarData(componet: tmaskEdit):iRelatorioComissoesTecnico;
+    function validarData(componet: tmaskEdit): iRelatorioComissoesTecnico;
 
   end;
 
@@ -2662,7 +2669,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioProblemasFrequentes;
 
     function exportar: iRelatorioProblemasFrequentes;
-    function validarData(componet: tmaskEdit):iRelatorioProblemasFrequentes;
+    function validarData(componet: tmaskEdit): iRelatorioProblemasFrequentes;
 
   end;
 
@@ -2689,7 +2696,7 @@ type
     function ordenarGrid(column: TColumn): iRelatorioHistoricoCaixa;
 
     function exportar: iRelatorioHistoricoCaixa;
-    function validarData(componet: tmaskEdit):iRelatorioHistoricoCaixa;
+    function validarData(componet: tmaskEdit): iRelatorioHistoricoCaixa;
 
   end;
 
@@ -2716,8 +2723,8 @@ type
     function listarGrid(value: TDataSource): iImprimirReciboPgtoParcelas;
     function ordenarGrid(column: TColumn): iImprimirReciboPgtoParcelas;
 
-    function selecionarParcela(value:integer):iImprimirReciboPgtoParcelas;
-    function selecionarEmpresa(value:TDataSource):iImprimirReciboPgtoParcelas;
+    function selecionarParcela(value: integer): iImprimirReciboPgtoParcelas;
+    function selecionarEmpresa(value: TDataSource): iImprimirReciboPgtoParcelas;
 
     function exportar: iImprimirReciboPgtoParcelas;
     procedure validarData(componet: tmaskEdit);
@@ -2747,8 +2754,8 @@ type
     function listarGrid(value: TDataSource): iImprimirParcelasOS;
     function ordenarGrid(column: TColumn): iImprimirParcelasOS;
 
-    function selecionarParcela(value:integer):iImprimirParcelasOS;
-    function selecionarEmpresa(value:TDataSource):iImprimirParcelasOS;
+    function selecionarParcela(value: integer): iImprimirParcelasOS;
+    function selecionarEmpresa(value: TDataSource): iImprimirParcelasOS;
 
     function exportar: iImprimirParcelasOS;
     procedure validarData(componet: tmaskEdit);
@@ -2779,11 +2786,11 @@ type
     function ordenarGrid(column: TColumn): iRelatorioMovimentacaoOS;
 
     function exportar: iRelatorioMovimentacaoOS;
-    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoOS;
+    function validarData(componet: tmaskEdit): iRelatorioMovimentacaoOS;
 
-    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoOS;
-    function retornarTotal:Currency;
-
+    function selecionarParcelasOrdemData(data1, data2: TDate)
+      : iRelatorioMovimentacaoOS;
+    function retornarTotal: Currency;
 
   end;
 
@@ -2811,10 +2818,11 @@ type
     function ordenarGrid(column: TColumn): iRelatorioMovimentacaoVenda;
 
     function exportar: iRelatorioMovimentacaoVenda;
-    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoVenda;
+    function validarData(componet: tmaskEdit): iRelatorioMovimentacaoVenda;
 
-    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoVenda;
-    function retornarTotal:Currency;
+    function selecionarParcelasOrdemData(data1, data2: TDate)
+      : iRelatorioMovimentacaoVenda;
+    function retornarTotal: Currency;
 
   end;
 
@@ -2842,10 +2850,11 @@ type
     function ordenarGrid(column: TColumn): iRelatorioMovimentacaoRetiradas;
 
     function exportar: iRelatorioMovimentacaoRetiradas;
-    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoRetiradas;
+    function validarData(componet: tmaskEdit): iRelatorioMovimentacaoRetiradas;
 
-    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoRetiradas;
-    function retornarTotal:Currency;
+    function selecionarParcelasOrdemData(data1, data2: TDate)
+      : iRelatorioMovimentacaoRetiradas;
+    function retornarTotal: Currency;
 
   end;
 
@@ -2873,10 +2882,11 @@ type
     function ordenarGrid(column: TColumn): iRelatorioMovimentacaoContas;
 
     function exportar: iRelatorioMovimentacaoContas;
-    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoContas;
+    function validarData(componet: tmaskEdit): iRelatorioMovimentacaoContas;
 
-    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoContas;
-    function retornarTotal:Currency;
+    function selecionarParcelasOrdemData(data1, data2: TDate)
+      : iRelatorioMovimentacaoContas;
+    function retornarTotal: Currency;
 
   end;
 
@@ -2904,10 +2914,11 @@ type
     function ordenarGrid(column: TColumn): iRelatorioMovimentacaoCaixa;
 
     function exportar: iRelatorioMovimentacaoCaixa;
-    function validarData(componet: tmaskEdit):iRelatorioMovimentacaoCaixa;
+    function validarData(componet: tmaskEdit): iRelatorioMovimentacaoCaixa;
 
-    function selecionarParcelasOrdemData(data1, data2:TDate):iRelatorioMovimentacaoCaixa;
-    function retornarTotal:Currency;
+    function selecionarParcelasOrdemData(data1, data2: TDate)
+      : iRelatorioMovimentacaoCaixa;
+    function retornarTotal: Currency;
 
   end;
 
@@ -2934,32 +2945,57 @@ type
     function ordenarGrid(column: TColumn): iRelatorioLogEventos;
 
     function exportar: iRelatorioLogEventos;
-    function validarData(componet: tmaskEdit):iRelatorioLogEventos;
+    function validarData(componet: tmaskEdit): iRelatorioLogEventos;
 
+  end;
+
+  iRelatorioAniversariantes = interface
+    ['{D6C00CF3-0549-48C5-ACFF-14C5D715AB7D}']
+    function nomeTabela(value: string): iRelatorioAniversariantes;
+    function getCampo(value: string): iRelatorioAniversariantes;
+    function getValor(value: string): iRelatorioAniversariantes;
+    function getDataInicial(value: TDate): iRelatorioAniversariantes;
+    function getDataFinal(value: TDate): iRelatorioAniversariantes;
+    function open(value: string): iRelatorioAniversariantes;
+    function pesquisar: iRelatorioAniversariantes;
+    function ExecSql: iRelatorioAniversariantes;
+    function sqlPesquisa: iRelatorioAniversariantes;
+    function sqlPesquisaData: iRelatorioAniversariantes;
+    function sqlPesquisaEstatica: iRelatorioAniversariantes;
+
+    function abrir: iRelatorioAniversariantes;
+    function atualizar: iRelatorioAniversariantes;
+    function cancelar: iRelatorioAniversariantes;
+    function fecharQuery: iRelatorioAniversariantes;
+    function listarGrid(value: TDataSource): iRelatorioAniversariantes;
+    function ordenarGrid(column: TColumn): iRelatorioAniversariantes;
+
+    function retornarAniversariantes(value:TDate): iRelatorioAniversariantes;
+
+    function exportar: iRelatorioAniversariantes;
+    function validarData(componet: tmaskEdit): iRelatorioAniversariantes;
   end;
 
   iTrocarDeUsuario = interface
     ['{BC52F62A-A38D-42D9-923D-ED54BC9F26F2}']
 
-    function resetar:iTrocarDeUsuario;
-    function relogar:iTrocarDeUsuario;
+    function resetar: iTrocarDeUsuario;
+    function relogar: iTrocarDeUsuario;
 
   end;
-
-
 
   iFactoryMovimentacao = interface
     ['{1116AD9D-EE16-4F5F-90BA-42BD1F41F2E6}']
 
-    function movimentacaoOS:iRelatorioMovimentacaoOS;
-    function movimentacaoVenda:iRelatorioMovimentacaoVenda;
-    function movimentacaoRetiradas:iRelatorioMovimentacaoRetiradas;
-    function movimentacaoContas:iRelatorioMovimentacaoContas;
-    function movimentacaoCaixa:iRelatorioMovimentacaoCaixa;
+    function movimentacaoOS: iRelatorioMovimentacaoOS;
+    function movimentacaoVenda: iRelatorioMovimentacaoVenda;
+    function movimentacaoRetiradas: iRelatorioMovimentacaoRetiradas;
+    function movimentacaoContas: iRelatorioMovimentacaoContas;
+    function movimentacaoCaixa: iRelatorioMovimentacaoCaixa;
 
   end;
 
-  //****************************************************
+  // ****************************************************
 
   iNivelAcessoFuncionario = interface
     ['{265CAA95-A5CA-4855-BD83-EEFF7129ED3B}']
@@ -2989,75 +3025,133 @@ type
     function listarGrid(value: TDataSource): iNivelAcessoFuncionario;
     function ordenarGrid(column: TColumn): iNivelAcessoFuncionario;
 
-    function getID(value:integer): iNivelAcessoFuncionario;
-    function getID_FUNCIONARIO(value:integer): iNivelAcessoFuncionario;
-    function getFUNCIONARIO(value:string): iNivelAcessoFuncionario;
-    function getFORMCADASTROMARCAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADASTROGRUPOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMFORMAPAGAMENTO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMTIPORETIRADAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCONFIGPARCELAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMATFUNCIONARIO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADCONTASAPAGAR(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADPROBLEMASFREQUENTES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADFORNECEDORES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADTRANSPORTADORA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADPRODUTOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCOMFUNCIONARIOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADDEFUNCIONARIO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADSITUACOESORDEM(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADDECLIENTES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMENTDEPRODUTOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMSAIDADEPRODUTOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMORDEMSERVICO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCCONSORDEMSERVICO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADDESERVICOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCADEMPRESA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMVENDAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMNUMPARCELAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMQUITARPARCVENDAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMVISUALIZARVENDAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELCLIENTES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELHISTORICOOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELCONTASARECEBEROS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELCONTASARECEBERVENDA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELPARCELASPAGASOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMOSESTORNADAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELVENDASESTORNADAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELCONTASAPAGAR(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELREPAROSPORPERIODO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATOSPORTECNICO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATOSPORSTATUS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATORDEMDESERVICO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATFORNECEDORES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATOSINADIMPLENTES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATDEPRODUTOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATSITUACAODOESTOQUE(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATPRODVENDIDOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATVENDAS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATVENDASINADIMP(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATSERVICOSMAISREALIZ(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATSAIDADEPRODUTOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATENTRDEPRODUTOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATVENDASFUNCIONARIO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATTRANSPORTADORA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMINICIARCAIXA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMENCERRAMENTOCAIXA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMREABERTURADECAIXA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRETIRADADEVALORES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATRETIRDEVALORES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCOMISSOESTECNICOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCONFIGCONEXAOBANCO(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMCONFIGBACKUP(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMBACKUPMANUAL(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATPROBLFREQUENTES(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATHISTORICOCAIXA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMQUITARPARCELAOS(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMMOVIMENTACAOCAIXA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getESTORNAR(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getADICIONARPARCELA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getEXCLUIRPARCELA(value:string = 'Nao'): iNivelAcessoFuncionario;
-    function getFORMRELATORIOPARCELASPAGASVENDA(value:string = 'Nao'): iNivelAcessoFuncionario;
+    function getID(value: integer): iNivelAcessoFuncionario;
+    function getID_FUNCIONARIO(value: integer): iNivelAcessoFuncionario;
+    function getFuncionario(value: string): iNivelAcessoFuncionario;
+    function getFORMCADASTROMARCAS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADASTROGRUPOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMFORMAPAGAMENTO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMTIPORETIRADAS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCONFIGPARCELAS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMATFUNCIONARIO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADCONTASAPAGAR(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADPROBLEMASFREQUENTES(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADFORNECEDORES(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADTRANSPORTADORA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADPRODUTOS(value: string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMCOMFUNCIONARIOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADDEFUNCIONARIO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADSITUACOESORDEM(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADDECLIENTES(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMENTDEPRODUTOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMSAIDADEPRODUTOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMORDEMSERVICO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCCONSORDEMSERVICO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADDESERVICOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCADEMPRESA(value: string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMVENDAS(value: string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMNUMPARCELAS(value: string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMQUITARPARCVENDAS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMVISUALIZARVENDAS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELCLIENTES(value: string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMRELHISTORICOOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELCONTASARECEBEROS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELCONTASARECEBERVENDA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELPARCELASPAGASOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMOSESTORNADAS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELVENDASESTORNADAS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELCONTASAPAGAR(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELREPAROSPORPERIODO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATOSPORTECNICO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATOSPORSTATUS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATORDEMDESERVICO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATFORNECEDORES(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATOSINADIMPLENTES(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATDEPRODUTOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATSITUACAODOESTOQUE(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATPRODVENDIDOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATVENDAS(value: string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMRELATVENDASINADIMP(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATSERVICOSMAISREALIZ(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATSAIDADEPRODUTOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATENTRDEPRODUTOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATVENDASFUNCIONARIO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATTRANSPORTADORA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMINICIARCAIXA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMENCERRAMENTOCAIXA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMREABERTURADECAIXA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRETIRADADEVALORES(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATRETIRDEVALORES(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCOMISSOESTECNICOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCONFIGCONEXAOBANCO(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMCONFIGBACKUP(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMBACKUPMANUAL(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATPROBLFREQUENTES(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMRELATHISTORICOCAIXA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMQUITARPARCELAOS(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getFORMMOVIMENTACAOCAIXA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getESTORNAR(value: string = 'Nao'): iNivelAcessoFuncionario;
+    function getADICIONARPARCELA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
+    function getEXCLUIRPARCELA(value: string = 'Nao'): iNivelAcessoFuncionario;
+    function getFORMRELATORIOPARCELASPAGASVENDA(value: string = 'Nao')
+      : iNivelAcessoFuncionario;
 
   end;
 

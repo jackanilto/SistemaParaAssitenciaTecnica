@@ -126,7 +126,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbOrdemServiço
+    ActivePage = tbParcelas
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -1608,29 +1608,19 @@
           TitleFont.Style = [fsBold]
           OnCellClick = DBGrid3CellClick
         end
-        object DBNavigator1: TDBNavigator
-          Left = 0
-          Top = 193
-          Width = 224
-          Height = 25
-          DataSource = s_ParcelasOS
-          VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
-          Flat = True
-          TabOrder = 2
-        end
         object edtNumeroParcela: TEdit
           Left = 15
           Top = 32
           Width = 90
           Height = 25
-          TabOrder = 3
+          TabOrder = 2
         end
         object edtVencimentoParcela: TEdit
           Left = 238
           Top = 32
           Width = 91
           Height = 25
-          TabOrder = 4
+          TabOrder = 3
         end
         object edtDataPagamentoParcela: TDateTimePicker
           Left = 15
@@ -1639,7 +1629,7 @@
           Height = 25
           Date = 43807.000000000000000000
           Time = 0.631795821762352700
-          TabOrder = 5
+          TabOrder = 4
         end
         object edtHoraPagamento: TMaskEdit
           Left = 135
@@ -1648,7 +1638,7 @@
           Height = 25
           EditMask = '00:00:00'
           MaxLength = 8
-          TabOrder = 6
+          TabOrder = 5
           Text = '  :  :  '
         end
         object edtFormaPagamentoParcela: TComboBox
@@ -1656,14 +1646,14 @@
           Top = 91
           Width = 145
           Height = 25
-          TabOrder = 7
+          TabOrder = 6
         end
         object edtPgtoParcela: TComboBox
           Left = 442
           Top = 91
           Width = 156
           Height = 25
-          TabOrder = 8
+          TabOrder = 7
           Items.Strings = (
             'Sim'
             'N'#227'o')
@@ -1673,14 +1663,14 @@
           Top = 153
           Width = 760
           Height = 25
-          TabOrder = 9
+          TabOrder = 8
         end
         object edtValorParcela: TCurrencyEdit
           Left = 111
           Top = 32
           Width = 121
           Height = 25
-          TabOrder = 10
+          TabOrder = 9
           ZeroEmpty = False
         end
         object edtDescontoParcela: TCurrencyEdit
@@ -1688,7 +1678,7 @@
           Top = 32
           Width = 101
           Height = 25
-          TabOrder = 11
+          TabOrder = 10
           ZeroEmpty = False
         end
         object edtJurosParcelas: TCurrencyEdit
@@ -1696,7 +1686,7 @@
           Top = 32
           Width = 100
           Height = 25
-          TabOrder = 12
+          TabOrder = 11
           ZeroEmpty = False
         end
         object edtMultaParcela: TCurrencyEdit
@@ -1704,7 +1694,7 @@
           Top = 32
           Width = 100
           Height = 25
-          TabOrder = 13
+          TabOrder = 12
           ZeroEmpty = False
         end
         object edtTotalParcela: TCurrencyEdit
@@ -1712,7 +1702,7 @@
           Top = 32
           Width = 121
           Height = 25
-          TabOrder = 14
+          TabOrder = 13
           ZeroEmpty = False
         end
       end
@@ -2448,6 +2438,7 @@
     Top = 165
   end
   object s_ParcelasOS: TDataSource
+    AutoEdit = False
     OnDataChange = s_ParcelasOSDataChange
     Left = 420
     Top = 293

@@ -113,7 +113,6 @@ type
     sbImprimirParcelas: TSpeedButton;
     DBGrid3: TDBGrid;
     s_ParcelasOS: TDataSource;
-    DBNavigator1: TDBNavigator;
     edtNumeroParcela: TEdit;
     Label30: TLabel;
     Label31: TLabel;
@@ -348,8 +347,9 @@ begin
     else if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString = 'Nao' then
     begin
 
-        FEntityParcelasOrdem.editar;
-        edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
+//      FEntityParcelasOrdem.cancelar;
+//      FEntityParcelasOrdem.editar;
+      edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
 
       sbQuitarParcela.Enabled := true;
       sbSalvarParcela.Enabled := false;
@@ -673,15 +673,12 @@ begin
     FEntityServicosOrdem
                       .gravarServicosAdicionadosEdit(cds_tem_servicos_adicionados_edit, FEntityCriarOrdem.setId);
 
-  if estado = 'insert' then
-
-    gerarInformacoesPagamentoOS;
-
-  showmessage('Ordem de Serviço inserida com sucesso');
-
   FAtivarBotoes.ativarBotaoSalvar;
 
   lblCaption.Caption := 'Ordem de serviços';
+
+  if estado = 'insert' then
+    gerarInformacoesPagamentoOS;
 
   habilitarDesabilitarEdits('desativar');
 
@@ -758,7 +755,7 @@ begin
           .getDATA_VENCIMENTO(edtDataBaseVencimento.Text).gerarParcelas;
 
         showmessage
-          ('Parcelas / Informações para pagamento foram geradas com sucesso');
+          ('Parcelas / Informações para pagamento foram geradas com sucesso!');
 
       except
         on e: Exception do
@@ -1011,6 +1008,7 @@ procedure TformCriarConsultarOrdemServico.s_ParcelasOSDataChange
 begin
   with s_ParcelasOS.DataSet do
   begin
+
 
     edtNumeroParcela.Text := IntToStr(FieldByName('PARCELA').AsInteger);
     edtValorParcela.Text := CurrToStr(FieldByName('VALOR_PARCELA').AsCurrency);
@@ -1359,6 +1357,9 @@ begin
                   .getDataBaseVencimento(edtDataBaseVencimento.Text)
                   .getVALOR_DA_PARCELA(edtValorOrdemParcelado.Text)
                   .gravar;
+
+    showmessage('Ordem de Serviço inserida com sucesso');
+
 end;
 
 procedure TformCriarConsultarOrdemServico.gerarInformacoesPagamentoOS;
@@ -1374,6 +1375,9 @@ begin
                       .getVALOR_PARCELA(FEntityCriarOrdem.setValorDaParcelas)
                       .getDATA_VENCIMENTO(DateToStr(FEntityCriarOrdem.setDataBaseVencimento))
                       .gerarParcelas;
+
+    showmessage('Parcelas / Informações para pagamento foram geradas com sucesso!');
+
   end;
 end;
 

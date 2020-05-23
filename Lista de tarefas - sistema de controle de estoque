@@ -1,44 +1,6 @@
 
-###Cadastro de funcionário -> Ao iniciar um novo cadastro o campo foto deve ser limpo. -> OK
-
-#Relatório de vendas -> OK
-#Parcelas a receber vendas -> OK
-#Parcelas pagas vendas -> OK
-#Vendas estornadas -> OK
-#Produtos mais vendidos -> OK
-#Vendas inadimplentes -> OK
-#Vendas por funcionários -> OK
-#Relatório de produtos -> OK
-#Entrada de produtos -> Processo para ordenar os registros na grid não esta funcionando. -> OK
-#Saida de produtos -> OK
-#Situação do estoque -> OK
-
-#Relatório de contas a pagar -> Ao exporta para o excel o campo "Valor", não esta com o formatação de moeda. -> OK
-							 -> Verificar o cores da grid para contas que estão em atraso. -> OK
-							 -> Campos de pesquisa "Pesquisa por situação", não esta funcionando nas contas atrasadas
-									e a vencer. -> OK
-							 -> A grid deve esta formatada (chamar o função listargrid). -> OK 		
-
-#Relatório de forncecedores -> OK
-#Relatório de transportadora -> OK
-#Retirada de valores -> Realizar mais teste
-
-#Encerramento de caixa -> OK
-#Reabertura de caixa -> OK
-#Retirada de valores -> Não deve ser possível a retirada de valores maiores dos que estão contidos no caixa. -> OK
-					 -> Só deve ser possível excluir retiradas do mesmo dia. -> OK
-
-#Comissões por técnicos -> O processo de ordenar da grid não esta funcionando. -> OK
-
-#Historico do caixa -> OK
-
-#Movimentação do caixa -> O processo de ordenação das grids não esta funcionando. -> OK
-
-#Abertura do caixa -> A abertura de caixa manual não esta levando em conta o valor de fechamento do caixa anterior. -> OKS
-
-#Relatório aniversariantes -> OK
-
-###Testar o sistema de caixa mais detalhadamente.
+###Criar OS -> Aba Parcelas -> Ao clicar sobre uma parcela não deve ser preencher os campos de data de hora de pagamento.
+###Relatório Comissões dos funcionários -> Ao selecionar o campo de pesquisa o foco deve ir para o edit da data inicial.
 
 
-Cadastro de clientes
+	CLASSE.ENTITY.CRIAR.ORDEM.PARCELA -> Continuar deste ponto
