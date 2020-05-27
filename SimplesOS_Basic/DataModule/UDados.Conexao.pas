@@ -54,7 +54,7 @@ end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 var
-  localizacaoBD:string;
+  localizacaoBD: string;
 begin
 
   FConfigConexao := TConfigConexaoBanco.create;
@@ -65,11 +65,11 @@ begin
 
       Connected := false;
       DriverName := 'FB';
-      Params.Add('Server=' + FConfigConexao.hostname);
-      Params.Add('Port=' + FConfigConexao.port);
-      Params.Add('Database=' + FConfigConexao.localBD);
-      Params.Add('User_Name=' + FConfigConexao.user);
-      Params.Add('Password=' + FConfigConexao.password);
+      Params.Add('Server=localhost');
+      Params.Add('Port=3050');
+      Params.Add('Database=' + ExtractFilePath(Application.ExeName)+'\Banco\BD_SIMPLE_OS.FDB');
+      Params.Add('User_Name=sysdba');
+      Params.Add('Password=masterkey');
       Connected := true;
 
     end;
@@ -80,22 +80,22 @@ begin
 
       Conexao.Connected := false;
 
-      MessageDlg('Erro com a conexão do banco de dados. ERRO: '+e.Message, mtError,
-        [mbOk], 0, mbOk);
-
-      formConfigurarConexaoBanco := TformConfigurarConexaoBanco.create(self);
-      try
-        formConfigurarConexaoBanco.ShowModal;
-      finally
-        formConfigurarConexaoBanco.Free;
-
-        showmessage('A aplicação será fechada para efetuar as configuração.'+
-        ' Por gentiliza, assim que for fechada abra novamente.'+
-        ' Se o erro continuar entre em contato com o suporte.');
+      MessageDlg('Erro com a conexão do banco de dados. ERRO: ' + e.Message,
+        mtError, [mbOk], 0, mbOk);
 
         halt;
-      end;
 
+      // formConfigurarConexaoBanco := TformConfigurarConexaoBanco.create(self);
+      // try
+      // formConfigurarConexaoBanco.ShowModal;
+      // finally
+      // formConfigurarConexaoBanco.Free;
+      //
+      // showmessage('A aplicação será fechada para efetuar as configuração.'+
+      // ' Por gentiliza, assim que for fechada abra novamente.'+
+      // ' Se o erro continuar entre em contato com o suporte.');
+      //
+      // halt;
     end;
 
   end;

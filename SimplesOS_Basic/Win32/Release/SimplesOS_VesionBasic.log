@@ -1,0 +1,607 @@
+27/05/20 20:29:19 - ===========================================
+27/05/20 20:29:19 - Form: formPrincipal
+27/05/20 20:29:19 - Caption: SimpleOS
+27/05/20 20:29:19 - Erro:EIBNativeException
+27/05/20 20:29:19 - Erro:[FireDAC][Phys][FB]I/O error during "CreateFile (open)" operation for file "C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimplesOS_Basic\Win32\Release\\Banco\BD_SIMPLE_OS.FDB"
+Error while trying to open file
+O sistema não pode encontrar o arquivo especificado. 
+27/05/20 20:29:19 - ===========================================
+27/05/20 20:29:19 - Form: formPrincipal
+27/05/20 20:29:19 - Caption: SimpleOS
+27/05/20 20:29:19 - Erro:EAccessViolation
+27/05/20 20:29:19 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:20 - ===========================================
+27/05/20 20:29:20 - Form: formPrincipal
+27/05/20 20:29:20 - Caption: SimpleOS
+27/05/20 20:29:20 - Erro:EAccessViolation
+27/05/20 20:29:20 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:21 - ===========================================
+27/05/20 20:29:21 - Form: formPrincipal
+27/05/20 20:29:21 - Caption: SimpleOS
+27/05/20 20:29:21 - Erro:EAccessViolation
+27/05/20 20:29:21 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:22 - ===========================================
+27/05/20 20:29:22 - Form: formPrincipal
+27/05/20 20:29:22 - Caption: SimpleOS
+27/05/20 20:29:22 - Erro:EAccessViolation
+27/05/20 20:29:22 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:23 - ===========================================
+27/05/20 20:29:23 - Form: formPrincipal
+27/05/20 20:29:23 - Caption: SimpleOS
+27/05/20 20:29:23 - Erro:EAccessViolation
+27/05/20 20:29:23 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:24 - ===========================================
+27/05/20 20:29:24 - Form: formPrincipal
+27/05/20 20:29:24 - Caption: SimpleOS
+27/05/20 20:29:24 - Erro:EAccessViolation
+27/05/20 20:29:24 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:25 - ===========================================
+27/05/20 20:29:25 - Form: formPrincipal
+27/05/20 20:29:25 - Caption: SimpleOS
+27/05/20 20:29:25 - Erro:EAccessViolation
+27/05/20 20:29:25 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:26 - ===========================================
+27/05/20 20:29:26 - Form: formPrincipal
+27/05/20 20:29:26 - Caption: SimpleOS
+27/05/20 20:29:26 - Erro:EAccessViolation
+27/05/20 20:29:26 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:27 - ===========================================
+27/05/20 20:29:27 - Form: formPrincipal
+27/05/20 20:29:27 - Caption: SimpleOS
+27/05/20 20:29:27 - Erro:EAccessViolation
+27/05/20 20:29:27 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:28 - ===========================================
+27/05/20 20:29:28 - Form: formPrincipal
+27/05/20 20:29:28 - Caption: SimpleOS
+27/05/20 20:29:28 - Erro:EAccessViolation
+27/05/20 20:29:28 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:29 - ===========================================
+27/05/20 20:29:29 - Form: formPrincipal
+27/05/20 20:29:29 - Caption: SimpleOS
+27/05/20 20:29:29 - Erro:EAccessViolation
+27/05/20 20:29:29 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:30 - ===========================================
+27/05/20 20:29:30 - Form: formPrincipal
+27/05/20 20:29:30 - Caption: SimpleOS
+27/05/20 20:29:30 - Erro:EAccessViolation
+27/05/20 20:29:30 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:31 - ===========================================
+27/05/20 20:29:31 - Form: formPrincipal
+27/05/20 20:29:31 - Caption: SimpleOS
+27/05/20 20:29:31 - Erro:EAccessViolation
+27/05/20 20:29:31 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:32 - ===========================================
+27/05/20 20:29:32 - Form: formPrincipal
+27/05/20 20:29:32 - Caption: SimpleOS
+27/05/20 20:29:32 - Erro:EAccessViolation
+27/05/20 20:29:32 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:33 - ===========================================
+27/05/20 20:29:33 - Form: formPrincipal
+27/05/20 20:29:33 - Caption: SimpleOS
+27/05/20 20:29:33 - Erro:EAccessViolation
+27/05/20 20:29:33 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:34 - ===========================================
+27/05/20 20:29:34 - Form: formPrincipal
+27/05/20 20:29:34 - Caption: SimpleOS
+27/05/20 20:29:34 - Erro:EAccessViolation
+27/05/20 20:29:34 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:35 - ===========================================
+27/05/20 20:29:35 - Form: formPrincipal
+27/05/20 20:29:35 - Caption: SimpleOS
+27/05/20 20:29:35 - Erro:EAccessViolation
+27/05/20 20:29:35 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:36 - ===========================================
+27/05/20 20:29:36 - Form: formPrincipal
+27/05/20 20:29:36 - Caption: SimpleOS
+27/05/20 20:29:36 - Erro:EAccessViolation
+27/05/20 20:29:36 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:37 - ===========================================
+27/05/20 20:29:37 - Form: formPrincipal
+27/05/20 20:29:37 - Caption: SimpleOS
+27/05/20 20:29:37 - Erro:EAccessViolation
+27/05/20 20:29:37 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:38 - ===========================================
+27/05/20 20:29:38 - Form: formPrincipal
+27/05/20 20:29:38 - Caption: SimpleOS
+27/05/20 20:29:38 - Erro:EAccessViolation
+27/05/20 20:29:38 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:39 - ===========================================
+27/05/20 20:29:39 - Form: formPrincipal
+27/05/20 20:29:39 - Caption: SimpleOS
+27/05/20 20:29:39 - Erro:EAccessViolation
+27/05/20 20:29:39 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:40 - ===========================================
+27/05/20 20:29:40 - Form: formPrincipal
+27/05/20 20:29:40 - Caption: SimpleOS
+27/05/20 20:29:40 - Erro:EAccessViolation
+27/05/20 20:29:40 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:41 - ===========================================
+27/05/20 20:29:41 - Form: formPrincipal
+27/05/20 20:29:41 - Caption: SimpleOS
+27/05/20 20:29:41 - Erro:EAccessViolation
+27/05/20 20:29:41 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:42 - ===========================================
+27/05/20 20:29:42 - Form: formPrincipal
+27/05/20 20:29:42 - Caption: SimpleOS
+27/05/20 20:29:42 - Erro:EAccessViolation
+27/05/20 20:29:42 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:43 - ===========================================
+27/05/20 20:29:43 - Form: formPrincipal
+27/05/20 20:29:43 - Caption: SimpleOS
+27/05/20 20:29:43 - Erro:EAccessViolation
+27/05/20 20:29:43 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:44 - ===========================================
+27/05/20 20:29:44 - Form: formPrincipal
+27/05/20 20:29:44 - Caption: SimpleOS
+27/05/20 20:29:44 - Erro:EAccessViolation
+27/05/20 20:29:44 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:45 - ===========================================
+27/05/20 20:29:45 - Form: formPrincipal
+27/05/20 20:29:45 - Caption: SimpleOS
+27/05/20 20:29:45 - Erro:EAccessViolation
+27/05/20 20:29:45 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:46 - ===========================================
+27/05/20 20:29:46 - Form: formPrincipal
+27/05/20 20:29:46 - Caption: SimpleOS
+27/05/20 20:29:46 - Erro:EAccessViolation
+27/05/20 20:29:46 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:47 - ===========================================
+27/05/20 20:29:47 - Form: formPrincipal
+27/05/20 20:29:47 - Caption: SimpleOS
+27/05/20 20:29:47 - Erro:EAccessViolation
+27/05/20 20:29:47 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:48 - ===========================================
+27/05/20 20:29:48 - Form: formPrincipal
+27/05/20 20:29:48 - Caption: SimpleOS
+27/05/20 20:29:48 - Erro:EAccessViolation
+27/05/20 20:29:48 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:49 - ===========================================
+27/05/20 20:29:49 - Form: formPrincipal
+27/05/20 20:29:49 - Caption: SimpleOS
+27/05/20 20:29:49 - Erro:EAccessViolation
+27/05/20 20:29:49 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:50 - ===========================================
+27/05/20 20:29:50 - Form: formPrincipal
+27/05/20 20:29:50 - Caption: SimpleOS
+27/05/20 20:29:50 - Erro:EAccessViolation
+27/05/20 20:29:50 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:51 - ===========================================
+27/05/20 20:29:51 - Form: formPrincipal
+27/05/20 20:29:51 - Caption: SimpleOS
+27/05/20 20:29:51 - Erro:EAccessViolation
+27/05/20 20:29:51 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:52 - ===========================================
+27/05/20 20:29:52 - Form: formPrincipal
+27/05/20 20:29:52 - Caption: SimpleOS
+27/05/20 20:29:52 - Erro:EAccessViolation
+27/05/20 20:29:52 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:53 - ===========================================
+27/05/20 20:29:53 - Form: formPrincipal
+27/05/20 20:29:53 - Caption: SimpleOS
+27/05/20 20:29:53 - Erro:EAccessViolation
+27/05/20 20:29:53 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:54 - ===========================================
+27/05/20 20:29:54 - Form: formPrincipal
+27/05/20 20:29:54 - Caption: SimpleOS
+27/05/20 20:29:54 - Erro:EAccessViolation
+27/05/20 20:29:54 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:55 - ===========================================
+27/05/20 20:29:55 - Form: formPrincipal
+27/05/20 20:29:55 - Caption: SimpleOS
+27/05/20 20:29:55 - Erro:EAccessViolation
+27/05/20 20:29:55 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:56 - ===========================================
+27/05/20 20:29:56 - Form: formPrincipal
+27/05/20 20:29:56 - Caption: SimpleOS
+27/05/20 20:29:56 - Erro:EAccessViolation
+27/05/20 20:29:56 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:57 - ===========================================
+27/05/20 20:29:57 - Form: formPrincipal
+27/05/20 20:29:57 - Caption: SimpleOS
+27/05/20 20:29:57 - Erro:EAccessViolation
+27/05/20 20:29:57 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:29:59 - ===========================================
+27/05/20 20:29:59 - Form: formPrincipal
+27/05/20 20:29:59 - Caption: SimpleOS
+27/05/20 20:29:59 - Erro:EAccessViolation
+27/05/20 20:29:59 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:00 - ===========================================
+27/05/20 20:30:00 - Form: formPrincipal
+27/05/20 20:30:00 - Caption: SimpleOS
+27/05/20 20:30:00 - Erro:EAccessViolation
+27/05/20 20:30:00 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:01 - ===========================================
+27/05/20 20:30:01 - Form: formPrincipal
+27/05/20 20:30:01 - Caption: SimpleOS
+27/05/20 20:30:01 - Erro:EAccessViolation
+27/05/20 20:30:01 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:02 - ===========================================
+27/05/20 20:30:02 - Form: formPrincipal
+27/05/20 20:30:02 - Caption: SimpleOS
+27/05/20 20:30:02 - Erro:EAccessViolation
+27/05/20 20:30:02 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:03 - ===========================================
+27/05/20 20:30:03 - Form: formPrincipal
+27/05/20 20:30:03 - Caption: SimpleOS
+27/05/20 20:30:03 - Erro:EAccessViolation
+27/05/20 20:30:03 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:04 - ===========================================
+27/05/20 20:30:04 - Form: formPrincipal
+27/05/20 20:30:04 - Caption: SimpleOS
+27/05/20 20:30:04 - Erro:EAccessViolation
+27/05/20 20:30:04 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:05 - ===========================================
+27/05/20 20:30:05 - Form: formPrincipal
+27/05/20 20:30:05 - Caption: SimpleOS
+27/05/20 20:30:05 - Erro:EAccessViolation
+27/05/20 20:30:05 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:06 - ===========================================
+27/05/20 20:30:06 - Form: formPrincipal
+27/05/20 20:30:06 - Caption: SimpleOS
+27/05/20 20:30:06 - Erro:EAccessViolation
+27/05/20 20:30:06 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:07 - ===========================================
+27/05/20 20:30:07 - Form: formPrincipal
+27/05/20 20:30:07 - Caption: SimpleOS
+27/05/20 20:30:07 - Erro:EAccessViolation
+27/05/20 20:30:07 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:08 - ===========================================
+27/05/20 20:30:08 - Form: formPrincipal
+27/05/20 20:30:08 - Caption: SimpleOS
+27/05/20 20:30:08 - Erro:EAccessViolation
+27/05/20 20:30:08 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:09 - ===========================================
+27/05/20 20:30:09 - Form: formPrincipal
+27/05/20 20:30:09 - Caption: SimpleOS
+27/05/20 20:30:09 - Erro:EAccessViolation
+27/05/20 20:30:09 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:10 - ===========================================
+27/05/20 20:30:10 - Form: formPrincipal
+27/05/20 20:30:10 - Caption: SimpleOS
+27/05/20 20:30:10 - Erro:EAccessViolation
+27/05/20 20:30:10 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:11 - ===========================================
+27/05/20 20:30:11 - Form: formPrincipal
+27/05/20 20:30:11 - Caption: SimpleOS
+27/05/20 20:30:11 - Erro:EAccessViolation
+27/05/20 20:30:11 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:12 - ===========================================
+27/05/20 20:30:12 - Form: formPrincipal
+27/05/20 20:30:12 - Caption: SimpleOS
+27/05/20 20:30:12 - Erro:EAccessViolation
+27/05/20 20:30:12 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:13 - ===========================================
+27/05/20 20:30:13 - Form: formPrincipal
+27/05/20 20:30:13 - Caption: SimpleOS
+27/05/20 20:30:13 - Erro:EAccessViolation
+27/05/20 20:30:13 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:14 - ===========================================
+27/05/20 20:30:14 - Form: formPrincipal
+27/05/20 20:30:14 - Caption: SimpleOS
+27/05/20 20:30:14 - Erro:EAccessViolation
+27/05/20 20:30:14 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:15 - ===========================================
+27/05/20 20:30:15 - Form: formPrincipal
+27/05/20 20:30:15 - Caption: SimpleOS
+27/05/20 20:30:15 - Erro:EAccessViolation
+27/05/20 20:30:15 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:16 - ===========================================
+27/05/20 20:30:16 - Form: formPrincipal
+27/05/20 20:30:16 - Caption: SimpleOS
+27/05/20 20:30:16 - Erro:EAccessViolation
+27/05/20 20:30:16 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:17 - ===========================================
+27/05/20 20:30:17 - Form: formPrincipal
+27/05/20 20:30:17 - Caption: SimpleOS
+27/05/20 20:30:17 - Erro:EAccessViolation
+27/05/20 20:30:17 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:18 - ===========================================
+27/05/20 20:30:18 - Form: formPrincipal
+27/05/20 20:30:18 - Caption: SimpleOS
+27/05/20 20:30:18 - Erro:EAccessViolation
+27/05/20 20:30:18 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:19 - ===========================================
+27/05/20 20:30:19 - Form: formPrincipal
+27/05/20 20:30:19 - Caption: SimpleOS
+27/05/20 20:30:19 - Erro:EAccessViolation
+27/05/20 20:30:19 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:20 - ===========================================
+27/05/20 20:30:20 - Form: formPrincipal
+27/05/20 20:30:20 - Caption: SimpleOS
+27/05/20 20:30:20 - Erro:EAccessViolation
+27/05/20 20:30:20 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:21 - ===========================================
+27/05/20 20:30:21 - Form: formPrincipal
+27/05/20 20:30:21 - Caption: SimpleOS
+27/05/20 20:30:21 - Erro:EAccessViolation
+27/05/20 20:30:21 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:22 - ===========================================
+27/05/20 20:30:22 - Form: formPrincipal
+27/05/20 20:30:22 - Caption: SimpleOS
+27/05/20 20:30:22 - Erro:EAccessViolation
+27/05/20 20:30:22 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:22 - ===========================================
+27/05/20 20:30:22 - Form: formPrincipal
+27/05/20 20:30:22 - Caption: SimpleOS
+27/05/20 20:30:22 - Erro:EInvalidGraphic
+27/05/20 20:30:22 - Erro:Unknown picture file extension (.)
+27/05/20 20:30:23 - ===========================================
+27/05/20 20:30:23 - Form: formPrincipal
+27/05/20 20:30:23 - Caption: SimpleOS
+27/05/20 20:30:23 - Erro:EAccessViolation
+27/05/20 20:30:23 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:24 - ===========================================
+27/05/20 20:30:24 - Form: formPrincipal
+27/05/20 20:30:24 - Caption: SimpleOS
+27/05/20 20:30:24 - Erro:EAccessViolation
+27/05/20 20:30:24 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:25 - ===========================================
+27/05/20 20:30:25 - Form: formPrincipal
+27/05/20 20:30:25 - Caption: SimpleOS
+27/05/20 20:30:25 - Erro:EAccessViolation
+27/05/20 20:30:25 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:26 - ===========================================
+27/05/20 20:30:26 - Form: formPrincipal
+27/05/20 20:30:26 - Caption: SimpleOS
+27/05/20 20:30:26 - Erro:EAccessViolation
+27/05/20 20:30:26 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:27 - ===========================================
+27/05/20 20:30:27 - Form: formPrincipal
+27/05/20 20:30:27 - Caption: SimpleOS
+27/05/20 20:30:27 - Erro:EAccessViolation
+27/05/20 20:30:27 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:28 - ===========================================
+27/05/20 20:30:28 - Form: formPrincipal
+27/05/20 20:30:28 - Caption: SimpleOS
+27/05/20 20:30:28 - Erro:EAccessViolation
+27/05/20 20:30:28 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:29 - ===========================================
+27/05/20 20:30:29 - Form: formPrincipal
+27/05/20 20:30:29 - Caption: SimpleOS
+27/05/20 20:30:29 - Erro:EAccessViolation
+27/05/20 20:30:29 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:30 - ===========================================
+27/05/20 20:30:30 - Form: formPrincipal
+27/05/20 20:30:30 - Caption: SimpleOS
+27/05/20 20:30:30 - Erro:EAccessViolation
+27/05/20 20:30:30 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:31 - ===========================================
+27/05/20 20:30:31 - Form: formPrincipal
+27/05/20 20:30:31 - Caption: SimpleOS
+27/05/20 20:30:31 - Erro:EAccessViolation
+27/05/20 20:30:31 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:32 - ===========================================
+27/05/20 20:30:32 - Form: formPrincipal
+27/05/20 20:30:32 - Caption: SimpleOS
+27/05/20 20:30:32 - Erro:EAccessViolation
+27/05/20 20:30:32 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:33 - ===========================================
+27/05/20 20:30:33 - Form: formPrincipal
+27/05/20 20:30:33 - Caption: SimpleOS
+27/05/20 20:30:33 - Erro:EAccessViolation
+27/05/20 20:30:33 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:34 - ===========================================
+27/05/20 20:30:34 - Form: formPrincipal
+27/05/20 20:30:34 - Caption: SimpleOS
+27/05/20 20:30:34 - Erro:EAccessViolation
+27/05/20 20:30:34 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:35 - ===========================================
+27/05/20 20:30:35 - Form: formPrincipal
+27/05/20 20:30:35 - Caption: SimpleOS
+27/05/20 20:30:35 - Erro:EAccessViolation
+27/05/20 20:30:35 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:36 - ===========================================
+27/05/20 20:30:36 - Form: formPrincipal
+27/05/20 20:30:36 - Caption: SimpleOS
+27/05/20 20:30:36 - Erro:EAccessViolation
+27/05/20 20:30:36 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:37 - ===========================================
+27/05/20 20:30:37 - Form: formPrincipal
+27/05/20 20:30:37 - Caption: SimpleOS
+27/05/20 20:30:37 - Erro:EAccessViolation
+27/05/20 20:30:37 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:38 - ===========================================
+27/05/20 20:30:38 - Form: formPrincipal
+27/05/20 20:30:38 - Caption: SimpleOS
+27/05/20 20:30:38 - Erro:EAccessViolation
+27/05/20 20:30:38 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:39 - ===========================================
+27/05/20 20:30:39 - Form: formPrincipal
+27/05/20 20:30:39 - Caption: SimpleOS
+27/05/20 20:30:39 - Erro:EAccessViolation
+27/05/20 20:30:39 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:40 - ===========================================
+27/05/20 20:30:40 - Form: formPrincipal
+27/05/20 20:30:40 - Caption: SimpleOS
+27/05/20 20:30:40 - Erro:EAccessViolation
+27/05/20 20:30:40 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:41 - ===========================================
+27/05/20 20:30:41 - Form: formPrincipal
+27/05/20 20:30:41 - Caption: SimpleOS
+27/05/20 20:30:41 - Erro:EAccessViolation
+27/05/20 20:30:41 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:42 - ===========================================
+27/05/20 20:30:42 - Form: formPrincipal
+27/05/20 20:30:42 - Caption: SimpleOS
+27/05/20 20:30:42 - Erro:EAccessViolation
+27/05/20 20:30:42 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:43 - ===========================================
+27/05/20 20:30:43 - Form: formPrincipal
+27/05/20 20:30:43 - Caption: SimpleOS
+27/05/20 20:30:43 - Erro:EAccessViolation
+27/05/20 20:30:43 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:44 - ===========================================
+27/05/20 20:30:44 - Form: formPrincipal
+27/05/20 20:30:44 - Caption: SimpleOS
+27/05/20 20:30:44 - Erro:EAccessViolation
+27/05/20 20:30:44 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:45 - ===========================================
+27/05/20 20:30:45 - Form: formPrincipal
+27/05/20 20:30:45 - Caption: SimpleOS
+27/05/20 20:30:45 - Erro:EAccessViolation
+27/05/20 20:30:45 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:46 - ===========================================
+27/05/20 20:30:46 - Form: formPrincipal
+27/05/20 20:30:46 - Caption: SimpleOS
+27/05/20 20:30:46 - Erro:EAccessViolation
+27/05/20 20:30:46 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:47 - ===========================================
+27/05/20 20:30:47 - Form: formPrincipal
+27/05/20 20:30:47 - Caption: SimpleOS
+27/05/20 20:30:47 - Erro:EAccessViolation
+27/05/20 20:30:47 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:48 - ===========================================
+27/05/20 20:30:48 - Form: formPrincipal
+27/05/20 20:30:48 - Caption: SimpleOS
+27/05/20 20:30:48 - Erro:EAccessViolation
+27/05/20 20:30:48 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:49 - ===========================================
+27/05/20 20:30:49 - Form: formPrincipal
+27/05/20 20:30:49 - Caption: SimpleOS
+27/05/20 20:30:49 - Erro:EAccessViolation
+27/05/20 20:30:49 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:50 - ===========================================
+27/05/20 20:30:50 - Form: formPrincipal
+27/05/20 20:30:50 - Caption: SimpleOS
+27/05/20 20:30:50 - Erro:EAccessViolation
+27/05/20 20:30:50 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:51 - ===========================================
+27/05/20 20:30:51 - Form: formPrincipal
+27/05/20 20:30:51 - Caption: SimpleOS
+27/05/20 20:30:51 - Erro:EAccessViolation
+27/05/20 20:30:51 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:52 - ===========================================
+27/05/20 20:30:52 - Form: formPrincipal
+27/05/20 20:30:52 - Caption: SimpleOS
+27/05/20 20:30:52 - Erro:EAccessViolation
+27/05/20 20:30:52 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:53 - ===========================================
+27/05/20 20:30:53 - Form: formPrincipal
+27/05/20 20:30:53 - Caption: SimpleOS
+27/05/20 20:30:53 - Erro:EAccessViolation
+27/05/20 20:30:53 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:54 - ===========================================
+27/05/20 20:30:54 - Form: formPrincipal
+27/05/20 20:30:54 - Caption: SimpleOS
+27/05/20 20:30:54 - Erro:EAccessViolation
+27/05/20 20:30:54 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:55 - ===========================================
+27/05/20 20:30:55 - Form: formPrincipal
+27/05/20 20:30:55 - Caption: SimpleOS
+27/05/20 20:30:55 - Erro:EAccessViolation
+27/05/20 20:30:55 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:56 - ===========================================
+27/05/20 20:30:56 - Form: formPrincipal
+27/05/20 20:30:56 - Caption: SimpleOS
+27/05/20 20:30:56 - Erro:EAccessViolation
+27/05/20 20:30:56 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:57 - ===========================================
+27/05/20 20:30:57 - Form: formPrincipal
+27/05/20 20:30:57 - Caption: SimpleOS
+27/05/20 20:30:57 - Erro:EAccessViolation
+27/05/20 20:30:57 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:58 - ===========================================
+27/05/20 20:30:58 - Form: formPrincipal
+27/05/20 20:30:58 - Caption: SimpleOS
+27/05/20 20:30:58 - Erro:EAccessViolation
+27/05/20 20:30:58 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:30:59 - ===========================================
+27/05/20 20:30:59 - Form: formPrincipal
+27/05/20 20:30:59 - Caption: SimpleOS
+27/05/20 20:30:59 - Erro:EAccessViolation
+27/05/20 20:30:59 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:00 - ===========================================
+27/05/20 20:31:00 - Form: formPrincipal
+27/05/20 20:31:00 - Caption: SimpleOS
+27/05/20 20:31:00 - Erro:EAccessViolation
+27/05/20 20:31:00 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:01 - ===========================================
+27/05/20 20:31:01 - Form: formPrincipal
+27/05/20 20:31:01 - Caption: SimpleOS
+27/05/20 20:31:01 - Erro:EAccessViolation
+27/05/20 20:31:01 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:02 - ===========================================
+27/05/20 20:31:02 - Form: formPrincipal
+27/05/20 20:31:02 - Caption: SimpleOS
+27/05/20 20:31:02 - Erro:EAccessViolation
+27/05/20 20:31:02 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:03 - ===========================================
+27/05/20 20:31:03 - Form: formPrincipal
+27/05/20 20:31:03 - Caption: SimpleOS
+27/05/20 20:31:03 - Erro:EAccessViolation
+27/05/20 20:31:03 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:04 - ===========================================
+27/05/20 20:31:04 - Form: formPrincipal
+27/05/20 20:31:04 - Caption: SimpleOS
+27/05/20 20:31:04 - Erro:EAccessViolation
+27/05/20 20:31:04 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:05 - ===========================================
+27/05/20 20:31:05 - Form: formPrincipal
+27/05/20 20:31:05 - Caption: SimpleOS
+27/05/20 20:31:05 - Erro:EAccessViolation
+27/05/20 20:31:05 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:06 - ===========================================
+27/05/20 20:31:06 - Form: formPrincipal
+27/05/20 20:31:06 - Caption: SimpleOS
+27/05/20 20:31:06 - Erro:EAccessViolation
+27/05/20 20:31:06 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:07 - ===========================================
+27/05/20 20:31:07 - Form: formPrincipal
+27/05/20 20:31:07 - Caption: SimpleOS
+27/05/20 20:31:07 - Erro:EAccessViolation
+27/05/20 20:31:07 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:08 - ===========================================
+27/05/20 20:31:08 - Form: formPrincipal
+27/05/20 20:31:08 - Caption: SimpleOS
+27/05/20 20:31:08 - Erro:EAccessViolation
+27/05/20 20:31:08 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:09 - ===========================================
+27/05/20 20:31:09 - Form: formPrincipal
+27/05/20 20:31:09 - Caption: SimpleOS
+27/05/20 20:31:09 - Erro:EAccessViolation
+27/05/20 20:31:09 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:10 - ===========================================
+27/05/20 20:31:10 - Form: formPrincipal
+27/05/20 20:31:10 - Caption: SimpleOS
+27/05/20 20:31:10 - Erro:EAccessViolation
+27/05/20 20:31:10 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:11 - ===========================================
+27/05/20 20:31:11 - Form: formPrincipal
+27/05/20 20:31:11 - Caption: SimpleOS
+27/05/20 20:31:11 - Erro:EAccessViolation
+27/05/20 20:31:11 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:12 - ===========================================
+27/05/20 20:31:12 - Form: formPrincipal
+27/05/20 20:31:12 - Caption: SimpleOS
+27/05/20 20:31:12 - Erro:EAccessViolation
+27/05/20 20:31:12 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:13 - ===========================================
+27/05/20 20:31:13 - Form: formPrincipal
+27/05/20 20:31:13 - Caption: SimpleOS
+27/05/20 20:31:13 - Erro:EAccessViolation
+27/05/20 20:31:13 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:14 - ===========================================
+27/05/20 20:31:14 - Form: formPrincipal
+27/05/20 20:31:14 - Caption: SimpleOS
+27/05/20 20:31:14 - Erro:EAccessViolation
+27/05/20 20:31:14 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:15 - ===========================================
+27/05/20 20:31:15 - Form: formPrincipal
+27/05/20 20:31:15 - Caption: SimpleOS
+27/05/20 20:31:15 - Erro:EAccessViolation
+27/05/20 20:31:15 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:16 - ===========================================
+27/05/20 20:31:16 - Form: formPrincipal
+27/05/20 20:31:16 - Caption: SimpleOS
+27/05/20 20:31:16 - Erro:EAccessViolation
+27/05/20 20:31:16 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:17 - ===========================================
+27/05/20 20:31:17 - Form: formPrincipal
+27/05/20 20:31:17 - Caption: SimpleOS
+27/05/20 20:31:17 - Erro:EAccessViolation
+27/05/20 20:31:17 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/05/20 20:31:18 - ===========================================
+27/05/20 20:31:18 - Form: formPrincipal
+27/05/20 20:31:18 - Caption: SimpleOS
+27/05/20 20:31:18 - Erro:EAccessViolation
+27/05/20 20:31:18 - Erro:Access violation at address 00BFC25C in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004

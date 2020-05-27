@@ -1,7 +1,7 @@
 object formPrincipal: TformPrincipal
   Left = 0
   Top = 0
-  Caption = 'SimpleOS'
+  Caption = 'SimpleOS Basic'
   ClientHeight = 524
   ClientWidth = 1061
   Color = 10461087
@@ -6860,7 +6860,7 @@ object formPrincipal: TformPrincipal
       OnClick = Image2Click
     end
     object Image4: TImage
-      Left = 382
+      Left = 206
       Top = 13
       Width = 163
       Height = 40
@@ -6924,8 +6924,8 @@ object formPrincipal: TformPrincipal
       OnClick = Image4Click
     end
     object Image5: TImage
-      Left = 551
-      Top = 13
+      Left = 271
+      Top = 77
       Width = 163
       Height = 40
       Cursor = crHandPoint
@@ -6982,11 +6982,12 @@ object formPrincipal: TformPrincipal
         A2230B38111D59C089E8C802FF038E79D256393F5B800000000049454E44AE42
         6082}
       Stretch = True
+      Visible = False
       OnClick = Image5Click
     end
     object Image3: TImage
-      Left = 206
-      Top = 13
+      Left = 102
+      Top = 77
       Width = 163
       Height = 40
       Cursor = crHandPoint
@@ -7048,6 +7049,7 @@ object formPrincipal: TformPrincipal
         218AF9EB8842C938A790F78849BDA9221B4A46453450322AA2819251110D948C
         8A68A06454440325A3221A281915D140C9A888064A46453450322AA281925111
         0D948C8A68A0645444837F011D41362B786DE3850000000049454E44AE426082}
+      Visible = False
       OnClick = Image3Click
     end
   end
@@ -7086,25 +7088,10 @@ object formPrincipal: TformPrincipal
           Collapsed = False
           Items = <
             item
-              Action = acCadastroProdutos
-            end
-            item
               Action = acClientes
             end
             item
               Action = acCadastroFuncionarios
-            end
-            item
-              Action = acCadastroTransportadora
-            end
-            item
-              Action = acCadastroFornecedores
-            end
-            item
-              Action = acCadastroMarcas
-            end
-            item
-              Action = acCadastroGrupos
             end
             item
               Action = acFormaPagamento
@@ -7183,28 +7170,13 @@ object formPrincipal: TformPrincipal
           Collapsed = False
           Items = <
             item
-              Action = acEntradasProdutos
-            end
-            item
-              Action = acSaidaProdutos
-            end
-            item
               Action = acOrdemServico
             end
             item
               Action = acCriarOrdenServico
             end
             item
-              Action = acVenda
-            end
-            item
               Action = acCadastrarServicos
-            end
-            item
-              Action = acQuitarParcelas
-            end
-            item
-              Action = acVisualizarVendas
             end
             item
               Action = acQuitarParcelasOS
@@ -7272,67 +7244,16 @@ object formPrincipal: TformPrincipal
               Action = acRelatorioOSEstornadas
             end
             item
-              Action = acRelatorioReparosPorPeriodo
-            end
-            item
-              Action = acRelatorioReparoPorTecnico
-            end
-            item
               Action = acRelatorioOSPorStatus
             end
             item
               Action = acRelatorioClientesOSInadimplentes
             end
             item
-              Action = acRelatorioServicosMaisRealizados
-            end
-            item
-              Action = acRelatorioProblemasFrequentes
-            end
-            item
               Action = acRelatorioClientes
             end
             item
-              Action = acRelatorioVendas
-            end
-            item
-              Action = acRelatorioContasAReceberVendas
-            end
-            item
-              Action = acRelatorioParcelasPagasVendas
-            end
-            item
-              Action = acRelaorioVendasEstornadas
-            end
-            item
-              Action = acRelatorioProdutosMaisVendidos
-            end
-            item
-              Action = acRelatorioVendaInadimplentes
-            end
-            item
-              Action = acRelatorioVendasPorFuncionarios
-            end
-            item
-              Action = acRelatorioDeProdutos
-            end
-            item
-              Action = acRelatorioEntradasDeProdutos
-            end
-            item
-              Action = acRelatorioSaidaDeProdutos
-            end
-            item
-              Action = acRelatorioSituacaoEstoque
-            end
-            item
               Action = acRelatorioContasAPagar
-            end
-            item
-              Action = acRelatorioFornecedores
-            end
-            item
-              Action = acRelatorioTransportadoras
             end
             item
               Action = acRelatorioRetiradaDeValores
@@ -8440,10 +8361,12 @@ object formPrincipal: TformPrincipal
     end
     object acCadastroMarcas: TAction
       Caption = 'Marcas'
+      Visible = False
       OnExecute = acCadastroMarcasExecute
     end
     object acCadastroGrupos: TAction
       Caption = 'Grupos'
+      Visible = False
       OnExecute = acCadastroGruposExecute
     end
     object acFormaPagamento: TAction
@@ -8472,14 +8395,17 @@ object formPrincipal: TformPrincipal
     end
     object acCadastroFornecedores: TAction
       Caption = 'Fornecedores'
+      Visible = False
       OnExecute = acCadastroFornecedoresExecute
     end
     object acCadastroTransportadora: TAction
       Caption = 'Transportadora'
+      Visible = False
       OnExecute = acCadastroTransportadoraExecute
     end
     object acCadastroProdutos: TAction
       Caption = 'Produtos'
+      Visible = False
       OnExecute = acCadastroProdutosExecute
     end
     object acCadastroFuncionarios: TAction
@@ -8496,10 +8422,12 @@ object formPrincipal: TformPrincipal
     end
     object acEntradasProdutos: TAction
       Caption = 'Entradas produtos'
+      Visible = False
       OnExecute = acEntradasProdutosExecute
     end
     object acSaidaProdutos: TAction
       Caption = 'Sa'#237'da produtos'
+      Visible = False
       OnExecute = acSaidaProdutosExecute
     end
     object acOrdemServico: TAction
@@ -8520,6 +8448,7 @@ object formPrincipal: TformPrincipal
     end
     object acVenda: TAction
       Caption = 'Venda de produtos'
+      Visible = False
       OnExecute = acVendaExecute
     end
     object acNumeroDeParcelas: TAction
@@ -8532,6 +8461,7 @@ object formPrincipal: TformPrincipal
     end
     object acVisualizarVendas: TAction
       Caption = 'Visualizar Vendas'
+      Visible = False
       OnExecute = acVisualizarVendasExecute
     end
     object acRelatorioClientes: TAction
@@ -8548,6 +8478,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioContasAReceberVendas: TAction
       Caption = 'Parcelas receber Vendas'
+      Visible = False
       OnExecute = acRelatorioContasAReceberVendasExecute
     end
     object acRelatorioParcelasPagasOS: TAction
@@ -8556,6 +8487,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioParcelasPagasVendas: TAction
       Caption = 'Parcelas pagas Vendas'
+      Visible = False
       OnExecute = acRelatorioParcelasPagasVendasExecute
     end
     object acRelatorioOSEstornadas: TAction
@@ -8564,6 +8496,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelaorioVendasEstornadas: TAction
       Caption = 'Vendas Estornadas'
+      Visible = False
       OnExecute = acRelaorioVendasEstornadasExecute
     end
     object acRelatorioContasAPagar: TAction
@@ -8588,6 +8521,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioFornecedores: TAction
       Caption = 'Relat'#243'rio fornecedores'
+      Visible = False
       OnExecute = acRelatorioFornecedoresExecute
     end
     object acRelatorioClientesOSInadimplentes: TAction
@@ -8596,22 +8530,27 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioDeProdutos: TAction
       Caption = 'Relat'#243'rio de produtos'
+      Visible = False
       OnExecute = acRelatorioDeProdutosExecute
     end
     object acRelatorioSituacaoEstoque: TAction
       Caption = 'Situa'#231#227'o do estoque'
+      Visible = False
       OnExecute = acRelatorioSituacaoEstoqueExecute
     end
     object acRelatorioProdutosMaisVendidos: TAction
       Caption = 'Produtos mais vendidos'
+      Visible = False
       OnExecute = acRelatorioProdutosMaisVendidosExecute
     end
     object acRelatorioVendas: TAction
       Caption = 'Relatorio vendas'
+      Visible = False
       OnExecute = acRelatorioVendasExecute
     end
     object acRelatorioVendaInadimplentes: TAction
       Caption = 'Vendas Inadimplentes'
+      Visible = False
       OnExecute = acRelatorioVendaInadimplentesExecute
     end
     object acRelatorioServicosMaisRealizados: TAction
@@ -8620,6 +8559,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioSaidaDeProdutos: TAction
       Caption = 'Sa'#237'da de produtos'
+      Visible = False
       OnExecute = acRelatorioSaidaDeProdutosExecute
     end
     object acRelatorioVendasPorFuncionarios: TAction
@@ -8628,6 +8568,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioTransportadoras: TAction
       Caption = 'Relat'#243'rio transportadoras'
+      Visible = False
       OnExecute = acRelatorioTransportadorasExecute
     end
     object acEncerramentoDoCaixa: TAction
@@ -8644,6 +8585,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioEntradasDeProdutos: TAction
       Caption = 'Entrada de Produtos'
+      Visible = False
       OnExecute = acRelatorioEntradasDeProdutosExecute
     end
     object acRelatorioRetiradaDeValores: TAction

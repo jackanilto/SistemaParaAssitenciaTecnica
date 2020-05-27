@@ -1,0 +1,2627 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5858BA69-1E33-478F-B057-AC5BB2AAE773}</ProjectGuid>
+        <ProjectVersion>18.7</ProjectVersion>
+        <FrameworkType>VCL</FrameworkType>
+        <MainSource>SimplesOS_VesionBasic.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
+        <AppType>Application</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+        <SanitizedProjectName>SimplesOS_VesionBasic</SanitizedProjectName>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DataSnapServerMidas;DBXDb2Driver;DBXInterBaseDriver;vclactnband;ACBr_TEFD;vclFireDAC;emsclientfiredac;ACBr_SATWS;DataSnapFireDAC;svnui;tethering;FireDACADSDriver;ACBr_BPeDabpeESCPOS;ACBr_BPe;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;ACBr_NFe;vcldb;bindcompfmx;svn;DBXOracleDriver;inetdb;ACBr_NFeDanfeESCPOS;ACBr_Diversos;ACBr_TXTComum;FmxTeeUI;emsedge;FireDACIBDriver;fmx;fmxdae;vclib;frxTee26;ACBr_Ponto;fs26;FireDACDBXDriver;dbexpress;IndyCore;vclx;frxIntIO26;dsnap;DataSnapCommon;emsclient;FireDACCommon;ACBr_PCNComum;RESTBackendComponents;DataSnapConnectors;ACBR_DeSTDA;VCLRESTComponents;ACBr_Reinf;soapserver;ACBr_SAT;fsTee26;vclie;bindengine;DBXMySQLDriver;FireDACOracleDriver;CloudService;FireDACMySQLDriver;DBXFirebirdDriver;ACBr_PAF;ACBr_SATECFVirtual;frx26;ACBr_Sintegra;FireDACCommonODBC;FireDACCommonDriver;ACBr_GNRE;DataSnapClient;fsIBX26;frxIntIOIndy26;inet;bindcompdbx;IndyIPCommon;ACBr_TCP;vcl;DBXSybaseASEDriver;IndyIPServer;ACBr_CTe;ACBr_SATExtratoESCPOS;IndySystem;frxDB26;FireDACDb2Driver;frxDBX26;fsADO26;ACBr_Integrador;dsnapcon;ACBr_synapse;ACBre_Social;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;fsDB26;TeeDB;FireDAC;ACBr_SPED;ACBr_MDFe;emshosting;ACBr_Comum;frxe26;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;ACBr_LFD;DBXOdbcDriver;FireDACTDataDriver;FMXTee;frxIBX26;soaprtl;DbxCommonDriver;ibxpress;Tee;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;ibxbindings;rtl;emsserverresource;DbxClientDriver;FireDACDSDriver;DBXSybaseASADriver;ACBr_OpenSSL;CustomIPTransport;vcldsnap;ACBr_DFeComum;frxADO26;ACBr_Convenio115;bindcomp;appanalytics;ACBr_Serial;DBXInformixDriver;IndyIPClient;frce;bindcompvcl;TeeUI;ACBr_BlocoX;dbxcds;VclSmp;ACBr_NFCeECFVirtual;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;ACBr_Boleto;ACBr_ANe;dsnapxml;DataSnapProviderClient;dbrtl;inetdbxpress;FireDACMongoDBDriver;IndyProtocols;ACBr_SEF2;ACBr_NFSe;ACBr_MTER;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DataSnapServerMidas;DBXDb2Driver;DBXInterBaseDriver;vclactnband;vclFireDAC;emsclientfiredac;DataSnapFireDAC;tethering;FireDACADSDriver;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;DBXOracleDriver;inetdb;FmxTeeUI;emsedge;FireDACIBDriver;fmx;fmxdae;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;DataSnapCommon;emsclient;FireDACCommon;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;vclie;bindengine;DBXMySQLDriver;FireDACOracleDriver;CloudService;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;vcl;DBXSybaseASEDriver;IndyIPServer;IndySystem;FireDACDb2Driver;dsnapcon;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;TeeDB;FireDAC;emshosting;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;DBXOdbcDriver;FireDACTDataDriver;FMXTee;soaprtl;DbxCommonDriver;ibxpress;Tee;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;ibxbindings;rtl;emsserverresource;DbxClientDriver;FireDACDSDriver;DBXSybaseASADriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;DBXInformixDriver;IndyIPClient;bindcompvcl;TeeUI;dbxcds;VclSmp;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;dsnapxml;DataSnapProviderClient;dbrtl;inetdbxpress;FireDACMongoDBDriver;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_DebugDCUs>true</DCC_DebugDCUs>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_RemoteDebug>true</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_RemoteDebug>false</DCC_RemoteDebug>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>SimplesOS_Icon1.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>..\..\..\..\Downloads\mobile-marketing-48.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>..\..\..\..\Downloads\mobile-marketing-128.png</UWP_DelphiLogo150>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <Icon_MainIcon>SimplesOS_Icon3.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>mobile-marketing-44.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>mobile-marketing-150.png</UWP_DelphiLogo150>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="Forms\Form.Principal.pas">
+            <Form>formPrincipal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Reusable\UClasse.Calcular.Juros.pas"/>
+        <DCCReference Include="Classes\Reusable\UClasse.CapturarErro.pas"/>
+        <DCCReference Include="Classes\Reusable\UClasse.Gravar.Log.Sistema.pas"/>
+        <DCCReference Include="Classes\Reusable\UClasse.ObertValorPorExtenso.pas"/>
+        <DCCReference Include="Classes\Reusable\UClasse.Obter.Data.Hora.PorExtenso.pas"/>
+        <DCCReference Include="Classes\Query\UClasse.Query.pas"/>
+        <DCCReference Include="Classes\Interfaces\UInterfaces.pas"/>
+        <DCCReference Include="Classes\Factory\UFactory.Entity.pas"/>
+        <DCCReference Include="Classes\Factory\UFactory.Query.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Criar.Ordem.Parcelas.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Table.pas"/>
+        <DCCReference Include="DataModule\UDados.Conexao.pas">
+            <Form>DataModule1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\Exemplos\UForm.Exemplo.Embeded.pas">
+            <Form>formExemploEmbeded</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Marcas.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Marcas.pas">
+            <Form>formCadastroMarcas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\UClasse.Criar.Janela.pas"/>
+        <DCCReference Include="Classes\Factory\UFactory.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Grupos.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Grupos.pas">
+            <Form>formCadastroGrupos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Cadastro.Forma.Pagamento.pas">
+            <Form>formFormaPagamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Forma.Pagamento.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Tipo.Retiradas.pas">
+            <Form>formTipoRetiradas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Tipo.Retiradas.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Configurar.Parcelas.pas">
+            <Form>formConfigurarParcelas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Configurar.Parcelas.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Atividade.Funcionario.pas">
+            <Form>formAtividadeFuncionario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Atividade.Funcionario.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Contas.APagar.pas">
+            <Form>formCadastroContasAPagar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Contas.APagar.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Problemas.Frequentes.pas">
+            <Form>formCadastroProblemasFrequentes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Problemas.Frequentes.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Forncedores.pas">
+            <Form>formCadastroFornecedores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Transportadora.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Transportadora.pas">
+            <Form>formCadastroTransportadora</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Forncedores.pas"/>
+        <DCCReference Include="Classes\Reusable\UClasse.Validar.Documento.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Produtos.pas">
+            <Form>formCadastroProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Produtos.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Grupo.pas">
+            <Form>formLocalizarGrupo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Marca.pas">
+            <Form>formLocalizarMarca</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Utilitarios\UCalculadora.pas">
+            <Form>frmCalculadoraMargemLucro</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Reusable\UClasse.Gerar.Codigo.Barras.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Cadastro.Funcionario.pas"/>
+        <DCCReference Include="Classes\Biblioteca\Wcrypt2.pas"/>
+        <DCCReference Include="Classes\Biblioteca\UClasse.Cript.password.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Atividade.Funcionario.pas">
+            <Form>formLocalizarAtividadeFuncionario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Comissoes.Funcionario.pas">
+            <Form>formComissoesFuncionarios</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Cadastro.Funcionarios.pas">
+            <Form>formCadastroDeFuncionarios</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Comissoes.Funcionario.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Situacao.Ordem.pas">
+            <Form>formCadastroSituacoesOrdem</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Cadastro.Situacoes.Ordem.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Clientes.pas">
+            <Form>formCadastroDeClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Cadastro.Clientes.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Entradas.Produtos.pas"/>
+        <DCCReference Include="Forms\Form.Entradas.Produtos.pas">
+            <Form>formEntradaDeProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Produtos.Entrada.pas">
+            <Form>formLocalizarProdutosEntradas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Saidas.Produtos.pas">
+            <Form>formSaidaDeProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Saidas.Produtos.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Produtos.Saidas.pas">
+            <Form>FormLocalizarProdutosSaida</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Ordem.Servico.pas">
+            <Form>formOrdemServico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Criar.Ordem.Servico.pas">
+            <Form>formCriarConsultarOrdemServico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Listar.Ordens.Servico.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Servicos.pas">
+            <Form>formCadastroDeServicos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Cadastro.Servicos.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Criar.Ordem.Servico.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Clientes.Ordem.pas">
+            <Form>formLocalizarClientesOrdem</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\UClasse.ChamarCadastro.pas"/>
+        <DCCReference Include="Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Localizar.Registro.Especifico.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Tecnico.Ordem.pas">
+            <Form>formLocalizarTecnico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Ordem.Adicionar.Servico.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.pas"/>
+        <DCCReference Include="Classes\Reusable\UClasse.ExtrairDiaData.pas"/>
+        <DCCReference Include="Classes\Reusable\UClasse.DiasMeses.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Visualizar.Ordens.Servico.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Visualizar.Ordens.Servicos.Incluidos.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Visualizar.Ordens.Servico.Parcelas.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Dados.Empresa.pas"/>
+        <DCCReference Include="Forms\Form.Cadastro.Empresa.pas">
+            <Form>formCadastroEmpresa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Preparar.Imprimir.Recibo.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Ativar.Desativar.Botoes.Ordem.Servico.pas"/>
+        <DCCReference Include="Classes\Entity\uClasse.Venda.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Itens.Venda.pas"/>
+        <DCCReference Include="Classes\Entity\uClasse.Venda.Parcelas.pas"/>
+        <DCCReference Include="Forms\Form.Venda.pas">
+            <Form>formVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Clientes.Venda.pas">
+            <Form>formLocalizarClientesVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Localizar\UClasse.Entity.Localizar.Cliente.Venda.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Produtos.Venda.pas">
+            <Form>formLocalizarProdutoVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Localizar\UClasse.Entity.Localizar.Produto.Venda.pas"/>
+        <DCCReference Include="Forms\Form.venda.Confirmar.Pagamento.pas">
+            <Form>FormVendaConfirmarPagamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Numero.Parcelas.pas"/>
+        <DCCReference Include="Forms\Form.Numero.Parcelas.pas">
+            <Form>formNumeroParcelas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Calcular.Parcela.pas"/>
+        <DCCReference Include="Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Recibo.pas"/>
+        <DCCReference Include="Classes\Entity\ImprimirParcela_Recibo\UClasse.Imprimir.Parcelas.pas"/>
+        <DCCReference Include="Forms\Form.Quitar.Parcela.Venda.pas">
+            <Form>formQuitarParcelasVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Quitar.Parcelas.Vendas.pas"/>
+        <DCCReference Include="Classes\Entity\ImprimirParcela_Recibo\UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas.pas"/>
+        <DCCReference Include="Forms\Form.Visualizar.Vendas.pas">
+            <Form>formVisualizarVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Visualizar.Vendas.pas"/>
+        <DCCReference Include="Forms\Exemplos\Form.Modelo.Relatorio.pas">
+            <Form>formModeloRelatorio</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Clientes.pas">
+            <Form>formRelatorioClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Exemplos\UClasse.Entity.Modelo.Relatorio.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Clientes.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Historico.OS.pas">
+            <Form>formRelatorioHistoricoOS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Historico.OS.Clientes.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Contas.A.Receber.OS.pas">
+            <Form>formRelatorioContasAReceberOS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Receber.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Contas.A.Receber.Venda.pas">
+            <Form>formRelatorioContasAReceberVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Contas.Receber.Venda.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Parcelas.Pagas.OS.pas">
+            <Form>formRelatorioParcelasPagasOS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Parcelas.Pagas.OS.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Parcelas.Pagas.Vendas.pas">
+            <Form>formRelatorioParcelasPagasVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Parcelas.Pagas.Vendas.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.OS.Estornadas.pas">
+            <Form>formOSEstornadas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Estornadas.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Estornar.OS.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Estornar.Venda.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Vendas.Estornadas.pas">
+            <Form>formRelatorioVendasEstornadas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Estornadas.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Contas.A.Pagar.pas">
+            <Form>formRelatorioContasAPagar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Contas.A.Pagar.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Reparos.Periodos.pas">
+            <Form>formRelatorioReparosPorPeriodo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Reparos.Por.Periodo.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.OS.Por.Tecnico.pas">
+            <Form>formRelatorioOSPorTecnico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Por.Tecnico.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.OS.Por.Status.pas">
+            <Form>formRelatorioOSPorStatus</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Situacao.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.OS.pas">
+            <Form>formRelatorioOrdemDeServico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Servicos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Fornecedores.pas">
+            <Form>formRelatorioFornecedores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Fornecedores.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.OS.Inadimplentes.pas">
+            <Form>formRelatorioOSInadimplentes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.OS.Inadimplentes.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Produtos.pas">
+            <Form>formRelatorioDeProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Produtos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Situacao.Estoque.pas">
+            <Form>formRelatorioSituacaoDoEstoque</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Situacao.Estoque.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Produtos.Mais.Vendidos.pas">
+            <Form>formRelatorioProdutosMaisVendidos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Produtos.Mais.Vendidos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Vendas.pas">
+            <Form>formRelatorioVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Parcelas.Venda.Inadimplentes.pas">
+            <Form>formRelatorioVendasInadimplentes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Inadimplentes.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Servico.Mais.Realizados.pas">
+            <Form>formRelatorioServicosMaisRealizados</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Servicos.Mais.Realizados.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Saida.Produtos.pas">
+            <Form>formRelatorioSaidaDeProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Saida.Produtos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Entrada.Produtos.pas">
+            <Form>formRelatorioEntradasDeProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Entrada.Produtos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Vendas.Por.Funcionario.pas">
+            <Form>formRelatorioVendasPorFuncionario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Vendas.Por.Funcionarios.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Transportadoras.pas">
+            <Form>formRelatorioTransportadora</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Transportadoras.pas"/>
+        <DCCReference Include="Classes\Entity\Caixa\UClasse.Entity.Caixa.pas"/>
+        <DCCReference Include="Classes\Entity\Caixa\UClasse.Query.Caixa.pas"/>
+        <DCCReference Include="Forms\Caixa\Form.Abertura.Caixa.pas">
+            <Form>formIniciarCaixa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Caixa\Form.Encerramento.Caixa.pas">
+            <Form>formEncerramentoCaixa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Caixa\Form.Reabertura.Caixa.pas">
+            <Form>formReaberturaDeCaixa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Retirada.De.Valores.pas">
+            <Form>formRetiradaDeValores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Retirada.Valores.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Retirada.Valores.pas">
+            <Form>formRelatorioRetiradaDeValores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Retirada.Valores.pas"/>
+        <DCCReference Include="Forms\Form.Login.pas">
+            <Form>formLogin</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Login.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Comissoes.Tecnico.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Comissoes.pas">
+            <Form>formComissoesTecnicos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Configurar.Conexcao.Banco.pas">
+            <Form>formConfigurarConexaoBanco</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Config\UClasse.Config.Conexao.pas"/>
+        <DCCReference Include="Classes\Entity\Config\UClasse.Config.Acesso.Banco.pas"/>
+        <DCCReference Include="Forms\Form.Configuracoes.Backup.pas">
+            <Form>formConfiguracoesBackUp</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Config\UClasse.Config.BackUp.pas"/>
+        <DCCReference Include="Forms\Form.Backup.Manual.pas">
+            <Form>formBackUpManual</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Problemas.Frequentes.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Problemas.Frequentes.pas">
+            <Form>formRelatorioProblemasFrequentes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Historico.Caixa.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Historico.Caixa.pas">
+            <Form>formRelatorioHistoricoDoCaixa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Quitar.Parcela.OS.pas">
+            <Form>formQuitarParcelaOS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Quitar.Parcela.OS.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Imprimir.Parcelas.OS.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Imprimir.Recibo.OS.pas"/>
+        <DCCReference Include="Forms\Caixa\Form.Movimentacao.Caixa.pas">
+            <Form>formMovimentacaoCaixa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.OS.pas"/>
+        <DCCReference Include="Classes\Factory\UFactory.Movimentacao.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Venda.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Retiradas.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Contas.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\Movimentacao_Caixa\UClasse.Relatorio.Movimentacao.Caixa.pas"/>
+        <DCCReference Include="Forms\Form.Acesso.Recursos.Fucnionarios.pas">
+            <Form>formConfigurarAcessoFuncionario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Configurar.Acesso.Funcionario.pas"/>
+        <DCCReference Include="Unit1.pas"/>
+        <DCCReference Include="Classes\Entity\UClasse.Entity.Trocar.Usuario.pas"/>
+        <DCCReference Include="Forms\Form.Trocar.Usuario.pas">
+            <Form>formTrocarDeUsuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Alterar.Senha.pas">
+            <Form>Form2</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Sobre.pas">
+            <Form>formSobre</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Config\UClasse.Config.Imagem.Logo.pas"/>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Logs.Eventos.pas"/>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Log.Eventos.pas">
+            <Form>formRelatorioLogEventos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Form.Splash.pas">
+            <Form>formSplash</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="softMeter_globalVar.pas"/>
+        <DCCReference Include="Forms\Caixa\Form.Abertura.Caixa.Manual.pas">
+            <Form>formAberturaDeCaixaManual</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\Relatorios\Form.Relatorio.Aniversariantes.pas">
+            <Form>formRelatorioClientesAniversariantes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Aniversariantes.pas"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\default.txaPackage"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\SimplesOS\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UInterfaces\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UCalculadora\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UForm\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UForm\Exemplo\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UForm\Exemplo\Embeded\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Calcular\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Calcular\Juros\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Calcular\Parcela\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\Estornadas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\Por\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\Por\Funcionarios\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\Inadimplentes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Aniversariantes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\A\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\A\Pagar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\A\Receber\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\Receber\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\Receber\Venda\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Historico\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Historico\Caixa\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Por\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Por\Tecnico\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Inadimplentes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Servicos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Estornadas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Situacao\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Produtos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Produtos\Mais\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Produtos\Mais\Vendidos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Saida\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Saida\Produtos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Parcelas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Parcelas\Pagas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Parcelas\Pagas\OS\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Parcelas\Pagas\Vendas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Situacao\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Situacao\Estoque\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Servicos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Servicos\Mais\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Servicos\Mais\Realizados\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Problemas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Problemas\Frequentes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Comissoes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Comissoes\Tecnico\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Reparos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Reparos\Por\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Reparos\Por\Periodo\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Transportadoras\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Fornecedores\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Entrada\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Entrada\Produtos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Clientes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Retirada\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Retirada\Valores\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\OS\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\Contas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\Venda\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\Retiradas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\Caixa\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Logs\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Logs\Eventos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Contas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Contas\APagar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Itens\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Itens\Venda\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Forma\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Forma\Pagamento\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Produtos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\Ordem\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\Ordem\Servico\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\Ordem\Parcelas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Tipo\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Tipo\Retiradas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Dados\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Dados\Empresa\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Transportadora\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Modelo\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Modelo\Relatorio\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Configurar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Configurar\Parcelas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Configurar\Acesso\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Configurar\Acesso\Funcionario\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Table\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Marcas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Comissoes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Comissoes\Funcionario\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Situacoes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Situacoes\Ordem\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Funcionario\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Clientes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Servicos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Retirada\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Retirada\Valores\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Trocar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Trocar\Usuario\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Numero\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Numero\Parcelas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Estornar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Estornar\OS\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Caixa\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Grupos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Atividade\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Atividade\Funcionario\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Entradas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Entradas\Produtos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Saidas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Saidas\Produtos\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcela\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcela\OS\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcelas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcelas\Vendas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Ordem\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Ordem\Adicionar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Ordem\Adicionar\Servico\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Produto\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Produto\Venda\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Cliente\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Cliente\Venda\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Problemas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Problemas\Frequentes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Forncedores\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Listar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Listar\Ordens\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Listar\Ordens\Servico\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\Ordem\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\Ordem\Servico\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\Quitar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\Quitar\Parcelas\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\BackUp\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Imagem\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Imagem\Logo\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Conexao\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Acesso\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Acesso\Banco\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\DiasMeses\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Obter\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Obter\Data\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Obter\Data\Hora\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Obter\Data\Hora\PorExtenso\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\CapturarErro\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Criar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Criar\Janela\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Cript\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Cript\password\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\ExtrairDiaData\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Historico\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Historico\OS\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Historico\OS\Clientes\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Visualizar\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Visualizar\Ordens\default.txvpck"/>
+        <None Include="ModelSupport_SimplesOS_VesionBasic\UClasse\Visualizar\Ordens\Servicos\default.txvpck"/>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>Application</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">SimplesOS_VesionBasic.dpr</Source>
+                </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="C:\ComponentesDesphi\ACBR\Lib\Delphi\LibD26\ACBr_Integrador.bpl">ACBr - Integrador - (http://www.projetoacbr.com.br/)</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k260.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp260.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Deployment Version="3">
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcelas\Vendas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Estornadas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Modelo\Relatorio\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Funcionario\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win32\Release\SimplesOS_VesionBasic.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>SimplesOS_VesionBasic.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Criar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Saida\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Configurar\Acesso\Funcionario\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Produtos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\Venda\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Numero\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Entrada\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Produtos\Mais\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Comissoes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\Inadimplentes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS\SimplesOS\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\A\Receber\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Estornar\OS\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\default.txaPackage" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcela\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Atividade\Funcionario\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Servicos\Mais\Realizados\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Reparos\Por\Periodo\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\Contas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Forma\Pagamento\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\Quitar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\Quitar\Parcelas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Historico\OS\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Visualizar\Ordens\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Problemas\Frequentes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\Ordem\Servico\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Comissoes\Funcionario\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\Receber\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Listar\Ordens\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Comissoes\Tecnico\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Itens\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Produto\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\Retiradas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Servicos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Cliente\Venda\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Cript\password\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Table\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Marcas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Ordem\Adicionar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcela\OS\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Cliente\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\OS\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Produtos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Visualizar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Transportadora\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Saidas\Produtos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Saida\Produtos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Obter\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Grupos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Tipo\Retiradas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Dados\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcelas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Tipo\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Ordem\Adicionar\Servico\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\Ordem\Servico\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Modelo\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Parcelas\Pagas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Forncedores\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Servicos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\SimplesOS\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\Por\Funcionarios\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Saidas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UForm\Exemplo\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Reparos\Por\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\BackUp\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\CapturarErro\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\ExtrairDiaData\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Logs\Eventos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Contas\APagar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS\UInterfaces\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Clientes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Produto\Venda\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Obter\Data\Hora\PorExtenso\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Configurar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UInterfaces\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Retirada\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Clientes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Transportadoras\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Parcelas\Pagas\Vendas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Situacoes\Ordem\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Atividade\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Entradas\Produtos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Problemas\Frequentes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Configurar\Parcelas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Imagem\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Historico\Caixa\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Situacao\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Acesso\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Por\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Aniversariantes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Trocar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Conexao\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Comissoes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\Situacoes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\A\Pagar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Entrada\Produtos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UForm\Exemplo\Embeded\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UCalculadora\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\Receber\Venda\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Dados\Empresa\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Estornar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Acesso\Banco\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Servicos\Mais\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Cript\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\DiasMeses\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Calcular\Juros\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Retirada\Valores\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Obter\Data\Hora\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\Por\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Logs\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Historico\OS\Clientes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Retirada\Valores\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Problemas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Trocar\Usuario\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Caixa\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\Ordem\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Situacao\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="mobile-marketing-150.png" Configuration="Release" Class="UWP_DelphiLogo150">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo150x150.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Produtos\Mais\Vendidos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Config\Imagem\Logo\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Parcelas\Pagas\OS\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Criar\Janela\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Ativar\Desativar\Botoes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Historico\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Configurar\Acesso\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Parcelas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\..\..\..\Downloads\mobile-marketing-128.png" Configuration="Debug" Class="UWP_DelphiLogo150">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo150x150.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Vendas\Estornadas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="mobile-marketing-44.png" Configuration="Release" Class="UWP_DelphiLogo44">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo44x44.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Inadimplentes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Forma\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\Ordem\Parcelas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Numero\Parcelas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Situacao\Estoque\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Calcular\Parcela\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Fornecedores\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Listar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Ordem\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Itens\Venda\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Servicos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Contas\A\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Historico\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Obter\Data\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Calcular\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Retirada\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win32\Debug\SimplesOS_VesionBasic.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>SimplesOS_VesionBasic.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\..\..\..\Downloads\mobile-marketing-48.png" Configuration="Debug" Class="UWP_DelphiLogo44">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo44x44.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UForm\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\OS\Por\Tecnico\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Listar\Ordens\Servico\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Reparos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Movimentacao\Caixa\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Contas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Problemas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\Ordem\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Entradas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployClass Name="AdditionalDebugSymbols">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidClassesDexFile">
+                    <Platform Name="Android">
+                        <RemoteDir>classes</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidFileProvider">
+                    <Platform Name="Android">
+                        <RemoteDir>res\xml</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidGDBServer">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeArmeabiFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeMipsFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\mips</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidServiceOutput">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashImageDef">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStyles">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStylesV21">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values-v21</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_Colors">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_DefaultAppIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon144">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon36">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-ldpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon48">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-mdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon72">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-hdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon96">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_NotificationIcon24">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-mdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_NotificationIcon36">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-hdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_NotificationIcon48">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_NotificationIcon72">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_NotificationIcon96">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-small</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage470">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-normal</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage640">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-large</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage960">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xlarge</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_Strings">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DebugSymbols">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyFramework">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="DependencyPackage">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.bpl</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="File">
+                    <Platform Name="Android">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1024">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1024x768">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1536">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1536x2048">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1668">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1668x2388">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2048">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2048x1536">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2048x2732">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2224">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2388x1668">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2732x2048">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch768">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch768x1024">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch1125">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch1136x640">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch1242">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch1242x2688">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch1334">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch1792">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch2208">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch2436">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch2688x1242">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch320">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640x1136">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch750">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch828">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectAndroidManifest">
+                    <Platform Name="Android">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceDebug">
+                    <Platform Name="iOSDevice32">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSEntitlements">
+                    <Platform Name="iOSDevice32">
+                        <RemoteDir>..\</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>..\</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSInfoPList">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSResource">
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXDebug">
+                    <Platform Name="OSX64">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXEntitlements">
+                    <Platform Name="OSX32">
+                        <RemoteDir>..\</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>..\</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXInfoPList">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXResource">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="ProjectOutput">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Linux64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectUWPManifest">
+                    <Platform Name="Win32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="UWP_DelphiLogo150">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="UWP_DelphiLogo44">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+            </Deployment>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+            <ModelSupport>True</ModelSupport>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+    <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+</Project>

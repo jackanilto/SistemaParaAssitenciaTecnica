@@ -292,8 +292,8 @@ object formLogin: TformLogin
     ParentFont = False
   end
   object sbEntrar: TSpeedButton
-    Left = 32
-    Top = 272
+    Left = 126
+    Top = 256
     Width = 113
     Height = 57
     Caption = 'Entrar'
@@ -406,8 +406,8 @@ object formLogin: TformLogin
     OnClick = sbEntrarClick
   end
   object sbConfiguracoes: TSpeedButton
-    Left = 159
-    Top = 272
+    Left = 338
+    Top = 20
     Width = 186
     Height = 57
     Caption = 'Configura'#231#245'es'
@@ -517,11 +517,12 @@ object formLogin: TformLogin
       1A99361A99361A99361A99361A99361A99361A99361A99361A99361A99361A99
       361A99361A99361A99361A99361A99361A99361A99361A99361A}
     ParentFont = False
+    Visible = False
     OnClick = sbConfiguracoesClick
   end
   object sbSair: TSpeedButton
-    Left = 351
-    Top = 272
+    Left = 245
+    Top = 256
     Width = 102
     Height = 57
     Caption = 'Sair'
