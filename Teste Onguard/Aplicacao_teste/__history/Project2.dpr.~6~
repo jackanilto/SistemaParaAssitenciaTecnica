@@ -1,0 +1,18 @@
+program Project2;
+
+uses
+  Vcl.Forms,
+  Unit2 in 'Unit2.pas' {Form2},
+  UDados in 'UDados.pas' {tabela: TDataModule},
+  VCL.onguard in 'VCL.onguard.pas',
+  URegistro in 'URegistro.pas' {frmRegistro};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(Ttabela, tabela);
+  Application.Run;
+end.

@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{55DFEC73-1A71-4FD0-99AF-EEB3BC2CBC19}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\SimplesOS.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="App_Config.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SimplesOS">
+        <MSBuild Projects="..\SimplesOS.dproj"/>
+    </Target>
+    <Target Name="SimplesOS:Clean">
+        <MSBuild Projects="..\SimplesOS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimplesOS:Make">
+        <MSBuild Projects="..\SimplesOS.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="App_Config">
+        <MSBuild Projects="App_Config.dproj"/>
+    </Target>
+    <Target Name="App_Config:Clean">
+        <MSBuild Projects="App_Config.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="App_Config:Make">
+        <MSBuild Projects="App_Config.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SimplesOS;App_Config"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SimplesOS:Clean;App_Config:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SimplesOS:Make;App_Config:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,217 @@
+unit UClasse.Relatorio.Clientes;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TEntityModeloRelatorio = class(TInterfacedObject, iEntityModeloRelatorio)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+  public
+
+    function nomeTabela(value: string): iEntityModeloRelatorio;
+    function getCampo(value: string): iEntityModeloRelatorio;
+    function getValor(value: string): iEntityModeloRelatorio;
+    function getDataInicial(value: TDate): iEntityModeloRelatorio;
+    function getDataFinal(value: TDate): iEntityModeloRelatorio;
+    function open(value: string): iEntityModeloRelatorio;
+    function pesquisar: iEntityModeloRelatorio;
+    function ExecSql: iEntityModeloRelatorio;
+    function sqlPesquisa: iEntityModeloRelatorio;
+    function sqlPesquisaData: iEntityModeloRelatorio;
+    function sqlPesquisaEstatica: iEntityModeloRelatorio;
+
+    function abrir: iEntityModeloRelatorio;
+    function atualizar: iEntityModeloRelatorio;
+    function cancelar: iEntityModeloRelatorio;
+    function fecharQuery: iEntityModeloRelatorio;
+    function listarGrid(value: TDataSource): iEntityModeloRelatorio;
+    function ordenarGrid(column: TColumn): iEntityModeloRelatorio;
+
+    function exportar: iEntityModeloRelatorio;
+    procedure validarData(componet: tmaskEdit);
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iEntityModeloRelatorio;
+  end;
+
+implementation
+
+{ TEntityModeloRelatorio }
+
+function TEntityModeloRelatorio.abrir: iEntityModeloRelatorio;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TEntityModeloRelatorio.atualizar: iEntityModeloRelatorio;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TEntityModeloRelatorio.cancelar: iEntityModeloRelatorio;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+constructor TEntityModeloRelatorio.create;
+begin
+  FTabela := 'CLIENTES';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Relatório de clientes').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+destructor TEntityModeloRelatorio.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntityModeloRelatorio.ExecSql: iEntityModeloRelatorio;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntityModeloRelatorio.exportar: iEntityModeloRelatorio;
+begin
+  result := self;
+end;
+
+function TEntityModeloRelatorio.fecharQuery: iEntityModeloRelatorio;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntityModeloRelatorio.getCampo(value: string): iEntityModeloRelatorio;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntityModeloRelatorio.getDataFinal(value: TDate)
+  : iEntityModeloRelatorio;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TEntityModeloRelatorio.getDataInicial(value: TDate)
+  : iEntityModeloRelatorio;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TEntityModeloRelatorio.getValor(value: string): iEntityModeloRelatorio;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TEntityModeloRelatorio.listarGrid(value: TDataSource)
+  : iEntityModeloRelatorio;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
+  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TEntityModeloRelatorio.new: iEntityModeloRelatorio;
+begin
+  result := self.create;
+end;
+
+function TEntityModeloRelatorio.nomeTabela(value: string)
+  : iEntityModeloRelatorio;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntityModeloRelatorio.open(value: string): iEntityModeloRelatorio;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntityModeloRelatorio.ordenarGrid(column: TColumn)
+  : iEntityModeloRelatorio;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntityModeloRelatorio.pesquisar: iEntityModeloRelatorio;
+begin
+  result := self;
+end;
+
+function TEntityModeloRelatorio.sqlPesquisa: iEntityModeloRelatorio;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityModeloRelatorio.sqlPesquisaData: iEntityModeloRelatorio;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntityModeloRelatorio.sqlPesquisaEstatica: iEntityModeloRelatorio;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TEntityModeloRelatorio.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.

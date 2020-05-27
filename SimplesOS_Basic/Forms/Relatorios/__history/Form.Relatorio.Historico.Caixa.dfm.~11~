@@ -1,0 +1,117 @@
+inherited formRelatorioHistoricoDoCaixa: TformRelatorioHistoricoDoCaixa
+  Caption = 'Hist'#243'rico de abertura e encerramento do caixa'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel3: TPanel
+    ExplicitLeft = -24
+    ExplicitTop = 494
+    inherited sbImprimir: TSpeedButton
+      Left = -49
+      Top = 49
+      Visible = False
+      ExplicitLeft = -49
+      ExplicitTop = 49
+    end
+    inherited sbExportar: TSpeedButton
+      Left = 62
+      OnClick = sbExportarClick
+      ExplicitLeft = 62
+    end
+    object Label1: TLabel [4]
+      Left = 200
+      Top = 8
+      Width = 97
+      Height = 15
+      Anchors = [akRight, akBottom]
+      Caption = 'Tipo de pesquisa'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel [5]
+      Left = 319
+      Top = 8
+      Width = 121
+      Height = 15
+      Anchors = [akRight, akBottom]
+      Caption = 'Pesquisa entre datas'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      ParentFont = False
+    end
+    inherited cbPesquisar: TComboBox
+      Items.Strings = (
+        'Funcion'#225'rio abertura'
+        'Funcionario encerramento')
+    end
+    inherited edtPesquisar: TEdit
+      OnKeyUp = edtPesquisarKeyUp
+    end
+    object ComboBox1: TComboBox
+      Left = 200
+      Top = 29
+      Width = 113
+      Height = 23
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      Text = 'ComboBox1'
+    end
+    object MaskEdit1: TMaskEdit
+      Left = 319
+      Top = 29
+      Width = 90
+      Height = 23
+      EditMask = '00/00/0000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      MaxLength = 10
+      ParentFont = False
+      TabOrder = 3
+      Text = '  /  /    '
+    end
+    object MaskEdit2: TMaskEdit
+      Left = 415
+      Top = 29
+      Width = 90
+      Height = 23
+      EditMask = '00/00/0000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      MaxLength = 10
+      ParentFont = False
+      TabOrder = 4
+      Text = '  /  /    '
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

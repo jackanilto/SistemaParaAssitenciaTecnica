@@ -1,0 +1,215 @@
+unit UClasse.Relatorio.Saida.Produtos;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TRelatorioSaidaProdutos = class(TInterfacedObject, iRelatorioSaidaDeProdutos)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FNome: string;
+
+  public
+
+    function nomeTabela(value: string): iRelatorioSaidaDeProdutos;
+    function getCampo(value: string): iRelatorioSaidaDeProdutos;
+    function getValor(value: string): iRelatorioSaidaDeProdutos;
+    function getDataInicial(value: TDate): iRelatorioSaidaDeProdutos;
+    function getDataFinal(value: TDate): iRelatorioSaidaDeProdutos;
+    function open(value: string): iRelatorioSaidaDeProdutos;
+    function pesquisar: iRelatorioSaidaDeProdutos;
+    function ExecSql: iRelatorioSaidaDeProdutos;
+    function sqlPesquisa: iRelatorioSaidaDeProdutos;
+    function sqlPesquisaData: iRelatorioSaidaDeProdutos;
+    function sqlPesquisaEstatica: iRelatorioSaidaDeProdutos;
+
+    function abrir: iRelatorioSaidaDeProdutos;
+    function atualizar: iRelatorioSaidaDeProdutos;
+    function cancelar: iRelatorioSaidaDeProdutos;
+    function fecharQuery: iRelatorioSaidaDeProdutos;
+    function listarGrid(value: TDataSource): iRelatorioSaidaDeProdutos;
+    function ordenarGrid(column: TColumn): iRelatorioSaidaDeProdutos;
+
+    function exportar: iRelatorioSaidaDeProdutos;
+    function validarData(componet: tmaskEdit): iRelatorioSaidaDeProdutos;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iRelatorioSaidaDeProdutos;
+  end;
+
+implementation
+
+{ TRelatorioSaidaProdutos }
+
+function TRelatorioSaidaProdutos.abrir: iRelatorioSaidaDeProdutos;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TRelatorioSaidaProdutos.atualizar: iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TRelatorioSaidaProdutos.cancelar: iRelatorioSaidaDeProdutos;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+constructor TRelatorioSaidaProdutos.create;
+begin
+  FTabela := 'PRODUTOS';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Cadastro de produtos').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+destructor TRelatorioSaidaProdutos.destroy;
+begin
+
+  inherited;
+end;
+
+function TRelatorioSaidaProdutos.ExecSql: iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TRelatorioSaidaProdutos.exportar: iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+end;
+
+function TRelatorioSaidaProdutos.fecharQuery: iRelatorioSaidaDeProdutos;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TRelatorioSaidaProdutos.getCampo(value: string): iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TRelatorioSaidaProdutos.getDataFinal(value: TDate): iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TRelatorioSaidaProdutos.getDataInicial(value: TDate): iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TRelatorioSaidaProdutos.getValor(value: string): iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TRelatorioSaidaProdutos.listarGrid(value: TDataSource): iRelatorioSaidaDeProdutos;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
+  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TRelatorioSaidaProdutos.new: iRelatorioSaidaDeProdutos;
+begin
+  result := self.create;
+end;
+
+function TRelatorioSaidaProdutos.nomeTabela(value: string): iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TRelatorioSaidaProdutos.open(value: string): iRelatorioSaidaDeProdutos;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TRelatorioSaidaProdutos.ordenarGrid(column: TColumn): iRelatorioSaidaDeProdutos;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TRelatorioSaidaProdutos.pesquisar: iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+end;
+
+function TRelatorioSaidaProdutos.sqlPesquisa: iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TRelatorioSaidaProdutos.sqlPesquisaData: iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TRelatorioSaidaProdutos.sqlPesquisaEstatica: iRelatorioSaidaDeProdutos;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+procedure TRelatorioSaidaProdutos.validarData(componet: tmaskEdit);
+var
+  d: TDate;
+begin
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.

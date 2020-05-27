@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/01/09 16:21:41.000.555,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/01/09 16:33:31.000.469,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/02/04 18:49:35.000.527,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/03/29 11:10:29.045,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/03/29 11:11:04.826,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Unit3.pas=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/03/29 11:11:04.826,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Unit3.dfm=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit3.dfm</Transaction>
+    <Transaction>2020/03/29 11:11:05.926,C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\App Config\Project1.dproj=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,36 @@
+unit UClasse.Calcular.Parcela;
+
+interface
+
+uses UInterfaces;
+
+type
+  TCalcularParcela = class(TInterfacedObject, iCalcularParcelas)
+  private
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iCalcularParcelas;
+  end;
+
+implementation
+
+{ TCalcularParcela }
+
+constructor TCalcularParcela.create;
+begin
+
+end;
+
+destructor TCalcularParcela.destroy;
+begin
+
+  inherited;
+end;
+
+class function TCalcularParcela.new: iCalcularParcelas;
+begin
+  result := self.create;
+end;
+
+end.

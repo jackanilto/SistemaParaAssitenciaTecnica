@@ -1,0 +1,95 @@
+unit URegistro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TfrmRegistro = class(TForm)
+    Label1: TLabel;
+    edtCodigo: TEdit;
+    Label2: TLabel;
+    edtCodLiberacao: TEdit;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRegistro: TfrmRegistro;
+
+implementation
+
+{$R *.dfm}
+
+uses UDados, Vcl.onguard, Vcl.OgUtil;
+
+const
+  EncryptionKey: TKey = ($E5, $8F, $84, $D6, $92, $C9, $A4, $D8, $1A, $FA, $6F,
+    $8D, $AB, $FC, $DF, $B4);
+
+procedure TfrmRegistro.Button1Click(Sender: TObject);
+var
+  Key: TKey;
+  Code: TCode;
+  Modifier: Longint;
+  d, DataVencimento: TDateTime;
+  cStatus: string;
+begin
+
+  Key := EncryptionKey;
+  Modifier := StringHashELF(edtCodigo.Text);
+  ApplyModifierToKeyPrim(Modifier, Key, SizeOf(Key));
+  HexToBuffer(edtCodLiberacao.Text, Code, SizeOf(Code));
+  DataVencimento := GetExpirationDate(Key, Code);
+  if IsRegCodeValid(Key, Code) then
+  begin
+    if IsRegCodeExpired(Key, Code) then
+      cStatus := 'Registro Expirado'
+    else
+      cStatus := 'Registro Valido';
+  end
+  else
+    cStatus := 'Registro Invalido';
+
+  if cStatus <> 'Registro Valido' then
+  begin
+    ShowMessage('Por favor entrar em contato com o suporte');
+    application.Terminate;
+  end
+  else
+  begin
+
+    tabela.ClientDataSet1.First;
+    if tabela.ClientDataSet1.RecordCount > 0 then
+    begin
+      tabela.ClientDataSet1.edit;
+    end
+    else
+
+      tabela.ClientDataSet1.Insert;
+
+    tabela.ClientDataSet1CODIGO.AsString := edtCodigo.Text;
+    tabela.ClientDataSet1COD_LIBERACAO.AsString := edtCodLiberacao.Text;
+    tabela.ClientDataSet1DATA_VENCIMENTO.AsDateTime := DataVencimento;
+    tabela.ClientDataSet1ULTIMO_ACESSO.AsDateTime := date;
+
+    tabela.ClientDataSet1.Post;
+    tabela.ClientDataSet1.ApplyUpdates(-1);
+    // tabela.ClientDataSet1.Refresh;
+
+    ShowMessage('O sistema será encerrando para válidar a chave.');
+
+    application.Terminate;
+
+  end;
+
+end;
+
+end.

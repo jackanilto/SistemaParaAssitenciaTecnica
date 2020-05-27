@@ -1,0 +1,155 @@
+unit UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas;
+
+interface
+
+uses
+  Vcl.Buttons;
+
+Type
+  TMyClass = class
+  private
+    btQuitar: TSpeedButton;
+    btEstornar: TSpeedButton;
+    btAdicionar: TSpeedButton;
+    btSalvar: TSpeedButton;
+    btExcluir: TSpeedButton;
+    btCancelar: TSpeedButton;
+    btImprimirParcela: TSpeedButton;
+    btExportar: TSpeedButton;
+  public
+
+    procedure BotaoQuitar(value: TSpeedButton);
+    procedure BotaoEstornar(value: TSpeedButton);
+    procedure BotaoAdicionarParcela(value: TSpeedButton);
+    procedure BotaoSalvarPacela(value: TSpeedButton);
+    procedure BotaoExcluirParcela(value: TSpeedButton);
+    procedure BotalCancelar(value: TSpeedButton);
+    procedure BotaoImpimirParcela(value: TSpeedButton);
+    procedure BotaoExportar(value: TSpeedButton);
+
+    procedure btQuitarParcela;
+    procedure btEstornarParcela;
+    procedure btAdicionarParcela;
+    procedure btSalvarParcela;
+    procedure btExcluirParcela;
+    procedure btCancelarParcela;
+
+    constructor create;
+    destructor destroy; override;
+
+  end;
+
+implementation
+
+{ TMyClass }
+
+procedure TMyClass.BotalCancelar(value: TSpeedButton);
+begin
+   btCancelar := value;
+end;
+
+procedure TMyClass.BotaoAdicionarParcela(value: TSpeedButton);
+begin
+ btAdicionar := value;
+end;
+
+procedure TMyClass.BotaoEstornar(value: TSpeedButton);
+begin
+ btEstornar := value;
+end;
+
+procedure TMyClass.BotaoExcluirParcela(value: TSpeedButton);
+begin
+ btExcluir := value;
+end;
+
+procedure TMyClass.BotaoExportar(value: TSpeedButton);
+begin
+ btExportar := value;
+end;
+
+procedure TMyClass.BotaoImpimirParcela(value: TSpeedButton);
+begin
+   btImprimirParcela := value;
+end;
+
+procedure TMyClass.BotaoQuitar(value: TSpeedButton);
+begin
+  btQuitar := value;
+end;
+
+procedure TMyClass.BotaoSalvarPacela(value: TSpeedButton);
+begin
+  btSalvar := value;
+end;
+
+procedure TMyClass.btAdicionarParcela;
+begin
+   btQuitar.Enabled := false;
+   btAdicionar.Enabled := false;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := true;
+   btExcluir.Enabled := false;
+   btCancelar.Enabled := true;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TMyClass.btCancelarParcela;
+begin
+   btQuitar.Enabled := false;
+   btAdicionar.Enabled := false;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := false;
+   btCancelar.Enabled := false;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TMyClass.btEstornarParcela;
+begin
+   btQuitar.Enabled := true;
+   btAdicionar.Enabled := true;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := true;
+   btCancelar.Enabled := true;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TMyClass.btExcluirParcela;
+begin
+   btQuitar.Enabled := false;
+   btAdicionar.Enabled := true;
+   btEstornar.Enabled := false;
+   btSalvar.Enabled := false;
+   btExcluir.Enabled := false;
+   btCancelar.Enabled := false;
+   btImprimirParcela.Enabled := false;
+   btExportar.Enabled := false;
+end;
+
+procedure TMyClass.btQuitarParcela;
+begin
+
+end;
+
+procedure TMyClass.btSalvarParcela;
+begin
+
+end;
+
+constructor TMyClass.create;
+begin
+
+end;
+
+destructor TMyClass.destroy;
+begin
+
+  inherited;
+end;
+
+end.

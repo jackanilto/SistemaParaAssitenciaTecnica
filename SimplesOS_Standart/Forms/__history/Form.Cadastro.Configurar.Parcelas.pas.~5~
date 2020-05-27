@@ -1,0 +1,66 @@
+unit Form.Cadastro.Configurar.Parcelas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
+  Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage, UInterfaces,
+  UClasse.Entity.Configurar.Parcelas;
+
+type
+  TformConfigurarParcelas = class(TformExemploEmbeded)
+    DataSource1: TDataSource;
+    edtCodigo: TEdit;
+    edtJuros: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtMulta: TEdit;
+    Label3: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure sbNovoClick(Sender: TObject);
+  private
+    { Private declarations }
+    FEntityConfigurarParcelas: iConfigurarParcelas;
+  public
+    { Public declarations }
+  end;
+
+var
+  formConfigurarParcelas: TformConfigurarParcelas;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformConfigurarParcelas.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FEntityConfigurarParcelas := TEntityConfigurarParcelas.new;
+end;
+
+procedure TformConfigurarParcelas.FormShow(Sender: TObject);
+begin
+  inherited;
+  FEntityConfigurarParcelas.abrir.listarGrid(DataSource1);
+end;
+
+procedure TformConfigurarParcelas.sbNovoClick(Sender: TObject);
+begin
+  inherited;
+  if DataSource1.DataSet.RecordCount = 0 then
+  begin
+    FEntityConfigurarParcelas.inserir;
+    edtJuros.SetFocus;
+  end
+  else
+  begin
+    raise Exception.Create
+      ('Não é possuivel inserir mais de um registro neste tabela.');
+  end;
+end;
+
+end.

@@ -1,0 +1,35 @@
+unit Form.Relatorio.Produtos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.Produtos;
+
+type
+  TformRelatorioDeProdutos = class(TformModeloRelatorio)
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+    var
+      FRelatorioProdutos:iRelatorioDeProdutos;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioDeProdutos: TformRelatorioDeProdutos;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioDeProdutos.FormCreate(Sender: TObject);
+begin
+  inherited;
+   FRelatorioProdutos := TRelatorioProdutos.new;
+end;
+
+end.

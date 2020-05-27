@@ -1,0 +1,38 @@
+unit UClasse.Gravar.Log.Sistema;
+
+interface
+
+uses
+  UInterface.Conexao.Query, UDados.Conexao;
+
+type
+
+  TGravarLogSistema = class(TInterfacedObject, iGravarLogOperacoes)
+  private
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iGravarLogOperacoes;
+  end;
+
+implementation
+
+{ TGravarLogSistema }
+
+constructor TGravarLogSistema.create;
+begin
+
+end;
+
+destructor TGravarLogSistema.destroy;
+begin
+
+  inherited;
+end;
+
+class function TGravarLogSistema.new: iGravarLogOperacoes;
+begin
+  result := self.create;
+end;
+
+end.

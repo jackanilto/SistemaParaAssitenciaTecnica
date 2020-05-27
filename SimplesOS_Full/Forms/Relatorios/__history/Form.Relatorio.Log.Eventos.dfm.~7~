@@ -1,0 +1,51 @@
+inherited formRelatorioLogEventos: TformRelatorioLogEventos
+  Caption = 'Relat'#243'rio Log de Eventos'
+  ClientWidth = 1111
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
+  ExplicitWidth = 1111
+  PixelsPerInch = 96
+  TextHeight = 17
+  inherited Panel1: TPanel
+    Width = 1111
+    inherited sbFechar: TSpeedButton
+      Left = 1059
+    end
+    inherited lblCaption: TLabel
+      Left = 389
+    end
+  end
+  inherited Panel3: TPanel
+    Width = 1111
+    inherited Label4: TLabel
+      Left = 777
+    end
+    inherited Label5: TLabel
+      Left = 912
+    end
+    inherited cbPesquisar: TComboBox
+      Left = 777
+      Items.Strings = (
+        'C'#243'd. Funcion'#225'rio'
+        'Funcion'#225'rio')
+    end
+    inherited edtPesquisar: TEdit
+      Left = 912
+      OnKeyUp = edtPesquisarKeyUp
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    Width = 1111
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    ParentFont = False
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

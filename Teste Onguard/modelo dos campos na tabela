@@ -1,0 +1,15 @@
+CREATE TABLE TABLE_NAME (
+    ID               INTEGER NOT NULL,
+    COD_LIBERACAO    VARCHAR(40),
+    DATA_VENCIMENTO  DATE,
+    ULTIMO_ACESSO    DATE,
+    CODIGO           VARCHAR(50)
+);
+
+CREATE TABLE TABLE_NAME (
+    ID               INTEGER NOT NULL,
+    cc1    VARCHAR(40),
+    cc2  	DATE,
+    cc3    DATE,
+    cc4   VARCHAR(50)
+);

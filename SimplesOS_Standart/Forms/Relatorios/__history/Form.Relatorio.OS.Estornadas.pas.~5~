@@ -1,0 +1,51 @@
+unit Form.Relatorio.OS.Estornadas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.OS.Estornadas, Vcl.Mask;
+
+type
+  TEnumPesquisar = (os, cod_cliente, cliente);
+
+type
+  TformOSEstornadas = class(TformModeloRelatorio)
+    Label1: TLabel;
+    edtData1: TMaskEdit;
+    edtData2: TMaskEdit;
+    sbPesquisarDatas: TSpeedButton;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    var
+      FRelatorioEstornos:iRelatorioOSEstornadas;
+  public
+    { Public declarations }
+  end;
+
+var
+  formOSEstornadas: TformOSEstornadas;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformOSEstornadas.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FRelatorioEstornos := TRelatorioOSEstornadas.new;
+end;
+
+procedure TformOSEstornadas.FormShow(Sender: TObject);
+begin
+  inherited;
+  FRelatorioEstornos.abrir.listarGrid(DataSource1);
+end;
+
+end.

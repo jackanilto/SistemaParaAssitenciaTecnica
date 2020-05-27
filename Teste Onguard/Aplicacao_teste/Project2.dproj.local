@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/11/30 06:12:12.000.219,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2018/11/30 10:30:32.000.842,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/01/12 20:09:10.000.168,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/05/26 11:17:20.000.929,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/05/26 11:17:57.000.979,C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit2.pas=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/05/26 11:17:57.000.979,C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit2.dfm=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2019/05/26 11:17:59.000.397,C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Project2.dproj=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2019/05/26 11:18:29.000.485,=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit1.pas</Transaction>
+    <Transaction>2019/05/26 11:18:46.000.098,C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\UDados.dfm=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit1.dfm</Transaction>
+    <Transaction>2019/05/26 11:18:46.000.098,C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\UDados.pas=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit1.pas</Transaction>
+    <Transaction>2019/05/26 11:32:27.000.150,=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\VCL.onguard.pas</Transaction>
+    <Transaction>2019/05/26 13:01:51.000.612,=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit1.pas</Transaction>
+    <Transaction>2019/05/26 13:03:47.000.107,C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\URegistro.dfm=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit1.dfm</Transaction>
+    <Transaction>2019/05/26 13:03:47.000.107,C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\URegistro.pas=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit1.pas</Transaction>
+    <Transaction>2019/05/26 14:56:17.000.184,=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit1.pas</Transaction>
+    <Transaction>2019/05/26 14:56:47.000.351,C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Interface\UInterface.RegEdit.pas=C:\Users\noels\Desktop\Teste Onguard\Aplicacao_teste\Unit1.pas</Transaction>
+    <Transaction>2020/05/26 20:20:40.000.993,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.ognetwrk.pas</Transaction>
+    <Transaction>2020/05/26 20:20:41.000.012,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.ogutil.pas</Transaction>
+    <Transaction>2020/05/26 20:20:58.000.732,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.onguard2.pas</Transaction>
+    <Transaction>2020/05/26 20:21:11.000.587,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.onguard3.pas</Transaction>
+    <Transaction>2020/05/26 20:21:24.000.652,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.onguard4.pas</Transaction>
+    <Transaction>2020/05/26 20:21:38.000.883,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.onguard1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

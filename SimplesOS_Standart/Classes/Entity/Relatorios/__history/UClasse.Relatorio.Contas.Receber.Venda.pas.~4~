@@ -1,0 +1,312 @@
+unit UClasse.Relatorio.Contas.Receber.Venda;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask;
+
+type
+
+  TEntityRelatorioContasAReceberVenda = class(TInterfacedObject, iRelatorioContasAReceberVendas)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FNome: string;
+
+  public
+
+    function nomeTabela(value: string): iRelatorioContasAReceberVendas;
+    function getCampo(value: string): iRelatorioContasAReceberVendas;
+    function getValor(value: string): iRelatorioContasAReceberVendas;
+    function getDataInicial(value: TDate): iRelatorioContasAReceberVendas;
+    function getDataFinal(value: TDate): iRelatorioContasAReceberVendas;
+    function open(value: string): iRelatorioContasAReceberVendas;
+    function pesquisar: iRelatorioContasAReceberVendas;
+    function ExecSql: iRelatorioContasAReceberVendas;
+    function sqlPesquisa: iRelatorioContasAReceberVendas;
+    function sqlPesquisaData: iRelatorioContasAReceberVendas;
+    function sqlPesquisaEstatica: iRelatorioContasAReceberVendas;
+
+    function abrir: iRelatorioContasAReceberVendas;
+    function inserir: iRelatorioContasAReceberVendas;
+    function Gravar: iRelatorioContasAReceberVendas;
+    function deletar: iRelatorioContasAReceberVendas;
+    function atualizar: iRelatorioContasAReceberVendas;
+    function editar: iRelatorioContasAReceberVendas;
+    function cancelar: iRelatorioContasAReceberVendas;
+    function fecharQuery: iRelatorioContasAReceberVendas;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iRelatorioContasAReceberVendas;
+    function ordenarGrid(column: TColumn): iRelatorioContasAReceberVendas;
+
+    function exportar: iRelatorioContasAReceberVendas;
+    function validarData(componet: tmaskEdit):iRelatorioContasAReceberVendas;
+
+    function getCodigo(value: integer): iRelatorioContasAReceberVendas;
+    function getNome(value: string): iRelatorioContasAReceberVendas;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iRelatorioContasAReceberVendas;
+  end;
+
+implementation
+
+{ TEntityRelatorioContasAReceberVenda }
+
+function TEntityRelatorioContasAReceberVenda.abrir: iRelatorioContasAReceberVendas;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TEntityRelatorioContasAReceberVenda.atualizar: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TEntityRelatorioContasAReceberVenda.cancelar: iRelatorioContasAReceberVendas;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+function TEntityRelatorioContasAReceberVenda.codigoCadastro(sp: string): integer;
+begin
+  result := FQuery.codigoCadastro('');
+end;
+
+constructor TEntityRelatorioContasAReceberVenda.create;
+begin
+  FTabela := 'VISUALIZAR_P_VENDA_RECEBER';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Relatório Parcelas das Vendas a Receber').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TEntityRelatorioContasAReceberVenda.deletar: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .gravarLog;
+
+      FQuery.TQuery.Delete;
+    end;
+  end;
+
+end;
+
+destructor TEntityRelatorioContasAReceberVenda.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntityRelatorioContasAReceberVenda.editar: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .gravarLog;
+
+    FQuery.TQuery.Edit;
+
+  end;
+end;
+
+function TEntityRelatorioContasAReceberVenda.ExecSql: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntityRelatorioContasAReceberVenda.exportar: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+end;
+
+function TEntityRelatorioContasAReceberVenda.fecharQuery: iRelatorioContasAReceberVendas;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntityRelatorioContasAReceberVenda.getCampo(value: string): iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntityRelatorioContasAReceberVenda.getCodigo(value: integer): iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FCodigo := value;
+end;
+
+function TEntityRelatorioContasAReceberVenda.getDataFinal(value: TDate): iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TEntityRelatorioContasAReceberVenda.getDataInicial(value: TDate): iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TEntityRelatorioContasAReceberVenda.getNome(value: string): iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FNome := value;
+end;
+
+function TEntityRelatorioContasAReceberVenda.getValor(value: string): iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TEntityRelatorioContasAReceberVenda.Gravar: iRelatorioContasAReceberVendas;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_PRODUTOS_ID');
+
+  FQuery.TQuery.FieldByName('SERVICO_PRODUTO').AsString := FNome;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('SERVICO_PRODUTO')
+    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+    .gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: exception do
+    begin
+      raise exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
+function TEntityRelatorioContasAReceberVenda.inserir: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FQuery.TQuery.EmptyDataSet;
+  FQuery.TQuery.Append;
+end;
+
+function TEntityRelatorioContasAReceberVenda.listarGrid(value: TDataSource): iRelatorioContasAReceberVendas;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('id').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('grupo').DisplayLabel := 'Grupo';
+  FQuery.TQuery.FieldByName('grupo').DisplayWidth := 50;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TEntityRelatorioContasAReceberVenda.new: iRelatorioContasAReceberVendas;
+begin
+  result := self.create;
+end;
+
+function TEntityRelatorioContasAReceberVenda.nomeTabela(value: string): iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntityRelatorioContasAReceberVenda.open(value: string): iRelatorioContasAReceberVendas;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntityRelatorioContasAReceberVenda.ordenarGrid(column: TColumn): iRelatorioContasAReceberVendas;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntityRelatorioContasAReceberVenda.pesquisar: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+end;
+
+function TEntityRelatorioContasAReceberVenda.sqlPesquisa: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityRelatorioContasAReceberVenda.sqlPesquisaData: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntityRelatorioContasAReceberVenda.sqlPesquisaEstatica: iRelatorioContasAReceberVendas;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+function TEntityRelatorioContasAReceberVenda.validarData(componet: tmaskEdit):iRelatorioContasAReceberVendas;
+var
+  d: TDate;
+begin
+
+  result := self;
+
+  try
+    d := strtodate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.

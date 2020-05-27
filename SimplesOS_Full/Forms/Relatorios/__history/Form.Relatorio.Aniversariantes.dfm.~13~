@@ -1,0 +1,97 @@
+inherited formRelatorioClientesAniversariantes: TformRelatorioClientesAniversariantes
+  Caption = 'Relat'#243'rio dos clientes aniversariantes'
+  ClientHeight = 474
+  ClientWidth = 947
+  ExplicitWidth = 947
+  ExplicitHeight = 474
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 947
+    ExplicitWidth = 977
+    inherited sbFechar: TSpeedButton
+      Left = 895
+      ExplicitLeft = 925
+    end
+    inherited lblCaption: TLabel
+      Left = 225
+      ExplicitLeft = 255
+    end
+  end
+  inherited Panel3: TPanel
+    Top = 410
+    Width = 947
+    ExplicitTop = 456
+    ExplicitWidth = 977
+    inherited sbExportar: TSpeedButton
+      OnClick = sbExportarClick
+    end
+    inherited Label4: TLabel
+      Left = 613
+      Visible = False
+      ExplicitLeft = 643
+    end
+    inherited Label5: TLabel
+      Left = 748
+      Visible = False
+      ExplicitLeft = 778
+    end
+    object Label1: TLabel [4]
+      Left = 360
+      Top = 5
+      Width = 94
+      Height = 15
+      Anchors = [akRight, akBottom]
+      Caption = 'Selecione o m'#234's'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      ParentFont = False
+      ExplicitLeft = 390
+    end
+    inherited cbPesquisar: TComboBox
+      Left = 613
+      Visible = False
+      ExplicitLeft = 643
+    end
+    inherited edtPesquisar: TEdit
+      Left = 748
+      Visible = False
+      ExplicitLeft = 778
+    end
+    object DatePicker1: TDatePicker
+      Left = 360
+      Top = 26
+      Width = 107
+      Height = 25
+      Date = 43958.000000000000000000
+      DateFormat = 'MM'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Roboto'
+      Font.Style = []
+      TabOrder = 2
+      OnChange = DatePicker1Change
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    Width = 947
+    Height = 369
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    ReadOnly = True
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+  end
+  inherited frxReport1: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

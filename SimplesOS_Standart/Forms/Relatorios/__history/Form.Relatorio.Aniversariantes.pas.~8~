@@ -1,0 +1,52 @@
+unit Form.Relatorio.Aniversariantes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UClasse.Relatorio.Aniversariantes, UInterfaces, Vcl.ComCtrls;
+
+type
+  TformRelatorioClientesAniversariantes = class(TformModeloRelatorio)
+    DateTimePicker1: TDateTimePicker;
+    SpeedButton1: TSpeedButton;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  var
+    FAniversariante: iRelatorioAniversariantes;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioClientesAniversariantes: TformRelatorioClientesAniversariantes;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioClientesAniversariantes.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FAniversariante := TRelatorioAniversariantes.new;
+end;
+
+procedure TformRelatorioClientesAniversariantes.FormShow(Sender: TObject);
+begin
+  inherited;
+  FAniversariante
+                .abrir
+                .retornarAniversariantes(date)
+                .listarGrid(DataSource1);
+
+  DateTimePicker1.Date := Date;
+
+end;
+
+end.

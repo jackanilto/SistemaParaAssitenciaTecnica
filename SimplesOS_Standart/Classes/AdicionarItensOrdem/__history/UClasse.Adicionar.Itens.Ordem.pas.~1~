@@ -1,0 +1,28 @@
+unit UClasse.Adicionar.Itens.Ordem;
+
+interface
+
+type
+  TMyClass = class
+  private
+  public
+    constructor create;
+    destructor destroy; override;
+  end;
+
+implementation
+
+{ TMyClass }
+
+constructor TMyClass.create;
+begin
+
+end;
+
+destructor TMyClass.destroy;
+begin
+
+  inherited;
+end;
+
+end.

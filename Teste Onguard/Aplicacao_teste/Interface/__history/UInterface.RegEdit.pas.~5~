@@ -1,0 +1,89 @@
+unit UInterface.RegEdit;
+
+interface
+
+uses
+  System.SysUtils;
+
+type
+  iReg = interface
+    ['{DFA862EE-DAD3-4961-A50B-4E06F65A000F}']
+    function getCodigo(value: string): iReg;
+    function getLiberacao(value: string): iReg;
+    procedure registrar;
+    procedure liberar;
+  end;
+
+type
+  TReg = class(TInterfacedObject, iReg)
+  private
+  FCodigo:string;
+  FLiberar:string;
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iReg;
+    function getCodigo(value: string): iReg;
+    function getLiberacao(value: string): iReg;
+    procedure registrar;
+    procedure liberar;
+
+  end;
+
+implementation
+
+{ TReg }
+
+uses Vcl.onguard, vcl.OgUtil;
+
+const
+  EncryptionKey: TKey = ($E5, $8F, $84, $D6, $92, $C9, $A4, $D8, $1A, $FA, $6F,
+    $8D, $AB, $FC, $DF, $B4);
+
+constructor TReg.create;
+begin
+
+end;
+
+destructor TReg.destroy;
+begin
+
+  inherited;
+end;
+
+function TReg.getCodigo(value: string): iReg;
+begin
+  result := self;
+  if value = emptystr then
+  raise Exception.Create('Informe o código de instalação do sistema.');
+
+  FCodigo := value;
+
+end;
+
+function TReg.getLiberacao(value: string): iReg;
+begin
+   result := self;
+   if value = EmptyStr then
+   raise Exception.Create('Informe a chave de liberação do sistema!');
+
+   FLiberar := value;
+
+end;
+
+procedure TReg.liberar;
+begin
+
+end;
+
+class function TReg.new: iReg;
+begin
+   result := self.create;
+end;
+
+procedure TReg.registrar;
+begin
+
+end;
+
+end.

@@ -1,0 +1,19 @@
+uses
+  OnGuard, OgUtil; 
+const
+  EncryptionKey : TKey = ($E5, $8F, $84, $D6, $92, $C9, $A4, $D8,
+                          $1A, $FC, $6F, $8D, $AB, $FC, $DF, $B4); 
+//Gerar						  
+var
+  Key : TKey;
+  Code : TCode;
+  Modifier : Longint;
+  D : TDateTime;
+begin
+  D := StrToDate(dtExpiracao.Text);
+  Key := EncryptionKey;
+  Modifier := StringHashELF(edtEmpresa.Text);
+  ApplyModifierToKeyPrim(Modifier, Key, SizeOf(Key));
+  InitRegCode(Key, '', D, Code);
+  edtRegCode1.Text := BufferToHex(Code, SizeOf(Code));  
+end;

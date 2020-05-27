@@ -1,0 +1,36 @@
+unit UClasse.Imprimir.Parcelas;
+
+interface
+
+uses UInterfaces;
+
+type
+  TImprimirParcelasVenda = class(TInterfacedObject, iImprimirParcelasVendas)
+  private
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iImprimirParcelasVendas;
+  end;
+
+implementation
+
+{ TImprimirParcelasVenda }
+
+constructor TImprimirParcelasVenda.create;
+begin
+
+end;
+
+destructor TImprimirParcelasVenda.destroy;
+begin
+
+  inherited;
+end;
+
+class function TImprimirParcelasVenda.new: iImprimirParcelasVendas;
+begin
+  result := self.create;
+end;
+
+end.

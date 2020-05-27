@@ -1,0 +1,32 @@
+unit UClasse.Query.Caixa;
+
+interface
+
+uses UDados.Conexao, FireDAC.Comp.Client;
+
+type
+  TQueryCaixa = class
+    private
+      FConexaoQuery:TFDQuery;
+    public
+     function retornarQuery:TFDQuery;
+  end;
+
+implementation
+
+{ TQueryCaixa }
+
+function TQueryCaixa.retornarQuery: TFDQuery;
+begin
+
+  FConexaoQuery := TFDQuery.Create(nil);
+  FConexaoQuery.Connection := DataModule1.Conexao;
+  FConexaoQuery.Active := false;
+  FConexaoQuery.SQL.Clear;
+  FConexaoQuery.SQL.Add('select * from CAIXA_ABER_FECH');
+  FConexaoQuery.Active := true;
+
+
+end;
+
+end.

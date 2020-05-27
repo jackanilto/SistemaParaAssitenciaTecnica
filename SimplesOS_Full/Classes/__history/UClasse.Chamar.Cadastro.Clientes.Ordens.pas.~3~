@@ -1,0 +1,30 @@
+unit UClasse.Chamar.Cadastro.Clientes.Ordens;
+
+interface
+
+type
+  TMyClass = class
+  private
+  public
+    procedure chamarCadastroClientes;
+    property nome:string;
+    constructor create;
+    destructor destroy; override;
+  end;
+
+implementation
+
+{ TMyClass }
+
+constructor TMyClass.create;
+begin
+
+end;
+
+destructor TMyClass.destroy;
+begin
+
+  inherited;
+end;
+
+end.

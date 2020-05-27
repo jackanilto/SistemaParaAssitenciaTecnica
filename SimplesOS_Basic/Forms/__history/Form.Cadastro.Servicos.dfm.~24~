@@ -1,0 +1,534 @@
+inherited formCadastroDeServicos: TformCadastroDeServicos
+  Caption = 'Cadastro de servi'#231'os'
+  ClientHeight = 395
+  ClientWidth = 844
+  Position = poScreenCenter
+  ExplicitWidth = 844
+  ExplicitHeight = 395
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 844
+    ExplicitWidth = 844
+    inherited sbFechar: TSpeedButton
+      Left = 792
+      ExplicitLeft = 792
+    end
+    inherited lblCaption: TLabel
+      Left = 122
+      Width = 149
+      Caption = 'Cadastro de servi'#231'os'
+      ExplicitLeft = 122
+      ExplicitWidth = 149
+    end
+  end
+  inherited Panel2: TPanel
+    Width = 844
+    ExplicitWidth = 844
+  end
+  inherited Panel3: TPanel
+    Top = 320
+    Width = 844
+    ExplicitTop = 320
+    ExplicitWidth = 844
+    inherited Label4: TLabel
+      Left = 510
+      ExplicitLeft = 510
+    end
+    inherited Label5: TLabel
+      Left = 645
+      ExplicitLeft = 645
+    end
+    inherited cbPesquisar: TComboBox
+      Left = 510
+      Items.Strings = (
+        'C'#243'digo'
+        'Servi'#231'o')
+      ExplicitLeft = 510
+    end
+    inherited edtPesquisar: TEdit
+      Left = 645
+      OnKeyUp = edtPesquisarKeyUp
+      ExplicitLeft = 645
+    end
+  end
+  inherited CardPanel1: TCardPanel
+    Width = 844
+    Height = 239
+    ExplicitWidth = 844
+    ExplicitHeight = 239
+    inherited cardPanelCadatro: TCard
+      Width = 844
+      Height = 239
+      ExplicitTop = -1
+      ExplicitWidth = 844
+      ExplicitHeight = 239
+      object Label1: TLabel
+        Left = 24
+        Top = 29
+        Width = 43
+        Height = 17
+        Caption = 'C'#243'digo'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 24
+        Top = 100
+        Width = 42
+        Height = 17
+        Caption = 'Servi'#231'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 24
+        Top = 164
+        Width = 49
+        Height = 17
+        Caption = 'Valor R$'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label6: TLabel
+        Left = 436
+        Top = 29
+        Width = 57
+        Height = 17
+        Caption = 'Descri'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object edtCodigo: TEdit
+        Left = 24
+        Top = 48
+        Width = 225
+        Height = 25
+        CharCase = ecUpperCase
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object edtServico: TEdit
+        Left = 24
+        Top = 124
+        Width = 393
+        Height = 25
+        CharCase = ecUpperCase
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+      end
+      object edtValor: TEdit
+        Left = 24
+        Top = 187
+        Width = 393
+        Height = 25
+        CharCase = ecUpperCase
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+      object edtDescricao: TEdit
+        Left = 436
+        Top = 48
+        Width = 381
+        Height = 25
+        CharCase = ecUpperCase
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+      end
+    end
+    inherited cardPanelConsulta: TCard
+      Width = 844
+      Height = 239
+      ExplicitWidth = 844
+      ExplicitHeight = 239
+      inherited Panel4: TPanel
+        Top = 194
+        Width = 844
+        ExplicitTop = 194
+        ExplicitWidth = 844
+        inherited sbImprimir: TSpeedButton
+          Left = 569
+          OnClick = sbImprimirClick
+          ExplicitLeft = 569
+        end
+        inherited sbExportar: TSpeedButton
+          Left = 680
+          OnClick = sbExportarClick
+          ExplicitLeft = 680
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Width = 844
+        Height = 194
+        DataSource = DataSource1
+        OnCellClick = DBGrid1CellClick
+        OnTitleClick = DBGrid1TitleClick
+      end
+    end
+  end
+  inherited PopupMenu1: TPopupMenu
+    Left = 552
+    Top = 1
+  end
+  object DataSource1: TDataSource
+    OnDataChange = DataSource1DataChange
+    Left = 416
+    Top = 1
+  end
+  object frxDB_CadastroServicos: TfrxDBDataset
+    UserName = 'frxDB_CadastroServicos'
+    CloseDataSource = False
+    DataSource = DataSource1
+    BCDToCurrency = False
+    Left = 544
+    Top = 65
+  end
+  object frx_Servicos: TfrxReport
+    Version = '6.3.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43801.845998784720000000
+    ReportOptions.LastChange = 43801.853316296300000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      ''
+      'begin'
+      ''
+      'end.')
+    Left = 408
+    Top = 65
+    Datasets = <
+      item
+        DataSet = frxDB_CadastroServicos
+        DataSetName = 'frxDB_CadastroServicos'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      VGuides.Strings = (
+        '109,60637'
+        '351,49629'
+        '461,10266')
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 238.110390000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Top = 22.677180000000000000
+          Width = 718.110700000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -24
+          Font.Name = 'roboto'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'Relat'#243'rio Servi'#231'os Cadastrados')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Left = 22.779530000000000000
+          Top = 56.913420000000000000
+          Width = 665.197280000000000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+        object SysMemo1: TfrxSysMemoView
+          AllowVectorExport = True
+          Left = 593.386210000000000000
+          Top = 60.692950000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[DATE]')
+          ParentFont = False
+        end
+        object Shape1: TfrxShapeView
+          AllowVectorExport = True
+          Top = 204.094620000000000000
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 215.433210000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'segoe ui'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'C'#243'digo')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 113.385900000000000000
+          Top = 215.433210000000000000
+          Width = 234.330860000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'segoe ui'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Servi'#231'os')
+          ParentFont = False
+        end
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Left = 355.275820000000000000
+          Top = 215.433210000000000000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'segoe ui'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Valor')
+          ParentFont = False
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 468.661720000000000000
+          Top = 215.433210000000000000
+          Width = 241.889920000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'segoe ui'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Descri'#231#227'o')
+          ParentFont = False
+        end
+        object Line2: TfrxLineView
+          AllowVectorExport = True
+          Left = 109.606370000000000000
+          Top = 204.094620000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line3: TfrxLineView
+          AllowVectorExport = True
+          Left = 351.496290000000000000
+          Top = 204.094620000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line4: TfrxLineView
+          AllowVectorExport = True
+          Left = 461.102660000000000000
+          Top = 204.094620000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 34.015770000000000000
+        Top = 317.480520000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDB_CadastroServicos
+        DataSetName = 'frxDB_CadastroServicos'
+        RowCount = 0
+        object Shape2: TfrxShapeView
+          AllowVectorExport = True
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = []
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 8.118120000000000000
+          Top = 11.338590000000000000
+          Width = 90.708720000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_CadastroServicos."ID"]')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 117.165430000000000000
+          Top = 11.338590000000000000
+          Width = 226.771800000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_CadastroServicos."SERVICO"]')
+          ParentFont = False
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 359.055350000000000000
+          Top = 11.338590000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_CadastroServicos."VALOR"]')
+          ParentFont = False
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 468.661720000000000000
+          Top = 11.338590000000000000
+          Width = 241.889920000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDB_CadastroServicos."DESCRICAO"]')
+          ParentFont = False
+        end
+        object Line5: TfrxLineView
+          AllowVectorExport = True
+          Left = 109.606370000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line6: TfrxLineView
+          AllowVectorExport = True
+          Left = 351.496290000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Line7: TfrxLineView
+          AllowVectorExport = True
+          Left = 461.102660000000000000
+          Height = 34.015770000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+      end
+      object PageFooter1: TfrxPageFooter
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 411.968770000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Left = 642.520100000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[Page#]')
+        end
+      end
+    end
+  end
+end

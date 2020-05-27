@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/11/30 06:12:12.000.219,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2018/11/30 10:30:32.000.842,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/01/12 20:09:10.000.168,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/05/25 20:10:22.000.153,=C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/05/25 20:39:41.000.446,C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\noels\Desktop\Teste Onguard\Unit2.pas</Transaction>
+    <Transaction>2019/05/25 20:39:41.000.446,C:\Users\noels\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Users\noels\Desktop\Teste Onguard\Unit2.dfm</Transaction>
+    <Transaction>2019/05/25 20:39:43.000.483,C:\Users\noels\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\noels\Desktop\Teste Onguard\Project2.dproj</Transaction>
+    <Transaction>2019/05/25 20:39:57.000.786,=C:\Users\noels\Desktop\Teste Onguard\VCL.onguard.pas</Transaction>
+    <Transaction>2020/05/26 20:16:06.000.673,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.ogutil.pas</Transaction>
+    <Transaction>2020/05/26 20:17:08.000.453,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.onguard2.pas</Transaction>
+    <Transaction>2020/05/26 20:17:08.000.520,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.onguard3.pas</Transaction>
+    <Transaction>2020/05/26 20:17:58.000.573,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.ognetwrk.pas</Transaction>
+    <Transaction>2020/05/26 20:18:33.000.872,=C:\Users\noels\Desktop\Arquivos da area de trabalho\Exemplos de estudos de Praticas no delphi\Teste Onguard\VCL.onguard4.pas</Transaction>
+  </Transactions>
+</BorlandProject>

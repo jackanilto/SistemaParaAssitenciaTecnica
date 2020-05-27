@@ -1,0 +1,68 @@
+object tabela: Ttabela
+  OldCreateOrder = False
+  Height = 248
+  Width = 524
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=C:\Users\noels\Desktop\Teste Onguard\banco\TESTE.FDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'DriverID=FB')
+    LoginPrompt = False
+    BeforeConnect = FDConnection1BeforeConnect
+    Left = 48
+    Top = 24
+  end
+  object FDTransaction1: TFDTransaction
+    Left = 144
+    Top = 32
+  end
+  object FDPhysFBDriverLink2: TFDPhysFBDriverLink
+    Left = 248
+    Top = 32
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 368
+    Top = 32
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from table_name')
+    Left = 64
+    Top = 128
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 280
+    Top = 128
+    object ClientDataSet1COD_LIBERACAO: TStringField
+      FieldName = 'COD_LIBERACAO'
+      Size = 40
+    end
+    object ClientDataSet1DATA_VENCIMENTO: TDateField
+      FieldName = 'DATA_VENCIMENTO'
+    end
+    object ClientDataSet1ULTIMO_ACESSO: TDateField
+      FieldName = 'ULTIMO_ACESSO'
+    end
+    object ClientDataSet1CODIGO: TStringField
+      FieldName = 'CODIGO'
+      Size = 50
+    end
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = FDQuery1
+    Left = 168
+    Top = 128
+  end
+  object DataSource1: TDataSource
+    AutoEdit = False
+    DataSet = ClientDataSet1
+    Left = 376
+    Top = 128
+  end
+end

@@ -1,0 +1,520 @@
+unit UClasse.Entity.Retirada.Valores;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, Vcl.Mask,
+  System.Win.ComObj;
+
+type
+
+  TEntityRetiradaValores = class(TInterfacedObject, iRetiradaDeValores)
+  private
+
+    FQuery: iConexaoQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FID_MOTIVO: integer;
+    FMOTIVO: string;
+    FVALOR_RETIRADA: Currency;
+    FDATA: TDate;
+    FHORA: TTime;
+    FFUNCIONARIO: integer;
+    FOBSERVACAO: String;
+
+    FCodigo: integer;
+    FNome: string;
+
+  public
+
+    function nomeTabela(value: string): iRetiradaDeValores;
+    function getCampo(value: string): iRetiradaDeValores;
+    function getValor(value: string): iRetiradaDeValores;
+    function getDataInicial(value: TDate): iRetiradaDeValores;
+    function getDataFinal(value: TDate): iRetiradaDeValores;
+    function open(value: string): iRetiradaDeValores;
+    function pesquisar: iRetiradaDeValores;
+    function ExecSql: iRetiradaDeValores;
+    function sqlPesquisa: iRetiradaDeValores;
+    function sqlPesquisaData: iRetiradaDeValores;
+    function sqlPesquisaEstatica: iRetiradaDeValores;
+
+    function abrir: iRetiradaDeValores;
+    function inserir: iRetiradaDeValores;
+    function Gravar: iRetiradaDeValores;
+    function deletar: iRetiradaDeValores;
+    function atualizar: iRetiradaDeValores;
+    function editar: iRetiradaDeValores;
+    function cancelar: iRetiradaDeValores;
+    function fecharQuery: iRetiradaDeValores;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iRetiradaDeValores;
+    function ordenarGrid(column: TColumn): iRetiradaDeValores;
+
+    function getID_MOTIVO(value: string): iRetiradaDeValores;
+    function getMOTIVO(value: String): iRetiradaDeValores;
+    function getVALOR_RETIRADA(value: string): iRetiradaDeValores;
+    function getDATA(value: string): iRetiradaDeValores;
+    function getHORA(value: string): iRetiradaDeValores;
+    function getFUNCIONARIO(value: integer): iRetiradaDeValores;
+    function getOBSERVACAO(value: string): iRetiradaDeValores;
+
+    function exportar: iRetiradaDeValores;
+    function validarData(componet: tmaskEdit): iRetiradaDeValores;
+
+    function getCodigo(value: integer): iRetiradaDeValores;
+    function getNome(value: string): iRetiradaDeValores;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iRetiradaDeValores;
+  end;
+
+implementation
+
+{ TEntityRetiradaValores }
+
+function TEntityRetiradaValores.abrir: iRetiradaDeValores;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TEntityRetiradaValores.atualizar: iRetiradaDeValores;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TEntityRetiradaValores.cancelar: iRetiradaDeValores;
+begin
+  FQuery.TQuery.Cancel;
+  // FQuery.TQuery.close;
+end;
+
+function TEntityRetiradaValores.codigoCadastro(sp: string): integer;
+begin
+  result := FQuery.codigoCadastro('');
+end;
+
+constructor TEntityRetiradaValores.create;
+begin
+  FTabela := 'RETIRADAS';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Retiradas de valores').getCodigoFuncionario
+    (funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TEntityRetiradaValores.deletar: iRetiradaDeValores;
+begin
+  result := self;
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+
+      if FQuery.TQuery.FieldByName('DATA').AsDateTime = date then
+        begin
+
+          FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('MOTIVO')
+            .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+            .getOperacao('deletado').gravarLog;
+
+          FQuery.TQuery.Delete;
+
+        end
+        else
+        begin
+          raise Exception.Create(
+            'ERRO!. Só é possível excluir a retirada que foram feitos no dia atual.');
+        end;
+    end;
+  end;
+
+end;
+
+destructor TEntityRetiradaValores.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntityRetiradaValores.editar: iRetiradaDeValores;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('MOTIVO').AsString)
+      .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).getOperacao('editando');
+
+    FQuery.TQuery.Edit;
+
+  end;
+end;
+
+function TEntityRetiradaValores.ExecSql: iRetiradaDeValores;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntityRetiradaValores.exportar: iRetiradaDeValores;
+var
+  pasta: variant;
+  linha: integer;
+begin
+
+  FQuery.TQuery.Filtered := false;
+  FQuery.TQuery.First;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório de Clientes';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Cód. Motivo';
+  pasta.cells[1, 3] := 'Motivo';
+  pasta.cells[1, 4] := 'Valor';
+  pasta.cells[1, 5] := 'Data';
+  pasta.cells[1, 6] := 'Hora';
+  pasta.cells[1, 7] := 'Funcionário';
+  pasta.cells[1, 8] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName('ID_MOTIVO').AsInteger;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName('MOTIVO').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('VALOR').AsCurrency;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName('DATA').AsDateTime;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('HORA').AsDateTime;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('FUNCIONARIO').AsInteger;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('OBSERVACAO').AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
+end;
+
+function TEntityRetiradaValores.fecharQuery: iRetiradaDeValores;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntityRetiradaValores.getCampo(value: string): iRetiradaDeValores;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntityRetiradaValores.getCodigo(value: integer): iRetiradaDeValores;
+begin
+  result := self;
+  FCodigo := value;
+end;
+
+function TEntityRetiradaValores.getDATA(value: string): iRetiradaDeValores;
+begin
+
+  result := self;
+
+  if value = '  /  /    ' then
+    raise Exception.create
+      ('ERRO! Infome um data para o campo Data da retirada.')
+  else
+  begin
+    try
+      FDATA := StrToDate(value);
+    except
+      on e: Exception do
+      begin
+        raise Exception.create
+          ('ERRO! Informe uma data válida para o campo Data de retirada.');
+      end;
+
+    end;
+  end;
+
+end;
+
+function TEntityRetiradaValores.getDataFinal(value: TDate): iRetiradaDeValores;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TEntityRetiradaValores.getDataInicial(value: TDate)
+  : iRetiradaDeValores;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TEntityRetiradaValores.getFUNCIONARIO(value: integer)
+  : iRetiradaDeValores;
+begin
+
+  result := self;
+  FFUNCIONARIO := value;
+
+end;
+
+function TEntityRetiradaValores.getHORA(value: string): iRetiradaDeValores;
+begin
+
+  result := self;
+
+  if value = '  :  :  ' then
+  begin
+    raise Exception.create
+      ('ERRO! Infome um horário para o campo Horário da retirada.');
+  end;
+
+  try
+    FHORA := StrToTime(value);
+  except
+    on e: Exception do
+    begin
+      raise Exception.create
+        ('ERRO! Informe um valor válido para o campo Horario da retirada.');
+    end;
+
+  end;
+
+end;
+
+function TEntityRetiradaValores.getID_MOTIVO(value: string): iRetiradaDeValores;
+begin
+
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create('ERRO! Infome o motivo da retirada');
+
+  FID_MOTIVO := StrToInt(value);
+
+end;
+
+function TEntityRetiradaValores.getMOTIVO(value: String): iRetiradaDeValores;
+begin
+
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create('ERRO! Informe o motivo da retirada.');
+
+  FMOTIVO := value;
+
+end;
+
+function TEntityRetiradaValores.getNome(value: string): iRetiradaDeValores;
+begin
+  result := self;
+  FNome := value;
+end;
+
+function TEntityRetiradaValores.getOBSERVACAO(value: string)
+  : iRetiradaDeValores;
+begin
+
+  result := self;
+
+  FOBSERVACAO := value;
+
+end;
+
+function TEntityRetiradaValores.getValor(value: string): iRetiradaDeValores;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TEntityRetiradaValores.getVALOR_RETIRADA(value: string)
+  : iRetiradaDeValores;
+begin
+
+  result := self;
+
+  if value = EmptyStr then
+    raise Exception.create('ERRO! Infome um valor válido no campo Valor.');
+
+  try
+    FVALOR_RETIRADA := StrToCurr(value);
+  except
+    on e: Exception do
+    begin
+     raise Exception.Create('ERRO! Insira um valor válido para campo Valor.');
+    end;
+
+  end;
+
+end;
+
+function TEntityRetiradaValores.Gravar: iRetiradaDeValores;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_RETIRADAS_ID');
+
+  with FQuery.TQuery do
+  begin
+
+    FieldByName('ID_MOTIVO').AsInteger := FID_MOTIVO;
+    FieldByName('MOTIVO').AsString := FMOTIVO;
+    FieldByName('VALOR').AsCurrency := FVALOR_RETIRADA;
+    FieldByName('DATA').AsDateTime := FDATA;
+    FieldByName('HORA').AsDateTime := FHORA;
+    FieldByName('FUNCIONARIO').AsInteger := funcionarioLogado;
+    FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+  end;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('MOTIVO').AsString)
+    .getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger).gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: Exception do
+    begin
+      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
+function TEntityRetiradaValores.inserir: iRetiradaDeValores;
+begin
+  result := self;
+  FQuery.TQuery.EmptyDataSet;
+  FQuery.TQuery.Append;
+  FGravarLog.getOperacao('inserindo');
+end;
+
+function TEntityRetiradaValores.listarGrid(value: TDataSource)
+  : iRetiradaDeValores;
+begin
+
+  result := self;
+
+  with FQuery.TQuery do
+  begin
+    FieldByName('ID').DisplayLabel := 'Código';
+    FieldByName('ID_MOTIVO').Visible := false;;
+    FieldByName('MOTIVO').DisplayLabel := 'Motivo';
+    FieldByName('VALOR').DisplayLabel := 'Valor';
+    FieldByName('DATA').DisplayLabel := 'Data';
+    FieldByName('HORA').DisplayLabel := 'Hora';
+    FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';
+    FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+    FieldByName('MOTIVO').DisplayWidth := 40;
+    FieldByName('OBSERVACAO').DisplayWidth := 40;
+
+  end;
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TEntityRetiradaValores.new: iRetiradaDeValores;
+begin
+  result := self.create;
+end;
+
+function TEntityRetiradaValores.nomeTabela(value: string): iRetiradaDeValores;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntityRetiradaValores.open(value: string): iRetiradaDeValores;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntityRetiradaValores.ordenarGrid(column: TColumn)
+  : iRetiradaDeValores;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntityRetiradaValores.pesquisar: iRetiradaDeValores;
+begin
+  result := self;
+end;
+
+function TEntityRetiradaValores.sqlPesquisa: iRetiradaDeValores;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityRetiradaValores.sqlPesquisaData: iRetiradaDeValores;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntityRetiradaValores.sqlPesquisaEstatica: iRetiradaDeValores;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+function TEntityRetiradaValores.validarData(componet: tmaskEdit)
+  : iRetiradaDeValores;
+var
+  d: TDate;
+begin
+
+  result := self;
+
+  try
+    d := StrToDate(componet.Text);
+  except
+    componet.SetFocus;
+    componet.Clear;
+    raise Exception.create('Digite uma data válida.');
+  end;
+end;
+
+end.

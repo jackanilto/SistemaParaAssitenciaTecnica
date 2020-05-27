@@ -1,0 +1,138 @@
+unit UInterface.RegEdit;
+
+interface
+
+uses
+  System.SysUtils, Vcl.Dialogs, Vcl.Forms;
+
+type
+  iReg = interface
+    ['{DFA862EE-DAD3-4961-A50B-4E06F65A000F}']
+    function getCodigo(value: string): iReg;
+    function getLiberacao(value: string): iReg;
+    procedure registrar;
+    procedure liberar;
+  end;
+
+type
+  TReg = class(TInterfacedObject, iReg)
+  private
+    FCodigo: string;
+    FLiberar: string;
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iReg;
+    function getCodigo(value: string): iReg;
+    function getLiberacao(value: string): iReg;
+    procedure registrar;
+    function liberar: string;
+
+  end;
+
+implementation
+
+{ TReg }
+
+uses Vcl.onguard, Vcl.OgUtil;
+
+const
+  EncryptionKey: TKey = ($E5, $8F, $84, $D6, $92, $C9, $A4, $D8, $1A, $FA, $6F,
+    $8D, $AB, $FC, $DF, $B4);
+
+constructor TReg.create;
+begin
+
+end;
+
+destructor TReg.destroy;
+begin
+
+  inherited;
+end;
+
+function TReg.getCodigo(value: string): iReg;
+begin
+  result := self;
+  if value = emptystr then
+    raise Exception.create('Informe o código de instalação do sistema.');
+
+  FCodigo := value;
+
+end;
+
+function TReg.getLiberacao(value: string): iReg;
+begin
+  result := self;
+  if value = emptystr then
+    raise Exception.create('Informe a chave de liberação do sistema!');
+
+  FLiberar := value;
+
+end;
+
+function TReg.liberar: string;
+var
+  Key: TKey;
+  Code: TCode;
+  Modifier: Longint;
+  d: TDateTime;
+begin
+  Key := EncryptionKey;
+  Modifier := StringHashELF(FCodigo);
+  ApplyModifierToKeyPrim(Modifier, Key, SizeOf(Key));
+  HexToBuffer(FLiberar, Code, SizeOf(Code));
+  // lblStatus.Caption := 'válido até: ' + datetostr(GetExpirationDate(Key, Code));
+  if IsRegCodeValid(Key, Code) then
+  begin
+    if IsRegCodeExpired(Key, Code) then
+      result := 'Registro Expirado'
+    else
+      result := 'Registro Valido';
+  end
+  else
+    result := 'Registro Invalido';
+end;
+
+class function TReg.new: iReg;
+begin
+  result := self.create;
+end;
+
+procedure TReg.registrar;
+var
+  Key: TKey;
+  Code: TCode;
+  Modifier: Longint;
+  d, DataVencimento: TDateTime;
+  cStatus: string;
+begin
+
+  Key := EncryptionKey;
+  Modifier := StringHashELF(FCodigo);
+  ApplyModifierToKeyPrim(Modifier, Key, SizeOf(Key));
+  HexToBuffer(FLiberar, Code, SizeOf(Code));
+  DataVencimento := GetExpirationDate(Key, Code);
+  if IsRegCodeValid(Key, Code) then
+  begin
+    if IsRegCodeExpired(Key, Code) then
+      cStatus := 'Registro Expirado'
+    else
+      cStatus := 'Registro Valido';
+  end
+  else
+    cStatus := 'Registro Invalido';
+
+  if cStatus <> 'Registro Valido' then
+  begin
+    ShowMessage('Por favor entrar em contato com o suporte');
+    application.Terminate;
+  end
+  else
+  begin
+    { Inserir o código para gravar as informações de registro do sistema }
+  end;
+
+end;
+
+end.

@@ -1,6 +1,3 @@
 
-###Criar OS -> Aba Parcelas -> Ao clicar sobre uma parcela não deve ser preencher os campos de data de hora de pagamento.
-###Relatório Comissões dos funcionários -> Ao selecionar o campo de pesquisa o foco deve ir para o edit da data inicial.
-
-
-	CLASSE.ENTITY.CRIAR.ORDEM.PARCELA -> Continuar deste ponto
+###Ajustar a posição do botões na aba de parcelas da janela Criar OS -> OKretira
+###Problema ao exibir o total em caixa na retirada de valores, a mesma não esta somando os valores totais em caixa. -> OK

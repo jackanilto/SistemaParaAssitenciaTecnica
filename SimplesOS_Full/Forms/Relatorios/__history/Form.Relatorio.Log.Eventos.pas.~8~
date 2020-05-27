@@ -1,0 +1,78 @@
+unit Form.Relatorio.Log.Eventos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.Logs.Eventos;
+
+type
+  TEnumPesquisar = (codgio, nome);
+
+type
+  TformRelatorioLogEventos = class(TformModeloRelatorio)
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);  private
+    { Private declarations }
+    var
+      FRelatorioLog: iRelatorioLogEventos;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioLogEventos: TformRelatorioLogEventos;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioLogEventos.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+  var
+    FCampo:String;
+begin
+  inherited;
+
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+    codgio:
+    begin
+      FCampo := 'ID_FUNCIONARIO';
+    end;
+    nome:
+    begin
+      FCampo := 'NOME_FUNCIONARIO';
+    end;
+  end;
+
+  if edtPesquisar.Text <> EmptyStr then
+    FRelatorioLog
+                .getCampo(FCampo)
+                .getValor(edtPesquisar.Text)
+                .sqlPesquisa
+                .listarGrid(DataSource1);
+
+end;
+
+procedure TformRelatorioLogEventos.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FRelatorioLog := TRelatorioLogEventos.new;
+end;
+
+procedure TformRelatorioLogEventos.FormShow(Sender: TObject);
+begin
+  inherited;
+
+  FRelatorioLog
+              .abrir
+              .listarGrid(DataSource1);
+
+end;
+
+end.

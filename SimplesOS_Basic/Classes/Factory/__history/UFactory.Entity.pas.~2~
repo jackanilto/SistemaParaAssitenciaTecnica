@@ -1,0 +1,39 @@
+unit UFactory.Entity;
+
+interface
+
+uses
+  UInterface.Conexao.Query;
+
+type
+
+  TFactoryEntity = class(TInterfacedObject, iFactoryEntity)
+  private
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iFactoryEntity;
+  end;
+
+implementation
+
+{ TFactoryEntity }
+
+constructor TFactoryEntity.create;
+begin
+
+end;
+
+
+destructor TFactoryEntity.destroy;
+begin
+
+  inherited;
+end;
+
+class function TFactoryEntity.new: iFactoryEntity;
+begin
+  result := self.create;
+end;
+
+end.

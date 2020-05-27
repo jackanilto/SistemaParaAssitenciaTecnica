@@ -1,0 +1,42 @@
+unit Form.Relatorio.OS.Estornadas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.OS.Estornadas;
+
+type
+  TformOSEstornadas = class(TformModeloRelatorio)
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    var
+      FRelatorioEstornos:iRelatorioOSEstornadas;
+  public
+    { Public declarations }
+  end;
+
+var
+  formOSEstornadas: TformOSEstornadas;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformOSEstornadas.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FRelatorioEstornos := TRelatorioOSEstornadas.new;
+end;
+
+procedure TformOSEstornadas.FormShow(Sender: TObject);
+begin
+  inherited;
+  FRelatorioEstornos.abrir.listarGrid(DataSource1);
+end;
+
+end.

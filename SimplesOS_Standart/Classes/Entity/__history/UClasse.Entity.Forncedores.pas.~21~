@@ -1,0 +1,582 @@
+unit UClasse.Entity.Forncedores;
+
+interface
+
+uses UClasse.Query, UInterfaces, UDados.Conexao, Data.DB,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.Dialogs,
+  System.SysUtils, Vcl.Forms, Winapi.Windows, Vcl.Controls,
+  UClasse.Gravar.Log.Sistema, Vcl.ComCtrls, Vcl.DBGrids, System.Win.ComObj;
+
+type
+
+  TEntityCadastroFornecedores = class(TInterfacedObject, iCadastroFornecedores)
+  private
+
+    FQuery: iConexaoQuery;
+    FEntityQuery: TFDQuery;
+    FGravarLog: iGravarLogOperacoes;
+    FTabela: string;
+    FCampo: string;
+    FValor: string;
+    FDataInicial: TDate;
+    FDataFinal: TDate;
+
+    FCodigo: integer;
+    FNome: string;
+
+    FID: integer;
+    FNOME_FANTASIA: string;
+    FRAZAO_SOCIAL: string;
+    FCPF_CNPJ: string;
+    FINSCRICAO_ESTADUAL: string;
+    FENDERECO: string;
+    FBAIRRO: string;
+    FNUMERO: integer;
+    FCOMPLEMENTO: string;
+    FCEP: string;
+    FCIDADE: string;
+    FUF: string;
+    FTELEFONE: string;
+    FCELULAR: string;
+    FEMAIL: string;
+    FRESPONSAVEL: string;
+    F_FUINCIONARIO: integer;
+    FOBSERVACAO: string;
+
+    function getNome(value: string): iCadastroFornecedores;
+
+  public
+
+    function nomeTabela(value: string): iCadastroFornecedores;
+    function getCampo(value: string): iCadastroFornecedores;
+    function getValor(value: string): iCadastroFornecedores;
+    function getDataInicial(value: TDate): iCadastroFornecedores;
+    function getDataFinal(value: TDate): iCadastroFornecedores;
+    function open(value: string): iCadastroFornecedores;
+    function pesquisar: iCadastroFornecedores;
+    function ExecSql: iCadastroFornecedores;
+    function sqlPesquisa: iCadastroFornecedores;
+    function sqlPesquisaData: iCadastroFornecedores;
+    function sqlPesquisaEstatica: iCadastroFornecedores;
+
+    function abrir: iCadastroFornecedores;
+    function inserir: iCadastroFornecedores;
+    function Gravar: iCadastroFornecedores;
+    function deletar: iCadastroFornecedores;
+    function atualizar: iCadastroFornecedores;
+    function editar: iCadastroFornecedores;
+    function cancelar: iCadastroFornecedores;
+    function fecharQuery: iCadastroFornecedores;
+    function codigoCadastro(sp: string): integer;
+    function listarGrid(value: TDataSource): iCadastroFornecedores;
+    function ordenarGrid(column: TColumn): iCadastroFornecedores;
+
+    function getCodigo(value: integer): iCadastroFornecedores;
+    function getNomeFantasia(value: string): iCadastroFornecedores;
+    function getRazaoSocial(value: string): iCadastroFornecedores;
+    function getCPFCNPJ(value: string): iCadastroFornecedores;
+    function getInscricaoEstadual(value: string): iCadastroFornecedores;
+    function getEndereco(value: string): iCadastroFornecedores;
+    function getBairro(value: string): iCadastroFornecedores;
+    function getNumero(value: integer): iCadastroFornecedores;
+    function getComplemento(value: string): iCadastroFornecedores;
+    function getCep(value: string): iCadastroFornecedores;
+    function getCidade(value: string): iCadastroFornecedores;
+    function getEstado(value: string): iCadastroFornecedores;
+    function getTelefone(value: string): iCadastroFornecedores;
+    function getCelular(value: string): iCadastroFornecedores;
+    function getEmail(value: string): iCadastroFornecedores;
+    function getFuncionario(value: integer): iCadastroFornecedores;
+    function getResponsavel(value: string): iCadastroFornecedores;
+    function getObservacao(value: string): iCadastroFornecedores;
+    function exportar: iCadastroFornecedores;
+
+    constructor create;
+    destructor destroy; override;
+    class function new: iCadastroFornecedores;
+  end;
+
+implementation
+
+{ TEntityCadastroFornecedores }
+
+function TEntityCadastroFornecedores.abrir: iCadastroFornecedores;
+begin
+
+  result := self;
+  FQuery.Query(FTabela);
+
+end;
+
+function TEntityCadastroFornecedores.atualizar: iCadastroFornecedores;
+begin
+  result := self;
+  FQuery.TQuery.Refresh;
+end;
+
+function TEntityCadastroFornecedores.cancelar: iCadastroFornecedores;
+begin
+  FQuery.TQuery.Cancel;
+  FQuery.TQuery.close;
+end;
+
+function TEntityCadastroFornecedores.codigoCadastro(sp: string): integer;
+begin
+  result := FQuery.codigoCadastro('');
+end;
+
+constructor TEntityCadastroFornecedores.create;
+begin
+  FTabela := 'FORNECEDORES';
+  FQuery := TConexaoQuery.new.Query(FTabela);
+
+  FGravarLog := TGravarLogSistema.new;
+  FGravarLog.getJanela('Forncedores').getCodigoFuncionario(funcionarioLogado);
+  // (0 { definir o usuário quando construir a aplicação } );
+
+end;
+
+function TEntityCadastroFornecedores.deletar: iCadastroFornecedores;
+begin
+  result := self;
+
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+    if application.MessageBox('Deseja realmente excluir este registro?',
+      'Pergunta do sistema!', MB_YESNO + MB_ICONQUESTION) = mryes then
+    begin
+
+      FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
+        .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+        .gravarLog;
+
+      FQuery.TQuery.Delete;
+    end;
+  end;
+
+end;
+
+destructor TEntityCadastroFornecedores.destroy;
+begin
+
+  inherited;
+end;
+
+function TEntityCadastroFornecedores.editar: iCadastroFornecedores;
+begin
+  result := self;
+  if FQuery.TQuery.RecordCount >= 1 then
+  begin
+
+    FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
+      .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+      .gravarLog;
+
+    FQuery.TQuery.Edit;
+
+  end;
+end;
+
+function TEntityCadastroFornecedores.ExecSql: iCadastroFornecedores;
+begin
+  result := self;
+  FQuery.ExecSql(FTabela);
+end;
+
+function TEntityCadastroFornecedores.exportar: iCadastroFornecedores;
+var
+  pasta: variant;
+  linha: integer;
+begin
+
+  FQuery.TQuery.Filtered := false;
+
+  linha := 2;
+  pasta := CreateOleObject('Excel.application');
+  pasta.workBooks.Add(1);
+
+  pasta.Caption := 'Relatório de Fornecedores';
+  pasta.visible := true;
+
+  pasta.cells[1, 1] := 'Código';
+  pasta.cells[1, 2] := 'Nome fantasia';
+  pasta.cells[1, 3] := 'Razão social';
+  pasta.cells[1, 4] := 'CPF ou CNPJ';
+  pasta.cells[1, 5] := 'Inscrição municipal';
+  pasta.cells[1, 6] := 'Endereço';
+  pasta.cells[1, 7] := 'Bairro';
+  pasta.cells[1, 8] := 'Número';
+  pasta.cells[1, 9] := 'Complemento';
+  pasta.cells[1, 10] := 'CEP';
+  pasta.cells[1, 11] := 'Cidade';
+  pasta.cells[1, 12] := 'UF';
+  pasta.cells[1, 13] := 'Telefone';
+  pasta.cells[1, 14] := 'Celular';
+  pasta.cells[1, 15] := 'E-Mail';
+  pasta.cells[1, 16] := 'Responsavel';
+  pasta.cells[1, 17] := 'Funcionário';
+  pasta.cells[1, 18] := 'Observação';
+
+  try
+    while not FQuery.TQuery.Eof do
+    begin
+
+      pasta.cells[linha, 1] := FQuery.TQuery.FieldByName('ID').AsInteger;
+      pasta.cells[linha, 2] := FQuery.TQuery.FieldByName
+        ('NOME_FANTASIA').AsString;
+      pasta.cells[linha, 3] := FQuery.TQuery.FieldByName
+        ('RAZAO_SOCIAL').AsString;
+      pasta.cells[linha, 4] := FQuery.TQuery.FieldByName('CPF_CNPJ').AsString;
+      pasta.cells[linha, 5] := FQuery.TQuery.FieldByName
+        ('INSCRICAO_ESTADUAL').AsString;
+      pasta.cells[linha, 6] := FQuery.TQuery.FieldByName('ENDERECO').AsString;
+      pasta.cells[linha, 7] := FQuery.TQuery.FieldByName('BAIRRO').AsString;
+      pasta.cells[linha, 8] := FQuery.TQuery.FieldByName('NUMERO').AsInteger;
+      pasta.cells[linha, 9] := FQuery.TQuery.FieldByName('COMPLEMENTO')
+        .AsString;
+      pasta.cells[linha, 10] := FQuery.TQuery.FieldByName('CEP').AsString;
+      pasta.cells[linha, 11] := FQuery.TQuery.FieldByName('CIDADE').AsString;
+      pasta.cells[linha, 12] := FQuery.TQuery.FieldByName('UF').AsString;
+      pasta.cells[linha, 13] := FQuery.TQuery.FieldByName('TELEFONE').AsString;
+      pasta.cells[linha, 14] := FQuery.TQuery.FieldByName('CELULAR').AsString;
+      pasta.cells[linha, 15] := FQuery.TQuery.FieldByName('EMAIL').AsString;
+      pasta.cells[linha, 16] := FQuery.TQuery.FieldByName
+        ('RESPONSAVEL').AsString;
+      pasta.cells[linha, 17] := FQuery.TQuery.FieldByName
+        ('FUINCIONARIO_CADASTRO').AsInteger;
+      pasta.cells[linha, 18] := FQuery.TQuery.FieldByName('OBSERVACAO')
+        .AsString;
+
+      linha := linha + 1;
+
+      FQuery.TQuery.Next;
+
+    end;
+    pasta.columns.autofit;
+  finally
+  end;
+end;
+
+function TEntityCadastroFornecedores.fecharQuery: iCadastroFornecedores;
+begin
+  FQuery.TQuery.close;
+end;
+
+function TEntityCadastroFornecedores.getBairro(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FBAIRRO := value;
+end;
+
+function TEntityCadastroFornecedores.getCampo(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FCampo := value;
+end;
+
+function TEntityCadastroFornecedores.getCelular(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FCELULAR := value;
+end;
+
+function TEntityCadastroFornecedores.getCep(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FCEP := value;
+end;
+
+function TEntityCadastroFornecedores.getCidade(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FCIDADE := value;
+end;
+
+function TEntityCadastroFornecedores.getCodigo(value: integer)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FCodigo := value;
+end;
+
+function TEntityCadastroFornecedores.getComplemento(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FCOMPLEMENTO := value;
+end;
+
+function TEntityCadastroFornecedores.getCPFCNPJ(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FCPF_CNPJ := value;
+end;
+
+function TEntityCadastroFornecedores.getDataFinal(value: TDate)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FDataFinal := value;
+  // FQuery.getDataFinal(value);
+end;
+
+function TEntityCadastroFornecedores.getDataInicial(value: TDate)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FDataInicial := value;
+  // FQuery.getDataInicial(value);
+end;
+
+function TEntityCadastroFornecedores.getEmail(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FEMAIL := value;
+end;
+
+function TEntityCadastroFornecedores.getEndereco(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FENDERECO := value;
+end;
+
+function TEntityCadastroFornecedores.getEstado(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FCIDADE := value;
+end;
+
+function TEntityCadastroFornecedores.getFuncionario(value: integer)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  F_FUINCIONARIO := value;
+end;
+
+function TEntityCadastroFornecedores.getInscricaoEstadual(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FINSCRICAO_ESTADUAL := value;
+end;
+
+function TEntityCadastroFornecedores.getNome(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FNome := value;
+end;
+
+function TEntityCadastroFornecedores.getNomeFantasia(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  if value = EmptyStr then
+    raise Exception.create('Informe um nome fantasia válido.');
+  FNOME_FANTASIA := value;
+end;
+
+function TEntityCadastroFornecedores.getNumero(value: integer)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FNUMERO := value;
+end;
+
+function TEntityCadastroFornecedores.getObservacao(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FOBSERVACAO := value;
+end;
+
+function TEntityCadastroFornecedores.getRazaoSocial(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FRAZAO_SOCIAL := value;
+end;
+
+function TEntityCadastroFornecedores.getResponsavel(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FRESPONSAVEL := value;
+end;
+
+function TEntityCadastroFornecedores.getTelefone(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FTELEFONE := value;
+end;
+
+function TEntityCadastroFornecedores.getValor(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FValor := UpperCase(value);
+end;
+
+function TEntityCadastroFornecedores.Gravar: iCadastroFornecedores;
+begin
+
+  result := self;
+
+  if FQuery.TQuery.State in [dsInsert] then
+    FQuery.TQuery.FieldByName('id').AsInteger :=
+      FQuery.codigoCadastro('SP_GEN_FORNECEDORES_ID');
+
+  FQuery.TQuery.FieldByName('NOME_FANTASIA').AsString := FNome;
+
+  FQuery.TQuery.FieldByName('NOME_FANTASIA').AsString := FNOME_FANTASIA;
+  FQuery.TQuery.FieldByName('RAZAO_SOCIAL').AsString := FRAZAO_SOCIAL;
+  FQuery.TQuery.FieldByName('CPF_CNPJ').AsString := FCPF_CNPJ;
+  FQuery.TQuery.FieldByName('INSCRICAO_ESTADUAL').AsString :=
+    FINSCRICAO_ESTADUAL;
+  FQuery.TQuery.FieldByName('ENDERECO').AsString := FENDERECO;
+  FQuery.TQuery.FieldByName('BAIRRO').AsString := FBAIRRO;
+  FQuery.TQuery.FieldByName('NUMERO').AsInteger := FNUMERO;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').AsString := FCOMPLEMENTO;
+  FQuery.TQuery.FieldByName('CEP').AsString := FCEP;
+  FQuery.TQuery.FieldByName('CIDADE').AsString := FCIDADE;
+  FQuery.TQuery.FieldByName('UF').AsString := FUF;
+  FQuery.TQuery.FieldByName('TELEFONE').AsString := FTELEFONE;
+  FQuery.TQuery.FieldByName('CELULAR').AsString := FCELULAR;
+  FQuery.TQuery.FieldByName('EMAIL').AsString := FEMAIL;
+  FQuery.TQuery.FieldByName('RESPONSAVEL').AsString := FRESPONSAVEL;
+  FQuery.TQuery.FieldByName('FUINCIONARIO_CADASTRO').AsInteger :=
+    funcionarioLogado;
+  FQuery.TQuery.FieldByName('OBSERVACAO').AsString := FOBSERVACAO;
+
+  FGravarLog.getNomeRegistro(FQuery.TQuery.FieldByName('NOME_FANTASIA')
+    .AsString).getCodigoRegistro(FQuery.TQuery.FieldByName('id').AsInteger)
+    .gravarLog;
+
+  try
+    FQuery.TQuery.Post;
+  except
+    on e: Exception do
+    begin
+      raise Exception.create('Erro ao tentar gravar os dados. ' + e.Message);
+    end;
+
+  end;
+
+end;
+
+function TEntityCadastroFornecedores.inserir: iCadastroFornecedores;
+begin
+  result := self;
+  FQuery.TQuery.EmptyDataSet;
+  FQuery.TQuery.Append;
+end;
+
+function TEntityCadastroFornecedores.listarGrid(value: TDataSource)
+  : iCadastroFornecedores;
+begin
+
+  result := self;
+
+  FQuery.TQuery.FieldByName('ID').DisplayLabel := 'Código';
+  FQuery.TQuery.FieldByName('NOME_FANTASIA').DisplayLabel := 'Nome fantasia';
+  FQuery.TQuery.FieldByName('RAZAO_SOCIAL').DisplayLabel := 'Razão social';
+  FQuery.TQuery.FieldByName('CPF_CNPJ').DisplayLabel := 'CPF ou CNPJ';
+  FQuery.TQuery.FieldByName('INSCRICAO_ESTADUAL').DisplayLabel :=
+    'Incrição Estadual';
+  FQuery.TQuery.FieldByName('ENDERECO').DisplayLabel := 'Endereço';
+  FQuery.TQuery.FieldByName('BAIRRO').DisplayLabel := 'Bairro';
+  FQuery.TQuery.FieldByName('NUMERO').DisplayLabel := 'Número';
+  FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayLabel := 'Complemento';
+  FQuery.TQuery.FieldByName('CEP').DisplayLabel := 'CEP';
+  FQuery.TQuery.FieldByName('CIDADE').DisplayLabel := 'Cidade';
+  FQuery.TQuery.FieldByName('UF').DisplayLabel := 'UF';
+  FQuery.TQuery.FieldByName('TELEFONE').DisplayLabel := 'Telefone';
+  FQuery.TQuery.FieldByName('CELULAR').DisplayLabel := 'Celular';
+  FQuery.TQuery.FieldByName('EMAIL').DisplayLabel := 'E-Mail';
+  FQuery.TQuery.FieldByName('RESPONSAVEL').DisplayLabel := 'Responsável';
+  FQuery.TQuery.FieldByName('FUINCIONARIO_CADASTRO').DisplayLabel :=
+    'Funcionário';
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayLabel := 'Observação';
+
+  FQuery.TQuery.FieldByName('NOME_FANTASIA').DisplayWidth := 35;
+  FQuery.TQuery.FieldByName('RAZAO_SOCIAL').DisplayWidth := 35;
+  FQuery.TQuery.FieldByName('ENDERECO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('BAIRRO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('COMPLEMENTO').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('EMAIL').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('RESPONSAVEL').DisplayWidth := 30;
+  FQuery.TQuery.FieldByName('OBSERVACAO').DisplayWidth := 30;
+
+  // FQuery.TQuery.SQL.Add('order by id desc');
+
+  value.DataSet := FQuery.TQuery;
+
+end;
+
+class function TEntityCadastroFornecedores.new: iCadastroFornecedores;
+begin
+  result := self.create;
+end;
+
+function TEntityCadastroFornecedores.nomeTabela(value: string)
+  : iCadastroFornecedores;
+begin
+  result := self;
+  FTabela := value;
+end;
+
+function TEntityCadastroFornecedores.open(value: string): iCadastroFornecedores;
+begin
+  FQuery.Query(FTabela);
+end;
+
+function TEntityCadastroFornecedores.ordenarGrid(column: TColumn)
+  : iCadastroFornecedores;
+begin
+
+  if FQuery.TQuery.IndexFieldNames = column.FieldName then
+    FQuery.TQuery.IndexFieldNames := column.FieldName + ':D'
+  else
+    FQuery.TQuery.IndexFieldNames := column.FieldName;
+
+end;
+
+function TEntityCadastroFornecedores.pesquisar: iCadastroFornecedores;
+begin
+  result := self;
+end;
+
+function TEntityCadastroFornecedores.sqlPesquisa: iCadastroFornecedores;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).sqlPesquisa(FTabela);
+end;
+
+function TEntityCadastroFornecedores.sqlPesquisaData: iCadastroFornecedores;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaData(FTabela);
+end;
+
+function TEntityCadastroFornecedores.sqlPesquisaEstatica: iCadastroFornecedores;
+begin
+  result := self;
+  FQuery.getCampo(FCampo).getValor(FValor).getDataInicial(FDataInicial)
+    .getDataFinal(FDataFinal).sqlPesquisaEstatica(FTabela);
+end;
+
+end.

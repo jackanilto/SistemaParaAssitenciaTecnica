@@ -1,0 +1,86 @@
+unit UClasse.Validar.Documento;
+
+interface
+
+uses
+  UInterfaces;
+
+type
+  TValidarDocumento = class(TInterfacedObject, iValidarDocumento)
+
+  private
+    function validarCPF: boolean;
+    function validarCNPJ: boolean;
+    function limparDocumento(value: string; cartacterRemove: string): string;
+
+  var
+    FDocumento: string;
+  public
+    function getDocumento(value: String): boolean;
+    constructor create;
+    destructor destroy; override;
+    class function new: iValidarDocumento;
+
+  end;
+
+implementation
+
+{ TValidarDocumento }
+
+constructor TValidarDocumento.create;
+begin
+
+end;
+
+destructor TValidarDocumento.destroy;
+begin
+
+  inherited;
+end;
+
+function TValidarDocumento.getDocumento(value: String): boolean;
+var
+  texto: string;
+begin
+  result := false;
+
+  texto := value;
+
+  texto := limparDocumento(texto, '/');
+  texto := limparDocumento(texto, '-');
+  texto := limparDocumento(texto, '.');
+  texto := limparDocumento(texto, ',');
+
+  if Length(texto) = 0 then
+
+end;
+
+function TValidarDocumento.limparDocumento(value: string;
+  cartacterRemove: string): string;
+var
+  i: Integer;
+begin
+  result := '';
+  if value = '' then
+    exit;
+  for i := 1 to Length(value) do
+    if Pos(value[i], cartacterRemove) = 0 then
+      result := result + value[i];
+end;
+
+class function TValidarDocumento.new: iValidarDocumento;
+begin
+  result := self.create;
+end;
+
+function TValidarDocumento.validarCNPJ: boolean;
+begin
+
+end;
+
+function TValidarDocumento.validarCPF: boolean;
+begin
+
+end;
+
+end.

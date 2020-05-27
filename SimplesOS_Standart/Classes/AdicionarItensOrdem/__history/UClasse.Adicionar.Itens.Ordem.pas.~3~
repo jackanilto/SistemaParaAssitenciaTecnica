@@ -1,0 +1,32 @@
+unit UClasse.Adicionar.Itens.Ordem;
+
+interface
+
+uses UDados.Conexao, FireDAC.Comp.Client;
+
+type
+  TMyClass = class
+  private
+    FQueryLocalizarProdutos: TFDQuery;
+    FQueryProdutosAdicionados: TFDQuery;
+  public
+    constructor create;
+    destructor destroy; override;
+  end;
+
+implementation
+
+{ TMyClass }
+
+constructor TMyClass.create;
+begin
+
+end;
+
+destructor TMyClass.destroy;
+begin
+
+  inherited;
+end;
+
+end.

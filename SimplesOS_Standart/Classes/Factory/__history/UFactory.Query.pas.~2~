@@ -1,0 +1,40 @@
+unit UFactory.Query;
+
+interface
+
+uses
+  UInterface.Conexao.Query, UDados.Conexao;
+
+type
+
+  TFactoryQuery = class(TInterfacedObject, iFactoryQuery)
+  private
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iFactoryQuery;
+  end;
+
+implementation
+
+{ TFactoryQuery }
+
+constructor TFactoryQuery.create;
+begin
+
+end;
+
+
+
+destructor TFactoryQuery.destroy;
+begin
+
+  inherited;
+end;
+
+class function TFactoryQuery.new: iFactoryQuery;
+begin
+  result := self.create;
+end;
+
+end.

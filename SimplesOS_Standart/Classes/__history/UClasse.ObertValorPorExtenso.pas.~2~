@@ -1,0 +1,34 @@
+unit UClasse.ObertValorPorExtenso;
+
+interface
+
+type
+
+  TMyClass = class(TInterfacedObject, iInterface)
+  private
+  public
+    constructor create;
+    destructor destroy; override;
+    class function new: iInterface;
+  end;
+
+implementation
+
+{ TMyClass }
+
+constructor TMyClass.create;
+begin
+
+end;
+
+destructor TMyClass.destroy;
+begin
+
+end;
+
+class function TMyClass.new: iInterface;
+begin
+  result := self.create;
+end;
+
+end.

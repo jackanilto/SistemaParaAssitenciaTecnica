@@ -1,0 +1,8 @@
+//Recibo dos pagamentos das parcelas da OS
+unit UClasse.Imprimir.Recibo.OS;
+
+interface
+
+implementation
+
+end.

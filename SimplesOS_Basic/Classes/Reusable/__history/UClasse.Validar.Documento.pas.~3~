@@ -1,0 +1,61 @@
+unit UClasse.Validar.Documento;
+
+interface
+
+uses
+  UInterfaces;
+
+type
+  TValidarDocumento = class(TInterfacedObject, iValidarDocumento)
+
+  private
+    function validarCPF: boolean;
+    function validarCNPJ: boolean;
+  public
+    function getDocumento(value: String): boolean;
+    constructor create;
+    destructor destroy; override;
+    class function new: iValidarDocumento;
+
+  end;
+
+implementation
+
+{ TValidarDocumento }
+
+constructor TValidarDocumento.create;
+begin
+
+end;
+
+destructor TValidarDocumento.destroy;
+begin
+
+  inherited;
+end;
+
+function TValidarDocumento.getDocumento(value: String): boolean;
+begin
+    result := false;
+
+    if Length(value) = 0 then
+
+
+end;
+
+class function TValidarDocumento.new: iValidarDocumento;
+begin
+  result := self.create;
+end;
+
+function TValidarDocumento.validarCNPJ: boolean;
+begin
+
+end;
+
+function TValidarDocumento.validarCPF: boolean;
+begin
+
+end;
+
+end.

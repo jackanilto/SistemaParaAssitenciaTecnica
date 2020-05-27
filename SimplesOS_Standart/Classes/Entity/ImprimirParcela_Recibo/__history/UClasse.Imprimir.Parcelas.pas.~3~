@@ -1,0 +1,61 @@
+unit UClasse.Imprimir.Parcelas;
+
+interface
+
+uses UInterfaces, Data.DB, FireDAC.Comp.Client, UDados.Conexao,
+  System.SysUtils;
+
+type
+  TImprimirParcelasVenda = class(TInterfacedObject, iImprimirParcelasVendas)
+  private
+    FQuery: TFDQuery;
+  public
+    function selecionarParcelas(value: integer): iImprimirParcelasVendas;
+    function retornarDataSet(value: TDataSource): iImprimirParcelasVendas;
+    constructor create;
+    destructor destroy; override;
+    class function new: iImprimirParcelasVendas;
+  end;
+
+implementation
+
+{ TImprimirParcelasVenda }
+
+constructor TImprimirParcelasVenda.create;
+begin
+  FQuery := TFDQuery.create(nil);
+  FQuery.Connection := DataModule1.Conexao;
+end;
+
+destructor TImprimirParcelasVenda.destroy;
+begin
+  FreeAndNil(FQuery);
+  inherited;
+end;
+
+class function TImprimirParcelasVenda.new: iImprimirParcelasVendas;
+begin
+  result := self.create;
+end;
+
+function TImprimirParcelasVenda.retornarDataSet(value: TDataSource)
+  : iImprimirParcelasVendas;
+begin
+  result := self;
+  value.DataSet := FQuery;
+end;
+
+function TImprimirParcelasVenda.selecionarParcelas(value: integer)
+  : iImprimirParcelasVendas;
+begin
+  result := self;
+
+  FQuery.Active := false;
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add('select * from PARCELAS_VENDAS where id_venda =:i');
+  FQuery.ParamByName('i').AsInteger := value;
+  FQuery.Active := true;
+
+end;
+
+end.

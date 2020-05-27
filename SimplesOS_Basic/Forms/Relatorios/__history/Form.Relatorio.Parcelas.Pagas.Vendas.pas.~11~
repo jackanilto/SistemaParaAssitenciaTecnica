@@ -1,0 +1,100 @@
+unit Form.Relatorio.Parcelas.Pagas.Vendas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Form.Modelo.Relatorio, Data.DB,
+  frxClass, frxDBSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, UInterfaces, UClasse.Relatorio.Parcelas.Pagas.Vendas, Vcl.Mask;
+
+type
+  TEnumPesquisar = (parcela, venda, cod_cliente, cliente);
+
+type
+  TEnumPesquisarData = (vencimento, pagamento);
+
+type
+  TformRelatorioParcelasPagasVendas = class(TformModeloRelatorio)
+    Label1: TLabel;
+    sbPesquisarDatas: TSpeedButton;
+    Label2: TLabel;
+    edtData1: TMaskEdit;
+    edtData2: TMaskEdit;
+    cbPesquisarData: TComboBox;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    { Private declarations }
+    var
+      FParcelasPagasVendas:iRelatorioParcelasPagasVendas;
+  public
+    { Public declarations }
+  end;
+
+var
+  formRelatorioParcelasPagasVendas: TformRelatorioParcelasPagasVendas;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformRelatorioParcelasPagasVendas.DBGrid1TitleClick(Column: TColumn);
+begin
+  inherited;
+  FParcelasPagasVendas.ordenarGrid(Column);
+end;
+
+procedure TformRelatorioParcelasPagasVendas.edtPesquisarKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+  var
+    FCampo:string;
+begin
+  inherited;
+
+  case TEnumPesquisar(cbPesquisar.ItemIndex) of
+  parcela:
+  begin
+    FCampo := 'ID_PARCELA';
+  end;
+  venda:
+  begin
+    FCampo := 'ID_VENDA';
+  end;
+  cod_cliente:
+  begin
+    FCampo := 'ID_CLIENTE';
+  end;
+  cliente:
+  begin
+    FCampo := 'CLIENTE';
+  end;
+  end;
+
+  if edtPesquisar.Text <> EmptyStr then
+    FParcelasPagasVendas
+                        .getCampo(FCampo)
+                        .getValor(edtPesquisar.Text)
+                        .sqlPesquisa
+                        .listarGrid(DataSource1);
+
+end;
+
+procedure TformRelatorioParcelasPagasVendas.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FParcelasPagasVendas := TRelatorioParcelasPagasVendas.new;
+end;
+
+procedure TformRelatorioParcelasPagasVendas.FormShow(Sender: TObject);
+begin
+  inherited;
+  FParcelasPagasVendas.abrir.listarGrid(DataSource1)
+end;
+
+end.

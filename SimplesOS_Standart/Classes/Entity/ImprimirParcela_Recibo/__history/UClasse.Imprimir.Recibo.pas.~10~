@@ -1,0 +1,62 @@
+unit UClasse.Imprimir.Recibo;
+
+interface
+
+uses UInterfaces, Data.DB, FireDAC.Comp.Client, UDados.Conexao,
+  System.SysUtils;
+
+type
+  TImprimirRecibo = class(TInterfacedObject, iImprimirRecibo)
+  private
+    FQuery: TFDQuery;
+  public
+    function selecionarVenda(value: integer): iImprimirRecibo;
+    function retornarDataSet(value: TDataSource)
+      : iImprimirRecibo;
+    constructor create;
+    destructor destroy; override;
+    class function new: iImprimirRecibo;
+  end;
+
+implementation
+
+{ TImprimirRecibo }
+
+constructor TImprimirRecibo.create;
+begin
+  FQuery := TFDQuery.create(nil);
+  FQuery.Connection := DataModule1.Conexao;
+end;
+
+destructor TImprimirRecibo.destroy;
+begin
+  FreeAndNil(FQuery);
+  inherited;
+end;
+
+class function TImprimirRecibo.new: iImprimirRecibo;
+begin
+  result := self.create;
+end;
+
+function TImprimirRecibo.retornarDataSet(value: TDataSource)
+  : iImprimirRecibo;
+begin
+  result := self;
+  value.DataSet := FQuery;
+end;
+
+function TImprimirRecibo.selecionarVenda(value: integer): iImprimirRecibo;
+begin
+
+  result := self;
+
+  FQuery.Active := false;
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add('select * from VENDA where id =:i');
+  FQuery.ParamByName('i').AsInteger := value;
+  FQuery.Active := true;
+
+end;
+
+end.
