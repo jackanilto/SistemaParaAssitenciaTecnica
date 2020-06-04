@@ -7958,3 +7958,13 @@ Problematic key value is ("ID" = 0)
 29/05/20 13:26:45 - Caption: SimpleOS
 29/05/20 13:26:45 - Erro:EAccessViolation
 29/05/20 13:26:45 - Erro:Access violation at address 00BD77B3 in module 'SimplesOS.exe'. Read of address 00000004
+03/06/20 19:27:46 - ===========================================
+03/06/20 19:27:46 - Form: formCadastroDeFuncionarios
+03/06/20 19:27:46 - Caption: Cadastro de funcionários
+03/06/20 19:27:46 - Erro:Exception
+03/06/20 19:27:46 - Erro:Informe um nome de usuário.
+03/06/20 19:31:54 - ===========================================
+03/06/20 19:31:54 - Form: formCadastroDeFuncionarios
+03/06/20 19:31:54 - Caption: Cadastro de funcionários
+03/06/20 19:31:54 - Erro:Exception
+03/06/20 19:31:54 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
