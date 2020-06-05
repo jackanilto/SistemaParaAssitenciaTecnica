@@ -7968,3 +7968,18 @@ Problematic key value is ("ID" = 0)
 03/06/20 19:31:54 - Caption: Cadastro de funcionários
 03/06/20 19:31:54 - Erro:Exception
 03/06/20 19:31:54 - Erro:Já existe um cadatro com este usuário. Tente outro nome de usuário.
+05/06/20 19:51:13 - ===========================================
+05/06/20 19:51:13 - Form: formConfigurarParcelas
+05/06/20 19:51:13 - Caption: Configurar parcelas
+05/06/20 19:51:13 - Erro:Exception
+05/06/20 19:51:13 - Erro:Não é possível inserir mais de um registro neste tabela.
+05/06/20 20:31:43 - ===========================================
+05/06/20 20:31:43 - Form: formCadastroContasAPagar
+05/06/20 20:31:43 - Caption: Cadastro de contas a pagar
+05/06/20 20:31:43 - Erro:Exception
+05/06/20 20:31:43 - Erro:Informe um valor válido para a data de vencimento
+05/06/20 20:41:15 - ===========================================
+05/06/20 20:41:15 - Form: formCadastroContasAPagar
+05/06/20 20:41:15 - Caption: Cadastro de contas a pagar
+05/06/20 20:41:15 - Erro:Exception
+05/06/20 20:41:15 - Erro:ERRO! Informe a data de pagamento.
