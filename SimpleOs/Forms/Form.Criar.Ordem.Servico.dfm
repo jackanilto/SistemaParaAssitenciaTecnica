@@ -950,9 +950,9 @@
         object Label34: TLabel
           Left = 442
           Top = 9
-          Width = 36
+          Width = 31
           Height = 17
-          Caption = 'Jurros'
+          Caption = 'Juros'
         end
         object Label35: TLabel
           Left = 548
