@@ -45,6 +45,8 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     inherited cardPanelCadatro: TCard
       Height = 223
       Caption = 'q'
+      ExplicitLeft = 48
+      ExplicitTop = -24
       ExplicitHeight = 223
       object Label1: TLabel
         Left = 32
@@ -450,8 +452,8 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
     CloseDataSource = False
     DataSource = DataSource1
     BCDToCurrency = False
-    Left = 712
-    Top = 89
+    Left = 728
+    Top = 49
   end
   object frx_EntradasProdutos: TfrxReport
     Version = '6.3.3'
@@ -469,8 +471,8 @@ inherited formEntradaDeProdutos: TformEntradaDeProdutos
       'begin'
       ''
       'end.')
-    Left = 616
-    Top = 81
+    Left = 624
+    Top = 41
     Datasets = <
       item
         DataSet = frxDB_EntradasProdutos

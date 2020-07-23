@@ -12,10 +12,10 @@ inherited formRelatorioVendasEstornadas: TformRelatorioVendasEstornadas
     object Label1: TLabel [4]
       Left = 365
       Top = 8
-      Width = 171
+      Width = 188
       Height = 15
       Anchors = [akRight, akBottom]
-      Caption = 'Pesquisa  data de vencimento'
+      Caption = 'Pesquisa entre  datas de estorno'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -13
@@ -24,7 +24,7 @@ inherited formRelatorioVendasEstornadas: TformRelatorioVendasEstornadas
       ParentFont = False
     end
     object sbPesquisarDatas: TSpeedButton [5]
-      Left = 557
+      Left = 559
       Top = 22
       Width = 31
       Height = 33
@@ -126,8 +126,8 @@ inherited formRelatorioVendasEstornadas: TformRelatorioVendasEstornadas
       Text = '  /  /    '
     end
     object edtData2: TMaskEdit
-      Left = 462
-      Top = 28
+      Left = 461
+      Top = 29
       Width = 92
       Height = 25
       EditMask = '00/00/0000'

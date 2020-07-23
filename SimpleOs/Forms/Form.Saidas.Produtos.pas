@@ -8,7 +8,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UForm.Exemplo.Embeded, Data.DB,
   Vcl.Menus, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, UInterfaces, UClasse.Entity.Saidas.Produtos, Vcl.Mask,
-  Form.Localizar.Produtos.Saidas, UFactory, frxClass, frxDBSet;
+  Form.Localizar.Produtos.Saidas, UFactory, frxClass, frxDBSet, RxToolEdit,
+  RxCurrEdit;
 
 type
   TformSaidaDeProdutos = class(TformExemploEmbeded)
@@ -16,9 +17,7 @@ type
     edtCodigo: TEdit;
     edtCodigoProduto: TEdit;
     edtProduto: TEdit;
-    edtValorProduto: TEdit;
     edtQuantidade: TEdit;
-    edtTotal: TEdit;
     edtFuncionario: TEdit;
     edtObservacao: TEdit;
     Label1: TLabel;
@@ -38,6 +37,8 @@ type
     Label13: TLabel;
     frxDB_SaidasProdutos: TfrxDBDataset;
     frx_SaidasProdutos: TfrxReport;
+    edtValorProduto: TCurrencyEdit;
+    edtTotal: TCurrencyEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);

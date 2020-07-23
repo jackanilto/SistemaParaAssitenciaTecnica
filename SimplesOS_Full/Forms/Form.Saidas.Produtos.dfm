@@ -70,6 +70,7 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
   inherited CardPanel1: TCardPanel
     Width = 1005
     Height = 295
+    ActiveCard = cardPanelCadatro
     ExplicitWidth = 1005
     ExplicitHeight = 295
     inherited cardPanelCadatro: TCard
@@ -334,20 +335,6 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
         ParentFont = False
         TabOrder = 2
       end
-      object edtValorProduto: TEdit
-        Left = 24
-        Top = 151
-        Width = 140
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 3
-      end
       object edtQuantidade: TEdit
         Left = 170
         Top = 151
@@ -360,22 +347,8 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 3
         OnExit = edtQuantidadeExit
-      end
-      object edtTotal: TEdit
-        Left = 271
-        Top = 151
-        Width = 155
-        Height = 25
-        CharCase = ecUpperCase
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 5
       end
       object edtFuncionario: TEdit
         Left = 702
@@ -390,7 +363,7 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 4
       end
       object edtObservacao: TEdit
         Left = 464
@@ -404,7 +377,7 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 5
       end
       object edtData: TMaskEdit
         Left = 464
@@ -419,7 +392,7 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 6
         Text = '  /  /    '
       end
       object edtHora: TMaskEdit
@@ -435,7 +408,7 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
         Font.Style = []
         MaxLength = 8
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 7
         Text = '  :  :  '
       end
       object edtMotivo: TEdit
@@ -450,7 +423,35 @@ inherited formSaidaDeProdutos: TformSaidaDeProdutos
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        TabOrder = 8
+      end
+      object edtValorProduto: TCurrencyEdit
+        Left = 24
+        Top = 151
+        Width = 137
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 9
+        ZeroEmpty = False
+      end
+      object edtTotal: TCurrencyEdit
+        Left = 271
+        Top = 151
+        Width = 155
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 10
+        ZeroEmpty = False
       end
     end
     inherited cardPanelConsulta: TCard

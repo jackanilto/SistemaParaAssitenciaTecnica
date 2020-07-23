@@ -123,6 +123,7 @@ begin
   FCampo := 'ID';
   FValor := '0';
   selecionarRegistros;
+  edtPesquisar.SetFocus;
 end;
 
 procedure TFormLocalizarProdutosSaida.Panel1MouseDown(Sender: TObject;

@@ -7601,9 +7601,9 @@ object formSobre: TformSobre
   object Label3: TLabel
     Left = 32
     Top = 223
-    Width = 388
+    Width = 374
     Height = 21
-    Caption = 'Informa'#231#245'es de contato: criosoftware.venda@gmail.com'
+    Caption = 'Informa'#231#245'es de contato: contato@criosoftware.com.br'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16
@@ -7614,9 +7614,9 @@ object formSobre: TformSobre
   object Label4: TLabel
     Left = 152
     Top = 250
-    Width = 165
+    Width = 169
     Height = 21
-    Caption = 'Vers'#227'o Basic 0.4.6  BETA'
+    Caption = 'Vers'#227'o Basic 0.5.3  BETA '
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16
@@ -7627,9 +7627,9 @@ object formSobre: TformSobre
   object Label5: TLabel
     Left = 32
     Top = 321
-    Width = 369
+    Width = 371
     Height = 21
-    Caption = 'Informa'#231#245'es de registro: Registrado para uso de teste'
+    Caption = 'Informa'#231#245'es de registro: Registrado para uso  pessoal'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16
@@ -7651,6 +7651,7 @@ object formSobre: TformSobre
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
+    Visible = False
   end
   object SpeedButton1: TSpeedButton
     Left = 397

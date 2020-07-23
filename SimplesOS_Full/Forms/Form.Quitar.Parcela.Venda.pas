@@ -137,13 +137,9 @@ procedure TformQuitarParcelasVendas.DataSource1DataChange(Sender: TObject;
 begin
   with DataSource1.DataSet do
   begin
-    edtTotalDeParcelas.Text := IntToStr(FieldByName('QUANTIDADE_PARCELAS')
-      .AsInteger);
+    edtTotalDeParcelas.Text := IntToStr(FieldByName('QUANTIDADE_PARCELAS').AsInteger);
     edtParcelaSelecionada.Text := IntToStr(FieldByName('PARCELA').AsInteger);
-    edtValorDaParcela.Text := CurrToStr(FieldByName('VALOR_DA_PARCELA')
-      .AsCurrency);
-    edtDataDeVencimento.Text := DateToStr(FieldByName('DATA_VENCIMENTO')
-      .AsDateTime);
+    edtValorDaParcela.Text := CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
     edtJuros.Text := FloatToStr(FieldByName('JUROS').AsFloat);
     edtMulta.Text := CurrToStr(FieldByName('MULTA').AsCurrency);
     edtDesconto.Text := CurrToStr(FieldByName('DESCONTO').AsCurrency);
@@ -151,8 +147,12 @@ begin
     edtFormaDePagamento.Text := FieldByName('forma_pagamento').AsString;
     edtPago.Text := FieldByName('PAGO').AsString;
 
-    if DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime <>
-      StrToDate('30/12/1899') then
+
+    if FieldByName('DATA_VENCIMENTO').AsDateTime = StrToDate('30/12/1899') then
+      edtValorDaParcela.Text := CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
+
+
+    if DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime <> StrToDate('30/12/1899') then
       edtDataDePagamento.date := FieldByName('DATA_PAGAMENTO').AsDateTime;
 
   end;

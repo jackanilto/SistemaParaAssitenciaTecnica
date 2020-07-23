@@ -7983,3 +7983,8 @@ Problematic key value is ("ID" = 0)
 05/06/20 20:41:15 - Caption: Cadastro de contas a pagar
 05/06/20 20:41:15 - Erro:Exception
 05/06/20 20:41:15 - Erro:ERRO! Informe a data de pagamento.
+23/07/20 18:00:21 - ===========================================
+23/07/20 18:00:21 - Form: formSaidaDeProdutos
+23/07/20 18:00:21 - Caption: Saída de produtos
+23/07/20 18:00:21 - Erro:Exception
+23/07/20 18:00:21 - Erro:O valor do produto deve ser maior que 0 (zero)

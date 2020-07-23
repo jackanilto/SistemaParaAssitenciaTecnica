@@ -7597,7 +7597,7 @@ object formSplash: TformSplash
     Top = 25
     Width = 67
     Height = 21
-    Caption = 'Beta 0.4.6'
+    Caption = 'Beta 0.5.3'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16

@@ -293,7 +293,7 @@ object formLogin: TformLogin
   end
   object sbEntrar: TSpeedButton
     Left = 126
-    Top = 256
+    Top = 272
     Width = 113
     Height = 57
     Caption = 'Entrar'
@@ -406,8 +406,8 @@ object formLogin: TformLogin
     OnClick = sbEntrarClick
   end
   object sbConfiguracoes: TSpeedButton
-    Left = 338
-    Top = 20
+    Left = 290
+    Top = 335
     Width = 186
     Height = 57
     Caption = 'Configura'#231#245'es'
@@ -521,8 +521,8 @@ object formLogin: TformLogin
     OnClick = sbConfiguracoesClick
   end
   object sbSair: TSpeedButton
-    Left = 245
-    Top = 256
+    Left = 263
+    Top = 272
     Width = 102
     Height = 57
     Caption = 'Sair'

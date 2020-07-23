@@ -18,10 +18,10 @@ inherited formRelatorioEntradasDeProdutos: TformRelatorioEntradasDeProdutos
     object Label1: TLabel [4]
       Left = 357
       Top = 8
-      Width = 165
+      Width = 185
       Height = 15
       Anchors = [akRight, akBottom]
-      Caption = 'Pesquisa entre data de sa'#237'da'
+      Caption = 'Pesquisa entre datas de entrada'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -13
@@ -30,9 +30,9 @@ inherited formRelatorioEntradasDeProdutos: TformRelatorioEntradasDeProdutos
       ParentFont = False
     end
     object sbPesquisarData: TSpeedButton [5]
-      Left = 541
+      Left = 545
       Top = 22
-      Width = 32
+      Width = 42
       Height = 33
       Anchors = [akRight, akBottom]
       Flat = True
@@ -120,7 +120,7 @@ inherited formRelatorioEntradasDeProdutos: TformRelatorioEntradasDeProdutos
     object edtData1: TMaskEdit
       Left = 357
       Top = 29
-      Width = 84
+      Width = 88
       Height = 23
       Anchors = [akRight, akBottom]
       EditMask = '00/00/0000'
@@ -135,9 +135,9 @@ inherited formRelatorioEntradasDeProdutos: TformRelatorioEntradasDeProdutos
       Text = '  /  /    '
     end
     object edtData2: TMaskEdit
-      Left = 448
+      Left = 451
       Top = 29
-      Width = 87
+      Width = 93
       Height = 23
       Anchors = [akRight, akBottom]
       EditMask = '00/00/0000'

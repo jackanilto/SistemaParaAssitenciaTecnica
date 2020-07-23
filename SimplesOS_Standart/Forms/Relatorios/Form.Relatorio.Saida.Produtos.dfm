@@ -2,6 +2,7 @@ inherited formRelatorioSaidaDeProdutos: TformRelatorioSaidaDeProdutos
   Caption = 'Relat'#243'rio - Sa'#237'da de produtos'
   ClientHeight = 573
   ClientWidth = 1076
+  ExplicitTop = -19
   ExplicitWidth = 1076
   ExplicitHeight = 573
   PixelsPerInch = 96
@@ -134,7 +135,7 @@ inherited formRelatorioSaidaDeProdutos: TformRelatorioSaidaDeProdutos
     inherited cbPesquisar: TComboBox
       Left = 742
       Items.Strings = (
-        'C'#243'digo sa sa'#237'da'
+        'C'#243'digo da sa'#237'da'
         'C'#243'digo do produto'
         'Produto')
       ExplicitLeft = 742
