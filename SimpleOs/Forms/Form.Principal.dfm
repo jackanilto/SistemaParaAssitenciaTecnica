@@ -7395,6 +7395,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioAniversariantes
+            end
+            item
+              Action = acREstaurarBancoDeDados
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -8693,6 +8696,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioAniversariantes: TAction
       Caption = 'Relat'#243'rio aniversariantes'
       OnExecute = acRelatorioAniversariantesExecute
+    end
+    object acREstaurarBancoDeDados: TAction
+      Caption = 'Restaurar banco'
+      OnExecute = acREstaurarBancoDeDadosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

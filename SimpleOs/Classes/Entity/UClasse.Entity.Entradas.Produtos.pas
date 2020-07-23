@@ -85,8 +85,7 @@ type
     function getCodigoProdutoAtualizar(value: integer): iEntradaProdutos;
     function getQuantidadeProdutoAtualizar(value: integer): iEntradaProdutos;
     function getvalorEntradaProdutoAtualizar(value: currency): iEntradaProdutos;
-    function getValorTotalEntradaProdutoAtualizar(value: currency)
-      : iEntradaProdutos;
+    function getValorTotalEntradaProdutoAtualizar(value: currency): iEntradaProdutos;
     procedure validarData(componet: tmaskEdit);
 
     constructor create;
@@ -489,8 +488,7 @@ begin
   FQuery.TQuery.FieldByName('PRODUTO').DisplayLabel := 'Produto';
   FQuery.TQuery.FieldByName('VALOR_POR_ITENS').DisplayLabel := 'Valor unitário';
   FQuery.TQuery.FieldByName('QUANTIDADE').DisplayLabel := 'Quantidade';
-  FQuery.TQuery.FieldByName('TOTAL_DA_ENTRADA').DisplayLabel :=
-    'Total da entrada';
+  FQuery.TQuery.FieldByName('TOTAL_DA_ENTRADA').DisplayLabel := 'Total da entrada';
   FQuery.TQuery.FieldByName('NUMERO_NOTA').DisplayLabel := 'Número da nota';
   FQuery.TQuery.FieldByName('FUNCIONARIO').DisplayLabel := 'Funcionário';
   FQuery.TQuery.FieldByName('DATA').DisplayLabel := 'Data';

@@ -148,7 +148,7 @@ begin
   FQuery.FieldByName('CODIGO_BARRAS').DisplayLabel := 'Cód. de barras';
   FQuery.FieldByName('DESCRICAO').DisplayLabel := 'Descrição';
   FQuery.FieldByName('VALOR_CUSTO').DisplayLabel := 'Valor de custo';
-  FQuery.FieldByName('MARGEM_LUCRO').DisplayLabel := 'Margem de lucro';
+  FQuery.FieldByName('MARGEM_LUCRO').visible := false;
   FQuery.FieldByName('VALOR_VENDA').DisplayLabel := 'Valor de venda';
   FQuery.FieldByName('QUANTIDADE_MINIMA').DisplayLabel := 'QTDE mínima';
   FQuery.FieldByName('QUANTIDADE_ATUAL').DisplayLabel := 'QTDE atual';
