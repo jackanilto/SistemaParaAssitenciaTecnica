@@ -615,3 +615,8 @@ O sistema não pode encontrar o arquivo especificado.
 23/07/20 20:40:42 - Caption: SimpleOS Basic
 23/07/20 20:40:42 - Erro:EAccessViolation
 23/07/20 20:40:42 - Erro:Access violation at address 00BDF39B in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+24/07/20 18:16:13 - ===========================================
+24/07/20 18:16:13 - Form: formPrincipal
+24/07/20 18:16:13 - Caption: SimpleOS Basic
+24/07/20 18:16:13 - Erro:EAccessViolation
+24/07/20 18:16:13 - Erro:Access violation at address 00BDF39B in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004

@@ -44,6 +44,7 @@ Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador 
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\App_Config.exe; DestDir: {app}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Contrato de uso.txt; DestDir: {app}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\fbclient.dll; DestDir: {sd}; Flags: ignoreversion
+Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\fbclient.dll; DestDir: {app}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Firebird-2.5.9.27139_0_Win32.exe; DestDir: {app}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\libSoftMeter.dll; DestDir: {app}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\libSoftMeter64bit.dll; DestDir: {app}; Flags: ignoreversion
