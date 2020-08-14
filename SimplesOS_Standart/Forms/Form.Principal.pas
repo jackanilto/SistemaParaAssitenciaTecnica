@@ -20,7 +20,7 @@ uses
   UClasse.Config.Acesso.Banco, Form.Relatorio.Problemas.Frequentes,
   Form.Relatorio.Historico.Caixa, Form.Trocar.Usuario,
   UClasse.Config.Imagem.Logo,
-  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar, MidasLib;
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar, MidasLib, Winapi.ShellAPI;
 
 type
   TformPrincipal = class(TForm)
@@ -43,8 +43,6 @@ type
     Panel2: TPanel;
     Image2: TImage;
     Image4: TImage;
-    Image5: TImage;
-    Image3: TImage;
     spvCadastros: TSplitView;
     spvMovimentacao: TSplitView;
     spvRelatorio: TSplitView;
@@ -132,6 +130,7 @@ type
     acRelatorioLogEventos: TAction;
     acAberturaCaixa: TAction;
     acRelatorioAniversariantes: TAction;
+    acREstaurarBancoDeDados: TAction;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -219,6 +218,7 @@ type
     procedure acRelatorioLogEventosExecute(Sender: TObject);
     procedure acAberturaCaixaExecute(Sender: TObject);
     procedure acRelatorioAniversariantesExecute(Sender: TObject);
+    procedure acREstaurarBancoDeDadosExecute(Sender: TObject);
   private
     { Private declarations }
   var
@@ -851,6 +851,21 @@ begin
     TformRelatorioVendasPorFuncionario.create(self);
   TFactory.new.criarJanela.FormShow(formRelatorioVendasPorFuncionario,
     'FORMRELATVENDASFUNCIONARIO');
+end;
+
+procedure TformPrincipal.acREstaurarBancoDeDadosExecute(Sender: TObject);
+begin
+
+  if application.MessageBox('Para restaurar o banco de dados a aplicação'+
+  ' precisar ser encerrada. Deseja encerrar a aplicação e iniciar o processo de restauração?',
+   'Restauração do banco de dados', MB_YESNO+MB_ICONQUESTION)=mryes then
+   begin
+    ShellExecute(Handle, 'open', pchar(ExtractFilePath(Application.ExeName) +
+      'Restore - 32 Bits.exe'), nil, nil, sw_show);
+      close;
+   end;
+
+
 end;
 
 procedure TformPrincipal.acRetiradaDeValoresExecute(Sender: TObject);

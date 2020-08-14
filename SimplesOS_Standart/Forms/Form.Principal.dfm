@@ -6860,7 +6860,7 @@ object formPrincipal: TformPrincipal
       OnClick = Image2Click
     end
     object Image4: TImage
-      Left = 382
+      Left = 206
       Top = 13
       Width = 163
       Height = 40
@@ -6923,133 +6923,6 @@ object formPrincipal: TformPrincipal
       Stretch = True
       OnClick = Image4Click
     end
-    object Image5: TImage
-      Left = 551
-      Top = 13
-      Width = 163
-      Height = 40
-      Cursor = crHandPoint
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000A20000
-        002808060000007DD921A5000000097048597300000B1300000B1301009A9C18
-        000005EA4944415478DAED993F6CD55514C72FB3A5AE24304917705017258188
-        26421964B15DD44118882636A8839644EAD20E3E182804121212298365B12C38
-        506A6234254117DB0516D8208115DDEBEFD3FBFBE677DE7DBFBEF768DFE35D92
-        F34D9ABEF7BBF79E73CFB9DFF3E7FEDEB6B5D7DE5B0B0EC780B1CD89E8C8014E
-        44471670223AB28013D191059C888E2CE04474640127A2230B38111D59C089E8
-        C8024E44471670223AB28013D19105F223E2A10321ECD91DC2D29D10EE3FE89F
-        9E77DE2CFEDE08E1AFD5E26F65D056B7E2F85808DB8742985B08E1D97F83DE4D
-        DFD19E88F3E7E2814D5F8C0E110EED0FE1F24C088F9F84F0EEC7BDDDD199C910
-        C68E84F0DD8F212C2CF6CFF2939F85F0D5B110CECF8570E15AFFF46C167F5C0F
-        61D78E100E16FE7DF4A4F37C820A10582F21DA1391A83C3D1133C627DF54CF45
-        96855B05611ABDDD911331E27988C83CE633EF608F13C30B427B220E17A5E19F
-        9BF1F35B47AB122127414E95352292EC0920D0E3D279644F4ACC6F45A91D1B8D
-        9FEDB85DCB33FEA744B4B2D167A37E67B18FC3A50ED6B723AFD5C3BA94885616
-        6D01ED411DB0093C7A1A3FFF5BF8E5F69DCAA68F46E333FC853E95D77676E06B
-        F907BD97A72B22AE957BBFFFB06A57D0B12E6735EE616A22EAA07AE16B3E77B2
-        87757B465ACF6C00E8DC23AA3C8B1838647EB6B92C4F7D19C2B1F1E67522A948
-        4BB4F23F1D57664A217D92CDC1E250305338FBEA4274E499538515E51AC6D173
-        F4446B5FA5EC2E30CEE18B8892353C54CDD928E3CB26C90056EFC3DF2BFD8C43
-        268893DA79A1D07DBE0C829B5742D83BD2AA8BB56F173E3F7BAA3968D0B1EEC7
-        AFE379A46B3827ECB1B0F6489F3D17C69833007426A20E50469C2E88717CBCFA
-        6EFB45C8458411CD2AE73AB4E94B45A42E47E291F188DC1B8B55C6652E64A334
-        23032212ED3F9F8B87FA69299BC05009420F971B919AEFEB6B1BAD1710BB8FBF
-        57A21D04980ED76679BB0F9BF553599A2B59229648828FEEAEC66CF4EB95E8A3
-        CFA762E0B0D79DA58CE1572A1F6A1C3BB70F7526E2EEF75B4B33E4876875F6E0
-        57E641DEA5E23CBE988A7B671C7F339E2511559E2103E55991F4E189E8601113
-        A36E2FC7353F4C4427E2A4B4D7B1BD19078C436C0F9AF688E8FF607F94C16774
-        C9E192C5F7B95F42B8F7A0BE59D741B15FF60DEC3E285922CAEC5C1C3F7C2092
-        3CBDA85922621F5030EA602D496C305F2DF63873293E93DF908F5D699B60FDF6
-        BC4454D5B27E25232383E0600F7F5E2FDBA45B71DFF86D80B7F3EE5EDFD8F24C
-        BAB76559C4A9034E21A36D85883A90BB2B31B221876DCA4F16B2C647637601C8
-        820CD6A99D88A87DD4A1EE329312313DF89488751723FB0CF0D9F6C5BD20A22D
-        C57AA66021997C5F04C3BEB267652D045D5AEE33E5EAD11D11154DEA27EA22DB
-        F63B44787AB1A923E28DC5D6DB9E2522326CA6491DAE4B03190DC7DAF2632F2D
-        69564F89A07D308E5CDBDFD5658994885C3208D08D32A2FCA7F1263B1BB134A7
-        19B38E8876BC1D11F10119DE069ECDCAF88677B56441829B7D708EE9DB91EC88
-        C881289503FB4A012760B4D23CCF310CA7E3B4764424BA598BE358FBAC740AFA
-        D67B99A7554FC8FC7DE58D5A0E57A6E6F2C2331C9DDEE605CD655FDAA3BDAC68
-        9CF2CE1C88CDBEEA2E3EB28979CC4716DFD5ECA744440F7692B56527C1ABBE9A
-        EFEA9521CAFA0DFA48E56BD6CD97BD32E3F841B76F4B448DD34AD0833227F5AB
-        95C7DEF11D6D0817C2EC89680FD24699C0F3B3935579C4C1DF369A6FCD1B1171
-        EF48D5B8139D9460CAAFB29A322E60ECF591487A321B8E6D4C56E585F5B3D762
-        BF986257E9FC548FF6812C748900CCF9692166FA149688C800C850994D8998EA
-        978FC88EF7CAD731D8887ED9F9EA500C04F92DF503F26C56B6E3AA2EA96FB8A8
-        E9569CB634C89C6C74F7F2BC0FE8ED4F7C7A0DB01963F43AA4AE144292E1A18D
-        E5761AEF568F95D56E8E2DCD7A7DD36DA3DF6EAF5BB5B36EBCD39A4EFE7841C8
-        EFB7E69701698FE8D8329C889B817D13E0E8099C888E2CE04474640127A2230B
-        38111D59C089E8C8024E44471670223AB28013D191059C888E2CE04474640127
-        A2230B38111D59C089E8C802FF038E79D256393F5B800000000049454E44AE42
-        6082}
-      Stretch = True
-      OnClick = Image5Click
-    end
-    object Image3: TImage
-      Left = 206
-      Top = 13
-      Width = 163
-      Height = 40
-      Cursor = crHandPoint
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000A30000
-        00280806000000921B4A9B000000097048597300000B1300000B1301009A9C18
-        000006C84944415478DAED9A4F6CD44514C7A717A80942010F9650694D140B98
-        58E4407B91726801E560B118E1A069D1039E284734428CC7162F90A8D0781123
-        7F7AC158CBA1C54BDB83C04128954B5BD1D603080A89500F389FD9BE7576F6B7
-        BB5DFA6F62DE3721BBFB9B99376FDEFBBE3FF32B251F547CF6C8281411A044C9
-        A888054A46453450322AA2819251110D948C8A68A06454440325A3221A281915
-        D140C9A888064A46453450322AA2819251110D8A2263D9EA27CDDD5FEFCD68C3
-        B2D54B4C4DF35A27E7CA991B0B7DFE82A86E58639E5EFF9419EE19351343B717
-        5A9D2CD41F78D97DF61DBDB4D0AACC18D322636DEB8B66EB818DA674E962F77B
-        6470C274B5F55942DD2F7AC3CADA72D3FACD4E27A373F7F919290FB1CB2A6C80
-        DCBCF758BA4C07AFB76F311B9B9F375D072F46193C1FFFF29EFBFCF099CF0BCE
-        2D5DBAC806D64AF3F0CFC92803AB201989BCADF6DF83BF1E9AEB17C6DC81AA1B
-        2AEDEF49736CDBD9A249309B649C0FA2FC9FC8389BB69F0BE42523C43B74F51D
-        F7BDBDEEEB7489DEF151ADCB96BDB6344879A8AC5D65AA3697BBEF6149238355
-        3756BACC8A8C26EB60DF20EC53631D2EE3BED31DF9ED5A5A041710563601C05E
-        F50736992A6B60E65F39F3B3B963D756593DC8948F4A4A4CF9BA9566E0E44F59
-        FA31375F10C95C74A9DCBC2A8B8C8C97AF5BE1F41D191C37A30313897238D3DF
-        3668095C91373230EEF6967389AE8C27D932D4D5B7156307FBF7B8E790119D68
-        297EBF76CBDAFF8FF41EE8C033DA23120B7AE03BFF3CB25F789E5CF69F773256
-        37AE317BBE68CC8A24148304776FDE77CA6FB7E4ACB3E4445929E5DF1D197044
-        8088EF7FBF2BFD5CE6884CB2EC9E130D196313D76E9BE3DBCFB96707FBDF4AF7
-        AA7C02D6BD640D0B490457CEDE3097AD73887C91C31A8208F2D7787341AE4C27
-        952084CCC7A14DEDAF648CF941E983AC051171A8009D8E6D3BE7F4E36CFE3884
-        125BE6922FF608C15AD15DE6338FF9423EEC906B8D8F7EEBB76EEBBF7CF6C77F
-        B38DBC64C4811C806838F5EE85C43928D87AFA35177D9DBBBF75D1D9727A6716
-        11064E5E7587AC6BDDE0B2AA909132F8AC257657DB45F7ACC59209A21FB70E2B
-        AB58E28241F6277A9B3AB64CF5AC17B34AA894218033EE4C657274409F93E8B7
-        7E85930909DAEB4EB94F815F09380BA4668F72DB67B1077A10589C59C609247E
-        7FB2E1CB0C5942C62459042AB270344077821A7DD11F5D4FED4BD9BBC5DA16E2
-        229F0CE59F053B09C10A91115F84659A44416665BCABED878CF3305EBA6C515E
-        FB2F0819C93AF936F75339DF896C31C07EEB3CCA25E4A27427F52D7ED92353E2
-        30C61EDC9B34FBBB7739276390A10BA3B6848CA79D9E8B8CBE6C99F3D5BE1E33
-        6C7B5EE7608FF07E3B916F3D7B0859C8DC039DA9F25FF3C65A272B29D386FD9C
-        6FCFDE8E4B1944012199C2FDA56590AA13EE512C19A5F2F9C98644411BD66F93
-        C770CF884B2CBEFD69C1E60AD322E3C4D02DEBB8AEF473224A7A330E26A99CEF
-        4417841203C898F49CA141C20B12D12791C91C5EADD4B76D728406923520D1E3
-        9271EF8946F38295EB3F9B0E194158EA04B341C6A4CB92946D9F8CFEF84CC828
-        FA40BCEE23FD593A9280F2D97F5EC928652BBC394BE9E510A383BF6544576800
-        C94242AED02087AEBEED32A2905588E232A325280DF988CB86FFB8128FC165AF
-        E990519C99D477859931D4DD272E7B107C648A11DBE077BE793EC34E61894E22
-        A39005BB91D9C2BDFCAC24E4603F0294C021018467990919911B9E477C4BF6E5
-        D2C3ABB35CF69F573202B93973A0EB3D63AE8F4BBDDA796809DA6596DB2C293D
-        2246A8B2D1CB61C40062207E5FB68491321C921107209303F31BE33FB16C71EA
-        E66D8DD1FBE925B71667403CC82144639C489632EA93510C0E59E859975B07F9
-        FA8510A2B2076B6A9A9F73FA08E1691BD09FEFA9DB7BB993C9A52457CF18CA22
-        08E8B14332426A9EA56ECAA9CCE7EB1A9E856C457B246494AC26B64637FC21EB
-        D15BDA1ED6731B6FB5F2FCF3D65AFB8B6FA527CD65FF792723804CB553240138
-        BBFB707F3AAB0861654CFA3F69EAFD712E32C8FAEF36BDC6EC385C977E754094
-        6260E98BD8BBDEBBED49F32CB73B2E4FD222F41EFD31F13D9ABF472823040E96
-        263EF52A63CC3959C8C8F357AD2CB225604EDFD1CBCEB921848CFE4D948CD59B
-        90B592F64FD2D5B707632403E64246C8BCABA33EAD5BEAF69F197852A9803C13
-        1B8AAE7E19CE67FF0521A320E5A049E78010900F63E452D27FB553ACEC42E385
-        D6163B6F3A730B9D17F825B498BD657F90247F2E6C5D4866B1FA3F0EF43F4ACC
-        218AF9EB8842C938A790F78849BDA9221B4A46453450322AA2819251110D948C
-        8A68A06454440325A3221A281915D140C9A888064A46453450322AA281925111
-        0D948C8A68A0645444837F011D41362B786DE3850000000049454E44AE426082}
-      OnClick = Image3Click
-    end
   end
   object spvCadastros: TSplitView
     Left = 150
@@ -7086,25 +6959,10 @@ object formPrincipal: TformPrincipal
           Collapsed = False
           Items = <
             item
-              Action = acCadastroProdutos
-            end
-            item
               Action = acClientes
             end
             item
               Action = acCadastroFuncionarios
-            end
-            item
-              Action = acCadastroTransportadora
-            end
-            item
-              Action = acCadastroFornecedores
-            end
-            item
-              Action = acCadastroMarcas
-            end
-            item
-              Action = acCadastroGrupos
             end
             item
               Action = acFormaPagamento
@@ -7183,28 +7041,13 @@ object formPrincipal: TformPrincipal
           Collapsed = False
           Items = <
             item
-              Action = acEntradasProdutos
-            end
-            item
-              Action = acSaidaProdutos
-            end
-            item
               Action = acOrdemServico
             end
             item
               Action = acCriarOrdenServico
             end
             item
-              Action = acVenda
-            end
-            item
               Action = acCadastrarServicos
-            end
-            item
-              Action = acQuitarParcelas
-            end
-            item
-              Action = acVisualizarVendas
             end
             item
               Action = acQuitarParcelasOS
@@ -7293,46 +7136,7 @@ object formPrincipal: TformPrincipal
               Action = acRelatorioClientes
             end
             item
-              Action = acRelatorioVendas
-            end
-            item
-              Action = acRelatorioContasAReceberVendas
-            end
-            item
-              Action = acRelatorioParcelasPagasVendas
-            end
-            item
-              Action = acRelaorioVendasEstornadas
-            end
-            item
-              Action = acRelatorioProdutosMaisVendidos
-            end
-            item
-              Action = acRelatorioVendaInadimplentes
-            end
-            item
-              Action = acRelatorioVendasPorFuncionarios
-            end
-            item
-              Action = acRelatorioDeProdutos
-            end
-            item
-              Action = acRelatorioEntradasDeProdutos
-            end
-            item
-              Action = acRelatorioSaidaDeProdutos
-            end
-            item
-              Action = acRelatorioSituacaoEstoque
-            end
-            item
               Action = acRelatorioContasAPagar
-            end
-            item
-              Action = acRelatorioFornecedores
-            end
-            item
-              Action = acRelatorioTransportadoras
             end
             item
               Action = acRelatorioRetiradaDeValores
@@ -7350,6 +7154,7 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 0
+      ExplicitWidth = 210
     end
   end
   object spvExtras: TSplitView
@@ -7395,6 +7200,9 @@ object formPrincipal: TformPrincipal
             end
             item
               Action = acRelatorioAniversariantes
+            end
+            item
+              Action = acREstaurarBancoDeDados
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -8440,10 +8248,12 @@ object formPrincipal: TformPrincipal
     end
     object acCadastroMarcas: TAction
       Caption = 'Marcas'
+      Visible = False
       OnExecute = acCadastroMarcasExecute
     end
     object acCadastroGrupos: TAction
       Caption = 'Grupos'
+      Visible = False
       OnExecute = acCadastroGruposExecute
     end
     object acFormaPagamento: TAction
@@ -8472,14 +8282,17 @@ object formPrincipal: TformPrincipal
     end
     object acCadastroFornecedores: TAction
       Caption = 'Fornecedores'
+      Visible = False
       OnExecute = acCadastroFornecedoresExecute
     end
     object acCadastroTransportadora: TAction
       Caption = 'Transportadora'
+      Visible = False
       OnExecute = acCadastroTransportadoraExecute
     end
     object acCadastroProdutos: TAction
       Caption = 'Produtos'
+      Visible = False
       OnExecute = acCadastroProdutosExecute
     end
     object acCadastroFuncionarios: TAction
@@ -8496,10 +8309,12 @@ object formPrincipal: TformPrincipal
     end
     object acEntradasProdutos: TAction
       Caption = 'Entradas produtos'
+      Visible = False
       OnExecute = acEntradasProdutosExecute
     end
     object acSaidaProdutos: TAction
       Caption = 'Sa'#237'da produtos'
+      Visible = False
       OnExecute = acSaidaProdutosExecute
     end
     object acOrdemServico: TAction
@@ -8520,6 +8335,7 @@ object formPrincipal: TformPrincipal
     end
     object acVenda: TAction
       Caption = 'Venda de produtos'
+      Visible = False
       OnExecute = acVendaExecute
     end
     object acNumeroDeParcelas: TAction
@@ -8528,10 +8344,12 @@ object formPrincipal: TformPrincipal
     end
     object acQuitarParcelas: TAction
       Caption = 'Quitar parcela venda'
+      Visible = False
       OnExecute = acQuitarParcelasExecute
     end
     object acVisualizarVendas: TAction
       Caption = 'Visualizar Vendas'
+      Visible = False
       OnExecute = acVisualizarVendasExecute
     end
     object acRelatorioClientes: TAction
@@ -8548,6 +8366,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioContasAReceberVendas: TAction
       Caption = 'Parcelas receber Vendas'
+      Visible = False
       OnExecute = acRelatorioContasAReceberVendasExecute
     end
     object acRelatorioParcelasPagasOS: TAction
@@ -8556,6 +8375,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioParcelasPagasVendas: TAction
       Caption = 'Parcelas pagas Vendas'
+      Visible = False
       OnExecute = acRelatorioParcelasPagasVendasExecute
     end
     object acRelatorioOSEstornadas: TAction
@@ -8564,6 +8384,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelaorioVendasEstornadas: TAction
       Caption = 'Vendas Estornadas'
+      Visible = False
       OnExecute = acRelaorioVendasEstornadasExecute
     end
     object acRelatorioContasAPagar: TAction
@@ -8588,6 +8409,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioFornecedores: TAction
       Caption = 'Relat'#243'rio fornecedores'
+      Visible = False
       OnExecute = acRelatorioFornecedoresExecute
     end
     object acRelatorioClientesOSInadimplentes: TAction
@@ -8596,22 +8418,27 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioDeProdutos: TAction
       Caption = 'Relat'#243'rio de produtos'
+      Visible = False
       OnExecute = acRelatorioDeProdutosExecute
     end
     object acRelatorioSituacaoEstoque: TAction
       Caption = 'Situa'#231#227'o do estoque'
+      Visible = False
       OnExecute = acRelatorioSituacaoEstoqueExecute
     end
     object acRelatorioProdutosMaisVendidos: TAction
       Caption = 'Produtos mais vendidos'
+      Visible = False
       OnExecute = acRelatorioProdutosMaisVendidosExecute
     end
     object acRelatorioVendas: TAction
       Caption = 'Relatorio vendas'
+      Visible = False
       OnExecute = acRelatorioVendasExecute
     end
     object acRelatorioVendaInadimplentes: TAction
       Caption = 'Vendas Inadimplentes'
+      Visible = False
       OnExecute = acRelatorioVendaInadimplentesExecute
     end
     object acRelatorioServicosMaisRealizados: TAction
@@ -8620,14 +8447,17 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioSaidaDeProdutos: TAction
       Caption = 'Sa'#237'da de produtos'
+      Visible = False
       OnExecute = acRelatorioSaidaDeProdutosExecute
     end
     object acRelatorioVendasPorFuncionarios: TAction
       Caption = 'Vendas por funcion'#225'rio'
+      Visible = False
       OnExecute = acRelatorioVendasPorFuncionariosExecute
     end
     object acRelatorioTransportadoras: TAction
       Caption = 'Relat'#243'rio transportadoras'
+      Visible = False
       OnExecute = acRelatorioTransportadorasExecute
     end
     object acEncerramentoDoCaixa: TAction
@@ -8644,6 +8474,7 @@ object formPrincipal: TformPrincipal
     end
     object acRelatorioEntradasDeProdutos: TAction
       Caption = 'Entrada de Produtos'
+      Visible = False
       OnExecute = acRelatorioEntradasDeProdutosExecute
     end
     object acRelatorioRetiradaDeValores: TAction
@@ -8693,6 +8524,10 @@ object formPrincipal: TformPrincipal
     object acRelatorioAniversariantes: TAction
       Caption = 'Relat'#243'rio aniversariantes'
       OnExecute = acRelatorioAniversariantesExecute
+    end
+    object acREstaurarBancoDeDados: TAction
+      Caption = 'Restaurar banco'
+      OnExecute = acREstaurarBancoDeDadosExecute
     end
   end
   object PopupMenuFuncionario: TPopupMenu

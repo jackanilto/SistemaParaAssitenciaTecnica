@@ -14,8 +14,6 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
     SpeedButton1: TSpeedButton;
     procedure SpeedButton1Click(Sender: TObject);
   private

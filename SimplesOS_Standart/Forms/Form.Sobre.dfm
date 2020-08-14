@@ -3,7 +3,7 @@ object formSobre: TformSobre
   Top = 0
   BorderStyle = bsNone
   Caption = 'Sobre o sistema'
-  ClientHeight = 385
+  ClientHeight = 298
   ClientWidth = 454
   Color = 3289652
   Font.Charset = DEFAULT_CHARSET
@@ -7614,44 +7614,15 @@ object formSobre: TformSobre
   object Label4: TLabel
     Left = 152
     Top = 250
-    Width = 126
+    Width = 188
     Height = 21
-    Caption = 'Vers'#227'o 0.5.3  BETA'
+    Caption = 'Vers'#227'o Standart 0.5.3  BETA'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
-  end
-  object Label5: TLabel
-    Left = 32
-    Top = 321
-    Width = 371
-    Height = 21
-    Caption = 'Informa'#231#245'es de registro: Registrado para uso  pessoal'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -16
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label6: TLabel
-    Left = 11
-    Top = 355
-    Width = 424
-    Height = 17
-    Caption = 
-      'Informa'#231#245'es de licen'#231'a: Este software est'#225' licenciado para Nelso' +
-      'n Neres'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -13
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentFont = False
-    Visible = False
   end
   object SpeedButton1: TSpeedButton
     Left = 397
