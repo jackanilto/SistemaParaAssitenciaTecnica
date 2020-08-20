@@ -1,0 +1,319 @@
+15/08/20 18:21:24 - ===========================================
+15/08/20 18:21:24 - Form: 
+15/08/20 18:24:10 - ===========================================
+15/08/20 18:24:10 - Form: formPrincipal
+15/08/20 18:24:10 - Caption: SimpleOS
+15/08/20 18:24:10 - Erro:Exception
+15/08/20 18:24:10 - Erro:Você não possui acesso a este recurso.
+19/08/20 20:07:05 - ===========================================
+19/08/20 20:07:05 - Form: 
+19/08/20 20:07:24 - ===========================================
+19/08/20 20:07:24 - Form: 
+19/08/20 20:08:09 - ===========================================
+19/08/20 20:08:09 - Form: 
+19/08/20 20:08:47 - ===========================================
+19/08/20 20:08:47 - Form: 
+19/08/20 20:09:33 - ===========================================
+19/08/20 20:09:33 - Form: 
+19/08/20 20:12:04 - ===========================================
+19/08/20 20:12:04 - Form: 
+19/08/20 20:14:22 - ===========================================
+19/08/20 20:14:22 - Form: formPrincipal
+19/08/20 20:14:22 - Caption: SimpleOS
+19/08/20 20:14:22 - Erro:EInvalidPointer
+19/08/20 20:14:22 - Erro:Invalid pointer operation
+19/08/20 20:14:23 - ===========================================
+19/08/20 20:14:23 - Form: formPrincipal
+19/08/20 20:14:23 - Caption: SimpleOS
+19/08/20 20:14:23 - Erro:EAccessViolation
+19/08/20 20:14:23 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:24 - ===========================================
+19/08/20 20:14:24 - Form: formPrincipal
+19/08/20 20:14:24 - Caption: SimpleOS
+19/08/20 20:14:24 - Erro:EAccessViolation
+19/08/20 20:14:24 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:25 - ===========================================
+19/08/20 20:14:25 - Form: formPrincipal
+19/08/20 20:14:25 - Caption: SimpleOS
+19/08/20 20:14:25 - Erro:EAccessViolation
+19/08/20 20:14:25 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:26 - ===========================================
+19/08/20 20:14:26 - Form: formPrincipal
+19/08/20 20:14:26 - Caption: SimpleOS
+19/08/20 20:14:26 - Erro:EAccessViolation
+19/08/20 20:14:26 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:27 - ===========================================
+19/08/20 20:14:27 - Form: formPrincipal
+19/08/20 20:14:27 - Caption: SimpleOS
+19/08/20 20:14:27 - Erro:EAccessViolation
+19/08/20 20:14:27 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:28 - ===========================================
+19/08/20 20:14:28 - Form: formPrincipal
+19/08/20 20:14:28 - Caption: SimpleOS
+19/08/20 20:14:28 - Erro:EAccessViolation
+19/08/20 20:14:28 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:29 - ===========================================
+19/08/20 20:14:29 - Form: formPrincipal
+19/08/20 20:14:29 - Caption: SimpleOS
+19/08/20 20:14:29 - Erro:EAccessViolation
+19/08/20 20:14:29 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:30 - ===========================================
+19/08/20 20:14:30 - Form: formPrincipal
+19/08/20 20:14:30 - Caption: SimpleOS
+19/08/20 20:14:30 - Erro:EAccessViolation
+19/08/20 20:14:30 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:31 - ===========================================
+19/08/20 20:14:31 - Form: formPrincipal
+19/08/20 20:14:31 - Caption: SimpleOS
+19/08/20 20:14:31 - Erro:EAccessViolation
+19/08/20 20:14:31 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:32 - ===========================================
+19/08/20 20:14:32 - Form: formPrincipal
+19/08/20 20:14:32 - Caption: SimpleOS
+19/08/20 20:14:32 - Erro:EAccessViolation
+19/08/20 20:14:32 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:33 - ===========================================
+19/08/20 20:14:33 - Form: formPrincipal
+19/08/20 20:14:33 - Caption: SimpleOS
+19/08/20 20:14:33 - Erro:EAccessViolation
+19/08/20 20:14:33 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:34 - ===========================================
+19/08/20 20:14:34 - Form: formPrincipal
+19/08/20 20:14:34 - Caption: SimpleOS
+19/08/20 20:14:34 - Erro:EAccessViolation
+19/08/20 20:14:34 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:35 - ===========================================
+19/08/20 20:14:35 - Form: formPrincipal
+19/08/20 20:14:35 - Caption: SimpleOS
+19/08/20 20:14:35 - Erro:EAccessViolation
+19/08/20 20:14:35 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:36 - ===========================================
+19/08/20 20:14:36 - Form: formPrincipal
+19/08/20 20:14:36 - Caption: SimpleOS
+19/08/20 20:14:36 - Erro:EAccessViolation
+19/08/20 20:14:36 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:37 - ===========================================
+19/08/20 20:14:37 - Form: formPrincipal
+19/08/20 20:14:37 - Caption: SimpleOS
+19/08/20 20:14:37 - Erro:EAccessViolation
+19/08/20 20:14:37 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:38 - ===========================================
+19/08/20 20:14:38 - Form: formPrincipal
+19/08/20 20:14:38 - Caption: SimpleOS
+19/08/20 20:14:38 - Erro:EAccessViolation
+19/08/20 20:14:38 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:39 - ===========================================
+19/08/20 20:14:39 - Form: formPrincipal
+19/08/20 20:14:39 - Caption: SimpleOS
+19/08/20 20:14:39 - Erro:EAccessViolation
+19/08/20 20:14:39 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:40 - ===========================================
+19/08/20 20:14:40 - Form: formPrincipal
+19/08/20 20:14:40 - Caption: SimpleOS
+19/08/20 20:14:40 - Erro:EAccessViolation
+19/08/20 20:14:40 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:14:41 - ===========================================
+19/08/20 20:14:41 - Form: formPrincipal
+19/08/20 20:14:41 - Caption: SimpleOS
+19/08/20 20:14:41 - Erro:EAccessViolation
+19/08/20 20:14:41 - Erro:Access violation at address 00C396B8 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:13 - ===========================================
+19/08/20 20:18:13 - Form: formPrincipal
+19/08/20 20:18:13 - Caption: SimpleOS
+19/08/20 20:18:13 - Erro:EInvalidPointer
+19/08/20 20:18:13 - Erro:Invalid pointer operation
+19/08/20 20:18:14 - ===========================================
+19/08/20 20:18:14 - Form: formPrincipal
+19/08/20 20:18:14 - Caption: SimpleOS
+19/08/20 20:18:14 - Erro:EAccessViolation
+19/08/20 20:18:14 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:15 - ===========================================
+19/08/20 20:18:15 - Form: formPrincipal
+19/08/20 20:18:15 - Caption: SimpleOS
+19/08/20 20:18:15 - Erro:EAccessViolation
+19/08/20 20:18:15 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:16 - ===========================================
+19/08/20 20:18:16 - Form: formPrincipal
+19/08/20 20:18:16 - Caption: SimpleOS
+19/08/20 20:18:16 - Erro:EAccessViolation
+19/08/20 20:18:16 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:17 - ===========================================
+19/08/20 20:18:17 - Form: formPrincipal
+19/08/20 20:18:17 - Caption: SimpleOS
+19/08/20 20:18:17 - Erro:EAccessViolation
+19/08/20 20:18:17 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:18 - ===========================================
+19/08/20 20:18:18 - Form: formPrincipal
+19/08/20 20:18:18 - Caption: SimpleOS
+19/08/20 20:18:18 - Erro:EAccessViolation
+19/08/20 20:18:18 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:19 - ===========================================
+19/08/20 20:18:19 - Form: formPrincipal
+19/08/20 20:18:19 - Caption: SimpleOS
+19/08/20 20:18:19 - Erro:EAccessViolation
+19/08/20 20:18:19 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:20 - ===========================================
+19/08/20 20:18:20 - Form: formPrincipal
+19/08/20 20:18:20 - Caption: SimpleOS
+19/08/20 20:18:20 - Erro:EAccessViolation
+19/08/20 20:18:20 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:21 - ===========================================
+19/08/20 20:18:21 - Form: formPrincipal
+19/08/20 20:18:21 - Caption: SimpleOS
+19/08/20 20:18:21 - Erro:EAccessViolation
+19/08/20 20:18:21 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:22 - ===========================================
+19/08/20 20:18:22 - Form: formPrincipal
+19/08/20 20:18:22 - Caption: SimpleOS
+19/08/20 20:18:22 - Erro:EAccessViolation
+19/08/20 20:18:22 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:23 - ===========================================
+19/08/20 20:18:23 - Form: formPrincipal
+19/08/20 20:18:23 - Caption: SimpleOS
+19/08/20 20:18:23 - Erro:EAccessViolation
+19/08/20 20:18:23 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:24 - ===========================================
+19/08/20 20:18:24 - Form: formPrincipal
+19/08/20 20:18:24 - Caption: SimpleOS
+19/08/20 20:18:24 - Erro:EAccessViolation
+19/08/20 20:18:24 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:25 - ===========================================
+19/08/20 20:18:25 - Form: formPrincipal
+19/08/20 20:18:25 - Caption: SimpleOS
+19/08/20 20:18:25 - Erro:EAccessViolation
+19/08/20 20:18:25 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:26 - ===========================================
+19/08/20 20:18:26 - Form: formPrincipal
+19/08/20 20:18:26 - Caption: SimpleOS
+19/08/20 20:18:26 - Erro:EAccessViolation
+19/08/20 20:18:26 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:27 - ===========================================
+19/08/20 20:18:27 - Form: formPrincipal
+19/08/20 20:18:27 - Caption: SimpleOS
+19/08/20 20:18:27 - Erro:EAccessViolation
+19/08/20 20:18:27 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:28 - ===========================================
+19/08/20 20:18:28 - Form: formPrincipal
+19/08/20 20:18:28 - Caption: SimpleOS
+19/08/20 20:18:28 - Erro:EAccessViolation
+19/08/20 20:18:28 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:29 - ===========================================
+19/08/20 20:18:29 - Form: formPrincipal
+19/08/20 20:18:29 - Caption: SimpleOS
+19/08/20 20:18:29 - Erro:EAccessViolation
+19/08/20 20:18:29 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:30 - ===========================================
+19/08/20 20:18:30 - Form: formPrincipal
+19/08/20 20:18:30 - Caption: SimpleOS
+19/08/20 20:18:30 - Erro:EAccessViolation
+19/08/20 20:18:30 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:31 - ===========================================
+19/08/20 20:18:31 - Form: formPrincipal
+19/08/20 20:18:31 - Caption: SimpleOS
+19/08/20 20:18:31 - Erro:EAccessViolation
+19/08/20 20:18:31 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:32 - ===========================================
+19/08/20 20:18:32 - Form: formPrincipal
+19/08/20 20:18:32 - Caption: SimpleOS
+19/08/20 20:18:32 - Erro:EAccessViolation
+19/08/20 20:18:32 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:33 - ===========================================
+19/08/20 20:18:33 - Form: formPrincipal
+19/08/20 20:18:33 - Caption: SimpleOS
+19/08/20 20:18:33 - Erro:EAccessViolation
+19/08/20 20:18:33 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:34 - ===========================================
+19/08/20 20:18:34 - Form: formPrincipal
+19/08/20 20:18:34 - Caption: SimpleOS
+19/08/20 20:18:34 - Erro:EAccessViolation
+19/08/20 20:18:34 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:35 - ===========================================
+19/08/20 20:18:35 - Form: formPrincipal
+19/08/20 20:18:35 - Caption: SimpleOS
+19/08/20 20:18:35 - Erro:EAccessViolation
+19/08/20 20:18:35 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:36 - ===========================================
+19/08/20 20:18:36 - Form: formPrincipal
+19/08/20 20:18:36 - Caption: SimpleOS
+19/08/20 20:18:36 - Erro:EAccessViolation
+19/08/20 20:18:36 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:37 - ===========================================
+19/08/20 20:18:37 - Form: formPrincipal
+19/08/20 20:18:37 - Caption: SimpleOS
+19/08/20 20:18:37 - Erro:EAccessViolation
+19/08/20 20:18:37 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:38 - ===========================================
+19/08/20 20:18:38 - Form: formPrincipal
+19/08/20 20:18:38 - Caption: SimpleOS
+19/08/20 20:18:38 - Erro:EAccessViolation
+19/08/20 20:18:38 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:39 - ===========================================
+19/08/20 20:18:39 - Form: formPrincipal
+19/08/20 20:18:39 - Caption: SimpleOS
+19/08/20 20:18:39 - Erro:EAccessViolation
+19/08/20 20:18:39 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:40 - ===========================================
+19/08/20 20:18:40 - Form: formPrincipal
+19/08/20 20:18:40 - Caption: SimpleOS
+19/08/20 20:18:40 - Erro:EAccessViolation
+19/08/20 20:18:40 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:41 - ===========================================
+19/08/20 20:18:41 - Form: formPrincipal
+19/08/20 20:18:41 - Caption: SimpleOS
+19/08/20 20:18:41 - Erro:EAccessViolation
+19/08/20 20:18:41 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:42 - ===========================================
+19/08/20 20:18:42 - Form: formPrincipal
+19/08/20 20:18:42 - Caption: SimpleOS
+19/08/20 20:18:42 - Erro:EAccessViolation
+19/08/20 20:18:42 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:43 - ===========================================
+19/08/20 20:18:43 - Form: formPrincipal
+19/08/20 20:18:43 - Caption: SimpleOS
+19/08/20 20:18:43 - Erro:EAccessViolation
+19/08/20 20:18:43 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:44 - ===========================================
+19/08/20 20:18:44 - Form: formPrincipal
+19/08/20 20:18:44 - Caption: SimpleOS
+19/08/20 20:18:44 - Erro:EAccessViolation
+19/08/20 20:18:44 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:45 - ===========================================
+19/08/20 20:18:45 - Form: formPrincipal
+19/08/20 20:18:45 - Caption: SimpleOS
+19/08/20 20:18:45 - Erro:EAccessViolation
+19/08/20 20:18:45 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:46 - ===========================================
+19/08/20 20:18:46 - Form: formPrincipal
+19/08/20 20:18:46 - Caption: SimpleOS
+19/08/20 20:18:46 - Erro:EAccessViolation
+19/08/20 20:18:46 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:47 - ===========================================
+19/08/20 20:18:47 - Form: formPrincipal
+19/08/20 20:18:47 - Caption: SimpleOS
+19/08/20 20:18:47 - Erro:EAccessViolation
+19/08/20 20:18:47 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:48 - ===========================================
+19/08/20 20:18:48 - Form: formPrincipal
+19/08/20 20:18:48 - Caption: SimpleOS
+19/08/20 20:18:48 - Erro:EAccessViolation
+19/08/20 20:18:48 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:49 - ===========================================
+19/08/20 20:18:49 - Form: formPrincipal
+19/08/20 20:18:49 - Caption: SimpleOS
+19/08/20 20:18:49 - Erro:EAccessViolation
+19/08/20 20:18:49 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:50 - ===========================================
+19/08/20 20:18:50 - Form: formPrincipal
+19/08/20 20:18:50 - Caption: SimpleOS
+19/08/20 20:18:50 - Erro:EAccessViolation
+19/08/20 20:18:50 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:18:51 - ===========================================
+19/08/20 20:18:51 - Form: formPrincipal
+19/08/20 20:18:51 - Caption: SimpleOS
+19/08/20 20:18:51 - Erro:EAccessViolation
+19/08/20 20:18:51 - Erro:Access violation at address 00C396D0 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+19/08/20 20:29:25 - ===========================================
+19/08/20 20:29:25 - Form: formPrincipal
+19/08/20 20:29:25 - Caption: SimpleOS
+19/08/20 20:29:25 - Erro:EAccessViolation
+19/08/20 20:29:25 - Erro:Access violation at address 00C1347F in module 'SimplesOS_Standart.exe'. Read of address 00000004

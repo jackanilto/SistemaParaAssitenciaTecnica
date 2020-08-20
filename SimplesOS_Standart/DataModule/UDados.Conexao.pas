@@ -9,7 +9,8 @@ uses
   FireDAC.Comp.Client, Data.DB, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
   FireDAC.Phys.IBBase, FireDAC.Comp.UI, Vcl.Forms, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
-  UClasse.Config.Acesso.Banco, Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.Dialogs;
+  UClasse.Config.Acesso.Banco, Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.Dialogs,
+  EAppProt, ECripto, UClasse.Demo;
 
 type
   TDataModule1 = class(TDataModule)
@@ -21,6 +22,8 @@ type
     FDQuery1ID: TIntegerField;
     FDQuery1JUROS: TBCDField;
     FDQuery1MULTA: TCurrencyField;
+    EvAppProtect1: TEvAppProtect;
+    EvCriptografa1: TEvCriptografa;
     procedure conexaoBeforeConnect(Sender: TObject);
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
@@ -28,6 +31,8 @@ type
     { Private declarations }
   var
     FConfigConexao: TConfigConexaoBanco;
+    FDemo: TClasseDemo;
+
   public
     { Public declarations }
   end;
@@ -56,6 +61,13 @@ procedure TDataModule1.DataModuleCreate(Sender: TObject);
 var
   localizacaoBD:string;
 begin
+
+//  EvAppProtect1.Active := False;
+//  EvAppProtect1.IdApplication := 75983;
+//  EvAppProtect1.EvalDays := 0;
+//  EvAppProtect1.EvalLoads := 0;
+//  EvAppProtect1.RegKey := '\SOFTWARE\NomeDaEmpresa\SimplesOSStandart\';
+//  EvAppProtect1.Active := True;
 
   FConfigConexao := TConfigConexaoBanco.create;
 

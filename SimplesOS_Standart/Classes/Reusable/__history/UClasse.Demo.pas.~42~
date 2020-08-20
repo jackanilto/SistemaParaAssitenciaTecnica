@@ -1,0 +1,117 @@
+unit UClasse.Demo;
+
+interface
+
+uses system.SysUtils, FireDAC.Stan.Intf,
+     FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+     FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+     FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Stan.ExprFuncs,
+     FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.Comp.UI,
+     FireDAC.Comp.Client, Vcl.Forms, Vcl.Dialogs;
+
+type
+    TClasseDemo = class
+
+    private
+    FDemo:Boolean;
+    FQueryFile: TFDQuery;
+    FDConnection: TFDConnection;
+    FDPhysSQLiteDriveLink: TFDPhysSQLiteDriverLink;
+
+    var
+      FInitialFile:TDate;
+      FInitialBD:TDate;
+
+    const
+      INITIALkEYFILE = 'jhgfd12355dssed';
+      INITIALKEYBD = 'lopty478ds';
+
+    procedure ativarDemo;
+    public
+
+    procedure demoActive(value:boolean);
+
+    procedure gravarInformacoesArquivo;
+    procedure gravarInformacoesBD;
+
+    procedure validarInformacoes;
+
+    constructor create;
+    destructor destroy; override;
+
+    end;
+
+implementation
+
+{ TClasseDemo }
+
+procedure TClasseDemo.ativarDemo;
+begin
+
+end;
+
+constructor TClasseDemo.create;
+begin
+
+  FDPhysSQLiteDriveLink := TFDPhysSQLiteDriverLink.create(nil);
+
+  FDConnection := TFDConnection.create(nil);
+  FDConnection.Connected := false;
+  FDConnection.DriverName := 'SQLite';
+  FDConnection.Params.Add('Database=' + ExtractFilePath(Application.ExeName) +
+    '\Config\config.db');
+  FDConnection.Params.Add('LockingMode=Normal');
+  FDConnection.Connected := true;
+
+  FQueryFile := TFDQuery.Create(nil);
+
+  FQueryFile.Connection := FDConnection;
+  FQueryFile.Open('select * from conexao');
+
+
+
+end;
+
+procedure TClasseDemo.demoActive(value: boolean);
+begin
+
+  FDemo := value;
+
+  if value = true then
+    MessageDlg('Esta é um versão de demonstração com validade de 30 dias', mtInformation, [mbOK], 0, mbOK);
+
+  {INSERIR CÓDIFICAÇÃO PARA VALIDAR A DEMONSTRAÇÃO}
+
+  if FQueryFile.FieldByName('key_word').AsString = 'jhgfd12355dssed' then
+
+
+  ShowMessage(FQueryFile.FieldByName('key_word').AsString);
+
+end;
+
+destructor TClasseDemo.destroy;
+begin
+  FreeAndNil(FQueryFile);
+  FreeAndNil(FDConnection);
+  FreeAndNil(FDPhysSQLiteDriveLink);
+  inherited;
+end;
+
+procedure TClasseDemo.gravarInformacoesArquivo;
+begin
+
+end;
+
+procedure TClasseDemo.gravarInformacoesBD;
+begin
+
+end;
+
+procedure TClasseDemo.validarInformacoes;
+begin
+
+
+
+end;
+
+end.

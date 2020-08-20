@@ -20,7 +20,8 @@ uses
   UClasse.Config.Acesso.Banco, Form.Relatorio.Problemas.Frequentes,
   Form.Relatorio.Historico.Caixa, Form.Trocar.Usuario,
   UClasse.Config.Imagem.Logo,
-  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar, MidasLib, Winapi.ShellAPI;
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar, MidasLib, Winapi.ShellAPI,
+  UClasse.Demo;
 
 type
   TformPrincipal = class(TForm)
@@ -221,6 +222,7 @@ type
     procedure acREstaurarBancoDeDadosExecute(Sender: TObject);
   private
     { Private declarations }
+    FDemo: TClasseDemo;
   var
     F_SplitView: TSplitView;
     FHorarios: array [0 .. 100] of string;
@@ -997,6 +999,7 @@ begin
   FreeAndNil(FBackUp);
   FreeAndNil(FConfigConexao);
   FreeAndNil(FConfImagemLogo);
+  FreeAndNil(FDemo);
 end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);
@@ -1019,6 +1022,11 @@ begin
   FConfigConexao := TConfigConexaoBanco.create;
 
   FConfImagemLogo := TConfigImagemLogo.create;
+
+
+
+  FDemo := TClasseDemo.create;
+  FDemo.demoActive(true);
 
   ReportMemoryLeaksOnShutdown := true;
 

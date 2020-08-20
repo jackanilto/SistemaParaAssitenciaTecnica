@@ -7154,7 +7154,6 @@ object formPrincipal: TformPrincipal
       RegularButtonColor = clNone
       SelectedButtonColor = clNone
       TabOrder = 0
-      ExplicitWidth = 210
     end
   end
   object spvExtras: TSplitView
