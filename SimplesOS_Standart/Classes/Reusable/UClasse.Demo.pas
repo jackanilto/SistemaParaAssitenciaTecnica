@@ -77,8 +77,8 @@ begin
 
    finally
      EvAppProtect1.Free;
-     started := 'no';
-     Application.Terminate;
+//     started := 'no';
+//     Application.Terminate;
    end;
 
  end;

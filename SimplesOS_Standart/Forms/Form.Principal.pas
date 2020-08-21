@@ -1026,7 +1026,7 @@ begin
 
   //Ativação da demonstração
   FDemo := TClasseDemo.create;
-  FDemo.demoActive(false);
+  FDemo.demoActive(true);
 
   ReportMemoryLeaksOnShutdown := true;
 
