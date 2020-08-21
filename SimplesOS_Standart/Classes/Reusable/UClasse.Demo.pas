@@ -7,33 +7,32 @@ uses system.SysUtils, FireDAC.Stan.Intf,
      FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
      FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Stan.ExprFuncs,
      FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.Comp.UI,
-     FireDAC.Comp.Client, Vcl.Forms, Vcl.Dialogs;
+     FireDAC.Comp.Client, Vcl.Forms, Vcl.Dialogs, UClasse.Cript.password,
+  UInterfaces, UClasse.DiasMeses;
 
 type
     TClasseDemo = class
 
     private
-    FDemo:Boolean;
-    FQueryFile: TFDQuery;
-    FDConnection: TFDConnection;
-    FDPhysSQLiteDriveLink: TFDPhysSQLiteDriverLink;
 
     function Crypt(Action, Src: String; keychar:string): String;
 
     var
+      FCriptografia: iCriptPasss;
+      FDiasMeses: TCalcularDiaMeses;
       FInitialFile:TDate;
       FInitialBD:TDate;
+      FDemo:Boolean;
+      FQueryFile: TFDQuery;
 
     const
-      INITIALkEYFILE = 'jhgfd12355dssed';
+      INITIALkEYFILE = 'jhgfd12355dssed-et3';
       INITIALKEYBD = 'lopty478ds';
       KEYPOSTFILE = 'DFASDFGQWERHJKLRTYUIOPZXMNCBVAASDSSPPOKJH';
       KEYPOSTBD = 'SADFQGWERHJKLRTYUIOPZXMNCBVAASDSSPPOUIP';
 
     procedure ativarDemo;
     public
-
-
 
     procedure demoActive(value:boolean);
 
@@ -51,6 +50,8 @@ implementation
 
 { TClasseDemo }
 
+uses UDados.Conexao, Form.Principal;
+
 procedure TClasseDemo.ativarDemo;
 begin
 
@@ -59,20 +60,16 @@ end;
 constructor TClasseDemo.create;
 begin
 
-  FDPhysSQLiteDriveLink := TFDPhysSQLiteDriverLink.create(nil);
-
-  FDConnection := TFDConnection.create(nil);
-  FDConnection.Connected := false;
-  FDConnection.DriverName := 'SQLite';
-  FDConnection.Params.Add('Database=' + ExtractFilePath(Application.ExeName) +
-    '\Config\config.db');
-  FDConnection.Params.Add('LockingMode=Normal');
-  FDConnection.Connected := true;
+  FCriptografia := TCriptPass.new;
 
   FQueryFile := TFDQuery.Create(nil);
 
-  FQueryFile.Connection := FDConnection;
-  FQueryFile.Open('select * from conexao');
+  FQueryFile.Connection := DataModule1.conexao;
+
+  FQueryFile.Active := false;
+  FQueryFile.SQL.Clear;
+  FQueryFile.Open('select * from AUXILIAR');
+  FQueryFile.Active := true;
 
 
 
@@ -147,6 +144,8 @@ begin
 Fim:
 end;
 procedure TClasseDemo.demoActive(value: boolean);
+var
+  data:TDate;
 begin
 
   FDemo := value;
@@ -154,12 +153,48 @@ begin
   if value = true then
     MessageDlg('Esta é um versão de demonstração com validade de 30 dias', mtInformation, [mbOK], 0, mbOK);
 
-  {INSERIR CÓDIFICAÇÃO PARA VALIDAR A DEMONSTRAÇÃO}
-
-  if FQueryFile.FieldByName('key_word').AsString <> 'jhgfd12355dssed' then
+  if FQueryFile.FieldByName('KEY_WORD').AsString <> INITIALkEYFILE then
   begin
 
-   {CRIAR CÓDIFICAÇÃO PARA VERIFICAR A VALIDADE DA DEMONSTRAÇÃO}
+    if FQueryFile.FieldByName('KEY_WORD').AsString = FCriptografia.md5('Demonstração ativada standart') then
+    begin
+
+      try
+
+       data := StrToDate(Crypt('D', FQueryFile.FieldByName('KEY_INITIAL').AsString, KEYPOSTFILE));
+
+        if data > date then
+        begin
+          MessageDlg('ERRO! er3', mtWarning, [mbOK], 0, mbOK);
+          started := 'no';
+          application.Terminate;
+        end;
+
+
+       if ((date-data) > 30) then
+       begin
+        MessageDlg('Seu período de teste acabou. Compre agora mesmo um licença no site www.criosoftware.com.br',
+          mtWarning, [mbOK], 0, mbOK);
+        started := 'no';
+        application.Terminate;
+       end;
+
+      except
+      begin
+        MessageDlg('ERRO! er02', mtWarning, [mbOK], 0, mbOK);
+        started := 'no';
+        application.Terminate;
+      end;
+
+      end;
+
+     end
+    else
+    begin
+      MessageDlg('ERRO! er01', mtWarning, [mbOK], 0, mbOK);
+      started := 'no';
+      application.Terminate;
+    end;
 
   end
   else
@@ -169,29 +204,27 @@ begin
 
     FQueryFile.Edit;
 
-    FQueryFile.FieldByName('key_word').AsString := Crypt('C', 'Demonstração ativada', KEYPOSTFILE);
-    FQueryFile.FieldByName('begin').AsString := Crypt('C', DateToStr(Date), KEYPOSTFILE);
+    FQueryFile.FieldByName('KEY_WORD').AsString :=   FCriptografia.md5('Demonstração ativada standart');
+    FQueryFile.FieldByName('KEY_INITIAL').AsString := Crypt('C', DateToStr(Date), KEYPOSTFILE);
 
     FQueryFile.Post;
 
   except
+  begin
+    started := 'no';
     raise Exception.Create('ERRO! Arquivo parece estar danificado');
+  end;
 
   end;
 
 
   end;
-
-
-//  ShowMessage(FQueryFile.FieldByName('key_word').AsString);
 
 end;
 
 destructor TClasseDemo.destroy;
 begin
   FreeAndNil(FQueryFile);
-  FreeAndNil(FDConnection);
-  FreeAndNil(FDPhysSQLiteDriveLink);
   inherited;
 end;
 
@@ -207,8 +240,6 @@ end;
 
 procedure TClasseDemo.validarInformacoes;
 begin
-
-
 
 end;
 

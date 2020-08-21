@@ -52,7 +52,7 @@ Var // calcula os dias
 begin
   if DataAtual < DataVenc then
   begin
-    Result := 'A data data atual n�o pode ser menor que a data inicial';
+    Result := 'A data data atual não pode ser menor que a data inicial';
   end
   else
   begin
@@ -77,6 +77,7 @@ begin
   end
   else
   begin
+
     data := DataAtual - DataVenc;
     DecodeDate(data, ano, mes, dia);
     Result := Trunc(data / 30);

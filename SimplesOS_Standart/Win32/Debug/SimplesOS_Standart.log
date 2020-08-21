@@ -317,3 +317,316 @@
 19/08/20 20:29:25 - Caption: SimpleOS
 19/08/20 20:29:25 - Erro:EAccessViolation
 19/08/20 20:29:25 - Erro:Access violation at address 00C1347F in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:14:22 - ===========================================
+20/08/20 20:14:22 - Form: formPrincipal
+20/08/20 20:14:22 - Caption: SimpleOS
+20/08/20 20:14:22 - Erro:EIBNativeException
+20/08/20 20:14:22 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+TABLE
+20/08/20 20:14:32 - ===========================================
+20/08/20 20:14:32 - Form: formPrincipal
+20/08/20 20:14:32 - Caption: SimpleOS
+20/08/20 20:14:32 - Erro:EAccessViolation
+20/08/20 20:14:32 - Erro:Access violation at address 00C13873 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:14:45 - ===========================================
+20/08/20 20:14:45 - Form: formPrincipal
+20/08/20 20:14:45 - Caption: SimpleOS
+20/08/20 20:14:45 - Erro:EIBNativeException
+20/08/20 20:14:45 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+TABLE
+20/08/20 20:15:08 - ===========================================
+20/08/20 20:15:08 - Form: formPrincipal
+20/08/20 20:15:08 - Caption: SimpleOS
+20/08/20 20:15:08 - Erro:EAccessViolation
+20/08/20 20:15:08 - Erro:Access violation at address 00C13873 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:15:18 - ===========================================
+20/08/20 20:15:18 - Form: formPrincipal
+20/08/20 20:15:18 - Caption: SimpleOS
+20/08/20 20:15:18 - Erro:EIBNativeException
+20/08/20 20:15:18 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+TABLE
+20/08/20 20:15:28 - ===========================================
+20/08/20 20:15:28 - Form: formPrincipal
+20/08/20 20:15:28 - Caption: SimpleOS
+20/08/20 20:15:28 - Erro:EAccessViolation
+20/08/20 20:15:28 - Erro:Access violation at address 00C13873 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:18:44 - ===========================================
+20/08/20 20:18:44 - Form: formPrincipal
+20/08/20 20:18:44 - Caption: SimpleOS
+20/08/20 20:18:44 - Erro:EIBNativeException
+20/08/20 20:18:44 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+TABLE
+20/08/20 20:18:53 - ===========================================
+20/08/20 20:18:53 - Form: formPrincipal
+20/08/20 20:18:53 - Caption: SimpleOS
+20/08/20 20:18:53 - Erro:EAccessViolation
+20/08/20 20:18:53 - Erro:Access violation at address 00C138A3 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:19:18 - ===========================================
+20/08/20 20:19:18 - Form: formPrincipal
+20/08/20 20:19:18 - Caption: SimpleOS
+20/08/20 20:19:18 - Erro:EIBNativeException
+20/08/20 20:19:18 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+TABLE
+20/08/20 20:19:46 - ===========================================
+20/08/20 20:19:46 - Form: formPrincipal
+20/08/20 20:19:46 - Caption: SimpleOS
+20/08/20 20:19:46 - Erro:EAccessViolation
+20/08/20 20:19:46 - Erro:Access violation at address 00C138A3 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:23:56 - ===========================================
+20/08/20 20:23:56 - Form: formPrincipal
+20/08/20 20:23:56 - Caption: SimpleOS
+20/08/20 20:23:56 - Erro:EIBNativeException
+20/08/20 20:23:56 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+TABLE
+20/08/20 20:24:04 - ===========================================
+20/08/20 20:24:04 - Form: formPrincipal
+20/08/20 20:24:04 - Caption: SimpleOS
+20/08/20 20:24:04 - Erro:EAccessViolation
+20/08/20 20:24:04 - Erro:Access violation at address 00C138A3 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:24:34 - ===========================================
+20/08/20 20:24:34 - Form: formPrincipal
+20/08/20 20:24:34 - Caption: SimpleOS
+20/08/20 20:24:34 - Erro:EDatabaseError
+20/08/20 20:24:34 - Erro:Field 'key_word' not found
+20/08/20 20:24:37 - ===========================================
+20/08/20 20:24:37 - Form: formPrincipal
+20/08/20 20:24:37 - Caption: SimpleOS
+20/08/20 20:24:37 - Erro:EAccessViolation
+20/08/20 20:24:37 - Erro:Access violation at address 00C1389F in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:24:55 - ===========================================
+20/08/20 20:24:55 - Form: formPrincipal
+20/08/20 20:24:55 - Caption: SimpleOS
+20/08/20 20:24:55 - Erro:EIBNativeException
+20/08/20 20:24:55 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+table
+20/08/20 20:24:58 - ===========================================
+20/08/20 20:24:58 - Form: formPrincipal
+20/08/20 20:24:58 - Caption: SimpleOS
+20/08/20 20:24:58 - Erro:EAccessViolation
+20/08/20 20:24:58 - Erro:Access violation at address 00C138A3 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:26:03 - ===========================================
+20/08/20 20:26:03 - Form: formPrincipal
+20/08/20 20:26:03 - Caption: SimpleOS
+20/08/20 20:26:03 - Erro:EIBNativeException
+20/08/20 20:26:03 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+table
+20/08/20 20:26:07 - ===========================================
+20/08/20 20:26:07 - Form: formPrincipal
+20/08/20 20:26:07 - Caption: SimpleOS
+20/08/20 20:26:07 - Erro:EAccessViolation
+20/08/20 20:26:07 - Erro:Access violation at address 00C138A3 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:27:10 - ===========================================
+20/08/20 20:27:10 - Form: formPrincipal
+20/08/20 20:27:10 - Caption: SimpleOS
+20/08/20 20:27:10 - Erro:EIBNativeException
+20/08/20 20:27:10 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+table
+20/08/20 20:27:14 - ===========================================
+20/08/20 20:27:14 - Form: formPrincipal
+20/08/20 20:27:14 - Caption: SimpleOS
+20/08/20 20:27:14 - Erro:EAccessViolation
+20/08/20 20:27:14 - Erro:Access violation at address 00C138BF in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:27:51 - ===========================================
+20/08/20 20:27:51 - Form: formPrincipal
+20/08/20 20:27:51 - Caption: SimpleOS
+20/08/20 20:27:51 - Erro:EIBNativeException
+20/08/20 20:27:51 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+table
+20/08/20 20:28:06 - ===========================================
+20/08/20 20:28:06 - Form: formPrincipal
+20/08/20 20:28:06 - Caption: SimpleOS
+20/08/20 20:28:06 - Erro:EAccessViolation
+20/08/20 20:28:06 - Erro:Access violation at address 00C138A3 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:29:44 - ===========================================
+20/08/20 20:29:44 - Form: formPrincipal
+20/08/20 20:29:44 - Caption: SimpleOS
+20/08/20 20:29:44 - Erro:EIBNativeException
+20/08/20 20:29:44 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 15
+table
+20/08/20 20:29:51 - ===========================================
+20/08/20 20:29:51 - Form: formPrincipal
+20/08/20 20:29:51 - Caption: SimpleOS
+20/08/20 20:29:51 - Erro:EAccessViolation
+20/08/20 20:29:51 - Erro:Access violation at address 00C138A3 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:33:05 - ===========================================
+20/08/20 20:33:05 - Form: formPrincipal
+20/08/20 20:33:05 - Caption: SimpleOS
+20/08/20 20:33:05 - Erro:EAccessViolation
+20/08/20 20:33:05 - Erro:Access violation at address 00C138AB in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:38:45 - ===========================================
+20/08/20 20:38:45 - Form: formPrincipal
+20/08/20 20:38:45 - Caption: SimpleOS
+20/08/20 20:38:45 - Erro:EAccessViolation
+20/08/20 20:38:45 - Erro:Access violation at address 00C138AB in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:43:21 - ===========================================
+20/08/20 20:43:21 - Form: formPrincipal
+20/08/20 20:43:21 - Caption: SimpleOS
+20/08/20 20:43:21 - Erro:EAccessViolation
+20/08/20 20:43:21 - Erro:Access violation at address 00C138AB in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:44:45 - ===========================================
+20/08/20 20:44:45 - Form: formPrincipal
+20/08/20 20:44:45 - Caption: SimpleOS
+20/08/20 20:44:45 - Erro:EAccessViolation
+20/08/20 20:44:45 - Erro:Access violation at address 00C138EB in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:45:57 - ===========================================
+20/08/20 20:45:57 - Form: formPrincipal
+20/08/20 20:45:57 - Caption: SimpleOS
+20/08/20 20:45:57 - Erro:EAccessViolation
+20/08/20 20:45:57 - Erro:Access violation at address 00C138EB in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 20:47:53 - ===========================================
+20/08/20 20:47:53 - Form: formPrincipal
+20/08/20 20:47:53 - Caption: SimpleOS
+20/08/20 20:47:53 - Erro:EAccessViolation
+20/08/20 20:47:53 - Erro:Access violation at address 00C138EB in module 'SimplesOS_Standart.exe'. Read of address 00000004
+20/08/20 21:05:23 - ===========================================
+20/08/20 21:05:23 - Form: formPrincipal
+20/08/20 21:05:23 - Caption: SimpleOS
+20/08/20 21:05:23 - Erro:EConvertError
+20/08/20 21:05:23 - Erro:'$mo' is not a valid integer value
+20/08/20 21:05:30 - ===========================================
+20/08/20 21:05:30 - Form: formPrincipal
+20/08/20 21:05:30 - Caption: SimpleOS
+20/08/20 21:05:30 - Erro:EAccessViolation
+20/08/20 21:05:30 - Erro:Access violation at address 00C13A8B in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/08/20 14:44:20 - ===========================================
+21/08/20 14:44:20 - Form: formPrincipal
+21/08/20 14:44:20 - Caption: SimpleOS
+21/08/20 14:44:20 - Erro:EAccessViolation
+21/08/20 14:44:20 - Erro:Access violation at address 00C13AC3 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/08/20 14:46:17 - ===========================================
+21/08/20 14:46:17 - Form: formPrincipal
+21/08/20 14:46:17 - Caption: SimpleOS
+21/08/20 14:46:17 - Erro:EAccessViolation
+21/08/20 14:46:17 - Erro:Access violation at address 00C13AEB in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 14:53:36 - ===========================================
+21/10/20 14:53:36 - Form: formPrincipal
+21/10/20 14:53:36 - Caption: SimpleOS
+21/10/20 14:53:36 - Erro:EAccessViolation
+21/10/20 14:53:36 - Erro:Access violation at address 00C13B9B in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 14:54:36 - ===========================================
+21/10/20 14:54:36 - Form: formPrincipal
+21/10/20 14:54:36 - Caption: SimpleOS
+21/10/20 14:54:36 - Erro:EAccessViolation
+21/10/20 14:54:36 - Erro:Access violation at address 00C13C13 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 14:55:10 - ===========================================
+21/10/20 14:55:10 - Form: formPrincipal
+21/10/20 14:55:10 - Caption: SimpleOS
+21/10/20 14:55:10 - Erro:EAccessViolation
+21/10/20 14:55:10 - Erro:Access violation at address 00C13C47 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 14:56:33 - ===========================================
+21/10/20 14:56:33 - Form: formPrincipal
+21/10/20 14:56:33 - Caption: SimpleOS
+21/10/20 14:56:33 - Erro:EAccessViolation
+21/10/20 14:56:33 - Erro:Access violation at address 00C13C3F in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 14:57:40 - ===========================================
+21/10/20 14:57:40 - Form: formPrincipal
+21/10/20 14:57:40 - Caption: SimpleOS
+21/10/20 14:57:40 - Erro:EAccessViolation
+21/10/20 14:57:40 - Erro:Access violation at address 00C13CA7 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 14:58:17 - ===========================================
+21/10/20 14:58:17 - Form: formPrincipal
+21/10/20 14:58:17 - Caption: SimpleOS
+21/10/20 14:58:17 - Erro:EAccessViolation
+21/10/20 14:58:17 - Erro:Access violation at address 00C13CA7 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 14:59:00 - ===========================================
+21/10/20 14:59:00 - Form: formPrincipal
+21/10/20 14:59:00 - Caption: SimpleOS
+21/10/20 14:59:00 - Erro:Exception
+21/10/20 14:59:00 - Erro:Você não possui acesso a este recurso.
+21/10/20 14:59:57 - ===========================================
+21/10/20 14:59:57 - Form: formPrincipal
+21/10/20 14:59:57 - Caption: SimpleOS
+21/10/20 14:59:57 - Erro:Exception
+21/10/20 14:59:57 - Erro:Você não possui acesso a este recurso.
+21/10/20 15:01:48 - ===========================================
+21/10/20 15:01:48 - Form: formPrincipal
+21/10/20 15:01:48 - Caption: SimpleOS
+21/10/20 15:01:48 - Erro:EAccessViolation
+21/10/20 15:01:48 - Erro:Access violation at address 00C13CB7 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 15:02:37 - ===========================================
+21/10/20 15:02:37 - Form: formPrincipal
+21/10/20 15:02:37 - Caption: SimpleOS
+21/10/20 15:02:37 - Erro:Exception
+21/10/20 15:02:37 - Erro:Você não possui acesso a este recurso.
+21/10/20 15:10:58 - ===========================================
+21/10/20 15:10:58 - Form: formPrincipal
+21/10/20 15:10:58 - Caption: SimpleOS
+21/10/20 15:10:58 - Erro:EAccessViolation
+21/10/20 15:10:58 - Erro:Access violation at address 00C13BAB in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 15:12:24 - ===========================================
+21/10/20 15:12:24 - Form: formPrincipal
+21/10/20 15:12:24 - Caption: SimpleOS
+21/10/20 15:12:24 - Erro:EAccessViolation
+21/10/20 15:12:24 - Erro:Access violation at address 00C13BB7 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 15:13:18 - ===========================================
+21/10/20 15:13:18 - Form: formPrincipal
+21/10/20 15:13:18 - Caption: SimpleOS
+21/10/20 15:13:18 - Erro:EAccessViolation
+21/10/20 15:13:18 - Erro:Access violation at address 00C13BCF in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 15:13:55 - ===========================================
+21/10/20 15:13:55 - Form: formPrincipal
+21/10/20 15:13:55 - Caption: SimpleOS
+21/10/20 15:13:55 - Erro:EAccessViolation
+21/10/20 15:13:55 - Erro:Access violation at address 00C13BCF in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 15:14:57 - ===========================================
+21/10/20 15:14:57 - Form: formPrincipal
+21/10/20 15:14:57 - Caption: SimpleOS
+21/10/20 15:14:57 - Erro:EAccessViolation
+21/10/20 15:14:57 - Erro:Access violation at address 00C13BCF in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 15:15:30 - ===========================================
+21/10/20 15:15:30 - Form: formPrincipal
+21/10/20 15:15:30 - Caption: SimpleOS
+21/10/20 15:15:30 - Erro:EAccessViolation
+21/10/20 15:15:30 - Erro:Access violation at address 00C13BCF in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/10/20 15:15:58 - ===========================================
+21/10/20 15:15:58 - Form: formPrincipal
+21/10/20 15:15:58 - Caption: SimpleOS
+21/10/20 15:15:58 - Erro:EAccessViolation
+21/10/20 15:15:58 - Erro:Access violation at address 00C13BCF in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/08/20 15:20:55 - ===========================================
+21/08/20 15:20:55 - Form: formPrincipal
+21/08/20 15:20:55 - Caption: SimpleOS
+21/08/20 15:20:55 - Erro:EAccessViolation
+21/08/20 15:20:55 - Erro:Access violation at address 00C13C57 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/08/20 15:36:14 - ===========================================
+21/08/20 15:36:14 - Form: formPrincipal
+21/08/20 15:36:14 - Caption: SimpleOS
+21/08/20 15:36:14 - Erro:EAccessViolation
+21/08/20 15:36:14 - Erro:Access violation at address 00C13C57 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/08/20 15:37:02 - ===========================================
+21/08/20 15:37:02 - Form: formPrincipal
+21/08/20 15:37:02 - Caption: SimpleOS
+21/08/20 15:37:02 - Erro:EAccessViolation
+21/08/20 15:37:02 - Erro:Access violation at address 00C13C57 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/08/20 15:37:14 - ===========================================
+21/08/20 15:37:14 - Form: formPrincipal
+21/08/20 15:37:14 - Caption: SimpleOS
+21/08/20 15:37:14 - Erro:EAccessViolation
+21/08/20 15:37:14 - Erro:Access violation at address 00C13C57 in module 'SimplesOS_Standart.exe'. Read of address 00000004
+21/08/20 15:37:28 - ===========================================
+21/08/20 15:37:28 - Form: formPrincipal
+21/08/20 15:37:28 - Caption: SimpleOS
+21/08/20 15:37:28 - Erro:EAccessViolation
+21/08/20 15:37:28 - Erro:Access violation at address 00C13C57 in module 'SimplesOS_Standart.exe'. Read of address 00000004

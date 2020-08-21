@@ -1023,8 +1023,6 @@ begin
 
   FConfImagemLogo := TConfigImagemLogo.create;
 
-
-
   FDemo := TClasseDemo.create;
   FDemo.demoActive(true);
 
