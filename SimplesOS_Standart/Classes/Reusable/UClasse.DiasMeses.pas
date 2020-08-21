@@ -10,6 +10,7 @@ type
     function DiaEmMes(DataVenc: TDateTime; DataAtual: TDateTime): String;
     function DifDias(DataVenc: TDateTime; DataAtual: TDateTime): String;
     function DifDiasMeses(DataVenc: TDateTime; DataAtual: TDateTime): Integer;
+    function totalDias(data_inicial, data_final:TDate):integer;
   end;
 
 implementation
@@ -81,6 +82,29 @@ begin
     data := DataAtual - DataVenc;
     DecodeDate(data, ano, mes, dia);
     Result := Trunc(data / 30);
+
+  end;
+
+end;
+
+function TCalcularDiaMeses.totalDias(data_inicial, data_final: TDate): integer;
+Var // calcula os dias
+  data: TDateTime;
+  dia, mes, ano: Word;
+  resultado: Integer;
+begin
+  if data_inicial < data_final then
+  begin
+    raise Exception.Create
+      ('A data data atual não pode ser menor que a data inicial');
+    resultado := 0;
+  end
+  else
+  begin
+
+    data := data_inicial - data_final;
+    DecodeDate(data, ano, mes, dia);
+    Result := Trunc(data);
 
   end;
 
