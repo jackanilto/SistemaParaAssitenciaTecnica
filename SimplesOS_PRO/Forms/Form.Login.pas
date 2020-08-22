@@ -112,7 +112,7 @@ end;
 procedure TformLogin.sbSairClick(Sender: TObject);
 begin
    started := 'no';
-   close;
+   Application.Terminate;
 end;
 
 end.

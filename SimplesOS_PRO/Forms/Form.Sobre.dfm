@@ -7614,9 +7614,9 @@ object formSobre: TformSobre
   object Label4: TLabel
     Left = 152
     Top = 250
-    Width = 126
+    Width = 161
     Height = 21
-    Caption = 'Vers'#227'o 0.5.3  BETA'
+    Caption = 'Vers'#227'o PRO 0.5.3  BETA'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16

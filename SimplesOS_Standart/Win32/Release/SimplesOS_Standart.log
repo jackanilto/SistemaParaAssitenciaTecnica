@@ -72,3 +72,22 @@
 19/08/20 20:04:58 - Form: 
 19/08/20 20:06:39 - ===========================================
 19/08/20 20:06:39 - Form: 
+22/08/20 09:10:29 - ===========================================
+22/08/20 09:10:29 - Form: formPrincipal
+22/08/20 09:10:29 - Caption: SimpleOS
+22/08/20 09:10:29 - Erro:EIBNativeException
+22/08/20 09:10:29 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+22/08/20 09:10:49 - ===========================================
+22/08/20 09:10:49 - Form: formPrincipal
+22/08/20 09:10:49 - Caption: SimpleOS
+22/08/20 09:10:49 - Erro:EAccessViolation
+22/08/20 09:10:49 - Erro:Access violation at address 00BE3E9B in module 'SimplesOS_Standart.exe'. Read of address 00000004
+22/08/20 09:11:09 - ===========================================
+22/08/20 09:11:09 - Form: formPrincipal
+22/08/20 09:11:09 - Caption: SimpleOS
+22/08/20 09:11:09 - Erro:EAccessViolation
+22/08/20 09:11:09 - Erro:Access violation at address 00BE3E9B in module 'SimplesOS_Standart.exe'. Read of address 00000004

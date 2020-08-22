@@ -739,6 +739,7 @@
     <File Path="Classes\Reusable"/>
     <File Path="Classes\Reusable\UClasse.Calcular.Juros.pas"/>
     <File Path="Classes\Reusable\UClasse.CapturarErro.pas"/>
+    <File Path="Classes\Reusable\UClasse.Demo.pas"/>
     <File Path="Classes\Reusable\UClasse.DiasMeses.pas"/>
     <File Path="Classes\Reusable\UClasse.ExtrairDiaData.pas"/>
     <File Path="Classes\Reusable\UClasse.Gerar.Codigo.Barras.pas"/>
@@ -746,7 +747,6 @@
     <File Path="Classes\Reusable\UClasse.ObertValorPorExtenso.pas"/>
     <File Path="Classes\Reusable\UClasse.Obter.Data.Hora.PorExtenso.pas"/>
     <File Path="Classes\Reusable\UClasse.Validar.Documento.pas"/>
-    <File Path="Classes\Reusable\UClasse.Demo.pas"/>
     <File Path="Classes\UClasse.Chamar.Cadastro.Clientes.Ordens.pas"/>
     <File Path="Classes\UClasse.ChamarCadastro.pas"/>
     <File Path="Classes\UClasse.Criar.Janela.pas"/>

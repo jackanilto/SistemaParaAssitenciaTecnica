@@ -20,7 +20,8 @@ uses
   UClasse.Config.Acesso.Banco, Form.Relatorio.Problemas.Frequentes,
   Form.Relatorio.Historico.Caixa, Form.Trocar.Usuario,
   UClasse.Config.Imagem.Logo,
-  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar, MidasLib, Winapi.ShellAPI;
+  Vcl.ExtDlgs, Vcl.Imaging.jpeg, softMeter_globalVar, MidasLib, Winapi.ShellAPI,
+  UClasse.Demo;
 
 type
   TformPrincipal = class(TForm)
@@ -229,6 +230,7 @@ type
     FBackUp: TClasseConfigBackUp;
     FConfigConexao: TConfigConexaoBanco;
     FConfImagemLogo: TConfigImagemLogo;
+    FDemo:TClasseDemo;
     procedure closeSplit;
     procedure arrendondarImagem(value: TPanel);
 
@@ -999,6 +1001,7 @@ begin
   FreeAndNil(FBackUp);
   FreeAndNil(FConfigConexao);
   FreeAndNil(FConfImagemLogo);
+  FreeAndNil(FDemo);
 end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);
@@ -1021,6 +1024,9 @@ begin
   FConfigConexao := TConfigConexaoBanco.create;
 
   FConfImagemLogo := TConfigImagemLogo.create;
+
+  FDemo := TClasseDemo.create;
+  FDemo.demoActive(false);
 
   ReportMemoryLeaksOnShutdown := true;
 

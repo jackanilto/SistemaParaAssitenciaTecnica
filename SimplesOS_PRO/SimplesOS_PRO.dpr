@@ -206,7 +206,8 @@ uses
   softMeter_globalVar in 'softMeter_globalVar.pas',
   Form.Abertura.Caixa.Manual in 'Forms\Caixa\Form.Abertura.Caixa.Manual.pas' {formAberturaDeCaixaManual},
   Form.Relatorio.Aniversariantes in 'Forms\Relatorios\Form.Relatorio.Aniversariantes.pas' {formRelatorioClientesAniversariantes},
-  UClasse.Relatorio.Aniversariantes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Aniversariantes.pas';
+  UClasse.Relatorio.Aniversariantes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Aniversariantes.pas',
+  UClasse.Demo in 'Classes\Entity\UClasse.Demo.pas';
 
 {$R *.res}
 
