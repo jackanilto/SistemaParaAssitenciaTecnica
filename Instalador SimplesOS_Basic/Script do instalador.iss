@@ -22,7 +22,7 @@ DefaultDirName=C:/SimpleOS_Basic Beta 0.5.3
 DisableProgramGroupPage=yes
 ; The [Icons] "quicklaunchicon" entry uses {userappdata} but its [Tasks] entry has a proper IsAdminInstallMode Check.
 UsedUserAreasWarning=no
-LicenseFile=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Contrato de uso.txt
+LicenseFile=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Contrato de uso.rtf
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Instalador
@@ -42,7 +42,7 @@ Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription
 [Files]
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\SimplesOS_VesionBasic.exe; DestDir: {app}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\App_Config.exe; DestDir: {app}; Flags: ignoreversion
-Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Contrato de uso.txt; DestDir: {app}; Flags: ignoreversion
+Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Contrato de uso.rtf; DestDir: {app}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\fbclient.dll; DestDir: {sd}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\fbclient.dll; DestDir: {app}; Flags: ignoreversion
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Firebird-2.5.9.27139_0_Win32.exe; DestDir: {app}; Flags: ignoreversion
