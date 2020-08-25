@@ -1007,7 +1007,7 @@ end;
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
 
-  dllSoftMeter.sendScreenView('SimplesOS Alphi 0.8.9');
+  dllSoftMeter.sendScreenView('SimplesOS PRO Beta 0.5.3 Demo');
   dllSoftMeter.sendEvent('Iniciou a aplicação', 'SimpleOS', 0);
 
   codigoDaOS := 0;
@@ -1026,7 +1026,7 @@ begin
   FConfImagemLogo := TConfigImagemLogo.create;
 
   FDemo := TClasseDemo.create;
-  FDemo.demoActive(false);
+  FDemo.demoActive(true);
 
   ReportMemoryLeaksOnShutdown := true;
 

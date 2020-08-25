@@ -5,7 +5,7 @@
 #define MyAppVersion "Beta 0.5.3"
 #define MyAppPublisher "CrioSoftware Tecnologia"
 #define MyAppURL "www.criosoftware.com.br"
-#define MyAppExeName "SimplesOS_VesionBasic.exe"
+#define MyAppExeName "SimplesOS_VersionBasic.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.

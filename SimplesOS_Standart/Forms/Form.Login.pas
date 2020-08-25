@@ -98,6 +98,7 @@ begin
   if FLogin.realizarLogin = true then
   begin
     started := 'yes';
+    FormLogin.Hide;
     formLogin.Close;
   end
   else

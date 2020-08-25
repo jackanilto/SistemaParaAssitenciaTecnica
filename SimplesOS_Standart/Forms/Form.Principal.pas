@@ -1005,7 +1005,7 @@ end;
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
 
-  dllSoftMeter.sendScreenView('SimplesOS Alphi 0.8.9');
+  dllSoftMeter.sendScreenView('SimplesOS Beta 0.5.3 Demonstração');
   dllSoftMeter.sendEvent('Iniciou a aplicação', 'SimpleOS', 0);
 
   codigoDaOS := 0;

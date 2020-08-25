@@ -27,3 +27,13 @@ At line 1, column 15
 22/08/20 09:03:57 - Caption: SimpleOS
 22/08/20 09:03:57 - Erro:EAccessViolation
 22/08/20 09:03:57 - Erro:Access violation at address 00BDF523 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+24/08/20 20:40:01 - ===========================================
+24/08/20 20:40:01 - Form: formPrincipal
+24/08/20 20:40:01 - Caption: SimpleOS
+24/08/20 20:40:01 - Erro:EAccessViolation
+24/08/20 20:40:01 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+25/08/20 20:02:25 - ===========================================
+25/08/20 20:02:25 - Form: formPrincipal
+25/08/20 20:02:25 - Caption: SimpleOS
+25/08/20 20:02:25 - Erro:EAccessViolation
+25/08/20 20:02:25 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004

@@ -292,7 +292,7 @@ object formLogin: TformLogin
     ParentFont = False
   end
   object sbEntrar: TSpeedButton
-    Left = 32
+    Left = 30
     Top = 272
     Width = 113
     Height = 57
@@ -406,7 +406,7 @@ object formLogin: TformLogin
     OnClick = sbEntrarClick
   end
   object sbConfiguracoes: TSpeedButton
-    Left = 159
+    Left = 149
     Top = 272
     Width = 186
     Height = 57
@@ -520,7 +520,7 @@ object formLogin: TformLogin
     OnClick = sbConfiguracoesClick
   end
   object sbSair: TSpeedButton
-    Left = 351
+    Left = 341
     Top = 272
     Width = 102
     Height = 57
