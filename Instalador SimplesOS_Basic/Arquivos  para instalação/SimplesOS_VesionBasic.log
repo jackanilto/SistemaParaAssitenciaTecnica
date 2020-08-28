@@ -8,3 +8,13 @@
 24/07/20 18:18:40 - Caption: SimpleOS Basic
 24/07/20 18:18:40 - Erro:EAccessViolation
 24/07/20 18:18:40 - Erro:Access violation at address 00BDF39B in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/08/20 19:49:43 - ===========================================
+27/08/20 19:49:43 - Form: formPrincipal
+27/08/20 19:49:43 - Caption: SimpleOS Basic
+27/08/20 19:49:43 - Erro:EAccessViolation
+27/08/20 19:49:43 - Erro:Access violation at address 00BE341B in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+27/08/20 19:56:07 - ===========================================
+27/08/20 19:56:07 - Form: formPrincipal
+27/08/20 19:56:07 - Caption: SimpleOS Basic
+27/08/20 19:56:07 - Erro:EAccessViolation
+27/08/20 19:56:07 - Erro:Access violation at address 00BE341B in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
