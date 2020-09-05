@@ -37,3 +37,18 @@ At line 1, column 15
 25/08/20 20:02:25 - Caption: SimpleOS
 25/08/20 20:02:25 - Erro:EAccessViolation
 25/08/20 20:02:25 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+05/09/20 14:19:57 - ===========================================
+05/09/20 14:19:57 - Form: formPrincipal
+05/09/20 14:19:57 - Caption: SimpleOS
+05/09/20 14:19:57 - Erro:Exception
+05/09/20 14:19:57 - Erro:Você não possui acesso a este recurso.
+05/09/20 14:20:45 - ===========================================
+05/09/20 14:20:45 - Form: formPrincipal
+05/09/20 14:20:45 - Caption: SimpleOS
+05/09/20 14:20:45 - Erro:Exception
+05/09/20 14:20:45 - Erro:Você não possui acesso a este recurso.
+05/09/20 14:20:54 - ===========================================
+05/09/20 14:20:54 - Form: formPrincipal
+05/09/20 14:20:54 - Caption: SimpleOS
+05/09/20 14:20:54 - Erro:Exception
+05/09/20 14:20:54 - Erro:Você não possui acesso a este recurso.

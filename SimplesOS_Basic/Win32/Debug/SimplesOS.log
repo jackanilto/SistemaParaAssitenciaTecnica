@@ -1293,3 +1293,8 @@ At line 1, column 16
 23/05/20 13:18:55 - Caption: SimpleOS
 23/05/20 13:18:55 - Erro:EAccessViolation
 23/05/20 13:18:55 - Erro:Access violation at address 00C0779F in module 'SimplesOS.exe'. Read of address 00000004
+02/09/20 18:09:17 - ===========================================
+02/09/20 18:09:17 - Form: formPrincipal
+02/09/20 18:09:17 - Caption: SimpleOS
+02/09/20 18:09:17 - Erro:EAccessViolation
+02/09/20 18:09:17 - Erro:Access violation at address 00C07783 in module 'SimplesOS.exe'. Read of address 00000004

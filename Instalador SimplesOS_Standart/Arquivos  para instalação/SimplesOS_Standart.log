@@ -1,0 +1,14 @@
+05/09/20 14:33:24 - ===========================================
+05/09/20 14:33:24 - Form: formPrincipal
+05/09/20 14:33:24 - Caption: SimpleOS
+05/09/20 14:33:24 - Erro:EIBNativeException
+05/09/20 14:33:24 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+05/09/20 14:33:27 - ===========================================
+05/09/20 14:33:27 - Form: formPrincipal
+05/09/20 14:33:27 - Caption: SimpleOS
+05/09/20 14:33:27 - Erro:EAccessViolation
+05/09/20 14:33:27 - Erro:Access violation at address 00BE7F1B in module 'SimplesOS_Standart.exe'. Read of address 00000004

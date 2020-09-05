@@ -1026,9 +1026,9 @@ begin
   FConfImagemLogo := TConfigImagemLogo.create;
 
   FDemo := TClasseDemo.create;
-  FDemo.demoActive(true);
+  FDemo.demoActive(false);
 
-  ReportMemoryLeaksOnShutdown := true;
+//  ReportMemoryLeaksOnShutdown := true;
 
 end;
 
