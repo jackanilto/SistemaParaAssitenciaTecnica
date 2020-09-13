@@ -26,7 +26,7 @@ LicenseFile=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instala
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Standart\Arquivos  para instalação\Instalador
-OutputBaseFilename=Instalador SimplesOS Basic Beta 0.5.3
+OutputBaseFilename=Instalador SimplesOS Standart Beta 0.5.3
 SetupIconFile=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\SimplesOS_Icon.ico
 Compression=lzma
 SolidCompression=yes

@@ -1,0 +1,42 @@
+
+Recursos a serem analisados para a próxima versão
+
+##Criar a opção para editar a parcela da venda.
+##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias.
+##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos.
+##Criar uma janela especifica para quitar as contas.
+##Criar o relatório de Historico de compras do cliente.
+##Implementar o processo de fechamento do caixa por turnos.
+##Criar blocos na tela principal da janela com as informações das OS.
+##Criar uma janela para visualizar as informações das OS por situação selecionando por datas.
+
+
+
+###Janela de venda -> Ao remover um item da lista de vendas o valor do deve ser ajustado. -> OK
+##Cadastro de produtos -> Resolver o problema ao excluir um item que esteja vinculado
+	a uma ou mais vendas. -> OK
+##Cadastro de produtos -> Ver um possível errro ao inserir um novo produtos de chave estrangeira.	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

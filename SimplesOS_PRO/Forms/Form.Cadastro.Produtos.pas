@@ -249,13 +249,27 @@ end;
 procedure TformCadastroProdutos.sbExcluirClick(Sender: TObject);
 begin
   inherited;
-  FEntityProdutos.deletar;
+  try
+
+    FEntityProdutos.deletar;
+
+  except on e:exception do
+  begin
+    MessageDlg(
+              'ERRO! Este registro não pode ser excluído pelo motivo de já estar vinculado a uma ou mais vendas',
+              mtWarning, [mbOK], 0, mbOK);
+    Abort;
+  end;
+
+  end;
 end;
 
 procedure TformCadastroProdutos.sbExportarClick(Sender: TObject);
 begin
   inherited;
-  FEntityProdutos.exportar;
+
+    FEntityProdutos.exportar;
+
 end;
 
 procedure TformCadastroProdutos.sbImprimirClick(Sender: TObject);

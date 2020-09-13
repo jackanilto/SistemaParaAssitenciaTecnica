@@ -1,0 +1,112 @@
+13/09/20 17:10:12 - ===========================================
+13/09/20 17:10:12 - Form: formPrincipal
+13/09/20 17:10:12 - Caption: SimpleOS
+13/09/20 17:10:12 - Erro:EIBNativeException
+13/09/20 17:10:12 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+13/09/20 17:14:05 - ===========================================
+13/09/20 17:14:05 - Form: formPrincipal
+13/09/20 17:14:05 - Caption: SimpleOS
+13/09/20 17:14:05 - Erro:EIBNativeException
+13/09/20 17:14:05 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+13/09/20 17:15:34 - ===========================================
+13/09/20 17:15:34 - Form: formPrincipal
+13/09/20 17:15:34 - Caption: SimpleOS
+13/09/20 17:15:34 - Erro:EIBNativeException
+13/09/20 17:15:34 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+13/09/20 17:16:42 - ===========================================
+13/09/20 17:16:42 - Form: formPrincipal
+13/09/20 17:16:42 - Caption: SimpleOS
+13/09/20 17:16:42 - Erro:EIBNativeException
+13/09/20 17:16:42 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+13/09/20 17:19:53 - ===========================================
+13/09/20 17:19:53 - Form: formPrincipal
+13/09/20 17:19:53 - Caption: SimpleOS
+13/09/20 17:19:53 - Erro:EIBNativeException
+13/09/20 17:19:53 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+13/09/20 17:20:15 - ===========================================
+13/09/20 17:20:15 - Form: formCadastroProdutos
+13/09/20 17:20:15 - Caption: Cadastro de produtos
+13/09/20 17:20:15 - Erro:EIBNativeException
+13/09/20 17:20:15 - Erro:[FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_ITENS_VENDA_3" on table "ITENS_VENDA"
+Foreign key references are present for the record
+Problematic key value is ("ID" = 3)
+13/09/20 17:20:25 - ===========================================
+13/09/20 17:20:25 - Form: formCadastroProdutos
+13/09/20 17:20:25 - Caption: Cadastro de produtos
+13/09/20 17:20:25 - Erro:EIBNativeException
+13/09/20 17:20:25 - Erro:[FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_ITENS_VENDA_3" on table "ITENS_VENDA"
+Foreign key references are present for the record
+Problematic key value is ("ID" = 4)
+13/09/20 17:20:29 - ===========================================
+13/09/20 17:20:29 - Form: formCadastroProdutos
+13/09/20 17:20:29 - Caption: Cadastro de produtos
+13/09/20 17:20:29 - Erro:EIBNativeException
+13/09/20 17:20:29 - Erro:[FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_ITENS_VENDA_3" on table "ITENS_VENDA"
+Foreign key references are present for the record
+Problematic key value is ("ID" = 5)
+13/09/20 17:20:37 - ===========================================
+13/09/20 17:20:37 - Form: formCadastroProdutos
+13/09/20 17:20:37 - Caption: Cadastro de produtos
+13/09/20 17:20:37 - Erro:EIBNativeException
+13/09/20 17:20:37 - Erro:[FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_ITENS_VENDA_3" on table "ITENS_VENDA"
+Foreign key references are present for the record
+Problematic key value is ("ID" = 6)
+13/09/20 17:24:03 - ===========================================
+13/09/20 17:24:03 - Form: formPrincipal
+13/09/20 17:24:03 - Caption: SimpleOS
+13/09/20 17:24:03 - Erro:EIBNativeException
+13/09/20 17:24:03 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+13/09/20 17:24:24 - ===========================================
+13/09/20 17:24:24 - Form: formCadastroProdutos
+13/09/20 17:24:24 - Caption: Cadastro de produtos
+13/09/20 17:24:24 - Erro:EIBNativeException
+13/09/20 17:24:24 - Erro:[FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_ITENS_VENDA_3" on table "ITENS_VENDA"
+Foreign key references are present for the record
+Problematic key value is ("ID" = 3)
+13/09/20 17:26:09 - ===========================================
+13/09/20 17:26:09 - Form: formPrincipal
+13/09/20 17:26:09 - Caption: SimpleOS
+13/09/20 17:26:09 - Erro:EIBNativeException
+13/09/20 17:26:09 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+13/09/20 17:28:04 - ===========================================
+13/09/20 17:28:04 - Form: formPrincipal
+13/09/20 17:28:04 - Caption: SimpleOS
+13/09/20 17:28:04 - Erro:EIBNativeException
+13/09/20 17:28:04 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -204
+Table unknown
+AUXILIAR
+At line 1, column 15
+13/09/20 17:28:08 - ===========================================
+13/09/20 17:28:08 - Form: formPrincipal
+13/09/20 17:28:08 - Caption: SimpleOS
+13/09/20 17:28:08 - Erro:EAccessViolation
+13/09/20 17:28:08 - Erro:Access violation at address 00C13943 in module 'SimplesOS_PRO.exe'. Read of address 00000004

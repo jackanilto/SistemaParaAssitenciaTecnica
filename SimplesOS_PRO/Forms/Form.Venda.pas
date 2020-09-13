@@ -560,27 +560,23 @@ begin
 
       cds_tem_produtos.Delete;
 
-      lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
-        FEntityVenda.somarItensDaVenda(cds_tem_produtos));
-
-      lblTotalItens.Caption :=
-        inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
-
     end
     else if cds_tem_produtosQuantidade.AsInteger > 1 then
     begin
 
       cds_tem_produtos.Edit;
       cds_tem_produtosQuantidade.AsInteger := cds_tem_produtosQuantidade.AsInteger -1;
+      cds_tem_produtosTotal_do_produto.AsFloat := cds_tem_produtosTotal_do_produto.AsFloat  -
+                                                  cds_tem_produtosValor_unitario.AsFloat;
       cds_tem_produtos.Post;
 
-      lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
-        FEntityVenda.somarItensDaVenda(cds_tem_produtos));
-
-      lblTotalItens.Caption :=
-        inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
-
     end;
+
+    lblTotalDaVenda.Caption := formatFloat('R$ ###,##0.00',
+      FEntityVenda.somarItensDaVenda(cds_tem_produtos));
+
+    lblTotalItens.Caption :=
+      inttostr(FEntityVenda.contarTotalItens(cds_tem_produtos));
 
   end;
 
@@ -602,6 +598,7 @@ begin
     finally
       FormVendaConfirmarPagamento.Free;
     end;
+
   end;
 
 end;
