@@ -78,6 +78,9 @@ type
     function estornarParcela(value: integer): iQuitarParcelasVenda;
 
     function prepararAdicionarParcela: iQuitarParcelasVenda;
+    function editarParcela: iQuitarParcelasVenda; // Incluido em 25/10/2020
+    function salvarParcelasEditadas(const valor:Currency; const data:TDate): iQuitarParcelasVenda; // Incluido em 25/10/2020
+
     function getID_VENDA(value: integer): iQuitarParcelasVenda;
     function getID_CLIENTE(value: integer): iQuitarParcelasVenda;
     function getVALOR_VENDA(value: string): iQuitarParcelasVenda;
@@ -199,6 +202,15 @@ destructor TEntityQuitarParcelaVenda.destroy;
 begin
   FreeAndNil(FCalularDiferencaDiasMes);
   inherited;
+end;
+
+function TEntityQuitarParcelaVenda.editarParcela: iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  FQueryParcela.TQuery.Edit;
+
 end;
 
 function TEntityQuitarParcelaVenda.estornarParcela(value: integer)
@@ -513,7 +525,7 @@ begin
 
   if value = 0 then
     raise Exception.create
-      ('ERRO! Informe o código da venda que esta inserindo a parela');
+      ('ERRO! Informe o código da venda que esta inserindo a parcela');
 
   FID_VENDA := value;
 
@@ -699,12 +711,14 @@ end;
 function TEntityQuitarParcelaVenda.prepararAdicionarParcela
   : iQuitarParcelasVenda;
 begin
+
   result := self;
 
   FQueryParcela.TQuery.Insert;
-
-  FQueryParcela.TQuery.FieldByName('ID').AsInteger :=
+  begin
+    FQueryParcela.TQuery.FieldByName('ID').AsInteger :=
     FQueryParcela.codigoCadastro('SP_GEN_PARCELAS_VENDAS_ID');
+  end;
 
   with FQueryParcela.TQuery do
   begin
@@ -794,6 +808,32 @@ begin
     result := F_Query.RecordCount;
   finally
     FreeAndNil(F_Query);
+  end;
+
+end;
+
+function TEntityQuitarParcelaVenda.salvarParcelasEditadas(const valor: Currency;
+  const data: TDate): iQuitarParcelasVenda;
+begin
+
+  result := self;
+
+  FQueryParcela.TQuery.Edit;
+
+  try
+
+    FQueryParcela.TQuery.FieldByName('VALOR_DA_PARCELA').AsCurrency := valor;
+    FQueryParcela.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime := data;
+
+    FQueryParcela.TQuery.Post;
+
+    FQuery.TQuery.Refresh;
+
+  except on e:exception do
+  begin
+    MessageDlg('ERRO ao tentar alterar a parcela. '+e.Message, mtError, [mbOK], 0, mbOK);
+  end;
+
   end;
 
 end;

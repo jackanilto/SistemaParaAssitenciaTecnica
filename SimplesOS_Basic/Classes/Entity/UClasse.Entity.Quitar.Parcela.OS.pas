@@ -83,6 +83,9 @@ type
     function estornarParcela(value: integer): iQuitarParcelaOS;
 
     function adicionarParcela: iQuitarParcelaOS;
+    function salvarAlteracoesParcela(const valor:currency; const vencimento:TDate;
+              const parcela:integer):iQuitarParcelaOS;// Incluido em 25/10/2020
+
     function getValorParcela(value: string): iQuitarParcelaOS;
     function getDataVencimento(value: string): iQuitarParcelaOS;
 
@@ -112,6 +115,7 @@ function TEntityQuitarParcelaOS.adicionarParcela: iQuitarParcelaOS;
 var
   FAdicionarParcela: iConexaoQuery;
 begin
+
   result := self;
 
   FAdicionarParcela := TConexaoQuery.new.Query('PARCELAS_ORDEM');
@@ -715,6 +719,36 @@ end;
 function TEntityQuitarParcelaOS.pesquisar: iQuitarParcelaOS;
 begin
   result := self;
+end;
+
+function TEntityQuitarParcelaOS.salvarAlteracoesParcela(const valor: currency;
+  const vencimento: TDate; const parcela:integer): iQuitarParcelaOS;
+var
+  FAdicionarParcela: iConexaoQuery;
+begin
+
+  result := self;
+
+  FAdicionarParcela := TConexaoQuery.new.getCampo('ID').getValor(parcela.ToString).sqlPesquisaEstatica('PARCELAS_ORDEM');
+
+  FAdicionarParcela.TQuery.Edit;
+
+  try
+
+    FAdicionarParcela.TQuery.FieldByName('VALOR_PARCELA').AsCurrency := valor;
+    FAdicionarParcela.TQuery.FieldByName('DATA_VENCIMENTO').AsDateTime := vencimento;
+
+    FAdicionarParcela.TQuery.Post;
+
+    FQuery.TQuery.Refresh;
+
+  except on e:exception do
+  begin
+    MessageDlg('ERRO! Não foi possível alterar os dados da parcela', mtError, [mbOK], 00, mbOK);
+  end;
+
+  end;
+
 end;
 
 function TEntityQuitarParcelaOS.selecionarParcelaQuitar(value: integer)

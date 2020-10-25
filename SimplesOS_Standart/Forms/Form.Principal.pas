@@ -1005,7 +1005,7 @@ end;
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
 
-  dllSoftMeter.sendScreenView('SimplesOS Beta 0.5.3 Demonstração');
+  dllSoftMeter.sendScreenView('SimplesOS Standart 1.0');
   dllSoftMeter.sendEvent('Iniciou a aplicação', 'SimpleOS', 0);
 
   codigoDaOS := 0;
@@ -1026,7 +1026,7 @@ begin
 
   //Ativação da demonstração
   FDemo := TClasseDemo.create;
-  FDemo.demoActive(false);
+  FDemo.demoActive(true);
 
 //  ReportMemoryLeaksOnShutdown := true;
 

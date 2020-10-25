@@ -1003,8 +1003,8 @@ end;
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
 
-  dllSoftMeter.sendScreenView('SimplesOS Basic Beta 0.4.6');
-  dllSoftMeter.sendEvent('Iniciou a aplicação', 'SimpleOS_Basic Beta', 0);
+  dllSoftMeter.sendScreenView('SimplesOS Basic 1.0');
+  dllSoftMeter.sendEvent('Iniciou a aplicação', 'SimpleOS_Basic', 0);
 
   codigoDaOS := 0;
   codigoDocliente := 0;

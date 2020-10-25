@@ -1031,6 +1031,7 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     Font.Quality = fqDraft
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
+    PopupMenu = PopupMenu1
     ReadOnly = True
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
@@ -2918,8 +2919,8 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
     end
   end
   object DataSource2: TDataSource
-    Left = 500
-    Top = 269
+    Left = 476
+    Top = 141
   end
   object s_ImprimirInfoJuros: TDataSource
     Left = 748
@@ -2952,5 +2953,13 @@ object formQuitarParcelaOS: TformQuitarParcelaOS
   object s_ImprimirEmpresa: TDataSource
     Left = 500
     Top = 381
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 424
+    Top = 224
+    object Editarparcelaselecionada1: TMenuItem
+      Caption = 'Editar parcela selecionada'
+      OnClick = Editarparcelaselecionada1Click
+    end
   end
 end

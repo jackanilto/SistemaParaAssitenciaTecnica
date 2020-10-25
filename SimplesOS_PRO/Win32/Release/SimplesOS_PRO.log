@@ -57,3 +57,43 @@ At line 1, column 15
 13/09/20 17:19:36 - Caption: SimpleOS
 13/09/20 17:19:36 - Erro:Exception
 13/09/20 17:19:36 - Erro:Você não possui acesso a este recurso.
+14/09/20 18:29:25 - ===========================================
+14/09/20 18:29:25 - Form: formPrincipal
+14/09/20 18:29:25 - Caption: SimpleOS
+14/09/20 18:29:25 - Erro:EAccessViolation
+14/09/20 18:29:25 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+14/09/20 18:30:51 - ===========================================
+14/09/20 18:30:51 - Form: formPrincipal
+14/09/20 18:30:51 - Caption: SimpleOS
+14/09/20 18:30:51 - Erro:Exception
+14/09/20 18:30:51 - Erro:Você não possui acesso a este recurso.
+25/10/20 10:35:23 - ===========================================
+25/10/20 10:35:23 - Form: formQuitarParcelasVendas
+25/10/20 10:35:23 - Caption: Ver parcelas das vendas realizadas
+25/10/20 10:35:23 - Erro:EConvertError
+25/10/20 10:35:23 - Erro:'  /  /    ' is not a valid date
+25/10/20 10:37:17 - ===========================================
+25/10/20 10:37:17 - Form: formQuitarParcelasVendas
+25/10/20 10:37:17 - Caption: Ver parcelas das vendas realizadas
+25/10/20 10:37:17 - Erro:Exception
+25/10/20 10:37:17 - Erro:ERRO! Informe o código da venda que esta inserindo a parela
+25/10/20 11:01:01 - ===========================================
+25/10/20 11:01:01 - Form: formPrincipal
+25/10/20 11:01:01 - Caption: SimpleOS
+25/10/20 11:01:01 - Erro:EAccessViolation
+25/10/20 11:01:01 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+25/10/20 11:36:51 - ===========================================
+25/10/20 11:36:51 - Form: FormVendaConfirmarPagamento
+25/10/20 11:36:51 - Caption: '
+25/10/20 11:36:51 - Erro:Exception
+25/10/20 11:36:51 - Erro:Não é possível parcelas um venda sem um cliente definido.
+25/10/20 13:50:16 - ===========================================
+25/10/20 13:50:16 - Form: formPrincipal
+25/10/20 13:50:16 - Caption: SimpleOS
+25/10/20 13:50:16 - Erro:EAccessViolation
+25/10/20 13:50:16 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+25/10/20 14:19:31 - ===========================================
+25/10/20 14:19:31 - Form: formPrincipal
+25/10/20 14:19:31 - Caption: SimpleOS
+25/10/20 14:19:31 - Erro:EAccessViolation
+25/10/20 14:19:31 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004

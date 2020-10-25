@@ -1,13 +1,21 @@
 
 Recursos a serem analisados para a próxima versão
 
-##Criar a opção para editar a parcela da venda.
+##Criar a opção para editar a parcela da venda. -> OK
+##Criar a opção para editar a parcela das OS. -> OK 
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias.
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos.
 ##Criar uma janela especifica para quitar as contas.
 ##Criar o relatório de Historico de compras do cliente.
 ##Implementar o processo de fechamento do caixa por turnos
 
+
+//
+form.quitar.parcela.venda
+uclasse.entity.quitar.parcela.vendas
+
+form.quitar.parcelas
+uclasse.entity.quitar.parcela.os
 
 
 

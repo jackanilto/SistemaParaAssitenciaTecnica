@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "SimplesOS Standart"
-#define MyAppVersion "Beta 0.5.3"
+#define MyAppVersion "1.0"
 #define MyAppPublisher "CrioSoftware Sistemas"
 #define MyAppURL "www.criosoftware.com.br"
 #define MyAppExeName "SimplesOS_Standart.exe"
@@ -26,7 +26,7 @@ LicenseFile=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instala
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Standart\Arquivos  para instalação\Instalador
-OutputBaseFilename=Instalador SimplesOS Standart Beta 0.5.3
+OutputBaseFilename=Instalador SimplesOS Standart 1.0
 SetupIconFile=C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\SimpleOs\SimplesOS_Icon.ico
 Compression=lzma
 SolidCompression=yes

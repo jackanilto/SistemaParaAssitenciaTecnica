@@ -29,7 +29,6 @@ type
     SplitView1: TSplitView;
     sbMenu: TSpeedButton;
     CategoryButtons1: TCategoryButtons;
-    ImageList1: TImageList;
     Label1: TLabel;
     lblFuncionario: TLabel;
     CategoryButtons2: TCategoryButtons;
@@ -134,6 +133,7 @@ type
     acAberturaCaixa: TAction;
     acRelatorioAniversariantes: TAction;
     acREstaurarBancoDeDados: TAction;
+    ImageList1: TImageList;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -1007,7 +1007,7 @@ end;
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
 
-  dllSoftMeter.sendScreenView('SimplesOS PRO Beta 0.5.3 Demo');
+  dllSoftMeter.sendScreenView('SimplesOS PRO 1.0 PRO');
   dllSoftMeter.sendEvent('Iniciou a aplicação', 'SimpleOS', 0);
 
   codigoDaOS := 0;
@@ -1025,8 +1025,11 @@ begin
 
   FConfImagemLogo := TConfigImagemLogo.create;
 
+
+ //Ativa a versão de demonstração
   FDemo := TClasseDemo.create;
-  FDemo.demoActive(false);
+  FDemo.demoActive(true);
+  //////////////////////
 
 //  ReportMemoryLeaksOnShutdown := true;
 

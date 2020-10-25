@@ -13,7 +13,7 @@ uses
   UClasse.Entity.Table, UClasse.Visualizar.Ordens.Servico,
   UClasse.Visualizar.Ordens.Servicos.Incluidos,
   UClasse.Visualizar.Ordens.Servico.Parcelas, UClasse.Entity.Dados.Empresa,
-  UClasse.Entity.Configurar.Parcelas, RxToolEdit, RxCurrEdit;
+  UClasse.Entity.Configurar.Parcelas, RxToolEdit, RxCurrEdit, Vcl.Menus;
 
 type
   TEnumPesquisar = (parcela, os, cod_cliente, cliente);
@@ -80,6 +80,8 @@ type
     edtMulta: TCurrencyEdit;
     edtDesconto: TCurrencyEdit;
     edtTotalAPagar: TCurrencyEdit;
+    PopupMenu1: TPopupMenu;
+    Editarparcelaselecionada1: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -103,6 +105,7 @@ type
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Editarparcelaselecionada1Click(Sender: TObject);
   private
     { Private declarations }
     var
@@ -120,6 +123,8 @@ type
     FEntityVisualizarOSParcelas: iVisualizarParcelasOrdem;
     FEntityVisualizarEmpresa: iDadosEmpresa;
     FEntityVisualizarJuros: iConfigurarParcelas;
+
+    FStatus: string;
 
     procedure ativarBotoes;
     procedure desativarBotoes;
@@ -299,6 +304,38 @@ begin
   DataSource1.DataSet.First;
 end;
 
+procedure TformQuitarParcelaOS.Editarparcelaselecionada1Click(Sender: TObject);
+begin
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+
+    if DataSource1.DataSet.FieldByName('PGTO').AsString = 'Nao' then
+    begin
+
+      FStatus := 'edit';
+
+       sbAdicionarParcela.Enabled := false;
+       sbEstornar.Enabled := false;
+       sbSalvar.Enabled := true;
+       sbExcluir.Enabled := false;
+       sbCancelar.Enabled := true;
+       sbImprimirParcelas.Enabled := false;
+       sbExportar.Enabled := false;
+
+    end
+    else
+    begin
+      MessageDlg('AVISO! Não é possível alterar a parcela selecionada', mtWarning, [mbOK], 0, mbOK);
+      Abort;
+    end;
+
+
+  end;
+
+
+end;
+
 procedure TformQuitarParcelaOS.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
   var
@@ -349,7 +386,6 @@ begin
   FEntityVisualizarOSParcelas   := TEntityVisualizarOrdemServicoParcelas.new;
   FEntityVisualizarEmpresa := TEntityCadastroDadosEmpresa.new;
   FEntityVisualizarJuros := TEntityConfigurarParcelas.new;
-//  FEntityImprimirRecibo := TEntityPrepararRecibo.new;
 
   dllSoftMeter.sendEvent('quitar parcelas das OS', 'Quitar os', 0);
 
@@ -421,6 +457,8 @@ begin
   lblCaption.Caption := self.Caption;
 
   edtDataDePagamento.Date := date;
+
+  edtPesquisar.SetFocus;
 
 end;
 
@@ -572,13 +610,34 @@ begin
 end;
 
 procedure TformQuitarParcelaOS.sbSalvarClick(Sender: TObject);
+var
+  FValorParcela: Currency;
+  FVencimento: TDateTime;
 begin
 
-  FEntityQuitar
+  FValorParcela := StrToCurr(edtValorDaParcela.Text);
+  FVencimento := StrToDate(edtDataDeVencimento.Text);
+
+  if FStatus = 'edit' then
+  begin
+    FEntityQuitar.salvarAlteracoesParcela(
+                                            FValorParcela,
+                                            FVencimento,
+                                            DataSource1.DataSet.FieldByName('ID_PARCELA').AsInteger
+    );
+
+    FStatus := '';
+
+  end
+  else
+  begin
+    FEntityQuitar
               .getValorParcela(edtValorDaParcela.Text)
               .getDataVencimento(edtDataDeVencimento.Text)
               .adicionarParcela
               .atualizar;
+  end;
+
 
    sbSalvar.Enabled := false;
 

@@ -1028,6 +1028,7 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
     Font.Quality = fqDraft
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
+    PopupMenu = PopupMenu1
     ReadOnly = True
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
@@ -3525,6 +3526,14 @@ object formQuitarParcelasVendas: TformQuitarParcelasVendas
             '[Page#]')
         end
       end
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 144
+    Top = 296
+    object Editarparcelaselecionada1: TMenuItem
+      Caption = 'Editar parcela selecionada'
+      OnClick = Editarparcelaselecionada1Click
     end
   end
 end

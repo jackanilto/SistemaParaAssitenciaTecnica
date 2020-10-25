@@ -1660,6 +1660,9 @@ type
     function ordenarGrid(column: TColumn): iQuitarParcelasVenda;
 
     function selecionarParcelaQuitar(value: integer): iQuitarParcelasVenda;
+    function editarParcela: iQuitarParcelasVenda; // Incluido em 25/10/2020
+    function salvarParcelasEditadas(const valor:Currency; const data:TDate): iQuitarParcelasVenda; // Incluido em 25/10/2020
+
     function getCodigoParcela(value: integer): iQuitarParcelasVenda;
     function getDesconto(value: string): iQuitarParcelasVenda;
     function getJuros(value: string): iQuitarParcelasVenda;
@@ -1732,6 +1735,9 @@ type
     function estornarParcela(value: integer): iQuitarParcelaOS;
 
     function adicionarParcela: iQuitarParcelaOS;
+    function salvarAlteracoesParcela(const valor:currency; const vencimento:TDate;
+              const parcela:integer):iQuitarParcelaOS;// Incluido em 25/10/2020
+
     function getValorParcela(value: string): iQuitarParcelaOS;
     function getDataVencimento(value: string): iQuitarParcelaOS;
 

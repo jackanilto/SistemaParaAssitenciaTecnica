@@ -383,9 +383,6 @@ begin
 
 
   end;
-//  if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Estornada' then
-//        FEntityParcelasOrdem.editar;
-//        edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
 
 end;
 
@@ -405,7 +402,6 @@ end;
 
 procedure TformCriarConsultarOrdemServico.edtTotalDaOSExit(Sender: TObject);
 begin
-//  edtValorOrdemParcelado.Text := edtTotalDaOS.Text;
 
     edtValorOrdemParcelado.SetFocus;
 
@@ -419,9 +415,6 @@ begin
 
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
-//    edtValorOrdemParcelado.Text :=
-//      FEntityCriarOrdem.calularTotalPorNumeroDeParcela(edtTotalDaOS,
-//      edtTotalDeParcelas);
 
     edtValorOrdemParcelado.SetFocus;
 

@@ -10,7 +10,7 @@ uses
   UClasse.Entity.Quitar.Parcelas.Vendas, Vcl.DBCtrls, Vcl.Mask, UFactory,
   frxClass, frxDBSet, UClasse.Imprimir.Parcelas, Vcl.ComCtrls,
   UClasse.Imprimir.Recibo, UClasse.Ativar.Desativar.Botoes.Quitar.Parcelas,
-  RxToolEdit, RxCurrEdit;
+  RxToolEdit, RxCurrEdit, Vcl.Menus;
 
 type
   TEnumPesquisar = (Parcela, Venda, codigo_cliente);
@@ -73,6 +73,8 @@ type
     edtMulta: TCurrencyEdit;
     edtDesconto: TCurrencyEdit;
     edtTotalAPagar: TCurrencyEdit;
+    PopupMenu1: TPopupMenu;
+    Editarparcelaselecionada1: TMenuItem;
     procedure sbFecharClick(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -97,6 +99,7 @@ type
       Shift: TShiftState);
     procedure cbPesquisarChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Editarparcelaselecionada1Click(Sender: TObject);
   private
     { Private declarations }
     procedure ativarBotoes;
@@ -148,8 +151,8 @@ begin
     edtPago.Text := FieldByName('PAGO').AsString;
 
 
-    if FieldByName('DATA_VENCIMENTO').AsDateTime = StrToDate('30/12/1899') then
-      edtValorDaParcela.Text := CurrToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
+    if FieldByName('DATA_VENCIMENTO').AsDateTime <> StrToDate('30/12/1899') then
+      edtDataDeVencimento.Text := DateToStr(FieldByName('VALOR_DA_PARCELA').AsCurrency);
 
 
     if DataSource1.DataSet.FieldByName('DATA_PAGAMENTO').AsDateTime <> StrToDate('30/12/1899') then
@@ -323,7 +326,7 @@ begin
 
   end;
 
-
+  edtPesquisar.SetFocus;
 
 end;
 
@@ -486,12 +489,24 @@ begin
   FDataVencimento := StrToDate(edtDataDeVencimento.Text);
   FValorDaParcela := StrToCurr(edtValorDaParcela.Text);
 
-  FentityVisulizarParcelasVenda.getID_VENDA(FCodigoVenda)
-    .getID_CLIENTE(FCodigoCliente).getQUANTIDADE_PARCELAS(FQuantidadeParcelas)
-    .getPARCELA(FParcela).getVALOR_VENDA(CurrToStr(FvalorVenda))
-    .getVALOR_DA_PARCELA(edtValorDaParcela.Text)
-    .getDATA_VENCIMENTO(edtDataDeVencimento.Text)
-    .prepararAdicionarParcela.atualizar;
+  if DataSource1.DataSet.State in [dsInsert] then
+  begin
+
+  FentityVisulizarParcelasVenda
+                              .getID_VENDA(FCodigoVenda)
+                              .getID_CLIENTE(FCodigoCliente)
+                              .getQUANTIDADE_PARCELAS(FQuantidadeParcelas)
+                              .getPARCELA(FParcela)
+                              .getVALOR_VENDA(CurrToStr(FvalorVenda))
+                              .getVALOR_DA_PARCELA(edtValorDaParcela.Text)
+                              .getDATA_VENCIMENTO(edtDataDeVencimento.Text)
+                              .prepararAdicionarParcela
+                              .atualizar;
+  end
+  else
+  begin
+    FentityVisulizarParcelasVenda.salvarParcelasEditadas(FValorDaParcela, FDataVencimento);
+  end;
 
   lblCaption.Caption := 'Ver parcelas das vendas realizadas';
 
@@ -518,6 +533,38 @@ begin
   sbImprimirParcelas.Enabled := true;
   sbExportar.Enabled := true;
   sbImprimir.Enabled := true;
+end;
+
+procedure TformQuitarParcelasVendas.Editarparcelaselecionada1Click(
+  Sender: TObject);
+var
+  totalDeParcelas: Integer;
+begin
+
+  lblCaption.Caption := 'Ver parcelas das vendas realizadas';
+
+  if DataSource1.DataSet.RecordCount >= 1 then
+  begin
+
+    if DataSource1.DataSet.FieldByName('PAGO').AsString <> 'Sim' then
+    begin
+
+      TFactory.new.criarJanela.verificarPermisao('ADICIONARPARCELA');
+
+      lblCaption.Caption := lblCaption.Caption + ' - Editando a parcela';
+
+      FAtivarDesativarBotoes.btAdicionarParcela;
+
+    end
+    else
+    begin
+      MessageDlg('AVISO! Não é possível editar esta parcela', mtWarning, [mbOK], 0, mbOK);
+      Abort;
+    end;
+
+  end;
+
+
 end;
 
 procedure TformQuitarParcelasVendas.calcularDesconto;

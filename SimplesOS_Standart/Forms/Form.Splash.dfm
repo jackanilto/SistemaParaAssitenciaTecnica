@@ -7595,9 +7595,9 @@ object formSplash: TformSplash
   object Label2: TLabel
     Left = 490
     Top = 25
-    Width = 129
+    Width = 83
     Height = 21
-    Caption = 'Beta 0.5.3 Standart'
+    Caption = 'Standart 1.0'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -16
