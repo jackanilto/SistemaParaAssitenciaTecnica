@@ -132,6 +132,7 @@ type
     acAberturaCaixa: TAction;
     acRelatorioAniversariantes: TAction;
     acREstaurarBancoDeDados: TAction;
+    Image3: TImage;
     procedure acSairExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -1026,7 +1027,7 @@ begin
 
   //Ativação da demonstração
   FDemo := TClasseDemo.create;
-  FDemo.demoActive(true);
+  FDemo.demoActive(false);
 
 //  ReportMemoryLeaksOnShutdown := true;
 

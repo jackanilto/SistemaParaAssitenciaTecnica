@@ -30,6 +30,7 @@
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
+    ExplicitTop = -6
     DesignSize = (
       1051
       41)
@@ -126,7 +127,7 @@
     Top = 41
     Width = 1051
     Height = 475
-    ActivePage = tbParcelas
+    ActivePage = tbServicosEFaturamento
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -137,10 +138,6 @@
     TabOrder = 1
     object tbOrdemServiço: TTabSheet
       Caption = 'Ordem de servi'#231'o'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -612,10 +609,6 @@
     object tbServicosEFaturamento: TTabSheet
       Caption = 'Servi'#231'oes e faturamento'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel4: TPanel
         Left = 0
         Top = 0
@@ -626,6 +619,7 @@
         Color = 15527148
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = -2
         object SpeedButton4: TSpeedButton
           Left = 442
           Top = 256

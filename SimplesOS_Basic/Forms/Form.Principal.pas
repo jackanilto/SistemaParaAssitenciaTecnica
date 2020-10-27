@@ -43,8 +43,6 @@ type
     Panel2: TPanel;
     Image2: TImage;
     Image4: TImage;
-    Image5: TImage;
-    Image3: TImage;
     spvCadastros: TSplitView;
     spvMovimentacao: TSplitView;
     spvRelatorio: TSplitView;

@@ -3,19 +3,33 @@ Recursos a serem analisados para a próxima versão
 
 ##Criar a opção para editar a parcela da venda. -> OK
 ##Criar a opção para editar a parcela das OS. -> OK 
+
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias.
-##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos.
+
+##Ao incluir o servico -> O serviço não precisa estar cadastrado no sistema.(Ver o impacto desta mudança)
+
+##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos. -> DESCARTADO
+
 ##Criar uma janela especifica para quitar as contas.
+
 ##Criar o relatório de Historico de compras do cliente.
-##Implementar o processo de fechamento do caixa por turnos
+
+##Implementar o processo de fechamento do caixa por turnos. -> DESCARTADO
+
+##Criar um procedimento para impressão do cupom da OS.
+##Criar um procedimento para impressão do cupom da Vendas.
 
 
 //
-form.quitar.parcela.venda
-uclasse.entity.quitar.parcela.vendas
 
-form.quitar.parcelas
-uclasse.entity.quitar.parcela.os
+
+Aba para o cadastro das ocorrencias
+
+	-id
+	-id_cliente
+	-nome_cliente
+	-id_os
+	-ocorrencia
 
 
 

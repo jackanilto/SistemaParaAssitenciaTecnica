@@ -7636,6 +7636,7 @@ object formSobre: TformSobre
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
+    Visible = False
   end
   object Label6: TLabel
     Left = 11

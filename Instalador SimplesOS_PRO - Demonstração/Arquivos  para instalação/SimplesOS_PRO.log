@@ -1,0 +1,5 @@
+25/10/20 15:13:14 - ===========================================
+25/10/20 15:13:14 - Form: formPrincipal
+25/10/20 15:13:14 - Caption: SimpleOS
+25/10/20 15:13:14 - Erro:EAccessViolation
+25/10/20 15:13:14 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004

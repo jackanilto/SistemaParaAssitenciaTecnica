@@ -1070,24 +1070,20 @@ begin
                     .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
     end;
   end
-
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
 
-    FEntityServicosOrdem.adicionarItemsTemporiamenteID
-      (s_Servicos.DataSet.FieldByName('ID').AsInteger)
-      .adicionarItemsTemporariamenteServico
-      (s_Servicos.DataSet.FieldByName('SERVICO').AsString)
-      .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR')
-      .AsCurrency).adicionarItemsTemporariamente(s_tem_servicos_adicionados);
+    FEntityServicosOrdem
+                        .adicionarItemsTemporiamenteID(s_Servicos.DataSet.FieldByName('ID').AsInteger)
+                        .adicionarItemsTemporariamenteServico(s_Servicos.DataSet.FieldByName('SERVICO').AsString)
+                        .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
+                        .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
 
-    FEntityServicosOrdem.adicionarItemsTemporiamenteID
-      (s_Servicos.DataSet.FieldByName('ID').AsInteger)
-      .adicionarItemsTemporariamenteServico
-      (s_Servicos.DataSet.FieldByName('SERVICO').AsString)
-      .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR')
-      .AsCurrency).adicionarItemsTemporariamente
-      (s_tem_servicos_adicionados_edit);
+    FEntityServicosOrdem
+                        .adicionarItemsTemporiamenteID(s_Servicos.DataSet.FieldByName('ID').AsInteger)
+                        .adicionarItemsTemporariamenteServico(s_Servicos.DataSet.FieldByName('SERVICO').AsString)
+                        .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
+                        .adicionarItemsTemporariamente(s_tem_servicos_adicionados_edit);
   end;
 end;
 
