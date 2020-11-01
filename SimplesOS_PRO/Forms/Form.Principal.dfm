@@ -1,7 +1,7 @@
 object formPrincipal: TformPrincipal
   Left = 0
   Top = 0
-  Caption = 'SimpleOS'
+  Caption = 'SimpleOS PRO 1.2'
   ClientHeight = 524
   ClientWidth = 1061
   Color = 10461087

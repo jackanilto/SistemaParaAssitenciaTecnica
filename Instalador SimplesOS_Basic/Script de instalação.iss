@@ -59,7 +59,7 @@ Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador 
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\BackUp\*; DestDir: {app}\BackUp; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Banco\*; DestDir: {app}\Banco; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Config\*; DestDir: {app}\Config; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Relatórios\*; DestDir: {app}\Relatório; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: C:\Users\noels\Documents\GitHub\SistemaParaAssitenciaTecnica\Instalador SimplesOS_Basic\Arquivos  para instalação\Relatórios\*; DestDir: {app}\Relatórios; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

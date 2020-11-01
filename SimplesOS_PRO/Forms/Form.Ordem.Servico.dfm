@@ -28,7 +28,6 @@ object formOrdemServico: TformOrdemServico
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = Panel1MouseDown
-    ExplicitWidth = 1104
     DesignSize = (
       1093
       41)
@@ -130,7 +129,6 @@ object formOrdemServico: TformOrdemServico
     Color = 8406532
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 1104
     DesignSize = (
       1093
       67)
@@ -591,7 +589,6 @@ object formOrdemServico: TformOrdemServico
         'C'#243'digo do cliente'
         'Nome do cliente'
         'CPF ou CNPJ')
-      ExplicitLeft = 770
     end
     object edtPesquisar: TEdit
       Left = 894
@@ -607,7 +604,6 @@ object formOrdemServico: TformOrdemServico
       ParentFont = False
       TabOrder = 1
       OnKeyUp = edtPesquisarKeyUp
-      ExplicitLeft = 905
     end
     object edtData1: TMaskEdit
       Left = 477

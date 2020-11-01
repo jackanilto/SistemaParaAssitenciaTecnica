@@ -29,6 +29,7 @@ object formLocalizarGrupo: TformLocalizarGrupo
     Color = 8406532
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = -6
     DesignSize = (
       734
       41)

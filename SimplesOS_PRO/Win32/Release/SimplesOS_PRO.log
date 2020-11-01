@@ -102,3 +102,54 @@ At line 1, column 15
 27/10/20 18:26:22 - Caption: SimpleOS
 27/10/20 18:26:22 - Erro:EAccessViolation
 27/10/20 18:26:22 - Erro:Access violation at address 00BE35A3 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+01/11/20 14:09:05 - ===========================================
+01/11/20 14:09:05 - Form: FormLocalizarServicos
+01/11/20 14:09:05 - Caption: Localizar serviços
+01/11/20 14:09:05 - Erro:Exception
+01/11/20 14:09:05 - Erro:É necessário o código do usuário.
+01/11/20 14:09:17 - ===========================================
+01/11/20 14:09:17 - Form: formPrincipal
+01/11/20 14:09:17 - Caption: SimpleOS
+01/11/20 14:09:17 - Erro:EAccessViolation
+01/11/20 14:09:17 - Erro:Access violation at address 00BE7073 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+01/11/20 14:09:47 - ===========================================
+01/11/20 14:09:47 - Form: FormLocalizarServicos
+01/11/20 14:09:47 - Caption: Localizar serviços
+01/11/20 14:09:47 - Erro:Exception
+01/11/20 14:09:47 - Erro:É necessário o código do usuário.
+01/11/20 14:09:55 - ===========================================
+01/11/20 14:09:55 - Form: formPrincipal
+01/11/20 14:09:55 - Caption: SimpleOS
+01/11/20 14:09:55 - Erro:EAccessViolation
+01/11/20 14:09:55 - Erro:Access violation at address 00BE7073 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+01/11/20 14:10:14 - ===========================================
+01/11/20 14:10:14 - Form: FormLocalizarServicos
+01/11/20 14:10:14 - Caption: Localizar serviços
+01/11/20 14:10:14 - Erro:Exception
+01/11/20 14:10:14 - Erro:É necessário o código do usuário.
+01/11/20 14:10:21 - ===========================================
+01/11/20 14:10:21 - Form: formPrincipal
+01/11/20 14:10:21 - Caption: SimpleOS
+01/11/20 14:10:21 - Erro:EAccessViolation
+01/11/20 14:10:21 - Erro:Access violation at address 00BE7073 in module 'SimplesOS_PRO.exe'. Read of address 00000004
+01/11/20 14:25:48 - ===========================================
+01/11/20 14:25:48 - Form: FormLocalizarServicos
+01/11/20 14:25:48 - Caption: Localizar serviços
+01/11/20 14:25:48 - Erro:EIBNativeException
+01/11/20 14:25:48 - Erro:[FireDAC][Phys][FB]Dynamic SQL Error
+SQL error code = -206
+Column unknown
+SEVICO
+At line 1, column 37
+01/11/20 14:50:25 - ===========================================
+01/11/20 14:50:25 - Form: formCriarConsultarOrdemServico
+01/11/20 14:50:25 - Caption: 
+01/11/20 14:50:25 - Erro:EIBNativeException
+01/11/20 14:50:25 - Erro:[FireDAC][Phys][FB]violation of FOREIGN KEY constraint "FK_SERVICOS_ORDEM_2" on table "SERVICOS_ORDEM"
+Foreign key reference target does not exist
+Problematic key value is ("ID_SERVICO" = 0)
+01/11/20 14:51:27 - ===========================================
+01/11/20 14:51:27 - Form: formPrincipal
+01/11/20 14:51:27 - Caption: SimpleOS
+01/11/20 14:51:27 - Erro:EAccessViolation
+01/11/20 14:51:27 - Erro:Access violation at address 00BE66EB in module 'SimplesOS_PRO.exe'. Read of address 00000004

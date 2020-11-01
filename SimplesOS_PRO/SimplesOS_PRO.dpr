@@ -207,7 +207,8 @@ uses
   Form.Abertura.Caixa.Manual in 'Forms\Caixa\Form.Abertura.Caixa.Manual.pas' {formAberturaDeCaixaManual},
   Form.Relatorio.Aniversariantes in 'Forms\Relatorios\Form.Relatorio.Aniversariantes.pas' {formRelatorioClientesAniversariantes},
   UClasse.Relatorio.Aniversariantes in 'Classes\Entity\Relatorios\UClasse.Relatorio.Aniversariantes.pas',
-  UClasse.Demo in 'Classes\Entity\UClasse.Demo.pas';
+  UClasse.Demo in 'Classes\Entity\UClasse.Demo.pas',
+  Form.Localizar.Servicos in 'Forms\Localizar\Form.Localizar.Servicos.pas' {FormLocalizarServicos};
 
 {$R *.res}
 

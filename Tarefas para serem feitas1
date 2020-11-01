@@ -3,10 +3,12 @@ Recursos a serem analisados para a próxima versão
 
 ##Criar a opção para editar a parcela da venda. -> OK
 ##Criar a opção para editar a parcela das OS. -> OK 
+##Ao incluir o servico -> O serviço não precisa estar cadastrado no sistema.(Ver o impacto desta mudança) -> OK
+
 
 ##Ver a possibilidade de inclusão na janela de OS uma aba para ocorrencias.
 
-##Ao incluir o servico -> O serviço não precisa estar cadastrado no sistema.(Ver o impacto desta mudança)
+
 
 ##Implemetar outra forma melhor de fazer o calculos das comissões dos técnicos. -> DESCARTADO
 
@@ -19,6 +21,14 @@ Recursos a serem analisados para a próxima versão
 ##Criar um procedimento para impressão do cupom da OS.
 ##Criar um procedimento para impressão do cupom da Vendas.
 
+##Produtos -> Criar uma opção para controlar ou não o estoque dos itens ao realizar um venda.
+##Venda -> Finalizar venda -> Campo forma de pagamento já deve possuir uma forma de pagamento selecionada.
+##Venda -> Criar um opção em o caixa posso informar um valor qualquer para a venda
+##Janela de venda -> Ao finalizar um venda e retornar para a tela principal o foco deve ir para o campo localizar cliente.
+##Relatório -> Visualizar vendas -> Feve ter um legenda mostrando o total das vendas realizadas no período selecionado.
+##Embedar a janela de vendas no form principal
+
+
 
 //
 
@@ -30,6 +40,14 @@ Aba para o cadastro das ocorrencias
 	-nome_cliente
 	-id_os
 	-ocorrencia
+	
+	
+// IMPACTOS DA ALTERAÇÕES
+
+JANELA CRIAR ORDEM DE SERVIÇO
+RELATÓRIO SERVIÇO MAIS REALIZADOS
+
+Alterações ja janela Criar OS -> Janela Finaceiro - > Mudança na forma de incluir os serviços
 
 
 

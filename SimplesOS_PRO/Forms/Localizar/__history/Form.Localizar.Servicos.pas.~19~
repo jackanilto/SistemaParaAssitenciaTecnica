@@ -1,0 +1,116 @@
+unit Form.Localizar.Servicos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Data.DB, Vcl.Mask, RxToolEdit, RxCurrEdit, Vcl.Grids,
+  Vcl.DBGrids, Vcl.WinXCtrls, UInterfaces, UClasse.Entity.Cadastro.Servicos;
+
+type
+  TFormLocalizarServicos = class(TForm)
+    Panel1: TPanel;
+    sbFechar: TSpeedButton;
+    lblCaption: TLabel;
+    Panel2: TPanel;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    cbPesquisar: TComboBox;
+    DBGrid1: TDBGrid;
+    edtServico: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtValor: TCurrencyEdit;
+    sbAdicionar: TSpeedButton;
+    sbCancelar: TSpeedButton;
+    DataSource1: TDataSource;
+    edtPesquisar: TEdit;
+    procedure sbFecharClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure edtPesquisarKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+
+    function retornarCodigo:integer;
+    function retornarServico:string;
+    function retornarValor:Currency;
+
+  private
+    { Private declarations }
+    var
+      FEntity: iCadastroServico;
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLocalizarServicos: TFormLocalizarServicos;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormLocalizarServicos.edtPesquisarKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+  FCampo:string;
+begin
+
+  if cbPesquisar.Text = 'Código' then
+  begin
+    FCampo := 'ID';
+  end
+  else if cbPesquisar.Text = 'Serviço' then
+  begin
+    FCampo := 'SERVICO';
+  end;
+
+  if edtPesquisar.Text <> EmptyStr then
+  begin
+    FEntity
+          .getCampo(FCampo)
+          .getValor(edtPesquisar.Text)
+          .sqlPesquisa
+          .listarGrid(DataSource1);
+  end
+  else
+  begin
+    FEntity
+          .getCampo('ID')
+          .getValor('%')
+          .sqlPesquisa
+          .listarGrid(DataSource1);
+  end;
+end;
+
+procedure TFormLocalizarServicos.FormCreate(Sender: TObject);
+begin
+  FEntity := TEntityCadastroServicos.new;
+end;
+
+procedure TFormLocalizarServicos.FormShow(Sender: TObject);
+begin
+  FEntity.listarGrid(DataSource1);
+end;
+
+procedure TFormLocalizarServicos.Panel1MouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+const
+  SC_DRAGMOVE = $F012;
+begin
+  if Button = mbleft then
+  begin
+    ReleaseCapture;
+    self.Perform(WM_SYSCOMMAND, SC_DRAGMOVE, 0);
+  end;
+end;
+
+procedure TFormLocalizarServicos.sbFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.
