@@ -131,3 +131,8 @@ At line 1, column 15
 27/10/20 18:15:23 - Caption: SimpleOS
 27/10/20 18:15:23 - Erro:EAccessViolation
 27/10/20 18:15:23 - Erro:Access violation at address 00BE7F1B in module 'SimplesOS_Standart.exe'. Read of address 00000004
+01/11/20 16:02:20 - ===========================================
+01/11/20 16:02:20 - Form: formPrincipal
+01/11/20 16:02:20 - Caption: SimpleOS Standart 1.2
+01/11/20 16:02:20 - Erro:EAccessViolation
+01/11/20 16:02:20 - Erro:Access violation at address 00BEB0F7 in module 'SimplesOS_Standart.exe'. Read of address 00000004

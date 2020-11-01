@@ -630,3 +630,13 @@ O sistema não pode encontrar o arquivo especificado.
 25/10/20 14:07:15 - Caption: SimpleOS
 25/10/20 14:07:15 - Erro:EAccessViolation
 25/10/20 14:07:15 - Erro:Access violation at address 00BE341B in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004
+01/11/20 15:51:01 - ===========================================
+01/11/20 15:51:01 - Form: FormLocalizarServicos
+01/11/20 15:51:01 - Caption: Localizar serviços
+01/11/20 15:51:01 - Erro:Exception
+01/11/20 15:51:01 - Erro:É necessário o código do usuário.
+01/11/20 15:51:05 - ===========================================
+01/11/20 15:51:05 - Form: formPrincipal
+01/11/20 15:51:05 - Caption: SimpleOS
+01/11/20 15:51:05 - Erro:EAccessViolation
+01/11/20 15:51:05 - Erro:Access violation at address 00BE65F7 in module 'SimplesOS_VesionBasic.exe'. Read of address 00000004

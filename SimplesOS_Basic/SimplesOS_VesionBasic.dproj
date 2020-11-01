@@ -601,6 +601,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Aniversariantes.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Servicos.pas">
+            <Form>FormLocalizarServicos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_SimplesOS_VesionBasic\default.txaPackage"/>
         <None Include="ModelSupport_SimplesOS_VesionBasic\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS_VesionBasic\SimplesOS\default.txvpck"/>
@@ -791,21 +795,19 @@
                     <Source Name="MainSource">SimplesOS_VesionBasic.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="C:\ComponentesDesphi\ACBR\Lib\Delphi\LibD26\ACBr_Integrador.bpl">ACBr - Integrador - (http://www.projetoacbr.com.br/)</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k260.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp260.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapNativeServer260.bpl">Embarcadero DBExpress DataSnap Native Server Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_SimplesOS\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcelas\Vendas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\Ordem\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
@@ -817,7 +819,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\default.txvpck" Configuration="Release" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Entradas\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
@@ -1069,13 +1071,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Servicos\default.txvpck" Configuration="Release" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Cliente\Venda\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Cliente\Venda\default.txvpck" Configuration="Release" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Relatorio\Servicos\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
@@ -1112,6 +1114,12 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Localizar\Cliente\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Visualizar\Ordens\Servicos\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
@@ -1804,6 +1812,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\Parcelas\Vendas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\..\..\..\Downloads\mobile-marketing-48.png" Configuration="Debug" Class="UWP_DelphiLogo44">
                     <Platform Name="Win32">
                         <RemoteDir>Assets\</RemoteDir>
@@ -1841,6 +1855,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Quitar\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Contas\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
@@ -1853,19 +1873,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_SimplesOS\default.txvpck" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Criar\Ordem\default.txvpck" Configuration="Release" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Entradas\default.txvpck" Configuration="Release" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_SimplesOS_VesionBasic\UClasse\Entity\Cadastro\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>

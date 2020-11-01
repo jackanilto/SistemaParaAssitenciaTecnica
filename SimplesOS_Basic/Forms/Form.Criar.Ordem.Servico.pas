@@ -88,10 +88,6 @@ type
     Label26: TLabel;
     edtDataBaseVencimento: TMaskEdit;
     Label28: TLabel;
-    GroupBox3: TGroupBox;
-    DBGrid2: TDBGrid;
-    SpeedButton4: TSpeedButton;
-    SpeedButton5: TSpeedButton;
     DBGrid1: TDBGrid;
     Label29: TLabel;
     s_Servicos: TDataSource;
@@ -174,6 +170,8 @@ type
     edtJurosParcelas: TCurrencyEdit;
     edtMultaParcela: TCurrencyEdit;
     edtTotalParcela: TCurrencyEdit;
+    SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure sbFecharClick(Sender: TObject);
@@ -233,7 +231,7 @@ type
     FValorServicosIncluidos: Currency;
 
     procedure limparDatas;
-    procedure adicionarServico;
+    procedure adicionarServico(codigo:integer; servico:string; valor:Currency);
     procedure subtrairValoresServicosIncluidos;
     procedure selecionarOrdem;
     procedure popularComboBox;
@@ -259,7 +257,8 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Localizar.Tecnico.Ordem, UClasse.Entity.Table, softMeter_globalVar;
+uses Form.Localizar.Tecnico.Ordem, UClasse.Entity.Table, softMeter_globalVar,
+  Form.Localizar.Servicos;
 
 procedure TformCriarConsultarOrdemServico.DataSource1DataChange(Sender: TObject;
   Field: TField);
@@ -321,8 +320,8 @@ end;
 procedure TformCriarConsultarOrdemServico.DBGrid2DblClick(Sender: TObject);
 begin
 
-  adicionarServico;
-  atualizarValores;
+//  adicionarServico;
+//  atualizarValores;
 
 end;
 
@@ -383,9 +382,6 @@ begin
 
 
   end;
-//  if s_ParcelasOS.DataSet.FieldByName('PGTO').AsString <> 'Estornada' then
-//        FEntityParcelasOrdem.editar;
-//        edtTotalParcela.Text := FEntityParcelasOrdem.calularJuros;
 
 end;
 
@@ -405,7 +401,6 @@ end;
 
 procedure TformCriarConsultarOrdemServico.edtTotalDaOSExit(Sender: TObject);
 begin
-//  edtValorOrdemParcelado.Text := edtTotalDaOS.Text;
 
     edtValorOrdemParcelado.SetFocus;
 
@@ -419,9 +414,6 @@ begin
 
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
   begin
-//    edtValorOrdemParcelado.Text :=
-//      FEntityCriarOrdem.calularTotalPorNumeroDeParcela(edtTotalDaOS,
-//      edtTotalDeParcelas);
 
     edtValorOrdemParcelado.SetFocus;
 
@@ -832,8 +824,24 @@ end;
 procedure TformCriarConsultarOrdemServico.SpeedButton4Click(Sender: TObject);
 begin
 
-  adicionarServico;
-  atualizarValores;
+  FormLocalizarServicos := TFormLocalizarServicos.Create(Self);
+  try
+    FormLocalizarServicos.ShowModal;
+  finally
+
+      adicionarServico(
+                        FormLocalizarServicos.retornarCodigo,
+                        FormLocalizarServicos.retornarServico,
+                        FormLocalizarServicos.retornarValor
+      );
+
+      atualizarValores;
+
+    FormLocalizarServicos.Free;
+  end;
+
+
+//  atualizarValores;
 
 end;
 
@@ -1063,7 +1071,7 @@ begin
   edtHoraSaida.Text := '00:00:00';
 end;
 
-procedure TformCriarConsultarOrdemServico.adicionarServico;
+procedure TformCriarConsultarOrdemServico.adicionarServico(codigo:integer; servico:string; valor:Currency);
 begin
 
   if FEntityCriarOrdem.estadoDaTabela = 'insert' then
@@ -1071,30 +1079,26 @@ begin
     if s_Servicos.DataSet.RecordCount >= 1 then
     begin
       FEntityServicosOrdem
-                    .adicionarItemsTemporiamenteID(s_Servicos.DataSet.FieldByName('ID').AsInteger)
-                    .adicionarItemsTemporariamenteServico(s_Servicos.DataSet.FieldByName('SERVICO').AsString)
-                    .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
+                    .adicionarItemsTemporiamenteID(codigo)
+                    .adicionarItemsTemporariamenteServico(servico)
+                    .adicionarItemTemporariamenteValor(valor)
                     .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
     end;
   end
-
   else if FEntityCriarOrdem.estadoDaTabela = 'edit' then
   begin
 
-    FEntityServicosOrdem.adicionarItemsTemporiamenteID
-      (s_Servicos.DataSet.FieldByName('ID').AsInteger)
-      .adicionarItemsTemporariamenteServico
-      (s_Servicos.DataSet.FieldByName('SERVICO').AsString)
-      .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR')
-      .AsCurrency).adicionarItemsTemporariamente(s_tem_servicos_adicionados);
+    FEntityServicosOrdem
+                        .adicionarItemsTemporiamenteID(s_Servicos.DataSet.FieldByName('ID').AsInteger)
+                        .adicionarItemsTemporariamenteServico(s_Servicos.DataSet.FieldByName('SERVICO').AsString)
+                        .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
+                        .adicionarItemsTemporariamente(s_tem_servicos_adicionados);
 
-    FEntityServicosOrdem.adicionarItemsTemporiamenteID
-      (s_Servicos.DataSet.FieldByName('ID').AsInteger)
-      .adicionarItemsTemporariamenteServico
-      (s_Servicos.DataSet.FieldByName('SERVICO').AsString)
-      .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR')
-      .AsCurrency).adicionarItemsTemporariamente
-      (s_tem_servicos_adicionados_edit);
+    FEntityServicosOrdem
+                        .adicionarItemsTemporiamenteID(s_Servicos.DataSet.FieldByName('ID').AsInteger)
+                        .adicionarItemsTemporariamenteServico(s_Servicos.DataSet.FieldByName('SERVICO').AsString)
+                        .adicionarItemTemporariamenteValor(s_Servicos.DataSet.FieldByName('VALOR').AsCurrency)
+                        .adicionarItemsTemporariamente(s_tem_servicos_adicionados_edit);
   end;
 end;
 

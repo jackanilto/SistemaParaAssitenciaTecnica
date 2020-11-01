@@ -602,6 +602,10 @@
         </DCCReference>
         <DCCReference Include="Classes\Entity\Relatorios\UClasse.Relatorio.Aniversariantes.pas"/>
         <DCCReference Include="Classes\Reusable\UClasse.Demo.pas"/>
+        <DCCReference Include="Forms\Localizar\Form.Localizar.Servicos.pas">
+            <Form>FormLocalizarServicos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_SimplesOS\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\UInterfaces\default.txvpck"/>
         <None Include="ModelSupport_SimplesOS\SimplesOS\default.txvpck"/>
@@ -683,6 +687,7 @@
                     <Source Name="MainSource">SimplesOS_Standart.dpr</Source>
                 </Source>
                 <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapNativeServer260.bpl">Embarcadero DBExpress DataSnap Native Server Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
