@@ -27,6 +27,7 @@ Type
 
     procedure SetlocalBD(const Value: string);
     procedure SetlocalSalvarArquivo(const Value: string);
+
   public
 
     procedure retornarDados(Value: TDataSource);
